@@ -4,6 +4,7 @@ rm(list = ls())
 
 # load libraries ####
 library(climwin)
+library(lme4)
 
 # load data ####
 
@@ -72,21 +73,24 @@ Biol <- Biol[as.numeric(as.numeric(substr(Biol$Date, 7, 10))) <= max(as.numeric(
 # remove NA
 Biol <- Biol[!is.na(Biol$core_measurement), ]
 
+# # remove coreID with less than 60 measurements
+# Biol <- droplevels(Biol[Biol$coreID %in% names(table(Biol$coreID))[table(Biol$coreID)>=60], ])
 
 # try to run slidingwin ####
 
 
-results <- slidingwin( baseline = lm(core_measurement ~ 1 + sp, data = Biol),
+results <- slidingwin( baseline = lmer(core_measurement ~ 1 + (1 | coreID), data = Biol),
                        xvar =list(cld = Clim$cld, 
                                   dtr = Clim$dtr, 
-                                  frs = Clim$frs, 
+                                  # frs = Clim$frs,# removed wet because model failed to converge 
                                   pet = Clim$pet, 
                                   pre = Clim$pre, 
                                   tmn = Clim$tmn, 
                                   tmp = Clim$tmp, 
                                   tmx = Clim$tmx, 
                                   vap = Clim$vap, 
-                                  wet = Clim$wet),
+                                  wet = Clim$wet
+                                  ),
                        type = "absolute", 
                        range = c(12, 0),
                        stat = c("mean"),
@@ -94,15 +98,18 @@ results <- slidingwin( baseline = lm(core_measurement ~ 1 + sp, data = Biol),
                        refday = c(30, 6),
                        cinterval = "month",
                        cdate = Clim$Date, bdate = Biol$Date) 
-
+results$combos
+best_mod_first_step <- which.min(results$combos$DeltaAICc)
+results$combos[best_mod_first_step,]
+results[[best_mod_first_step]][[1]]
 
 randomized1<-randwin(repeats = 10,     
-                     baseline = lm(core_measurement ~ 1 + sp, data = Biol),
-                     xvar = list(Clim$pre),
-                     type = "absolute", 
+                     baseline =  lmer(core_measurement ~ 1 + (1 | coreID), data = Biol),
+                     xvar = list(Clim[,results$combos$climate[best_mod_first_step]]),
+                     type = results$combos$type[best_mod_first_step], 
                      range = c(12, 0),
-                     stat = c("mean"),
-                     func = c("quad"),
+                     stat = results$combos$stat[best_mod_first_step],
+                     func = results$combos$func[best_mod_first_step],
                      refday=c(30, 6),
                      cinterval = "month",
                      cdate = Clim$Date, bdate = Biol$Date,
@@ -110,12 +117,23 @@ randomized1<-randwin(repeats = 10,
 
 
 output <- results
-pvalue(datasetrand = randomized1[[1]], dataset = output[[4]]$Dataset, metric = "AIC", sample.size = nrow(Biol))
+pvalue(datasetrand = randomized1[[1]], dataset = output[[best_mod_first_step]]$Dataset, metric = "AIC", sample.size = nrow(Biol))
 
 
 plotall(datasetrand = randomized1[[1]],
-        dataset = output[[4]]$Dataset, 
-        bestmodel = output[[4]]$BestModel,
-        bestmodeldata = output[[4]]$BestModelData,
+        dataset = output[[best_mod_first_step]]$Dataset, 
+        bestmodel = output[[best_mod_first_step]]$BestModel,
+        bestmodeldata = output[[best_mod_first_step]]$BestModelData,
         title=output$combos[4,])
+
+Biol$drt <- output[[best_mod_first_step]]$BestModelData$climate
+plot(core_measurement ~ drt, data = Biol[Biol$coreID %in% Biol$coreID[1], ])
+
+for(coreID in levels(Biol$coreID)) {
+  plot(core_measurement ~ drt, data = Biol[Biol$coreID %in% coreID, ])
+  points(predict(lm(core_measurement ~ poly(drt, 2), data = Biol[Biol$coreID %in% coreID,])) ~ Biol[Biol$coreID %in% coreID,]$drt, pch = 16)
+  
+}
+
+
 
