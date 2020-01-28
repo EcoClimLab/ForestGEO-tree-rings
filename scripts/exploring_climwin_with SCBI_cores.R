@@ -7,7 +7,7 @@ library(climwin)
 library(lme4)
 
 # set parameters ####
-core_type <- c("CSV") # options are "detrended_chronologies" or "CSV"
+core_type <- c("detrended_chronologies") # options are "detrended_chronologies" or "CSV"
 reference_date <- c(30, 8) # refday in slidingwin
 window_range <- c(15, 0) #range in slidingwin
 
@@ -250,12 +250,12 @@ plotall(datasetrand = randomized1[[1]],
         bestmodeldata = output[[best_mod_first_step]]$BestModelData,
         title=paste((data.frame(lapply(output$combos[best_mod_first_step,], as.character), stringsAsFactors=FALSE)), collapse = "_"))
 
-# save outputs
+## save outputs ####
 dev.print(tiff, paste0('results/ALL_species_mixed_model_', paste((data.frame(lapply(output$combos[best_mod_first_step,], as.character), stringsAsFactors=FALSE)), collapse = "_"), '.tif'),
           width = 10,
           height =8,
           units = "in",
-          res = 600)
+          res = 300)
 
 
 save(results, best_mod_first_step, file = paste0('results/ALL_species_mixed_model_', ifelse(core_type == "CSV", "core_meas", "res"), ".RData"))
@@ -269,7 +269,9 @@ best_mod_first_step_by_sp <- NULL
 
 for ( sp in species) {
   print(sp)
-  results <- slidingwin( baseline = baseline_by_sp,
+  if(core_type == "CSV") sp <- tolower(sp)
+  
+  results <- slidingwin( baseline = eval(parse(text = baseline_by_sp)),
                        xvar =list(cld = Clim$cld, 
                                   dtr = Clim$dtr, 
                                   # frs = Clim$frs,# removed wet because model failed to converge 
@@ -297,7 +299,7 @@ results[[best_mod_first_step]][[1]]
 best_mod_first_step_by_sp <- rbind(best_mod_first_step_by_sp, data.frame(sp = sp, results$combos[best_mod_first_step,]))
 
 randomized1 <- randwin(repeats = 100,     
-                       baseline = lm(res~1, data = Biol[Biol$sp %in% sp,]),
+                       baseline = eval(parse(text = baseline_by_sp)),
                        xvar = list(Clim[,as.character(results$combos$climate[best_mod_first_step])]),
                        type = results$combos$type[best_mod_first_step], 
                        range = window_range,
@@ -317,8 +319,23 @@ plotall(datasetrand = randomized1[[1]],
         dataset = output[[best_mod_first_step]]$Dataset, 
         bestmodel = output[[best_mod_first_step]]$BestModel,
         bestmodeldata = output[[best_mod_first_step]]$BestModelData,
-        title = paste(sp, as.character(results$combos$climate[best_mod_first_step]), sep = " - ")
+        title = paste(sp, paste((data.frame(lapply(output$combos[best_mod_first_step,], as.character), stringsAsFactors=FALSE)), collapse = "_"), sep = " - ")
         )
+
+
+## save outputs ####
+dev.print(tiff, paste0('results/', sp, "_", paste((data.frame(lapply(output$combos[best_mod_first_step,], as.character), stringsAsFactors=FALSE)), collapse = "_"), '.tif'),
+          width = 10,
+          height =8,
+          units = "in",
+          res = 300)
+
+
+save(results, best_mod_first_step, file = paste0('results/', sp, "_", ifelse(core_type == "CSV", "core_meas", "res"), ".RData"))
+
+write.csv(results$combos[order(results$combos$DeltaAICc),], 
+          file = paste0('results/', sp, "_", ifelse(core_type == "CSV", "core_meas_", "res_"), "combos.csv"))
+
 
 }
 
