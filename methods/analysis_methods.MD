@@ -9,9 +9,13 @@ We are currently considering two completementary ways of looking at climate sens
 
 ## Species- versus individual-level analysis
 
+Species-level chronologies provide the clearest picture of climate sensitivity, using methods optimized by dencrochronologists. However, this approach is limited in its ability to scale to ecosystem-level productivity, particularly in that it cannot represent interactions with tree size or other relevant factors. 
+
 Here's the original plan from the proposal:
+
 *First, using existing R scripts developed in KAT’s lab4, we will analyze tree-ring chronologies to identify the climate variables-months combinations with the strongest influence on the annual growth of each species. We will then combine tree-ring and dendrometer band data in mixed effects models to examine the joint and interactive effects of key climate variables with one another and with tree size, using model averaging (MuMln in R) to combine top candidate models into the best predictive model.*
 
+*Climwin* allows the option of skipping the first step. 
 
 ## Potential methods for individual tree growth analyses
 
