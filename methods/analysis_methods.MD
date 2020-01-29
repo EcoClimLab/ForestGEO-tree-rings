@@ -30,13 +30,9 @@ Here's the original plan from the proposal:
 *Climwin* allows the option of skipping the first step. 
 
 ## Statistical model for individual-level growth analyses
+### What others have done:
+- [Foster et al. (2016)](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/blob/master/methods/references/Foster_et_al-2016-Global_Change_Biology.pdf) used an individuallevel Baysian heriarchical model to characterize to what extend whole-tree growth depends on climatic, tree, and stand structural variables.
 
-
-## Scaling to the ecosystem
-What others have done:
-
-- [Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906) used tree-rings to charactize growth as a function of DBH, and assumed that the proportional response to climate was consistent across size classes. We want to move beyond that.
-- [Teets et al. 2018](https://onlinelibrary.wiley.com/doi/abs/10.1111/gcb.14120) used stratefied random sample based on community composition. They summed across individuals to get values proportional to ecosystem-level productivity. This approach does not work when sampling is not carefully stratefied relative to community composition.
 - M. Ross Alexander and colleagues (in review-TREAT CONFIDENTIALLY) "used generalized additive models (GAMs) using the gam function in the mgcv R package to allow for non-linear climate and size effects without prescribing a priori functional forms (Polansky & Robbins 2013; Peters et al.2015, Simpson 2018, Wood 2003).  ....Year effects were estimated using a 4-knot thin plate regression spline fit by sampling plot to capture stand dynamics such as suppression or release events that may have influenced growth through time. Size effects were estimated for each species using 3-knot thin-plate regression splines fit to reconstructed DBH (Wood 2003)."
 
     Peters, R.L., Groenendijk, P., Vlam, M. & Zuidema, P.A. (2015). Detecting long‐term growth trends using tree rings: a critical evaluation of methods. Glob Change Biol, 21, 2040–2054.
@@ -46,4 +42,11 @@ What others have done:
     Simpson, G.L. (2018). Modelling palaeoecological time series using generalised additive models. Frontiers in Ecology and the Environment, 6, 1–21.
 
     Wood, S.N. (2003). Thin plate regression splines. Journal of the Royal Statistical Society: Series B (Statistical Methodology), 65, 95–114.
+
+## Scaling to the ecosystem
+### What others have done:
+
+- [Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906) used tree-rings to charactize growth as a function of DBH, and assumed that the proportional response to climate was consistent across size classes. We want to move beyond that.
+- [Teets et al. 2018](https://onlinelibrary.wiley.com/doi/abs/10.1111/gcb.14120) used stratefied random sample based on community composition. They summed across individuals to get values proportional to ecosystem-level productivity. This approach does not work when sampling is not carefully stratefied relative to community composition.
+
 
