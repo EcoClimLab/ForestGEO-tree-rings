@@ -25,7 +25,7 @@ Here's the original plan from the proposal:
 
 *Climwin* allows the option of skipping the first step. 
 
-## Potential methods for individual tree growth analyses
+## Statistical model for individual-level growth analyses
 
 
 ## Scaling to the ecosystem
