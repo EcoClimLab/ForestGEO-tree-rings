@@ -7,6 +7,11 @@ We are currently considering two completementary ways of looking at climate sens
 
 2. The "quilt plots" in [Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906) work well for visualizing the big-picture of multiple variables/ months / species, and is useful for complementing climwin. So far, we have only done this for species-level residual chronologies, not with individual-level analyses. However, there is no reason (other than potentially complex coding) why we couldn't make similar "quilt plots" for individual-level analyses.
 
+## Species- versus individual-level analysis
+
+Here's the original plan from the proposal:
+*First, using existing R scripts developed in KAT’s lab4, we will analyze tree-ring chronologies to identify the climate variables-months combinations with the strongest influence on the annual growth of each species. We will then combine tree-ring and dendrometer band data in mixed effects models to examine the joint and interactive effects of key climate variables with one another and with tree size, using model averaging (MuMln in R) to combine top candidate models into the best predictive model.*
+
 
 ## Potential methods for individual tree growth analyses
 
