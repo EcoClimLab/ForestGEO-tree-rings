@@ -10,7 +10,7 @@
 
     [Foster et al. (2016)](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/blob/master/methods/references/Foster_et_al-2016-Global_Change_Biology.pdf) used indivdiual-level biomass increments. 
    
-   [Teets et al. 2018](https://onlinelibrary.wiley.com/doi/abs/10.1111/gcb.14120) summed biomass increments from cored trees at the species and stand level. They state, "Summing annual biomass increments maintains the signals from individual trees while homoge- nizing the effect of tree-level factors such as tree size and crowding." This logic makes sense. However, it requires that sampling be proportional to community composition. 
+   [Teets et al. 2018](https://onlinelibrary.wiley.com/doi/abs/10.1111/gcb.14120) summed biomass increments from cored trees at the species and stand level. They state, "Summing annual biomass increments maintains the signals from individual trees while homogenizing the effect of tree-level factors such as tree size and crowding." This logic makes sense. However, it requires that sampling be proportional to community composition. 
 
 ## Climate
 We are currently considering two completementary ways of looking at climate sensitivity:
