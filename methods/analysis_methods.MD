@@ -31,7 +31,7 @@ Here's the original plan from the proposal:
 
 ## Statistical model for individual-level growth analyses
 ### What others have done:
-- [Foster et al. (2016)](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/blob/master/methods/references/Foster_et_al-2016-Global_Change_Biology.pdf) used an individuallevel Baysian heriarchical model to characterize to what extend whole-tree growth depends on climatic, tree, and stand structural variables.
+- [Foster et al. (2016)](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/blob/master/methods/references/Foster_et_al-2016-Global_Change_Biology.pdf) used an individuallevel Baysian heriarchical model to characterize to what extent whole-tree growth depends on climatic, tree, and stand structural variables.
 
 - M. Ross Alexander and colleagues (in review-TREAT CONFIDENTIALLY) "used generalized additive models (GAMs) using the gam function in the mgcv R package to allow for non-linear climate and size effects without prescribing a priori functional forms (Polansky & Robbins 2013; Peters et al.2015, Simpson 2018, Wood 2003).  ....Year effects were estimated using a 4-knot thin plate regression spline fit by sampling plot to capture stand dynamics such as suppression or release events that may have influenced growth through time. Size effects were estimated for each species using 3-knot thin-plate regression splines fit to reconstructed DBH (Wood 2003)."
 
