@@ -3,7 +3,7 @@
 ## Response metric
 
 
-- **ring width (radial growth)** - Annual ring width fromCurrent intention is to focus on this. Used in [Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906).
+- **ring width (radial growth)** - Annual ring width from individual-level chronologies. Current intention is to focus on this. Used in [Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906).
 
 
 ### What others have done:
