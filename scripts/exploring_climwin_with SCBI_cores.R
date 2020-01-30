@@ -7,7 +7,7 @@ library(climwin)
 library(lme4)
 
 # set parameters ####
-core_type <- c("detrended_chronologies") # options are "detrended_chronologies" or "CSV"
+core_type <- c("CSV") # options are "detrended_chronologies" or "CSV"
 reference_date <- c(30, 8) # refday in slidingwin
 window_range <- c(15, 0) #range in slidingwin
 
@@ -204,7 +204,7 @@ Biol <- Biol[as.numeric(as.numeric(substr(Biol$Date, 7, 10))) <= max(as.numeric(
 
 results <- slidingwin( baseline = eval(parse(text = baseline)),
                        xvar =list(cld = Clim$cld, 
-                                  dtr = Clim$dtr, 
+                                  # dtr = Clim$dtr, 
                                   # frs = Clim$frs,# removed wet because model failed to converge 
                                   pet = Clim$pet, 
                                   pre = Clim$pre, 
@@ -273,7 +273,7 @@ for ( sp in species) {
   
   results <- slidingwin( baseline = eval(parse(text = baseline_by_sp)),
                        xvar =list(cld = Clim$cld, 
-                                  dtr = Clim$dtr, 
+                                  # dtr = Clim$dtr, 
                                   # frs = Clim$frs,# removed wet because model failed to converge 
                                   pet = Clim$pet, 
                                   pre = Clim$pre, 
@@ -341,63 +341,63 @@ write.csv(results$combos[order(results$combos$DeltaAICc),],
 
 
 
-sp = "QUAL"
-Biol$QUAL_signal <- NA
-Biol[Biol$sp %in% sp, ]$QUAL_signal <- output[[best_mod_first_step]]$BestModelData$climate
-
-print(sp)
-results <- slidingwin( baseline = lm(res~1 + QUAL_signal + I(QUAL_signal^2), data = Biol[Biol$sp %in% sp,]),
-                       xvar =list(
-                                  tmx = Clim$tmx
-                       ),
-                       type = "absolute", 
-                       range = window_range,
-                       stat = c("mean"),
-                       func = c("lin","quad"),
-                       refday = reference_date,
-                       cinterval = "month",
-                       cdate = Clim$Date, bdate = Biol$Date[Biol$sp %in% sp]) 
-
-results$combos
-best_mod_first_step <- which.min(results$combos$DeltaAICc)
-results$combos[best_mod_first_step,]
-results[[best_mod_first_step]][[1]]
-
-best_mod_first_step_by_sp <- rbind(best_mod_first_step_by_sp, data.frame(sp = sp, results$combos[best_mod_first_step,]))
-
-randomized1 <- randwin(repeats = 100,     
-                       baseline = lm(res~1 + QUAL_signal + I(QUAL_signal^2), data = Biol[Biol$sp %in% sp,]),
-                       xvar = list(Clim[,as.character(results$combos$climate[best_mod_first_step])]),
-                       type = results$combos$type[best_mod_first_step], 
-                       range = window_range,
-                       stat = results$combos$stat[best_mod_first_step],
-                       func = results$combos$func[best_mod_first_step],
-                       refday = reference_date,
-                       cinterval = "month",
-                       cdate = Clim$Date, bdate = Biol$Date[Biol$sp %in% sp],
-                       window= "sliding")
-
-
-output <- results
-pvalue(datasetrand = randomized1[[1]], dataset = output[[best_mod_first_step]]$Dataset, metric = "AIC", sample.size = nrow(Biol))
-
-
-plotall(datasetrand = randomized1[[1]],
-        dataset = output[[best_mod_first_step]]$Dataset, 
-        bestmodel = output[[best_mod_first_step]]$BestModel,
-        bestmodeldata = output[[best_mod_first_step]]$BestModelData,
-        title = paste(sp, as.character(results$combos$climate[best_mod_first_step]), sep = " - ")
-)
-
-
-Biol$drt <- output[[best_mod_first_step]]$BestModelData$climate
-plot(core_measurement ~ drt, data = Biol[Biol$coreID %in% Biol$coreID[1], ])
-
-for(coreID in levels(Biol$coreID)) {
-  plot(core_measurement ~ drt, data = Biol[Biol$coreID %in% coreID, ])
-  points(predict(lm(core_measurement ~ poly(drt, 2), data = Biol[Biol$coreID %in% coreID,])) ~ Biol[Biol$coreID %in% coreID,]$drt, pch = 16)
-  
-}
+# sp = "QUAL"
+# Biol$QUAL_signal <- NA
+# Biol[Biol$sp %in% sp, ]$QUAL_signal <- output[[best_mod_first_step]]$BestModelData$climate
+# 
+# print(sp)
+# results <- slidingwin( baseline = lm(res~1 + QUAL_signal + I(QUAL_signal^2), data = Biol[Biol$sp %in% sp,]),
+#                        xvar =list(
+#                                   tmx = Clim$tmx
+#                        ),
+#                        type = "absolute", 
+#                        range = window_range,
+#                        stat = c("mean"),
+#                        func = c("lin","quad"),
+#                        refday = reference_date,
+#                        cinterval = "month",
+#                        cdate = Clim$Date, bdate = Biol$Date[Biol$sp %in% sp]) 
+# 
+# results$combos
+# best_mod_first_step <- which.min(results$combos$DeltaAICc)
+# results$combos[best_mod_first_step,]
+# results[[best_mod_first_step]][[1]]
+# 
+# best_mod_first_step_by_sp <- rbind(best_mod_first_step_by_sp, data.frame(sp = sp, results$combos[best_mod_first_step,]))
+# 
+# randomized1 <- randwin(repeats = 100,     
+#                        baseline = lm(res~1 + QUAL_signal + I(QUAL_signal^2), data = Biol[Biol$sp %in% sp,]),
+#                        xvar = list(Clim[,as.character(results$combos$climate[best_mod_first_step])]),
+#                        type = results$combos$type[best_mod_first_step], 
+#                        range = window_range,
+#                        stat = results$combos$stat[best_mod_first_step],
+#                        func = results$combos$func[best_mod_first_step],
+#                        refday = reference_date,
+#                        cinterval = "month",
+#                        cdate = Clim$Date, bdate = Biol$Date[Biol$sp %in% sp],
+#                        window= "sliding")
+# 
+# 
+# output <- results
+# pvalue(datasetrand = randomized1[[1]], dataset = output[[best_mod_first_step]]$Dataset, metric = "AIC", sample.size = nrow(Biol))
+# 
+# 
+# plotall(datasetrand = randomized1[[1]],
+#         dataset = output[[best_mod_first_step]]$Dataset, 
+#         bestmodel = output[[best_mod_first_step]]$BestModel,
+#         bestmodeldata = output[[best_mod_first_step]]$BestModelData,
+#         title = paste(sp, as.character(results$combos$climate[best_mod_first_step]), sep = " - ")
+# )
+# 
+# 
+# Biol$drt <- output[[best_mod_first_step]]$BestModelData$climate
+# plot(core_measurement ~ drt, data = Biol[Biol$coreID %in% Biol$coreID[1], ])
+# 
+# for(coreID in levels(Biol$coreID)) {
+#   plot(core_measurement ~ drt, data = Biol[Biol$coreID %in% coreID, ])
+#   points(predict(lm(core_measurement ~ poly(drt, 2), data = Biol[Biol$coreID %in% coreID,])) ~ Biol[Biol$coreID %in% coreID,]$drt, pch = 16)
+#   
+# }
 
 
 
