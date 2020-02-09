@@ -9,7 +9,9 @@ Forest woody productivity is likely to decline under warmer and drier future cli
 
 ## Data
 
-Data are stored in the [ForestGEO_dendro repository](https://github.com/EcoClimLab/ForestGEO_dendro) (private repo--discuss access with K. Anderson-Teixeira), which will be private for the foreseeable future. Only data whose PIs have agreed to be made public should be placed in this repository.
+Analyses will use a mix of public and (currently) private data.
+
+Data from sites other than SCBI are stored in the [ForestGEO_dendro repository](https://github.com/EcoClimLab/ForestGEO_dendro) (private repo--discuss access with K. Anderson-Teixeira), which will be private for the foreseeable future. Only data whose PIs have agreed to be made public should be placed in this repository.
 
 SCBI data are public [here](https://github.com/SCBI-ForestGEO/SCBI-ForestGEO-Data/tree/master/tree_cores) and can be copied into this repository.
 
