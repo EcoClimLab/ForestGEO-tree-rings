@@ -17,6 +17,11 @@ We have two completementary ways of looking at climate sensitivity:
 
 2. The "quilt plots" in [Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906) work well for visualizing the big-picture of multiple variables/ months / species, and are a useful complement to *climwin*. So far, we have only done this for species-level residual chronologies, not with individual-level analyses. However, there is no reason (other than potentially complex coding) why we couldn't make similar "quilt plots" for individual-level analyses.
 
+### Current approach
+1. detrend individual tree records by fitting a spline, thereby producing residuals
+2. put residuals in *climwin* with with mixed effects model: `residual ~ [climate] + species+ treeID (random effect)`. Do this for each climate variable, thereby identifying the time window over which each variable is most influential. 
+3. These variable-time period combinations become candidate variables for the multivariate models.
+
 ### Considerations
 #### Species- versus individual-level analysis
 
@@ -25,7 +30,7 @@ Species-level chronologies provide the clearest picture of climate sensitivity, 
 Individual-level residual analysis seems to work fine for pulling out the climate signal, and is our current approach.
 
 
-### Mixed-effects model in climwin on raw data
+### Mixed-effects model in climwin on raw data (not optimal)
 This approach did not work well for pulling out climate signals.
 
 - Used *climwin* with with mixed effects model: `diameter.growth ~ [climate] + DBH + year + treeID (random effect)`
@@ -41,12 +46,16 @@ This approach did not work well for pulling out climate signals.
 
 ## Step 2. Identify best multivariate statistical model accounting for climate and DBH
 
+### Current approach
+1. Check colinearity among climate variables; remove those that are redundant
+2. For each species, run GAM models including every combination of climate variable, DBH (we probably want log DBH, still exploring), and splines on year fit to each individual.
+3. rank models to determine best
+4. sum variable weights to determine which drivers are most important
+
 ### Considerations:
 - DBH must be accounted for in the model. [Peters et al. (2015)](https://onlinelibrary.wiley.com/doi/epdf/10.1111/gcb.12826) reviews some methods
 
 - should we account for age too?
-
-
 
 
 ## Step 3. Scale to the ecosystem by combining statistical model with census data
