@@ -2,18 +2,14 @@
 
 ## Overview
 
-Here's the original plan from the proposal:
-
-*First, using existing R scripts developed in KAT’s lab ([Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906)), we will analyze tree-ring chronologies to identify the climate variables-months combinations with the strongest influence on the annual growth of each species. We will then combine tree-ring and dendrometer band data in mixed effects models to examine the joint and interactive effects of key climate variables with one another and with tree size, using model averaging (MuMln in R) to combine top candidate models into the best predictive model.*
-
-Since writing the proposal, we've worked on developing a better approach, with 3 basic steps:
+There are 3 basic steps:
 1. Identify most important climatic drivers
 2. Identify best multivariate statistical model accounting for climate and DBH
 3. Scale to the ecosystem by combining statistical model with census data
 
 ## Step 1. Identify most important climatic drivers
 
-[Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906), [GitHub repo with full results])(https://github.com/SCBI-ForestGEO/climate_sensitivity_cores) analyzed climate sensitivity using traditional dendro methods and gave a reliable (as far as we know!) picture of climate sensitivity at SCBI. From our explorations of other analysis methods on the same data, it seems that pulling out a reliable climate signal *requires* indivdidual-level detrending of cores. Our attempt to do this with raw growth data, using climwin and a mixed effects model to account for DBH and year, resulted in weak or absent climate correlations that didn't align with Helcoski results. However, if we fit splines to individual core sequences and then analyze these data in *climwin*, we get results that are generally very consistent with Helcoski (except that they don't pull out an opposite signal from the previous growing season).
+[Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906), [GitHub repo with full results](https://github.com/SCBI-ForestGEO/climate_sensitivity_cores) analyzed climate sensitivity using traditional dendro methods and gave a reliable (as far as we know!) picture of climate sensitivity at SCBI. From our explorations of other analysis methods on the same data, it seems that pulling out a reliable climate signal *requires* indivdidual-level detrending of cores. Our attempt to do this with raw growth data, using climwin and a mixed effects model to account for DBH and year, resulted in weak or absent climate correlations that didn't align with Helcoski results. However, if we fit splines to individual core sequences and then analyze these data in *climwin*, we get results that are generally very consistent with Helcoski (except that they don't pull out an opposite signal from the previous growing season).
 
 We have two completementary ways of looking at climate sensitivity:
 
