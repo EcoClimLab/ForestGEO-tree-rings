@@ -2,3 +2,4 @@ methods/.DS_Store
 .Rproj.user
 .RData
 results/*.RData
+results/.DS_Store
