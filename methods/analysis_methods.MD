@@ -12,9 +12,12 @@ Since writing the proposal, we've worked on developing a better approach, with 3
 3. Scale to the ecosystem by combining statistical model with census data
 
 ## Step 1. Identify most important climatic drivers
-We are currently considering two completementary ways of looking at climate sensitivity:
 
-1. The [climwin](https://cran.r-project.org/web/packages/climwin/index.html) R package, described in [this paper](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12590), is currently our best known option for characterizing climate effects. This works with species-level chronologies or individual-level analysis, and can integrate with most types of regression models that can be implemented in R. We have it working with *lmer* (see [issue #1](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/1)).
+[Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906), [GitHub repo with full results])(https://github.com/SCBI-ForestGEO/climate_sensitivity_cores) analyzed climate sensitivity using traditional dendro methods and gave a reliable (as far as we know!) picture of climate sensitivity at SCBI. From our explorations of other analysis methods on the same data, it seems that pulling out a reliable climate signal *requires* indivdidual-level detrending of cores. Our attempt to do this with raw growth data, using climwin and a mixed effects model to account for DBH and year, resulted in weak or absent climate correlations that didn't align with Helcoski results. However, if we fit splines to individual core sequences and then analyze these data in *climwin*, we get results that are generally very consistent with Helcoski (except that they don't pull out an opposite signal from the previous growing season).
+
+We have two completementary ways of looking at climate sensitivity:
+
+1. The [climwin](https://cran.r-project.org/web/packages/climwin/index.html) R package, described in [this paper](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12590), is currently our best known option for identifying the most important climate drivers. This works with species-level chronologies or individual-level analysis, and can integrate with most types of regression models that can be implemented in R. We have it working with *lmer* (see [issue #1](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/1)).
 
 2. The "quilt plots" in [Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906) work well for visualizing the big-picture of multiple variables/ months / species, and are a useful complement to *climwin*. So far, we have only done this for species-level residual chronologies, not with individual-level analyses. However, there is no reason (other than potentially complex coding) why we couldn't make similar "quilt plots" for individual-level analyses.
 
