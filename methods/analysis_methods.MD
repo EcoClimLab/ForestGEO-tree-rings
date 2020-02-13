@@ -6,16 +6,19 @@ Here's the original plan from the proposal:
 
 *First, using existing R scripts developed in KAT’s lab ([Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906)), we will analyze tree-ring chronologies to identify the climate variables-months combinations with the strongest influence on the annual growth of each species. We will then combine tree-ring and dendrometer band data in mixed effects models to examine the joint and interactive effects of key climate variables with one another and with tree size, using model averaging (MuMln in R) to combine top candidate models into the best predictive model.*
 
-*Climwin* allows the option of skipping the first step. Also, importantly, *climwin* greatly facilitates the identification of the most important variables. 
+Since writing the proposal, we've worked on developing a better approach, with 3 basic steps:
+1. Identify most important climatic drivers
+2. Identify best multivariate statistical model accounting for climate and DBH
+3. Scale to the ecosystem by combining statistical model with census data
 
-## 1. Climate
+## Step 1. Identify most important climatic drivers
 We are currently considering two completementary ways of looking at climate sensitivity:
 
 1. The [climwin](https://cran.r-project.org/web/packages/climwin/index.html) R package, described in [this paper](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12590), is currently our best known option for characterizing climate effects. This works with species-level chronologies or individual-level analysis, and can integrate with most types of regression models that can be implemented in R. We have it working with *lmer* (see [issue #1](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/1)).
 
 2. The "quilt plots" in [Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906) work well for visualizing the big-picture of multiple variables/ months / species, and are a useful complement to *climwin*. So far, we have only done this for species-level residual chronologies, not with individual-level analyses. However, there is no reason (other than potentially complex coding) why we couldn't make similar "quilt plots" for individual-level analyses.
 
-## Statistical model for individual-level growth analyses
+## Step 2. Identify best multivariate statistical model accounting for climate and DBH
 
 ### Considerations:
 - DBH must be accounted for in the model. [Peters et al. (2015)](https://onlinelibrary.wiley.com/doi/epdf/10.1111/gcb.12826) reviews some methods
@@ -45,7 +48,16 @@ We are currently considering two completementary ways of looking at climate sens
 
     Wood, S.N. (2003). Thin plate regression splines. Journal of the Royal Statistical Society: Series B (Statistical Methodology), 65, 95–114.
 
-## Considerations
+
+## Step 3. Scale to the ecosystem by combining statistical model with census data
+### What others have done:
+
+- [Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906) used tree-rings to charactize growth as a function of DBH, and assumed that the proportional response to climate was consistent across size classes. We want to move beyond that.
+- [Teets et al. 2018](https://onlinelibrary.wiley.com/doi/abs/10.1111/gcb.14120) used stratefied random sample based on community composition. They summed across individuals to get values proportional to ecosystem-level productivity. This approach does not work when sampling is not carefully stratefied relative to community composition.
+
+
+
+## Additional Methodological Considerations
 
 ### Species- versus individual-level analysis
 
@@ -71,15 +83,5 @@ Species-level chronologies provide the clearest picture of climate sensitivity, 
    
 - **percent biomass change** - potential option that would be less strongly dependent on size than biomass increments
 
-
-
-
-
-
-### Scaling to the ecosystem
-#### What others have done:
-
-- [Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906) used tree-rings to charactize growth as a function of DBH, and assumed that the proportional response to climate was consistent across size classes. We want to move beyond that.
-- [Teets et al. 2018](https://onlinelibrary.wiley.com/doi/abs/10.1111/gcb.14120) used stratefied random sample based on community composition. They summed across individuals to get values proportional to ecosystem-level productivity. This approach does not work when sampling is not carefully stratefied relative to community composition.
 
 
