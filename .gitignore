@@ -1,2 +1,4 @@
-
 methods/.DS_Store
+.Rproj.user
+.RData
+results/*.RData
