@@ -413,8 +413,11 @@ for(sp in rownames(sum_of_weights_for_each_term_by_sp)) {
     varying_x <- data.frame(floor(min(X$varying_v)): ceiling(max(X$varying_v))) ; colnames(varying_x) <- v
     
     plot(core_measurement+0.1 ~ varying_v, data = X, log = "y", 
-         col = rainbow(length(unique(X$tag)))[c(1:length(unique(X$tag)))[match(X$tag, unique(X$tag))]],
-         main = paste0(sp[1], " - ", v),
+         pch = 16,
+         # bg = rgb(0,0,0,0.2),
+         col = rainbow(length(unique(X$tag)), s = 0.8, alpha = 0.2)[c(1:length(unique(X$tag)))[match(X$tag, unique(X$tag))]],
+         main = paste0(sp[1], " - ", v, ifelse(v %in% best_results_combos$climate, paste0("\nfrom ",
+                       paste(best_results_combos[best_results_combos$climate %in% v, c("WindowOpen", "WindowClose")], collapse = " to ")), "")),
          xlab = v)
     
     if(length(variables_to_look_at) > 1) {
