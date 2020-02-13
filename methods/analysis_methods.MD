@@ -6,7 +6,10 @@ Here's the original plan from the proposal:
 
 *First, using existing R scripts developed in KAT’s lab ([Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906)), we will analyze tree-ring chronologies to identify the climate variables-months combinations with the strongest influence on the annual growth of each species. We will then combine tree-ring and dendrometer band data in mixed effects models to examine the joint and interactive effects of key climate variables with one another and with tree size, using model averaging (MuMln in R) to combine top candidate models into the best predictive model.*
 
-*Climwin* allows the option of skipping the first step. Also, importantly, *climwin* greatly facilitates the identification of the most important variables. 
+Since writing the proposal, we've worked on developing a better approach, with 3 basic steps:
+1. Identify most important climatic drivers
+2. Identify best multivariate statistical model accounting for climate and DBH
+3. Scale to the ecosystem by combining statistical model with census data
 
 ## Step 1. Identify most important climatic drivers
 We are currently considering two completementary ways of looking at climate sensitivity:
@@ -46,12 +49,11 @@ We are currently considering two completementary ways of looking at climate sens
     Wood, S.N. (2003). Thin plate regression splines. Journal of the Royal Statistical Society: Series B (Statistical Methodology), 65, 95–114.
 
 
-## Step 3. Scaling to the ecosystem
+## Step 3. Scale to the ecosystem by combining statistical model with census data
 ### What others have done:
 
 - [Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906) used tree-rings to charactize growth as a function of DBH, and assumed that the proportional response to climate was consistent across size classes. We want to move beyond that.
 - [Teets et al. 2018](https://onlinelibrary.wiley.com/doi/abs/10.1111/gcb.14120) used stratefied random sample based on community composition. They summed across individuals to get values proportional to ecosystem-level productivity. This approach does not work when sampling is not carefully stratefied relative to community composition.
-
 
 
 
