@@ -17,6 +17,14 @@ We have two completementary ways of looking at climate sensitivity:
 
 2. The "quilt plots" in [Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906) work well for visualizing the big-picture of multiple variables/ months / species, and are a useful complement to *climwin*. So far, we have only done this for species-level residual chronologies, not with individual-level analyses. However, there is no reason (other than potentially complex coding) why we couldn't make similar "quilt plots" for individual-level analyses.
 
+### Considerations
+#### Species- versus individual-level analysis
+
+Species-level chronologies provide the clearest picture of climate sensitivity, using methods optimized by dencrochronologists (e.g., Helcoski et al). We may consider whether it would be better to use this approach.
+
+Individual-level residual analysis seems to work fine for pulling out the climate signal, and is our current approach.
+
+
 ## Step 2. Identify best multivariate statistical model accounting for climate and DBH
 
 ### Considerations:
@@ -58,9 +66,7 @@ We have two completementary ways of looking at climate sensitivity:
 
 ## Additional Methodological Considerations
 
-### Species- versus individual-level analysis
 
-Species-level chronologies provide the clearest picture of climate sensitivity, using methods optimized by dencrochronologists. However, this approach is limited in its ability to scale to ecosystem-level productivity, particularly in that it cannot represent interactions with tree size or other relevant factors. 
 
 ### Response metric
 
