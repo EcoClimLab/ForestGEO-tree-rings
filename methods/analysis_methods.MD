@@ -2,51 +2,60 @@
 
 ## Overview
 
-Here's the original plan from the proposal:
-
-*First, using existing R scripts developed in KAT’s lab ([Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906)), we will analyze tree-ring chronologies to identify the climate variables-months combinations with the strongest influence on the annual growth of each species. We will then combine tree-ring and dendrometer band data in mixed effects models to examine the joint and interactive effects of key climate variables with one another and with tree size, using model averaging (MuMln in R) to combine top candidate models into the best predictive model.*
-
-Since writing the proposal, we've worked on developing a better approach, with 3 basic steps:
+There are 3 basic steps:
 1. Identify most important climatic drivers
 2. Identify best multivariate statistical model accounting for climate and DBH
 3. Scale to the ecosystem by combining statistical model with census data
 
 ## Step 1. Identify most important climatic drivers
-We are currently considering two completementary ways of looking at climate sensitivity:
 
-1. The [climwin](https://cran.r-project.org/web/packages/climwin/index.html) R package, described in [this paper](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12590), is currently our best known option for characterizing climate effects. This works with species-level chronologies or individual-level analysis, and can integrate with most types of regression models that can be implemented in R. We have it working with *lmer* (see [issue #1](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/1)).
+[Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906), [GitHub repo with full results](https://github.com/SCBI-ForestGEO/climate_sensitivity_cores) analyzed climate sensitivity using traditional dendro methods and gave a reliable (as far as we know!) picture of climate sensitivity at SCBI. From our explorations of other analysis methods on the same data, it seems that pulling out a reliable climate signal *requires* indivdidual-level detrending of cores. Our attempt to do this with raw growth data, using climwin and a mixed effects model to account for DBH and year, resulted in weak or absent climate correlations that didn't align with Helcoski results (see below). However, if we fit splines to individual core sequences and then analyze these data in *climwin*, we get results that are generally very consistent with Helcoski (except that they don't pull out an opposite signal from the previous growing season).
+
+We have two completementary ways of looking at climate sensitivity:
+
+1. The [climwin](https://cran.r-project.org/web/packages/climwin/index.html) R package, described in [this paper](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12590), is currently our best known option for identifying the most important climate drivers. This works with species-level chronologies or individual-level analysis, and can integrate with most types of regression models that can be implemented in R. We have it working with *lmer* (see [issue #1](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/1)).
 
 2. The "quilt plots" in [Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906) work well for visualizing the big-picture of multiple variables/ months / species, and are a useful complement to *climwin*. So far, we have only done this for species-level residual chronologies, not with individual-level analyses. However, there is no reason (other than potentially complex coding) why we couldn't make similar "quilt plots" for individual-level analyses.
 
-## Step 2. Identify best multivariate statistical model accounting for climate and DBH
+### Current approach
+1. detrend individual tree records by fitting a spline, thereby producing residuals
+2. put residuals in *climwin* with with mixed effects model: `residual ~ [climate] + species+ treeID (random effect)`. Do this for each climate variable, thereby identifying the time window over which each variable is most influential. 
+3. These variable-time period combinations become candidate variables for the multivariate models.
 
-### Considerations:
-- DBH must be accounted for in the model. [Peters et al. (2015)](https://onlinelibrary.wiley.com/doi/epdf/10.1111/gcb.12826) reviews some methods
+### Considerations
+#### Species- versus individual-level analysis
 
-- should we account for age too?
+Species-level chronologies provide the clearest picture of climate sensitivity, using methods optimized by dencrochronologists (e.g., Helcoski et al). We may consider whether it would be better to use this approach.
 
-### Current method:
+Individual-level residual analysis seems to work fine for pulling out the climate signal, and is our current approach.
 
-- Using *climwin* with with mixed effects model: `diameter.growth ~ [climate] + DBH + year + treeID (random effect)`
+
+### Mixed-effects model in climwin on raw data (not optimal)
+This approach did not work well for pulling out climate signals.
+
+- Used *climwin* with with mixed effects model: `diameter.growth ~ [climate] + DBH + year + treeID (random effect)`
 
 - Results are [here](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/tree/master/results)
 
 - Some of the results align with [Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906), but many don't (e.g., positive effect of DTR, where Helcoski found negative).
 
-- Some potential clean-up that may make results more clear: remove outliers, ln-transform age and growth?, remove DTR as predictor variable.
+- Some potential clean-up that may make results more clear: remove outliers, ln-transform age and growth?, remove DTR as predictor variable. 
 
-### What others have done:
-- [Foster et al. (2016)](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/blob/master/methods/references/Foster_et_al-2016-Global_Change_Biology.pdf) used an individuallevel Baysian heriarchical model to characterize to what extent whole-tree growth depends on climatic, tree, and stand structural variables.
+- However, individual-level detrending seems to be the way to go for identifying the most important climate drivers.
 
-- M. Ross Alexander and colleagues (in review-TREAT CONFIDENTIALLY) "used generalized additive models (GAMs) using the gam function in the mgcv R package to allow for non-linear climate and size effects without prescribing a priori functional forms (Polansky & Robbins 2013; Peters et al.2015, Simpson 2018, Wood 2003).  ....Year effects were estimated using a 4-knot thin plate regression spline fit by sampling plot to capture stand dynamics such as suppression or release events that may have influenced growth through time. Size effects were estimated for each species using 3-knot thin-plate regression splines fit to reconstructed DBH (Wood 2003)."
 
-    Peters, R.L., Groenendijk, P., Vlam, M. & Zuidema, P.A. (2015). [Detecting long‐term growth trends using tree rings: a critical evaluation of methods](https://onlinelibrary.wiley.com/doi/abs/10.1111/gcb.12826). Glob Change Biol, 21, 2040–2054.
+## Step 2. Identify best multivariate statistical model accounting for climate and DBH
 
-    Polansky, L. & Robbins, M.M. (2013). Generalized additive mixed models for disentangling long‐term trends, local anomalies, and seasonality in fruit tree phenology. Ecology and Evolution, 3, 3141–3151.
+### Current approach
+1. Check colinearity among climate variables; remove those that are redundant
+2. For each species, run GAM models including every combination of climate variable, DBH (we probably want log DBH, still exploring), and splines on year fit to each individual.
+3. rank models to determine best
+4. sum variable weights to determine which drivers are most important
 
-    Simpson, G.L. (2018). [Modelling palaeoecological time series using generalised additive models](https://www.frontiersin.org/articles/10.3389/fevo.2018.00149/full). Frontiers in Ecology and the Environment, 6, 1–21.
+### Considerations:
+- DBH must be accounted for in the model. [Peters et al. (2015)](https://onlinelibrary.wiley.com/doi/epdf/10.1111/gcb.12826) reviews some methods
 
-    Wood, S.N. (2003). Thin plate regression splines. Journal of the Royal Statistical Society: Series B (Statistical Methodology), 65, 95–114.
+- should we account for age too?
 
 
 ## Step 3. Scale to the ecosystem by combining statistical model with census data
@@ -59,9 +68,7 @@ We are currently considering two completementary ways of looking at climate sens
 
 ## Additional Methodological Considerations
 
-### Species- versus individual-level analysis
 
-Species-level chronologies provide the clearest picture of climate sensitivity, using methods optimized by dencrochronologists. However, this approach is limited in its ability to scale to ecosystem-level productivity, particularly in that it cannot represent interactions with tree size or other relevant factors. 
 
 ### Response metric
 
@@ -85,3 +92,15 @@ Species-level chronologies provide the clearest picture of climate sensitivity, 
 
 
 
+### Other statistical models of individual-level tree-ring data:
+- [Foster et al. (2016)](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/blob/master/methods/references/Foster_et_al-2016-Global_Change_Biology.pdf) used an individuallevel Baysian heriarchical model to characterize to what extent whole-tree growth depends on climatic, tree, and stand structural variables.
+
+- M. Ross Alexander and colleagues (in review-TREAT CONFIDENTIALLY) "used generalized additive models (GAMs) using the gam function in the mgcv R package to allow for non-linear climate and size effects without prescribing a priori functional forms (Polansky & Robbins 2013; Peters et al.2015, Simpson 2018, Wood 2003).  ....Year effects were estimated using a 4-knot thin plate regression spline fit by sampling plot to capture stand dynamics such as suppression or release events that may have influenced growth through time. Size effects were estimated for each species using 3-knot thin-plate regression splines fit to reconstructed DBH (Wood 2003)."
+
+    Peters, R.L., Groenendijk, P., Vlam, M. & Zuidema, P.A. (2015). [Detecting long‐term growth trends using tree rings: a critical evaluation of methods](https://onlinelibrary.wiley.com/doi/abs/10.1111/gcb.12826). Glob Change Biol, 21, 2040–2054.
+
+    Polansky, L. & Robbins, M.M. (2013). Generalized additive mixed models for disentangling long‐term trends, local anomalies, and seasonality in fruit tree phenology. Ecology and Evolution, 3, 3141–3151.
+
+    Simpson, G.L. (2018). [Modelling palaeoecological time series using generalised additive models](https://www.frontiersin.org/articles/10.3389/fevo.2018.00149/full). Frontiers in Ecology and the Environment, 6, 1–21.
+
+    Wood, S.N. (2003). Thin plate regression splines. Journal of the Royal Statistical Society: Series B (Statistical Methodology), 65, 95–114.
