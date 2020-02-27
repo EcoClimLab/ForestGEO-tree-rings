@@ -11,6 +11,7 @@ rm(list = ls())
 library(climwin)
 library(lme4)
 library(mgcv)
+library(splines)
 
 # set parameters ####
 core_type <- "CSV"
@@ -70,7 +71,7 @@ dbh_2018 <- read.csv("https://raw.githubusercontent.com/SCBI-ForestGEO/SCBI-Fore
 ## bark data ####
 
 # bark <- read.csv("data/traits/SCBI_bark_depth.csv")
-bark <- read.csv("https://raw.githubusercontent.com/SCBI-ForestGEO/McGregor_climate-sensitivity-variation/master/data/traits/SCBI_bark_depth.csv?token=AEWDCIMS5PJBNXB3CSFVUJC6J3TEG")
+bark <- read.csv("https://raw.githubusercontent.com/SCBI-ForestGEO/McGregor_climate-sensitivity-variation/master/data/traits/SCBI_bark_depth.csv?token=AEWDCIOKCNXPQAECCRNPP7S6MEGGQ")
 
 ## climate data ####
 climate_variables <- c( "cld", "dtr", "frs", 
@@ -139,13 +140,6 @@ abline(lm(c(bark$predicit_dbh_from_no_bark ) ~ bark$DBH.mm.2008))
 abline(0,1)
 table(bark[(bark$predict_barkthick.mm/bark$bark.depth.mm) >1.2,]$species) # evenly overestimated or underestimated
 table(bark[(bark$predict_barkthick.mm/bark$bark.depth.mm) <0.8,]$species)# evenly overestimated or underestimated
-
-### using the dataset from calculating the regression equations, we can get mean bark thickness per species in 2008.
-
-##set up dbh dataframe
-dbh <- trees_all[, c(1:4)]
-scbi.stem1$dbh <- as.numeric(scbi.stem1$dbh)
-dbh$dbh2008.mm <- scbi.stem1$dbh[match(dbh$tree, scbi.stem1$tag)]
 
 ## cores ####
 
@@ -224,8 +218,8 @@ Biol$bark_thickness <- NA
 
 tags_with_dbh_issues <- NULL
 for( t in unique(Biol$tag)) {
-  print(t)
-  print(which(unique(Biol$tag) == t))
+  # print(t)
+   print(which(unique(Biol$tag) == t))
   
   x <- Biol[Biol$tag %in% t , ]
   max(x$Year)
@@ -598,6 +592,7 @@ for(v in c("dbh", variables_to_keep)) {
   
   ## predictions
   pt <- NULL
+  p <- NULL
   for(sp in rownames(sum_of_weights_for_each_term_by_sp)) {
     best_model <- get(paste0(sp, "_best_model"))
     
@@ -605,7 +600,7 @@ for(v in c("dbh", variables_to_keep)) {
     varying_x <- data.frame(varying_x = seq(min(Biol[Biol$sp %in% sp, v]), max(Biol[Biol$sp %in% sp, v]), length.out = 100)) ; colnames(varying_x) <- v
     constant_variables <- c("dbh", variables_to_keep)[!c("dbh", variables_to_keep) %in% v]
     
-    newd <- cbind(eval(parse(text = paste0("data.frame(", paste0(constant_variables, " = median(Biol$", constant_variables, ")", collapse = ", "), ",  Year = median(X$Year), tag = factor(X$tag[1]))"))), varying_x)
+    newd <- cbind(eval(parse(text = paste0("data.frame(", paste0(constant_variables, " = median(Biol$", constant_variables, ")", collapse = ", "), ",  Year = median(Biol$Year), tag = factor(Biol$tag[1]))"))), varying_x)
     
     if(v %in% names(best_model$var.summary)) {
        pt <- rbind(pt, data.frame(newd, variable = v, species = sp, varying_x = newd[, v], predict.gam(best_model, newd, type = "response", exclude =grep("Year", sapply(best_model$smooth, "[[", "label"), value = T), se.fit = T)))
@@ -618,8 +613,10 @@ for(v in c("dbh", variables_to_keep)) {
   pt$lwr <- exp(pt$fit - 1.96 * pt$se.fit)
   pt$upr <- exp(pt$fit + 1.96 * pt$se.fit)
   
-  p <- ggplot(data = pt, aes(x = varying_x, y = expfit)) +
-    geom_line(aes(group = species, col = species)) +
+  p <- ggplot(data = pt, aes(x = varying_x, y = expfit))
+  if(v != "dbh") p <- p + geom_rect(xmin = mean(Biol[, v]) - sd(Biol[, v]), ymin = min(pt$lwr), xmax = mean(Biol[, v]) + sd(Biol[, v]), ymax = max(pt$upr), fill = "grey" , alpha=0.01) + geom_vline(xintercept = mean(Biol[, v]), col = "grey")
+  
+  p <- p + geom_line(aes(group = species, col = species)) +
     # scale_x_continuous(trans= ifelse(v %in% "dbh", 'log','identity')) +
     labs(title = paste0(v, ifelse(v %in% best_results_combos$climate, paste0("\nfrom ",
                                                                                            paste(month.abb[reference_date[2] - as.numeric(best_results_combos[best_results_combos$climate %in% v, c("WindowOpen", "WindowClose")])], collapse = " to ")), "")),
@@ -629,7 +626,7 @@ for(v in c("dbh", variables_to_keep)) {
     scale_colour_hue(drop = F) + scale_fill_hue(drop = F) + 
     theme_classic()
   
-  assign(paste0("p_", v), p+
+  assign(paste0("p_", v), p +
            theme(legend.position="none"))
 }
 
@@ -656,4 +653,8 @@ dev.print(tiff, paste0('results/Species_by_species_GAMS_on_raw_data/ALL_variable
           height =8,
           units = "in",
           res = 300)
+
+
+# save environment ####
+save.image(file = "Analysis_workspace.RData")
  
