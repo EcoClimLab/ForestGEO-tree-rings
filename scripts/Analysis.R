@@ -12,6 +12,7 @@ library(climwin)
 library(lme4)
 library(mgcv)
 library(splines)
+library(grid)
 
 # set parameters ####
 core_type <- "CSV"
@@ -211,7 +212,7 @@ for( t in tag_with_outliers_within_first_X_years) {
   
 }
 
-### find out DBH for each year
+## find out DBH for each year ####
 Biol$dbh = NA
 Biol$dbh_no_bark <- NA
 Biol$bark_thickness <- NA
@@ -327,7 +328,46 @@ for( t in tags_with_dbh_issues) {
   mtext(side = 1, "Year", outer = T)
 }
 
-### remove years that are before climate record (+ first few first months to be able to look at window before measurement)
+## calculate Biomass using equations developped by Erika for now ####
+x <- Biol
+
+x$agb <- NA
+
+x$agb <- ifelse(x$sp == "caco", 10^(-1.326 + 2.762 * log10(x$dbh * 0.1)) *1.005, x$agb)# new equation added by Erika 1/13/2020                                          
+x$agb <- ifelse(x$sp == "cagl", 10^(-1.326 + 2.762 * log10(x$dbh * 0.1)) *1.005, x$agb)# new equation added by Erika 1/13/2020  
+x$agb <- ifelse(x$sp == "caovl", 10^(-1.326 + 2.762 * log10(x$dbh * 0.1)) *1.005, x$agb)# new equation added by Erika 1/13/2020                                              
+x$agb <- ifelse(x$sp == "cato", 10^(-1.326 + 2.762 * log10(x$dbh * 0.1)) *1.005, x$agb)# new equation added by Erika 1/13/2020                                              
+x$agb <- ifelse(x$sp == "fagr", 10^(2.1112 + 2.462 * log10(x$dbh * 0.1)) / 1000, x$agb)# new equation added by Erika 1/13/2020
+x$agb <- ifelse(x$sp == "fram", (2.3626 * (x$dbh * 0.03937)^2.4798) * 0.45359, x$agb)
+x$agb <- ifelse(x$sp == "frni", 0.1634 * (x$dbh * 0.1)^2.348, x$agb)
+x$agb <- ifelse(x$sp == "juni", exp(-2.5095 + 2.5437 * log(x$dbh * 0.1)), x$agb)
+x$agb <- ifelse(x$sp == "litu", (10^(-1.236 + 2.635 * (log10(x$dbh * 0.1)))) * 1.008, x$agb) # new equation given by Erika on Tue 4/2/2019 11:57
+x$agb <- ifelse(x$sp == "pist", (exp(5.2831 + 2.0369 * log(x$dbh * 0.1))) / 1000, x$agb)
+x$agb <- ifelse(x$sp == "qual", (1.5647 * (x$dbh * 0.03937)^2.6887) * 0.45359, x$agb)
+x$agb <- ifelse(x$sp == "qupr", (1.5509 * (x$dbh * 0.03937)^2.7276) * 0.45359, x$agb)
+x$agb <- ifelse(x$sp == "quru", (2.4601 * (x$dbh * 0.03937)^2.4572) * 0.45359, x$agb)
+x$agb <- ifelse(x$sp == "quve" & (x$dbh * 0.1) < 30, exp(-0.34052 + 2.65803 * log(x$dbh * 0.03937)), x$agb)
+x$agb <- ifelse(x$sp == "quve" & (x$dbh * 0.1) >= 30, (10^(1.00005 + 2.10621 * (log10(x$dbh * 0.03937)))) * 0.45359, x$agb)
+
+
+#Convert from kg to Mg
+x$agb <- x$agb / 1000 
+
+# Convert to C
+x$agb <-  x$agb * .47
+  
+Biol <- x
+
+## calculate agb increment for each individual ####
+Biol$agb_inc <- NA
+for( t in unique(Biol$coreID)) {
+  x <- Biol[Biol$coreID %in% t, ]
+  x$agb_inc <- c(NA, diff(x$agb))
+  
+  Biol[Biol$coreID %in% t, ] <- x
+}
+
+## remove years that are before climate record (+ first few first months to be able to look at window before measurement)
 Biol <- Biol[as.numeric(as.numeric(substr(Biol$Date, 7, 10))) >= min(as.numeric(substr(Clim$Date, 7, 10)))+  window_range[1]/12, ]
 
 ### remove years that are after climate record
@@ -336,33 +376,46 @@ Biol <- Biol[as.numeric(as.numeric(substr(Biol$Date, 7, 10))) <= max(as.numeric(
 
 ## calculate residuals of spine measurement ~ year for each individual####
 
+for(what in c("log_core_measurement", "log_agb_inc")) {
+  
 Biol$residuals <- NA
 
 for( t in unique(Biol$coreID)) {
   x <- Biol[Biol$coreID %in% t, ]
+
+  x$Y <- x[, switch(what, log_core_measurement = "core_measurement", log_agb_inc = "agb_inc")]
+  x <- x[!is.na(x$Y),] #remove NA (only first year of measurement for agb_inc)
   
-  test <- gam(core_measurement~ s(Year), data = x)
+  test <- gam(Y~ s(Year), data = x)
   par(mfrow = c(3,2))
   plot(test)
   gam.check(test,pch=19,cex=.3)
   
-  plot(core_measurement~ Year, data = x, main = "Raw data")
-  points(test$fitted.values~ x$Year, type = "l")
+  plot(Y~ Year, data = x, main = "Raw data")
+  points(test$fitted.values ~ x$Year, type = "l")
   
   title(paste(x$sp[1], x$status.at.coring[1], t, sep = " - " ), outer = T, line = -2)
   
-  # # save plot
-  # dev.print(tiff, paste0('results/explorations/by_tag/', paste(x$sp[1], x$status.at.coring[1], t, sep = "_" ), "_residuals_core_meas_Year_GAM", '.tif'),
-  #           width = 8,
-  #           height =8,
-  #           units = "in",
-  #           res = 300)
-  
+  # save plot
+  if(rbinom(1, 1, 0.1)==1) {
+    dev.print(tiff, paste0('results/explorations/residuals_by_tag/', paste(x$sp[1], x$status.at.coring[1], t, sep = "_" ), "_", gsub("log_", "", what), "_Year_GAM", '.tif'),
+              width = 8,
+              height =8,
+              units = "in",
+              res = 300)
+    
+  }
+
   # save residuals
   x$residuals <- test$residuals 
   
   # save back into Biol
-  Biol[Biol$coreID %in% t, ] <- x
+  if(what %in% "log_agb_inc") {
+    Biol[Biol$coreID %in% t, ]$residuals <- c(NA, x$residuals) 
+  } else {
+    Biol[Biol$coreID %in% t, ] <- x
+  }
+ 
   
 }
 
@@ -394,7 +447,7 @@ best_results_combos <- do.call(rbind, by(results$combos, results$combos$climate,
 
 best_results_combos <- best_results_combos[order(best_results_combos$DeltaAICc),]
 
-### plot the results and save the signal into Biol
+### plot the results and save the signal into Biol ####
 for(i in best_results_combos$model_ID) {
   
   # plot the results
@@ -403,7 +456,7 @@ for(i in best_results_combos$model_ID) {
           bestmodeldata = results[[i]]$BestModelData,
           title=paste((data.frame(lapply(results$combos[i,], as.character), stringsAsFactors=FALSE)), collapse = "_"))
   # save the plot
-  dev.print(tiff, paste0('results/ALL_species_mixed_model_on_residuals/ALL_species_mixed_model_on_', paste((data.frame(lapply(results$combos[i,], as.character), stringsAsFactors=FALSE)), collapse = "_"), '.tif'),
+  dev.print(tiff, paste0('results/ALL_species_mixed_model_on_residuals/ALL_species_mixed_model_on_', gsub("log_", "", what), "_", paste((data.frame(lapply(results$combos[i,], as.character), stringsAsFactors=FALSE)), collapse = "_"), '.tif'),
             width = 10,
             height =8,
             units = "in",
@@ -423,7 +476,7 @@ for(i in best_results_combos$model_ID) {
 
 names(Biol)
 
-# look at collinearity betwwen climate variables ####
+# look at collinearity between climate variables ####
 X <- Biol[, c("pre", "wet", "pet", "cld", "dtr", "tmx", "tmp", "tmn")]
 X <- X[!duplicated(X),]
 
@@ -454,128 +507,211 @@ vifstep(Biol[, variables_to_keep], th = 3) #--> all good
 # now do a species by species gam using log of raw measuremets, spline on dbh and year ####
 library(MuMIn)
 
-## first identify what variables we should keep for each species, looking at the sum of AIC weights ####
-start_time <- Sys.time()
-full_model_formula <- paste("log_core_measurement ~ s(dbh, k = 4) + s(Year, bs ='re', by = tag) +", paste0("ns(", variables_to_keep, ", 2)", collapse = " + "))
 
-# full_model_formula <- paste("log_core_measurement ~ log(dbh) + s(Year, bs ='re', by = tag) +", paste0("ns(", variables_to_keep, ", 2)", collapse = " + "))
-
-sum_of_weights_for_each_term_by_sp <- NULL
-for(sp in unique(Biol$sp)) {
-  print(sp)
-  x <- Biol[Biol$sp %in% sp,]
-  x$tag <- factor(x$tag)
-  x$log_core_measurement <- log(x$core_measurement+0.1)
-  x <- x[, c("dbh", "Year", "tag", "log_core_measurement", variables_to_keep)]
-  fm1 <- gam(eval(parse(text = full_model_formula)), data = x, na.action = "na.fail") # using mixed model makes all variables important which I find suspicous. I feel that s(Year, by = tag) is enough to add some randomness by tag... + plus I am not even sure that actuallydoes what we want.
-  dd <- dredge(fm1)
-  dd$cw <- cumsum(dd$weight)
+  # create tge gam formula
   
-  sum_of_weights_for_each_term <- dd[, grepl(paste(c(variables_to_keep, "dbh", "Year"), collapse = "|"), names(dd))]
-  sum_of_weights_for_each_term <- apply(sum_of_weights_for_each_term, 2, function(x) sum(dd$weight[!is.na(x)]))
-  sum_of_weights_for_each_term
-  sum_of_weights_for_each_term_by_sp <- rbind(sum_of_weights_for_each_term_by_sp,
-                                              c(sum_of_weights_for_each_term))
+   full_model_formula <- switch(what, "log_core_measurement" =  paste("log_core_measurement ~ s(dbh, k = 3) + s(Year, bs ='re', by = tag) +", paste0("ns(", variables_to_keep, ", 2)", collapse = " + ")),
+                               log_agb_inc = paste("log_agb_inc ~ s(dbh, k = 3) + s(Year, bs ='re', by = tag) +", paste0("ns(", variables_to_keep, ", 2)", collapse = " + ")))
   
   
- 
-  # get the results of the model that includes the variables that have sum of weight > 0.9
-  best_model <- gam(eval(parse(text = paste( "log_core_measurement ~", paste(names(sum_of_weights_for_each_term)[sum_of_weights_for_each_term > 0.9], collapse = " + ")))), data = x, na.action = "na.fail")
+  ## identify what variables we should keep for each species, looking at the sum of AIC weights ####
+  start_time <- Sys.time()
+  
+  sum_of_weights_for_each_term_by_sp <- NULL
+  for(sp in unique(Biol$sp)) {
+    print(sp)
+    x <- Biol[Biol$sp %in% sp,]
+    x$tag <- factor(x$tag)
+    x$log_core_measurement <- log(x$core_measurement+0.1)
+    x$log_agb_inc <-  log(x$agb_inc + 0.1)
+    x <- x[, c("dbh", "Year", "tag", what, variables_to_keep)]
+    
+    x <- x[!is.na(x[, what]), ]
+    fm1 <- gam(eval(parse(text = full_model_formula)), data = x, na.action = "na.fail") # using mixed model makes all variables important which I find suspicous. I feel that s(Year, by = tag) is enough to add some randomness by tag... + plus I am not even sure that actuallydoes what we want.
+    dd <- dredge(fm1)
+    dd$cw <- cumsum(dd$weight)
+    
+    sum_of_weights_for_each_term <- dd[, grepl(paste(c(variables_to_keep, "dbh", "Year"), collapse = "|"), names(dd))]
+    sum_of_weights_for_each_term <- apply(sum_of_weights_for_each_term, 2, function(x) sum(dd$weight[!is.na(x)]))
+    sum_of_weights_for_each_term
+    sum_of_weights_for_each_term_by_sp <- rbind(sum_of_weights_for_each_term_by_sp,
+                                                c(sum_of_weights_for_each_term))
+    
+    
+    
+    # get the results of the model that includes the variables that have sum of weight > 0.9
+    best_model <- gam(eval(parse(text = paste( what,  "~", paste(names(sum_of_weights_for_each_term)[sum_of_weights_for_each_term > 0.9], collapse = " + ")))), data = x, na.action = "na.fail")
+    
+    
+    # save results for individual species
+    assign(paste0(sp, "_dd"), dd)
+    assign(paste0(sp, "_best_model"), best_model)
+    
+    # remove x
+    rm(x)
+  }
+  end_time <- Sys.time()
   
   
-  # save results for individual species
-  assign(paste0(sp, "_dd"), dd)
-  assign(paste0(sp, "_best_model"), best_model)
-
-  # remove x
-  rm(x)
-}
-end_time <- Sys.time()
-
-(ellapsed_time <- difftime(end_time, start_time))
-
-rownames(sum_of_weights_for_each_term_by_sp) <- unique(Biol$sp)
-
-sum_of_weights_for_each_term_by_sp
-library(lattice)
-
-levelplot(t(sum_of_weights_for_each_term_by_sp), 
-          scales=list(x=list(rot=45)), 
-          xlab = "parameter", 
-          ylab = "species",
-          legend = list(top = list(fun = grid::textGrob("Sum of Weights", y=0, x=1.09))))
-
-# save the plot
-dev.print(tiff, paste0('results/Species_by_species_GAMS_on_raw_data/Sum_of_AICweights.tif'),
-          width = 10,
-          height =8,
-          units = "in",
-          res = 300)
-
-
-# double check the best models we have by species is correct
-
-best_models_by_species <- apply(sum_of_weights_for_each_term_by_sp, 1, function(x)paste(names(x)[x > 0.9], collapse = " + "))
-
-formula(caco_best_model) == as.formula(paste("log_core_measurement ~", best_models_by_species[["caco"]]))
-
-
-## second, plot response curves for each species and variables ####
-
-for(sp in rownames(sum_of_weights_for_each_term_by_sp)) {
+  (ellapsed_time <- difftime(end_time, start_time))
   
-  print(sp)
+  rownames(sum_of_weights_for_each_term_by_sp) <- unique(Biol$sp)
   
-  X <- Biol[Biol$sp %in% sp, ]
-  best_model <- get(paste0(sp, "_best_model"))
-
-  variables_to_look_at <- names((best_model$var.summary))[!names((best_model$var.summary)) %in% c("Year", "tag")]
+  sum_of_weights_for_each_term_by_sp
+  library(lattice)
   
-  n_row <- ifelse(length(variables_to_look_at) <= 2, 1, 2)
-  n_col <- length(variables_to_look_at) %/% 2 +  length(variables_to_look_at)%% 2
+  levelplot(t(sum_of_weights_for_each_term_by_sp), 
+            scales=list(x=list(rot=45)), 
+            xlab = "parameter", 
+            ylab = "species",
+            legend = list(top = list(fun = grid::textGrob("Sum of Weights", y=0, x=1.09))))
   
-  if(length(variables_to_look_at) > 0) {
-    par(mfrow=c(ifelse(n_row == 0, 1, n_row), n_col))
+  # save the plot
+  dev.print(tiff, paste0('results/Species_by_species_GAMS_on_raw_data/Sum_of_AICweights_', what, '.tif'),
+            width = 10,
+            height =8,
+            units = "in",
+            res = 300)
   
   
-    for(v in variables_to_look_at) {
+  
+  
+  # double check the best models we have by species is correct
+  
+  best_models_by_species <- apply(sum_of_weights_for_each_term_by_sp, 1, function(x)paste(names(x)[x > 0.9], collapse = " + "))
+  
+  formula(caco_best_model) == as.formula(paste(what, "~", best_models_by_species[["caco"]]))
+  
+  
+  ## second, plot response curves for each species and variables ####
+  
+  for(sp in rownames(sum_of_weights_for_each_term_by_sp)) {
+    
+    print(sp)
+    
+    X <- Biol[Biol$sp %in% sp, ]
+    best_model <- get(paste0(sp, "_best_model"))
+    
+    variables_to_look_at <- names((best_model$var.summary))[!names((best_model$var.summary)) %in% c("Year", "tag")]
+    
+    n_row <- ifelse(length(variables_to_look_at) <= 2, 1, 2)
+    n_col <- length(variables_to_look_at) %/% 2 +  length(variables_to_look_at)%% 2
+    
+    if(length(variables_to_look_at) > 0) {
+      par(mfrow=c(ifelse(n_row == 0, 1, n_row), n_col))
       
-      X$varying_v <- X[, v]
-      varying_x <- data.frame(floor(min(X$varying_v)): ceiling(max(X$varying_v))) ; colnames(varying_x) <- v
       
-      plot(core_measurement+0.1 ~ varying_v, data = X, log = "y", 
-           pch = 16,
-           # bg = rgb(0,0,0,0.2),
-           col = rainbow(length(unique(X$tag)), s = 0.8, alpha = 0.2)[c(1:length(unique(X$tag)))[match(X$tag, unique(X$tag))]],
-           main = paste0(sp[1], " - ", v, ifelse(v %in% best_results_combos$climate, paste0("\nfrom ",
-                                                                                            paste(month.abb[reference_date[2] - as.numeric(best_results_combos[best_results_combos$climate %in% v, c("WindowOpen", "WindowClose")])], collapse = " to ")), "")),
-           xlab = v)
-      
-      if(length(variables_to_look_at) > 1) {
-        constant_variables <- variables_to_look_at[!variables_to_look_at %in% v]
+      for(v in variables_to_look_at) {
         
-        newd <- cbind(eval(parse(text = paste0("data.frame(", paste0(constant_variables, " = median(X$", constant_variables, ")", collapse = ", "), ",  Year = median(X$Year), tag = factor(X$tag[1]))"))), varying_x)
+        X$varying_v <- X[, v]
+        varying_x <- data.frame(floor(min(X$varying_v)): ceiling(max(X$varying_v))) ; colnames(varying_x) <- v
         
-      } else {
-        newd <- data.frame(varying_x,  Year = median(X$Year), tag = factor(X$tag[1]))
+        plot(core_measurement+0.1 ~ varying_v, data = X, log = "y", 
+             pch = 16,
+             # bg = rgb(0,0,0,0.2),
+             col = rainbow(length(unique(X$tag)), s = 0.8, alpha = 0.2)[c(1:length(unique(X$tag)))[match(X$tag, unique(X$tag))]],
+             main = paste0(sp[1], " - ", v, ifelse(v %in% best_results_combos$climate, paste0("\nfrom ",
+                                                                                              paste(month.abb[reference_date[2] - as.numeric(best_results_combos[best_results_combos$climate %in% v, c("WindowOpen", "WindowClose")])], collapse = " to ")), "")),
+             xlab = v)
+        
+        if(length(variables_to_look_at) > 1) {
+          constant_variables <- variables_to_look_at[!variables_to_look_at %in% v]
+          
+          newd <- cbind(eval(parse(text = paste0("data.frame(", paste0(constant_variables, " = median(X$", constant_variables, ")", collapse = ", "), ",  Year = median(X$Year), tag = factor(X$tag[1]))"))), varying_x)
+          
+        } else {
+          newd <- data.frame(varying_x,  Year = median(X$Year), tag = factor(X$tag[1]))
+        }
+        
+        ## prediction
+        pt <- predict.gam(best_model, newd, type = "response", exclude =grep("Year", sapply(best_model$smooth, "[[", "label"), value = T), se.fit = T)
+        
+        ## add preditive line
+        lines(exp(pt$fit) ~ varying_x[[1]], lwd = 2)
+        lines(exp(pt$fit - 1.96 * pt$se.fit) ~ varying_x[[1]], lwd = 1, lty = 2)
+        lines(exp(pt$fit + 1.96 * pt$se.fit) ~ varying_x[[1]], lwd = 1, lty = 2)
+        
       }
-      
-      ## prediction
-      pt <- predict.gam(best_model, newd, type = "response", exclude =grep("Year", sapply(best_model$smooth, "[[", "label"), value = T), se.fit = T)
-      
-      ## add preditive line
-      lines(exp(pt$fit) ~ varying_x[[1]], lwd = 2)
-      lines(exp(pt$fit - 1.96 * pt$se.fit) ~ varying_x[[1]], lwd = 1, lty = 2)
-      lines(exp(pt$fit + 1.96 * pt$se.fit) ~ varying_x[[1]], lwd = 1, lty = 2)
       
     }
     
+    
+    
+    # save plot
+    dev.print(tiff, paste0('results/Species_by_species_GAMS_on_raw_data/GAM_results_raw_', sp, "_", what, ".tif"),
+              width = 8,
+              height =8,
+              units = "in",
+              res = 300)
+    
   }
-
+  
+  
+  ## third,  plot response curves for each variable, with one curve per species ####
+  #Create a custom color scale
+  
+  for(v in c("dbh", variables_to_keep)) {
+    print(v)
+    
+    ## predictions
+    pt <- NULL
+    for(sp in rownames(sum_of_weights_for_each_term_by_sp)) {
+      best_model <- get(paste0(sp, "_best_model"))
+      
+      
+      varying_x <- data.frame(varying_x = seq(min(Biol[Biol$sp %in% sp, v]), max(Biol[Biol$sp %in% sp, v]), length.out = 100)) ; colnames(varying_x) <- v
+      constant_variables <- c("dbh", variables_to_keep)[!c("dbh", variables_to_keep) %in% v]
+      
+      newd <- cbind(eval(parse(text = paste0("data.frame(", paste0(constant_variables, " = median(Biol$", constant_variables, ")", collapse = ", "), ",  Year = median(Biol$Year), tag = factor(Biol[Biol$sp %in% sp,]$tag[1]))"))), varying_x)
+      
+      if(v %in% names(best_model$var.summary)) {
+        pt <- rbind(pt, data.frame(newd, variable = v, species = sp, varying_x = newd[, v], predict.gam(best_model, newd, type = "response", exclude =grep("Year", sapply(best_model$smooth, "[[", "label"), value = T), se.fit = T)))
+        
+      }
+      
+    } # ignore errors
+    pt$species <- factor(pt$species, levels = rownames(sum_of_weights_for_each_term_by_sp))
+    pt$expfit <- exp(pt$fit)
+    pt$lwr <- exp(pt$fit - 1.96 * pt$se.fit)
+    pt$upr <- exp(pt$fit + 1.96 * pt$se.fit)
+    
+    p <- ggplot(data = pt, aes(x = varying_x, y = expfit))
+    if(v != "dbh") p <- p + geom_rect(xmin = mean(Biol[, v]) - sd(Biol[, v]), ymin = min(pt$lwr), xmax = mean(Biol[, v]) + sd(Biol[, v]), ymax = max(pt$upr), fill = "grey" , alpha=0.01) + geom_vline(xintercept = mean(Biol[, v]), col = "grey")
+    
+    p <- p + geom_line(aes(group = species, col = species)) +
+      # scale_x_continuous(trans= ifelse(v %in% "dbh", 'log','identity')) +
+      labs(title = paste0(v, ifelse(v %in% best_results_combos$climate, paste0("\nfrom ",
+                                                                               paste(month.abb[reference_date[2] - as.numeric(best_results_combos[best_results_combos$climate %in% v, c("WindowOpen", "WindowClose")])], collapse = " to ")), "")),
+           x = v,
+           y = "") + #"core measurements") +
+      geom_ribbon(aes(ymin=lwr, ymax=upr, col = NULL, bg = species), alpha=0.25) + 
+      scale_colour_hue(drop = F) + scale_fill_hue(drop = F) + 
+      theme_classic()
+    
+    assign(paste0("p_", v), p +
+             theme(legend.position="none"))
+  }
+  
+  g_legend<-function(a.gplot){
+    tmp <- ggplot_gtable(ggplot_build(a.gplot))
+    leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
+    legend <- tmp$grobs[[leg]]
+    return(legend)}
+  
+  
+  
+  grid.arrange(do.call(arrangeGrob, c(lapply(paste0("p_",  c("dbh", variables_to_keep)), function(x)  get(x)), ncol = 3)),
+               g_legend(p),
+               nrow = 1,
+               widths = c(10, 1))
+  
+  grid.text(switch (what, log_core_measurement = "core measurement (mm)",
+                    log_agb_inc = "AGB increment (Mg C)"), x = unit(0.01, "npc"), y = unit(.51, "npc"), rot = 90)
+  
   
   
   # save plot
-  dev.print(tiff, paste0('results/Species_by_species_GAMS_on_raw_data/GAM_results_raw_', sp, ".tif"),
+  dev.print(tiff, paste0('results/Species_by_species_GAMS_on_raw_data/ALL_variables_', what, '.tif'),
             width = 8,
             height =8,
             units = "in",
@@ -583,76 +719,6 @@ for(sp in rownames(sum_of_weights_for_each_term_by_sp)) {
   
 }
 
-
-## third,  plot response curves for each variable, with one curve per species ####
-#Create a custom color scale
-
-for(v in c("dbh", variables_to_keep)) {
-  print(v)
-  
-  ## predictions
-  pt <- NULL
-  p <- NULL
-  for(sp in rownames(sum_of_weights_for_each_term_by_sp)) {
-    best_model <- get(paste0(sp, "_best_model"))
-    
-    
-    varying_x <- data.frame(varying_x = seq(min(Biol[Biol$sp %in% sp, v]), max(Biol[Biol$sp %in% sp, v]), length.out = 100)) ; colnames(varying_x) <- v
-    constant_variables <- c("dbh", variables_to_keep)[!c("dbh", variables_to_keep) %in% v]
-    
-    newd <- cbind(eval(parse(text = paste0("data.frame(", paste0(constant_variables, " = median(Biol$", constant_variables, ")", collapse = ", "), ",  Year = median(Biol$Year), tag = factor(Biol$tag[1]))"))), varying_x)
-    
-    if(v %in% names(best_model$var.summary)) {
-       pt <- rbind(pt, data.frame(newd, variable = v, species = sp, varying_x = newd[, v], predict.gam(best_model, newd, type = "response", exclude =grep("Year", sapply(best_model$smooth, "[[", "label"), value = T), se.fit = T)))
-    
-    }
-   
-  } # ignore errors
-  pt$species <- factor(pt$species, levels = rownames(sum_of_weights_for_each_term_by_sp))
-  pt$expfit <- exp(pt$fit)
-  pt$lwr <- exp(pt$fit - 1.96 * pt$se.fit)
-  pt$upr <- exp(pt$fit + 1.96 * pt$se.fit)
-  
-  p <- ggplot(data = pt, aes(x = varying_x, y = expfit))
-  if(v != "dbh") p <- p + geom_rect(xmin = mean(Biol[, v]) - sd(Biol[, v]), ymin = min(pt$lwr), xmax = mean(Biol[, v]) + sd(Biol[, v]), ymax = max(pt$upr), fill = "grey" , alpha=0.01) + geom_vline(xintercept = mean(Biol[, v]), col = "grey")
-  
-  p <- p + geom_line(aes(group = species, col = species)) +
-    # scale_x_continuous(trans= ifelse(v %in% "dbh", 'log','identity')) +
-    labs(title = paste0(v, ifelse(v %in% best_results_combos$climate, paste0("\nfrom ",
-                                                                                           paste(month.abb[reference_date[2] - as.numeric(best_results_combos[best_results_combos$climate %in% v, c("WindowOpen", "WindowClose")])], collapse = " to ")), "")),
-         x = v,
-         y = "") + #"core measurements") +
-    geom_ribbon(aes(ymin=lwr, ymax=upr, col = NULL, bg = species), alpha=0.25) + 
-    scale_colour_hue(drop = F) + scale_fill_hue(drop = F) + 
-    theme_classic()
-  
-  assign(paste0("p_", v), p +
-           theme(legend.position="none"))
-}
-
-g_legend<-function(a.gplot){
-  tmp <- ggplot_gtable(ggplot_build(a.gplot))
-  leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
-  legend <- tmp$grobs[[leg]]
-  return(legend)}
-
-
-
-grid.arrange(do.call(arrangeGrob, c(lapply(paste0("p_",  c("dbh", variables_to_keep)), function(x)  get(x)), ncol = 3)),
-             g_legend(p),
-             nrow = 1,
-             widths = c(10, 1))
-
-grid.text("core measurement (mm)", x = unit(0.01, "npc"), y = unit(.51, "npc"), rot = 90)
-
-
-
-# save plot
-dev.print(tiff, paste0('results/Species_by_species_GAMS_on_raw_data/ALL_variables.tif'),
-          width = 8,
-          height =8,
-          units = "in",
-          res = 300)
 
 
 # save environment ####
