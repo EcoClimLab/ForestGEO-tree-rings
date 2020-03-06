@@ -20,9 +20,6 @@ reference_date <- c(30, 8) # refday in slidingwin
 window_range <- c(15, 0) #range in slidingwin
 
 
-baseline = "lmer(core_measurement ~ 1 + dbh + (1 | sp) + (1 | coreID), data = Biol)"
-baseline_by_sp <- "lmer(core_measurement ~ 1 + dbh + (1 | coreID), data = Biol[Biol$sp %in% sp,])"
-
 # create function ####
 calculate_bark_thickness_ln <- function(dbh, sp){
   # this is based off of allometric equations developped by Ian mackgregor (see https://github.com/SCBI-ForestGEO/McGregor_climate-sensitivity-variation/blob/master/manuscript/tables_figures/tableS1_bark_regression.csv) from data published here: https://datadryad.org/stash/dataset/doi:10.5061/dryad.6nc8c
@@ -58,7 +55,6 @@ calculate_bark_thickness_ln <- function(dbh, sp){
   }
 
 # load data ####
-
 ## core data ####
 
 cores <- read.csv("https://raw.githubusercontent.com/SCBI-ForestGEO/SCBI-ForestGEO-Data/master/tree_cores/cross-dated_cores_CSVformat/all_core_chronologies.csv")
@@ -367,10 +363,10 @@ for( t in unique(Biol$coreID)) {
   Biol[Biol$coreID %in% t, ] <- x
 }
 
-## remove years that are before climate record (+ first few first months to be able to look at window before measurement)
+## remove years that are before climate record (+ first few first months to be able to look at window before measurement) ####
 Biol <- Biol[as.numeric(as.numeric(substr(Biol$Date, 7, 10))) >= min(as.numeric(substr(Clim$Date, 7, 10)))+  window_range[1]/12, ]
 
-### remove years that are after climate record
+## remove years that are after climate record ####
 Biol <- Biol[as.numeric(as.numeric(substr(Biol$Date, 7, 10))) <= max(as.numeric(substr(Clim$Date, 7, 10))), ]
 
 
@@ -604,19 +600,24 @@ library(MuMIn)
       for(v in variables_to_look_at) {
         
         X$varying_v <- X[, v]
-        varying_x <- data.frame(floor(min(X$varying_v)): ceiling(max(X$varying_v))) ; colnames(varying_x) <- v
         
-        plot(core_measurement+0.1 ~ varying_v, data = X, log = "y", 
+        varying_x <- data.frame(floor(min(X$varying_v)): ceiling(max(X$varying_v))) 
+        colnames(varying_x) <- v
+        
+        X$Y <- X[, switch(what, log_core_measurement = "core_measurement", log_agb_inc = "agb_inc")]
+        plot(Y+0.1 ~ varying_v, data = X, log = "y", 
              pch = 16,
              # bg = rgb(0,0,0,0.2),
              col = rainbow(length(unique(X$tag)), s = 0.8, alpha = 0.2)[c(1:length(unique(X$tag)))[match(X$tag, unique(X$tag))]],
              main = paste0(sp[1], " - ", v, ifelse(v %in% best_results_combos$climate, paste0("\nfrom ",
                                                                                               paste(month.abb[reference_date[2] - as.numeric(best_results_combos[best_results_combos$climate %in% v, c("WindowOpen", "WindowClose")])], collapse = " to ")), "")),
-             xlab = v)
+             xlab = v,
+             ylab = switch(what, log_core_measurement = "core measurement (mm)", log_agb_inc = "AGB increment (Mg C)"),
+             border = "grey")
         
         if(length(variables_to_look_at) > 1) {
           constant_variables <- variables_to_look_at[!variables_to_look_at %in% v]
-          
+      
           newd <- cbind(eval(parse(text = paste0("data.frame(", paste0(constant_variables, " = median(X$", constant_variables, ")", collapse = ", "), ",  Year = median(X$Year), tag = factor(X$tag[1]))"))), varying_x)
           
         } else {
