@@ -13,6 +13,8 @@ library(lme4)
 library(mgcv)
 library(splines)
 library(grid)
+library(MuMIn)
+
 
 # set parameters ####
 core_type <- "CSV"
@@ -68,7 +70,7 @@ dbh_2018 <- read.csv("https://raw.githubusercontent.com/SCBI-ForestGEO/SCBI-Fore
 ## bark data ####
 
 # bark <- read.csv("data/traits/SCBI_bark_depth.csv")
-bark <- read.csv("https://raw.githubusercontent.com/SCBI-ForestGEO/McGregor_climate-sensitivity-variation/master/data/traits/SCBI_bark_depth.csv?token=AEWDCIOKCNXPQAECCRNPP7S6MEGGQ")
+bark <- read.csv("https://raw.githubusercontent.com/SCBI-ForestGEO/McGregor_climate-sensitivity-variation/master/data/traits/SCBI_bark_depth.csv?token=AEWDCILPJJJHUBYKQRMDZ6K6NOMTU")
 
 ## climate data ####
 climate_variables <- c( "cld", "dtr", "frs", 
@@ -216,7 +218,7 @@ Biol$bark_thickness <- NA
 tags_with_dbh_issues <- NULL
 for( t in unique(Biol$tag)) {
   # print(t)
-   print(which(unique(Biol$tag) == t))
+  # print(which(unique(Biol$tag) == t))
   
   x <- Biol[Biol$tag %in% t , ]
   max(x$Year)
@@ -370,143 +372,147 @@ Biol <- Biol[as.numeric(as.numeric(substr(Biol$Date, 7, 10))) >= min(as.numeric(
 Biol <- Biol[as.numeric(as.numeric(substr(Biol$Date, 7, 10))) <= max(as.numeric(substr(Clim$Date, 7, 10))), ]
 
 
-## calculate residuals of spine measurement ~ year for each individual####
+## Run the Analysis ####
 
 for(what in c("log_core_measurement", "log_agb_inc")) {
   
-Biol$residuals <- NA
+  ## calculate residuals of spine measurement ~ year for each individual####
+  Biol$residuals <- NA
+  
+  for( t in unique(Biol$coreID)) {
+    x <- Biol[Biol$coreID %in% t, ]
+    
+    x$Y <- x[, switch(what, log_core_measurement = "core_measurement", log_agb_inc = "agb_inc")]
+    
+    first_year_removed <- any(is.na(x$Y))
+    x <- x[!is.na(x$Y),] #remove NA (only first year of measurement for agb_inc)
+    
+    test <- gam(Y~ s(Year), data = x)
+    par(mfrow = c(3,2))
+    plot(test)
+    gam.check(test,pch=19,cex=.3)
+    
+    plot(Y~ Year, data = x, main = "Raw data")
+    points(test$fitted.values ~ x$Year, type = "l")
+    
+    title(paste(x$sp[1], x$status.at.coring[1], t, sep = " - " ), outer = T, line = -2)
+    
+    # save plot
+    if(rbinom(1, 1, 0.1)==1) {
+      dev.print(tiff, paste0('results/explorations/residuals_by_tag/', paste(x$sp[1], x$status.at.coring[1], t, sep = "_" ), "_", gsub("log_", "", what), "_Year_GAM", '.tif'),
+                width = 8,
+                height =8,
+                units = "in",
+                res = 300)
+      
+    }
+    
+    # save residuals
+    x$residuals <- test$residuals 
+    
+    # save back into Biol
+    if(what %in% "log_agb_inc" & first_year_removed) {
+      Biol[Biol$coreID %in% t, ]$residuals <- c(NA, x$residuals) 
+    } else {
+      Biol[Biol$coreID %in% t, ] <- x
+    }
+    
+    
+  }
 
-for( t in unique(Biol$coreID)) {
-  x <- Biol[Biol$coreID %in% t, ]
-
-  x$Y <- x[, switch(what, log_core_measurement = "core_measurement", log_agb_inc = "agb_inc")]
-  x <- x[!is.na(x$Y),] #remove NA (only first year of measurement for agb_inc)
+  ## run slidingwin on residuals to find best time window and lin or quad for each variable ####
+  baseline = "lmer(residuals ~ 1 + (1 | sp) + (1 | coreID), data = Biol[!is.na(Biol$residuals), ])"
   
-  test <- gam(Y~ s(Year), data = x)
-  par(mfrow = c(3,2))
-  plot(test)
-  gam.check(test,pch=19,cex=.3)
+  results <- slidingwin( baseline = eval(parse(text = baseline)),
+                         xvar =list(dtr = Clim$dtr,
+                                    pet = Clim$pet, 
+                                    tmn = Clim$tmn, 
+                                    tmp = Clim$tmp, 
+                                    tmx = Clim$tmx,
+                                    cld = Clim$cld, 
+                                    pre = Clim$pre, 
+                                    wet = Clim$wet
+                         ),
+                         type = "absolute", 
+                         range = window_range,
+                         stat = c("mean"),
+                         func = c("lin","quad"),
+                         refday = reference_date,
+                         cinterval = "month",
+                         cdate = Clim$Date, bdate = Biol[!is.na(Biol$residuals), ]$Date) 
   
-  plot(Y~ Year, data = x, main = "Raw data")
-  points(test$fitted.values ~ x$Year, type = "l")
+  ### find best statistique and window for each variable
+  results$combos
   
-  title(paste(x$sp[1], x$status.at.coring[1], t, sep = " - " ), outer = T, line = -2)
+  best_results_combos <- do.call(rbind, by(results$combos, results$combos$climate, function(x) data.frame(model_ID = as.numeric(rownames(x)), x, stringsAsFactors = F)[which.min(x$DeltaAICc),]))
   
-  # save plot
-  if(rbinom(1, 1, 0.1)==1) {
-    dev.print(tiff, paste0('results/explorations/residuals_by_tag/', paste(x$sp[1], x$status.at.coring[1], t, sep = "_" ), "_", gsub("log_", "", what), "_Year_GAM", '.tif'),
-              width = 8,
+  best_results_combos <- best_results_combos[order(best_results_combos$DeltaAICc),]
+  
+  ### plot the results and save the signal into Biol ####
+  for(i in best_results_combos$model_ID) {
+    print(paste("adding climate data to Biol for model", i))
+    # plot the results
+    plotall(dataset = results[[i]]$Dataset, 
+            bestmodel = results[[i]]$BestModel,
+            bestmodeldata = results[[i]]$BestModelData,
+            title=paste((data.frame(lapply(results$combos[i,], as.character), stringsAsFactors=FALSE)), collapse = "_"))
+    # save the plot
+    dev.print(tiff, paste0('results/ALL_species_mixed_model_on_residuals/ALL_species_mixed_model_on_', gsub("log_", "", what), "_", paste((data.frame(lapply(results$combos[i,], as.character), stringsAsFactors=FALSE)), collapse = "_"), '.tif'),
+              width = 10,
               height =8,
               units = "in",
               res = 300)
     
-  }
-
-  # save residuals
-  x$residuals <- test$residuals 
-  
-  # save back into Biol
-  if(what %in% "log_agb_inc") {
-    Biol[Biol$coreID %in% t, ]$residuals <- c(NA, x$residuals) 
-  } else {
-    Biol[Biol$coreID %in% t, ] <- x
-  }
- 
-  
-}
-
-## run slidingwin on residuals to find best time window and lin or quad for each variable ####
-baseline = "lmer(residuals ~ 1 + (1 | sp) + (1 | coreID), data = Biol)"
-
-results <- slidingwin( baseline = eval(parse(text = baseline)),
-                       xvar =list(dtr = Clim$dtr,
-                                  pet = Clim$pet, 
-                                  tmn = Clim$tmn, 
-                                  tmp = Clim$tmp, 
-                                  tmx = Clim$tmx,
-                                  cld = Clim$cld, 
-                                  pre = Clim$pre, 
-                                  wet = Clim$wet
-                       ),
-                       type = "absolute", 
-                       range = window_range,
-                       stat = c("mean"),
-                       func = c("lin","quad"),
-                       refday = reference_date,
-                       cinterval = "month",
-                       cdate = Clim$Date, bdate = Biol$Date) 
-
-### find best statistique and window for each variable
-results$combos
-
-best_results_combos <- do.call(rbind, by(results$combos, results$combos$climate, function(x) data.frame(model_ID = as.numeric(rownames(x)), x, stringsAsFactors = F)[which.min(x$DeltaAICc),]))
-
-best_results_combos <- best_results_combos[order(best_results_combos$DeltaAICc),]
-
-### plot the results and save the signal into Biol ####
-for(i in best_results_combos$model_ID) {
-  
-  # plot the results
-  plotall(dataset = results[[i]]$Dataset, 
-          bestmodel = results[[i]]$BestModel,
-          bestmodeldata = results[[i]]$BestModelData,
-          title=paste((data.frame(lapply(results$combos[i,], as.character), stringsAsFactors=FALSE)), collapse = "_"))
-  # save the plot
-  dev.print(tiff, paste0('results/ALL_species_mixed_model_on_residuals/ALL_species_mixed_model_on_', gsub("log_", "", what), "_", paste((data.frame(lapply(results$combos[i,], as.character), stringsAsFactors=FALSE)), collapse = "_"), '.tif'),
-            width = 10,
-            height =8,
-            units = "in",
-            res = 300)
-  
-  # save the climate signal in Biol
-  if(any(grepl("I\\(climate\\^2\\)", names( results[[i]]$BestModelData)))) {
-    columns_to_add <- results[[i]]$BestModelData[, c("climate", "I(climate^2)")]
-    names(columns_to_add) <- paste0(results$combos[i,]$climate, c("", "^2"))
-  } else {
-    columns_to_add <- results[[i]]$BestModelData[, c("climate")]
-    names(columns_to_add) <- results$combos[i,]$climate
+    # save the climate signal in Biol
+    if(any(grepl("I\\(climate\\^2\\)", names( results[[i]]$BestModelData)))) {
+      columns_to_add <- results[[i]]$BestModelData[, c("climate", "I(climate^2)")]
+      names(columns_to_add) <- paste0(results$combos[i,]$climate, c("", "^2"))
+    } else {
+      columns_to_add <- results[[i]]$BestModelData[c("climate")]
+      names(columns_to_add) <- results$combos[i,]$climate
+    }
+    
+    to_add_to_Biol <-  cbind(Biol[!is.na(Biol$residuals), ], columns_to_add)
+    Biol[, names(columns_to_add)] <- to_add_to_Biol[match(rownames(Biol), rownames(to_add_to_Biol)), names(columns_to_add)]
   }
   
-  Biol <- cbind(Biol, columns_to_add)
-}
-
-names(Biol)
-
-# look at collinearity between climate variables ####
-X <- Biol[, c("pre", "wet", "pet", "cld", "dtr", "tmx", "tmp", "tmn")]
-X <- X[!duplicated(X),]
-
-panel.cor <- function(x, y, digits = 2, prefix = "", cex.cor, ...)
-{
-  usr <- par("usr"); on.exit(par(usr))
-  par(usr = c(0, 1, 0, 1))
-  r <- abs(cor(x, y))
-  txt <- format(c(r, 0.123456789), digits = digits)[1]
-  txt <- paste0(prefix, txt)
-  if(missing(cex.cor)) cex.cor <- 0.8/strwidth(txt)
-  text(0.5, 0.5, txt, cex = cex.cor * r)
-}
-
-pairs(X, upper.panel = panel.cor)
-
-library(usdm)
-vif(X)
-(vif_res <- vifstep(X, th = 3))
-variables_to_keep <- as.character(vif_res@results$Variables)
-pairs(X[, variables_to_keep], upper.panel = panel.cor)
-
-# After discussion, we like to get rid of collinearity by picking what variables made more sense biologically to us so here is the set we move on with:
-variables_to_keep <- c("pre", "wet", "cld", "tmx", "tmn")
-
-vifstep(Biol[, variables_to_keep], th = 3) #--> all good
-
-# now do a species by species gam using log of raw measuremets, spline on dbh and year ####
-library(MuMIn)
-
-
+  ## Output Biol and best_results_combos to use in different analysis ####
+  write.csv(Biol, file = paste0("processed_data/core_data_with_best_climate_signal", ifelse(what %in% "log_agb_inc", "_AGB", ""), ".csv"), row.names = F)
+  saveRDS(best_results_combos, file =  paste0("processed_data/best_results_combos", ifelse(what %in% "log_agb_inc", "_AGB", ""), ".rds"))
+  
+  ## look at collinearity between climate variables ####
+  X <- Biol[, c("pre", "wet", "pet", "cld", "dtr", "tmx", "tmp", "tmn")]
+  X <- X[!duplicated(X),]
+  
+  panel.cor <- function(x, y, digits = 2, prefix = "", cex.cor, ...)
+  {
+    usr <- par("usr"); on.exit(par(usr))
+    par(usr = c(0, 1, 0, 1))
+    r <- abs(cor(x, y))
+    txt <- format(c(r, 0.123456789), digits = digits)[1]
+    txt <- paste0(prefix, txt)
+    if(missing(cex.cor)) cex.cor <- 0.8/strwidth(txt)
+    text(0.5, 0.5, txt, cex = cex.cor * r)
+  }
+  
+  pairs(X, upper.panel = panel.cor)
+  
+  library(usdm)
+  vif(X)
+  (vif_res <- vifstep(X, th = 3))
+  variables_to_keep <- as.character(vif_res@results$Variables)
+  pairs(X[, variables_to_keep], upper.panel = panel.cor)
+  
+  # After discussion, we like to get rid of collinearity by picking what variables made more sense biologically to us so here is the set we move on with:
+  variables_to_keep <- c("pre", "wet", "cld", "tmx", "tmn")
+  
+  vifstep(Biol[, variables_to_keep], th = 3) #--> all good
+  
+  ## now do a species by species gam using log of raw measuremets, spline on dbh and year ####
+  
   # create tge gam formula
   
-   full_model_formula <- switch(what, "log_core_measurement" =  paste("log_core_measurement ~ s(dbh, k = 3) + s(Year, bs ='re', by = tag) +", paste0("ns(", variables_to_keep, ", 2)", collapse = " + ")),
+  full_model_formula <- switch(what, "log_core_measurement" =  paste("log_core_measurement ~ s(dbh, k = 3) + s(Year, bs ='re', by = tag) +", paste0("ns(", variables_to_keep, ", 2)", collapse = " + ")),
                                log_agb_inc = paste("log_agb_inc ~ s(dbh, k = 3) + s(Year, bs ='re', by = tag) +", paste0("ns(", variables_to_keep, ", 2)", collapse = " + ")))
   
   
@@ -586,12 +592,14 @@ library(MuMIn)
     print(sp)
     
     X <- Biol[Biol$sp %in% sp, ]
+    X <- X[!is.na(X[, switch(what, log_core_measurement = "core_measurement", log_agb_inc = "agb_inc")]), ]
+    
     best_model <- get(paste0(sp, "_best_model"))
     
     variables_to_look_at <- names((best_model$var.summary))[!names((best_model$var.summary)) %in% c("Year", "tag")]
     
     n_row <- ifelse(length(variables_to_look_at) <= 2, 1, 2)
-    n_col <- length(variables_to_look_at) %/% 2 +  length(variables_to_look_at)%% 2
+    n_col <- ifelse(length(variables_to_look_at) == 2, 2, length(variables_to_look_at) %/% 2 +  length(variables_to_look_at)%% 2)
     
     if(length(variables_to_look_at) > 0) {
       par(mfrow=c(ifelse(n_row == 0, 1, n_row), n_col))
@@ -605,6 +613,7 @@ library(MuMIn)
         colnames(varying_x) <- v
         
         X$Y <- X[, switch(what, log_core_measurement = "core_measurement", log_agb_inc = "agb_inc")]
+        
         plot(Y+0.1 ~ varying_v, data = X, log = "y", 
              pch = 16,
              # bg = rgb(0,0,0,0.2),
@@ -612,12 +621,11 @@ library(MuMIn)
              main = paste0(sp[1], " - ", v, ifelse(v %in% best_results_combos$climate, paste0("\nfrom ",
                                                                                               paste(month.abb[reference_date[2] - as.numeric(best_results_combos[best_results_combos$climate %in% v, c("WindowOpen", "WindowClose")])], collapse = " to ")), "")),
              xlab = v,
-             ylab = switch(what, log_core_measurement = "core measurement (mm)", log_agb_inc = "AGB increment (Mg C)"),
-             border = "grey")
+             ylab = switch(what, log_core_measurement = "core measurement (mm)", log_agb_inc = "AGB increment (Mg C)"))
         
         if(length(variables_to_look_at) > 1) {
           constant_variables <- variables_to_look_at[!variables_to_look_at %in% v]
-      
+          
           newd <- cbind(eval(parse(text = paste0("data.frame(", paste0(constant_variables, " = median(X$", constant_variables, ")", collapse = ", "), ",  Year = median(X$Year), tag = factor(X$tag[1]))"))), varying_x)
           
         } else {
@@ -660,10 +668,10 @@ library(MuMIn)
       best_model <- get(paste0(sp, "_best_model"))
       
       
-      varying_x <- data.frame(varying_x = seq(min(Biol[Biol$sp %in% sp, v]), max(Biol[Biol$sp %in% sp, v]), length.out = 100)) ; colnames(varying_x) <- v
+      varying_x <- data.frame(varying_x = seq(min(Biol[Biol$sp %in% sp, v], na.rm = T), max(Biol[Biol$sp %in% sp, v], na.rm = T), length.out = 100)) ; colnames(varying_x) <- v
       constant_variables <- c("dbh", variables_to_keep)[!c("dbh", variables_to_keep) %in% v]
       
-      newd <- cbind(eval(parse(text = paste0("data.frame(", paste0(constant_variables, " = median(Biol$", constant_variables, ")", collapse = ", "), ",  Year = median(Biol$Year), tag = factor(Biol[Biol$sp %in% sp,]$tag[1]))"))), varying_x)
+      newd <- cbind(eval(parse(text = paste0("data.frame(", paste0(constant_variables, " = median(Biol$", constant_variables, ", na.rm = T)", collapse = ", "), ",  Year = median(Biol$Year, na.rm = T), tag = factor(Biol[Biol$sp %in% sp,]$tag[1]))"))), varying_x)
       
       if(v %in% names(best_model$var.summary)) {
         pt <- rbind(pt, data.frame(newd, variable = v, species = sp, varying_x = newd[, v], predict.gam(best_model, newd, type = "response", exclude =grep("Year", sapply(best_model$smooth, "[[", "label"), value = T), se.fit = T)))
@@ -724,4 +732,3 @@ library(MuMIn)
 
 # save environment ####
 save.image(file = "Analysis_workspace.RData")
- 

@@ -22,7 +22,7 @@ core_type <- "CSV"
 reference_date <- c(30, 8) # refday in slidingwin
 window_range <- c(15, 0) #range in slidingwin
 
-what = "log_agb_inc" # options: "log_core_measurement", "log_agb_inc"
+what = "log_core_measurement" # options: "log_core_measurement", "log_agb_inc"
 
 # load data ####
 ## core data  (processed, which include climate data for best windows) ####
