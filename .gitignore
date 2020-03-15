@@ -3,3 +3,4 @@ methods/.DS_Store
 .RData
 results/*.RData
 results/.DS_Store
+.DS_Store
