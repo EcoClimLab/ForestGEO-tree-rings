@@ -1,6 +1,6 @@
 ---
 title: "Analysis methods for characterizing the climate sensitivity of annual growth and woody productivity using tree-rings"
-author: "Kristina Anderson-Teixeira, Valentine Herrmann"
+author: "Kristina Anderson-Teixeira, Valentine Herrmann*"
 output: 
   pdf_document:
     citation_package: natbib
@@ -17,7 +17,9 @@ header-includes:  \usepackage{float}
                   \captionsetup[table]{labelformat=empty}
 
 ---
+*with valuable input from Christy Rollinson and Ross Alexander (who have an in-review manuscript using GAMs for tree-ring analysis)
 
+*Note: So far, this document is written by KAT. I'm missing some specifics. Hopefully I have everything correct, but it needs Valentine's review.*
 
 # Goals / principles
 - predict growth based on climate drivers *and* tree size, by species, so that we can subsequently scale to plot level to predict woody stem productivity $ANPP_{stem}$
@@ -60,7 +62,7 @@ These are outlined below ("Current methodology"), with additional considerations
 
 ### Processed data that we put into model:
 
-1. Tree growth - We start with raw data on radial growth increments (i.e., tree-ring widths). Optionally (probably preferably), we convert this to aboveground biomass increments ($\Delta AGB$) prior to analysis. This requires DBH (see below) and a biomass allometry.
+1. Tree growth - We start with raw data on radial growth increments (i.e., tree-ring widths). Optionally (probably preferably), we convert this to aboveground biomass increments ($\Delta AGB$) prior to analysis. This requires DBH (see below) and a biomass allometry. (*Note: We are still working on the allometries*)
 
 2. Tree diameters -  This requires reconstruction of the historical DBH. We need DBH for any year. Ideally, we want to use a bark thickness allometry to correct for changing bark thickness.
 
@@ -69,27 +71,37 @@ These are outlined below ("Current methodology"), with additional considerations
 
 ## Step 1. Identify most important climatic drivers
 
-1. Detrend individual tree growth records (radial growth increments or $\Delta AGB$) by fitting a spline using a GAM, thereby producing residuals. Rather than averaging by species as per traditional dendro methods, we will analyze individual-level residuals.
+1.1. "Detrend" individual tree growth records (radial growth increments or $\Delta AGB$) by fitting a spline using a GAM, thereby producing residuals. This parallels detrending of traditional dendro analyses, which seems necessary to pull out a good climate signal (see "Considerations and alternative approaches"). However, rather than averaging by species as per traditional dendro methods, we will analyze individual-level residuals.
 
-2. Use the [climwin](https://cran.r-project.org/web/packages/climwin/index.html) R package, described in [this paper](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12590), to identify the time window over which each candidate climate variable most strongly influences tree growth. Specifically, we put the put residuals in *climwin* with with mixed effects model: `residual ~ [climate] + species+ treeID (random effect)`. Outputs are saved [here](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/blob/master/results/ALL_species_mixed_model_on_residuals/). Example output is shown in Fig. 1.
+1.2. Use the [climwin](https://cran.r-project.org/web/packages/climwin/index.html) R package [(van de Pol et. al. 2016)](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12590), to identify the time window over which each candidate climate variable most strongly influences tree growth *for all species combined*. Specifically, we put the put residuals in *climwin* with with mixed effects model: `ln[residual] ~ [climate] + species + treeID (random effect)`. Outputs are saved [here](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/blob/master/results/ALL_species_mixed_model_on_residuals/). Example output is shown in Fig. 1.
 
-![**Fig. 1. Example output from Climwin**. This example, from SCBI, looks at the influence of precipitation on radial growth increments. It identifies June-July of the current growing season as the most important window for precipitation's influence on annual growth. Detailed explanation can be found in the climwin publication (referenced above).](figures/ALL_species_mixed_model_on_core_measurement_residuals_pre_absolute_mean_quad_-1374.75_2_1.png)
+![**Fig. 1. Example output from Climwin**. This example, from SCBI, looks at the influence of precipitation on radial growth increments. It identifies June-July of the current growing season as the most important window for precipitation's influence on annual growth. On axes, window open and window close refer to months prior to August of current gowing seasoon. Detailed explanation of output can be found in van de Pol et. al. (2016).](figures/ALL_species_mixed_model_on_core_measurement_residuals_pre_absolute_mean_quad_-1374.75_2_1.png)
 
-3. For each candidate climate variable, we move forward with that variable over the time window identified by climwin as a candidate climate variable for the multivariate models.
+1.3. For each candidate climate variable, we move forward with that variable over the time window identified by climwin as a candidate climate variable for the multivariate models.
 
+(*Note: This process will tend to pick out current growing season variables, but it may be that once we have 1-2 variables for current growing season, others would be more important (e.g., previous growing season, start/ end of growing season). Thus, we may want to modify how we select climate variables. ([GitHub issue # 19])(https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/19)*)
+
+\newpage
 ## Step 2. Identify best multivariate statistical model accounting for climate and DBH
 
-1. Check colinearity among candidate climate variables; remove those that are redundant
+2.1. Check colinearity among candidate climate variables; remove those that are redundant. (*Note: KAT thinks we need to reduce number of climate variables. ([GitHub issue # 14])(https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/14)*)
 
-2. For each species, run GAM models including every combination of climate variable, DBH, and splines on year fit to each individual.
+2.2. For each species independently, run GAM models including every combination of climate variable, DBH, and splines on year fit to each individual.
 
-3. rank models to determine best
+2.3. Across all potential models, sum variable weights to determine which drivers are most important. Count the model containing those variables as the top model (even if it's not top in terms of AIC)
 
-4. sum variable weights to determine which drivers are most important
+2.4. Plot best model for each species (Figs. 2-3)
 
+![**Fig. 2. Current SCBI output for radial increment**. For each species, relationships are plotted if included in top model. Grey bars indicate long-term mean climate, shading indicates 1 SD. Time windows for each climate variable (CRU abbreviations) are indicated above plot. Note that we should probably reduce number of climate variables.](figures/ALL_variables_log_core_measurement.png)
+
+
+
+![**Fig. 3. Current SCBI output for $\Delta AGB$**. For each species, relationships are plotted if included in top model. Grey bars indicate long-term mean climate, shading indicates 1 SD.  Time windows for each climate variable (CRU abbreviations) are indicated above plot. Note that we should probably reduce number of climate variables, and we are still working on the allometries. ](figures/ALL_variables_log_agb_inc.png)
+
+\newpage
 ## Step 3. Scale to the ecosystem by combining statistical model with census data
 
-
+(We haven't started this yet. Basically, we'll use the statistical models selected in step 2 to predict growth for each individual tree under a range of conditions, sum to get $ANPP_{stem}$.)
 
 \newpage
 # Considerations and alternative approaches
@@ -103,9 +115,9 @@ These are outlined below ("Current methodology"), with additional considerations
 ## Response metric
 
 
-- **ring width (radial growth)** - Annual ring width from individual-level chronologies. Current intention is to focus on this. Used in [Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906).
+- **ring width (radial growth)** - Annual ring width from individual-level chronologies. Helene Muller-Landau argues that, from tree scaling/geometry perspective, this metric is the closest to being size-independent (*not* BAI!) (see [Francis et al. (2017)](https://onlinelibrary.wiley.com/doi/full/10.1111/geb.12604)). Empirically, this seems to be the case in closed-canopy forests.
 
-- **biomass increments** - If we go beyond ring width, biomass increment would be preferable to BAI. I currently think it makes more sense to scale to biomass after statistically predicting ring width increment, but biomass increment could work. **It's worth giving further consideration to the issue of whether to scale to biomass before or after running the statistica model.** 
+- **biomass increments ($\Delta AGB$)** - Ultimately, we want to predict $\Delta AGB$ (and then sum to get $ANPP_{stem}$). The question is whether it's better to convert to $\Delta AGB$ before or after running the statistica model. Christy Rollinson recommends before, and we are leaning that way. However, we're continuting to run models both ways for comparison. It's good to see whether we get similar results both ways. 
 
     - [Foster et al. (2016)](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/blob/master/methods/references/Foster_et_al-2016-Global_Change_Biology.pdf) used indivdiual-level biomass increments. 
    
@@ -113,7 +125,7 @@ These are outlined below ("Current methodology"), with additional considerations
    
 - **percent biomass change** - potential option that would be less strongly dependent on size than biomass increments
 
-- **basal area increment (BAI)** - BAI is commonly considered (by dendrochronologists) to be independent of DBH (or at least moresy than ring width) after trees pass a juvenile growth phase, the logic being that if a tree produces a constant amount of stem wood area each year, BAI will hold steady and ring width will decline. However, while this may hold true in some cases such as very old conifers, in most closed-canopy forests around the world, radial/ diameter growth *increases* with DBH (e.g., Muller-Landau et al. 2006, [Anderson-Teixeira et al. 2015](https://www.researchgate.net/publication/277918165_Size-related_scaling_of_tree_form_and_function_in_a_mixed-age_forest)). There are some likely differences between trees represented by tree-rings (survivors) and the community as a whole, but in [Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906) we show a positive relationship of radial growth to DBH from tree-rings. The implication--based on basic geometry--is that BAI increases even more strongly with DBH than does radial growth, and hence BAI should *not* be considered independent of DBH. Furthermore, BAI in itself is not very meaningful, as wood is added in three dimensions, and BAI only accounts for two. Thus, KAT sees no *a priori* motivation to use BAI over ring width. BAI was used by and Alexander et al. (in review) but without assumption that BAI is independent of DBH. 
+- **basal area increment (BAI)** - (Currently don't see good reason to use this.) BAI is commonly considered by dendrochronologists to be independent of DBH (or at least moresy than ring width) after trees pass a juvenile growth phase, the logic being that if a tree produces a constant amount of stem wood area each year, BAI will hold steady and ring width will decline. However, while this may hold true in some cases such as very old conifers, in most closed-canopy forests around the world, radial/ diameter growth *increases* with DBH (e.g., Muller-Landau et al. 2006, [Anderson-Teixeira et al. 2015](https://www.researchgate.net/publication/277918165_Size-related_scaling_of_tree_form_and_function_in_a_mixed-age_forest)). There are some likely differences between trees represented by tree-rings (survivors) and the community as a whole, but in [Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906) we show a positive relationship of radial growth to DBH from tree-rings. The implication--based on basic geometry--is that BAI increases even more strongly with DBH than does radial growth, and hence BAI should *not* be considered independent of DBH. Furthermore, BAI in itself is not very meaningful, as wood is added in three dimensions, and BAI only accounts for two. Thus, KAT sees no *a priori* motivation to use BAI over ring width. BAI was used by and Alexander et al. (in review) but without assumption that BAI is independent of DBH. 
 
 
 ## Identifying the most important climatic drivers
@@ -122,9 +134,11 @@ These are outlined below ("Current methodology"), with additional considerations
 
 We have two completementary ways of looking at climate sensitivity:
 
-1. The [climwin](https://cran.r-project.org/web/packages/climwin/index.html) R package, described in [this paper](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12590), is currently our best known option for identifying the most important climate drivers. This works with species-level chronologies or individual-level analysis, and can integrate with most types of regression models that can be implemented in R. We have it working with *lmer* (see [issue #1](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/1)).
+1. The [climwin](https://cran.r-project.org/web/packages/climwin/index.html) R package, described in [this paper](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12590), is currently our best known option for identifying the most important climate drivers. This works with species-level chronologies or individual-level analysis, and can integrate with most types of regression models that can be implemented in R. We're currently using it with *lmer* (see [issue #1](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/1)).
 
-2. The "quilt plots" in [Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906) work well for visualizing the big-picture of multiple variables/ months / species, and are a useful complement to *climwin*. So far, we have only done this for species-level residual chronologies, not with individual-level analyses. However, there is no reason (other than potentially complex coding) why we couldn't make similar "quilt plots" for individual-level analyses.
+2. The "quilt plots" in [Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906) work well for visualizing the big-picture of multiple variables/ months / species, and are a useful complement to *climwin*. So far, we have only done this for species-level residual chronologies, not with individual-level analyses. However, there is no reason (other than the time required to code it) why we couldn't make similar "quilt plots" for individual-level analyses.
+
+![**Fig. 4. Quilt plots of Helcoski et al. (2019), which used traditional dendro methods to characterize climate sensitivity of growth at SCBI**. Shown are month-by-month correlations of species-level residual chronologies to climate of current and previous year for the 14 species analyzed.](figures/Helcoski_Figure_2.png)
 
 ### Potential alternatives
 #### Mixed-effects model in climwin on raw data (not optimal)
@@ -134,10 +148,9 @@ This approach did not work well for pulling out climate signals.
 
 - Some of the results aligned with [Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906), but many don't (e.g., positive effect of DTR, where Helcoski found negative).
 
-- Some potential clean-up that may make results more clear: remove outliers, ln-transform age and growth?, remove DTR as predictor variable. 
+- This analysis could have potentially worked better if we'd worked harder at it (e.g., removing outliers, testing various ways of running it); however, it didn't seem like it was even getting close to picking out the signals identified in [Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906).
 
-- However, individual-level detrending seems to be the way to go for identifying the most important climate drivers.
-
+- Conclusion: individual-level detrending seems to be the way to go for identifying the most important climate drivers.
 
 
 ## Accounting for DBH (and other factors)
@@ -157,7 +170,6 @@ This approach did not work well for pulling out climate signals.
 
 \newpage
 ## Other statistical models of individual-level tree-ring data:
-- [Foster et al. (2016)](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/blob/master/methods/references/Foster_et_al-2016-Global_Change_Biology.pdf) used an individual level Baysian heriarchical model to characterize to what extent whole-tree growth depends on climatic, tree, and stand structural variables.
 
 - M. Ross Alexander and colleagues (in review-TREAT CONFIDENTIALLY) "used generalized additive models (GAMs) using the gam function in the mgcv R package to allow for non-linear climate and size effects without prescribing a priori functional forms (Polansky & Robbins 2013; Peters et al.2015, Simpson 2018, Wood 2003).  ....Year effects were estimated using a 4-knot thin plate regression spline fit by sampling plot to capture stand dynamics such as suppression or release events that may have influenced growth through time. Size effects were estimated for each species using 3-knot thin-plate regression splines fit to reconstructed DBH (Wood 2003)."
 
@@ -168,4 +180,6 @@ This approach did not work well for pulling out climate signals.
     Simpson, G.L. (2018). [Modelling palaeoecological time series using generalised additive models](https://www.frontiersin.org/articles/10.3389/fevo.2018.00149/full). Frontiers in Ecology and the Environment, 6, 1–21.
 
     Wood, S.N. (2003). Thin plate regression splines. Journal of the Royal Statistical Society: Series B (Statistical Methodology), 65, 95–114.
+
+- [Foster et al. (2016)](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/blob/master/methods/references/Foster_et_al-2016-Global_Change_Biology.pdf) used an individual level Baysian heriarchical model to characterize to what extent whole-tree growth depends on climatic, tree, and stand structural variables.
 
