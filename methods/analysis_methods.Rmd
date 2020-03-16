@@ -36,7 +36,9 @@ There are 3 basic steps:
 
 3. Scale to the ecosystem by combining statistical model with census data
 
-These are outlined below ("Current methodology"), with additional considerations and alterative approaches outlined later ("Considerations and alternative approaches")
+These are outlined below ("Current methodology"), with additional considerations and alterative approaches outlined later ("Considerations and alternative approaches").
+
+R script is here: https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/blob/master/scripts/Analysis.R. (ask KAT for access if you can't access)
 
 # Current methodology
 
@@ -87,6 +89,7 @@ These are outlined below ("Current methodology"), with additional considerations
 2.1. Check colinearity among candidate climate variables; remove those that are redundant. (*Note: KAT thinks we need to reduce number of climate variables. ([GitHub issue # 14])(https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/14)*)
 
 2.2. For each species independently, run GAM models including every combination of climate variable, DBH, and splines on year fit to each individual.
+`ln[response variable] ~ DBH + [climate variables] + year (spline) + tag (random effect)`
 
 2.3. Across all potential models, sum variable weights to determine which drivers are most important. Count the model containing those variables as the top model (even if it's not top in terms of AIC)
 
