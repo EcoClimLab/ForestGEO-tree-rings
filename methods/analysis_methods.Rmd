@@ -75,7 +75,7 @@ R script is here: https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/bl
 
 1.1. "Detrend" individual tree growth records (radial growth increments or $\Delta AGB$) by fitting a spline using a GAM, thereby producing residuals. This parallels detrending of traditional dendro analyses, which seems necessary to pull out a good climate signal (see "Considerations and alternative approaches"). However, rather than averaging by species as per traditional dendro methods, we will analyze individual-level residuals.
 
-1.2. Use the [climwin](https://cran.r-project.org/web/packages/climwin/index.html) R package [(van de Pol et. al. 2016)](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12590), to identify the time window over which each candidate climate variable most strongly influences tree growth *for all species combined*. Specifically, we put the put residuals in *climwin* with with mixed effects model: `ln[residual] ~ [climate] + species + treeID (random effect)`. Outputs are saved [here](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/blob/master/results/ALL_species_mixed_model_on_residuals/). Example output is shown in Fig. 1.
+1.2. Use the [climwin](https://cran.r-project.org/web/packages/climwin/index.html) R package [(van de Pol et. al. 2016)](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12590), to identify the time window over which each candidate climate variable most strongly influences tree growth *for all species combined*. Specifically, we put the residuals in *climwin* with a mixed effects model using species and tree identity as random effect: `ln[residual] ~ [climate] +  + (1 | sp) + (1 | treeID)`. Outputs are saved [here](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/blob/master/results/ALL_species_mixed_model_on_residuals/). Example output is shown in Fig. 1.
 
 ![**Fig. 1. Example output from Climwin**. This example, from SCBI, looks at the influence of precipitation on radial growth increments. It identifies June-July of the current growing season as the most important window for precipitation's influence on annual growth. On axes, window open and window close refer to months prior to August of current gowing seasoon. Detailed explanation of output can be found in van de Pol et. al. (2016).](figures/ALL_species_mixed_model_on_core_measurement_residuals_pre_absolute_mean_quad_-1374.75_2_1.png)
 
@@ -88,10 +88,10 @@ R script is here: https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/bl
 
 2.1. Check colinearity among candidate climate variables; remove those that are redundant. (*Note: KAT thinks we need to reduce number of climate variables. ([GitHub issue # 14])(https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/14)*)
 
-2.2. For each species independently, run GAM models including every combination of climate variable, DBH, and splines on year fit to each individual.
-`ln[response variable] ~ DBH + [climate variables] + year (spline) + tag (random effect)`
+2.2. For each species independently, run GAM models including every combination of climate variables (as a 2-degree polynomial to allow quadratic curve), spline of DBH (3 knots), and splines of year fit to each individual as a random effect.
+`ln[response variable] ~ spline(DBH) + quad([climate variables]) + spline(year, with treeID as random effect)`
 
-2.3. Across all potential models, sum variable weights to determine which drivers are most important. Count the model containing those variables as the top model (even if it's not top in terms of AIC)
+2.3. Across all possible models, sum variable AICc weights to determine which drivers are most important. Consider the model containing those variables as the top model (even if it's not top in terms of AIC)
 
 2.4. Plot best model for each species (Figs. 2-3)
 
