@@ -19,7 +19,7 @@ header-includes:  \usepackage{float}
 ---
 *with valuable input from Christy Rollinson and Ross Alexander (who have an in-review manuscript using GAMs for tree-ring analysis)
 
-*Note: So far, this document is written by KAT. I'm missing some specifics. Hopefully I have everything correct, but it needs Valentine's review.*
+Note: This analysis lives in a GitHub repository (currently private): https://github.com/EcoClimLab/ForestGEO-climate-sensitivity. You're all welcome to see full code & results there, and to raise/ comment on [issues](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues). Ask KAT for access (you'll need a GitHub profile).
 
 # Goals / principles
 - predict growth based on climate drivers *and* tree size, by species, so that we can subsequently scale to plot level to predict woody stem productivity $ANPP_{stem}$
