@@ -109,8 +109,11 @@ for(clim_v in climate_variables) {
 Clim$Date <- gsub("X", "", Clim$Date)
 Clim$Date <- format(as.Date(Clim$Date , format = "%Y.%m.%d"), "%d/%m/%Y") 
 
+### save prepared clim data ####
+write.csv(Clim, "processed_data/Climate_data.csv", row.names = F)
 
-## bark data (do what Ian did in https://github.com/SCBI-ForestGEO/McGregor_climate-sensitivity-variation ####
+
+# bark data (do what Ian did in https://github.com/SCBI-ForestGEO/McGregor_climate-sensitivity-variation ####
 
 ### keep only species we care about
 bark <- droplevels(bark[bark$species %in% unique(cores$sp), ])
