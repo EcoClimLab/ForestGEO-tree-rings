@@ -12,7 +12,7 @@ library(climwin)
 library(lme4)
 library(mgcv)
 library(splines)
-library(grid)
+library(gridExtra)
 library(MuMIn)
 
 
@@ -399,7 +399,7 @@ for(what in c("log_core_measurement", "log_agb_inc")) {
     
     # save plot
     if(rbinom(1, 1, 0.1)==1) {
-      dev.print(tiff, paste0('results/explorations/residuals_by_tag/', paste(x$sp[1], x$status.at.coring[1], t, sep = "_" ), "_", gsub("log_", "", what), "_Year_GAM", '.tif'),
+      dev.print(png, paste0('results/explorations/residuals_by_tag/', paste(x$sp[1], x$status.at.coring[1], t, sep = "_" ), "_", gsub("log_", "", what), "_Year_GAM", '.png'),
                 width = 8,
                 height =8,
                 units = "in",
@@ -457,7 +457,7 @@ for(what in c("log_core_measurement", "log_agb_inc")) {
             bestmodeldata = results[[i]]$BestModelData,
             title=paste((data.frame(lapply(results$combos[i,], as.character), stringsAsFactors=FALSE)), collapse = "_"))
     # save the plot
-    dev.print(tiff, paste0('results/ALL_species_mixed_model_on_residuals/ALL_species_mixed_model_on_', gsub("log_", "", what), "_", paste((data.frame(lapply(results$combos[i,], as.character), stringsAsFactors=FALSE)), collapse = "_"), '.tif'),
+    dev.print(png, paste0('results/ALL_species_mixed_model_on_residuals/ALL_species_mixed_model_on_', gsub("log_", "", what), "_", paste((data.frame(lapply(results$combos[i,], as.character), stringsAsFactors=FALSE)), collapse = "_"), '.png'),
               width = 10,
               height =8,
               units = "in",
@@ -569,7 +569,7 @@ for(what in c("log_core_measurement", "log_agb_inc")) {
             legend = list(top = list(fun = grid::textGrob("Sum of Weights", y=0, x=1.09))))
   
   # save the plot
-  dev.print(tiff, paste0('results/Species_by_species_GAMS_on_raw_data/Sum_of_AICweights_', what, '.tif'),
+  dev.print(png, paste0('results/Species_by_species_GAMS_on_raw_data/Sum_of_AICweights_', what, '.png'),
             width = 10,
             height =8,
             units = "in",
@@ -647,7 +647,7 @@ for(what in c("log_core_measurement", "log_agb_inc")) {
     
     
     # save plot
-    dev.print(tiff, paste0('results/Species_by_species_GAMS_on_raw_data/GAM_results_raw_', sp, "_", what, ".tif"),
+    dev.print(png, paste0('results/Species_by_species_GAMS_on_raw_data/GAM_results_raw_', sp, "_", what, ".png"),
               width = 8,
               height =8,
               units = "in",
@@ -720,7 +720,7 @@ for(what in c("log_core_measurement", "log_agb_inc")) {
   
   
   # save plot
-  dev.print(tiff, paste0('results/Species_by_species_GAMS_on_raw_data/ALL_variables_', what, '.tif'),
+  dev.print(png, paste0('results/Species_by_species_GAMS_on_raw_data/ALL_variables_', what, '.png'),
             width = 8,
             height =8,
             units = "in",
