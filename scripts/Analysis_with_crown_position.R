@@ -18,11 +18,11 @@ library(usdm)
 
 
 # set parameters ####
-core_type <- "CSV"
+# core_type <- "CSV"
 reference_date <- c(30, 8) # refday in slidingwin
 window_range <- c(15, 0) #range in slidingwin
 
-what = "log_core_measurement" # options: "log_core_measurement", "log_agb_inc"
+what = "log_agb_inc" # options: "log_core_measurement", "log_agb_inc"
 
 # load data ####
 ## core data  (processed, which include climate data for best windows) ####
@@ -70,7 +70,7 @@ Biol$crown_position <- crown$crown.position[match(Biol$tag, crown$tag)]
 Biol <- Biol[!is.na(Biol$crown_position), ]
 
 ## combine crown position into 2 groups (DC and IS) ####
-levels(Biol$crown_position) <- c("CD", "CD", "IS", "IS")
+levels(Biol$crown_position) <- c("DC", "DC", "IS", "IS")
 
 ## edit species to be a species-canopy class combination ####
 Biol$sp <- paste(Biol$sp, Biol$crown_position, sep = "_")
@@ -270,7 +270,7 @@ vifstep(Biol[, variables_to_keep], th = 3) #--> pre and wet are correlated...
     pt$lwr <- exp(pt$fit - 1.96 * pt$se.fit)
     pt$upr <- exp(pt$fit + 1.96 * pt$se.fit)
     
-    pt$crown_position <- factor(sapply(strsplit(as.character(pt$species), split = "_"), "[[", 2), levels = c("D", "C", "I", "S"))
+    pt$crown_position <- factor(sapply(strsplit(as.character(pt$species), split = "_"), "[[", 2), levels = c("DC", "IS"))  #levels = c("D", "C", "I", "S"))
     
     p <- ggplot(data = pt, aes(x = varying_x, y = expfit, group = species))
     if(!v %in% c("dbh")) p <- p + geom_rect(xmin = mean(Biol[, v], na.rm = T) - sd(Biol[, v], na.rm = T), ymin = min(pt$lwr, na.rm = T), xmax = mean(Biol[, v], na.rm = T) + sd(Biol[, v], na.rm = T), ymax = max(pt$upr), fill = "grey" , alpha=0.01) + geom_vline(xintercept = mean(Biol[, v]), col = "grey")
@@ -280,9 +280,11 @@ vifstep(Biol[, variables_to_keep], th = 3) #--> pre and wet are correlated...
       labs(title = paste0(v, ifelse(v %in% best_results_combos$climate, paste0("\nfrom ",
                                                                                paste(month.abb[reference_date[2] - as.numeric(best_results_combos[best_results_combos$climate %in% v, c("WindowOpen", "WindowClose")])], collapse = " to ")), "")),
            x = v,
-           y = "") + #"core measurements") +
+           y = "",
+           bg = "Crown\nposition",
+           col= "Crown\nposition") + #"core measurements") +
       geom_ribbon(aes(ymin=lwr, ymax=upr, col = NULL, bg = crown_position), alpha=0.25) + 
-      scale_colour_hue(drop = F) + scale_fill_hue(drop = F) + 
+      scale_colour_hue(drop = F) + scale_fill_hue(drop = F) +
       theme_classic()
     
     assign(paste0("p_", v), p +
