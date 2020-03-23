@@ -41,13 +41,23 @@ Biol <- Biol[Biol$Year >= 1960, ]
 ## add crown position ####
 if(!all(Biol$tag %in% crown$tag)) stop("Not all tags are in crown data set")
 Biol$crown_position <- crown$crown.position[match(Biol$tag, crown$tag)]
-Biol$crown_position <- factor(Biol$crown_position, levels = c("D", "C", "I", "S"))
+
 
 ## remove tags for which we do not have crown position ####
 Biol <- Biol[!is.na(Biol$crown_position), ]
 
+## combine crown position into 2 groups (DC and IS) ####
+levels(Biol$crown_position) <- c("CD", "CD", "IS", "IS")
+
 ## edit species to be a species-canopy class combination ####
 Biol$sp <- paste(Biol$sp, Biol$crown_position, sep = "_")
+
+## remove  species-canopy combinations were we have less than 5 cores ###
+sp_can_combi_to_remove <- table(Biol$sp[!duplicated(Biol$coreID)]) 
+sp_can_combi_to_remove <- names(sp_can_combi_to_remove[sp_can_combi_to_remove<5])
+
+Biol <- Biol[!Biol$sp %in% sp_can_combi_to_remove, ]
+
 
 ## run analysis ####
 
