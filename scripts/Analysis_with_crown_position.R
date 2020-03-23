@@ -129,7 +129,7 @@ vifstep(Biol[, variables_to_keep], th = 3) #--> pre and wet are correlated...
             legend = list(top = list(fun = grid::textGrob("Sum of Weights", y=0, x=1.09))))
   
   # save the plot
-  dev.print(tiff, paste0('results/Species_by_species_GAMS_on_raw_data_by_canopy/Sum_of_AICweights_', what, '.tif'),
+  dev.print(png, paste0('results/Species_by_species_GAMS_on_raw_data_by_canopy/Sum_of_AICweights_', what, '.png'),
             width = 6,
             height =8,
             units = "in",
@@ -199,7 +199,7 @@ vifstep(Biol[, variables_to_keep], th = 3) #--> pre and wet are correlated...
     
     
     # save plot
-    dev.print(tiff, paste0('results/Species_by_species_GAMS_on_raw_data_by_canopy/GAM_results_raw_', sp, "_", what, ".tif"),
+    dev.print(png, paste0('results/Species_by_species_GAMS_on_raw_data_by_canopy/GAM_results_raw_', sp, "_", what, ".png"),
               width = 8,
               height =8,
               units = "in",
@@ -275,7 +275,7 @@ vifstep(Biol[, variables_to_keep], th = 3) #--> pre and wet are correlated...
   
   
   # save plot
-  dev.print(tiff, paste0('results/Species_by_species_GAMS_on_raw_data_by_canopy/ALL_variables_', what, '.tif'),
+  dev.print(png, paste0('results/Species_by_species_GAMS_on_raw_data_by_canopy/ALL_variables_', what, '.png'),
             width = 8,
             height =8,
             units = "in",
