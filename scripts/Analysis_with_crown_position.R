@@ -34,9 +34,32 @@ best_results_combos <- readRDS(paste0("processed_data/best_results_combos", ifel
 crown <- read.csv("https://raw.githubusercontent.com/SCBI-ForestGEO/SCBI-ForestGEO-Data/master/tree_dimensions/tree_crowns/cored_dendroband_crown_position_data/dendro_cored_full.csv")
 
 
+## climate data (processed in other script) to calculate mean Tmean and Precip in growing season ####
+Clim <- read.csv("processed_data/Climate_data.csv")
+
 # prepare data ####
 ## keep only 1960 and later
 Biol <- Biol[Biol$Year >= 1960, ]
+
+## Calculate mean tmp and pre for growing season ####
+### see issue #16:
+### "Ross's paper included mean growing season temperature (Tmean), cumulative growing season precipitation (Precip), and mean growing season daily maximum vapor pressure deficit (VPDmax)-- from PRISM. Growing season defined as May-Sept.
+### Let's start by trying it with just T and precip (from CRU) for those same months, as we don't have VPD."
+growing_season_months <- c("05", "06", "07", "08", "09")
+
+### subset for growing season months only
+Clim$Date <- as.Date(Clim$Date , format = "%d/%m/%Y")
+Clim <- Clim[strftime(as.Date(Clim$Date), format = "%m") %in% growing_season_months, ]
+
+### average tmp by year + sum precip
+Clim$Year <- strftime(Clim$Date, format = "%Y")
+
+Tmean <- as.data.frame(tapply(Clim$tmp, Clim$Year, mean))
+Precip <- as.data.frame(tapply(Clim$pre, Clim$Year, sum))
+
+## Add new Clim records to Biol
+Biol$Tmean <- Tmean[as.character(Biol$Year),]
+Biol$Precip <- Precip[as.character(Biol$Year),]
 
 ## add crown position ####
 if(!all(Biol$tag %in% crown$tag)) stop("Not all tags are in crown data set")
@@ -61,8 +84,8 @@ Biol <- Biol[!Biol$sp %in% sp_can_combi_to_remove, ]
 
 ## run analysis ####
 
-# After discussion, we like to get rid of collinearity by picking what variables made more sense biologically to us so here is the set we move on with:
-variables_to_keep <- c("pre", "wet", "cld", "tmx", "tmn")
+
+variables_to_keep <- c("Tmean", "Precip") #c("pre", "wet", "cld", "tmx", "tmn")
 vif(Biol[, variables_to_keep])
 vifstep(Biol[, variables_to_keep], th = 3) #--> pre and wet are correlated...
   
