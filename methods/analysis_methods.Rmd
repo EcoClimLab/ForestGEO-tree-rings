@@ -159,7 +159,7 @@ This approach did not work well for pulling out climate signals.
 ## Accounting for DBH (and other factors)
 - DBH must be accounted for in the model. [Peters et al. (2015)](https://onlinelibrary.wiley.com/doi/epdf/10.1111/gcb.12826) reviews some methods
 
-- Should we account for age too?
+- Should we account for age too? Probably. See [issue #21](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/21). 
 
 
 
