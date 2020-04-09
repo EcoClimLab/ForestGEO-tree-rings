@@ -32,7 +32,7 @@ calculate_bark_thickness_ln <- function(dbh, sp){
                 "caovl", "cato", "fram", "juni", "litu", "qual", "qupr", "quru", 
                 "quve", "frni", "fagr", "pist")) stop('sp has to be one of c("caco", "cagl", "caovl", "cato", "fram", "juni", "litu", "qual", "qupr", "quru", "quve", "frni", "fagr", "pist")')
   
- warning("- Allometries of Fraxinus americanus were used for Fraxinus nigra.\n  - Bark thickness of Fagus grandifolia is considered to be 0.\n  - Allometries for Pinus strobus are not developped yet (update this code when they are) so Allometry of Quercus rubra is used for now...")
+ warning("- Allometries of Fraxinus americanus were used for Fraxinus nigra.\n  - Bark thickness of Fagus grandifolia is considered to be 0.\n  - Allometries for Pinus strobus are not developped yet (update this code when they are) so Allometry of Fraxinus americanus is used for now...")
   
   if(!is.na(dbh) & dbh < 0) stop(paste("dbh = ", dbh, "- dbh has to be a positive value"))
   
@@ -50,7 +50,7 @@ calculate_bark_thickness_ln <- function(dbh, sp){
           "quve" = 0.245+0.219*log(dbh),
           "frni" = 0.418+0.268*log(dbh), # used fram equation
           "fagr" = -Inf, # considered non existent (exp(-Inf) = 0)
-          "pist" = -0.593+0.292*log(dbh), # use quru equation for now
+          "pist" =  0.418+0.268*log(dbh), # used fram equation
           NA
           
   )
