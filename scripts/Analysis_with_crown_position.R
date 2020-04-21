@@ -69,8 +69,8 @@ Biol$crown_position <- crown$crown.position[match(Biol$tag, crown$tag)]
 ## remove tags for which we do not have crown position ####
 Biol <- Biol[!is.na(Biol$crown_position), ]
 
-## combine crown position into 2 groups (DC and IS) ####
-levels(Biol$crown_position) <- c("DC", "DC", "IS", "IS")
+## combine crown position into groups (DC and IS) ####
+levels(Biol$crown_position) <- c("DC", "DC", "I", "S")
 
 ## edit species to be a species-canopy class combination ####
 Biol$sp <- paste(Biol$sp, Biol$crown_position, sep = "_")
@@ -270,13 +270,12 @@ vifstep(Biol[, variables_to_keep], th = 3) #--> pre and wet are correlated...
     pt$lwr <- exp(pt$fit - 1.96 * pt$se.fit)
     pt$upr <- exp(pt$fit + 1.96 * pt$se.fit)
     
-    pt$crown_position <- factor(sapply(strsplit(as.character(pt$species), split = "_"), "[[", 2), levels = c("DC", "IS"))  #levels = c("D", "C", "I", "S"))
+    pt$crown_position <- factor(sapply(strsplit(as.character(pt$species), split = "_"), "[[", 2), levels = c("DC", "I", "S"))  #levels = c("D", "C", "I", "S"))
     
     p <- ggplot(data = pt, aes(x = varying_x, y = expfit, group = species))
     if(!v %in% c("dbh")) p <- p + geom_rect(xmin = mean(Biol[, v], na.rm = T) - sd(Biol[, v], na.rm = T), ymin = min(pt$lwr, na.rm = T), xmax = mean(Biol[, v], na.rm = T) + sd(Biol[, v], na.rm = T), ymax = max(pt$upr), fill = "grey" , alpha=0.01) + geom_vline(xintercept = mean(Biol[, v]), col = "grey")
     
     p <- p + geom_line(aes(col = crown_position)) +
-      # scale_x_continuous(trans= ifelse(v %in% "dbh", 'log','identity')) +
       labs(title = paste0(v, ifelse(v %in% best_results_combos$climate, paste0("\nfrom ",
                                                                                paste(month.abb[reference_date[2] - as.numeric(best_results_combos[best_results_combos$climate %in% v, c("WindowOpen", "WindowClose")])], collapse = " to ")), "")),
            x = v,
