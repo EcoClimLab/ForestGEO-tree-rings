@@ -1,0 +1,49 @@
+---
+title: ""
+output: word_document
+---
+**Title:** Tree growth and woody productivity(?) are optimized under long-term mean climate conditions in forests worldwide (*if this holds!*)
+
+**Authors:** 
+
+Kristina J. Anderson-Teixeira^1,2^*
+
+Valentine Herrmann^1^
+
+(see list)
+
+
+**Author Affiliations:**
+
+1. Conservation Ecology Center; Smithsonian Conservation Biology Institute; National Zoological Park, Front Royal, VA, USA
+2. Center for Tropical Forest Science-Forest Global Earth Observatory; Smithsonian Tropical Research Institute; Panama, Republic of Panama
+
+
+*Corresponding Author:
+
+phone: 1-540-635-6546 
+
+fax:1-540-635-6506
+
+email: teixeirak@si.edu
+
+
+\newline
+\newline
+\newline
+\newline
+
+# ABSTRACT
+
+# MAIN
+
+(Importance of forest woody productivity to forest-climate interactions , practical utility for dendro analysis)
+
+Most biological rates—- from photosynthesis to animal metabolism—-display a unimodal relationship to temporal variation in temperature, wherein rates increase exponentially with temperature up to a point, typically reflective of the environment to which the organism is adapted / acclimatized, and decrease at higher temperatures. Similar relationships have also been observed for moisture availability, particularly in environments that are not strongly water-limited. ... In trees, these responses are typically observed over time frames of seconds to days, and therefore do not directly reveal how annual tree growth and forest productivity respond to inter-annual variation in climate. The annual growth records of tree-rings allow can be used to study interannual variation, but the standard practice in dendrochronology has been to fit linear relationships, and we therefore know little about what, if any, nonlinearities occur in tree growth responses to interannual variation in climate.
+
+# NOTES
+
+From Helene's Tansley review: 
+-"For any given plant, net photosynthesis is a unimodal function of temperature, reflecting biochemically determined unimodal responses of maximum photosynthetic rates in combination with stomatal conductance and respiration (Slot and Winter 2017).    "
+
+-"Across sites, the optimum temperature for photosynthesis is strongly positively correlated with mean growing season temperature (Tan et al. 2017), reflecting acclimation and adaptation (Kumarathunge et al. 2019). "
