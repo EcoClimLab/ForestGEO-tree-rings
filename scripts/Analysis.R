@@ -13,8 +13,9 @@ library(lme4)
 library(mgcv)
 library(splines)
 library(gridExtra)
+library(grids)
 library(MuMIn)
-
+library(allodb) # remotes::install_github("forestgeo/allodb")
 
 # set parameters ####
 core_type <- "CSV"
@@ -70,13 +71,14 @@ dbh_2018 <- read.csv("https://raw.githubusercontent.com/SCBI-ForestGEO/SCBI-Fore
 ## bark data ####
 
 # bark <- read.csv("data/traits/SCBI_bark_depth.csv")
-bark <- read.csv("https://raw.githubusercontent.com/SCBI-ForestGEO/McGregor_climate-sensitivity-variation/master/data/traits/SCBI_bark_depth.csv?token=AEWDCILPJJJHUBYKQRMDZ6K6NOMTU")
+bark <- read.csv("https://raw.githubusercontent.com/SCBI-ForestGEO/McGregor_climate-sensitivity-variation/master/data/traits/SCBI_bark_depth.csv?token=AEWDCIJ6WUZEK42GLF6KNPS6TBLGW")
 
 ## climate data ####
 climate_variables <- c( "cld", "dtr", "frs", 
                         "pet", "pre", 
                         "tmn", "tmp", "tmx", 
                         "vap", "wet")
+
 for(clim_v in climate_variables) {
   assign(clim_v, read.csv(paste0("https://raw.githubusercontent.com/forestgeo/Climate/master/Gridded_Data_Products/Historical%20Climate%20Data/CRU_v4_01/", clim_v, ".1901.2016-ForestGEO_sites-8-18.csv"))
   )
@@ -123,15 +125,22 @@ bark$diam_nobark_2008.mm <- bark$DBH.mm.2008 - 2*bark$bark.depth.mm
 
 ### predict bark thickness with both dbh and dbh_no_bark and see if that makes a big difference
 bark$predict_barkthick_from_no_bark <- apply(bark, 1, function(x) exp(calculate_bark_thickness_ln(dbh = x[["diam_nobark_2008.mm"]], sp = x[["species"]])))
+
 bark$predict_barkthick_from_dbh <- apply(bark, 1, function(x) exp(calculate_bark_thickness_ln(dbh = x[["DBH.mm.2008"]], sp = x[["species"]])))
+
 bark$predicit_dbh_from_no_bark <- bark$diam_nobark_2008.mm + 2*bark$predict_barkthick_from_no_bark 
-### Take exponent of bark.depth.mm and make sure predicted values look good.
+
+
 plot(bark$predict_barkthick_from_no_bark, bark$predict_barkthick_from_dbh)
 abline(0,1)
+
 summary(bark$predict_barkthick_from_no_bark - bark$predict_barkthick_from_dbh)
+
 plot(c(bark$predict_barkthick_from_no_bark - bark$predict_barkthick_from_dbh) ~ bark$DBH.mm.2008)
 abline(lm(c(bark$predict_barkthick_from_no_bark - bark$predict_barkthick_from_dbh) ~ bark$DBH.mm.2008))
+
 summary(lm(c(bark$predict_barkthick_from_no_bark - bark$predict_barkthick_from_dbh) ~ bark$DBH.mm.2008)) # always underestimtes the bark thickness but no signicicant trend with dbh...
+
 summary(lm(2*c(bark$predict_barkthick_from_no_bark - bark$predict_barkthick_from_dbh) ~ bark$DBH.mm.2008)) # always underestimtes the bark thickness but no signicicant trend with dbh...
 
 
@@ -329,44 +338,62 @@ for( t in tags_with_dbh_issues) {
   mtext(side = 1, "Year", outer = T)
 }
 
-## calculate Biomass using equations developped by Erika for now ####
-x <- Biol
+## calculate Biomass using allodb ####
+load("C:/Users/HerrmannV/Dropbox (Smithsonian)/GitHub/forestgeo/allodb/tests/scbi.spptable.rdata")
 
-x$agb <- NA
+dim(Biol)
+Biol$genus <- scbi.spptable$genus[match(Biol$sp, scbi.spptable$sp)]
+Biol$species <- scbi.spptable$species[match(Biol$sp, scbi.spptable$sp)]
+dim(Biol)
 
-x$agb <- ifelse(x$sp == "caco", 10^(-1.326 + 2.762 * log10(x$dbh * 0.1)) *1.005, x$agb)# new equation added by Erika 1/13/2020                                          
-x$agb <- ifelse(x$sp == "cagl", 10^(-1.326 + 2.762 * log10(x$dbh * 0.1)) *1.005, x$agb)# new equation added by Erika 1/13/2020  
-x$agb <- ifelse(x$sp == "caovl", 10^(-1.326 + 2.762 * log10(x$dbh * 0.1)) *1.005, x$agb)# new equation added by Erika 1/13/2020                                              
-x$agb <- ifelse(x$sp == "cato", 10^(-1.326 + 2.762 * log10(x$dbh * 0.1)) *1.005, x$agb)# new equation added by Erika 1/13/2020                                              
-x$agb <- ifelse(x$sp == "fagr", 10^(2.1112 + 2.462 * log10(x$dbh * 0.1)) / 1000, x$agb)# new equation added by Erika 1/13/2020
-x$agb <- ifelse(x$sp == "fram", (2.3626 * (x$dbh * 0.03937)^2.4798) * 0.45359, x$agb)
-x$agb <- ifelse(x$sp == "frni", 0.1634 * (x$dbh * 0.1)^2.348, x$agb)
-x$agb <- ifelse(x$sp == "juni", exp(-2.5095 + 2.5437 * log(x$dbh * 0.1)), x$agb)
-x$agb <- ifelse(x$sp == "litu", (10^(-1.236 + 2.635 * (log10(x$dbh * 0.1)))) * 1.008, x$agb) # new equation given by Erika on Tue 4/2/2019 11:57
-x$agb <- ifelse(x$sp == "pist", (exp(5.2831 + 2.0369 * log(x$dbh * 0.1))) / 1000, x$agb)
-x$agb <- ifelse(x$sp == "qual", (1.5647 * (x$dbh * 0.03937)^2.6887) * 0.45359, x$agb)
-x$agb <- ifelse(x$sp == "qupr", (1.5509 * (x$dbh * 0.03937)^2.7276) * 0.45359, x$agb)
-x$agb <- ifelse(x$sp == "quru", (2.4601 * (x$dbh * 0.03937)^2.4572) * 0.45359, x$agb)
-x$agb <- ifelse(x$sp == "quve" & (x$dbh * 0.1) < 30, exp(-0.34052 + 2.65803 * log(x$dbh * 0.03937)), x$agb)
-x$agb <- ifelse(x$sp == "quve" & (x$dbh * 0.1) >= 30, (10^(1.00005 + 2.10621 * (log10(x$dbh * 0.03937)))) * 0.45359, x$agb)
+library(allodb)
 
+Biol$agb <- get_biomass(dbh=Biol$dbh/10, # change dbh to cm!!!
+                              genus=Biol$genus,
+                              species = Biol$species,
+                              coords = c(-78.15, 38.9))/1000
 
-#Convert from kg to Mg
-x$agb <- x$agb / 1000 
+# old way of calculated biomass (commented out) ####
 
-# Convert to C
-x$agb <-  x$agb * .47
+# x <- Biol
+# x$agb = NA
+# x$agb <- ifelse(x$sp == "caco", 10^(-1.326 + 2.762 * log10(x$dbh * 0.1)) *1.005, x$agb)# new equation added by Erika 1/13/2020
+# x$agb <- ifelse(x$sp == "cagl", 10^(-1.326 + 2.762 * log10(x$dbh * 0.1)) *1.005, x$agb)# new equation added by Erika 1/13/2020
+# x$agb <- ifelse(x$sp == "caovl", 10^(-1.326 + 2.762 * log10(x$dbh * 0.1)) *1.005, x$agb)# new equation added by Erika 1/13/2020
+# x$agb <- ifelse(x$sp == "cato", 10^(-1.326 + 2.762 * log10(x$dbh * 0.1)) *1.005, x$agb)# new equation added by Erika 1/13/2020
+# x$agb <- ifelse(x$sp == "fagr", 10^(2.1112 + 2.462 * log10(x$dbh * 0.1)) / 1000, x$agb)# new equation added by Erika 1/13/2020
+# x$agb <- ifelse(x$sp == "fram", (2.3626 * (x$dbh * 0.03937)^2.4798) * 0.45359, x$agb)
+# x$agb <- ifelse(x$sp == "frni", 0.1634 * (x$dbh * 0.1)^2.348, x$agb)
+# x$agb <- ifelse(x$sp == "juni", exp(-2.5095 + 2.5437 * log(x$dbh * 0.1)), x$agb)
+# x$agb <- ifelse(x$sp == "litu", (10^(-1.236 + 2.635 * (log10(x$dbh * 0.1)))) * 1.008, x$agb) # new equation given by Erika on Tue 4/2/2019 11:57
+# x$agb <- ifelse(x$sp == "pist", (exp(5.2831 + 2.0369 * log(x$dbh * 0.1))) / 1000, x$agb)
+# x$agb <- ifelse(x$sp == "qual", (1.5647 * (x$dbh * 0.03937)^2.6887) * 0.45359, x$agb)
+# x$agb <- ifelse(x$sp == "qupr", (1.5509 * (x$dbh * 0.03937)^2.7276) * 0.45359, x$agb)
+# x$agb <- ifelse(x$sp == "quru", (2.4601 * (x$dbh * 0.03937)^2.4572) * 0.45359, x$agb)
+# x$agb <- ifelse(x$sp == "quve" & (x$dbh * 0.1) < 30, exp(-0.34052 + 2.65803 * log(x$dbh * 0.03937)), x$agb)
+# x$agb <- ifelse(x$sp == "quve" & (x$dbh * 0.1) >= 30, (10^(1.00005 + 2.10621 * (log10(x$dbh * 0.03937)))) * 0.45359, x$agb)
+# 
+# 
+# #Convert from kg to Mg
+# x$agb <- x$agb / 1000
+# 
+# Biol$agb <- x$agb
+
+# Convert biomass to C ####
+Biol$agb <-  Biol$agb * .47
   
-Biol <- x
 
 ## calculate agb increment for each individual ####
+non_monotonous_cases <-NULL
 Biol$agb_inc <- NA
 for( t in unique(Biol$coreID)) {
   x <- Biol[Biol$coreID %in% t, ]
   x$agb_inc <- c(NA, diff(x$agb))
-  
+  if(any( !is.na(x$agb_inc) & x$agb_inc < 0)) non_monotonous_cases <- c(non_monotonous_cases, t)
   Biol[Biol$coreID %in% t, ] <- x
 }
+## remove cores that have negative agb increment (should be none once Pinus strobus is fixed)####
+Biol <- Biol[!Biol$coreID %in% non_monotonous_cases,]
 
 ## remove years that are before climate record (+ first few first months to be able to look at window before measurement) ####
 Biol <- Biol[as.numeric(as.numeric(substr(Biol$Date, 7, 10))) >= min(as.numeric(substr(Clim$Date, 7, 10)))+  window_range[1]/12, ]
@@ -391,6 +418,16 @@ for(what in c("log_core_measurement", "log_agb_inc")) {
     x <- x[!is.na(x$Y),] #remove NA (only first year of measurement for agb_inc)
     
     test <- gam(Y~ s(Year), data = x)
+    
+    
+    if(rbinom(1, 1, 0.1)==1) {
+      png(paste0('results/explorations/residuals_by_tag/', paste(x$sp[1], x$status.at.coring[1], t, sep = "_" ), "_", gsub("log_", "", what), "_Year_GAM", '.png'),
+                width = 8,
+                height =8,
+                units = "in",
+                res = 300)
+      
+    
     par(mfrow = c(3,2))
     plot(test)
     gam.check(test,pch=19,cex=.3)
@@ -401,13 +438,7 @@ for(what in c("log_core_measurement", "log_agb_inc")) {
     title(paste(x$sp[1], x$status.at.coring[1], t, sep = " - " ), outer = T, line = -2)
     
     # save plot
-    if(rbinom(1, 1, 0.1)==1) {
-      dev.print(png, paste0('results/explorations/residuals_by_tag/', paste(x$sp[1], x$status.at.coring[1], t, sep = "_" ), "_", gsub("log_", "", what), "_Year_GAM", '.png'),
-                width = 8,
-                height =8,
-                units = "in",
-                res = 300)
-      
+    dev.off()
     }
     
     # save residuals
@@ -454,11 +485,14 @@ for(what in c("log_core_measurement", "log_agb_inc")) {
   ### plot the results and save the signal into Biol ####
   for(i in best_results_combos$model_ID) {
     print(paste("adding climate data to Biol for model", i))
+    #clear plotting device 
+    dev.off()
     # plot the results
     plotall(dataset = results[[i]]$Dataset, 
             bestmodel = results[[i]]$BestModel,
             bestmodeldata = results[[i]]$BestModelData,
             title=paste((data.frame(lapply(results$combos[i,], as.character), stringsAsFactors=FALSE)), collapse = "_"))
+    
     # save the plot
     dev.print(png, paste0('results/ALL_species_mixed_model_on_residuals/ALL_species_mixed_model_on_', gsub("log_", "", what), "_", paste((data.frame(lapply(results$combos[i,], as.character), stringsAsFactors=FALSE)), collapse = "_"), '.png'),
               width = 10,
@@ -513,7 +547,7 @@ for(what in c("log_core_measurement", "log_agb_inc")) {
   
   ## now do a species by species gam using log of raw measuremets, spline on dbh and year ####
   
-  # create tge gam formula
+  # create the gam formula
   
   full_model_formula <- switch(what, "log_core_measurement" =  paste("log_core_measurement ~ s(dbh, k = 3) + s(Year, bs ='re', by = tag) +", paste0("ns(", variables_to_keep, ", 2)", collapse = " + ")),
                                log_agb_inc = paste("log_agb_inc ~ s(dbh, k = 3) + s(Year, bs ='re', by = tag) +", paste0("ns(", variables_to_keep, ", 2)", collapse = " + ")))
@@ -617,12 +651,17 @@ for(what in c("log_core_measurement", "log_agb_inc")) {
         
         X$Y <- X[, switch(what, log_core_measurement = "core_measurement", log_agb_inc = "agb_inc")]
         
+        time_window <- reference_date[2] - as.numeric(best_results_combos[best_results_combos$climate %in% v, c("WindowOpen", "WindowClose")])
+        time_window_prev <- time_window < 0
+        time_window <- ifelse(time_window_prev, rev(1:12)[abs(time_window)], time_window)
+          
+        time_window_text <- paste0("\nfrom ", paste(paste0(ifelse(time_window_prev, "prev. ", "curr. "), month.abb[time_window]), collapse = " to "))
+          
         plot(Y+0.1 ~ varying_v, data = X, log = "y", 
              pch = 16,
              # bg = rgb(0,0,0,0.2),
              col = rainbow(length(unique(X$tag)), s = 0.8, alpha = 0.2)[c(1:length(unique(X$tag)))[match(X$tag, unique(X$tag))]],
-             main = paste0(sp[1], " - ", v, ifelse(v %in% best_results_combos$climate, paste0("\nfrom ",
-                                                                                              paste(month.abb[reference_date[2] - as.numeric(best_results_combos[best_results_combos$climate %in% v, c("WindowOpen", "WindowClose")])], collapse = " to ")), "")),
+             main = paste0(sp[1], " - ", v, ifelse(v %in% best_results_combos$climate, time_window_text, "")),
              xlab = v,
              ylab = switch(what, log_core_measurement = "core measurement (mm)", log_agb_inc = "AGB increment (Mg C)"))
         
@@ -660,6 +699,8 @@ for(what in c("log_core_measurement", "log_agb_inc")) {
   
   
   ## third,  plot response curves for each variable, with one curve per species ####
+  # first remove any object starting by p_
+  rm(list = ls()[grepl("^p_", ls())])
   #Create a custom color scale
   
   for(v in c("dbh", variables_to_keep)) {
@@ -682,26 +723,35 @@ for(what in c("log_core_measurement", "log_agb_inc")) {
       }
       
     } # ignore errors
-    pt$species <- factor(pt$species, levels = rownames(sum_of_weights_for_each_term_by_sp))
-    pt$expfit <- exp(pt$fit)
-    pt$lwr <- exp(pt$fit - 1.96 * pt$se.fit)
-    pt$upr <- exp(pt$fit + 1.96 * pt$se.fit)
     
-    p <- ggplot(data = pt, aes(x = varying_x, y = expfit))
-    if(v != "dbh") p <- p + geom_rect(xmin = mean(Biol[, v]) - sd(Biol[, v]), ymin = min(pt$lwr), xmax = mean(Biol[, v]) + sd(Biol[, v]), ymax = max(pt$upr), fill = "grey" , alpha=0.01) + geom_vline(xintercept = mean(Biol[, v]), col = "grey")
+    if(!is.null(pt)) {
+      pt$species <- factor(pt$species, levels = rownames(sum_of_weights_for_each_term_by_sp))
+      pt$expfit <- exp(pt$fit)
+      pt$lwr <- exp(pt$fit - 1.96 * pt$se.fit)
+      pt$upr <- exp(pt$fit + 1.96 * pt$se.fit)
+      
+      p <- ggplot(data = pt, aes(x = varying_x, y = expfit))
+      if(v != "dbh") p <- p + geom_rect(xmin = mean(Biol[, v]) - sd(Biol[, v]), ymin = min(pt$lwr), xmax = mean(Biol[, v]) + sd(Biol[, v]), ymax = max(pt$upr), fill = "grey" , alpha=0.01) + geom_vline(xintercept = mean(Biol[, v]), col = "grey")
+      
+      time_window <- reference_date[2] - as.numeric(best_results_combos[best_results_combos$climate %in% v, c("WindowOpen", "WindowClose")])
+      time_window_prev <- time_window < 0
+      time_window <- ifelse(time_window_prev, rev(1:12)[abs(time_window)], time_window)
+      
+      time_window_text <- paste0("\nfrom ", paste(paste0(ifelse(time_window_prev, "prev. ", "curr. "), month.abb[time_window]), collapse = " to "))
+      
+      p <- p + geom_line(aes(group = species, col = species)) +
+        # scale_x_continuous(trans= ifelse(v %in% "dbh", 'log','identity')) +
+        labs(title = paste0(v, ifelse(v %in% best_results_combos$climate, time_window_text, "")),
+             x = v,
+             y = "") + #"core measurements") +
+        geom_ribbon(aes(ymin=lwr, ymax=upr, col = NULL, bg = species), alpha=0.25) + 
+        scale_colour_hue(drop = F) + scale_fill_hue(drop = F) + 
+        theme_classic()
+      
+      assign(paste0("p_", v), p +
+               theme(legend.position="none"))  
+    }
     
-    p <- p + geom_line(aes(group = species, col = species)) +
-      # scale_x_continuous(trans= ifelse(v %in% "dbh", 'log','identity')) +
-      labs(title = paste0(v, ifelse(v %in% best_results_combos$climate, paste0("\nfrom ",
-                                                                               paste(month.abb[reference_date[2] - as.numeric(best_results_combos[best_results_combos$climate %in% v, c("WindowOpen", "WindowClose")])], collapse = " to ")), "")),
-           x = v,
-           y = "") + #"core measurements") +
-      geom_ribbon(aes(ymin=lwr, ymax=upr, col = NULL, bg = species), alpha=0.25) + 
-      scale_colour_hue(drop = F) + scale_fill_hue(drop = F) + 
-      theme_classic()
-    
-    assign(paste0("p_", v), p +
-             theme(legend.position="none"))
   }
   
   g_legend<-function(a.gplot){
@@ -711,13 +761,13 @@ for(what in c("log_core_measurement", "log_agb_inc")) {
     return(legend)}
   
   
-  
-  grid.arrange(do.call(arrangeGrob, c(lapply(paste0("p_",  c("dbh", variables_to_keep)), function(x)  get(x)), ncol = 3)),
+  existing_plots <- paste0("p_",  c("dbh", variables_to_keep))
+  grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  get(x)), ncol = 3)),
                g_legend(p),
                nrow = 1,
                widths = c(10, 1))
   
-  grid.text(switch (what, log_core_measurement = "core measurement (mm)",
+  grid::grid.text(switch (what, log_core_measurement = "core measurement (mm)",
                     log_agb_inc = "AGB increment (Mg C)"), x = unit(0.01, "npc"), y = unit(.51, "npc"), rot = 90)
   
   
