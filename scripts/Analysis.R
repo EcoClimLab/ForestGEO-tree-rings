@@ -731,7 +731,7 @@ for(what in c("log_core_measurement", "log_agb_inc")) {
       pt$upr <- exp(pt$fit + 1.96 * pt$se.fit)
       
       p <- ggplot(data = pt, aes(x = varying_x, y = expfit))
-      if(v != "dbh") p <- p + geom_rect(xmin = mean(Biol[, v]) - sd(Biol[, v]), ymin = min(pt$lwr), xmax = mean(Biol[, v]) + sd(Biol[, v]), ymax = max(pt$upr), fill = "grey" , alpha=0.01) + geom_vline(xintercept = mean(Biol[, v]), col = "grey")
+      if(v != "dbh") p <- p + geom_rect(xmin = mean(Biol[, v], na.rm = T) - sd(Biol[, v], na.rm = T), ymin = min(pt$lwr), xmax = mean(Biol[, v], na.rm = T) + sd(Biol[, v], na.rm = T), ymax = max(pt$upr), fill = "grey" , alpha=0.01) + geom_vline(xintercept = mean(Biol[, v], na.rm = T), col = "grey")
       
       time_window <- reference_date[2] - as.numeric(best_results_combos[best_results_combos$climate %in% v, c("WindowOpen", "WindowClose")])
       time_window_prev <- time_window < 0
