@@ -75,18 +75,26 @@ R script is here: https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/bl
 
 1.1. "Detrend" individual tree growth records (radial growth increments or $\Delta AGB$) by fitting a spline using a GAM, thereby producing residuals. This parallels detrending of traditional dendro analyses, which seems necessary to pull out a good climate signal (see "Considerations and alternative approaches"). However, rather than averaging by species as per traditional dendro methods, we will analyze individual-level residuals.
 
-1.2. Use the [climwin](https://cran.r-project.org/web/packages/climwin/index.html) R package [(van de Pol et. al. 2016)](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12590), to identify the time window over which each candidate climate variable most strongly influences tree growth *for all species combined*. Specifically, we put the residuals in *climwin* with a mixed effects model using species and tree identity as random effect: `ln[residual] ~ [climate] +  + (1 | sp) + (1 | treeID)`. Outputs are saved [here](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/blob/master/results/ALL_species_mixed_model_on_residuals/). Example output is shown in Fig. 1.
+1.2. We use climate data from CRU v. 4.04. Based on how variables are related to one another, and how they are derived in CRU [Harris et al. 2020](https://rdcu.be/b3U3e), we grouped variables as follows, using climwin to eselct the best variable and time window for each: 
+- Precip group (describes precip and its frequency): PRE, WET
+- temperature group (describes temperature): TMP, TMIN, TMAX, PET
+- temperature range group (describes variation in temperature, linked to cloud cover): DTR, CLD, PET
+
+1.3. Use the [climwin](https://cran.r-project.org/web/packages/climwin/index.html) R package [(van de Pol et. al. 2016)](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12590), to identify the climate variables and time windows that most strongly influences tree growth *for all species combined*. 
+Climwin can check for linear and quadratic relationships. We checked quadratic only because (i) it speeds up the process, (ii) preliminarly tests revealled that quadratic was usually the one with lower AIC, and when not there tended to be little difference in AIC and the curve would look like a straight line anyway, (iii) quadratic makes more biological sense, (iv) it would be too tricky to code the gam to adapt to any circumstance.
+We put the residuals derived in step 1.1 in *climwin* with a mixed effects model using species and tree identity as random effect: `ln[residual] ~ [climate] +  + (1 | sp) + (1 | treeID)`. 
+Outputs are saved [here](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/blob/master/results/ALL_species_mixed_model_on_residuals/). Example output is shown in Fig. 1.
 
 ![**Fig. 1. Example output from Climwin**. This example, from SCBI, looks at the influence of precipitation on radial growth increments. It identifies June-July of the current growing season as the most important window for precipitation's influence on annual growth. On axes, window open and window close refer to months prior to August of current gowing seasoon. Detailed explanation of output can be found in van de Pol et. al. (2016).](figures/ALL_species_mixed_model_on_core_measurement_residuals_pre_absolute_mean_quad_-1374.75_2_1.png)
 
-1.3. For each candidate climate variable, we move forward with that variable over the time window identified by climwin as a candidate climate variable for the multivariate models.
+1.3. For each group of candidate climate variables, we move forward with the best variable over the time window identified by climwin as a candidate climate variable for the multivariate models. When PET comes out as the best variable in both temperature and temperature range groups (should always be for the same time frame), then there are only 2 candidate variables for the GAM. 
 
 (*Note: This process will tend to pick out current growing season variables, but it may be that once we have 1-2 variables for current growing season, others would be more important (e.g., previous growing season, start/ end of growing season). Thus, we may want to modify how we select climate variables. ([GitHub issue # 19])(https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/19)*)
 
 \newpage
 ## Step 2. Identify best multivariate statistical model accounting for climate and DBH
 
-2.1. Check colinearity among candidate climate variables; remove those that are redundant. (*Note: KAT thinks we need to reduce number of climate variables. ([GitHub issue # 14])(https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/14)*)
+2.1. The 2-3 candidate variables for the GAM should then go through the same process of checking for collinearity. If there is redundancy, we removed any variable with VIF > 10 (more standard way than looking at AIC).
 
 2.2. For each species independently, run GAM models including every combination of climate variables (as a 2-degree polynomial to allow quadratic curve), spline of DBH (3 knots), and splines of year fit to each individual as a random effect.
 `ln[response variable] ~ spline(DBH) + quad([climate variables]) + spline(year, with treeID as random effect)`
@@ -95,11 +103,10 @@ R script is here: https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/bl
 
 2.4. Plot best model for each species (Figs. 2-3)
 
-![**Fig. 2. Current SCBI output for radial increment**. For each species, relationships are plotted if included in top model. Grey bars indicate long-term mean climate, shading indicates 1 SD. Time windows for each climate variable (CRU abbreviations) are indicated above plot. Note that we should probably reduce number of climate variables.](figures/ALL_variables_log_core_measurement.png)
+![**Fig. 2. OUTDATED Current SCBI output for radial increment**. For each species, relationships are plotted if included in top model. Grey bars indicate long-term mean climate, shading indicates 1 SD. Time windows for each climate variable (CRU abbreviations) are indicated above plot.](figures/ALL_variables_log_core_measurement.png)
 
 
-
-![**Fig. 3. Current SCBI output for $\Delta AGB$**. For each species, relationships are plotted if included in top model. Grey bars indicate long-term mean climate, shading indicates 1 SD.  Time windows for each climate variable (CRU abbreviations) are indicated above plot. Note that we should probably reduce number of climate variables, and we are still working on the allometries. ](figures/ALL_variables_log_agb_inc.png)
+![**Fig. 3. OUTDATED Current SCBI output for $\Delta AGB$**. For each species, relationships are plotted if included in top model. Grey bars indicate long-term mean climate, shading indicates 1 SD.  Time windows for each climate variable (CRU abbreviations) are indicated above plot. ](figures/ALL_variables_log_agb_inc.png)
 
 \newpage
 ## Step 3. Scale to the ecosystem by combining statistical model with census data
