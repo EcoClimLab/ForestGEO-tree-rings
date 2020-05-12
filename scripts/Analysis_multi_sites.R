@@ -151,8 +151,13 @@ for (site in sites) {
   
   
   
-  ## remove any cores that ave less than 30 years ####
+  ## remove any cores that have less than 30 years ####
   Biol <- Biol[Biol$coreID %in% names(which(table(Biol$coreID)>= 30)), ]
+  
+  ## remove any sepcies that has less than 7 different treeID ####
+  Biol <- droplevels(Biol[Biol$species_code %in% names(which(tapply(Biol$treeID, Biol$species_code, function(x) length(unique(x))) >= 7)), ])
+  ## consider treeID as factor ####
+  Biol$treeID <- factor(as.character(Biol$treeID))
   ## save back into Biol ####
   
   all_Biol[[site]] <- Biol
@@ -183,7 +188,7 @@ for(site in sites) {
       test <- gam(Y~ s(Year), data = x)
       
       
-      if(rbinom(1, 1, 0.1)==1) {
+      if(rbinom(1, 1, 0.05)==1) {
         png(paste0('results/explorations/residuals_by_tag/', paste(x$species_code[1], x$tree_status[1], t, sep = "_" ), "_", gsub("log_", "", what), "_Year_GAM", "_", site, '.png'),
             width = 8,
             height =8,
@@ -263,20 +268,19 @@ for(site in sites) {
     ### plot the results and save the signal into Biol ####
     for(i in best_results_combos$model_ID) {
       print(paste("adding climate data to Biol for model", i))
-      #clear plotting device 
-      dev.off()
+     png(paste0('results/ALL_species_mixed_model_on_residuals/ALL_species_mixed_model_on_', gsub("log_", "", what), "_", paste((data.frame(lapply(results$combos[i,], as.character), stringsAsFactors=FALSE)), collapse = "_"), "_", site, '.png'),
+                width = 10,
+                height =8,
+                units = "in",
+                res = 300)
       # plot the results
       plotall(dataset = results[[i]]$Dataset, 
               bestmodel = results[[i]]$BestModel,
               bestmodeldata = results[[i]]$BestModelData,
               title=paste((data.frame(lapply(results$combos[i,], as.character), stringsAsFactors=FALSE)), collapse = "_"))
       
-      # save the plot
-      dev.print(png, paste0('results/ALL_species_mixed_model_on_residuals/ALL_species_mixed_model_on_', gsub("log_", "", what), "_", paste((data.frame(lapply(results$combos[i,], as.character), stringsAsFactors=FALSE)), collapse = "_"), "_", site, '.png'),
-                width = 10,
-                height =8,
-                units = "in",
-                res = 300)
+      # dev.off()
+     dev.off()
       
       # save the climate signal in Biol
       if(any(grepl("I\\(climate\\^2\\)", names( results[[i]]$BestModelData)))) {
@@ -309,12 +313,12 @@ for(site in sites) {
     
     # create the gam formula
     
-    full_model_formula <- switch(what, "log_core_measurement" =  paste("log_core_measurement ~  s(Year, bs ='re', by = treeID) +", paste0("ns(", variables_to_keep, ", 2)", collapse = " + ")),
-                                 log_agb_inc = paste("log_agb_inc ~ s(dbh, k = 3) + s(Year, bs ='re', by = treeID) +", paste0("ns(", variables_to_keep, ", 2)", collapse = " + ")))
+    full_model_formula <- switch(what, "log_core_measurement" =  paste("log_core_measurement ~", paste0("ns(", variables_to_keep, ", 2)", collapse = " + "), "+ s(Year, treeID, bs = 'fs')  + s(treeID, bs = 're')"  ),
+                                 log_agb_inc = stop())  #paste("log_agb_inc ~ s(dbh, k = 3) + s(Year, bs ='re', by = treeID) +", paste0("ns(", variables_to_keep, ", 2)", collapse = " + ")))
     
     
     # full_model_formula <- switch(what, "log_core_measurement" =  paste("log_core_measurement ~ s(dbh, k = 3) + s(Year, bs ='re', by = tag) +", paste0("ns(", variables_to_keep, ", 2)", collapse = " + ")),
-    #                              log_agb_inc = paste("log_agb_inc ~ s(dbh, k = 3) + s(Year, bs ='re', by = tag) +", paste0("ns(", variables_to_keep, ", 2)", collapse = " + ")))
+    #                              log_agb_inc = paste("log_agb_inc ~ s(dbh, k = 3) + s(Year, bs ='re', by = factor(tag)) +", paste0("ns(", variables_to_keep, ", 2)", collapse = " + ")))
     
     
     ## identify what variables we should keep for each species, looking at the sum of AIC weights ####
@@ -322,8 +326,10 @@ for(site in sites) {
     
     sum_of_weights_for_each_term_by_sp <- NULL
     for(sp in unique(Biol$species_code)) {
-      print(sp)
       x <- Biol[Biol$species_code %in% sp,]
+      
+      cat("Running GAM and dredging for species", sp , "and its", length(unique(x$treeID)), "trees...\n")
+      
       # x$tag <- factor(x$tag)
       x$log_core_measurement <- log(x$core_measurement+0.1)
       # x$log_agb_inc <-  log(x$agb_inc + 0.1)
@@ -333,11 +339,11 @@ for(site in sites) {
       
       x <- x[!is.na(x[, what]), ]
       fm1 <- gam(eval(parse(text = full_model_formula)), data = x, na.action = "na.fail") # using mixed model makes all variables important which I find suspicous. I feel that s(Year, by = tag) is enough to add some randomness by tag... + plus I am not even sure that actuallydoes what we want.
-      dd <- dredge(fm1)
+      dd <- dredge(fm1, fixed = c('s(Year, treeID, bs = "fs")', 's(treeID, bs = "re")'), trace = 2)
       dd$cw <- cumsum(dd$weight)
       
       # sum_of_weights_for_each_term <- dd[, grepl(paste(c(variables_to_keep, "dbh", "Year"), collapse = "|"), names(dd))]
-      sum_of_weights_for_each_term <- dd[, grepl(paste(c(variables_to_keep,  "Year"), collapse = "|"), names(dd))]
+      sum_of_weights_for_each_term <- dd[, grepl(paste(c(variables_to_keep,  "Year", "treeID"), collapse = "|"), names(dd))]
       sum_of_weights_for_each_term <- apply(sum_of_weights_for_each_term, 2, function(x) sum(dd$weight[!is.na(x)]))
       sum_of_weights_for_each_term
       sum_of_weights_for_each_term_by_sp <- rbind(sum_of_weights_for_each_term_by_sp,
@@ -370,24 +376,22 @@ for(site in sites) {
     rownames(sum_of_weights_for_each_term_by_sp) <- unique(Biol$species_code)
     
     sum_of_weights_for_each_term_by_sp
-    library(lattice)
     
-    levelplot(t(sum_of_weights_for_each_term_by_sp), 
+    # save the plot
+    png(paste0('results/Species_by_species_GAMS_on_raw_data/Sum_of_AICweights_', what, "_", site, '.png'),
+              width = 10,
+              height =8,
+              units = "in",
+              res = 300)
+    lattice::levelplot(t(sum_of_weights_for_each_term_by_sp), 
               scales=list(x=list(rot=45)), 
               xlab = "parameter", 
               ylab = "species",
               legend = list(top = list(fun = grid::textGrob("Sum of Weights", y=0, x=1.09))))
     
-    # save the plot
-    dev.print(png, paste0('results/Species_by_species_GAMS_on_raw_data/Sum_of_AICweights_', what, "_", site, '.png'),
-              width = 10,
-              height =8,
-              units = "in",
-              res = 300)
-    
-    
-    
-    
+   #dev.off()
+    dev.off()
+   
    
     
     ## Plot response curves for each variable, with one curve per species ####
@@ -402,26 +406,26 @@ for(site in sites) {
       pt <- NULL
       for(sp in rownames(sum_of_weights_for_each_term_by_sp)) {
         best_model <- get(paste0(sp, "_best_model"))
+        x <- Biol[Biol$species_code %in% sp,]
         
-        
-        varying_x <- data.frame(varying_x = seq(min(Biol[Biol$species_code %in% sp, v], na.rm = T), max(Biol[Biol$species_code %in% sp, v], na.rm = T), length.out = 100)) ; colnames(varying_x) <- v
+        varying_x <- data.frame(varying_x = seq(min(x[, v], na.rm = T), max(x[, v], na.rm = T), length.out = 100)) ; colnames(varying_x) <- v
         # constant_variables <- c("dbh", variables_to_keep)[!c("dbh", variables_to_keep) %in% v]
         constant_variables <- c(variables_to_keep)[!c(variables_to_keep) %in% v]
         
-        newd <- cbind(eval(parse(text = paste0("data.frame(", paste0(constant_variables, " = median(Biol$", constant_variables, ", na.rm = T)", collapse = ", "), ",  Year = median(Biol$Year, na.rm = T), treeID = factor(Biol[Biol$species_code %in% sp,]$treeID[1]))"))), varying_x)
+        newd <- cbind(eval(parse(text = paste0("data.frame(", paste0(constant_variables, " = median(x$", constant_variables, ", na.rm = T)", collapse = ", "), ")"))), varying_x)  # newd <- cbind(eval(parse(text = paste0("data.frame(", paste0(constant_variables, " = median(Biol$", constant_variables, ", na.rm = T)", collapse = ", "), ",  Year = median(Biol$Year, na.rm = T), treeID = factor(Biol[Biol$species_code %in% sp,]$treeID[1]))"))), varying_x)
         
         # if(v %in% names(best_model$var.summary)) {
-          pt <- rbind(pt, data.frame(newd, variable = v, species = sp, varying_x = newd[, v], predict.gam(best_model, newd, type = "response", exclude =grep("Year", sapply(best_model$smooth, "[[", "label"), value = T), se.fit = T), draw = v %in% names(best_model$var.summary)))
+          pt <- rbind(pt, data.frame(newd, variable = v, species = sp, varying_x = newd[, v], predict.gam(best_model, newd, type = "response", exclude = grep("Year|treeID", sapply(best_model$smooth, "[[", "label"), value = T), se.fit = T, newdata.guaranteed = T), draw = v %in% names(best_model$var.summary)))
           
         # }
         
-      } # ignore errors
+      } # ignore warnings
       
       # if(!is.null(pt)) {
         pt$species <- factor(pt$species, levels = rownames(sum_of_weights_for_each_term_by_sp))
-        pt$expfit <- exp(pt$fit)
-        pt$lwr <- exp(pt$fit - 1.96 * pt$se.fit)
-        pt$upr <- exp(pt$fit + 1.96 * pt$se.fit)
+        pt$expfit <- exp(pt$fit) - 0.1
+        pt$lwr <- exp(pt$fit - 1.96 * pt$se.fit) - 0.1
+        pt$upr <- exp(pt$fit + 1.96 * pt$se.fit) - 0.1
         
         
         p <- ggplot(data = pt[pt$draw,], aes(x = varying_x, y = expfit))
@@ -438,7 +442,7 @@ for(site in sites) {
           labs(title = paste0(v, ifelse(v %in% best_results_combos$climate, time_window_text, "")),
                x = v,
                y = "") + #"core measurements") +
-          geom_ribbon(aes(ymin=lwr, ymax=upr, col = NULL, bg = species), alpha=0.25) + 
+          # geom_ribbon(aes(ymin=lwr, ymax=upr, col = NULL, bg = species), alpha=0.25) + 
           scale_colour_hue(drop = F) + scale_fill_hue(drop = F) + 
           theme_classic()
         
@@ -459,7 +463,7 @@ for(site in sites) {
     # existing_plots <- paste0("p_",  c("dbh", variables_to_keep))
     existing_plots <- paste0("p_",  c(variables_to_keep))
     
-    grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  get(x)), ncol = 3)),
+    grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  get(x)), ncol = length(variables_to_keep))),
                  g_legend(),
                  nrow = 1,
                  widths = c(10, 1))
