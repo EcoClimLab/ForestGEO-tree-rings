@@ -9,6 +9,7 @@ library(lme4)
 library(mgcv)
 library(splines)
 library(gridExtra)
+library(snow)
 library(grids)
 library(MuMIn)
 library(allodb) # remotes::install_github("forestgeo/allodb")
@@ -166,9 +167,20 @@ for (site in sites) {
 }
 
 ## Run the Analysis ####
+
+## keeping track of timing
+keeping_track_of_timing <- NULL
+
+## save every object names up until now to erase other stuff before runing each new site
+data_to_keep <- c(ls(), "data_to_keep")
+
+
 for(site in sites) {
   
+  rm(list = ls()[!ls() %in% data_to_keep])
+  
   cat(paste("running analysis for", site, "...\n" ))
+  
   Biol <- all_Biol[[site]]
   Clim <- droplevels(all_Clim[all_Clim$sites.sitename %in% sites.sitenames[site], ])
   
@@ -227,7 +239,7 @@ for(site in sites) {
     
     
     ## run slidingwin on residuals to find best time window and lin or quad for each variable ####
-    if(nlevels(Biol$species_code) > 1) {
+    if(nlevels(Biol$species_code) > 3) {
       baseline = "lmer(residuals ~ 1 + (1 | species_code) + (1 | coreID), data = Biol[!is.na(Biol$residuals), ])"
     
       } else 
@@ -313,7 +325,7 @@ for(site in sites) {
     
     # create the gam formula
     
-    full_model_formula <- switch(what, "log_core_measurement" =  paste("log_core_measurement ~", paste0("ns(", variables_to_keep, ", 2)", collapse = " + "), "+ s(Year, treeID, bs = 'fs')  + s(treeID, bs = 're')"  ),
+    full_model_formula <- switch(what, "log_core_measurement" =  paste("log_core_measurement ~", paste0("ns(", variables_to_keep, ", 2)", collapse = " + "), "  + s(Year, by = treeID)"  ),
                                  log_agb_inc = stop())  #paste("log_agb_inc ~ s(dbh, k = 3) + s(Year, bs ='re', by = treeID) +", paste0("ns(", variables_to_keep, ", 2)", collapse = " + ")))
     
     
@@ -322,24 +334,29 @@ for(site in sites) {
     
     
     ## identify what variables we should keep for each species, looking at the sum of AIC weights ####
-    start_time <- Sys.time()
     
     sum_of_weights_for_each_term_by_sp <- NULL
     for(sp in unique(Biol$species_code)) {
+      start_time <- Sys.time()
       x <- Biol[Biol$species_code %in% sp,]
       
       cat("Running GAM and dredging for species", sp , "and its", length(unique(x$treeID)), "trees...\n")
       
       # x$tag <- factor(x$tag)
-      x$log_core_measurement <- log(x$core_measurement+0.1)
+      x$log_core_measurement <- log(x$core_measurement+1e-24)
       # x$log_agb_inc <-  log(x$agb_inc + 0.1)
       # x <- x[, c("dbh", "Year", "tag", what, variables_to_keep)]
       
       x <- x[, c("Year", "treeID", what, variables_to_keep)]
       
-      x <- x[!is.na(x[, what]), ]
-      fm1 <- gam(eval(parse(text = full_model_formula)), data = x, na.action = "na.fail") # using mixed model makes all variables important which I find suspicous. I feel that s(Year, by = tag) is enough to add some randomness by tag... + plus I am not even sure that actuallydoes what we want.
-      dd <- dredge(fm1, fixed = c('s(Year, treeID, bs = "fs")', 's(treeID, bs = "re")'), trace = 2)
+      x <- droplevels(x[!is.na(x[, what]), ])
+      fm1 <- uGamm((eval(parse(text = full_model_formula))), random = list(treeID = ~1), data = x, na.action = "na.fail") # gam(eval(parse(text = full_model_formula)), data = x, na.action = "na.fail") # using mixed model makes all variables important which I find suspicous. I feel that s(Year, by = tag) is enough to add some randomness by tag... + plus I am not even sure that actuallydoes what we want.
+      clust <- makeCluster(getOption("cl.cores", 2), type = "SOCK")
+      clusterEvalQ(clust, library(splines))
+      clusterEvalQ(clust, library(mgcv))
+      clusterExport(clust, list  = c("x", "fm1"))
+      dd <- pdredge(fm1, fixed = c('s(Year, treeID, bs = "fs")', 's(Year, by = treeID)', 's(treeID, bs = "re")'), trace = 2, cluster=clust)
+      stopCluster(clust)
       dd$cw <- cumsum(dd$weight)
       
       # sum_of_weights_for_each_term <- dd[, grepl(paste(c(variables_to_keep, "dbh", "Year"), collapse = "|"), names(dd))]
@@ -353,10 +370,10 @@ for(site in sites) {
       
       # get the results of the model that includes the variables that have sum of weight > 0.9
       
-      if(sum(sum_of_weights_for_each_term > 0.9) == 0 ) {
-        best_model <- gam(update(as.formula(full_model_formula), .~1), data = x, na.action = "na.fail") #intercept only model if none of the variables have 0.9 sum of weitgh
+      if(sum(sum_of_weights_for_each_term[!grepl("treeID|Year)", names(sum_of_weights_for_each_term))] > 0.9) == 0 ) {
+        best_model <- uGamm(update(as.formula(full_model_formula), .~s(Year, by = treeID) ), random = list(treeID = ~1), data = x, na.action = "na.fail") #intercept only model if none of the variables have 0.9 sum of weitgh
       } else {
-        best_model <- gam(eval(parse(text = paste( what,  "~", paste(names(sum_of_weights_for_each_term)[sum_of_weights_for_each_term > 0.9], collapse = " + ")))), data = x, na.action = "na.fail")
+        best_model <- uGamm(eval(parse(text = paste( what,  "~", paste(names(sum_of_weights_for_each_term)[sum_of_weights_for_each_term > 0.9], collapse = " + ")))), random = list(treeID = ~1), data = x, na.action = "na.fail")
       }
       
       
@@ -364,14 +381,23 @@ for(site in sites) {
       # save results for individual species
       assign(paste0(sp, "_dd"), dd)
       assign(paste0(sp, "_best_model"), best_model)
+     
+      
+      # keeping track of timing
+      end_time <- Sys.time()
+      (ellapsed_time <- difftime(end_time, start_time, units = "mins"))
+      keeping_track_of_timing <- rbind(keeping_track_of_timing, data.frame(site = site, 
+                                                                           species = sp, 
+                                                                           nb_treeID = length(unique(x$treeID)),
+                                                                           total_years = nrow(x),
+                                                                           avg_nb_years = mean(tapply(x$Year, x$treeID, length), na.rm = T),
+                                                                           ellapsed_time = as.numeric(ellapsed_time)))
+      
       
       # remove x
       rm(x)
     }
-    end_time <- Sys.time()
-    
-    
-    (ellapsed_time <- difftime(end_time, start_time))
+   
     
     rownames(sum_of_weights_for_each_term_by_sp) <- unique(Biol$species_code)
     
@@ -415,7 +441,7 @@ for(site in sites) {
         newd <- cbind(eval(parse(text = paste0("data.frame(", paste0(constant_variables, " = median(x$", constant_variables, ", na.rm = T)", collapse = ", "), ")"))), varying_x)  # newd <- cbind(eval(parse(text = paste0("data.frame(", paste0(constant_variables, " = median(Biol$", constant_variables, ", na.rm = T)", collapse = ", "), ",  Year = median(Biol$Year, na.rm = T), treeID = factor(Biol[Biol$species_code %in% sp,]$treeID[1]))"))), varying_x)
         
         # if(v %in% names(best_model$var.summary)) {
-          pt <- rbind(pt, data.frame(newd, variable = v, species = sp, varying_x = newd[, v], predict.gam(best_model, newd, type = "response", exclude = grep("Year|treeID", sapply(best_model$smooth, "[[", "label"), value = T), se.fit = T, newdata.guaranteed = T), draw = v %in% names(best_model$var.summary)))
+          pt <- rbind(pt, data.frame(newd, variable = v, species = sp, varying_x = newd[, v], predict.gam(best_model$gam, newd, type = "link", exclude = sapply(best_model$gam$smooth, "[[", "label"), se.fit = T, newdata.guaranteed = T ), draw = v %in% names(best_model$gam$var.summary)))
           
         # }
         
@@ -423,9 +449,10 @@ for(site in sites) {
       
       # if(!is.null(pt)) {
         pt$species <- factor(pt$species, levels = rownames(sum_of_weights_for_each_term_by_sp))
-        pt$expfit <- exp(pt$fit) - 0.1
-        pt$lwr <- exp(pt$fit - 1.96 * pt$se.fit) - 0.1
-        pt$upr <- exp(pt$fit + 1.96 * pt$se.fit) - 0.1
+        pt$species <- factor(paste0(pt$species, " (",tapply(Biol$treeID,  Biol$species_code, function(x) length(unique(x)))[as.character(pt$species)], ")"))
+        pt$expfit <- exp(pt$fit)
+        pt$lwr <- exp(pt$fit - 1.96 * pt$se.fit)
+        pt$upr <- exp(pt$fit + 1.96 * pt$se.fit)
         
         
         p <- ggplot(data = pt[pt$draw,], aes(x = varying_x, y = expfit))
@@ -442,7 +469,7 @@ for(site in sites) {
           labs(title = paste0(v, ifelse(v %in% best_results_combos$climate, time_window_text, "")),
                x = v,
                y = "") + #"core measurements") +
-          # geom_ribbon(aes(ymin=lwr, ymax=upr, col = NULL, bg = species), alpha=0.25) + 
+          geom_ribbon(aes(ymin=lwr, ymax=upr, col = NULL, bg = species), alpha=0.25) +
           scale_colour_hue(drop = F) + scale_fill_hue(drop = F) + 
           theme_classic()
         
@@ -474,11 +501,21 @@ for(site in sites) {
     
     
     # save plot
-    dev.print(png, paste0('results/Species_by_species_GAMS_on_raw_data/ALL_variables_', what, "_", site, '.png'),
-              width = 8,
+    png(paste0('results/Species_by_species_GAMS_on_raw_data/ALL_variables_', what, "_", site, '.png'),
+              width = 10,
               height =8,
               units = "in",
               res = 300)
+    
+    grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  get(x)), ncol = length(variables_to_keep))),
+                 g_legend(),
+                 nrow = 1,
+                 widths = c(10, 1))
+    
+    grid::grid.text(switch (what, log_core_measurement = "core measurement (mm)",
+                            log_agb_inc = "AGB increment (Mg C)"), x = unit(0.01, "npc"), y = unit(.51, "npc"), rot = 90)
+    dev.off()
+   
     
   }
   
