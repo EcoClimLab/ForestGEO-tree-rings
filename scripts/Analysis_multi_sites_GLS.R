@@ -10,7 +10,6 @@ library(mgcv)
 library(splines)
 library(gridExtra)
 library(snow)
-library(grids)
 library(MuMIn)
 library(allodb) # remotes::install_github("forestgeo/allodb")
 
@@ -44,7 +43,7 @@ first_years_oulier_limit = 15
 clim_var_group <- list(c("pre", "wet"),
                        c("tmp", "tmn", "tmx", "pet"),
                        c("dtr", "cld", "pet")
-) # see issue 14, PET is in both the TMP and DTR groups. If it comes out as the best in both groups (should always be for the same time frame), then there are only 2 candidate variables for the GAM.
+) # see issue 14, PET is in both the TMP and DTR groups. If it comes out as the best in both groups (should always be for the same time frame), then there are only 2 candidate variables for the GLS
 
 # load data ####
 ## climate data ####
@@ -170,14 +169,11 @@ for (site in sites) {
 
 ## Run the Analysis ####
 
-## keeping track of timing
-keeping_track_of_timing <- NULL
-
 ## save every object names up until now to erase other stuff before runing each new site
 data_to_keep <- c(ls(), "data_to_keep")
 
 
-for(site in sites[c(3,4)]) {
+for(site in sites) {
   
   rm(list = ls()[!ls() %in% data_to_keep])
   
@@ -187,6 +183,10 @@ for(site in sites[c(3,4)]) {
   Clim <- droplevels(all_Clim[all_Clim$sites.sitename %in% sites.sitenames[site], ])
   
   for(what in c("log_core_measurement")) { # , "log_agb_inc"
+    
+    ## create folders if don't exist ####
+    dir.create(paste0("results/", what, "/", site), showWarnings = F, recursive = T)
+
     
     ## calculate residuals of spine measurement ~ year for each individual####
     Biol$residuals <- NA
@@ -202,26 +202,26 @@ for(site in sites[c(3,4)]) {
       test <- gam(Y~ s(Year), data = x)
       
       
-      # if(rbinom(1, 1, 0.05)==1) {
-      #   png(paste0('results/explorations/residuals_by_tag/', paste(x$species_code[1], x$tree_status[1], t, sep = "_" ), "_", gsub("log_", "", what), "_Year_GAM", "_", site, '.png'),
-      #       width = 8,
-      #       height =8,
-      #       units = "in",
-      #       res = 300)
-      #   
-      #   
-      #   par(mfrow = c(3,2))
-      #   plot(test)
-      #   gam.check(test,pch=19,cex=.3)
-      #   
-      #   plot(Y~ Year, data = x, main = "Raw data")
-      #   points(test$fitted.values ~ x$Year, type = "l")
-      #   
-      #   title(paste(x$species_code[1], x$tree_status[1], t, sep = " - " ), outer = T, line = -2)
-      #   
-      #   # save plot
-      #   dev.off()
-      # }
+      if(rbinom(1, 1, 0.05)==1) {
+        png(paste0('results/explorations/residuals_by_tag/', paste(x$species_code[1], x$tree_status[1], t, sep = "_" ), "_", gsub("log_", "", what), "_Year_GAM", "_", site, '.png'),
+            width = 8,
+            height =8,
+            units = "in",
+            res = 300)
+
+
+        par(mfrow = c(3,2))
+        plot(test)
+        gam.check(test,pch=19,cex=.3)
+
+        plot(Y~ Year, data = x, main = "Raw data")
+        points(test$fitted.values ~ x$Year, type = "l")
+
+        title(paste(x$species_code[1], x$tree_status[1], t, sep = " - " ), outer = T, line = -2)
+
+        # save plot
+        dev.off()
+      }
       
       # save residuals
       x$residuals <- test$residuals 
@@ -282,7 +282,7 @@ for(site in sites[c(3,4)]) {
     ### plot the results and save the signal into Biol ####
     for(i in best_results_combos$model_ID) {
       print(paste("adding climate data to Biol for model", i))
-      png(paste0('results/ALL_species_mixed_model_on_residuals/ALL_species_mixed_model_on_', gsub("log_", "", what), "_", paste((data.frame(lapply(results$combos[i,], as.character), stringsAsFactors=FALSE)), collapse = "_"), "_", site, '.png'),
+      png(paste0('results/', what, '/', site, '/climwin_ALL_species_mixed_model_on_', paste((data.frame(lapply(results$combos[i,], as.character), stringsAsFactors=FALSE)), collapse = "_"), "_", site, '.png'),
           width = 10,
           height =8,
           units = "in",
@@ -323,9 +323,9 @@ for(site in sites[c(3,4)]) {
     variables_to_keep <- as.character(vif_res@results$Variables)
     
     
-    ## now do a species by species gam using log of raw measuremets, spline on dbh and year ####
+    ## now do a species by species gls using log of raw measuremets, spline on dbh and year ####
     
-    # create the gam formula
+    # create the gls formula
     
     full_model_formula <- switch(what, "log_core_measurement" =  paste("log_core_measurement ~", paste0("ns(", variables_to_keep, ", 2)", collapse = " + ") ),
                                  log_agb_inc = stop())  #paste("log_agb_inc ~ s(dbh, k = 3) + s(Year, bs ='re', by = coreID) +", paste0("ns(", variables_to_keep, ", 2)", collapse = " + ")))
@@ -342,7 +342,7 @@ for(site in sites[c(3,4)]) {
       start_time <- Sys.time()
       x <- Biol[Biol$species_code %in% sp,]
       
-      cat("Running GAM and dredging for species", sp , "and its", length(unique(x$coreID)), "trees...\n")
+      cat("Running GLS and dredging for species", sp , "and its", length(unique(x$coreID)), "trees...\n")
       
       # x$tag <- factor(x$tag)
       x$log_core_measurement <- log(x$core_measurement+1e-24)
@@ -352,7 +352,8 @@ for(site in sites[c(3,4)]) {
       x <- x[, c("Year", "treeID", "coreID", what, variables_to_keep)]
       
       x <- droplevels(x[!is.na(x[, what]), ])
-      fm1 <- lme((eval(parse(text = full_model_formula))), random = ~1|treeID/coreID, correlation = corCAR1(form=~Year|treeID/coreID), data = x, na.action = "na.fail", method = "ML") # gam(eval(parse(text = full_model_formula)), data = x, na.action = "na.fail") # using mixed model makes all variables important which I find suspicous. I feel that s(Year, by = tag) is enough to add some randomness by tag... + plus I am not even sure that actuallydoes what we want.
+      fm1 <- lme((eval(parse(text = full_model_formula))), random = ~1|coreID, correlation = corCAR1(form=~Year|coreID), data = x, na.action = "na.fail", method = "ML") 
+      
       clust <- makeCluster(getOption("cl.cores", 2), type = "SOCK")
       clusterEvalQ(clust, library(splines))
       clusterEvalQ(clust, library(nlme))
@@ -388,14 +389,7 @@ for(site in sites[c(3,4)]) {
       # keeping track of timing
       end_time <- Sys.time()
       (ellapsed_time <- difftime(end_time, start_time, units = "mins"))
-      # keeping_track_of_timing <- rbind(keeping_track_of_timing, data.frame(site = site, 
-      #                                                                      species = sp, 
-      #                                                                      nb_coreID = length(unique(x$coreID)),
-      #                                                                      total_years = nrow(x),
-      #                                                                      avg_nb_years = mean(tapply(x$Year, x$coreID, length), na.rm = T),
-      #                                                                      ellapsed_time = as.numeric(ellapsed_time)))
-      
-      
+  
       # remove x
       rm(x)
     }
@@ -406,7 +400,8 @@ for(site in sites[c(3,4)]) {
     sum_of_weights_for_each_term_by_sp
     
     # save the plot
-    png(paste0('results/Species_by_species_GAMS_on_raw_data/Sum_of_AICweights_', what, "_", site, '.png'),
+    dev.off()
+    png(paste0('results/', what, "/", site, "/GLS_Sum_of_AICweights_", site, '.png'),
         width = 10,
         height =8,
         units = "in",
@@ -503,7 +498,7 @@ for(site in sites[c(3,4)]) {
     
     
     # save plot
-    png(paste0('results/Species_by_species_GAMS_on_raw_data/ALL_variables_', what, "_", site, '.png'),
+    png(paste0('results/', what, "/", site, "/GLS_ALL_variables_responses_", site, '.png'),
         width = 10,
         height =8,
         units = "in",
