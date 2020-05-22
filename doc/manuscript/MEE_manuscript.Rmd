@@ -150,7 +150,7 @@ In using this variety of data sources, we encountered and solved a variety of ch
 
 *Selecting data for analysis*
 
-handling trees that died ([issue 31](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/31))
+Based on the findings of [Caillerete et al. 2017](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/blob/master/doc/references/Cailleret_et_al-2017-GCB.pdf), we cutcut off the records of all dead trees 20 years prior to death.
 
 *DBH reconstruction*
 
