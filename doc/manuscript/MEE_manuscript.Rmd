@@ -185,6 +185,9 @@ challenge: Scotty Creek
 *Combining drivers in GLS model*
 
 ### Results
+![**Figure 1 | Growth sensitivity to DBH:** (a) $\Delta r$, (b) $\Delta AGB$ ](size_figure_sketch.png)
+
+![**Figure 2 | Climate senstivity (SCBI example):** (a) Helcoski quilt plot, (b) Climwin panel a, (c) Climwin correlation (d) GLS output ](climate_figure_sketch.png)
 
 ### Discussion
 **We present a new method that allows simultaneous consideration of the effects of tree size, objectively determined principle climate drivers, and other environemntal drivers on annual tree growth.**
