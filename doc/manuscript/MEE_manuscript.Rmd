@@ -150,7 +150,7 @@ In using this variety of data sources, we encountered and solved a variety of ch
 
 *Selecting data for analysis*
 
-handling trees that died (current handling is inconsistent!)
+handling trees that died ([issue 31](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/31))
 
 *DBH reconstruction*
 
