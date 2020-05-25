@@ -134,7 +134,7 @@ A signficant challenge arises when tree-rings are used to characterize the influ
 In these cases, a variety of methods are used to account for simultaneous changes in tree size, including... (DENDRO_REFS)
 None of these methods is fully satisfactory; rather, it is necessary to *simultaneously* account for the influences of changing tree size and environmental drivers.
 
-**Here, develop a new method that allows simultaneous consideration of the effects of tree size, objectively determined principle climate drivers, and other environemntal drivers on annual tree growth.** 
+**Here, develop a new method that allows simultaneous consideration of the effects of tree size, objectively determined principal climate drivers, and other environemntal drivers on annual tree growth.** 
 This allows us to ask:
 (1) How do radial growth and aboveground biomass increments ($\Delta AGB$) vary with DBH?
 (2) What are the most important climate drivers of annual growth, and over which time windows?
@@ -249,7 +249,7 @@ $\Delta AGB$ generally increased with $DBH$, although unimodal relationships wer
 *Influence of atmospheric pollution*
 
 ### Discussion
-**We present a new method that allows simultaneous consideration of the effects of tree size, objectively determined principle climate drivers, and other environemntal drivers on annual tree growth.**
+**We present a new method that allows simultaneous consideration of the effects of tree size, objectively determined principal climate drivers, and other environemntal drivers on annual tree growth.**
 Results are broadly consistent with those obtained by traditional methods, but offer several new insights.
 
 
