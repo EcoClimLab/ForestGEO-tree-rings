@@ -1,0 +1,55 @@
+---
+title: "Supplementary Information"
+author:
+output: 
+  pdf_document:
+    fig_caption: yes
+    
+header-includes:  \usepackage{float}
+                  \usepackage{caption}
+                  \captionsetup[table]{font=footnotesize}
+                  \captionsetup[figure]{font=footnotesize}
+                  \captionsetup[figure]{labelformat=empty}
+                  \captionsetup[table]{labelformat=empty}
+                  \usepackage{pdflscape}
+                  \newcommand{\blandscape}{\begin{landscape}}
+                  \newcommand{\elandscape}{\end{landscape}}
+---
+
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+options(knitr.table.format = "latex")
+```
+
+\listoftables
+\listoffigures
+
+\newpage
+
+## Appendix S1. Methods for reconstruction of $DBH$
+
+DBH can be reconstructed outside-in (based on recent $DBH$, subtracting growth recorded in tree rings) or inside-out (summing $\Delta r$ from the inside out). 
+We generally gave precedence to the outside-in approach.
+Specifically, when $DBH$ was taken at the time of coring,  
+At some of our sites where DBH was not taken at the time of coring (*SCBI*,), DBH measurements taken before or slightly after the time of coring could be used. 
+If before, ... 
+If after...
+For all outside-in reconstructions, if a negative $DBH$ was predicted...
+
+
+In either case we need bark thickness--ideally allometries. This is especially critical for thick-barked species
+
+
+\newpage
+
+```{r eval = TRUE, echo=FALSE, warning=FALSE}
+library(knitr)
+library(kableExtra)
+S1 <- read.csv("tables_figures/species.csv", stringsAsFactors = FALSE, check.names = FALSE)
+kable(S1, format = "latex", booktabs = TRUE, caption = "Table S1. List of species analyzed", escape = F)%>%
+  kable_styling(latex_options = c("scale_down", "hold_position")) 
+```
+
+\newpage
+
+** Table S2- allometric equations for bark thickness **
