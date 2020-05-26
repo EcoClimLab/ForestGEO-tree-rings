@@ -65,12 +65,12 @@ X#. Canadian Forest Service, Northern Forestry Centre, Edmonton, Alberta, Canada
 ## References: figure ~40 words each, so 50 refs = 2000
 ## Display items: figure ~100 words for each caption = 700 words
 # Table1- table of sites
-# Fig0?- schematic illustrating our process
-# Fig1- relationship of ∆r and ∆AGB to DBH (all site-species combinations)
-# Fig2- climate senstivity (SCBI example): (a) Helcoski quilt plot, (b) Climwin panel a, (c) GLS output
-# Fig3- multipanel- GLS results for climate sensitivity at all sites (3 columns with the 3 variable type groupings, 1 row per site)
-# Fig4/ table2- DBH/climate interactions
-# Fig 4/5- responses to CO2 and atmospheric deposition
+# Fig1- schematic illustrating our process
+# Fig2- relationship of ∆r and ∆AGB to DBH (all site-species combinations)
+# Fig3- climate senstivity (SCBI example): (a) Helcoski quilt plot, (b) Climwin panel a, (c) GLS output
+# Fig4- multipanel- GLS results for climate sensitivity at all sites (3 columns with the 3 variable type groupings, 1 row per site)
+# Fig5/ table2- DBH/climate interactions
+# Fig 6/7- responses to CO2 and atmospheric deposition
 
 ```
 
@@ -246,7 +246,11 @@ $\Delta AGB$ generally increased with $DBH$, although unimodal relationships wer
 
 *Climate-DBH interactions*
 
+**Figure/ Table on climate - DBH interactions?**
+
 *Influence of atmospheric pollution*
+
+**Figure showing effects of CO2, SO2, NOx**
 
 ### Discussion
 **We present a new method that allows simultaneous consideration of the effects of tree size, objectively determined principle climate drivers, and other environemntal drivers on annual tree growth.**
