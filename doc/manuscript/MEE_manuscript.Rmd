@@ -171,7 +171,7 @@ We then calculated $\Delta AGB_y$ as [$AGB_{y+1}-AGB_y$].
 For temperate sites, biomass allometries were sourced from allo-db (DETAILS; Gonzalez-Akre et al. in prep).
 For BCI, biomass allometries were sourced from the BIOMASS package (REF).
 
-Climate and environmental driver data were obtained from global databases. Monthly climate data for 1901-20XX was obtained from CRU v.4.0X (Harris et al. 2014, [2020](https://rdcu.be/b3U3e)). Variables considered here included mean, minimum, and maximum temperatures; daily temperture range; precipitation; wet day frequency; cloud cover; and potential evapotranspiration (PET). Atmospheric CO~2~... (**ISSUE: need to download**). Atmospheric deposition... (**ISSUE: need to obtain/ organize**). Analyses were, necessarily, limited ot the time frame over which these were available.
+Climate and environmental driver data were obtained from global databases. Monthly climate data for 1901-20XX was obtained from CRU v.4.0X (Harris et al. 2014, [2020](https://rdcu.be/b3U3e)). Variables considered here included mean, minimum, and maximum temperatures; daily temperture range; precipitation; wet day frequency; cloud cover; and potential evapotranspiration (PET). Atmospheric CO~2~... (**[ISSUE #16 in ForestGEO_dendro](https://github.com/EcoClimLab/ForestGEO_dendro/issues/16): obtain data**). Atmospheric deposition... (**[ISSUE #17 in ForestGEO_dendro](https://github.com/EcoClimLab/ForestGEO_dendro/issues/17): obtain data**). Analyses were, necessarily, limited ot the time frame over which these were available.
 
 #### Analysis methods
 
@@ -197,13 +197,13 @@ For each group of candidate climate variables, we move forward with the best var
 When PET came out as the best variable in both temperature and cloud cover groups, there were only two candidate variables for the GAM. 
 We checked for colinearity among the selected climate variables and removed any variable with a variance inflation factor > 10.
 
-To check that this process identified similar climate variables to what would be identified using traditional methods, ... (**ISSUE: do a standardized analysis similar to Helcoski et al. for each site? or just compare with previous studies for each site?**)
-(**ISSUE: check that we get similar results with $\Delta r$ and $\Delta AGB$)
+To check that this process identified similar climate variables to what would be identified using traditional methods, ... (**[ISSUE #35 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/35): do a standardized analysis similar to Helcoski et al. for each site? or just compare with previous studies for each site?**)
+(**[ISSUE #34 in ForestGEO-climate-sensitivity](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/34): check that we get similar results with $\Delta r$ and $\Delta AGB$**)
 
 A challenge to this system arose for the site undergoing most rapid climate change: Scotty Creek. 
 There, [temperatures have increased by X $^\circ$ over X years]..., resulting in negative growth trends in basal area index (BAI) starting around 1950 and significant growth declines since 1970 in `r round(249/(249+69+127)*100, digits=0)`% of trees (Sniderhan & Baltzer 2016).
 Problematically, correlating tree growth residuals from which climate-driven trends had been removed against the climate signal with a strong directional trend would not necessarily identify the most signficant climate drivers.
-(**ISSUE: How do we solve this? Any possibility besides subjectively selecting the drivers? Maybe try analysis without detrending**)
+(**[ISSUE #25 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/25): How do we solve this? Any possibility besides subjectively selecting the drivers? Maybe try analysis without detrending**)
 
 *Combining drivers in GLS model*
 
