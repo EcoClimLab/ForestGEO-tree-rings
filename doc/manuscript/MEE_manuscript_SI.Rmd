@@ -31,7 +31,8 @@ options(knitr.table.format = "latex")
 DBH can be reconstructed outside-in (based on recent $DBH$, subtracting growth recorded in tree rings) or inside-out (summing $\Delta r$ from the inside out). 
 We generally gave precedence to the outside-in approach.
 Specifically, when $DBH$ was taken at the time of coring,  
-At some of our sites where DBH was not taken at the time of coring (*SCBI*,), DBH measurements taken before or slightly after the time of coring could be used. 
+At some of our sites where DBH was not taken at the time of coring (*SCBI*,), DBH measurements taken before or slightly after the time of coring could be used.
+(see [issue #19 in ForestGEO_dendro](https://github.com/EcoClimLab/ForestGEO_dendro/issues/19))
 If before, ... 
 If after...
 For all outside-in reconstructions, if a negative $DBH$ was predicted...
