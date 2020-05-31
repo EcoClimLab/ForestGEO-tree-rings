@@ -150,6 +150,17 @@ We analyzed previously collected tree-ring data from  # sites of the Forest Glob
 Trees were cored within or close to the large forest dynamics plots following a variety of sampling protocols designed to meet the varied objectives of the original studies (REFS). 
 In using this variety of data sources, we encountered and solved a variety of challenges for analyzing existing tree-ring records with this approach.
 
+
+```{r eval=FALSE, echo=FALSE}
+
+# I tried to put in table, as in [Camille's paper](https://github.com/EcoClimLab/ForestGEO-tree-size-carbon/blob/master/paper_treesize_draft.Rmd), but couldn't make it work.
+library(knitr)
+library(kableExtra)
+sites <- read.csv("tables_figures/sites.csv", stringsAsFactors = FALSE, check.names = FALSE)
+kable(sites)
+      #caption = "Study sites")
+```
+
 **Table 1 | Sites included in this analysis**
 ![ ](tables_figures/sites_table.png)
 
