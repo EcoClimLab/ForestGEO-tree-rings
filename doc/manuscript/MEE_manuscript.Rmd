@@ -268,7 +268,10 @@ $\Delta AGB$ generally increased with $DBH$, although unimodal relationships wer
 **We present a new method that allows simultaneous consideration of the effects of tree size, objectively determined principle climate drivers, and other environemntal drivers on annual tree growth.**
 Results are broadly consistent with those obtained by traditional methods, but offer several new insights.
 
+On climate sensitivity:
+- Climwin step is problematic when cliamte is rapdidly changing [ISSUE #25 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/25).
 
+On DBH:
 First, $\Delta r$ typically declines with tree size in cored individuals, consistent with many previous observations from tree-ring records (DENDRO_REFS).
 
 DBH is not always collected when cores are taken, and is not routinely preserved alongside tree-ring data. For example, the International Tree-Ring Data Bank (ITRDB) contains no structure for storing DBH records. 
