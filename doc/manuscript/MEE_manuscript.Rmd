@@ -131,18 +131,20 @@ Thus, to use tree-rings to predict $ANPP_{stem}$ for a forest where not every tr
 
 
 **Characterizing the influence of slowly-changing environtmental drivers is very challenging and uncertain.**
-We want to know how changes in CO2 and atmospheric deposition are influencing tree growth.
+We want to know how changes in CO~2~ and atmospheric deposition are influencing tree growth.
 A signficant challenge arises when tree-rings are used to characterize the influence of slowly changing environmental variables--climate, CO2, atmospheric deposition--on tree growth rates (REFS).
-In these cases, a variety of methods are used to account for simultaneous changes in tree size, including... (DENDRO_REFS)
-None of these methods is fully satisfactory; rather, it is necessary to *simultaneously* account for the influences of changing tree size and environmental drivers.
+In these cases, a variety of methods are used to account for simultaneous changes in tree size, including... (DENDRO_REFS).
+One commonly applied approach is to assume that $BAI$ is fundamentally independent of size (DENDRO_REFS).
+None of these methods is fully satisfactory, leaving great uncertainty as to what the tree-ring record can tell us about the impact of rising CO~2~ (Walker et al. in revision). 
+Rather, it is necessary to *simultaneously* account for the influences of changing tree size and environmental drivers.
 
 **Here, develop a new method that allows simultaneous consideration of the effects of tree size, objectively determined principle climate drivers, and other environemntal drivers on annual tree growth.** 
 This allows us to ask:
 (1) What are the most important climate drivers of annual growth, and over which time windows?
 (2) What is the shape of the relationship between annual growth and climate drivers?
-(3) How do radial growth and aboveground biomass increments ($\Delta AGB$) vary with DBH?
+(3) How do $\Delta r$, $BAI$, and aboveground biomass increments ($\Delta AGB$) vary with DBH?
 (4) Are there interactions between DBH and climate drivers common?
-(5) How is growth simultaneously influenced by DBH, climate, and other environemental drivers (CO2, atmospheric deposition)?
+(5) How is growth simultaneously influenced by DBH, climate, and other environemental drivers (CO~2~, atmospheric deposition)?
 
 ### Materials and Methods
 
@@ -197,11 +199,11 @@ Our analysis consisted of two main steps: (1) identification of the most importa
 First, we identified the most important climate driver for each of three categories of variables: a temperature group (mean, min, and max temperature; PET), a precipitation group (precipitation, number of days with precipitation), and a group linked to temperature variability and cloud cover (daily temperature range, percent cloud cover, and again PET). 
 These groups were defined based on the dependencies of these variables on one another in the CRU database (Harris et al. 2014, [2020](https://rdcu.be/b3U3e)), as well as climatological and biological considerations.
 Our first step was detrending to remove the influence of all non-climatic drivers (*e.g.*, growth and aging of the tree, change in competitive dynamics, atmospheric pollution), which is essential for identifying climatic drivers (DENDRO_REFS).
-Specifically, we used a GAM model to fit a spline to individual tree growth records ($log[\Delta r]$ or $log[\Delta AGB]$), thereby producing residuals.
+Specifically, we used a GAM model to fit a spline to individual tree growth records ($log[\Delta r]$, $log[BAI]$, or $log[\Delta AGB]$), thereby producing residuals.
 We note that an an attempt at the analysis without detrending failed to produce results consistent with biological expectations and results obtained via traditional dendrochronological methods, and generally failed to identify significant climate drivers.
 
 We then used the *climwin* package in R (REF) [(van de Pol et. al. 2016)](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12590) to identify the most significant climate driver and time window for each of the three climate variable groups. 
-*Climwin* searches through multiple climate variables and over a wide range of time frames to identify which are most strongly correlated to the biological variable of interest--in this case, residuals of $log[\Delta r]$ or $log[\Delta AGB]$.
+*Climwin* searches through multiple climate variables and over a wide range of time frames to identify which are most strongly correlated to the biological variable of interest--in this case, residuals of $log[\Delta r]$, $log[BAI]$, or $log[\Delta AGB]$.
 Within *climwin*, we specified a mixed effects model using species and tree identity as random effect: `residual ~ [climate] + (1 | sp) + (1 | treeID)`. 
 Here, for each permutation, `climate` specifies one of the climate drivers in the climate variable group, analyzed over one of all possible combinations of time periods, at monthly resolution, starting in the previous May and ending in August of the current year.
 We note that analyzing all species together yields the most significant climate drivers across the full set of cores from each site (our goal here), whereas identification of the top climate drivers for individual species would be optimized by analyzing each species separately.
@@ -217,17 +219,18 @@ To check that this process identified similar climate variables to what would be
 A challenge to this system arose for the site undergoing most rapid climate change: Scotty Creek. 
 There, [temperatures have increased by X $^\circ$ over X years]..., resulting in negative growth trends in basal area index (BAI) starting around 1950 and significant growth declines since 1970 in `r round(249/(249+69+127)*100, digits=0)`% of trees (Sniderhan & Baltzer 2016).
 Problematically, correlating tree growth residuals from which climate-driven trends had been removed against the climate signal with a strong directional trend would not necessarily identify the most signficant climate drivers.
-(**[ISSUE #25 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/25): How do we solve this? Any possibility besides subjectively selecting the drivers? Maybe try analysis without detrending**)
+(**[ISSUE #25 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/25): How do we solve this?**)
 
 *Combining drivers in GLS model*
 
-Second, we combined DBH, climate, and atmospheric pollution data in a GLS.
+Second, we combined DBH, climate, and atmospheric pollution data in a GLS model (Fig. 1).
+[**DESCRIBE GLS**]
 
 ### Results
 
 *Identifying climate drivers*
 
-**Our process picked out similar climate drivers to what would be obtained via traditional methods (Fig. 3).**
+**Our process picked out similar climate drivers to what would be obtained via traditional methods (Fig. 2).**
 
 ![**Figure 2 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table S1) to potential evapotranspiration (PET), identified by both traditional methods and our method to be among the top climate drivers. Panel (**a**) shows a matrix of Pearson correlations between ring- width index and monthly climate variables. Panels (**b-d**) give statistics for time windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diaganol indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each time window, and (**d**) gives the $\Delta AIC$ for each. The time window with the minimum $\Delta AIC$ (0-3 months prior to August, or May-Aug; black boxes), was identified as the optimal window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows GLS model output, where PET is one of several driver variables (*specify model*). Plotted are responses of species for which PET was identified as a signficant driver in the top model.](tables_figures/climate_figure_sketch.png)
 
@@ -242,7 +245,7 @@ Second, we combined DBH, climate, and atmospheric pollution data in a GLS.
 
 *Climate sensitivity*
 
-**Non-linear responses to climate variabels were common (Fig. 4).**
+**Non-linear responses to climate variabels were common (Fig. 3).**
 - Growth almost always increased with precipitation up to the long-term mean, but often declined under high precipitation.
 - The most common response to temperture was unimodal, often peaking within 1SD of long-term mean. (**depending on how strongly this comes out, may warrent separate paper**)
 - (results for cloudiness group)
@@ -251,13 +254,16 @@ Second, we combined DBH, climate, and atmospheric pollution data in a GLS.
 
 *Influence of DBH*
 
-**Both $\Delta r$ and $\Delta AGB$ varied with $DBH$.** 
-For $\Delta r$, the general tendency was a decline with DBH, sometimes following an initial increase (Fig. 2a). 
-$\Delta AGB$ generally increased with $DBH$, although unimodal relationships were observed in some cases (Fig. 2b).
+** $\Delta r$, $BAI$, and $\Delta AGB$ all varied with $DBH$.** 
+For $\Delta r$, the general tendency (with just a couple exceptions) was a decline with DBH, often following an initial increase (Fig. 4a). 
+$BAI$ most commonly exibited a unimodal relationship (Fig. 4b).
+$\Delta AGB$ also commonly exibited a unimodal relationship, although tending to peak at larger DBH (Fig. 4c).
 
-![**Figure 4 | Growth sensitivity to DBH:** (a) $\Delta r$, (b) $\Delta AGB$. THIS FIGURE IS JUST A SKETCH TO SHOW VALENTINE WHAT I HAVE IN MIND.](tables_figures/size_figure_sketch.png)
+![**Figure 4 | Growth sensitivity to DBH:** (a) $\Delta r$, (b) $BAI$, (c) $\Delta AGB$. THIS FIGURE IS JUST A ROUGH COMPILATION OF RESULTS SO FAR. Ideally, I'd like to plot all sites together, meaning we probably have to lose species IDs (plots with species IDs can be shown in appendix).](tables_figures/size_figure_sketch.png)
 
 *Climate-DBH interactions*
+
+We get different climate senstivity results with the different metrics of growth.
 
 **Figure/ Table on climate - DBH interactions?**
 
@@ -272,10 +278,14 @@ Results are broadly consistent with those obtained by traditional methods, but o
 On climate sensitivity:
 - Climwin step is problematic when cliamte is rapdidly changing [ISSUE #25 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/25).
 
-On DBH:
-First, $\Delta r$ typically declines with tree size in cored individuals, consistent with many previous observations from tree-ring records (DENDRO_REFS).
+**Our analysis of growth trends with DBH yields several novel insights for dendrochronology and forest ecology.**
+First, the observation taht $\Delta r$ typically declines with tree size in cored individuals, often following initial increase during juvenile growth phase, is consistent with many previous observations from tree-ring records (DENDRO_REFS). 
+This contrasts with what is seen at the stand level (Muller-Landau et al. 2006, Piponiot et al. in prep)-- presumably because [the sample of cored trees (survivors) doesn't match forest composition] (*cite paper that I reviewed several years back*).
+Non-independence of $BAI$ from $DBH$ negates assumption that $BAI$ can be used as a DBH-independent metric of tree growth.
+Our finding that $\Delta AGB$ is most commonly unimodal is surprising in that it contrasts with many previous findings and theoretical expectations (Stephenson et al, check Foster et al. 2006; check Piponiot et al. in prep). [EXPAND]
+$\Delta AGB$ declines at high $DBH$ are presumably because trees are investing fixed C elsewhere--for example, reproduction.
 
-DBH is not always collected when cores are taken, and is not routinely preserved alongside tree-ring data. For example, the International Tree-Ring Data Bank (ITRDB) contains no structure for storing DBH records. 
+DBH is not always collected when cores are taken, and is not routinely preserved alongside tree-ring data. For example, the International Tree-Ring Data Bank (ITRDB) contains no structure for storing DBH records. DEN is new alternative. 
 
 ### Acknowledgements
 Scholarly Studies
