@@ -66,9 +66,9 @@ X#. Canadian Forest Service, Northern Forestry Centre, Edmonton, Alberta, Canada
 ## Display items: figure ~100 words for each caption = 700 words
 # Table1- table of sites
 # Fig1- schematic illustrating our process
-# Fig2- relationship of ∆r and ∆AGB to DBH (all site-species combinations)
-# Fig3- climate senstivity (SCBI example): (a) Helcoski quilt plot, (b) Climwin panel a, (c) GLS output
-# Fig4- multipanel- GLS results for climate sensitivity at all sites (3 columns with the 3 variable type groupings, 1 row per site)
+# Fig2- climate senstivity (SCBI example): (a) Helcoski quilt plot, (b) Climwin panel a, (c) GLS output
+# Fig3-  multipanel- GLS results for climate sensitivity at all sites (3 columns with the 3 variable type groupings, 1 row per site) 
+# Fig4-relationship of ∆r and ∆AGB to DBH (all site-species combinations)
 # Fig5/ table2- DBH/climate interactions
 # Fig 6/7- responses to CO2 and atmospheric deposition
 
@@ -106,16 +106,6 @@ understanding how CO2 and atmospheric deposition influence tree growth]...
 **Yet, traditional methods of analysis hold limitations for use of tree-rings to address these questions.** 
 Traditional methods seek to remove the ecology. That's what's of interest to us.
 
-**Traditional methods do not characterize the effect of tree size or its potential interactions with climate variables.** 
-Tree size is among the most important variables affecting tree growth rate (Muller-Landau et al. 2006; Foster et al. 2016; REFS). 
-Radial growth increments (*i.e.*, tree-ring widths; $\Delta r$) may increase or decrease with tree size, often in a non-linear manner.
-Following a "juvenile growth phase", which is typically removed in traditional dendrological analyses, $\Delta r$ may decline, particularly in open-grown conifers (??; DENDRO_REFS).
-In contrast, in mesic closed-canopy forests, $\Delta r$ typically increases with tree diameter at breast height ($DBH$; Muller-Landau et al. 2006; REFS, DENDRO_REFS).
-For dendrological studies aimed at deciphering climate signals, tree size is not typically a variable of interest, and its influence is removed through detrending (DENDRO_REFS).
-While suitable for identifying climate signals (DENDRO_REFS), this approach is not optimal for subsequent inference of the climate sensitivity of forest productivity. 
-Although climate correlations can be transformed to climate sensitivity (*sensu* Charney) and scaled to characterize the climate sensitivity of $ANPP_{stem}$ based on the scaling of $\Delta r$ with $DBH$ (Helcoski et al. 2019), they cannot be used to characterize known interactive effects of $DBH$ and climate on tree growth.
-For example, larger trees tend to be more sensitive to drought (Bennett et al. 2015; McGregor et al. in revision; REFS).
-Thus, to use tree-rings to predict $ANPP_{stem}$ for a forest where not every tree was cored, we need models that include tree size.
 
 **[limitations in how traditional methods look at climate variables]**
 - [subjectively selected variables (e.g., T, PPT, PDSI)]
@@ -128,6 +118,18 @@ Similar relationships have also been observed for moisture availability, particu
 In trees, responses of photosynthesis and respiration to environmental drivers are typically observed over time frames of seconds to days, and therefore do not directly reveal how annual tree growth and forest productivity respond to inter-annual variation in climate. 
 The annual growth records of tree-rings allow can be used to study interannual variation, but the standard practice in dendrochronology has been to fit linear relationships (exception is VS-Lite, which fits plateau), and we therefore know little about what, if any, nonlinearities occur in tree growth responses to interannual variation in climate.
 
+**Traditional methods do not characterize the effect of tree size or its potential interactions with climate variables.** 
+Tree size is among the most important variables affecting tree growth rate (Muller-Landau et al. 2006; Foster et al. 2016; REFS). 
+Radial growth increments (*i.e.*, tree-ring widths; $\Delta r$) may increase or decrease with tree size, often in a non-linear manner.
+Following a "juvenile growth phase", which is typically removed in traditional dendrological analyses, $\Delta r$ may decline, particularly in open-grown conifers (??; DENDRO_REFS).
+In contrast, in mesic closed-canopy forests, $\Delta r$ typically increases with tree diameter at breast height ($DBH$; Muller-Landau et al. 2006; REFS, DENDRO_REFS).
+For dendrological studies aimed at deciphering climate signals, tree size is not typically a variable of interest, and its influence is removed through detrending (DENDRO_REFS).
+While suitable for identifying climate signals (DENDRO_REFS), this approach is not optimal for subsequent inference of the climate sensitivity of forest productivity. 
+Although climate correlations can be transformed to climate sensitivity (*sensu* Charney) and scaled to characterize the climate sensitivity of $ANPP_{stem}$ based on the scaling of $\Delta r$ with $DBH$ (Helcoski et al. 2019), they cannot be used to characterize known interactive effects of $DBH$ and climate on tree growth.
+For example, larger trees tend to be more sensitive to drought (Bennett et al. 2015; McGregor et al. in revision; REFS).
+Thus, to use tree-rings to predict $ANPP_{stem}$ for a forest where not every tree was cored, we need models that include tree size.
+
+
 **Characterizing the influence of slowly-changing environtmental drivers is very challenging and uncertain.**
 We want to know how changes in CO2 and atmospheric deposition are influencing tree growth.
 A signficant challenge arises when tree-rings are used to characterize the influence of slowly changing environmental variables--climate, CO2, atmospheric deposition--on tree growth rates (REFS).
@@ -136,9 +138,9 @@ None of these methods is fully satisfactory; rather, it is necessary to *simulta
 
 **Here, develop a new method that allows simultaneous consideration of the effects of tree size, objectively determined principle climate drivers, and other environemntal drivers on annual tree growth.** 
 This allows us to ask:
-(1) How do radial growth and aboveground biomass increments ($\Delta AGB$) vary with DBH?
-(2) What are the most important climate drivers of annual growth, and over which time windows?
-(3) What is the shape of the relationship between annual growth and climate drivers?
+(1) What are the most important climate drivers of annual growth, and over which time windows?
+(2) What is the shape of the relationship between annual growth and climate drivers?
+(3) How do radial growth and aboveground biomass increments ($\Delta AGB$) vary with DBH?
 (4) Are there interactions between DBH and climate drivers common?
 (5) How is growth simultaneously influenced by DBH, climate, and other environemental drivers (CO2, atmospheric deposition)?
 
@@ -223,20 +225,11 @@ Second, we combined DBH, climate, and atmospheric pollution data in a GLS.
 
 ### Results
 
-*Influence of DBH*
-
-**Both $\Delta r$ and $\Delta AGB$ varied with $DBH$.** 
-For $\Delta r$, the general tendency was a decline with DBH, sometimes following an initial increase (Fig. 2a). 
-$\Delta AGB$ generally increased with $DBH$, although unimodal relationships were observed in some cases (Fig. 2b).
-
-![**Figure 2 | Growth sensitivity to DBH:** (a) $\Delta r$, (b) $\Delta AGB$. THIS FIGURE IS JUST A SKETCH TO SHOW VALENTINE WHAT I HAVE IN MIND.](tables_figures/size_figure_sketch.png)
-
 *Identifying climate drivers*
 
 **Our process picked out similar climate drivers to what would be obtained via traditional methods (Fig. 3).**
 
-
-![**Figure 3 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table S1) to potential evapotranspiration (PET), identified by both traditional methods and our method to be among the top climate drivers. Panel (**a**) shows a matrix of Pearson correlations between ring- width index and monthly climate variables. Panels (**b-d**) give statistics for time windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diaganol indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each time window, and (**d**) gives the $\Delta AIC$ for each. The time window with the minimum $\Delta AIC$ (0-3 months prior to August, or May-Aug; black boxes), was identified as the optimal window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows GLS model output, where PET is one of several driver variables (*specify model*). Plotted are responses of species for which PET was identified as a signficant driver in the top model.](tables_figures/climate_figure_sketch.png)
+![**Figure 2 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table S1) to potential evapotranspiration (PET), identified by both traditional methods and our method to be among the top climate drivers. Panel (**a**) shows a matrix of Pearson correlations between ring- width index and monthly climate variables. Panels (**b-d**) give statistics for time windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diaganol indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each time window, and (**d**) gives the $\Delta AIC$ for each. The time window with the minimum $\Delta AIC$ (0-3 months prior to August, or May-Aug; black boxes), was identified as the optimal window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows GLS model output, where PET is one of several driver variables (*specify model*). Plotted are responses of species for which PET was identified as a signficant driver in the top model.](tables_figures/climate_figure_sketch.png)
 
 **The most influential climate drivers...[what tended to be selected?].**
 - Time windows
@@ -254,7 +247,15 @@ $\Delta AGB$ generally increased with $DBH$, although unimodal relationships wer
 - The most common response to temperture was unimodal, often peaking within 1SD of long-term mean. (**depending on how strongly this comes out, may warrent separate paper**)
 - (results for cloudiness group)
 
-![**Figure 4 | Climate senstivity for all sites.** Columns include the top variables in each grouping, with PET placed in the temperature group if identified as the top variable for both the temperature and cloudiness groups. For each species, relationships are plotted if included in top model. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD. (THIS FIGURE IS JUST A SKETCH TO SHOW VALENTINE WHAT I HAVE IN MIND.) ](tables_figures/climate_figure2_sketch.png)
+![**Figure 3 | Climate senstivity for all sites.** Columns include the top variables in each grouping, with PET placed in the temperature group if identified as the top variable for both the temperature and cloudiness groups. For each species, relationships are plotted if included in top model. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD. (THIS FIGURE IS JUST A SKETCH TO SHOW VALENTINE WHAT I HAVE IN MIND.) ](tables_figures/climate_figure2_sketch.png)
+
+*Influence of DBH*
+
+**Both $\Delta r$ and $\Delta AGB$ varied with $DBH$.** 
+For $\Delta r$, the general tendency was a decline with DBH, sometimes following an initial increase (Fig. 2a). 
+$\Delta AGB$ generally increased with $DBH$, although unimodal relationships were observed in some cases (Fig. 2b).
+
+![**Figure 4 | Growth sensitivity to DBH:** (a) $\Delta r$, (b) $\Delta AGB$. THIS FIGURE IS JUST A SKETCH TO SHOW VALENTINE WHAT I HAVE IN MIND.](tables_figures/size_figure_sketch.png)
 
 *Climate-DBH interactions*
 
