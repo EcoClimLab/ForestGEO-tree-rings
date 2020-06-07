@@ -191,7 +191,7 @@ Climate and environmental driver data were obtained from global databases. Month
 
 Our analysis consisted of two main steps: (1) identification of the most important climate drivers, and (2) combining $DBH$ and environmental drivers into a multivariate model (Fig. 1). The analysis was run separately for each site.
 
-![**Figure 1 | Schematic illustrating our analysis process.** This analysis is conducted separately for each site. DRAFT ](tables_figures/schematic_figure.png)
+![**Figure 1 | DRAFT Schematic illustrating our analysis process.** This analysis is conducted separately for each site. ](tables_figures/schematic_figure.png)
 
 *Identifying key climate drivers*
 
@@ -259,7 +259,7 @@ For $\Delta r$, the general tendency (with just a couple exceptions) was a decli
 $BAI$ most commonly exibited a unimodal relationship (Fig. 4b).
 $\Delta AGB$ also commonly exibited a unimodal relationship, although tending to peak at larger DBH (Fig. 4c).
 
-![**Figure 4 | Growth sensitivity to DBH:** (a) $\Delta r$, (b) $BAI$, (c) $\Delta AGB$. THIS FIGURE IS JUST A ROUGH COMPILATION OF RESULTS SO FAR. Ideally, I'd like to plot all sites together, meaning we probably have to lose species IDs (plots with species IDs can be shown in appendix).](tables_figures/size_figure_sketch.png)
+![**Figure 4 | Growth sensitivity to DBH:** (a) $\Delta r$, (b) $BAI$, (c) $\Delta AGB$. THIS FIGURE IS JUST A ROUGH COMPILATION OF RESULTS SO FAR (including known issues--e.g., SCBI). Ideally, I'd like to plot all sites together, meaning we probably have to lose species IDs (plots with species IDs can be shown in appendix).](tables_figures/size_figure_sketch.png)
 
 *Climate-DBH interactions*
 
@@ -273,7 +273,7 @@ The degree to which climate senstivity landscapes differ across growth metrics s
 
 
 
-**Table on climate - DBH interactions? (KAT needs to discuss with VH)**
+**Table / figure on climate - DBH interactions?** (*See [ISSUE #42 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/42)*)
 
 *Influence of atmospheric pollution*
 
@@ -284,11 +284,11 @@ The degree to which climate senstivity landscapes differ across growth metrics s
 Results are broadly consistent with those obtained by traditional methods, but offer several new insights.
 
 On climate sensitivity:
-- Climwin step is problematic when cliamte is rapdidly changing [ISSUE #25 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/25).
+- Climwin step is problematic when climate is rapdidly changing [ISSUE #25 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/25).
 
 **Our analysis of growth trends with DBH yields several novel insights for dendrochronology and forest ecology.**
-First, the observation taht $\Delta r$ typically declines with tree size in cored individuals, often following initial increase during juvenile growth phase, is consistent with many previous observations from tree-ring records (DENDRO_REFS). 
-This contrasts with what is seen at the stand level (Muller-Landau et al. 2006, Piponiot et al. in prep)-- presumably because [the sample of cored trees (survivors) doesn't match forest composition] (*cite paper that I reviewed several years back*).
+First, the observation that $\Delta r$ typically declines with tree size in cored individuals, often following initial increase during juvenile growth phase, is consistent with many previous observations from tree-ring records (DENDRO_REFS). 
+This contrasts with patterns observed at the stand level (Muller-Landau et al. 2006, Piponiot et al. in prep)-- presumably because [the sample of cored trees (survivors) doesn't match forest composition] (*cite paper that I reviewed several years back*).
 Non-independence of $BAI$ from $DBH$ negates assumption that $BAI$ can be used as a DBH-independent metric of tree growth.
 Our finding that $\Delta AGB$ is most commonly unimodal is surprising in that it contrasts with many previous findings and theoretical expectations (Stephenson et al, check Foster et al. 2006; check Piponiot et al. in prep). [EXPAND]
 $\Delta AGB$ declines at high $DBH$ are presumably because trees are investing fixed C elsewhere--for example, reproduction.
