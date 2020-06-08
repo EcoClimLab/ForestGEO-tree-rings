@@ -234,8 +234,11 @@ for(site in sites) {
       x <- results$combos[results$combos$climate %in% X,]
       data.frame(model_ID = as.numeric(rownames(x)), x, stringsAsFactors = F)[which.min(x$DeltaAICc),]
     }))
-    best_results_combos <- best_results_combos[!duplicated(best_results_combos), ]# remove one pet in case it is best in both tmp and drt groups.
-    
+    # if PET does not come out as top variable in both T and CLD group, drop it
+    if(any(duplicated(best_results_combos))) { best_results_combos <- best_results_combos[!duplicated(best_results_combos), ]# remove one pet as it came out best in both T and cld group
+    } else {
+      best_results_combos <- best_results_combos[!best_results_combos$climate %in% "pet", ] # remove pet as it was bitten in either T or CLD group
+    }
     best_results_combos <- best_results_combos[order(best_results_combos$DeltaAICc),]
     
     ### plot the results and save the signal into Biol ####
