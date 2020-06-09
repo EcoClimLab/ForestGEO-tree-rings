@@ -80,6 +80,10 @@ for(clim_v in climate_variables) {
 all_Clim$Date <- gsub("X", "", all_Clim$Date)
 all_Clim$Date <- format(as.Date(all_Clim$Date , format = "%Y.%m.%d"), "%d/%m/%Y") 
 
+### add site column
+all_Clim$site <- names(sites.sitenames)[match(all_Clim$sites.sitename, sites.sitenames) ]
+
+
 ### save prepared clim data ####
 write.csv(all_Clim, "processed_data/Climate_data_all_sites.csv", row.names = F)
 
