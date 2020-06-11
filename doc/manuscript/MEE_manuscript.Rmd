@@ -222,7 +222,7 @@ To check that this process identified similar climate variables to what would be
 (**[ISSUE #34 in ForestGEO-climate-sensitivity](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/34): check that we get similar results with $\Delta r$ and $\Delta AGB$**)
 
 A challenge to this system arose for the site undergoing most rapid climate change: Scotty Creek. 
-There, [temperatures have increased by X $^\circ$ over X years]..., resulting in negative growth trends in basal area index (BAI) starting around 1950 and significant growth declines since 1970 in `r round(249/(249+69+127)*100, digits=0)`% of trees (Sniderhan & Baltzer 2016).
+There, [temperatures have increased by X $^\circ$ over X years]..., resulting in negative growth trends in basal area index (BAI) starting around 1950 and significant growth declines since 1970 in `r round(249/(249+69+127)*100, digits=0)`% of trees [@sniderhan_growth_2016].
 Problematically, correlating tree growth residuals from which climate-driven trends had been removed against the climate signal with a strong directional trend would not necessarily identify the most signficant climate drivers.
 (**[ISSUE #25 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/25): How do we solve this?**)
 
@@ -294,7 +294,7 @@ On climate sensitivity:
 
 **Our analysis of growth trends with DBH yields several novel insights for dendrochronology and forest ecology.**
 First, the observation that $\Delta r$ typically declines with tree size in cored individuals, often following initial increase during juvenile growth phase, is consistent with many previous observations from tree-ring records (DENDRO_REFS). 
-This contrasts with patterns observed at the stand level [[@muller-landau_testing_2006;@anderson-teixeira_size-related_2015] (Muller-Landau et al. 2006, Piponiot et al. in prep)-- presumably because [the sample of cored trees (survivors) doesn't match forest composition] (*cite paper that I reviewed several years back*).
+This contrasts with patterns observed at the stand level [@muller-landau_testing_2006; @anderson-teixeira_size-related_2015; Piponiot et al. in prep]-- presumably because [the sample of cored trees (survivors) doesn't match forest composition] (*cite paper that I reviewed several years back*).
 Non-independence of $BAI$ from $DBH$ negates assumption that $BAI$ can be used as a DBH-independent metric of tree growth.
 Our finding that $\Delta AGB$ is most commonly unimodal is surprising in that it contrasts with many previous findings and theoretical expectations (Stephenson et al, check Foster et al. 2006; check Piponiot et al. in prep). [EXPAND]
 $\Delta AGB$ declines at high $DBH$ are presumably because trees are investing fixed C elsewhere--for example, reproduction.
