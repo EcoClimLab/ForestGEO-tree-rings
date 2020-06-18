@@ -38,8 +38,16 @@ If after...
 For all outside-in reconstructions, if a negative $DBH$ was predicted...
 
 
-In either case we need bark thickness--ideally allometries. This is especially critical for thick-barked species
+In either case we need bark thickness--ideally allometries describing the relationship between DBH and bark thickness. 
+This is especially critical for thick-barked species
+When bark thickness data were available, we generated allometries ... 
+lognormal model with intercept forced to zero: lm(bark_depth.mm ~ -1 + log(dbh_no_bark.cm+1):bark_species, data = bark)
+([issue #8 in ForestGEO_dendro](https://github.com/EcoClimLab/ForestGEO_dendro/issues/8))
 
+\newpage
+
+## Appendix S2. Methods for comparing 
+(**[ISSUE #35 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/35)
 
 \newpage
 
@@ -54,3 +62,6 @@ kable(S1, format = "latex", booktabs = TRUE, caption = "Table S1. List of specie
 \newpage
 
 ** Table S2- allometric equations for bark thickness **
+
+\newpage 
+![**Figure S1 | (Comparison of traditional approaches with ours).**  (THIS FIGURE IS JUST A MOCK-UP TO SHOW VALENTINE WHAT I HAVE IN MIND.) ](tables_figures/mock_comparison_traditional_method.png)
