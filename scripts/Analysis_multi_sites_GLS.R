@@ -48,7 +48,7 @@ for(clim_v in climate_variables) {
 }
 
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIJQGATMJQ6FFEVSPJC63ZOJS")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCINSDNKC36YZ23EBLN267NOV6")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
@@ -144,6 +144,12 @@ for(site in sites) {
     
     ## if we use dbh, remove any missing dbh ####
     if(grepl("dbh", what)) Biol <- droplevels(Biol[!is.na(Biol$dbh), ])
+    
+    ## if we use agb_inc, remove any missing agb_inc ####
+    if(grepl("agb_inc", what)) Biol <- droplevels(Biol[!is.na(Biol$agb_inc), ])
+    
+    ## if we use BAI, remove any missing agb_inc ####
+    if(grepl("BAI", what)) Biol <- droplevels(Biol[!is.na(Biol$BAI), ])
 
     
     ## remove any species that has less than 7 different treeID (even if we use coreID as random effect) ####
@@ -276,7 +282,8 @@ for(site in sites) {
     }
     
     ## Output Biol and best_results_combos to use in different analysis ####
-    # write.csv(Biol, file = paste0("processed_data/core_data_with_best_climate_signal/", what, "/", site, ".csv"), row.names = F)
+    dir.create(paste0("processed_data/core_data_with_best_climate_signal/", what, "/"), recursive = T)
+    write.csv(Biol, file = paste0("processed_data/core_data_with_best_climate_signal/", what, "/", site, ".csv"), row.names = F)
   
     
     ## look at collinearity between climate variables 9and dbh when relevant) and remove any variable with vif > 10 ####
