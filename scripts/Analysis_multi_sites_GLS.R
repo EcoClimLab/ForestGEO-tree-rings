@@ -14,16 +14,16 @@ library(MuMIn)
 
 # prepare parameters ####
 ## paths to data ####
-path_to_climate_data <- "https://raw.githubusercontent.com/forestgeo/Climate/master/Gridded_Data_Products/Historical%20Climate%20Data/CRU_v4_01/" # "https://raw.githubusercontent.com/forestgeo/Climate/master/Gridded_Data_Products/Historical%20Climate%20Data/CRU_v4_03/" #
+path_to_climate_data <- "https://raw.githubusercontent.com/forestgeo/Climate/master/Gridded_Data_Products/Historical%20Climate%20Data/CRU_v4_03/" # "https://raw.githubusercontent.com/forestgeo/Climate/master/Gridded_Data_Products/Historical%20Climate%20Data/CRU_v4_01/" # 
 climate_variables <- c( "pre", "wet",
                         "tmp", "tmn", "tmx", "pet",
                         "dtr", "cld") # "frs", "vap"
 
-sites.sitenames <- c(BCI = "Barro_Colorado_Island_(BCI)", 
+sites.sitenames <- c(BCI = "Barro_Colorado_Island", 
                      CedarBreaks = "Utah_Forest_Dynamics_Plot",
                      HarvardForest = "Harvard_Forest",
                      LillyDickey = "Lilly_Dickey_Woods",
-                     SCBI = "Smithsonian_Conservation_Biology_Institute_(SCBI)",
+                     SCBI = "Smithsonian_Conservation_Biology_Institute",
                      ScottyCreek = "Scotty_Creek",
                      Zofin = "Zofin")
 
@@ -43,12 +43,12 @@ clim_var_group <- list(c("pre", "wet"),
 ## climate data ####
 
 for(clim_v in climate_variables) {
-  assign(clim_v, read.csv(paste0(path_to_climate_data, clim_v, ".1901.2016-ForestGEO_sites-8-18.csv")) # ".1901.2018-ForestGEO_sites-5-20.csv")) # 
+  assign(clim_v, read.csv(paste0(path_to_climate_data, clim_v,  ".1901.2018-ForestGEO_sites-5-20.csv")) # ".1901.2016-ForestGEO_sites-8-18.csv")) #
   )
 }
 
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCINSDNKC36YZ23EBLN267NOV6")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIMZJ4LVELE7SX3W7IS675M52")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
@@ -316,10 +316,15 @@ for(site in sites) {
       
       cat("Running GLS and dredging for species", sp , "and its", length(unique(x$coreID)), "trees...\n")
       
-      # x$tag <- factor(x$tag)
-      x$log_core_measurement <- log(x$core_measurement+1e-24)
-      x$log_agb_inc <-  log(x$agb_inc +1e-24)
-      x$log_BAI <-  log(x$BAI +1e-24)
+      # log transform the response variables
+      x$log_core_measurement <- log(x$core_measurement) 
+      x$log_agb_inc <-  log(x$agb_inc)
+      x$log_BAI <-  log(x$BAI)
+      
+      # replace the undefined log values by the log of half the smallest value
+    x$log_core_measurement[x$core_measurement %in% 0] <- log(min( x$core_measurement[x$core_measurement >0])/2)
+    x$log_agb_inc[x$agb_inc %in% 0] <- log(min( x$agb_inc[x$agb_inc >0])/2)
+    x$log_BAI[x$BAI %in% 0] <- log(min( x$BAI[x$BAI >0])/2)
       # x <- x[, c("dbh", "Year", "tag", what, variables_to_keep)]
       
       x <- x[, c("Year", "treeID", "coreID", "dbh", gsub("_dbh", "", what), variables_to_keep)]
@@ -489,7 +494,7 @@ for(site in sites) {
     dev.off()
     
     
-  }
+  } # for (what in ...)
   
   
   # save environment ####
