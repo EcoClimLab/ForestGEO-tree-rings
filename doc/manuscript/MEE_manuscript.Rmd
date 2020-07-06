@@ -151,7 +151,7 @@ This allows us to ask:
 
 #### Data sources and preparation
 
-We analyzed previously collected tree-ring data from  # sites of the Forest Global Earth Observatory [ForestGEO; @anderson-teixeira_ctfs-forestgeo:_2015] representing a wide range of forest and tree types: tropical broadleaf deciduous and evergreen, temperate broadleaf deciuous and needleleaf evergreen, and boreal needleleaf evergreen (Table 1).
+We analyzed previously collected tree-ring data from  # sites of the Forest Global Earth Observatory [ForestGEO; @anderson-teixeira_ctfs-forestgeo:_2015], plus one in New Mexico, representing a wide range of forest and tree types: tropical broadleaf deciduous and evergreen, temperate broadleaf deciuous and needleleaf evergreen, and boreal needleleaf evergreen (Table 1).
 Trees were cored within or close to the large forest dynamics plots following a variety of sampling protocols designed to meet the varied objectives of the original studies [@vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @tumajer_increasing_2017; @alfaro-sanchez_growth_2017; @helcoski_growing_2019; MORE]. 
 In using this variety of data sources, we encountered and solved a variety of challenges for analyzing existing tree-ring records with this approach.
 
