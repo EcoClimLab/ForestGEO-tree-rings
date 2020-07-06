@@ -14,7 +14,7 @@ library(MuMIn)
 
 # prepare parameters ####
 ## paths to data ####
-path_to_climate_data <- "https://raw.githubusercontent.com/forestgeo/Climate/master/Gridded_Data_Products/Historical%20Climate%20Data/CRU_v4_03/" # "https://raw.githubusercontent.com/forestgeo/Climate/master/Gridded_Data_Products/Historical%20Climate%20Data/CRU_v4_01/" # 
+path_to_climate_data <- "https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/CRU/CRU_v4_04/" # "https://raw.githubusercontent.com/forestgeo/Climate/master/Gridded_Data_Products/Historical%20Climate%20Data/CRU_v4_01/" # 
 climate_variables <- c( "pre", "wet",
                         "tmp", "tmn", "tmx", "pet",
                         "dtr", "cld") # "frs", "vap"
@@ -39,16 +39,20 @@ clim_var_group <- list(c("pre", "wet"),
                        c("dtr", "cld", "pet")
 ) # see issue 14, PET is in both the TMP and DTR groups. If it comes out as the best in both groups (should always be for the same time frame), then there are only 2 candidate variables for the GLS
 
+clim_gap_threshold <- 5 # 5%
+
 # load data ####
 ## climate data ####
 
 for(clim_v in climate_variables) {
-  assign(clim_v, read.csv(paste0(path_to_climate_data, clim_v,  ".1901.2018-ForestGEO_sites-5-20.csv")) # ".1901.2016-ForestGEO_sites-8-18.csv")) #
+  assign(clim_v, read.csv(paste0(path_to_climate_data, clim_v,  ".1901.2019-ForestGEO_sites-6-03.csv")) # ".1901.2016-ForestGEO_sites-8-18.csv")) #
   )
 }
 
+clim_gaps <- read.csv("https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/CRU/scripts/CRU_gaps_analysis/all_sites.reps.csv")
+
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIMZJ4LVELE7SX3W7IS675M52")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCII2CM7LU2ACDCGPXOS7BCUCQ")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
@@ -94,7 +98,7 @@ write.csv(all_Clim, "processed_data/Climate_data_all_sites.csv", row.names = F)
 for (site in sites) {
   Biol <- all_Biol[[site]]
   
-  ### format date to dd/mm/yyyy
+  ### format date to dd/mm/yyyy ####
   Biol$Date <- paste0("15/06/", Biol$Year) # dd/mm/yyyy setting up as june 15, ARBITRATY
   
   ## remove years that are before climate record (+ first few first months to be able to look at window before measurement) ####
@@ -119,7 +123,68 @@ for (site in sites) {
   
 }
 
+# summarise variable-month combinations gaps ####
+adjusted_clim_gaps <- list()
+variables_to_drop <- list() # these will automatically be dropped because no matter what time window is best, all momths have > 5% records missing
+for(site in sites) {
+  
+  Biol <- all_Biol[[site]]
+  Clim <- droplevels(all_Clim[all_Clim$sites.sitename %in% sites.sitenames[site], ])
+  clim_gap <- clim_gaps[clim_gaps$start_sites.sitename %in% sites.sitenames[site], ]
+  
+  if(nrow(clim_gap) > 0) {
+    Clim$Year <- as.numeric(sapply(strsplit(Clim$Date, "/"), "[[", 3))
+  if(min(Biol$Year) != 1903) stop("I did not code for this eventuallity")
+  start_year <- min(min(Biol$Year), min(Clim$Year))
+  end_year <- max(Biol$Year) # taking Biol because already trimed to max date.
+  n_years <- end_year - start_year
+  max_number_months_missing <- floor(n_years * clim_gap_threshold/100)
+
+  # adjust the number of years missing when start and end Dates are before or after (resp) the start and end year of the analysis
+  adjusted_clim_gap <- clim_gap
+  idx_starts_before <- clim_gap$start_Date < start_year
+  idx_ends_after <- clim_gap$end_Date > end_year
+  
+  adjusted_clim_gap[idx_starts_before, ]$rep.yrs <- adjusted_clim_gap[idx_starts_before,  ]$rep.yrs - (start_year - clim_gap$starts_Date[idx_starts_before])
+  
+  adjusted_clim_gap[idx_ends_after, ]$rep.yrs <- adjusted_clim_gap[idx_ends_after,  ]$rep.yrs -(clim_gap$end_Date[idx_ends_after] - end_year) 
+  
+  # replace negative values by 0
+  adjusted_clim_gap$rep.yrs[adjusted_clim_gap$rep.yrs <0] <- 0 #adjusted_clim_gap <- adjusted_clim_gap[adjusted_clim_gap$rep.yrs > 0, ]
+  
+  # make month and variable factors so that they are filled with 0 missing years
+  adjusted_clim_gap$month <- factor(adjusted_clim_gap$month, levels = 1:12)
+  adjusted_clim_gap$climvar.class <- factor(adjusted_clim_gap$climvar.class)
+  
+  # sum number of rep.yrs per variable-month combo
+  adjusted_clim_gap <- aggregate(formula = rep.yrs ~ climvar.class + month,
+                                 data = adjusted_clim_gap, 
+                                 FUN = sum,
+                                 drop = F)
+  
+  adjusted_clim_gap$rep.yrs[is.na(adjusted_clim_gap$rep.yrs)] <- 0
+  
+  # get to % missing data
+  adjusted_clim_gap$percent_misssing <- adjusted_clim_gap$rep.yrs *100/ n_years
+  
+  # get if month passes threshold
+  adjusted_clim_gap$remove <- adjusted_clim_gap$rep.yrs > max_number_months_missing
+  
+  # change factors back to characters
+  adjusted_clim_gap$month <- as.character(adjusted_clim_gap$month)
+  adjusted_clim_gap$climvar.class <- as.character(adjusted_clim_gap$climvar.class)
+  
+  # save what variables shold be removed and new adjusted gaps data
+  variables_to_drop[[site]] <- names(which(tapply(adjusted_clim_gap$remove, adjusted_clim_gap$climvar.class, sum)==12))
+  
+  adjusted_clim_gaps[[site]] <- adjusted_clim_gap
+  
+  } 
+}
+
 ## Run the Analysis ####
+variables_dropped <- NULL # this is to store the variables that were not conserdered for best model because the average % gap of the window >=5%
+
 
 ## save every object names up until now to erase other stuff before runing each new site
 data_to_keep <- c(ls(), "data_to_keep")
@@ -237,13 +302,31 @@ for(site in sites) {
                            refday = reference_date,
                            cinterval = "month",
                            cdate = Clim$Date, bdate = Biol[!is.na(Biol$residuals), ]$Date) 
-    
-    ### find best window for each variable group
-    results$combos
-    best_results_combos <- do.call(rbind, lapply(clim_var_group, function(X) {
+    # Check if best windows for each variable meet the maximum gap requirement (average of month-variale combination <= 5% of the time period) 
+    adjusted_clim_gap <- adjusted_clim_gaps[[site]]
+    variables_dropped_site <- NULL
+    for(i in 1:nrow(results$combos)) {
+      
+      months_to_avg <- results$combos$WindowOpen[i]:results$combos$WindowClose[i]
+      months_to_avg <- reference_date[2] - months_to_avg
+      months_to_avg <- months_to_avg[months_to_avg!= 0 ]
+      months_to_avg <- ifelse(months_to_avg<0, rev(1:12)[abs(months_to_avg)], months_to_avg)
+      
+      idx_v <- adjusted_clim_gap$climvar.class %in% results$combos$climate[i]
+      
+      if(any(idx_v) & mean(adjusted_clim_gap[idx_v, ][match(months_to_avg, adjusted_clim_gap$month[idx_v]),]$percent_misssing) > clim_gap_threshold ) {
+        variables_dropped_site <- c(variables_dropped_site, as.character(results$combos$climate[i]))
+      } 
+    }
+    variables_dropped[[site]] <- variables_dropped_site
+    ### find best window for each variable group ignoring the variables that need to be dropped because of gap filling issues (best way to not get confused later with the ordering of te slindingwin order)
+    clim_var_group_site <- lapply(clim_var_group, function(x) x[!x %in% variables_dropped[[site]]])
+  
+    best_results_combos <- do.call(rbind, lapply(clim_var_group_site, function(X) {
       x <- results$combos[results$combos$climate %in% X,]
       data.frame(model_ID = as.numeric(rownames(x)), x, stringsAsFactors = F)[which.min(x$DeltaAICc),]
     }))
+    
     # if PET does not come out as top variable in both T and CLD group, drop it
     if(any(duplicated(best_results_combos))) { best_results_combos <- best_results_combos[!duplicated(best_results_combos), ]# remove one pet as it came out best in both T and cld group
     } else {
