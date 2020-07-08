@@ -25,7 +25,8 @@ sites.sitenames <- c(BCI = "Barro_Colorado_Island",
                      LillyDickey = "Lilly_Dickey_Woods",
                      SCBI = "Smithsonian_Conservation_Biology_Institute",
                      ScottyCreek = "Scotty_Creek",
-                     Zofin = "Zofin")
+                     Zofin = "Zofin",
+                     HKK = "Huai_Kha_Khaeng")
 
 ## analysis parameters ####
 
@@ -52,7 +53,7 @@ for(clim_v in climate_variables) {
 clim_gaps <- read.csv("https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/CRU/scripts/CRU_gaps_analysis/all_sites.reps.csv")
 
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCII2CM7LU2ACDCGPXOS7BCUCQ")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIIV2WC7B7ANVGZZVQS7B4RUS")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
@@ -154,10 +155,10 @@ for(site in sites) {
   
   # make month and variable factors so that they are filled with 0 missing years
   adjusted_clim_gap$month <- factor(adjusted_clim_gap$month, levels = 1:12)
-  adjusted_clim_gap$climvar.class <- factor(adjusted_clim_gap$climvar.class)
+  adjusted_clim_gap$start_climvar.class <- factor(adjusted_clim_gap$start_climvar.class)
   
   # sum number of rep.yrs per variable-month combo
-  adjusted_clim_gap <- aggregate(formula = rep.yrs ~ climvar.class + month,
+  adjusted_clim_gap <- aggregate(formula = rep.yrs ~ start_climvar.class + month,
                                  data = adjusted_clim_gap, 
                                  FUN = sum,
                                  drop = F)
@@ -172,10 +173,10 @@ for(site in sites) {
   
   # change factors back to characters
   adjusted_clim_gap$month <- as.character(adjusted_clim_gap$month)
-  adjusted_clim_gap$climvar.class <- as.character(adjusted_clim_gap$climvar.class)
+  adjusted_clim_gap$start_climvar.class <- as.character(adjusted_clim_gap$start_climvar.class)
   
   # save what variables shold be removed and new adjusted gaps data
-  variables_to_drop[[site]] <- names(which(tapply(adjusted_clim_gap$remove, adjusted_clim_gap$climvar.class, sum)==12))
+  variables_to_drop[[site]] <- names(which(tapply(adjusted_clim_gap$remove, adjusted_clim_gap$start_climvar.class, sum)==12))
   
   adjusted_clim_gaps[[site]] <- adjusted_clim_gap
   
@@ -312,7 +313,7 @@ for(site in sites) {
       months_to_avg <- months_to_avg[months_to_avg!= 0 ]
       months_to_avg <- ifelse(months_to_avg<0, rev(1:12)[abs(months_to_avg)], months_to_avg)
       
-      idx_v <- adjusted_clim_gap$climvar.class %in% results$combos$climate[i]
+      idx_v <- adjusted_clim_gap$start_climvar.class %in% results$combos$climate[i]
       
       if(any(idx_v) & mean(adjusted_clim_gap[idx_v, ][match(months_to_avg, adjusted_clim_gap$month[idx_v]),]$percent_misssing) > clim_gap_threshold ) {
         variables_dropped_site <- c(variables_dropped_site, as.character(results$combos$climate[i]))
@@ -585,4 +586,4 @@ for(site in sites) {
 }
 
 
-
+variables_dropped
