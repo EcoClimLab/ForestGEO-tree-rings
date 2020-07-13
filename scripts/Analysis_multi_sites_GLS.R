@@ -14,7 +14,14 @@ library(MuMIn)
 
 # prepare parameters ####
 ## paths to data ####
+
 path_to_climate_data <- "https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/CRU/CRU_v4_04/" # "https://raw.githubusercontent.com/forestgeo/Climate/master/Gridded_Data_Products/Historical%20Climate%20Data/CRU_v4_01/" # 
+
+path_to_climate_data_NM <- "C:/Users/HerrmannV/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO_dendro/data/cores/NM/CRU_climate/" # *TO BE EDITED* because the dendro repo is private... I ave to give absolute path (tokens are changing all the time in Github with private repos.... so it would be a pain to have to change them everytime...)
+
+path_to_BCI_pre <- "https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/Met_Stations/BCI/El_Claro_precip_starting_1929/pre_BCI.csv"
+path_to_BCI_wet <- "https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/Met_Stations/BCI/El_Claro_precip_starting_1929/wet_BCI.csv"
+
 climate_variables <- c( "pre", "wet",
                         "tmp", "tmn", "tmx", "pet",
                         "dtr", "cld") # "frs", "vap"
@@ -26,14 +33,13 @@ sites.sitenames <- c(BCI = "Barro_Colorado_Island",
                      SCBI = "Smithsonian_Conservation_Biology_Institute",
                      ScottyCreek = "Scotty_Creek",
                      Zofin = "Zofin",
-                     HKK = "Huai_Kha_Khaeng")
+                     HKK = "Huai_Kha_Khaeng",
+                     NewMexico = "New_Mexico")
 
 ## analysis parameters ####
 
 reference_date <- c(30, 8) # refday in slidingwin
 window_range <- c(15, 0) #range in slidingwin
-
-first_years_oulier_limit = 15
 
 clim_var_group <- list(c("pre", "wet"),
                        c("tmp", "tmn", "tmx", "pet"),
@@ -46,11 +52,20 @@ clim_gap_threshold <- 5 # 5%
 ## climate data ####
 
 for(clim_v in climate_variables) {
-  assign(clim_v, read.csv(paste0(path_to_climate_data, clim_v,  ".1901.2019-ForestGEO_sites-6-03.csv")) # ".1901.2016-ForestGEO_sites-8-18.csv")) #
+  assign(clim_v, 
+         rbind(
+           read.csv(paste0(path_to_climate_data, clim_v,  ".1901.2019-ForestGEO_sites-6-03.csv")), #forestGEO sites
+           read.csv(paste0(path_to_climate_data_NM, clim_v, ".1901.2019-NM_site-7-10.csv")) # NM site
+           )
   )
+  
 }
 
+BCI_pre <- read.csv(path_to_BCI_pre, stringsAsFactors = F)
+BCI_wet <- read.csv(path_to_BCI_wet, stringsAsFactors = F)
+
 clim_gaps <- read.csv("https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/CRU/scripts/CRU_gaps_analysis/all_sites.reps.csv")
+clim_gaps <- clim_gaps[clim_gaps$start_climvar.class %in% climate_variables, ]
 
 ## core data ####
 all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIIV2WC7B7ANVGZZVQS7B4RUS")
@@ -61,7 +76,6 @@ sites <- names(all_Biol)
 # prepare data ####
 
 ## climate data ####
-
 for(clim_v in climate_variables) {
   print(clim_v)
   x <- get(clim_v)
@@ -74,6 +88,9 @@ for(clim_v in climate_variables) {
                     times = names(x)[-1], timevar = "Date",
                     varying = list(names(x)[-1]), direction = "long", v.names = clim_v)
   
+  ### format date
+  x_long$Date <- gsub("X", "", x_long$Date)
+  x_long$Date <- as.Date(x_long$Date , format = "%Y.%m.%d")
   
   ### combine all variables in one
   if(clim_v == climate_variables [1]) all_Clim <- x_long[, c(1:3)]
@@ -81,9 +98,22 @@ for(clim_v in climate_variables) {
   
 }
 
+### replace BCI pre and wet by local data
+idx_BCI <- all_Clim$sites.sitename %in% "Barro_Colorado_Island"
+
+all_Clim$pre[idx_BCI] <- BCI_pre$climvar.val[match(format(all_Clim$Date[idx_BCI], "%Y-%m"), format(as.Date(BCI_pre$Date), "%Y-%m"))]
+all_Clim$wet[idx_BCI] <- BCI_wet$climvar.val[match(format(all_Clim$Date[idx_BCI], "%Y-%m"), format(as.Date(BCI_wet$Date), "%Y-%m"))]
+
+### remove BCI pre and wet from clim gap as it is not relevant anymore
+clim_gaps <- clim_gaps[!(clim_gaps$start_sites.sitename %in% "Barro_Colorado_Island" & clim_gaps$start_climvar.class %in% c("pre", "wet")), ]
+
+# keep only complete rows (this will remove BCI dat for years where we don't have pre data)
+
+all_Clim <- all_Clim[complete.cases(all_Clim), ]
+
+
 ### format date to dd/mm/yyyy
-all_Clim$Date <- gsub("X", "", all_Clim$Date)
-all_Clim$Date <- format(as.Date(all_Clim$Date , format = "%Y.%m.%d"), "%d/%m/%Y") 
+all_Clim$Date <- format(all_Clim$Date, "%d/%m/%Y") 
 
 ### add site column
 all_Clim$site <- names(sites.sitenames)[match(all_Clim$sites.sitename, sites.sitenames) ]
@@ -98,15 +128,16 @@ write.csv(all_Clim, "processed_data/Climate_data_all_sites.csv", row.names = F)
 
 for (site in sites) {
   Biol <- all_Biol[[site]]
+  Clim <- droplevels(all_Clim[all_Clim$sites.sitename %in% sites.sitenames[site], ])
   
   ### format date to dd/mm/yyyy ####
   Biol$Date <- paste0("15/06/", Biol$Year) # dd/mm/yyyy setting up as june 15, ARBITRATY
   
   ## remove years that are before climate record (+ first few first months to be able to look at window before measurement) ####
-  Biol <- Biol[Biol$Year >= min(as.numeric(substr(all_Clim$Date, 7, 10)))+  window_range[1]/12, ]
+  Biol <- Biol[Biol$Year >= min(as.numeric(substr(Clim$Date, 7, 10)))+  window_range[1]/12, ]
   
   ## remove years that are after climate record ####
-  Biol <- Biol[Biol$Year <= max(as.numeric(substr(all_Clim$Date, 7, 10))), ]
+  Biol <- Biol[Biol$Year <= max(as.numeric(substr(Clim$Date, 7, 10))), ]
   
   
   
@@ -135,8 +166,8 @@ for(site in sites) {
   
   if(nrow(clim_gap) > 0) {
     Clim$Year <- as.numeric(sapply(strsplit(Clim$Date, "/"), "[[", 3))
-  if(min(Biol$Year) != 1903) stop("I did not code for this eventuallity")
-  start_year <- min(min(Biol$Year), min(Clim$Year))
+  # if(min(Biol$Year) != 1903) stop("I did not code for this eventuallity")
+  start_year <- min(min(Biol$Year), min(Clim$Year)) # taking the min because technically Clim year starts earlier to be able to look before first measurement
   end_year <- max(Biol$Year) # taking Biol because already trimed to max date.
   n_years <- end_year - start_year
   max_number_months_missing <- floor(n_years * clim_gap_threshold/100)
@@ -146,7 +177,7 @@ for(site in sites) {
   idx_starts_before <- clim_gap$start_Date < start_year
   idx_ends_after <- clim_gap$end_Date > end_year
   
-  adjusted_clim_gap[idx_starts_before, ]$rep.yrs <- adjusted_clim_gap[idx_starts_before,  ]$rep.yrs - (start_year - clim_gap$starts_Date[idx_starts_before])
+  adjusted_clim_gap[idx_starts_before, ]$rep.yrs <- adjusted_clim_gap[idx_starts_before,  ]$rep.yrs - (start_year - clim_gap$start_Date[idx_starts_before])
   
   adjusted_clim_gap[idx_ends_after, ]$rep.yrs <- adjusted_clim_gap[idx_ends_after,  ]$rep.yrs -(clim_gap$end_Date[idx_ends_after] - end_year) 
   
@@ -191,7 +222,7 @@ variables_dropped <- NULL # this is to store the variables that were not conserd
 data_to_keep <- c(ls(), "data_to_keep")
 
 
-for(site in sites) {
+for(site in sites[1]) {
   
   
   rm(list = ls()[!ls() %in% data_to_keep])
@@ -207,6 +238,9 @@ for(site in sites) {
 
     ## create folders if don't exist ####
     dir.create(paste0("results/", what, "/", site), showWarnings = F, recursive = T)
+    
+    ## remove all files so that we start clear 
+    file.remove(list.files(paste0("results/", what, "/", site), full.names = T))
     
     ## if we use dbh, remove any missing dbh ####
     if(grepl("dbh", what)) Biol <- droplevels(Biol[!is.na(Biol$dbh), ])
@@ -302,16 +336,19 @@ for(site in sites) {
                            func = "quad", # c("lin","quad")
                            refday = reference_date,
                            cinterval = "month",
-                           cdate = Clim$Date, bdate = Biol[!is.na(Biol$residuals), ]$Date) 
+                           cdate = Clim$Date, bdate = Biol[!is.na(Biol$residuals), ]$Date,
+                           cmissing = "method1") 
+    
     # Check if best windows for each variable meet the maximum gap requirement (average of month-variale combination <= 5% of the time period) 
     adjusted_clim_gap <- adjusted_clim_gaps[[site]]
     variables_dropped_site <- NULL
+    
     for(i in 1:nrow(results$combos)) {
       
       months_to_avg <- results$combos$WindowOpen[i]:results$combos$WindowClose[i]
       months_to_avg <- reference_date[2] - months_to_avg
-      months_to_avg <- months_to_avg[months_to_avg!= 0 ]
-      months_to_avg <- ifelse(months_to_avg<0, rev(1:12)[abs(months_to_avg)], months_to_avg)
+      # months_to_avg <- months_to_avg[months_to_avg!= 0 ]
+      months_to_avg <- ifelse(months_to_avg<=0, rev(1:12)[abs(months_to_avg)+1], months_to_avg)
       
       idx_v <- adjusted_clim_gap$start_climvar.class %in% results$combos$climate[i]
       
@@ -366,7 +403,7 @@ for(site in sites) {
     }
     
     ## Output Biol and best_results_combos to use in different analysis ####
-    dir.create(paste0("processed_data/core_data_with_best_climate_signal/", what, "/"), recursive = T)
+    dir.create(paste0("processed_data/core_data_with_best_climate_signal/", what, "/"), recursive = T, showWarnings = F)
     write.csv(Biol, file = paste0("processed_data/core_data_with_best_climate_signal/", what, "/", site, ".csv"), row.names = F)
   
     
@@ -462,7 +499,6 @@ for(site in sites) {
     sum_of_weights_for_each_term_by_sp
     
     # save the plot
-    dev.off()
     png(paste0('results/', what, "/", site, "/GLS_Sum_of_AICweights_", site, '.png'),
         width = 10,
         height =8,
@@ -514,13 +550,12 @@ for(site in sites) {
       pt$lwr <- exp(pt$fit - 1.96 * pt$se.fit)
       pt$upr <- exp(pt$fit + 1.96 * pt$se.fit)
       
-      
       p <- ggplot(data = pt[pt$draw,], aes(x = varying_x, y = expfit))
       if(v != "dbh") p <- p + geom_rect(xmin = mean(Biol[, v], na.rm = T) - sd(Biol[, v], na.rm = T), ymin = min(pt$lwr), xmax = mean(Biol[, v], na.rm = T) + sd(Biol[, v], na.rm = T), ymax = max(pt$upr), fill = "grey" , alpha=0.01) + geom_vline(xintercept = mean(Biol[, v], na.rm = T), col = "grey")
       
       time_window <- reference_date[2] - as.numeric(best_results_combos[best_results_combos$climate %in% v, c("WindowOpen", "WindowClose")])
-      time_window_prev <- time_window < 0
-      time_window <- ifelse(time_window_prev, rev(1:12)[abs(time_window)], time_window)
+      time_window_prev <- time_window <= 0
+      time_window <- ifelse(time_window_prev, rev(1:12)[abs(time_window) +1], time_window)
       
       time_window_text <- paste0("\nfrom ", paste(paste0(ifelse(time_window_prev, "prev. ", "curr. "), month.abb[time_window]), collapse = "\nto "))
       
@@ -533,9 +568,11 @@ for(site in sites) {
         scale_colour_hue(drop = F) + scale_fill_hue(drop = F) + 
         theme_classic()
       
-      assign(paste0("p_", v), p +
-               theme(legend.position="none"))  
-      #}
+      if(any(pt$draw)) {
+        assign(paste0("p_", v), p +
+               theme(legend.position="none")) 
+      }
+     
       
     }
     
@@ -548,7 +585,7 @@ for(site in sites) {
     
     
     # existing_plots <- paste0("p_",  c("dbh", variables_to_keep))
-    existing_plots <- paste0("p_",  c(variables_to_keep))
+    existing_plots <- ls()[grepl("^p_", ls())]
     
     grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  get(x)), ncol = ifelse(length(existing_plots) %in% 4, 2, length(existing_plots)))),
                  g_legend(),
@@ -587,3 +624,4 @@ for(site in sites) {
 
 
 variables_dropped
+
