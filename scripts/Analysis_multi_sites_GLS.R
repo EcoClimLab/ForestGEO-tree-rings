@@ -68,7 +68,7 @@ clim_gaps <- read.csv("https://raw.githubusercontent.com/forestgeo/Climate/maste
 clim_gaps <- clim_gaps[clim_gaps$start_climvar.class %in% climate_variables, ]
 
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIIV2WC7B7ANVGZZVQS7B4RUS")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIK6YFIJFQVEKAHVGUC7DBU3S")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
@@ -177,30 +177,30 @@ for(site in sites) {
   idx_starts_before <- clim_gap$start_Date < start_year
   idx_ends_after <- clim_gap$end_Date > end_year
   
-  adjusted_clim_gap[idx_starts_before, ]$rep.yrs <- adjusted_clim_gap[idx_starts_before,  ]$rep.yrs - (start_year - clim_gap$start_Date[idx_starts_before])
+  adjusted_clim_gap[idx_starts_before, ]$nyears <- adjusted_clim_gap[idx_starts_before,  ]$nyears - (start_year - clim_gap$start_Date[idx_starts_before])
   
-  adjusted_clim_gap[idx_ends_after, ]$rep.yrs <- adjusted_clim_gap[idx_ends_after,  ]$rep.yrs -(clim_gap$end_Date[idx_ends_after] - end_year) 
+  adjusted_clim_gap[idx_ends_after, ]$nyears <- adjusted_clim_gap[idx_ends_after,  ]$nyears -(clim_gap$end_Date[idx_ends_after] - end_year) 
   
   # replace negative values by 0
-  adjusted_clim_gap$rep.yrs[adjusted_clim_gap$rep.yrs <0] <- 0 #adjusted_clim_gap <- adjusted_clim_gap[adjusted_clim_gap$rep.yrs > 0, ]
+  adjusted_clim_gap$nyears[adjusted_clim_gap$nyears <0] <- 0 #adjusted_clim_gap <- adjusted_clim_gap[adjusted_clim_gap$nyears > 0, ]
   
   # make month and variable factors so that they are filled with 0 missing years
   adjusted_clim_gap$month <- factor(adjusted_clim_gap$month, levels = 1:12)
   adjusted_clim_gap$start_climvar.class <- factor(adjusted_clim_gap$start_climvar.class)
   
-  # sum number of rep.yrs per variable-month combo
-  adjusted_clim_gap <- aggregate(formula = rep.yrs ~ start_climvar.class + month,
+  # sum number of nyears per variable-month combo
+  adjusted_clim_gap <- aggregate(formula = nyears ~ start_climvar.class + month,
                                  data = adjusted_clim_gap, 
                                  FUN = sum,
                                  drop = F)
   
-  adjusted_clim_gap$rep.yrs[is.na(adjusted_clim_gap$rep.yrs)] <- 0
+  adjusted_clim_gap$nyears[is.na(adjusted_clim_gap$nyears)] <- 0
   
   # get to % missing data
-  adjusted_clim_gap$percent_misssing <- adjusted_clim_gap$rep.yrs *100/ n_years
+  adjusted_clim_gap$percent_misssing <- adjusted_clim_gap$nyears *100/ n_years
   
   # get if month passes threshold
-  adjusted_clim_gap$remove <- adjusted_clim_gap$rep.yrs > max_number_months_missing
+  adjusted_clim_gap$remove <- adjusted_clim_gap$nyears > max_number_months_missing
   
   # change factors back to characters
   adjusted_clim_gap$month <- as.character(adjusted_clim_gap$month)
@@ -215,14 +215,14 @@ for(site in sites) {
 }
 
 ## Run the Analysis ####
-variables_dropped <- NULL # this is to store the variables that were not conserdered for best model because the average % gap of the window >=5%
+variables_dropped <- list() # this is to store the variables that were not conserdered for best model because the average % gap of the window >=5%
 
 
 ## save every object names up until now to erase other stuff before runing each new site
 data_to_keep <- c(ls(), "data_to_keep")
 
 
-for(site in sites[1]) {
+for(site in sites[-c(1:5)]) {
   
   
   rm(list = ls()[!ls() %in% data_to_keep])
@@ -231,6 +231,7 @@ for(site in sites[1]) {
   
   file.remove(list.files("results/explorations/residuals_by_tag/", pattern = site, full.names = T))
   
+  variables_dropped[[site]] <- list()
   for(what in switch(as.character(any(!is.na(all_Biol[[site]]$dbh))), "TRUE" = c("log_core_measurement", "log_core_measurement_dbh", "log_agb_inc_dbh", "log_BAI_dbh"), "FALSE" = "log_core_measurement")) {
     
     Biol <- all_Biol[[site]]
@@ -356,9 +357,9 @@ for(site in sites[1]) {
         variables_dropped_site <- c(variables_dropped_site, as.character(results$combos$climate[i]))
       } 
     }
-    variables_dropped[[site]] <- variables_dropped_site
+    variables_dropped[[site]][[what]] <- variables_dropped_site
     ### find best window for each variable group ignoring the variables that need to be dropped because of gap filling issues (best way to not get confused later with the ordering of te slindingwin order)
-    clim_var_group_site <- lapply(clim_var_group, function(x) x[!x %in% variables_dropped[[site]]])
+    clim_var_group_site <- lapply(clim_var_group, function(x) x[!x %in% variables_dropped[[site]][[what]]])
   
     best_results_combos <- do.call(rbind, lapply(clim_var_group_site, function(X) {
       x <- results$combos[results$combos$climate %in% X,]
