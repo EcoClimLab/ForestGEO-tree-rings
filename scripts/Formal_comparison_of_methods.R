@@ -8,6 +8,8 @@ library(caTools) # for runmean
 library(bootRes)
 library(dplR) # for read.rwl
 library(climwin)
+library(lme4)
+
 
 # source function ####
 

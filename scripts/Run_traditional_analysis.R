@@ -6,6 +6,7 @@ rm(list = ls())
 # load libraries ####
 library(caTools) # for runmean
 library(bootRes)
+library(dplR) # for read.rwl
 
 # source function ####
 
@@ -17,9 +18,9 @@ path_to_COFECHA <- "c:/Users/HerrmannV/Dropbox (Smithsonian)/GitHub/EcoClimLab/F
 
 # find out sites and species we can run ####
 sites_species <- list.dirs(path_to_COFECHA, recursive = F, full.names = F)
-sites <- unique(strsplit(sites_species, "_")[[1]][1])
+sites <- unique(sapply(strsplit(sites_species, "_"), "[", 1))
 
-paths_to_rwl<- list.files(path_to_COFECHA, pattern = "rwl", full.names = T)
+paths_to_rwl<- list.files(path_to_COFECHA, pattern = "rwl", full.names = T) 
 paths_to_tab <-  list.files(path_to_COFECHA, recursive = T,  pattern = "tabs.txt", full.names = T)
 paths_to_out <-  list.files(path_to_COFECHA, recursive = T,  pattern = "out.txt", full.names = T)
 
@@ -42,7 +43,7 @@ save.result.table <- TRUE
 methods.to.run <- c("correlation") # c("correlation", "response", "moving_correlation")
 
 ## Define full.time.frame.end.years ####
-full.time.frame.end.years <- list(SCBI = 2009)
+full.time.frame.end.years <- list(SCBI = 2009, CedarBreaks = 2009)
 ## Define how to run it regarding the starting year ####
 type.of.start.date <- c("1901_2009", "1920_1949", "1950_1979", "1980_2009")
 
@@ -155,7 +156,7 @@ full.time.frame.end.year = full.time.frame.end.years[[site]]  # for now and late
 
 # Plot SSS for the the decided threshold ####
 
-if(save.plots) tiff(paste0("results/traditional_analysis/", site, "/SSS_as_a_function_of_the_number_of_trees_in_sample.tiff"), res = 150, width = 169, height = 169, units = "mm", pointsize = 10)
+if(save.plots) png(paste0("results/traditional_analysis/", site, "/SSS_as_a_function_of_the_number_of_trees_in_sample.png"), res = 150, width = 169, height = 169, units = "mm", pointsize = 10)
 
 op <- par(mfrow = c(2, 1), oma = c(5, 5, 2, 0), mar = c(0, 0, 0, 1))
 
@@ -409,7 +410,7 @@ mean_and_std_of_clim <- NULL
           if(save.plots)  {
             dir.create(paste0("results/traditional_analysis/", site, "/", type.start, "/figures/monthly_", method.to.run), showWarnings = F)
             dir.create(paste0("results/traditional_analysis/", site, "/", type.start, "/figures/monthly_", method.to.run), showWarnings = F)
-            tiff(paste0("results/traditional_analysis/", site, "/", type.start, "/figures/monthly_", method.to.run, "/", v, ".tif"), res = 150, width = 169, height = 169, units = "mm", pointsize = 10)
+            png(paste0("results/traditional_analysis/", site, "/", type.start, "/figures/monthly_", method.to.run, "/", v, ".png"), res = 150, width = 169, height = 169, units = "mm", pointsize = 10)
           }
           
           v <-  toupper(v)
@@ -434,10 +435,5 @@ dir.create(paste0("results/traditional_analysis/", site, "/climate"), showWarnin
 write.csv(mean_and_std_of_clim, file = paste0("results/traditional_analysis/", site, "/climate/mean_and_std_of_climate_variables.csv"), row.names = F)
 
 
-
-
-
-
-}
 
 
