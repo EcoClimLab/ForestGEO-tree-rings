@@ -28,7 +28,7 @@ options(knitr.table.format = "latex")
 
 ## Appendix S1. Methods for reconstruction of $DBH$
 
-DBH can be reconstructed outside-in (based on recent $DBH$, subtracting growth recorded in tree rings) or inside-out (summing $\Delta r$ from the inside out). 
+For each core, $DBH$ can be reconstructed outside-in (based on recent $DBH$, subtracting growth recorded in tree rings) or inside-out (summing $\Delta r$ from the inside out). 
 We generally gave precedence to the outside-in approach.
 Specifically, when $DBH$ was taken at the time of coring,  
 At some of our sites where DBH was not taken at the time of coring (*SCBI*,), DBH measurements taken before or slightly after the time of coring could be used.
@@ -37,12 +37,20 @@ If before, ...
 If after...
 For all outside-in reconstructions, if a negative $DBH$ was predicted...
 
+When there were more than one cores for a tree, the $DBH$ reconstructions from each core were averaged to produce a single estimate of the tree's $DBH$ through time. 
+When the start or end dates of the records from the cores differed, we extrapolated growth of the shorter core to match the years covered by the longer core. 
+Specifically, to fill in years at the more recent end, we assumed that the average growth rate of the ten years prior to the missing records applied to the missing years. 
+To fill in years at the beginning of the tree's lifespan, we likewise assumed that the ten years adjacent to the missing record applied to the missing years; however, if this yielded a negative $DBH$ estimate for the earliest year in the reconstruction, we divided the existing minimum $DBH$ by number of years missing and applied that value to each year.
+We note that these reconstructed growth records were used only for the reconstruction of $DBH$ and were not included as response variables in any of our analyses.
+
 
 In either case we need bark thickness--ideally allometries describing the relationship between DBH and bark thickness. 
 This is especially critical for thick-barked species
 When bark thickness data were available, we generated allometries ... 
 lognormal model with intercept forced to zero: lm(bark_depth.mm ~ -1 + log(dbh_no_bark.cm+1):bark_species, data = bark)
 ([issue #8 in ForestGEO_dendro](https://github.com/EcoClimLab/ForestGEO_dendro/issues/8))
+
+
 
 \newpage
 
