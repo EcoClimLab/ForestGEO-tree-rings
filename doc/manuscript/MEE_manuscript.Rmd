@@ -104,7 +104,7 @@ X#. Canadian Forest Service, Northern Forestry Centre, Edmonton, Alberta, Canada
 ```
 
 
-1. Tree rings provide a valuable long-term record of for understanding how climate and other environmental drivers shape forest productivity, yet traditional analysis methods have not been designed to simultaneously account for the effects of tree size, climate, and other environmental drivers such as atmospheric CO~2~. This has limited the potential to use tree-rings to understand forest productivity in the current era of rapid environmental change. 
+1. Tree rings provide a valuable long-term record for understanding how climate and other environmental drivers shape forest productivity, yet traditional analysis methods have not been designed to simultaneously account for the effects of tree size, climate, and other environmental drivers such as atmospheric CO~2~. This has limited the potential to use tree-rings to understand forest productivity in the current era of rapid environmental change. 
 
 2. Here, we develop a new method that allows simultaneous non-linear modeling of the effects of tree diameter, objectively determined principle climate drivers, and other environmental drivers on annual tree growth. 
 Specifically, we first identify the most important climate drivers using the climwin R package.
@@ -124,14 +124,13 @@ In making this possible, our approach opens the door to improved understanding o
 
 ### Introduction
 
-**Tree rings provide a valuable record of for understanding forests in an era of global change.** 
-[specifics/ example applications: 
-estimating forest woody productivity; 
-understanding the climate sensitivity of tree growth and forest woody productivity, and using this understanding to predict forest responses to climate change; 
-understanding how CO2 and atmospheric deposition influence tree growth]... 
-**Yet, traditional methods of analysis hold limitations for use of tree-rings to address these questions.** 
-Traditional methods seek to remove the ecology. That's what's of interest to us.
-
+**Tree rings provide a long-term record of annual growth increments that is invaluable for understanding forests in an era of global change.** 
+Spanning time scales of decades to centuries or even millennia, they provide by far the most robust method for characterization of the interannual climate sensitivity of tree growth (REFS) and how it is changing [e.g., @sniderhan_growth_2016; @maxwell_declining_2016]. 
+Combined with forest censuses, they can be used to estimate forest woody productivity [@graumlich_long-term_1989; @teets_linking_2018] and its climate sensitivity [@klesse_sampling_2018; @teets_quantifying_2018; @helcoski_growing_2019]. 
+They may also be used to examine how tree growth is responding to pollution, including increasing atmospheric CO~2~ (reviewed in *Walker et al. in press*) and deposition of pollutants including sulfur dioxide (SO~2~) and nitrogen oxides (NO~x~) [@mathias_disentangling_2018]. 
+This information is critical to predicting forest responses to climate change (*Walker et al. in press*; REFS), and thereby reducing the enormous uncertainty surrounding future contributions of Earth's forests to the global carbon cycle [@friedlingstein_climatecarbon_2006].
+Yet, dendrochronological methods have been optimized to detect climate signals (DENDRO REFS) rather than to predict forest productivity and its climate sensitivity [@klesse_sampling_2018]. 
+As a result, prevailing approaches hold a number of limitations for using tree-rings to address pressing questions concerning forest productivity in the current era of rapid environmental change.
 
 **[limitations in how traditional methods look at climate variables]**
 - [subjectively selected variables (e.g., T, PPT, PDSI)]
@@ -145,7 +144,7 @@ In trees, responses of photosynthesis and respiration to environmental drivers a
 The annual growth records of tree-rings allow can be used to study interannual variation, but the standard practice in dendrochronology has been to fit linear relationships (exception is VS-Lite, which fits plateau[@tolwinski-ward_bayesian_2013]), and we therefore know little about what, if any, nonlinearities occur in tree growth responses to interannual variation in climate.
 
 **Traditional methods do not characterize the effect of tree size or its potential interactions with climate variables.** 
-Tree size is among the most important variables affecting tree growth rate [@muller-landau_testing_2006; @foster_predicting_2016; REFS]. 
+Tree size (most commonly diameter breast height, $DBH$) is among the most important variables affecting tree growth rate [@muller-landau_testing_2006; @foster_predicting_2016; REFS]. 
 Radial growth increments (*i.e.*, tree-ring widths; $\Delta r$) may increase or decrease with tree size, often in a non-linear manner.
 Following a "juvenile growth phase", which is typically removed in traditional dendrological analyses, $\Delta r$ may decline, particularly in open-grown conifers (??; DENDRO_REFS).
 In contrast, in mesic closed-canopy forests, $\Delta r$ typically increases with tree diameter at breast height [$DBH$; @muller-landau_testing_2006; @anderson-teixeira_size-related_2015; REFS, DENDRO_REFS].
@@ -169,7 +168,7 @@ This allows us to ask:
 (2) What is the shape of the relationship between annual growth and climate drivers?
 (3) How do $\Delta r$, $BAI$, and aboveground biomass increments ($\Delta AGB$) vary with DBH?
 (4) Are there interactions between DBH and climate drivers common?
-(5) How is growth simultaneously influenced by DBH, climate, and other environemental drivers (CO~2~, atmospheric deposition)? (*perhaps save 5 for Bianca's paper? See [ISSUE #41 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/41)*)
+(5) How is growth simultaneously influenced by DBH, climate, and other environmental drivers (CO~2~, atmospheric deposition)? (*perhaps save 5 for Bianca's paper? See [ISSUE #41 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/41)*)
 
 ### Materials and Methods
 
