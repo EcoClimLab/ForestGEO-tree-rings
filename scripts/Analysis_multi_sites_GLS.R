@@ -68,7 +68,7 @@ clim_gaps <- read.csv("https://raw.githubusercontent.com/forestgeo/Climate/maste
 clim_gaps <- clim_gaps[clim_gaps$start_climvar.class %in% climate_variables, ]
 
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIK6YFIJFQVEKAHVGUC7DBU3S")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIPPNH7V6Q3Z2ASFBCK7FFXNW")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
@@ -222,7 +222,7 @@ variables_dropped <- list() # this is to store the variables that were not conse
 data_to_keep <- c(ls(), "data_to_keep")
 
 
-for(site in sites[-c(1:5)]) {
+for(site in sites) {
   
   
   rm(list = ls()[!ls() %in% data_to_keep])
@@ -615,13 +615,15 @@ for(site in sites[-c(1:5)]) {
                             log_BAI = "BAI (cm2)"), x = unit(0.01, "npc"), y = unit(.51, "npc"), rot = 90)
     dev.off()
     
+    # save environment at this point to later fetch some plots ####
+    save.image(file = paste0('results/', what, "/", site, "/env.RData"))
     
   } # for (what in ...)
   
   
   # save environment ####
   save.image(file = paste0("results/", site, "_all_env.RData"))
-}
+} # for sites in ..
 
 
 variables_dropped
