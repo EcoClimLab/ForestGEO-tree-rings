@@ -54,8 +54,11 @@ Peter Zuidema
 **Author Affiliations:**
 
 1. Conservation Ecology Center; Smithsonian Conservation Biology Institute; Front Royal, VA 22630, USA
+
 2. Center for Tropical Forest Science-Forest Global Earth Observatory; Smithsonian Tropical Research Institute; Panama, Republic of Panama
+
 X#. Harvard Forest, Petersham, MA 01366, USA
+
 X#. Canadian Forest Service, Northern Forestry Centre, Edmonton, Alberta, Canada
 
 *corresponding author: teixeirak@si.edu; +1 540 635 6546
@@ -286,7 +289,7 @@ For $\Delta r$, the general tendency (with just a couple exceptions) was a decli
 $BAI$ most commonly exhibited a unimodal relationship (Fig. 4b).
 $\Delta AGB$ also commonly exhibited a unimodal relationship, although tending to peak at larger DBH (Fig. 4c).
 
-![**Figure 4 | Growth sensitivity to DBH:** (a) $\Delta r$, (b) $BAI$, (c) $\Delta AGB$. THIS FIGURE IS JUST A ROUGH COMPILATION OF RESULTS SO FAR (including known issues--e.g., SCBI). Ideally, I'd like to plot all sites together, meaning we probably have to lose species IDs (plots with species IDs can be shown in appendix).](tables_figures/size_figure_sketch.png)
+![**Figure 4 | Growth sensitivity to DBH: (a) $\Delta r$, (b) $BAI$, (c) $\Delta AGB$.** It's tough to fit all the plots, so we may have to adjust this somehow.](tables_figures/DBH_responses.png)
 
 *Climate-DBH interactions*
 
