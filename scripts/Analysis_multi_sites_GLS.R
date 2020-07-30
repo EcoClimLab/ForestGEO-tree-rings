@@ -22,6 +22,8 @@ path_to_climate_data_NM <- "C:/Users/HerrmannV/Dropbox (Smithsonian)/GitHub/EcoC
 path_to_BCI_pre <- "https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/Met_Stations/BCI/El_Claro_precip_starting_1929/pre_BCI.csv"
 path_to_BCI_wet <- "https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/Met_Stations/BCI/El_Claro_precip_starting_1929/wet_BCI.csv"
 
+path_to_CO2 <- "https://raw.githubusercontent.com/forestgeo/Climate/master/Other_environmental_data/CO2_data/CO2_MOANA_NOAA_combined.csv"
+
 climate_variables <- c( "pre", "wet",
                         "tmp", "tmn", "tmx", "pet",
                         "dtr", "cld") # "frs", "vap"
@@ -67,12 +69,16 @@ BCI_wet <- read.csv(path_to_BCI_wet, stringsAsFactors = F)
 clim_gaps <- read.csv("https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/CRU/scripts/CRU_gaps_analysis/all_sites.reps.csv")
 clim_gaps <- clim_gaps[clim_gaps$start_climvar.class %in% climate_variables, ]
 
+## CO2 data ####
+CO2 <- read.csv(path_to_CO2)
+
 ## core data ####
 all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIPPNH7V6Q3Z2ASFBCK7FFXNW")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
 sites <- names(all_Biol)
+
 # prepare data ####
 
 ## climate data ####
@@ -214,6 +220,13 @@ for(site in sites) {
   } 
 }
 
+
+# add CO2 data to all_Biol ####
+all_Biol <- lapply(all_Biol, function(Biol) {
+  Biol$CO2_ppm <- CO2$CO2_ppm[match(Biol$Year, CO2$year)] 
+  return(Biol)
+  })
+
 ## Run the Analysis ####
 variables_dropped <- list() # this is to store the variables that were not conserdered for best model because the average % gap of the window >=5%
 
@@ -232,6 +245,7 @@ for(site in sites) {
   file.remove(list.files("results/explorations/residuals_by_tag/", pattern = site, full.names = T))
   
   variables_dropped[[site]] <- list()
+  
   for(what in switch(as.character(any(!is.na(all_Biol[[site]]$dbh))), "TRUE" = c("log_core_measurement", "log_core_measurement_dbh", "log_agb_inc_dbh", "log_BAI_dbh"), "FALSE" = "log_core_measurement")) {
     
     Biol <- all_Biol[[site]]
@@ -408,8 +422,8 @@ for(site in sites) {
     write.csv(Biol, file = paste0("processed_data/core_data_with_best_climate_signal/", what, "/", site, ".csv"), row.names = F)
   
     
-    ## look at collinearity between climate variables 9and dbh when relevant) and remove any variable with vif > 10 ####
-    if(grepl("dbh", what)) X <- Biol[, c(as.character(best_results_combos$climate), "dbh")] else X <- Biol[, as.character((best_results_combos$climate))]
+    ## look at collinearity between climate variables and CO2 (and dbh when relevant) and remove any variable with vif > 10 ####
+    if(grepl("dbh", what)) X <- Biol[, c(as.character(best_results_combos$climate), "CO2_ppm", "dbh")] else X <- Biol[, c(as.character(best_results_combos$climate), "CO2_ppm")]
     X <- X[!duplicated(X),]
     
     
@@ -427,6 +441,8 @@ for(site in sites) {
                                  "log_agb_inc" = paste("log_agb_inc ~", paste0("ns(", variables_to_keep, ", 2)", collapse = " + ")),
                                  "log_BAI" = paste("log_BAI ~", paste0("ns(", variables_to_keep, ", 2)", collapse = " + ") ))
     
+    # remove second order term for CO2
+    full_model_formula <- gsub("ns\\(CO2_ppm, 2\\)", "CO2_ppm", full_model_formula)
 
     
     ## identify what variables we should keep for each species, looking at the sum of AIC weights ####
@@ -449,7 +465,7 @@ for(site in sites) {
     x$log_BAI[x$BAI %in% 0] <- log(min( x$BAI[x$BAI >0])/2)
       # x <- x[, c("dbh", "Year", "tag", what, variables_to_keep)]
       
-      x <- x[, c("Year", "treeID", "coreID", "dbh", gsub("_dbh", "", what), variables_to_keep)]
+      x <- x[, c("Year", "treeID", "coreID", "dbh", "CO2_ppm", gsub("_dbh", "", what), variables_to_keep)]
       
       x <- droplevels(x[!is.na(x[, gsub("_dbh", "", what)]), ])
       fm1 <- lme((eval(parse(text = full_model_formula))), random = ~1|coreID, correlation = corCAR1(form=~Year|coreID), data = x, na.action = "na.fail", method = "ML") 
@@ -625,6 +641,8 @@ for(site in sites) {
   save.image(file = paste0("results/", site, "_all_env.RData"))
 } # for sites in ..
 
-
 variables_dropped
 
+sink("results/variables_dropped_at_each_site.txt")
+variables_dropped
+sink()
