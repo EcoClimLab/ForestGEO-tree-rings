@@ -50,6 +50,17 @@ clim_var_group <- list(c("pre", "wet"),
 
 clim_gap_threshold <- 5 # 5%
 
+## variable units ####
+variables_units <- c(pre = "(mm mo-1)",
+                     wet = "(days mo-1)", 
+                     tmp = "(C)", 
+                     tmn = "(C)", 
+                     tmx = "(C)", 
+                     pet = "(mm day-1)", 
+                     dtr = "(C)", 
+                     cld = "%",
+                     dbh = "(cm)",
+                     CO2 = "(ppm)")
 # load data ####
 ## climate data ####
 
@@ -73,7 +84,7 @@ clim_gaps <- clim_gaps[clim_gaps$start_climvar.class %in% climate_variables, ]
 CO2 <- read.csv(path_to_CO2)
 
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIPPNH7V6Q3Z2ASFBCK7FFXNW")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIK7YUULKT7WLQUG4QS7FQW76")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
@@ -223,7 +234,7 @@ for(site in sites) {
 
 # add CO2 data to all_Biol ####
 all_Biol <- lapply(all_Biol, function(Biol) {
-  Biol$CO2_ppm <- CO2$CO2_ppm[match(Biol$Year, CO2$year)] 
+  Biol$CO2 <- CO2$CO2_ppm[match(Biol$Year, CO2$year)] 
   return(Biol)
   })
 
@@ -253,9 +264,11 @@ for(site in sites) {
 
     ## create folders if don't exist ####
     dir.create(paste0("results/", what, "/", site), showWarnings = F, recursive = T)
+    dir.create(paste0("results/with_CO2/", what, "/", site), showWarnings = F, recursive = T)
     
     ## remove all files so that we start clear 
     file.remove(list.files(paste0("results/", what, "/", site), full.names = T))
+    file.remove(list.files(paste0("results/with_CO2", what, "/", site), full.names = T))
     
     ## if we use dbh, remove any missing dbh ####
     if(grepl("dbh", what)) Biol <- droplevels(Biol[!is.na(Biol$dbh), ])
@@ -422,19 +435,28 @@ for(site in sites) {
     write.csv(Biol, file = paste0("processed_data/core_data_with_best_climate_signal/", what, "/", site, ".csv"), row.names = F)
   
     
-    ## look at collinearity between climate variables and CO2 (and dbh when relevant) and remove any variable with vif > 10 ####
-    if(grepl("dbh", what)) X <- Biol[, c(as.character(best_results_combos$climate), "CO2_ppm", "dbh")] else X <- Biol[, c(as.character(best_results_combos$climate), "CO2_ppm")]
+   
+    # now do a species by species gls using log of raw measurements, spline on dbh and year (WITH AND WITHOUT CO2) ####
+    
+    for(with_CO2 in c(FALSE, TRUE)) {
+      ## look at collinearity between climate variables ( and CO2n and dbh when relevant) and remove any variable with vif > 10 ####
+    if(grepl("dbh", what) & with_CO2) X <- Biol[, c(as.character(best_results_combos$climate), "CO2", "dbh")]
+    if(grepl("dbh", what) & !with_CO2) X <- Biol[, c(as.character(best_results_combos$climate), "dbh")]
+    if(!grepl("dbh", what) & with_CO2) X <- Biol[, c(as.character(best_results_combos$climate), "CO2")]
+    if(!grepl("dbh", what) & !with_CO2) X <- Biol[, c(as.character(best_results_combos$climate))]
+    
     X <- X[!duplicated(X),]
     
     
     usdm::vif(X)
     (vif_res <-  usdm::vifstep(X, th = 10))
+    sink(paste0("results/", ifelse(with_CO2, "with_CO2/", ""), what, "/", site, "/VIF.txt"))
+    vif_res
+    sink()
     variables_to_keep <- as.character(vif_res@results$Variables)
     
     
-    ## now do a species by species gls using log of raw measurements, spline on dbh and year ####
-    
-    # create the gls formula
+    ## create the gls formula ####
     
     full_model_formula <- switch(gsub("_dbh", "", what), 
                                  "log_core_measurement" = paste("log_core_measurement ~", paste0("ns(", variables_to_keep, ", 2)", collapse = " + ")),
@@ -442,7 +464,7 @@ for(site in sites) {
                                  "log_BAI" = paste("log_BAI ~", paste0("ns(", variables_to_keep, ", 2)", collapse = " + ") ))
     
     # remove second order term for CO2
-    full_model_formula <- gsub("ns\\(CO2_ppm, 2\\)", "CO2_ppm", full_model_formula)
+    full_model_formula <- gsub("ns\\(CO2, 2\\)", "CO2", full_model_formula)
 
     
     ## identify what variables we should keep for each species, looking at the sum of AIC weights ####
@@ -465,7 +487,7 @@ for(site in sites) {
     x$log_BAI[x$BAI %in% 0] <- log(min( x$BAI[x$BAI >0])/2)
       # x <- x[, c("dbh", "Year", "tag", what, variables_to_keep)]
       
-      x <- x[, c("Year", "treeID", "coreID", "dbh", "CO2_ppm", gsub("_dbh", "", what), variables_to_keep)]
+      x <- x[, c("Year", "treeID", "coreID", "dbh", "CO2", gsub("_dbh", "", what), variables_to_keep)]
       
       x <- droplevels(x[!is.na(x[, gsub("_dbh", "", what)]), ])
       fm1 <- lme((eval(parse(text = full_model_formula))), random = ~1|coreID, correlation = corCAR1(form=~Year|coreID), data = x, na.action = "na.fail", method = "ML") 
@@ -516,7 +538,7 @@ for(site in sites) {
     sum_of_weights_for_each_term_by_sp
     
     # save the plot
-    png(paste0('results/', what, "/", site, "/GLS_Sum_of_AICweights_", site, '.png'),
+    png(paste0('results/', ifelse(with_CO2, "with_CO2/", ""), what, "/", site, "/GLS_Sum_of_AICweights_", site, '.png'),
         width = 10,
         height =8,
         units = "in",
@@ -574,12 +596,12 @@ for(site in sites) {
       time_window_prev <- time_window <= 0
       time_window <- ifelse(time_window_prev, rev(1:12)[abs(time_window) +1], time_window)
       
-      time_window_text <- paste0("\nfrom ", paste(paste0(ifelse(time_window_prev, "prev. ", "curr. "), month.abb[time_window]), collapse = "\nto "))
+      time_window_text <- paste(paste0(ifelse(time_window_prev, "p.", "c."),time_window), collapse = "-") #  paste0("\nfrom ", paste(paste0(ifelse(time_window_prev, "prev. ", "curr. "), month.abb[time_window]), collapse = "\nto "))
       
       p <- p + geom_line(aes(group = species, col = species)) +
         # scale_x_continuous(trans= ifelse(v %in% "dbh", 'log','identity')) +
-        labs(title = paste0(v, ifelse(v %in% best_results_combos$climate, time_window_text, "")),
-             x = v,
+        labs(#title = paste0(v, ifelse(v %in% best_results_combos$climate, time_window_text, "")),
+             x = paste(v, ifelse(v %in% best_results_combos$climate, time_window_text, ""), variables_units[[v]]),
              y = "") + #"core measurements") +
         geom_ribbon(aes(ymin=lwr, ymax=upr, col = NULL, bg = species), alpha=0.25) +
         scale_colour_hue(drop = F) + scale_fill_hue(drop = F) + 
@@ -615,7 +637,7 @@ for(site in sites) {
     
     
     # save plot
-    png(paste0('results/', what, "/", site, "/GLS_ALL_variables_responses_", site, '.png'),
+    png(paste0('results/', ifelse(with_CO2, "with_CO2/", ""), what, "/", site, "/GLS_ALL_variables_responses_", site, '.png'),
         width = 10,
         height =8,
         units = "in",
@@ -630,9 +652,12 @@ for(site in sites) {
                             log_agb_inc = "AGB increment (Mg C)",
                             log_BAI = "BAI (cm2)"), x = unit(0.01, "npc"), y = unit(.51, "npc"), rot = 90)
     dev.off()
-    
+     
     # save environment at this point to later fetch some plots ####
-    save.image(file = paste0('results/', what, "/", site, "/env.RData"))
+    save.image(file = paste0('results/', ifelse(with_CO2, "with_CO2/", ""), what, "/", site, "/env.RData"))
+    } # for(with_CO2 in c(FALSE, TRUE)) 
+     
+   
     
   } # for (what in ...)
   

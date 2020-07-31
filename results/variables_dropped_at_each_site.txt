@@ -1,9 +1,9 @@
 $BCI
 $BCI$log_core_measurement
-[1] "dtr" "pet" "tmn" "tmp"
+[1] "dtr" "pet"
 
 $BCI$log_core_measurement_dbh
-[1] "dtr" "pet" "tmn" "tmp"
+[1] "dtr" "pet"
 
 $BCI$log_agb_inc_dbh
 [1] "dtr" "pet" "tmn"
@@ -22,10 +22,10 @@ list()
 
 $HKK
 $HKK$log_core_measurement
-[1] "dtr" "pet" "tmn" "cld"
+[1] "dtr" "pet" "cld"
 
 $HKK$log_core_measurement_dbh
-[1] "dtr" "pet" "tmn" "cld"
+[1] "dtr" "pet" "cld"
 
 $HKK$log_agb_inc_dbh
 [1] "dtr" "pet" "cld"
@@ -53,32 +53,4 @@ list()
 
 $SCBI
 list()
-
-$ScottyCreek
-$ScottyCreek$log_core_measurement
-[1] "pet"
-
-$ScottyCreek$log_core_measurement_dbh
-[1] "pet"
-
-$ScottyCreek$log_agb_inc_dbh
-[1] "pet"
-
-$ScottyCreek$log_BAI_dbh
-[1] "pet"
-
-
-$Zofin
-$Zofin$log_core_measurement
-[1] "tmn"
-
-$Zofin$log_core_measurement_dbh
-[1] "tmn"
-
-$Zofin$log_agb_inc_dbh
-[1] "tmn"
-
-$Zofin$log_BAI_dbh
-[1] "tmn"
-
 
