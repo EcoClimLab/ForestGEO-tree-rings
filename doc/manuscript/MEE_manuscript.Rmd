@@ -107,21 +107,21 @@ X#. Canadian Forest Service, Northern Forestry Centre, Edmonton, Alberta, Canada
 ```
 
 
-1. Tree rings provide a valuable long-term record for understanding how climate and other environmental drivers shape forest productivity, yet traditional analysis methods have not been designed to simultaneously account for the effects of tree size, climate, and other environmental drivers such as atmospheric CO~2~. This has limited the potential to use tree-rings to understand forest productivity in the current era of rapid environmental change. 
+1. Tree rings provide a valuable long-term record for understanding how climate shapes forest productivity. However, traditional analysis methods have not been designed to simultaneously account for the effects of tree size and climate, which has limited the potential to use tree-rings to understand forest productivity in the current era of rapid climate change. 
 
-2. Here, we develop a new method that allows simultaneous non-linear modeling of the effects of tree diameter, objectively determined principle climate drivers, and other environmental drivers on annual tree growth. 
+2. Here, we develop a new method that allows simultaneous non-linear modeling of the effects of objectively determined principle climate drivers and tree diameter. 
 Specifically, we first identify the most important climate drivers using the climwin R package.
-We then include these in generalized least squares models that simultaneously fit the detrending splines needed to pull out climate signals and flexibly account for nonlinearity of responses to tree diameter, climate variables, and other environmental drivers.
+We then include these in generalized least squares models that simultaneously fit the detrending splines needed to pull out climate signals and flexibly account for nonlinearity of responses to tree diameter and climate variables.
 We apply this method to tree-ring data from **#** species at **nine/ten** globally distributed sites spanning a wide range of forest types. 
 
-3. Our analysis identified similar climate drivers to those obtained via traditional methods, but revealed that non-linear responses to climate variables were common. Radial growth increments, basal area increments, and biomass increments all varied non-linearly with tree diameter. [** something about CO2, maybe atmospheric deposition**](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/46)
+3. Our analysis identified similar climate drivers to those obtained via traditional methods, but revealed that non-linear responses to climate variables were common. Radial growth increments, basal area increments, and biomass increments all varied non-linearly with tree diameter. [*something about interactions between climate sensitivity and diameter*] 
 
-4. Our method provides a novel approach to objectively identifying the most important climate drivers of tree growth and combining them with tree diameter and other environmental drivers in nonlinear models.
+4. Our method provides a novel approach to objectively identifying the most important climate drivers of tree growth and combining them with tree diameter in nonlinear models.
 Our finding that nonlinear growth responses to climate variables are common contrasts with the assumption behind most contemporary dendrochonological analyses of the climate sensitivity of tree growth, but is consistent with physiological and ecological studies showing that biological rates often respond nonlinearly to climate drivers. 
 The nonlinear relationship between tree diameter and growth rate implies that no metric of growth can be assumed independent of tree size, and therefore diameter must be accounted for in analyses seeking to quantify the impact of CO~2~ or other slowly-changing environmental drivers on tree growth.
-In making this possible, our approach opens the door to improved understanding of forest repsonses to global change based on tree-ring records.
+Our approach opens the door for using tree-ring records improved understanding of forest responses to climate change, while opening the door for simultaneous accounting of climate, tree size, and slowly changing environmental drivers. 
 
-**Keywords**:  carbon dioxide (CO~2~); climate sensitivity;  diameter; environmental change; Forest Global Earth Observatory (ForestGEO); generalized least squares; nonlinear; tree-ring
+**Keywords**:  climate sensitivity;  diameter; environmental change; Forest Global Earth Observatory (ForestGEO); generalized least squares; nonlinear; tree-ring
 
 \newpage
 
@@ -157,21 +157,13 @@ Although climate correlations can be transformed to climate sensitivity [*sensu*
 For example, larger trees tend to be more sensitive to drought [@bennett_larger_2015 ; McGregor et al. in revision; REFS].
 Thus, to use tree-rings to predict $ANPP_{stem}$ for a forest where not every tree was cored, we need models that include tree size.
 
-**Characterizing the influence of slowly-changing environtmental drivers is very challenging and uncertain.** (*perhaps save for Bianca's paper? See [ISSUE #41 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/41)*)
-We want to know how changes in CO~2~ and atmospheric deposition are influencing tree growth.
-A signficant challenge arises when tree-rings are used to characterize the influence of slowly changing environmental variables--climate, CO2, atmospheric deposition--on tree growth rates (REFS).
-In these cases, a variety of methods are used to account for simultaneous changes in tree size, including... (DENDRO_REFS).
-One commonly applied approach is to assume that $BAI$ is fundamentally independent of size (DENDRO_REFS).
-None of these methods is fully satisfactory, leaving great uncertainty as to what the tree-ring record can tell us about the impact of rising CO~2~ (Walker et al. in revision). 
-Rather, it is necessary to *simultaneously* account for the influences of changing tree size and environmental drivers.
-
 **Here, we develop a new method that allows simultaneous consideration of the effects of tree size, objectively determined principle climate drivers, and other environmental drivers on annual tree growth.** 
 This allows us to ask:
 (1) What are the most important climate drivers of annual growth, and over which time windows?
 (2) What is the shape of the relationship between annual growth and climate drivers?
 (3) How do $\Delta r$, $BAI$, and aboveground biomass increments ($\Delta AGB$) vary with DBH?
-(4) Are there interactions between DBH and climate drivers common?
-(5) How is growth simultaneously influenced by DBH, climate, and other environmental drivers (CO~2~, atmospheric deposition)? (*perhaps save 5 for Bianca's paper? See [ISSUE #41 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/41)*)
+(4) Are interactions between DBH and climate drivers common?
+
 
 ### Materials and Methods
 
@@ -216,13 +208,16 @@ We then calculated $\Delta AGB_y$ as [$AGB_{y+1}-AGB_y$].
 For temperate sites, biomass allometries were sourced from allo-db (DETAILS; Gonzalez-Akre et al. in prep).
 For BCI, biomass allometries were sourced from the BIOMASS package (REF).
 
-Climate and environmental driver data were obtained from global databases. Monthly climate data for 1901-20XX was obtained from CRU v.4.04 [@harris_updated_2014; @harris_version_2020]. Variables considered here included mean, minimum, and maximum temperatures; daily temperture range; precipitation; wet day frequency; cloud cover; and potential evapotranspiration (PET). In the CRU database, gaps are filled with monthly means... (**[ISSUE #45 in ForestGEO_climate-senstivity](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/45): handling gaps**). Atmospheric CO~2~... (**[ISSUE #16 in ForestGEO_dendro](https://github.com/EcoClimLab/ForestGEO_dendro/issues/16): obtain data**). Atmospheric deposition... (**[ISSUE #17 in ForestGEO_dendro](https://github.com/EcoClimLab/ForestGEO_dendro/issues/17): obtain data**). Analyses were, necessarily, limited ot the time frame over which these were available.
+Monthly climate data for 1901-20XX were obtained from CRU v.4.04 [@harris_updated_2014; @harris_version_2020]. 
+Variables considered here included mean, minimum, and maximum temperatures; daily temperature range; precipitation; wet day frequency; cloud cover; and potential evapotranspiration (PET). In the CRU database, gaps are filled with monthly means... (**[ISSUE #45 in ForestGEO_climate-senstivity](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/45): handling gaps**).
+(*Describe criteria for excluding variables/ time frames.*)
+(*Describe BCI data.* )
 
 #### Analysis methods
 
-Our analysis consisted of two main steps: (1) identification of the most important climate drivers, and (2) combining $DBH$ and environmental drivers into a multivariate model (Fig. 1). The analysis was run separately for each site.
+Our analysis consisted of two main steps: (1) identification of the most important climate drivers, and (2) combining $DBH$ and climate drivers into a multivariate model (Fig. 1). The analysis was run separately for each site.
 
-![**Figure 1 | DRAFT Schematic illustrating our analysis process.** This analysis is conducted separately for each site. ](tables_figures/schematic_figure.png)
+![**Figure 1 | DRAFT Schematic illustrating our analysis process.** This analysis is conducted separately for each site. (*CO2 needs to be removed from this figure.*) ](tables_figures/schematic_figure.png)
 
 *Identifying key climate drivers*
 
@@ -306,12 +301,9 @@ The degree to which climate sensitivity landscapes differ across growth metrics 
 
 **Table / figure on climate - DBH interactions?** (*See [ISSUE #42 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/42)*)
 
-*Influence of atmospheric pollution*
-
-**Figure showing effects of CO2, SO2, NOx** (*perhaps save for Bianca's paper? See [ISSUE #41 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/41)*)
 
 ### Discussion
-**We present a new method that allows simultaneous consideration of the effects of tree size, objectively determined principle climate drivers, and other environmental drivers on annual tree growth.**
+**We present a new method that allows simultaneous consideration of the effects of objectively determined principle climate drivers and tree size on annual growth.**
 Results are broadly consistent with those obtained by traditional methods, but offer several new insights.
 
 On climate sensitivity:
@@ -325,6 +317,8 @@ Our finding that $\Delta AGB$ is most commonly unimodal is surprising in that it
 $\Delta AGB$ declines at high $DBH$ are presumably because trees are investing fixed C elsewhere--for example, reproduction.
 
 DBH is not always collected when cores are taken, and is not routinely preserved alongside tree-ring data. For example, the International Tree-Ring Data Bank (ITRDB) contains no structure for storing DBH records. DEN is new alternative. 
+
+Sets the foundation for considering other, slowly changing environmental drivers.
 
 ### Acknowledgements
 Scholarly Studies
