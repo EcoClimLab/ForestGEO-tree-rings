@@ -101,7 +101,7 @@ for(site in sites){
   # get variable in order or Precipitation, Temperature and cloud groups (but complicated because, pet is in both temp and dtr),....
   clim_var_group <- get("clim_var_group"  , temp_env)
   
-  existing_plots <- existing_plots[match(c(1,2,3), sapply(gsub("p_", "", existing_plots), grep, clim_var_group))]
+  existing_plots <- existing_plots[match(c(1,2,3), sapply(gsub("p_", "", existing_plots), function(x) grep(x,  clim_var_group)[1]))]
   
   assign("leg", g_legend(), envir = temp_env)
   existing_plots <- c(existing_plots, "leg")
