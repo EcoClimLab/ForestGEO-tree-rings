@@ -242,8 +242,7 @@ We note that analyzing all species together yields the most significant climate 
 We specified quadratic relationships only because (i) quadratic relationships are more consistent with known biological mechanisms (see Introduction), (ii) preliminary tests revealed that quadratic fits usually had lower AIC, and when not there tended to be little difference in AIC and the curve would approximate a straight line, (iii) modeling only quadratic improves coding efficiency and speeds up the analysis process.
 For each group of candidate climate variables, we move forward with the best variable over the time window identified by climwin as a candidate climate variable for the multivariate models. 
 If PET came out as the best variable in either the temperature or cloud group and there was any overlap in the time windows of variables from these groups, the cloud group variable was dropped from the analysis on the logic that it the top variables for these groups were too closely related.
-We checked for collinearity among the selected climate variables, removing cloud group variables when they were *too closely correlated* with temperature or precipitation group variables. 
-Furthermore, we removed any variable with a variance inflation factor > 10. (**[ISSUE #109 in ForestGEO-climate-sensitivity ](https://github.com/forc-db/Global_Productivity/issues/109))
+*We checked for collinearity among the selected climate variables, removing cloud group variables when they were *too closely correlated* with temperature or precipitation group variables.* (**[ISSUE #52 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/52))
 
 
 A challenge to this system arose for the site undergoing most rapid climate change: Scotty Creek (*and NM*?). 
@@ -254,7 +253,7 @@ Problematically, correlating tree growth residuals from which climate-driven tre
 *Combining drivers in GLS model*
 
 Second, we combined climate and reconstructed $DBH$ data in a GLS model (Fig. 1). 
-We checked for collinearity among the full set of variables and removed any variable with a variance inflation factor > 10. (**[ISSUE #109 in ForestGEO-climate-sensitivity ](https://github.com/forc-db/Global_Productivity/issues/109))
+We checked for collinearity among the full set of variables using the *vifstep* function (**REF**) and removed any variable with a variance inflation factor > 10. 
 For each species (at each site) independently, we ran a GLS model including every combination of the candidate climate variables (as a 2-degree polynomial to allow quadratic curve), $DBH$, and fit one year spline for each treeID, plus a random intercept for each tree. We  also ran models with a spline of DBH (3 knots).
 Across all possible models, variable AICc weights were summed to determine which drivers are most important. We considered the model containing those variables as the top model.
 
