@@ -47,7 +47,7 @@ g_legend <- function(x = "pt"){
   return(legend)
 }
 # DBH response at each sites and for each response ####
-what_to_show <- c("log_core_measurement_dbh" = expression(Delta*r), "log_BAI_dbh" = expression(BAI), "log_agb_inc_dbh" = expression(Delta*AGB))
+what_to_show <- c("log_core_measurement_dbh" = expression(Delta*r~(mm)), "log_BAI_dbh" = expression(BAI~(cm^2)), "log_agb_inc_dbh" = expression(Delta*AGB~(kg)))
 
 
 
@@ -63,6 +63,8 @@ for(site in sites){
     p$labels$title <- NULL
     p$labels$x <- NULL
     
+    # if p is AGB, convert to kg
+    if(what == "log_agb_inc_dbh") p$data[c("expfit", "lwr", "upr")] <-   p$data[c("expfit", "lwr", "upr")]*1000
     
     # save into all_plots
     all_plots[[paste0(site, what)]] <- p

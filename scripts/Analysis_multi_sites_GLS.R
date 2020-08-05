@@ -604,7 +604,7 @@ for(site in sites) {
              x = paste(v, ifelse(v %in% best_results_combos$climate, time_window_text, ""), variables_units[[v]]),
              y = "") + #"core measurements") +
         geom_ribbon(aes(ymin=lwr, ymax=upr, col = NULL, bg = species), alpha=0.25) +
-        scale_colour_hue(drop = F) + scale_fill_hue(drop = F) + 
+        scale_colour_hue(drop = F) + scale_bg_hue(drop = F) + 
         theme_classic()
       
       if(any(pt$draw)) {
