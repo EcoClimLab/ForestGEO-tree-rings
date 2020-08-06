@@ -178,11 +178,12 @@ load(paste0("results/", what, "/", site, "/env.RData"), temp_env)
 
 p <- get(paste0("p_", v), temp_env)
 p <- p + labs(y = expression(Delta*r~(mm)))
+p <- p + theme(legend.position="right", legend.text = element_text(size = 8)) # add legend
 plot.new()              ## suggested by @Josh
 vps <- gridBase::baseViewports()
 pushViewport(vps$figure) ##   I am in the space of the autocorrelation plot
-vp1 <- plotViewport(c(1.8,1,0,1)) ## create new vp with margins, you play with this values 
+vp1 <- plotViewport(c(0,0,0,0)) ## create new vp with margins, you play with this values 
 
-print(p,vp = vp1) 
-## dev.off() ####
+print(p, vp = vp1)
+ # dev.off()####
 dev.off()
