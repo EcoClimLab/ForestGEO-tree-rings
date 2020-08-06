@@ -293,7 +293,7 @@ For $\Delta r$, the general tendency (with just a couple exceptions) was a decli
 $BAI$ most commonly exhibited a unimodal relationship (Fig. 4b).
 $\Delta AGB$ also commonly exhibited a unimodal relationship, although tending to peak at larger DBH (Fig. 4c).
 
-![**Figure 4 | Growth sensitivity to DBH: (a) $\Delta r$, (b) $BAI$, (c) $\Delta AGB$.** Only signficant relationships are shown. It's tough to fit all the plots, so we may have to adjust this somehow.](tables_figures/DBH_responses.png)
+![**Figure 4 | Growth sensitivity to DBH: (a) $\Delta r$, (b) $BAI$, (c) $\Delta AGB$.** Only relationships included in the top model for each site are shown. It's tough to fit all the plots, so we may have to adjust this somehow.](tables_figures/DBH_responses.png)
 
 *Climate-DBH interactions*
 
