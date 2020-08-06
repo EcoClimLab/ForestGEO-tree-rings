@@ -46,6 +46,10 @@ g_legend <- function(x = "pt"){
   legend <- tmp$grobs[[leg]]
   return(legend)
 }
+# load and calculate y limits ####
+load("results/ylims_for_GLS_plots.RData")
+ylim_p <- lapply(ylim_p, lapply, range)
+ylim_p[["log_agb_inc_dbh"]] <- lapply(ylim_p[["log_agb_inc_dbh"]], function(x) x*1000) # convert agb to kg
 # DBH response at each sites and for each response ####
 what_to_show <- c("log_core_measurement_dbh" = expression(Delta*r~(mm)), "log_BAI_dbh" = expression(BAI~(cm^2)), "log_agb_inc_dbh" = expression(Delta*AGB~(kg)))
 
@@ -62,6 +66,9 @@ for(site in sites){
     # remove title and xlab of p
     p$labels$title <- NULL
     p$labels$x <- NULL
+    
+    # change ylim to scale across sites 
+    p <- p + ylim(ylim_p[[what]][["dbh"]])
     
     # if p is AGB, convert to kg
     if(what == "log_agb_inc_dbh") p$data[c("expfit", "lwr", "upr")] <-   p$data[c("expfit", "lwr", "upr")]*1000
@@ -127,15 +134,15 @@ site = "SCBI"
 v = "pre"
 what = "log_core_measurement"
 
-png("doc/manuscript/tables_figures/quilt_comparison.png", width = 10, height = 8 , units = "in", res = 300)
+png("doc/manuscript/tables_figures/quilt_comparison.png", width = 10, height = 4 , units = "in", res = 300)
 
-layout(matrix(c(1, 1, 2, 3, 5, 5, 4, 6, 6, 7, 7, 7), nrow = 3), heights = c(2,1,1), widths = c(2, 1, 1, 2))
+layout(matrix(c(1, 1, 2, 3, 5, 5, 4, 6, 6, 7, 7, 7), nrow = 3), heights = c(3,2,1), widths = c(2.2, 1, 1, 2))
 par(mar = c(0,0,0,0))
 
 ## a) quilt ####
 img <- readPNG(paste0("results/traditional_analysis/", site, "/1901_2009/figures/monthly_correlation/", v, ".png"))
-img1 <- img[50:(nrow(img)-150), 1:825,] # keep only quilt half of plot
-img2 <- img[,825:(ncol(img)-50), ] # keep only legend
+img1 <- img[50:(nrow(img)-150), 1:800, ] # keep only quilt half of plot
+img2 <- img[,800:(ncol(img)-60), ] # keep only legend
 
 
 par(mar = c(0,0,0,0))
@@ -147,8 +154,8 @@ rasterImage( img1 , xleft = 0, xright = 100,
 par(mar = c(0,0,0,0))
 plot(0:100, 0:100, type = "n", axes = F, xlab = "", ylab = "")
 
-rasterImage( matrix(as.vector(as.raster(img2)), ncol = nrow(img2))[ncol(img2):1,], xleft = 0, xright = 100,
-             ybottom = 0, ytop = 100)
+rasterImage( matrix(as.vector(as.raster(img2)), ncol = nrow(img2))[ncol(img2):1,], xleft = 10, xright = 110,
+             ybottom = 5, ytop = 100)
 
 ## b,c,d,e) climwin ####
 img <- readPNG(paste0("results/", what, "/", site, "/climwin_", v, "_quad_14_0_SCBI.png"))
@@ -170,6 +177,7 @@ temp_env <- new.env()
 load(paste0("results/", what, "/", site, "/env.RData"), temp_env)
 
 p <- get(paste0("p_", v), temp_env)
+p <- p + labs(y = expression(Delta*r~(mm)))
 plot.new()              ## suggested by @Josh
 vps <- gridBase::baseViewports()
 pushViewport(vps$figure) ##   I am in the space of the autocorrelation plot
