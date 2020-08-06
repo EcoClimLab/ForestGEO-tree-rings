@@ -68,7 +68,7 @@ for(site in sites){
     p$labels$x <- NULL
     
     # change ylim to scale across sites 
-    p <- p + ylim(ylim_p[[what]][["dbh"]])
+    # p <- p + ylim(ylim_p[[what]][["dbh"]])
     
     # if p is AGB, convert to kg
     if(what == "log_agb_inc_dbh") p$data[c("expfit", "lwr", "upr")] <-   p$data[c("expfit", "lwr", "upr")]*1000
