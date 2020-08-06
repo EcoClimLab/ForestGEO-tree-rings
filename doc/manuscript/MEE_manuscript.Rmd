@@ -30,8 +30,10 @@ Raquel Alfaro-Sánchez,
 Taia Awada,
 Jennifer Baltzar,
 Patrick Baker,
+Sarayudh Bunyavejchewin,
 Paulo Cherubini,
 Justin Cooper,
+Stuart Davies,
 Ryan Helcoski^1^,
 Vasickova Ivana,
 Kaspar Jakub,
@@ -49,7 +51,7 @@ Mart Vlam,
 Peter Zuidema
 
 
-*List not yet complete. Current list includes those who have contributed tree-ring data and/or intellectually, but not site PIs.*
+*List not yet complete. Current list includes all those who have contributed tree-ring data and/or intellectually, but all not site PIs.*
 
 *other contributors may move up in the list if they contribute a lot*
 
@@ -87,7 +89,7 @@ X#. Canadian Forest Service, Northern Forestry Centre, Edmonton, Alberta, Canada
 # Fig3-  multipanel- GLS results for climate sensitivity at all sites (3 columns with the 3 variable type groupings, 1 row per site) 
 # Fig4-relationship of ∆r and ∆AGB to DBH (all site-species combinations)
 # Fig5/ table2- DBH/climate interactions
-# Fig 6/7- responses to CO2 and atmospheric deposition
+
 
 ```
 
@@ -121,7 +123,7 @@ We apply this method to tree-ring data from **#** species at **nine/ten** global
 
 4. Our method provides a novel approach to objectively identifying the most important climate drivers of tree growth and combining them with tree diameter in nonlinear models.
 Our finding that nonlinear growth responses to climate variables are common contrasts with the assumption behind most contemporary dendrochonological analyses of the climate sensitivity of tree growth, but is consistent with physiological and ecological studies showing that biological rates often respond nonlinearly to climate drivers. 
-The nonlinear relationship between tree diameter and growth rate implies that no metric of growth can be assumed independent of tree size, and therefore diameter must be accounted for in analyses seeking to quantify the impact of CO~2~ or other slowly-changing environmental drivers on tree growth.
+The nonlinear relationship between tree diameter and growth rate implies that no metric of growth can be assumed independent of tree size, and therefore diameter must be accounted for in analyses seeking to quantify the impact of slowly-changing environmental drivers on tree growth.
 Our approach opens the door for using tree-ring records improved understanding of forest responses to climate change, while opening the door for simultaneous accounting of climate, tree size, and slowly changing environmental drivers. 
 
 **Keywords**:  climate sensitivity;  diameter; environmental change; Forest Global Earth Observatory (ForestGEO); generalized least squares; nonlinear; tree-ring
@@ -173,7 +175,7 @@ This allows us to ask:
 #### Data sources and preparation
 
 We analyzed previously collected tree-ring data from  # sites of the Forest Global Earth Observatory [ForestGEO; @anderson-teixeira_ctfs-forestgeo:_2015], plus one in New Mexico, representing a wide range of forest and tree types: tropical broadleaf deciduous and evergreen, temperate broadleaf deciuous and needleleaf evergreen, and boreal needleleaf evergreen (Table 1).
-Trees were cored within or close to the large forest dynamics plots following a variety of sampling protocols designed to meet the varied objectives of the original studies [@vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @tumajer_increasing_2017; @alfaro-sanchez_growth_2017; @helcoski_growing_2019; MORE]. 
+Trees were cored within or close to (max distance: # km) the large forest dynamics plots following a variety of sampling protocols designed to meet the varied objectives of the original studies [@vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @tumajer_increasing_2017; @alfaro-sanchez_growth_2017; @helcoski_growing_2019; MORE]. 
 In using this variety of data sources, we encountered and solved a variety of challenges for analyzing existing tree-ring records with this approach.
 
 
@@ -291,7 +293,7 @@ For $\Delta r$, the general tendency (with just a couple exceptions) was a decli
 $BAI$ most commonly exhibited a unimodal relationship (Fig. 4b).
 $\Delta AGB$ also commonly exhibited a unimodal relationship, although tending to peak at larger DBH (Fig. 4c).
 
-![**Figure 4 | Growth sensitivity to DBH: (a) $\Delta r$, (b) $BAI$, (c) $\Delta AGB$.** It's tough to fit all the plots, so we may have to adjust this somehow.](tables_figures/DBH_responses.png)
+![**Figure 4 | Growth sensitivity to DBH: (a) $\Delta r$, (b) $BAI$, (c) $\Delta AGB$.** Only signficant relationships are shown. It's tough to fit all the plots, so we may have to adjust this somehow.](tables_figures/DBH_responses.png)
 
 *Climate-DBH interactions*
 
@@ -316,13 +318,25 @@ Results are broadly consistent with those obtained by traditional methods, but o
 On climate sensitivity:
 - Climwin step is problematic when climate is rapidly changing [ISSUE #25 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/25).
 
+**We recorded substantial variation in growth trends with $DBH$, dependent largely upon species ecology and stand history (Fig. 4).**
+On one end of the spectrum, *Melia azedarach* at HKK had extremely rapid growth at small $DBH$, with $\Delta r$ ranging up to ~15mm yr^-1^, followed by fairly rapid declines with increasing $DBH$. 
+This highly shade-intolerant species generally establishes in the open [@baker_suppression_2006] and was sampled opportunistically outside the ForestGEO plot [@vlam_temperature_2014], where it presumably established under open conditions.
+Similar patterns of approximately exponential decline in $\Delta r$ with $DBH$ were observed for conifer species at Little Tesque and Scotty Creek--both relatively open forests--and a number of species in mesic temperate forests (Fig. 4).
+At the other end of the spectrum, a number of species at sites where they presumably established under closed-canopy conditions (e.g., *Fagus* at SCBI and Zofin) had $\Delta r$ <1 mm yr^-1^ at small $DBH$, increased to peak $\Delta r$ between # and # cm $DBH$, and subsequently declined.  
+A number of taxa showed different patterns at different sites; for example, *Acer* exhibited the first pattern at Harvard Forest and the second at Lilly Dickey.
+Similarly, patterns were mixed among species within a single stand (e.g., at SCBI and Harvard Forest).
+These variable patterns in $\Delta r$ with $DBH$ translated into differences in variation in $BAI$ and $\Delta AGB$ with $DBH$, although trends in both of these were more consistent across sites and species, typically increasing to a peak at intermediate $DBH$ and then declining.
+
 **Our analysis of growth trends with DBH yields several novel insights for dendrochronology and forest ecology.**
 First, the observation that $\Delta r$ typically declines with tree size in cored individuals, often following initial increase during juvenile growth phase, is consistent with many previous observations from tree-ring records (DENDRO_REFS). 
 This contrasts with patterns observed at the stand level [@muller-landau_testing_2006; @anderson-teixeira_size-related_2015; Piponiot et al. in prep]-- presumably because [the sample of cored trees (survivors) doesn't match forest composition] (*cite paper that I reviewed several years back; [Clark et al. 2007?](https://esajournals-onlinelibrary-wiley-com.smithsonian.idm.oclc.org/doi/epdf/10.1890/06-1039.1); [Schleip et al. 2015](https://onlinelibrary-wiley-com.smithsonian.idm.oclc.org/doi/abs/10.1002/env.2324)*).
 This also contrasts with in [Helcoski et al. 2019](https://nph.onlinelibrary.wiley.com/doi/abs/10.1111/nph.15906), where we show a positive relationship of radial growth to DBH from tree-rings.
-Non-independence of $BAI$ from $DBH$ negates assumption that $BAI$ can be used as a DBH-independent metric of tree growth.
 Our finding that $\Delta AGB$ is most commonly unimodal is surprising in that it contrasts with many previous findings and theoretical expectations (Stephenson et al, check Foster et al. 2006; check Piponiot et al. in prep). [EXPAND]
 $\Delta AGB$ declines at high $DBH$ are presumably because trees are investing fixed C elsewhere--for example, reproduction.
+
+**These results have important implications for using tree-rings to infer growth responses to slowly-changing environmental drivers, including climate, atmospheric CO~2~, and deposition of SO~2~ and NO~x~.** ....
+Non-independence of $BAI$ from $DBH$ negates assumption that $BAI$ can be used as a DBH-independent metric of tree growth....
+
 
 DBH is not always collected when cores are taken, and is not routinely preserved alongside tree-ring data. For example, the International Tree-Ring Data Bank (ITRDB) contains no structure for storing DBH records. DEN is new alternative. 
 
