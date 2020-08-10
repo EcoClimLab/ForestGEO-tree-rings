@@ -1,11 +1,10 @@
-No variable from the 3 input variables has collinearity problem. 
+No variable from the 2 input variables has collinearity problem. 
 
 The linear correlation coefficients ranges between: 
-min correlation ( tmx ~ dtr ):  -0.1089177 
-max correlation ( dtr ~ pre ):  -0.4043253 
+min correlation ( tmx ~ pre ):  0.1183624 
+max correlation ( tmx ~ pre ):  0.1183624 
 
 ---------- VIFs of the remained variables -------- 
   Variables      VIF
-1       pre 1.203470
-2       dtr 1.200856
-3       tmx 1.018814
+1       pre 1.014209
+2       tmx 1.014209

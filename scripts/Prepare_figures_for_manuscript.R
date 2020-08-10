@@ -94,7 +94,7 @@ grid::grid.text("dbh (cm)", x = unit(.5, "npc"), y = unit(0.015,  "npc"))
 
 dev.off()
 
-# Pre, Temp and cld groups ####
+# Pre and Temp groups ####
 
 all_plots <- list()
 for(site in sites){
@@ -108,30 +108,30 @@ for(site in sites){
   # get variable in order or Precipitation, Temperature and cloud groups (but complicated because, pet is in both temp and dtr),....
   clim_var_group <- get("clim_var_group"  , temp_env)
   
-  existing_plots <- existing_plots[match(c(1,2,3), sapply(gsub("p_", "", existing_plots), function(x) grep(x,  clim_var_group)[1]))]
+  existing_plots <- existing_plots[match(c(1,2), sapply(gsub("p_", "", existing_plots), function(x) grep(x,  clim_var_group)[1]))]
   
   assign("leg", g_legend(), envir = temp_env)
   existing_plots <- c(existing_plots, "leg")
   
-  all_plots[[paste0(site, what)]] <- grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  {if(is.na(x)) grid.rect(gp=gpar(col="white")) else get(x, temp_env)}), ncol = 4)))
+  all_plots[[paste0(site, what)]] <- grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  {if(is.na(x)) grid.rect(gp=gpar(col="white")) else get(x, temp_env)}), ncol = 3)))
   
 } # for what in ...
 
-png("doc/manuscript/tables_figures/pre_temp_cld_groups.png", width = 8, height = 10, res = 300, units = "in")
+png("doc/manuscript/tables_figures/pre_temp_groups.png", width = 8, height = 10, res = 300, units = "in")
 
 grid.arrange(grobs = all_plots, vp= grid::viewport(width=0.95, height=0.95), ncol = 1)
 
 
 grid::grid.text(sites, x = unit(0.01, "npc"), y = unit(rev(cumsum(c(1/n_sites/2, rep(1/n_sites, n_sites-1)))), "npc"), rot = 90)
 
-grid::grid.text(c("Precipiation group", "Temperature group", "Cloud group"), x = unit(cumsum(c(.05 +.9/4/2, rep(.9/4, 2))), "npc"), y = unit(.99,  "npc"))
+grid::grid.text(c("Precipiation group", "Temperature group"), x = unit(cumsum(c(.05 +.9/3/2, rep(.9/3, 1))), "npc"), y = unit(.99,  "npc"))
 
 
 dev.off()
 
 # comparison with quilt ####
 site = "SCBI"
-v = "pre"
+v = "pet"
 what = "log_core_measurement"
 
 png("doc/manuscript/tables_figures/quilt_comparison.png", width = 10, height = 4 , units = "in", res = 300)
@@ -151,6 +151,7 @@ plot(0:100, 0:100, type = "n", axes = F, xlab = "", ylab = "")
 rasterImage( img1 , xleft = 0, xright = 100,
              ybottom = 0, ytop = 100)
 
+mtext("a)", side = 3, adj = 0.1, line = -2, cex = .8)
 par(mar = c(0,0,0,0))
 plot(0:100, 0:100, type = "n", axes = F, xlab = "", ylab = "")
 
@@ -158,7 +159,7 @@ rasterImage( matrix(as.vector(as.raster(img2)), ncol = nrow(img2))[ncol(img2):1,
              ybottom = 5, ytop = 100)
 
 ## b,c,d,e) climwin ####
-img <- readPNG(paste0("results/", what, "/", site, "/climwin_", v, "_quad_14_0_SCBI.png"))
+img <- readPNG(list.files(paste0("results/", what, "/", site), pattern = v, full.names = T))
 
 img1 <- img[80:(nrow(img)/2), c((2*ncol(img)/4): (3*ncol(img)/4)) ,] # beta linear
 img2 <- img[80:(nrow(img)/2), c((3*ncol(img)/4): (4*ncol(img)/4)) ,] # beta quadratic
@@ -170,6 +171,7 @@ for(i in 1:4) {
   
   rasterImage( get(paste0("img", i)) , xleft = 0, xright = 100,
                ybottom = 0, ytop = 100)
+  mtext(paste0(letters[i+1], ")"), side = 3, adj = 0.1, line = -2, cex = .8)
 }
 
 ## f) response curves ####
@@ -185,5 +187,8 @@ pushViewport(vps$figure) ##   I am in the space of the autocorrelation plot
 vp1 <- plotViewport(c(0,0,0,0)) ## create new vp with margins, you play with this values 
 
 print(p, vp = vp1)
- # dev.off()####
+# windowsFonts(Times=windowsFont("TT Times New Roman"))
+grid.text(paste0(letters[6], ")"),x = 0.1, y = .95, gp=gpar(fontsize=9.8, fontfamily=""))
+
+# dev.off()####
 dev.off()

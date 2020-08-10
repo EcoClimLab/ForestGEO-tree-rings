@@ -25,8 +25,10 @@ path_to_BCI_wet <- "https://raw.githubusercontent.com/forestgeo/Climate/master/C
 path_to_CO2 <- "https://raw.githubusercontent.com/forestgeo/Climate/master/Other_environmental_data/CO2_data/CO2_MOANA_NOAA_combined.csv"
 
 climate_variables <- c( "pre", "wet",
-                        "tmp", "tmn", "tmx", "pet",
-                        "dtr", "cld") # "frs", "vap"
+                        "tmp", "tmn", "tmx", "pet"#,
+                        # "dtr", "cld") # "frs", "vap"
+                              )
+
 
 sites.sitenames <- c(BCI = "Barro_Colorado_Island", 
                      CedarBreaks = "Utah_Forest_Dynamics_Plot",
@@ -44,8 +46,8 @@ reference_date <- c(30, 8) # refday in slidingwin
 window_range <- c(15, 0) #range in slidingwin
 
 clim_var_group <- list(c("pre", "wet"),
-                       c("tmp", "tmn", "tmx", "pet"),
-                       c("dtr", "cld", "pet")
+                       c("tmp", "tmn", "tmx", "pet")#,
+                       # c("dtr", "cld", "pet")
 ) # see issue 14, PET is in both the TMP and DTR groups. If it comes out as the best in both groups (should always be for the same time frame), then there are only 2 candidate variables for the GLS
 
 clim_gap_threshold <- 5 # 5%
@@ -84,7 +86,7 @@ clim_gaps <- clim_gaps[clim_gaps$start_climvar.class %in% climate_variables, ]
 CO2 <- read.csv(path_to_CO2)
 
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIK7YUULKT7WLQUG4QS7FQW76")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIOQCQPCAAXZEFMLVAC7GWIIE")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
@@ -240,7 +242,7 @@ all_Biol <- lapply(all_Biol, function(Biol) {
 
 ## Run the Analysis ####
 variables_dropped <- list() # this is to store the variables that were not conserdered for best model because the average % gap of the window >=5%
-
+# ylim_p <- list() # this is to later readjust ylim in the GLS results plots, to standardize ylim across sites
 
 ## save every object names up until now to erase other stuff before runing each new site
 data_to_keep <- c(ls(), "data_to_keep")
@@ -338,7 +340,7 @@ for(site in sites) {
     }
     
     
-    ## run slidingwin on residuals to find best time window and lin or quad for each variable ####
+    ## run slidingwin on residuals to find best time window with quad for each variable ####
     if(nlevels(Biol$species_code) > 3) {
       baseline = "lmer(residuals ~ 1 + (1 | species_code) + (1 | coreID), data = Biol[!is.na(Biol$residuals), ])"
       
@@ -349,12 +351,12 @@ for(site in sites) {
     
     
     results <- slidingwin( baseline = eval(parse(text = baseline)),
-                           xvar =list(dtr = Clim$dtr,
+                           xvar =list(#dtr = Clim$dtr,
                                       pet = Clim$pet, 
                                       tmn = Clim$tmn, 
                                       tmp = Clim$tmp, 
                                       tmx = Clim$tmx,
-                                      cld = Clim$cld, 
+                                      #cld = Clim$cld, 
                                       pre = Clim$pre, 
                                       wet = Clim$wet
                            ),
@@ -367,7 +369,7 @@ for(site in sites) {
                            cdate = Clim$Date, bdate = Biol[!is.na(Biol$residuals), ]$Date,
                            cmissing = "method1") 
     
-    # Check if best windows for each variable meet the maximum gap requirement (average of month-variale combination <= 5% of the time period) 
+    # Check if best windows for each variable meet the maximum gap requirement (average of month-variale combination <= 5% of the time period) ####
     adjusted_clim_gap <- adjusted_clim_gaps[[site]]
     variables_dropped_site <- NULL
     
@@ -385,24 +387,16 @@ for(site in sites) {
       } 
     }
     variables_dropped[[site]][[what]] <- variables_dropped_site
-    ### find best window for each variable group ignoring the variables that need to be dropped because of gap filling issues (best way to not get confused later with the ordering of te slindingwin order)
+    
+    ### find best window for each variable group ignoring the variables that need to be dropped because of gap filling issues (best way to not get confused later with the ordering of te slindingwin order) ####
     clim_var_group_site <- lapply(clim_var_group, function(x) x[!x %in% variables_dropped[[site]][[what]]])
   
     best_results_combos <- do.call(rbind, lapply(clim_var_group_site, function(X) {
       x <- results$combos[results$combos$climate %in% X,]
       data.frame(model_ID = as.numeric(rownames(x)), x, stringsAsFactors = F)[which.min(x$DeltaAICc),]
     }))
-    
-    # if PET does not come out as top variable in both T and CLD group, drop it
-    if(any(duplicated(best_results_combos))) { best_results_combos <- best_results_combos[!duplicated(best_results_combos), ]# remove one pet as it came out best in both T and cld group
-    } else {
-      best_results_combos <- best_results_combos[!best_results_combos$climate %in% "pet", ] # remove pet as it was bitten in either T or CLD group
-    }
-    best_results_combos <- best_results_combos[order(best_results_combos$DeltaAICc),]
-    
-    ### plot the results and save the signal into Biol ####
+    ### plot climwin results ####
     for(i in best_results_combos$model_ID) {
-      print(paste("adding climate data to Biol for model", i))
       png(paste0('results/', what, '/', site, '/climwin_', paste((data.frame(lapply(results$combos[i, c(2, 5, 7, 8)], as.character), stringsAsFactors=FALSE)), collapse = "_"), "_", site, '.png'),
           width = 10,
           height =8,
@@ -412,12 +406,25 @@ for(site in sites) {
       plotall(dataset = results[[i]]$Dataset, 
               bestmodel = results[[i]]$BestModel,
               bestmodeldata = results[[i]]$BestModelData,
-              title=paste((data.frame(lapply(results$combos[i,], as.character), stringsAsFactors=FALSE)), collapse = "_"))
+              title=paste((data.frame(lapply(results$combos[i,], as.character), stringsAsFactors=FALSE)), collapse = "_"), arrow = T)
       
       # dev.off()
       dev.off()
       
-      # save the climate signal in Biol
+    }
+    
+    # # if PET does not come out as top variable in both T and CLD group, drop it (commeted out) ####
+    # if(any(duplicated(best_results_combos))) { best_results_combos <- best_results_combos[!duplicated(best_results_combos), ]# remove one pet as it came out best in both T and cld group
+    # } else {
+    #   best_results_combos <- best_results_combos[!best_results_combos$climate %in% "pet", ] # remove pet as it was bitten in either T or CLD group
+    # }
+    # best_results_combos <- best_results_combos[order(best_results_combos$DeltaAICc),]
+    # 
+    ### Save the signal into Biol ####
+    for(i in best_results_combos$model_ID) {
+      print(paste("adding climate data to Biol for model", i))
+     
+      
       if(any(grepl("I\\(climate\\^2\\)", names( results[[i]]$BestModelData)))) {
         columns_to_add <- results[[i]]$BestModelData[, c("climate", "I(climate^2)")]
         names(columns_to_add) <- paste0(results$combos[i,]$climate, c("", "^2"))
@@ -438,7 +445,7 @@ for(site in sites) {
    
     # now do a species by species gls using log of raw measurements, spline on dbh and year (WITH AND WITHOUT CO2) ####
     
-    for(with_CO2 in c(FALSE, TRUE)) {
+    for(with_CO2 in c(FALSE)) {
       ## look at collinearity between climate variables ( and CO2n and dbh when relevant) and remove any variable with vif > 10 ####
     if(grepl("dbh", what) & with_CO2) X <- Biol[, c(as.character(best_results_combos$climate), "CO2", "dbh")]
     if(grepl("dbh", what) & !with_CO2) X <- Biol[, c(as.character(best_results_combos$climate), "dbh")]
@@ -449,9 +456,9 @@ for(site in sites) {
     
     
     usdm::vif(X)
-    (vif_res <-  usdm::vifstep(X, th = 10))
+    (vif_res <-  usdm::vifstep(X, th = 3))
     sink(paste0("results/", ifelse(with_CO2, "with_CO2/", ""), what, "/", site, "/VIF.txt"))
-    vif_res
+    print(vif_res)
     sink()
     variables_to_keep <- as.character(vif_res@results$Variables)
     
@@ -559,7 +566,7 @@ for(site in sites) {
     # first remove any object starting by p_
     rm(list = ls()[grepl("^p_", ls())])
     #Create a custom color scale
-    
+    ylim_p <- list()
     for(v in c( variables_to_keep)) { 
       print(v)
       
@@ -603,8 +610,8 @@ for(site in sites) {
         labs(#title = paste0(v, ifelse(v %in% best_results_combos$climate, time_window_text, "")),
              x = paste(v, ifelse(v %in% best_results_combos$climate, time_window_text, ""), variables_units[[v]]),
              y = "") + #"core measurements") +
-        geom_ribbon(aes(ymin=lwr, ymax=upr, col = NULL, bg = species), alpha=0.25) +
-        scale_colour_hue(drop = F) + scale_bg_hue(drop = F) + 
+        geom_ribbon(aes(ymin=lwr, ymax=upr, bg = species), alpha=0.25) +
+        scale_colour_hue(drop = F) + scale_fill_hue(drop = F) + 
         theme_classic()
       
       if(any(pt$draw)) {
@@ -612,7 +619,9 @@ for(site in sites) {
                theme(legend.position="none")) 
       }
      
-      
+      # save the ylimits ####
+      ylim_p[[v]] <- range(pt$lwr, pt$upr)
+      # if(!with_CO2) ylim_p[[what]][[v]][[site]] <- range(pt$lwr, pt$upr)
     }
     
     g_legend<-function(){
@@ -626,7 +635,7 @@ for(site in sites) {
     # existing_plots <- paste0("p_",  c("dbh", variables_to_keep))
     existing_plots <- ls()[grepl("^p_", ls())]
     
-    grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  get(x)), ncol = ifelse(length(existing_plots) %in% 4, 2, length(existing_plots)))),
+    grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  get(x) + ylim(range(ylim_p))), ncol = ifelse(length(existing_plots) %in% 4, 2, length(existing_plots)))),
                  g_legend(),
                  nrow = 1,
                  widths = c(10, 1))
@@ -653,8 +662,8 @@ for(site in sites) {
                             log_BAI = "BAI (cm2)"), x = unit(0.01, "npc"), y = unit(.51, "npc"), rot = 90)
     dev.off()
      
-    # save environment at this point to later fetch some plots ####
-    save.image(file = paste0('results/', ifelse(with_CO2, "with_CO2/", ""), what, "/", site, "/env.RData"))
+    # save plots at this point to later fetch them  ####
+    save(list = grep("^p_|pt|clim_var_group$", ls(), value = T), file = paste0('results/', ifelse(with_CO2, "with_CO2/", ""), what, "/", site, "/env.RData"))
     } # for(with_CO2 in c(FALSE, TRUE)) 
      
    
@@ -668,6 +677,30 @@ for(site in sites) {
 
 variables_dropped
 
-sink("results/variables_dropped_at_each_site.txt")
+sink("results/variables_dropped_at_each_site_due_to_gap.txt")
 variables_dropped
 sink()
+
+# save(ylim_p, file = paste0("results/ylims_for_GLS_plots.RData"))
+
+
+# see VIF situations for all sites ####
+VIF_files <- list.files("results", pattern = "VIF.txt", recursive = T, full.names = T)
+VIF_files <- VIF_files[!grepl("CO2", VIF_files)]
+
+# check if any variables were kicked because of linearity issues
+for(f in VIF_files) {
+  x <- readLines(f)[1]
+  if(substr(x, 1, 2) != "No") print(f)
+  # cat(f, "\n")
+  # cat(x, "\n\n")
+} # if nothng shows up, no variables were kicked because of collinarity issues
+
+# look at VIF (if any are close to 3)
+for(f in VIF_files) {
+  x <- readLines(f)
+  x <- x[7:length(x)]
+  # if(substr(x, 1, 2) != "No") print(f)
+  cat("\n\n", f, "\n")
+   print(x)
+} # if nothng shows up, no variables were kicked because of collinarity issues

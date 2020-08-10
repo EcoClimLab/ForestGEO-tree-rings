@@ -1,20 +1,20 @@
 $BCI
 $BCI$log_core_measurement
-[1] "dtr" "pet"
+[1] "pet"
 
 $BCI$log_core_measurement_dbh
-[1] "dtr" "pet"
+[1] "pet"
 
 $BCI$log_agb_inc_dbh
-[1] "dtr" "pet" "tmn"
+[1] "pet" "tmn"
 
 $BCI$log_BAI_dbh
-[1] "dtr" "pet" "cld"
+[1] "pet"
 
 
 $CedarBreaks
 $CedarBreaks$log_core_measurement
-[1] "pet" "cld"
+[1] "pet"
 
 
 $HarvardForest
@@ -22,30 +22,21 @@ list()
 
 $HKK
 $HKK$log_core_measurement
-[1] "dtr" "pet" "cld"
+[1] "pet"
 
 $HKK$log_core_measurement_dbh
-[1] "dtr" "pet" "cld"
+[1] "pet"
 
 $HKK$log_agb_inc_dbh
-[1] "dtr" "pet" "cld"
+[1] "pet"
 
 $HKK$log_BAI_dbh
-[1] "dtr" "pet" "cld"
+[1] "pet"
 
 
 $LillyDickey
-$LillyDickey$log_core_measurement
-[1] "cld"
-
-$LillyDickey$log_core_measurement_dbh
-[1] "cld"
-
-$LillyDickey$log_agb_inc_dbh
-[1] "cld"
-
 $LillyDickey$log_BAI_dbh
-[1] "tmn" "cld"
+[1] "tmn"
 
 
 $NewMexico
