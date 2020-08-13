@@ -73,3 +73,5 @@ kable(S1, format = "latex", booktabs = TRUE, caption = "Table S1. List of specie
 
 \newpage 
 ![**Figure S1 | (Comparison of traditional approaches with ours).**  (THIS FIGURE IS JUST A MOCK-UP TO SHOW VALENTINE WHAT I HAVE IN MIND.) ](tables_figures/mock_comparison_traditional_method.png)
+
+![**Figure S2 | Comparison of climwin output by growth metric:** Current example is PET at Little Tesque, NM. (I'm not sure if this is interesting enough to present in the main text. If not, we should have at least one example in the SI)](tables_figures/NewMexico_pet.png)

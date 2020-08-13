@@ -140,16 +140,18 @@ This information is critical to predicting forest responses to climate change (*
 Yet, dendrochronological methods have been optimized to detect climate signals (DENDRO REFS) rather than to predict forest productivity and its climate sensitivity [@klesse_sampling_2018]. 
 As a result, prevailing approaches hold a number of limitations for using tree-rings to address pressing questions concerning forest productivity in the current era of rapid environmental change.
 
-**[limitations in how traditional methods look at climate variables]**
-- [subjectively selected variables (e.g., T, PPT, PDSI)]
-- [month-by-month, reflective of fact that historical climate data products are often presented at this time scale. While useful for characterizing how monthly climate influences annual tree growth, month is an arbitrary unit of time and this approach does not necessarily identify the most influential time windows --often several months--over which climate shapes tree growth. (*note that we use the monthly time step here--don't set monthly resolution up as a problem we'll solve*)]
-- [one variable at a time-- no additive or interactive effects (although VS-Lite starts to get there), which are expected and have been observed for tree-rings (Foster et al. 2016)]
+**To predict annual tree growth or forest productivity based on climate, a necessary first step is identification of the most important climate variables, the time frames over which they have the strongest influence over annual growth, and their additive or interactive effects.** 
+Traditional dendrochronological methods identify climate signals by examining month-by-month correlations of growth index chronologies to select climate variables--typically T, PPT, and PDSI--over the current year and, typically, previous year. 
+While appropriate for identifying the strongest signals for purposes such as historical climate reconstructions (e.g., DENDRO_REFS), this approach does not systematically examine the numerous potential multiple-month time windows to determine the single most influential window over which a given variable influences annual growth.
+Needed is an objective approach to systematically evaluate the numerous potential climate variables and time windows  
+Further, tree-ring studies generally do not consider additive or interactive effects of climate variables on annual growth [DENDRO_REFS; *but see VS-Lite* @foster_predicting_2016]. 
+Such effects are expected based on observations that temperature and moisture interactively shape photosynthesis (REFS), tree growth [@foster_predicting_2016], and forest productivity [e.g., @taylor_temperature_2017; EXTRATROPICAL_AND_TREE_LEVEL_REFS; @banbury_morgan_global_nodate].
 
 **Traditional methods characterize only linear climate responses. This conflicts with biological expectations.**
-Most biological rates—- from photosynthesis to animal metabolism—-display a unimodal relationship to temporal variation in temperature, wherein rates increase exponentially with temperature up to a point, typically reflective of the environment to which the organism is adapted / acclimatized, and decrease at higher temperatures (e.g., Slot and Winter 2017; Kumarathunge et al. 2019-cited in Helene's Tansley review). 
+Most biological rates—- from photosynthesis to animal metabolism—-display a unimodal relationship to temporal variation in temperature, wherein rates increase exponentially with temperature up to a point, typically reflective of the environment to which the organism is adapted / acclimatized, and decrease at higher temperatures [e.g., @slot_high_2017] ([Kumarathunge et al. 2019](https://nph-onlinelibrary-wiley-com.smithsonian.idm.oclc.org/doi/full/10.1111/nph.15668)). 
 Similar relationships have also been observed for moisture availability, particularly in environments that are not strongly water-limited. 
 In trees, responses of photosynthesis and respiration to environmental drivers are typically observed over time frames of seconds to days, and therefore do not directly reveal how annual tree growth and forest productivity respond to inter-annual variation in climate. 
-The annual growth records of tree-rings allow can be used to study interannual variation, but the standard practice in dendrochronology has been to fit linear relationships (exception is VS-Lite, which fits plateau[@tolwinski-ward_bayesian_2013]), and we therefore know little about what, if any, nonlinearities occur in tree growth responses to interannual variation in climate.
+The annual growth records of tree-rings allow can be used to study interannual variation, but the standard practice in dendrochronology has been to fit linear relationships (exception is VS-Lite, which fits plateau [@tolwinski-ward_bayesian_2013]), and we therefore know little about what, if any, nonlinearities occur in tree growth responses to interannual variation in climate.
 
 **Traditional methods do not characterize the effect of tree size or its potential interactions with climate variables.** 
 Tree size (most commonly diameter breast height, $DBH$) is among the most important variables affecting tree growth rate [@muller-landau_testing_2006; @foster_predicting_2016; REFS]. 
@@ -159,7 +161,7 @@ In contrast, in mesic closed-canopy forests, $\Delta r$ typically increases with
 For dendrological studies aimed at deciphering climate signals, tree size is not typically a variable of interest, and its influence is removed through detrending (DENDRO_REFS).
 While suitable for identifying climate signals (DENDRO_REFS), this approach is not optimal for subsequent inference of the climate sensitivity of forest productivity. 
 Although climate correlations can be transformed to climate sensitivity [*sensu* @charney_observed_2016]  and scaled to characterize the climate sensitivity of $ANPP_{stem}$ based on the scaling of $\Delta r$ with $DBH$ [@helcoski_growing_2019], they cannot be used to characterize known interactive effects of $DBH$ and climate on tree growth.
-For example, larger trees tend to be more sensitive to drought [@bennett_larger_2015 ; McGregor et al. in revision; REFS].
+For example, larger trees tend to be more sensitive to drought [@bennett_larger_2015 ; @mcgregor_tree_nodate; REFS].
 Thus, to use tree-rings to predict $ANPP_{stem}$ for a forest where not every tree was cored, we need models that include tree size.
 
 **Here, we develop a new method that allows simultaneous consideration of the effects of tree size, objectively determined principle climate drivers, and other environmental drivers on annual tree growth.** 
@@ -261,6 +263,13 @@ Across all possible models, variable AICc weights were summed to determine which
 
 ![**Figure 2 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table S1) to potential evapotranspiration (PET), identified by both traditional methods and our method to be among the top climate drivers. Panel (**a**) shows a matrix of Pearson correlations between ring- width index and monthly climate variables. Panels (**b-d**) give statistics for time windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diaganol indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each time window, and (**d**) gives the $\Delta AIC$ for each. The time window with the minimum $\Delta AIC$ (0-3 months prior to August, or May-Aug; black boxes), was identified as the optimal window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows GLS model output, where PET is one of several driver variables (*specify model*). Plotted are responses of species for which PET was identified as a signficant driver in the top model.](tables_figures/quilt_comparison.png)
 
+**This process identified different climate variables and time windows depending on the different metrics of growth (Fig. S2).**
+Preliminary review of some early results indicates that the "landscape" of climate effects over various time windows is generally similar across the three metrics of growth, but that the optimal time window or even the top climate variable in a group can shift.
+(**See [ISSUE #40 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/40)**).
+
+The underlying cause of these differences would be differences in the variance structure, where growth residuals would tend to be greater (in absolute value) when growth rate is high. Thus, use of $\Delta r$ as a growth metric would tend to place proportionally more weight on smaller $DBHs$, whereas $\Delta AGB$ would tend to place more weight on larger individuals, with $BAI$ intermediate (Fig. 4). (**Christy, please check/revise**)
+The degree to which climate sensitivity landscapes differ across growth metrics should depend on the size structure of the data and the existence/strength of climate-DBH interactions. 
+
 **The most influential climate drivers...[what tended to be selected?].**
 - Time windows
   - often current growing season
@@ -270,7 +279,7 @@ Across all possible models, variable AICc weights were summed to determine which
   - temperature group: mean, min, max or PET?
   
   
-![**Figure 3 | Climate senstivity for all sites.** Columns include the top variables in the precipitation and temperature variable groups. For each species, relationships are plotted if included in top model. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD. (IN-PREP FIGURE.) ](tables_figures/pre_temp_cld_groups.png)
+![**Figure 3 | Climate senstivity for all sites.** Columns include the top variables in the precipitation and temperature variable groups. For each species, relationships are plotted if included in top model. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD. (IN-PREP FIGURE.) ](tables_figures/pre_temp_groups.png)
 
 *Climate sensitivity*
 
@@ -286,18 +295,13 @@ For $\Delta r$, the general tendency (with just a couple exceptions) was a decli
 $BAI$ most commonly exhibited a unimodal relationship (Fig. 4b).
 $\Delta AGB$ also commonly exhibited a unimodal relationship, although tending to peak at larger DBH (Fig. 4c).
 
-![**Figure 4 | Growth sensitivity to DBH: (a) $\Delta r$, (b) $BAI$, (c) $\Delta AGB$.** Only relationships included in the top model for each site are shown. It's tough to fit all the plots, so we may have to adjust this somehow.](tables_figures/DBH_responses.png)
+![**Figure 4 | Growth sensitivity to DBH: (a) $\Delta r$, (b) $BAI$, (c) $\Delta AGB$.** Only relationships included in the top model for each site are shown.](tables_figures/DBH_responses.png)
 
 *Climate-DBH interactions*
 
-We get different climate sensitivity results with the different metrics of growth (Fig. 5?).
-Preliminary review of some early results indicates that the "landscape" of climate effects over various time windows is generally similar across the three metrics of growth, but that the optimal time window or even the top climate variable in a group can shift.
-(**See [ISSUE #40 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/40)**).
 
-The underlying cause of these differences would be differences in the variance structure, where growth residuals would tend to be greater (in absolute value) when growth rate is high. Thus, use of $\Delta r$ as a growth metric would tend to place proportionally more weight on smaller $DBHs$, whereas $\Delta AGB$ would tend to place more weight on larger individuals, with $BAI$ intermediate (Fig. 4). (**Christy, please check/revise**)
-The degree to which climate sensitivity landscapes differ across growth metrics should depend on the size structure of the data and the existence/strength of climate-DBH interactions. 
 
-![**Figure 5 | Comparison of climwin output by growth metric:** Current example is PET at Lilly Dickey, selected mainly because data/model for other sites aren't yet stable. (I'm not sure if this is interesting enough to present in the main text. If not, we should have at least one example in the SI)](tables_figures/climwin_by_growth_metric.png)
+
 
 
 
