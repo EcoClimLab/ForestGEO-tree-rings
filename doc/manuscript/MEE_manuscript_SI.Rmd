@@ -74,4 +74,6 @@ kable(S1, format = "latex", booktabs = TRUE, caption = "Table S1. List of specie
 \newpage 
 ![**Figure S1 | (Comparison of traditional approaches with ours).**  (THIS FIGURE IS JUST A MOCK-UP TO SHOW VALENTINE WHAT I HAVE IN MIND.) ](tables_figures/mock_comparison_traditional_method.png)
 
-![**Figure S2 | Comparison of climwin output by growth metric:** Current example is PET at Little Tesque, NM. (I'm not sure if this is interesting enough to present in the main text. If not, we should have at least one example in the SI)](tables_figures/NewMexico_pet.png)
+![**Figure S2 | Example comparison of climwin output for temperature variable group responses across growth metrics at Little Tesque, New Mexico.** Here, *climwin* identified potential evapotranspiration (PET) as the strongest climate variable across all three metrics of growth.)](tables_figures/NewMexico_pet.png)
+
+![**Figure S3 | Example comparison of climwin output for precipitation variable group responses across growth metrics at Little Tesque, New Mexico.** Here, *climwin* identified precipitation (PRE) as the strongest climate variable for $\Delta r$ and $BAI$, but number of precipitation days (WET) as the strongest climate variable for $\Delta AGB$.](tables_figures/NewMexico_wet_pre.png)
