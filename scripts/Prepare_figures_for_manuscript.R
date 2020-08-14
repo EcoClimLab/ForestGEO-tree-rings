@@ -164,14 +164,22 @@ img <- readPNG(list.files(paste0("results/", what, "/", site), pattern = v, full
 img1 <- img[80:(nrow(img)/2), c((2*ncol(img)/4): (3*ncol(img)/4)) ,] # beta linear
 img2 <- img[80:(nrow(img)/2), c((3*ncol(img)/4): (4*ncol(img)/4)) ,] # beta quadratic
 img3 <- img[80:(nrow(img)/2), c(1: (1*ncol(img)/4)) ,] # AIC
-img4 <- img[c((nrow(img)/2)+1):nrow(img), c((1*ncol(img)/4): (2*ncol(img)/4)) ,] # response
+img4 <- img[c((nrow(img)/2)+1):nrow(img), c((1*ncol(img)/4+1): (2*ncol(img)/4)) ,] # response
 
 for(i in 1:4) {
   plot(0:100, 0:100, type = "n", axes = F, xlab = "", ylab = "")
   
   rasterImage( get(paste0("img", i)) , xleft = 0, xright = 100,
                ybottom = 0, ytop = 100)
+  
+  if(i == 3) {
+    rect(0, 90, 100, 100, col = "white", border = "white")
+    mtext(expression(Delta*AIC), side = 3, line = -1, cex = .7)
+    mtext("(compared to null model)", side = 3, line = -1.7, cex = .7, adj = 1)
+  }
   mtext(paste0(letters[i+1], ")"), side = 3, adj = 0.1, line = -2, cex = .8)
+  
+  
 }
 
 ## f) response curves ####

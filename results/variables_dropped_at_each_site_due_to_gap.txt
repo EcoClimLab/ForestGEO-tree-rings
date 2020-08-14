@@ -18,7 +18,9 @@ $CedarBreaks$log_core_measurement
 
 
 $HarvardForest
-list()
+$HarvardForest$log_core_measurement_dbh
+[1] "pet"
+
 
 $HKK
 $HKK$log_core_measurement

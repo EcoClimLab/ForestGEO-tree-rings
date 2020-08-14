@@ -6,37 +6,57 @@ rm(list = ls())
 # load libraries ####
 library(png)
 
+# clear folder of old plots ####
+file.remove(list.files("results/climwin_plots_combined/", full.names = T))
+
 # prepare site names ####
-sites <- list.files("results", pattern = ".RData")
+sites <- list.files("results", pattern = "env.RData")
 sites <- gsub("_all_env.RData", "", sites)
 
-# preapre and save figures ####
+# prepare order_plots ####
+order_plots <- list(log_core_measurement = expression(Delta*r~"- all cores"), 
+                    log_core_measurement_dbh= expression(Delta*r~"- trees with DBH"), 
+                    log_BAI_dbh = "BAI",
+                    log_agb_inc_dbh = "AGB")
+
+# prepare variable groupe ####
+clim_var_group <- list(c("pre", "wet"),
+                       c("tmp", "tmn", "tmx", "pet")#,
+                       # c("dtr", "cld", "pet")
+)
+
+# prepare and save figures ####
 for (site in sites) {
   imgs <- list.files(paste0("results/", c("log_core_measurement", "log_core_measurement_dbh", "log_agb_inc_dbh", "log_BAI_dbh"), "/", site), pattern = "climwin", full.names = T)
   
   variables <- regmatches(imgs, regexpr("climwin_\\D{3}_", imgs))
   variables <- unique(gsub("climwin|_", "", variables))
   
-  for(v in variables) {
+  for(g in clim_var_group) {
     
-    imgs_v <- imgs[grepl(v, imgs)]                 
-    nb_plots <- length(imgs_v)
-   
-    
-    
-    png(paste0("results/climwin_plots_combined/", site, "_",v, ".png" ), width = 10, height = 8, units = "in", res = 300)
-    layout(matrix(1:(nb_plots*2), nrow = nb_plots, byrow = T), widths = c(4, 1))
-   
+  variables_in_group <- variables[variables %in% g]
+  imgs_v <- imgs[unlist(sapply(variables_in_group, grep, imgs))]  
+  nb_plots <- length(imgs_v)
+  
+  
+  #order the plots
+  imgs_v <- imgs_v[match(sapply(paste0(names(order_plots), "/"), grep, imgs_v), c(1,2,3,4))]
+  imgs_v <- imgs_v[!is.na(imgs_v)]
+  
+  # prepare file
+  png(paste0("results/climwin_plots_combined/", site, "_", paste(variables_in_group, collapse = "_"), ".png" ), width = 10, height = 8, units = "in", res = 300)
+  
+  layout(matrix(1:(nb_plots*2), nrow = nb_plots, byrow = T), widths = c(4, 1))
+  
+  # plot
     
     for(i in seq_along(imgs_v)){
-      y_lab = gsub("log_|_inc", "", strsplit(imgs_v[i], "/")[[1]][2])
+      y_lab = order_plots[[strsplit(imgs_v[i], "/")[[1]][2]]]
+      v = gsub("^.*climwin_|_quad.*$", "", imgs_v[i])
       img <- readPNG(imgs_v[i])
       img1 <- img[1:(nrow(img)/2), ,] # keep only first half of plot
       img2 <- img[c((nrow(img)/2)+1):nrow(img), c((ncol(img1)/4): (2*ncol(img1)/4)),] # keep only plot 2 of second row
-      # img1[, (ncol(img1)+1):  (ncol(img1)+ncol(img1)/4), ] <- 0
-      # 
-      # img1[,c((ncol(img1)/4): (ncol(img1) - ncol(img1)/4)) , ] <- img1[,c( (2 *ncol(img1)/4): ncol(img1)) , ] #replace plot 2 and 3 by 3 and 4
-      # img1[,c(  (ncol(img1) - ncol(img1)/4): ncol(img1)) , ] <- img[c((nrow(img)/2)+1):nrow(img), c((ncol(img1)/4): (2*ncol(img1)/4)),] # replace plot 4 by plot 6 in orginal image
+      
       
       par(mar = c(0,3,0,0))
       plot(0:100, 0:100, type = "n", axes = F, xlab = "", ylab = "")
@@ -44,7 +64,8 @@ for (site in sites) {
       rasterImage( img1 , xleft = 0, xright = 100,
                   ybottom = 0, ytop = 100)
       
-      mtext(side = 2, text = y_lab)
+      mtext(side = 2, text = v)
+      mtext(side = 2, text = y_lab, line =-2)
       
       par(mar = c(0,0,0,0))
       plot(0:100, 0:100, type = "n", axes = F, xlab = "", ylab = "")
@@ -54,11 +75,7 @@ for (site in sites) {
       
     }
     
-    dev.off()
-    
-
   
-  
+  dev.off()
   }
-  
 }
