@@ -41,9 +41,26 @@ sites.sitenames <- c(BCI = "Barro_Colorado_Island",
                      NewMexico = "New_Mexico")
 
 ## analysis parameters ####
-
-reference_date <- c(30, 8) # refday in slidingwin
-window_range <- c(15, 0) #range in slidingwin
+reference_dates <- list(BCI = c(30, 11),
+                        CedarBreaks = c(30, 8),
+                        HarvardForest = c(30, 8),
+                        HKK = c(30, 11),
+                        LillyDickey = c(30, 8),
+                        NewMexico = c(30, 8),
+                        SCBI = c(30, 8),
+                        ScottyCreek = c(30, 8),
+                        Zofin= c(30, 8)) # refday in slidingwin
+window_ranges <- list(BCI = c(15, 0),
+                      CedarBreaks = c(15, 0),
+                      HarvardForest = c(15, 0),
+                      HKK = c(15, 0),
+                      LillyDickey = c(15, 0),
+                      NewMexico = c(15, 0),
+                      SCBI = c(15, 0),
+                      ScottyCreek = c(15, 0),
+                      Zofin = c(15, 0))# range in slidingwin
+# reference_date <- c(30, 8) # refday in slidingwin
+# window_range <- c(15, 0) #range in slidingwin
 
 clim_var_group <- list(c("pre", "wet"),
                        c("tmp", "tmn", "tmx", "pet")#,
@@ -86,7 +103,7 @@ clim_gaps <- clim_gaps[clim_gaps$start_climvar.class %in% climate_variables, ]
 CO2 <- read.csv(path_to_CO2)
 
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIOQCQPCAAXZEFMLVAC7GWIIE")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIKMB3GPVEQMYMCTNU27H2FHC")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
@@ -138,7 +155,7 @@ all_Clim$Date <- format(all_Clim$Date, "%d/%m/%Y")
 all_Clim$site <- names(sites.sitenames)[match(all_Clim$sites.sitename, sites.sitenames) ]
 
 
-### save prepared clim data ####
+### save prepared clim data 
 write.csv(all_Clim, "processed_data/Climate_data_all_sites.csv", row.names = F)
 
 
@@ -153,7 +170,7 @@ for (site in sites) {
   Biol$Date <- paste0("15/06/", Biol$Year) # dd/mm/yyyy setting up as june 15, ARBITRATY
   
   ## remove years that are before climate record (+ first few first months to be able to look at window before measurement) ####
-  Biol <- Biol[Biol$Year >= min(as.numeric(substr(Clim$Date, 7, 10)))+  window_range[1]/12, ]
+  Biol <- Biol[Biol$Year >= min(as.numeric(substr(Clim$Date, 7, 10)))+  window_ranges[[site]][1]/12, ]
   
   ## remove years that are after climate record ####
   Biol <- Biol[Biol$Year <= max(as.numeric(substr(Clim$Date, 7, 10))), ]
@@ -242,6 +259,7 @@ all_Biol <- lapply(all_Biol, function(Biol) {
 
 ## Run the Analysis ####
 variables_dropped <- list() # this is to store the variables that were not conserdered for best model because the average % gap of the window >=5%
+summary_data <- NULL # this will hold n_tree, n_cores and range of years
 # ylim_p <- list() # this is to later readjust ylim in the GLS results plots, to standardize ylim across sites
 
 ## save every object names up until now to erase other stuff before runing each new site
@@ -254,6 +272,9 @@ for(site in sites) {
   rm(list = ls()[!ls() %in% data_to_keep])
   cat(paste("running analysis for", site, "...\n" ))
   
+  
+  reference_date <- reference_dates[[site]]
+  window_range <-  window_ranges[[site]]
   
   file.remove(list.files("results/explorations/residuals_by_tag/", pattern = site, full.names = T))
   
@@ -666,7 +687,15 @@ for(site in sites) {
     save(list = grep("^p_|pt|clim_var_group$", ls(), value = T), file = paste0('results/', ifelse(with_CO2, "with_CO2/", ""), what, "/", site, "/env.RData"))
     } # for(with_CO2 in c(FALSE, TRUE)) 
      
-   
+   # summarize data used in this analysis ####
+    summary_data <- rbind(summary_data, data.frame(site = site, what = what,  
+                          Biol %>% group_by(species_code) %>%
+                            summarize(
+                                      n_trees = n_distinct(treeID),
+                                      n_cores = n_distinct(coreID),
+                                      start_year = min(Year),
+                                      end_year = max(Year)                                    )))
+    
     
   } # for (what in ...)
   
@@ -675,6 +704,11 @@ for(site in sites) {
   save.image(file = paste0("results/", site, "_all_env.RData"))
 } # for sites in ..
 
+
+# save summary_data ####
+write.csv(summary_data, "results/summary_cores_analyzed.csv", row.names = F)
+
+# save variables_dropped ####
 variables_dropped
 
 sink("results/variables_dropped_at_each_site_due_to_gap.txt")
@@ -704,3 +738,29 @@ for(f in VIF_files) {
   cat("\n\n", f, "\n")
    print(x)
 } # if nothng shows up, no variables were kicked because of collinarity issues
+
+
+# summary plot for climate  ####
+
+A <- pivot_longer(all_Clim, climate_variables, "climate_var")
+A$Year <- as.numeric(gsub("\\d\\d/\\d\\d/", "", A$Date))
+
+A <- aggregate(value ~ sites.sitename + Year + climate_var, data = A, FUN =mean)
+A <- rbind(A, data.frame(sites.sitename = "All",
+                         Year = CO2$year,
+                         climate_var = "CO2",
+                         value = CO2$CO2_ppm))
+variables_units_full <- variables_units
+variables_units_full[] <- paste(names(variables_units), variables_units, sep = "\n")
+
+png("results/Climate_variables_yearly_mean.png", width = 8, height = 10, res = 300, units = "in")
+ggplot(A, aes(x = Year, y = value, color = sites.sitename)) +
+  geom_line() + 
+  facet_wrap(vars(climate_var), ncol =1, scales = "free_y", strip.position = "left", labeller = as_labeller(variables_units_full)) +
+  ylab(NULL) +
+  theme_classic() +
+  theme(strip.background = element_blank(),
+        strip.placement = "outside")
+ 
+dev.off()
+
