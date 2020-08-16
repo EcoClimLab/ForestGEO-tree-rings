@@ -149,7 +149,7 @@ Such effects are expected based on observations that temperature and moisture in
 
 **Traditional methods characterize only linear climate responses, potentially missing important nonlinearities that have been widely observed at other spatio-temporal scales.**
 Over time frames of seconds to days, most biological rates—- from photosynthesis to plant and animal respiration—-display a unimodal relationship to temporal variation in temperature. 
-Specifically, these rates generally increase exponentially with temperature up to a point [e.g., @brown_toward_2014], typically reflective of the environment to which the organism is acclimated [@kumarathunge_acclimation_2019], and decrease at higher temperatures [e.g., REFS].
+Specifically, these rates generally increase exponentially with temperature up to a point [e.g., @brown_toward_2004], typically reflective of the environment to which the organism is acclimated [@kumarathunge_acclimation_2019], and decrease at higher temperatures [e.g., REFS].
 On the other end of the spatio-temporal spectrum, across regional to global climate gradients, annual forest productivity plateaus or decreases at high temperature, $T_{max}$, and potential evapotranspiration, $PET$ [@sullivan_long-term_2020; @banbury_morgan_global_nodate].
 Similarly, across global gradients, annual forest productivity increases with precipitation only up to a point, after which it plateaus or decreases [@banbury_morgan_global_nodate]. 
 Filling a critical gap between short-term physiological responses and the global gradients representing millennia of community assembly and species adaptation, the annual growth records of tree-rings capture tree growth responses to interannual climatic variation.
@@ -254,10 +254,13 @@ Problematically, correlating tree growth residuals from which climate-driven tre
 
 *Combining drivers in GLS model*
 
-Second, we combined climate and reconstructed $DBH$ data in a GLS model (Fig. 1). 
+Second, we combined candidate climate drivers and reconstructed $DBH$ data in a GLS model (Fig. 1). 
+*(DBH not included in models focused on climate sensitivity.)*
 We checked for collinearity among the full set of variables using the *vifstep* function (**REF**) and removed any variable with a variance inflation factor > 3. 
-For each species (at each site) independently, we ran a GLS model including every combination of the candidate climate variables (as a 2-degree polynomial to allow quadratic curve), $DBH$, and fit one year spline for each treeID, plus a random intercept for each tree. We  also ran models with a spline of DBH (3 knots).
-Across all possible models, variable AICc weights were summed to determine which drivers are most important. We considered the model containing those variables as the top model.
+For each species (at each site) independently, we ran a GLS model including every combination of the candidate climate variables (as a 2-degree polynomial to allow quadratic curve), $DBH$, and fit one year spline for each treeID, plus a random intercept for each tree. 
+Wealso ran models with a spline of DBH (3 knots).
+Across all possible models, variable AICc weights were summed to determine which drivers are most important. 
+We considered the model containing those variables as the top model.
 
 
 ### Results
@@ -290,12 +293,19 @@ There were also a few instances where previous growing season conditions had the
 
 *Climate sensitivity*
 
-Temperature responses tended to be negative at lower latitudes, positive at higher.
+Precipitation responses were observed at all sites and *for all but # species* (Fig. 3).
+Specifically, a temperature term was included in the best model for # of # site-species combinations, *and were statistically significant for #*.
+Responses were most commonly positive and were most pronounced at the driest site (Little Tesque). 
+...
+Responses commonly showed some non-linearity, and in some cases it was quite pronounced (e.g., Little Tesque), with the most common pattern being a decelerating increase *([ISSUE #63 in ForestGEO-climate-sensitivity](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/63))*.
 
-**Non-linear responses to climate variables were common (Fig. 3).**
-- Growth almost always increased with precipitation up to the long-term mean, but often declined under high precipitation.
-- The most common response to temperature was unimodal, often peaking within 1SD of long-term mean. (**based on early results-- need to re-evaluate**)
 
+Temperature responses were observed at all sites *(but BCI? [ISSUE #62 in ForestGEO-climate-sensitivity](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/62))* and *for the majority of species* (Fig. 3).
+Specifically, a temperature term was included in the best model for # of # site-species combinations, *and were statistically significant for #*.
+Responses shifted from *near*-universally negative below 40$^\circ$ latitude to positive above 45$^\circ$ latitude. Harvard Forest, at 42.5$^\circ$ N, exhibited a mix of responses.
+*(It will be interesting to see what happens with Indian Creek, at 42.8 latitude.)*
+*(Note that Scotty Creek was previously positive, later shifted negative; [ISSUE #25 in ForestGEO-climate-sensitivity](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/25))*
+Responses commonly showed some non-linearity, but there were *few, if any* cases of pronounced nonlinearity *(but how do we define this? [ISSUE #63 in ForestGEO-climate-sensitivity](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/63))*.
 
 *Influence of DBH*
 
