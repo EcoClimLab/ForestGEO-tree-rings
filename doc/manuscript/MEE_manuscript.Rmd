@@ -309,10 +309,14 @@ Responses commonly showed some non-linearity, but there were *few, if any* cases
 
 *Influence of DBH*
 
-** $\Delta r$, $BAI$, and $\Delta AGB$ all varied with $DBH$.** 
-For $\Delta r$, the general tendency (with just a couple exceptions) was a decline with DBH, often following an initial increase (Fig. 4a). 
-$BAI$ most commonly exhibited a unimodal relationship (Fig. 4b).
-$\Delta AGB$ also commonly exhibited a unimodal relationship, although tending to peak at larger DBH (Fig. 4c).
+**All three growth metrics, $\Delta r$, $BAI$, and $\Delta AGB$, varied with $DBH$ for most species at all sites (Fig. 4).** 
+While $\Delta r$ varied significantly with $DBH$ for the majority of species-site combinations (n= # of #; Table **S#**), there was substantial variation in these trends, with patterns mixed across both forests and species within a single stand (Fig. 4).
+On one end of the spectrum, *Melia azedarach* at HKK had extremely rapid growth at small $DBH$, with $\Delta r$ ranging up to ~15mm yr^-1^, followed by fairly rapid declines with increasing $DBH$. 
+Similar patterns of approximately exponential decline in $\Delta r$ with $DBH$ were observed for conifer species at Little Tesque and Scotty Creek--both relatively open forests--and a number of species in mesic temperate forests (Fig. 4).
+At the other end of the spectrum, a number of species at sites where they presumably established under closed-canopy conditions (e.g., *Fagus* at SCBI and Zofin) had $\Delta r$ <1 mm yr^-1^ at small $DBH$, increased to peak $\Delta r$ between # and # cm $DBH$, and subsequently declined.  
+
+**The variable patterns in $\Delta r$ with $DBH$ translated into differences in variation in $BAI$ and $\Delta AGB$ with $DBH$, although trends in both of these were more consistent across sites and species, typically increasing to a peak at intermediate $DBH$ and then declining (Fig. 4).**
+
 
 ![**Figure 4 | Growth sensitivity to DBH: (a) $\Delta r$, (b) $BAI$, (c) $\Delta AGB$.** Only relationships included in the top model for each site are shown.](tables_figures/DBH_responses.png)
 
@@ -332,25 +336,24 @@ $\Delta AGB$ also commonly exhibited a unimodal relationship, although tending t
 Results are broadly consistent with those obtained by traditional methods, but offer several new insights.
 
 *Climate sensitivity*
+
 On climate sensitivity:
 - Climwin step is problematic when climate is rapidly changing [ISSUE #25 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/25).
 
 *Influence of DBH*
 
-**We recorded substantial variation in growth trends with $DBH$, dependent largely upon species ecology and stand history (Fig. 4).**
-On one end of the spectrum, *Melia azedarach* at HKK had extremely rapid growth at small $DBH$, with $\Delta r$ ranging up to ~15mm yr^-1^, followed by fairly rapid declines with increasing $DBH$. 
-This highly shade-intolerant species generally establishes in the open [@baker_suppression_2006] and was sampled opportunistically outside the ForestGEO plot [@vlam_temperature_2014], where it presumably established under open conditions.
-Similar patterns of approximately exponential decline in $\Delta r$ with $DBH$ were observed for conifer species at Little Tesque and Scotty Creek--both relatively open forests--and a number of species in mesic temperate forests (Fig. 4).
-At the other end of the spectrum, a number of species at sites where they presumably established under closed-canopy conditions (e.g., *Fagus* at SCBI and Zofin) had $\Delta r$ <1 mm yr^-1^ at small $DBH$, increased to peak $\Delta r$ between # and # cm $DBH$, and subsequently declined.  
-A number of taxa showed different patterns at different sites; for example, *Acer* exhibited the first pattern at Harvard Forest and the second at Lilly Dickey.
-Similarly, patterns were mixed among species within a single stand (e.g., at SCBI and Harvard Forest).
-These variable patterns in $\Delta r$ with $DBH$ translated into differences in variation in $BAI$ and $\Delta AGB$ with $DBH$, although trends in both of these were more consistent across sites and species, typically increasing to a peak at intermediate $DBH$ and then declining.
+**The diversity of growth trends in relation to $DBH$ observed here (Fig. 4) is largely attributable to species ecology and stand history (Fig. 4).**
+On one end of the spectrum, species that would have established in fairly open conditions--*i.e.*, shade-intolerant species and those at sites with more open canopies (e.g., LT, SC)-- exhibited rapid initial growth followed by exponential decline. 
+The most pronounced example of this pattern was *Melia azedarach* --a highly shade-intolerant species that generally establishes in the open [@baker_suppression_2006] and was sampled opportunistically outside the ForestGEO plot at HKK [@vlam_temperature_2014], where it presumably established under open conditions.
+Such patterns are consistent with dendrochronology's "textbook" patterns, which have been derived primarily from open-grown trees (DENDRO_REFS).
+On the other end of the spectrum, shade-tolerant species (e.g. *Fagus* at SCBI and Zofin) exhibited initially low, but increasing, $\Delta r$.
+This pattern is consistent with patterns observed in stand-level census data from closed-canopy forests, including several in this analysis, where $\Delta r$ increases continuously with $DBH$ [@muller-landau_testing_2006; @anderson-teixeira_size-related_2015; Piponiot et al. in prep]. 
+While the low community mean $\Delta r$ at small $DBH$ observed in closed-canopy forests is in large part driven by slow-growing small stems that will never enter the cohort of trees sampled by coring (e.g., $\ge$ 10cm DBH), increases in $\Delta r$ with $DBH$ have also been observed for most species at SCBI using the same tree-ring data set analyzed here, but comparing across individuals using only contemporary data [@helcoski_growing_2019].
+Thus, patterns of decreasing $\Delta r$ with $DBH$ are likely limited to open-grown trees or those establishing in gaps.  
+--  (*cite paper that I reviewed several years back; [Clark et al. 2007?](https://esajournals-onlinelibrary-wiley-com.smithsonian.idm.oclc.org/doi/epdf/10.1890/06-1039.1); [Schleip et al. 2015](https://onlinelibrary-wiley-com.smithsonian.idm.oclc.org/doi/abs/10.1002/env.2324)*).
 
-**Our analysis of growth trends with DBH yields several novel insights for dendrochronology and forest ecology.**
-First, the observation that $\Delta r$ typically declines with tree size in cored individuals, often following initial increase during juvenile growth phase, is consistent with many previous observations from tree-ring records (DENDRO_REFS). 
-This contrasts with patterns observed at the stand level [@muller-landau_testing_2006; @anderson-teixeira_size-related_2015; Piponiot et al. in prep]-- presumably because [the sample of cored trees (survivors) doesn't match forest composition] (*cite paper that I reviewed several years back; [Clark et al. 2007?](https://esajournals-onlinelibrary-wiley-com.smithsonian.idm.oclc.org/doi/epdf/10.1890/06-1039.1); [Schleip et al. 2015](https://onlinelibrary-wiley-com.smithsonian.idm.oclc.org/doi/abs/10.1002/env.2324)*).
-This also contrasts with @helcoski_growing_2019, where we show a positive relationship of radial growth to DBH from tree-rings.
-Our finding that $\Delta AGB$ is most commonly unimodal is surprising in that it contrasts with many previous findings and theoretical expectations (Stephenson et al, check Foster et al. 2006; check Piponiot et al. in prep). [EXPAND]
+Contrary to the finding that $\Delta AGB$ increases continuously with $DBH$, which was derived from census data from globally distributed forests [@stephenson_rate_2014], we found evidence of saturation or decline in the majority **(`r round(20/26*100, digits=0)`%)** of species-site combinations analyzed.
+ *(check Foster et al. 2006)*
 $\Delta AGB$ declines at high $DBH$ are presumably because trees are investing fixed C elsewhere--for example, reproduction.
 
 **These results have important implications for using tree-rings to infer growth responses to slowly-changing environmental drivers, including climate, atmospheric CO~2~, and deposition of SO~2~ and NO~x~.** 
