@@ -258,10 +258,9 @@ Second, we combined candidate climate drivers and reconstructed $DBH$ data in a 
 *(DBH not included in models focused on climate sensitivity.)*
 We checked for collinearity among the full set of variables using the *vifstep* function (**REF**) and removed any variable with a variance inflation factor > 3. 
 For each species (at each site) independently, we ran a GLS model including every combination of the candidate climate variables (as a 2-degree polynomial to allow quadratic curve), $DBH$, and fit one year spline for each treeID, plus a random intercept for each tree. 
-Wealso ran models with a spline of DBH (3 knots).
-Across all possible models, variable AICc weights were summed to determine which drivers are most important. 
-We considered the model containing those variables as the top model.
-
+We also ran models with a spline of DBH (3 knots).
+Across all possible models, variable AICc weights were summed to determine which drivers are most important. (*Valentine, we'll need some more details here.*)
+We considered the model containing those variables as the top model, noting that the top model can contain terms that are not individually significant in the context of that model.
 
 ### Results
 
