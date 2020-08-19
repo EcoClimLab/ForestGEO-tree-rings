@@ -327,7 +327,7 @@ At the other end of the spectrum, a number of species at sites where they presum
 
 *Climate-DBH interactions*
 
-**Table / figure on climate - DBH interactions?** (*See [ISSUE #42 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/42)*)
+ (*See [ISSUE #42 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/42)*)
 
 
 ### Discussion
@@ -338,11 +338,11 @@ Results are broadly consistent with those obtained by traditional methods, but o
 
 Ideas to discuss:
 
-- temperature sensitivity shifts from neg in warm climates to positive in cold climates, although @sniderhan_growth_2016 shows that the effect shifted to negative as warming progressed
+* temperature sensitivity shifts from neg in warm climates to positive in cold climates, although @sniderhan_growth_2016 shows that the effect shifted to negative as warming progressed
 
-- additive effects are common and should not be overlooked
+* additive effects are common and should not be overlooked
 
-- nonlinear effects occur sometimes
+* nonlinear effects occur sometimes
 
 *Influence of DBH*
 
