@@ -54,26 +54,46 @@ lognormal model with intercept forced to zero: lm(bark_depth.mm ~ -1 + log(dbh_n
 
 \newpage
 
-## Appendix S2. Methods for comparing 
+## Appendix S2. Methods for comparing climwin results with traditional methods
 (**[ISSUE #35 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/35)
+
+\newpage
+
+## Appendix S3. Dealing with rapidly changing climate and tree growth
+
+[ISSUE #25 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/25)
+
+Our analysis included two sites where climate change has had pronounced effects on tree growth: Scotty Creek, NW Territories, Canada (SC) and Little Tesque, New Mexico, USA (LT).
+At SC, [temperatures have increased by X $^\circ$ over X years]..., resulting in negative growth trends in basal area index ($BAI$) starting around 1950 and significant growth declines since 1970 in `r round(249/(249+69+127)*100, digits=0)`% of trees [@sniderhan_growth_2016].
 
 \newpage
 
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
 library(kableExtra)
-S1 <- read.csv("tables_figures/species.csv", stringsAsFactors = FALSE, check.names = FALSE)
-kable(S1, format = "latex", booktabs = TRUE, caption = "Table S1. List of species analyzed", escape = F)%>%
+S1 <- read.csv("tables_figures/site_details.csv", stringsAsFactors = FALSE, check.names = FALSE)
+kable(S1, format = "latex", booktabs = TRUE,  caption = "Table S1. Site details", escape = F)%>%
+  kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
+```
+
+\newpage
+```{r eval = TRUE, echo=FALSE, warning=FALSE}
+library(knitr)
+library(kableExtra)
+S2 <- read.csv("tables_figures/species.csv", stringsAsFactors = FALSE, check.names = FALSE)
+kable(S2, format = "latex", booktabs = TRUE, caption = "Table S2. List of species analyzed", escape = F)%>%
   kable_styling(latex_options = c("scale_down", "hold_position")) 
 ```
 
 \newpage
 
-** Table S2- allometric equations for bark thickness **
+** Table S3- allometric equations for bark thickness **
 
 \newpage 
 ![**Figure S1 | (Comparison of traditional approaches with ours).**  (THIS FIGURE IS JUST A MOCK-UP TO SHOW VALENTINE WHAT I HAVE IN MIND.) ](tables_figures/mock_comparison_traditional_method.png)
 
-![**Figure S2 | Example comparison of climwin output for temperature variable group responses across growth metrics at Little Tesque, New Mexico.** Here, *climwin* identified potential evapotranspiration (PET) as the strongest climate variable across all three metrics of growth.)](tables_figures/NewMexico_pet.png)
+![**Figure S2 | Example comparison of climwin output when the optimal climate variable and time window were identical across growth metrics.** Example is temperature variable group at Little Tesque, NM. Here, *climwin* identified potential evapotranspiration ($PET$) as the strongest climate variable across all three metrics of growth ($\Delta r$, BAI, $\Delta AGB$) and regardless of whether all cores were included in the analysis, or only those for which DBH could be reconstructed ($\Delta r$-trees with $DBH$, BAI, $\Delta AGB$).)](tables_figures/NewMexico_pet.png)
 
-![**Figure S3 | Example comparison of climwin output for precipitation variable group responses across growth metrics at Little Tesque, New Mexico.** Here, *climwin* identified precipitation (PRE) as the strongest climate variable for $\Delta r$ and $BAI$, but number of precipitation days (WET) as the strongest climate variable for $\Delta AGB$.](tables_figures/NewMexico_wet_pre.png)
+![**Figure S3 | Example comparison of climwin output when the optimal climate variable differed across growth metrics, but the selected time window was similar.** Example is precipitation variable group at Little Tesque, NM. Here, *climwin* identified precipitation (PRE) as the strongest climate variable for $\Delta r$ and $BAI$, but precipitation day frequency (WET) as the strongest climate variable for $\Delta AGB$.](tables_figures/NewMexico_wet_pre.png)
+
+![**Figure S4 | Example comparison of climwin output when both the optimal climate variable and selected time window differed across growth metrics.** Example is precipitation variable group at SCBI, VA, USA. Here, *climwin* identified precipitation (PRE) as the strongest climate variable for $\Delta r$ and $BAI$, but precipitation day frequency (WET)  as the strongest climate variable for $\Delta AGB$. The optimal time window (circled) also differed across growth metrics and depending on whether or not trees without DBH were included in the analysis ($\Delta r$-all trees and $\Delta r$-trees with $DBH$, respectively). ](tables_figures/SCBI_pre_wet.png)
