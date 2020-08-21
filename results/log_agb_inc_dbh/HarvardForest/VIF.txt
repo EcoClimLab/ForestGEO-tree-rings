@@ -1,11 +1,11 @@
 No variable from the 3 input variables has collinearity problem. 
 
 The linear correlation coefficients ranges between: 
-min correlation ( dbh ~ tmx ):  0.04529058 
-max correlation ( tmx ~ pre ):  0.1140875 
+min correlation ( dbh ~ pre ):  0.08621 
+max correlation ( pet ~ pre ):  -0.1985012 
 
 ---------- VIFs of the remained variables -------- 
   Variables      VIF
-1       pre 1.018921
-2       tmx 1.014544
-3       dbh 1.007726
+1       pre 1.056342
+2       pet 1.073736
+3       dbh 1.039151

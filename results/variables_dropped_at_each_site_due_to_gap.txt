@@ -1,15 +1,15 @@
 $BCI
 $BCI$log_core_measurement
-[1] "pet"
+[1] "pet" "tmx"
 
 $BCI$log_core_measurement_dbh
-[1] "pet"
+[1] "pet" "tmx"
 
 $BCI$log_agb_inc_dbh
-[1] "pet" "tmn"
+[1] "pet" "tmn" "tmx"
 
 $BCI$log_BAI_dbh
-[1] "pet"
+[1] "pet" "tmx"
 
 
 $CedarBreaks
@@ -18,9 +18,7 @@ $CedarBreaks$log_core_measurement
 
 
 $HarvardForest
-$HarvardForest$log_core_measurement_dbh
-[1] "pet"
-
+list()
 
 $HKK
 $HKK$log_core_measurement
@@ -37,6 +35,9 @@ $HKK$log_BAI_dbh
 
 
 $LillyDickey
+$LillyDickey$log_agb_inc_dbh
+[1] "tmn"
+
 $LillyDickey$log_BAI_dbh
 [1] "tmn"
 

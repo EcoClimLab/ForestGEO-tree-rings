@@ -11,6 +11,7 @@ library(splines)
 library(gridExtra)
 library(snow)
 library(MuMIn)
+library(tidyverse)
 
 # prepare parameters ####
 ## paths to data ####
@@ -41,10 +42,10 @@ sites.sitenames <- c(BCI = "Barro_Colorado_Island",
                      NewMexico = "New_Mexico")
 
 ## analysis parameters ####
-reference_dates <- list(BCI = c(30, 11),
+reference_dates <- list(BCI = c(30, 12),
                         CedarBreaks = c(30, 8),
                         HarvardForest = c(30, 8),
-                        HKK = c(30, 11),
+                        HKK = c(30, 12),
                         LillyDickey = c(30, 8),
                         NewMexico = c(30, 8),
                         SCBI = c(30, 8),
@@ -62,8 +63,8 @@ window_ranges <- list(BCI = c(15, 0),
 # reference_date <- c(30, 8) # refday in slidingwin
 # window_range <- c(15, 0) #range in slidingwin
 
-clim_var_group <- list(c("pre", "wet"),
-                       c("tmp", "tmn", "tmx", "pet")#,
+clim_var_group <- list(water = c("pre", "wet"),
+                       temperature = c("tmp", "tmn", "tmx", "pet")#,
                        # c("dtr", "cld", "pet")
 ) # see issue 14, PET is in both the TMP and DTR groups. If it comes out as the best in both groups (should always be for the same time frame), then there are only 2 candidate variables for the GLS
 
@@ -103,7 +104,7 @@ clim_gaps <- clim_gaps[clim_gaps$start_climvar.class %in% climate_variables, ]
 CO2 <- read.csv(path_to_CO2)
 
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIKMB3GPVEQMYMCTNU27H2FHC")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIMHCL3MDWFTL6JDCEK7I6YUC")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
@@ -260,6 +261,8 @@ all_Biol <- lapply(all_Biol, function(Biol) {
 ## Run the Analysis ####
 variables_dropped <- list() # this is to store the variables that were not conserdered for best model because the average % gap of the window >=5%
 summary_data <- NULL # this will hold n_tree, n_cores and range of years
+climate_interactions <- NULL # this is just to show case
+best_model_summaries <- NULL
 # ylim_p <- list() # this is to later readjust ylim in the GLS results plots, to standardize ylim across sites
 
 ## save every object names up until now to erase other stuff before runing each new site
@@ -446,13 +449,13 @@ for(site in sites) {
       print(paste("adding climate data to Biol for model", i))
      
       
-      if(any(grepl("I\\(climate\\^2\\)", names( results[[i]]$BestModelData)))) {
-        columns_to_add <- results[[i]]$BestModelData[, c("climate", "I(climate^2)")]
-        names(columns_to_add) <- paste0(results$combos[i,]$climate, c("", "^2"))
-      } else {
+      # if(any(grepl("I\\(climate\\^2\\)", names( results[[i]]$BestModelData)))) {
+      #   columns_to_add <- results[[i]]$BestModelData[, c("climate", "I(climate^2)")]
+      #   names(columns_to_add) <- paste0(results$combos[i,]$climate, c("", "^2"))
+      # } else {
         columns_to_add <- results[[i]]$BestModelData[c("climate")]
         names(columns_to_add) <- results$combos[i,]$climate
-      }
+      # } if(any(grepl("I\\(climate\\^2\\)", names( results[[i]]$BestModelData)))) 
       
       to_add_to_Biol <-  cbind(Biol[!is.na(Biol$residuals), ], columns_to_add)
       Biol[, names(columns_to_add)] <- to_add_to_Biol[match(rownames(Biol), rownames(to_add_to_Biol)), names(columns_to_add)]
@@ -466,7 +469,7 @@ for(site in sites) {
    
     # now do a species by species gls using log of raw measurements, spline on dbh and year (WITH AND WITHOUT CO2) ####
     
-    for(with_CO2 in c(FALSE)) {
+    for(with_CO2 in c(FALSE, TRUE)) {
       ## look at collinearity between climate variables ( and CO2n and dbh when relevant) and remove any variable with vif > 10 ####
     if(grepl("dbh", what) & with_CO2) X <- Biol[, c(as.character(best_results_combos$climate), "CO2", "dbh")]
     if(grepl("dbh", what) & !with_CO2) X <- Biol[, c(as.character(best_results_combos$climate), "dbh")]
@@ -487,13 +490,17 @@ for(site in sites) {
     ## create the gls formula ####
     
     full_model_formula <- switch(gsub("_dbh", "", what), 
-                                 "log_core_measurement" = paste("log_core_measurement ~", paste0("ns(", variables_to_keep, ", 2)", collapse = " + ")),
-                                 "log_agb_inc" = paste("log_agb_inc ~", paste0("ns(", variables_to_keep, ", 2)", collapse = " + ")),
-                                 "log_BAI" = paste("log_BAI ~", paste0("ns(", variables_to_keep, ", 2)", collapse = " + ") ))
+                                 "log_core_measurement" = paste("log_core_measurement ~", paste(variables_to_keep, "+", paste0("I(", variables_to_keep, "^2)"), collapse = " + ")),
+                                 "log_agb_inc" = paste("log_agb_inc ~", paste(variables_to_keep, "+", paste0("I(", variables_to_keep, "^2)"), collapse = " + ")),
+                                 "log_BAI" = paste("log_BAI ~", paste(variables_to_keep, "+", paste0("I(", variables_to_keep, "^2)"), collapse = " + ") ))
+    
+    # prepare subset for dredge
+    sexpr <-parse(text = paste("!(", paste0("(`I(", variables_to_keep, "^2)` & !", variables_to_keep, ")", collapse = "|"), ")"))
     
     # remove second order term for CO2
-    full_model_formula <- gsub("ns\\(CO2, 2\\)", "CO2", full_model_formula)
-
+    full_model_formula <- gsub("I\\(CO2\\^2\\) \\+ ", "", full_model_formula)
+    sexpr <- parse(text =gsub("\\| \\(\\`I\\(CO2\\^2\\)\\` & \\!CO2\\)", "", sexpr))
+   
     
     ## identify what variables we should keep for each species, looking at the sum of AIC weights ####
     
@@ -523,11 +530,15 @@ for(site in sites) {
       clust <- makeCluster(getOption("cl.cores", 2), type = "SOCK")
       clusterEvalQ(clust, library(splines))
       clusterEvalQ(clust, library(nlme))
-      clusterExport(clust, list  = c("x", "fm1"))
-      dd <- pdredge(fm1, trace = 2, cluster = clust)
+      clusterExport(clust, list  = c("x", "fm1", "sexpr"))
+      dd <- pdredge(fm1, trace = 2, cluster = clust, subset = sexpr)
       stopCluster(clust)
       dd$cw <- cumsum(dd$weight)
       
+       # save dd
+      write.csv(dd, file = paste0("results/", what, "/", site, "/", sp, "_model_comparisons.csv"), row.names = F)
+      
+      # get sum of weights
       # sum_of_weights_for_each_term <- dd[, grepl(paste(c(variables_to_keep, "dbh", "Year"), collapse = "|"), names(dd))]
       sum_of_weights_for_each_term <- dd[, grepl(paste(c(variables_to_keep,  "dbh", "Year", "coreID"), collapse = "|"), names(dd))]
       sum_of_weights_for_each_term <- apply(sum_of_weights_for_each_term, 2, function(x) sum(dd$weight[!is.na(x)]))
@@ -551,11 +562,49 @@ for(site in sites) {
       assign(paste0(sp, "_dd"), dd)
       assign(paste0(sp, "_best_model"), best_model)
       
+      # save into best_model_summaries
+      best_model_summaries <- rbind(
+        best_model_summaries,
+        data.frame(what,
+                   site,
+                   sp,
+                   parameter = rownames(summary(best_model)$tTable),
+                   summary(best_model)$tTable)
+      )
       
       # keeping track of timing
       end_time <- Sys.time()
       (ellapsed_time <- difftime(end_time, start_time, units = "mins"))
   
+      
+      # try interaction between DBH and climate variable ####
+      if(grepl("dbh", what) & !with_CO2 & "dbh" %in% variables_to_keep) {
+        
+        for(g in names(clim_var_group)) {
+          v_int <-   names(which(sapply(clim_var_group[[g]], grepl, as.character(best_model$call[2]))))
+        
+          if(length(v_int) > 0 ) {
+            bm_clim_int <- update(best_model, fixe = as.formula(paste0("~ . - I(dbh^2) + dbh:", v_int)))
+            climate_interactions <- 
+              rbind(climate_interactions,                                         data.frame(what,
+                                                                                             site,
+                                                                                             species = sp,
+                                                                                             climate_group = g,
+                                                                                             model_formula = as.character(bm_clim_int$call[2]),
+                                                                                             variable = v_int,
+                                                                                             interaction_coef = fixef(bm_clim_int)[grepl(":", names(fixef(bm_clim_int)))],
+                                                                                             p_value = summary(bm_clim_int)$tTable[grepl(":", rownames(summary(bm_clim_int)$tTable)), "p-value"])
+              )
+          }
+          
+          
+          } #  for(g in names(clim_var_group)
+       
+        
+        
+        
+      }
+      
       # remove x
       rm(x)
     }
@@ -604,7 +653,10 @@ for(site in sites) {
         newd <- cbind(eval(parse(text = paste0("data.frame(", paste0(constant_variables, " = median(x$", constant_variables, ", na.rm = T)", collapse = ", "), ")"))), varying_x)  # newd <- cbind(eval(parse(text = paste0("data.frame(", paste0(constant_variables, " = median(Biol$", constant_variables, ", na.rm = T)", collapse = ", "), ",  Year = median(Biol$Year, na.rm = T), coreID = factor(Biol[Biol$species_code %in% sp,]$coreID[1]))"))), varying_x)
         
         # if(v %in% names(best_model$var.summary)) {
-        pt <- rbind(pt, data.frame(newd, variable = v, species = sp, varying_x = newd[, v], do.call(rbind, lapply(1:nrow(newd), function(i) data.frame(predict(best_model, newd[i,], type = "link", level = 0, se.fit = T)))), draw = any(grepl(v,names(best_model$coefficients$fixed)))))
+        # pt <- rbind(pt, data.frame(newd, variable = v, species = sp, varying_x = newd[, v], do.call(rbind, lapply(1:nrow(newd), function(i) data.frame(predict(best_model, newd[i,], type = "link", level = 0, se.fit = T)))), draw = any(grepl(v,names(best_model$coefficients$fixed)))))
+       
+        
+        pt <- rbind(pt, data.frame(newd, variable = v, species = sp, varying_x = newd[, v], data.frame(predict(best_model, newd, type = "link", level = 0, se.fit = T)), draw = any(grepl(v,names(best_model$coefficients$fixed)))))
         
         # }
         
@@ -645,13 +697,14 @@ for(site in sites) {
       # if(!with_CO2) ylim_p[[what]][[v]][[site]] <- range(pt$lwr, pt$upr)
     }
     
-    g_legend<-function(){
-      a.gplot <- ggplot(data = pt, aes(x = varying_x, y = expfit)) + geom_line(aes(group = species, col = species)) +  geom_ribbon(aes(ymin=lwr, ymax=upr, col = NULL, bg = species), alpha=0.25)
+    g_legend <- function()
+      {
+      a.gplot <- ggplot(data = pt, aes(x = varying_x, y = expfit)) + geom_line(aes(group = species, col = species)) +  geom_ribbon(aes(ymin=lwr, ymax=upr, bg = species), alpha=0.25)
       tmp <- ggplot_gtable(ggplot_build(a.gplot))
       leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
       legend <- tmp$grobs[[leg]]
-      return(legend)}
-    
+      return(legend)
+      }
     
     # existing_plots <- paste0("p_",  c("dbh", variables_to_keep))
     existing_plots <- ls()[grepl("^p_", ls())]
@@ -673,7 +726,7 @@ for(site in sites) {
         units = "in",
         res = 300)
     
-    grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  get(x)), ncol = ifelse(length(existing_plots) %in% 4, 2, length(existing_plots)))),
+    grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  get(x) + ylim(range(ylim_p))), ncol = ifelse(length(existing_plots) %in% 4, 2, length(existing_plots)))),
                  g_legend(),
                  nrow = 1,
                  widths = c(10, 1))
@@ -685,6 +738,8 @@ for(site in sites) {
      
     # save plots at this point to later fetch them  ####
     save(list = grep("^p_|pt|clim_var_group$", ls(), value = T), file = paste0('results/', ifelse(with_CO2, "with_CO2/", ""), what, "/", site, "/env.RData"))
+    
+   
     } # for(with_CO2 in c(FALSE, TRUE)) 
      
    # summarize data used in this analysis ####
@@ -704,9 +759,18 @@ for(site in sites) {
   save.image(file = paste0("results/", site, "_all_env.RData"))
 } # for sites in ..
 
-
 # save summary_data ####
 write.csv(summary_data, "results/summary_cores_analyzed.csv", row.names = F)
+
+# save best_models summaries ####
+write.csv(best_model_summaries, file = "results/best_model_summaries.csv", row.names = F)
+# save and summarize climate_interactions ####
+write.csv(climate_interactions, file = "results/climate_interactions_coeficients.csv", row.names = F)
+
+climate_interactions_summary <- aggregate(p_value ~ what + site + climate_group, data = climate_interactions, FUN = function(x) round(sum(x<0.05)*100/length(x), 2))
+names(climate_interactions_summary) <- gsub("p_value", "freq_sig", names(climate_interactions_summary))
+
+write.csv(climate_interactions_summary, file = "results/climate_interactions_summary.csv", row.names = F)
 
 # save variables_dropped ####
 variables_dropped
