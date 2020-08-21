@@ -205,7 +205,7 @@ The full record for all cores was retained for analysis, with the exception of r
 Specifically, we excluded
 (1) species with <7 cores,
 (2) cores with <30 years of record,
-(3) parts of records before or after (whichever was shorter) any year where $\Delta r$ exceeded the mean plus five times the standard deviation of $\Delta r$ for the entire core, along with a 5-year buffer in the opposite direction, 
+(3) parts of records before or after (whichever was shorter) any year where $\Delta r$ exceeded the mean plus five times the standard deviation of $\Delta r$ for the entire core, along with a 5-year buffer in the opposite direction, *(this part needs rewording)*
 and (4) the final 20 years prior to death of trees cored dead. 
 The final criteria was implemented to avoid periods of growth decline and potentially altered climate sensitivity prior to death [@cailleret_synthesis_2017] ; REF on climate sensitivity).
 From analyses including $DBH$ (see below), we further excluded
@@ -260,9 +260,10 @@ After determining that... , here we present results *(method)*.
 *Combining drivers in GLS model*
 
 Second, we combined candidate climate drivers and reconstructed $DBH$ data in a GLS model (Fig. 1). 
+*(need to describe GLS models better)*
 *(DBH not included in models focused on climate sensitivity.)*
 We checked for collinearity among the full set of variables using the *vifstep* function (**REF**) and removed any variable with a variance inflation factor > 3. 
-For each species (at each site) independently, we ran a GLS model including every combination of the candidate climate variables (as a 2-degree polynomial to allow quadratic curve), $DBH$, and fit one year spline for each treeID, plus a random intercept for each tree. 
+For each species (at each site) independently, we ran a GLS model including every combination of the candidate climate variables (as a 2-degree polynomial to allow quadratic curve), $DBH$, a random intercept for each tree, and *a temporal autocorrelation matrix*. 
 We also ran models with a spline of DBH (3 knots).
 Across all possible models, variable AICc weights were summed to determine which drivers are most important. (*Valentine, we'll need some more details here.*)
 We considered the model containing those variables as the top model, noting that the top model can contain terms that are not individually significant in the context of that model.
@@ -277,7 +278,7 @@ We considered the model containing those variables as the top model, noting that
 
 **Our process picked out similar climate drivers to what would be obtained via traditional methods (Figs. 2, S#; Appendix S2).**
 
-![**Figure 2 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table S1) to potential evapotranspiration (PET), identified by both traditional methods and our method to be among the top climate drivers. Panel (**a**) shows a matrix of Pearson correlations between ring- width index and monthly climate variables. Panels (**b-d**) give statistics for time windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diaganol indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each time window, and (**d**) gives the $\Delta AIC$ for each. The time window with the minimum $\Delta AIC$ (0-3 months prior to August, or May-July; black circles), was identified as the optimal window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows GLS model output, where $PET$ was a candidate driver variable (along with $PPT$; $DBH$ not included in this model). Plotted are responses of species for which $PET$ was included in the top model.](tables_figures/quilt_comparison.png)
+![**Figure 2 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table S1) to potential evapotranspiration (PET), identified by both traditional methods and our method to be among the top climate drivers. Panel (**a**) shows a matrix of Pearson correlations between ring- width index and monthly climate variables. Panels (**b-d**) give statistics for time windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diaganol indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each time window, and (**d**) gives the $\Delta AIC$ for each. The time window with the minimum $\Delta AIC$ (0-3 months prior to August, or May-July; black circles), was identified as the optimal window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows GLS model output, where $PET$ was a candidate driver variable (along with $PPT$; $DBH$ not included in this model). Plotted are responses of species for which $PET$ was included in the top model. (THIS IS STILL CONFUSING--maybe putting box around months identified by climwin)](tables_figures/quilt_comparison.png)
 
 **Across the three metrics of growth, the "landscape" of climate effects over various time windows was generally similar, but the optimal time window or even the top climate variable sometimes differed (Figs. S2-S4).**
 Specifically, $\Delta r$, $BAI$, and $\Delta AGB$ consistently exhibited similar strength of correlation and direction of response to climate variables within the temperature and precipitation variable groups. 
