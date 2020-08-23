@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  19 AUG 2020 11:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  23 AUG 2020 08:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -822,7 +822,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
 [4] [5] [6] [7]
-<tables_figures/mock_comparison_traditional_method.png, id=84, 529.98pt x 703.6
+<tables_figures/mock_comparison_traditional_method.png, id=83, 529.98pt x 703.6
 2875pt>
 File: tables_figures/mock_comparison_traditional_method.png Graphic file (type 
 png)
@@ -833,39 +833,61 @@ Package pdftex.def Info: tables_figures/mock_comparison_traditional_method.png
 
 LaTeX Warning: Float too large for page by 2.24231pt on input line 210.
 
-<tables_figures/NewMexico_pet.png, id=86, 722.7pt x 578.16pt>
-File: tables_figures/NewMexico_pet.png Graphic file (type png)
-<use tables_figures/NewMexico_pet.png>
-Package pdftex.def Info: tables_figures/NewMexico_pet.png  used on input line 2
-14.
+</Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sen
+sitivity/results/climwin_plots_combined/NewMexico_pet.png, id=85, 722.7pt x 578
+.16pt>
+File: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climat
+e-sensitivity/results/climwin_plots_combined/NewMexico_pet.png Graphic file (ty
+pe png)
+<use /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
+-sensitivity/results/climwin_plots_combined/NewMexico_pet.png>
+Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
+ab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/NewMexico_pet.p
+ng  used on input line 214.
 (pdftex.def)             Requested size: 469.76045pt x 375.80836pt.
-<tables_figures/NewMexico_wet_pre.png, id=87, 722.7pt x 578.16pt>
-File: tables_figures/NewMexico_wet_pre.png Graphic file (type png)
-<use tables_figures/NewMexico_wet_pre.png>
-Package pdftex.def Info: tables_figures/NewMexico_wet_pre.png  used on input li
-ne 228.
+</Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sen
+sitivity/results/climwin_plots_combined/NewMexico_wet_pre.png, id=86, 722.7pt x
+ 578.16pt>
+File: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climat
+e-sensitivity/results/climwin_plots_combined/NewMexico_wet_pre.png Graphic file
+ (type png)
+<use /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
+-sensitivity/results/climwin_plots_combined/NewMexico_wet_pre.png>
+Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
+ab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/NewMexico_wet_p
+re.png  used on input line 228.
 (pdftex.def)             Requested size: 469.76045pt x 375.80836pt.
-<tables_figures/SCBI_pre_wet.png, id=88, 722.7pt x 578.16pt>
-File: tables_figures/SCBI_pre_wet.png Graphic file (type png)
-<use tables_figures/SCBI_pre_wet.png>
-Package pdftex.def Info: tables_figures/SCBI_pre_wet.png  used on input line 24
-0.
+</Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sen
+sitivity/results/climwin_plots_combined/HarvardForest_pre_wet.png, id=87, 722.7
+pt x 578.16pt>
+File: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climat
+e-sensitivity/results/climwin_plots_combined/HarvardForest_pre_wet.png Graphic 
+file (type png)
+<use /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
+-sensitivity/results/climwin_plots_combined/HarvardForest_pre_wet.png>
+Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
+ab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/HarvardForest_p
+re_wet.png  used on input line 240.
 (pdftex.def)             Requested size: 469.76045pt x 375.80836pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 253.
-[8 <./tables_figures/mock_comparison_traditional_method.png>] [9 <./tables_figu
-res/NewMexico_pet.png (PNG copy)>] [10 <./tables_figures/NewMexico_wet_pre.png 
-(PNG copy)>] [11 <./tables_figures/SCBI_pre_wet.png (PNG copy)>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 253.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 251.
+[8 <./tables_figures/mock_comparison_traditional_method.png>] [9 </Users/kteixe
+ira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/resul
+ts/climwin_plots_combined/NewMexico_pet.png (PNG copy)>] [10 </Users/kteixeira/
+Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/c
+limwin_plots_combined/NewMexico_wet_pre.png (PNG copy)>] [11 </Users/kteixeira/
+Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/c
+limwin_plots_combined/HarvardForest_pre_wet.png (PNG copy)>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 251.
 (./MEE_manuscript_SI.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 253.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 253.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 251.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 251.
  ) 
 Here is how much of TeX's memory you used:
- 15611 strings out of 492616
- 231188 string characters out of 6129482
+ 15585 strings out of 492616
+ 232194 string characters out of 6129482
  355778 words of memory out of 5000000
  19163 multiletter control sequences out of 15000+600000
- 68015 words of font info for 99 fonts, out of 8000000 for 9000
+ 66890 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,10n,44p,937b,465s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/
@@ -882,10 +904,10 @@ s/type1/public/lm/lmr17.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/pub
 lic/lm/lmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmri1
 0.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr
 /local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmsy7.pfb>
-Output written on MEE_manuscript_SI.pdf (11 pages, 4138704 bytes).
+Output written on MEE_manuscript_SI.pdf (11 pages, 4208747 bytes).
 PDF statistics:
- 173 PDF objects out of 1000 (max. 8388607)
- 141 compressed objects within 2 object streams
+ 172 PDF objects out of 1000 (max. 8388607)
+ 140 compressed objects within 2 object streams
  26 named destinations out of 1000 (max. 500000)
  16429 words of extra memory for PDF output out of 17280 (max. 10000000)
 

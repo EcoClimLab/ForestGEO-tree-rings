@@ -1,11 +1,11 @@
 site code,site name,latitude,longitude,cores within ForestGEO plot?,date range,dormant season,months in climwin
-SC,Scotty Creek,61.3,-121.3,n,,,
-Zofin,Zofin Forest Dynamics Plot,48.6638,14.7073,y,,,
-NB,Niobrara/Hansley,42.78,-100.021,,,,
-Harvard,Harvard Forest,42.5388,-72.1755,y,,,
-LDW,Lilly Dickey Woods,39.2359,-86.2181,,,,
-SCBI,Smithsonian Conservation Biology Institute,38.8935,-78.1454,y,,,
-Utah,Utah Forest Dynamics Plot,37.6615,-112.8525,,,,
-LT,Little Tesque,35.738376,-105.838154,NA,,,
-HKK,Huai Kha Khaeng,15.6324,99.217,n,,,
-BCI,Barro Colorado Island,9.1543,-79.8461,n,,,
+SC,Scotty Creek,61.3,-121.3,n,,,pMay-cAug
+Zofin,Zofin Forest Dynamics Plot,48.6638,14.7073,y,,,pMay-cAug
+NB,Niobrara/Hansley,42.78,-100.021,,,,pMay-cAug
+Harvard,Harvard Forest,42.5388,-72.1755,y,,,pMay-cAug
+LDW,Lilly Dickey Woods,39.2359,-86.2181,,,,pMay-cAug
+SCBI,Smithsonian Conservation Biology Institute,38.8935,-78.1454,y,,,pMay-cAug
+Utah,Utah Forest Dynamics Plot,37.6615,-112.8525,,,,pMay-cAug
+LT,Little Tesuque,35.738376,-105.838154,NA,,,pMay-cAug
+HKK,Huai Kha Khaeng,15.6324,99.217,n,,,pOct-cDec
+BCI,Barro Colorado Island,9.1543,-79.8461,n,,,pOct-cDec
