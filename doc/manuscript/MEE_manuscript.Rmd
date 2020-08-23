@@ -298,7 +298,7 @@ At two of the higher-latitude temperate sites (HF and Zofin), temperatures were 
 There were also a few instances where previous growing season conditions had the strongest influence.
 
   
-![**Figure 3 | Climate senstivity for all sites.** Columns include the top variables in the precipitation and temperature variable groups. For each species, relationships are plotted if included in top model. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD. THIS FIGURE STILL NEEDS 2 MORE SITES... WONDER IF THERE'S A BETTER LAYOUT...](tables_figures/pre_temp_groups.png)
+![**Figure 3 | Species-level responses to climwin-selected variables in precipitation and temperature variable groups.** For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/pre_temp_groups.png)
 
 *Climate sensitivity*
 
@@ -339,7 +339,9 @@ The relative importance of $DBH$ tended to be least for $\Delta r$, intermediate
 However, there were exceptions (e.g., at Little Tesuque; Fig. 5).
 The relative importance of climate was modest at sites including SCBI, ..., and stronger at sites including Little Tesuque, ... (Figs 5, S#-S#). 
 
-![**Figure 5 | Comparison of full top models for each growth metric ($\Delta r$, $BAI$, $\Delta AGB$) at sites where climatic controls are modest (SCBI, left panel) and strong (Little Tesuque, right panel).**](tables_figures/full_model_comparison.png)
+![**Figure 5 | Comparison of full top models for each growth metric ($\Delta r$, $BAI$, $\Delta AGB$) at sites where climatic controls are modest (SCBI, left panel) and strong (Little Tesuque, right panel).** For each species, relationships are plotted if included in top model. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/full_model_comparison.png)
+
+**Interactive effects of $DBH$ and climate were found for #% of species-variable combinations**.
 
 **Table / figure on climate - DBH interactions?** (*See [ISSUE #42 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/42)*)
 
@@ -382,24 +384,25 @@ Alternative methods, such as regional curve standardization [e.g., REF] and size
 *Additive and interactive effects of climate and DBH*
 
 **We show that DBH is a strong driver of growth (any metric) relative to climate and that climate sensitivity often varies with DBH-- findings that have important implications for understanding changes in forest productivity in response to climate change.**
-The observed importance of $DBH$ as a driver of tree growth reinforces the concept that changes in forest structure/ demography are critical to changes in forest productivity (REFS; McDowell et al. 2020).
-The prevalence of interactive $DBH$-climate effects reinforces the concepts that drought often has a disproportionate impact on large trees (REFS) and that *temperature sensitivity can vary across size classes (Rollinson et al. in review)*, implying that size should be considered in tree-ring analyses of climate sensitivity.
+The observed importance of $DBH$ as a driver of tree growth reinforces the concept that changes in forest structure/ demography are critical to changes in forest productivity [REFS; @mcdowell_pervasive_2020].
+The prevalence of interactive $DBH$-climate effects reinforces the concepts that drought tends to have a disproportionate impact on large trees [@bennett_larger_2015; @mcgregor_tree_nodate] and that *temperature sensitivity can vary across size classes (Rollinson et al. in review)*, implying that size should be considered in tree-ring analyses of climate sensitivity.
 However, the relatively strong importance of $DBH$ in no way negates the importance of climate, as its effect would dominate changes in productivity in stands with relatively constant size structure.
-Some studies have made a start at combining tree rings and forest census data to get at the climate sensitivity of whole-forest productivity (REFS), but have been limited in that they were not underlain by models of individual tree growth that simultaneously characterized the effects of tree size and climate, as we do here.
+Some studies have made a start at combining tree rings and forest census data to get at the climate sensitivity of whole-forest productivity [e.g., @helcoski_growing_2019], but have been limited in that they were not underlain by models of individual tree growth that simultaneously characterized the effects of tree size and climate, as we do here.
 Further work will be required to combine this model with forest census data in order to understand the climate sensitivity of whole-forest productivity.
 
 All this points to the potential importance of considering DBH in climate reconstructions.
-Traditional dendro methods ignore DBH.
-DBH is not always collected when cores are taken, and is not routinely preserved alongside tree-ring data. For example, the International Tree-Ring Data Bank (ITRDB) contains no structure for storing DBH records. DEN is new alternative. 
+Traditional dendro methods seek to remove the influence of $DBH$, but our finding of prevalent $DBH$-$\Delta r$ interactions indicate that it should not be ignored.
+DBH is not always collected when cores are taken, and is not routinely preserved alongside tree-ring data. For example, the International Tree-Ring Data Bank (ITRDB) contains no structure for storing DBH records. DEN is new alternative [@rayback_DendroEcological_2020]. 
 
 *Conclusions* 
 
 Sets the foundation for considering other, slowly changing environmental drivers.
 
 ### Acknowledgements
-Scholarly Studies
+This analysis was funded by a Smithsonian Scholarly Studies grant to KAT, SM, HCM, and CP.
 
 ### Authors' contributions
+
 
 ### References
 
