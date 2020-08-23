@@ -283,9 +283,9 @@ We considered the model containing those variables as the top model, noting that
 **Across the three metrics of growth, the "landscape" of climate effects over various time windows was generally similar, but the optimal time window or even the top climate variable sometimes differed (Figs. S2-S4).**
 Specifically, $\Delta r$, $BAI$, and $\Delta AGB$ consistently exhibited similar strength of correlation and direction of response to climate variables within the temperature and precipitation variable groups. 
 In some cases (n= # of #), both the optimal climate variable and time window were identical across growth metrics (e.g., Fig. S2). 
-In #  cases, *climwin* identified the same climate variable but different time windows. 
-In # cases, *climwin* identified different climate variables, but identical or overlapping time windows (e.g., Fig. S3).
-Finally, in # cases, *climwin* identified different climate variables and different time windows (e.g., Fig. S4).
+In #  cases (), *climwin* identified the same climate variable but different (sometimes overlapping) time windows. 
+In *2* cases (precipitation variable group at LT, temperature variable group at HKK), *climwin* identified different climate variables, but identical or overlapping time windows (e.g., Fig. S3).
+Finally, in *2* cases (temperature variable group at BCI, precipitation variable group at HF), *climwin* identified different climate variables and different time windows (e.g., Fig. S4). All of these variables had weak effects and mixed responses among species in the final models (Fig. 3).
 Henceforth, we focus on the climate drivers identified when $\Delta r$ was the growth metric and for the full set of cores (i.e., including those for which $DBH$ could not be reconstructed.)
 
 **Climwin allowed objective selection of the strongest climate drivers and the time windows over which they were most influential.**

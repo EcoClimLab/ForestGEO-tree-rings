@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  23 AUG 2020 08:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  23 AUG 2020 17:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -828,10 +828,10 @@ File: tables_figures/mock_comparison_traditional_method.png Graphic file (type
 png)
 <use tables_figures/mock_comparison_traditional_method.png>
 Package pdftex.def Info: tables_figures/mock_comparison_traditional_method.png 
- used on input line 206.
+ used on input line 208.
 (pdftex.def)             Requested size: 469.75603pt x 623.67233pt.
 
-LaTeX Warning: Float too large for page by 2.24231pt on input line 210.
+LaTeX Warning: Float too large for page by 2.24231pt on input line 212.
 
 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sen
 sitivity/results/climwin_plots_combined/NewMexico_pet.png, id=85, 722.7pt x 578
@@ -843,7 +843,7 @@ pe png)
 -sensitivity/results/climwin_plots_combined/NewMexico_pet.png>
 Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
 ab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/NewMexico_pet.p
-ng  used on input line 214.
+ng  used on input line 216.
 (pdftex.def)             Requested size: 469.76045pt x 375.80836pt.
 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sen
 sitivity/results/climwin_plots_combined/NewMexico_wet_pre.png, id=86, 722.7pt x
@@ -855,7 +855,7 @@ e-sensitivity/results/climwin_plots_combined/NewMexico_wet_pre.png Graphic file
 -sensitivity/results/climwin_plots_combined/NewMexico_wet_pre.png>
 Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
 ab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/NewMexico_wet_p
-re.png  used on input line 228.
+re.png  used on input line 230.
 (pdftex.def)             Requested size: 469.76045pt x 375.80836pt.
 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sen
 sitivity/results/climwin_plots_combined/HarvardForest_pre_wet.png, id=87, 722.7
@@ -867,9 +867,9 @@ file (type png)
 -sensitivity/results/climwin_plots_combined/HarvardForest_pre_wet.png>
 Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
 ab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/HarvardForest_p
-re_wet.png  used on input line 240.
+re_wet.png  used on input line 242.
 (pdftex.def)             Requested size: 469.76045pt x 375.80836pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 251.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 253.
 [8 <./tables_figures/mock_comparison_traditional_method.png>] [9 </Users/kteixe
 ira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/resul
 ts/climwin_plots_combined/NewMexico_pet.png (PNG copy)>] [10 </Users/kteixeira/
@@ -877,10 +877,10 @@ Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/c
 limwin_plots_combined/NewMexico_wet_pre.png (PNG copy)>] [11 </Users/kteixeira/
 Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/c
 limwin_plots_combined/HarvardForest_pre_wet.png (PNG copy)>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 251.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 253.
 (./MEE_manuscript_SI.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 251.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 251.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 253.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 253.
  ) 
 Here is how much of TeX's memory you used:
  15585 strings out of 492616

@@ -89,6 +89,17 @@ kable(S2, format = "latex", booktabs = TRUE, caption = "Table S2. List of specie
 
 ** Table S3- allometric equations for bark thickness **
 
+\newpage
+```{r eval = TRUE, echo=FALSE, warning=FALSE}
+library(knitr)
+library(kableExtra)
+table_raw <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/climate_interactions_summary.csv", stringsAsFactors = FALSE, check.names = FALSE)
+#this reads in the table, but knit fails if I try to render it (probably because of underscores). It also needs ot be rearranged
+#kable(table_raw, format = "latex", booktabs = TRUE, caption = "Table S  . Frequency of DBH-climate interactions", escape = F)%>%
+#  kable_styling(latex_options = c("scale_down", "hold_position")) 
+```
+
+
 \newpage 
 ![**Figure S1 | (Comparison of traditional approaches with ours).**  (THIS FIGURE IS JUST A MOCK-UP TO SHOW VALENTINE WHAT I HAVE IN MIND.) ](tables_figures/mock_comparison_traditional_method.png)
 
