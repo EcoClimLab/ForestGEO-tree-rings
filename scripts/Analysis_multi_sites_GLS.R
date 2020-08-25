@@ -499,7 +499,7 @@ for(site in sites) {
     
     # remove second order term for CO2
     full_model_formula <- gsub("I\\(CO2\\^2\\) \\+ ", "", full_model_formula)
-    sexpr <- parse(text =gsub("\\| \\(\\`I\\(CO2\\^2\\)\\` & \\!CO2\\)", "", sexpr))
+    sexpr <- parse(text =gsub("\\| \\(`I\\(CO2\\^2\\)` & \\!CO2\\)", "", sexpr))
    
     
     ## identify what variables we should keep for each species, looking at the sum of AIC weights ####
@@ -525,6 +525,7 @@ for(site in sites) {
       x <- x[, c("Year", "treeID", "coreID", "dbh", "CO2", gsub("_dbh", "", what), variables_to_keep)]
       
       x <- droplevels(x[!is.na(x[, gsub("_dbh", "", what)]), ])
+      
       fm1 <- lme((eval(parse(text = full_model_formula))), random = ~1|coreID, correlation = corCAR1(form=~Year|coreID), data = x, na.action = "na.fail", method = "ML") 
       
       clust <- makeCluster(getOption("cl.cores", 2), type = "SOCK")
@@ -536,7 +537,7 @@ for(site in sites) {
       dd$cw <- cumsum(dd$weight)
       
        # save dd
-      write.csv(dd, file = paste0("results/", what, "/", site, "/", sp, "_model_comparisons.csv"), row.names = F)
+      write.csv(dd, file = paste0("results/", ifelse(with_CO2, "with_CO2/", ""), what, "/", site, "/", sp, "_model_comparisons.csv"), row.names = F)
       
       # get sum of weights
       # sum_of_weights_for_each_term <- dd[, grepl(paste(c(variables_to_keep, "dbh", "Year"), collapse = "|"), names(dd))]
@@ -548,13 +549,14 @@ for(site in sites) {
       
       
       
+      # update the results of the best model to REML = T
+      best_model <- update(get.models(dd, 1)[[1]], method = "REML")
       # get the results of the model that includes the variables that have sum of weight > 0.9
-      
-      if(sum(sum_of_weights_for_each_term[!grepl("(coreID|Year)", names(sum_of_weights_for_each_term))] > 0.9) == 0 ) {
-        best_model <- update(fm1, fixe = ~1, method = "REML") #intercept only model if none of the variables have 0.9 sum of weitgh
-      } else {
-        best_model <- update(fm1, fixe = paste( "~", paste(names(sum_of_weights_for_each_term)[sum_of_weights_for_each_term > 0.9], collapse = " + ")), method = "REML")
-      }
+      # if(sum(sum_of_weights_for_each_term[!grepl("(coreID|Year)", names(sum_of_weights_for_each_term))] > 0.9) == 0 ) {
+      #   best_model <- update(fm1, fixe = ~1, method = "REML") #intercept only model if none of the variables have 0.9 sum of weitgh
+      # } else {
+      #   best_model <- update(fm1, fixe = paste( "~", paste(names(sum_of_weights_for_each_term)[sum_of_weights_for_each_term > 0.9], collapse = " + ")), method = "REML")
+      # }
       
       
       
@@ -565,7 +567,8 @@ for(site in sites) {
       # save into best_model_summaries
       best_model_summaries <- rbind(
         best_model_summaries,
-        data.frame(what,
+        data.frame(with_CO2,
+                   what,
                    site,
                    sp,
                    parameter = rownames(summary(best_model)$tTable),
@@ -586,7 +589,8 @@ for(site in sites) {
           if(length(v_int) > 0 ) {
             bm_clim_int <- update(best_model, fixe = as.formula(paste0("~ . - I(dbh^2) + dbh:", v_int)))
             climate_interactions <- 
-              rbind(climate_interactions,                                         data.frame(what,
+              rbind(climate_interactions,                                         data.frame(with_CO2,
+                                                                                             what,
                                                                                              site,
                                                                                              species = sp,
                                                                                              climate_group = g,
@@ -656,7 +660,13 @@ for(site in sites) {
         # pt <- rbind(pt, data.frame(newd, variable = v, species = sp, varying_x = newd[, v], do.call(rbind, lapply(1:nrow(newd), function(i) data.frame(predict(best_model, newd[i,], type = "link", level = 0, se.fit = T)))), draw = any(grepl(v,names(best_model$coefficients$fixed)))))
        
         
-        pt <- rbind(pt, data.frame(newd, variable = v, species = sp, varying_x = newd[, v], data.frame(predict(best_model, newd, type = "link", level = 0, se.fit = T)), draw = any(grepl(v,names(best_model$coefficients$fixed)))))
+        pt <- rbind(pt, 
+                    data.frame(newd, 
+                               variable = v, 
+                               species = sp, 
+                               varying_x = newd[, v], data.frame(predict(best_model, newd, type = "link", level = 0, se.fit = T)), 
+                               draw = any(grepl(v,names(best_model$coefficients$fixed))),
+                               sig = ifelse(summary(best_model)$tTable[rev(grep(v, rownames(summary(best_model)$tTable)))[1], "p-value"] < .05, "solid", "dashed")))
         
         # }
         
@@ -668,17 +678,18 @@ for(site in sites) {
       pt$expfit <- exp(pt$fit)
       pt$lwr <- exp(pt$fit - 1.96 * pt$se.fit)
       pt$upr <- exp(pt$fit + 1.96 * pt$se.fit)
+     
       
-      p <- ggplot(data = pt[pt$draw,], aes(x = varying_x, y = expfit))
+      p <- ggplot(data = pt[pt$draw,], aes(x = varying_x, y = expfit, group = species))
       if(v != "dbh") p <- p + geom_rect(xmin = mean(Biol[, v], na.rm = T) - sd(Biol[, v], na.rm = T), ymin = min(pt$lwr), xmax = mean(Biol[, v], na.rm = T) + sd(Biol[, v], na.rm = T), ymax = max(pt$upr), fill = "grey" , alpha=0.01) + geom_vline(xintercept = mean(Biol[, v], na.rm = T), col = "grey")
       
       time_window <- reference_date[2] - as.numeric(best_results_combos[best_results_combos$climate %in% v, c("WindowOpen", "WindowClose")])
       time_window_prev <- time_window <= 0
       time_window <- ifelse(time_window_prev, rev(1:12)[abs(time_window) +1], time_window)
       
-      time_window_text <- paste(paste0(ifelse(time_window_prev, "p.", "c."),time_window), collapse = "-") #  paste0("\nfrom ", paste(paste0(ifelse(time_window_prev, "prev. ", "curr. "), month.abb[time_window]), collapse = "\nto "))
+      time_window_text <- paste(paste0(ifelse(time_window_prev, "p.", "c."),month.abb[time_window]), collapse = "-") #  paste0("\nfrom ", paste(paste0(ifelse(time_window_prev, "prev. ", "curr. "), month.abb[time_window]), collapse = "\nto "))
       
-      p <- p + geom_line(aes(group = species, col = species)) +
+      p <- p + geom_line(aes(col = species), linetype = as.character(p$data$sig)) +
         # scale_x_continuous(trans= ifelse(v %in% "dbh", 'log','identity')) +
         labs(#title = paste0(v, ifelse(v %in% best_results_combos$climate, time_window_text, "")),
              x = paste(v, ifelse(v %in% best_results_combos$climate, time_window_text, ""), variables_units[[v]]),
@@ -737,7 +748,7 @@ for(site in sites) {
     dev.off()
      
     # save plots at this point to later fetch them  ####
-    save(list = grep("^p_|pt|clim_var_group$", ls(), value = T), file = paste0('results/', ifelse(with_CO2, "with_CO2/", ""), what, "/", site, "/env.RData"))
+    save(list = grep("^p_|pt|clim_var_group$|ylim_p", ls(), value = T), file = paste0('results/', ifelse(with_CO2, "with_CO2/", ""), what, "/", site, "/env.RData"))
     
    
     } # for(with_CO2 in c(FALSE, TRUE)) 

@@ -10,7 +10,7 @@ library(ggplot2)
 library(grid)
 
 # prepare site list and site coordinates ####
-sites <- list.dirs("results/log_core_measurement_dbh", full.names = F, recursive = F)
+sites <- list.dirs("results/log_core_measurement", full.names = F, recursive = F)
 
 
 sites_coords <- read.csv("https://raw.githubusercontent.com/forestgeo/Site-Data/master/ForestGEO_site_data.csv")
@@ -34,7 +34,20 @@ sites_coords$site <- names(sites.sitenames)[match(sites_coords$Site.name, sites.
 
 # order sites by latitude
 sites <- sites_coords$site[order(sites_coords$Latitude)]
-n_sites <- length(sites)
+
+# sites with dbh
+sites_with_dbh <- sites[-grep("CedarBreaks", sites)]
+
+# give site abbrevationtion in paper
+sites_abb <- list(BCI  = "BCI",
+                  HKK = "HKK",
+                  NewMexico = "LT",
+                  CedarBreaks = "Utah",
+                  SCBI = "SCBI",
+                  LillyDickey = "LDW",
+                  HarvardForest = "Harvard",
+                  Zofin = "Zofin",
+                  ScottyCreek = "SC")
 
 # prepare function ####
 
@@ -46,17 +59,14 @@ g_legend <- function(x = "pt"){
   legend <- tmp$grobs[[leg]]
   return(legend)
 }
-# load and calculate y limits ####
-load("results/ylims_for_GLS_plots.RData")
-ylim_p <- lapply(ylim_p, lapply, range)
-ylim_p[["log_agb_inc_dbh"]] <- lapply(ylim_p[["log_agb_inc_dbh"]], function(x) x*1000) # convert agb to kg
+
 # DBH response at each sites and for each response ####
 what_to_show <- c("log_core_measurement_dbh" = expression(Delta*r~(mm)), "log_BAI_dbh" = expression(BAI~(cm^2)), "log_agb_inc_dbh" = expression(Delta*AGB~(kg)))
 
-
+n_sites <- length(sites_with_dbh)
 
 all_plots <- list()
-for(site in sites){
+for(site in sites_with_dbh){
   for(what in names(what_to_show)) {
     temp_env <- new.env()
     load(paste0('results/', what, "/", site, "/env.RData"), envir = temp_env) 
@@ -68,7 +78,7 @@ for(site in sites){
     p$labels$x <- NULL
     
     # change ylim to scale across sites 
-    # p <- p + ylim(ylim_p[[what]][["dbh"]])
+    p <- p + ylim(range(get("ylim_p", temp_env)) * ifelse(what == "log_agb_inc_dbh", 1000, 1)) # ylim(ylim_p[[what]][["dbh"]])
     
     # if p is AGB, convert to kg
     if(what == "log_agb_inc_dbh") p$data[c("expfit", "lwr", "upr")] <-   p$data[c("expfit", "lwr", "upr")]*1000
@@ -86,7 +96,7 @@ png("doc/manuscript/tables_figures/DBH_responses.png", width = 8, height = 10, r
 grid.arrange(arrangeGrob(grobs = all_plots, ncol = 4, vp= grid::viewport(width=0.95, height=0.95)))
 
 
-grid::grid.text(sites, x = unit(0.01, "npc"), y = unit(rev(cumsum(c(1/n_sites/2, rep(1/n_sites, n_sites-1)))), "npc"), rot = 90)
+grid::grid.text(sites_abb[sites_with_dbh], x = unit(0.01, "npc"), y = unit(rev(cumsum(c(1/n_sites/2, rep(1/n_sites, n_sites-1)))), "npc"), rot = 90)
 
 grid::grid.text(what_to_show, x = unit(cumsum(c(.05 +.9/4/2, rep(.9/4, 2))), "npc"), y = unit(.99,  "npc"))
 
@@ -96,9 +106,14 @@ dev.off()
 
 # Pre and Temp groups ####
 
+
+what = "log_core_measurement"
+
+n_sites <- lenth(sites)
+
 all_plots <- list()
 for(site in sites){
-  what = "log_core_measurement"
+ 
   
   temp_env <- new.env()
   load(paste0('results/', what, "/", site, "/env.RData"), envir = temp_env) 
@@ -115,14 +130,14 @@ for(site in sites){
   
   all_plots[[paste0(site, what)]] <- grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  {if(is.na(x)) grid.rect(gp=gpar(col="white")) else get(x, temp_env)}), ncol = 3)))
   
-} # for what in ...
+} # for(site in sites)
 
 png("doc/manuscript/tables_figures/pre_temp_groups.png", width = 8, height = 10, res = 300, units = "in")
 
 grid.arrange(grobs = all_plots, vp= grid::viewport(width=0.95, height=0.95), ncol = 1)
 
 
-grid::grid.text(sites, x = unit(0.01, "npc"), y = unit(rev(cumsum(c(1/n_sites/2, rep(1/n_sites, n_sites-1)))), "npc"), rot = 90)
+grid::grid.text(sites_abb[sites], x = unit(0.01, "npc"), y = unit(rev(cumsum(c(1/n_sites/2, rep(1/n_sites, n_sites-1)))), "npc"), rot = 90)
 
 grid::grid.text(c("Precipiation group", "Temperature group"), x = unit(cumsum(c(.05 +.9/3/2, rep(.9/3, 1))), "npc"), y = unit(.99,  "npc"))
 
@@ -199,4 +214,68 @@ print(p, vp = vp1)
 grid.text(paste0(letters[6], ")"),x = 0.1, y = .95, gp=gpar(fontsize=9.8, fontfamily=""))
 
 # dev.off()####
+dev.off()
+
+
+# create composite image of all models for each sites + show case 2 sites ####
+what_to_show <- c("log_core_measurement_dbh" = expression(Delta*r~(mm)), "log_BAI_dbh" = expression(BAI~(cm^2)), "log_agb_inc_dbh" = expression(Delta*AGB~(kg)))
+
+sites_to_show_case <- c("SCBI", "NewMexico")
+show_case <- list()
+for(site in sites_with_dbh){
+  all_plots <- list()
+  for( what in names(what_to_show)) {
+  
+  temp_env <- new.env()
+  load(paste0('results/', what, "/", site, "/env.RData"), envir = temp_env) 
+  
+  existing_plots <- ls(temp_env)[grepl("^p_", ls(temp_env))]
+  
+  # get variable in order or Precipitation, Temperature and cloud groups (but complicated because, pet is in both temp and dtr),....
+  clim_var_group <- get("clim_var_group"  , temp_env)
+  
+  existing_plots <- existing_plots[c(1, match(c(1,2), sapply(gsub("p_", "", existing_plots), function(x) grep(x,  clim_var_group)[1])))]
+  
+  # change ylim to scale across sites 
+  lapply(existing_plots, function(x) assign(x, get(x, temp_env) + ylim(range(get("ylim_p", temp_env))* ifelse(what == "log_agb_inc_dbh", 1000, 1)), envir = temp_env))
+ 
+  # if p is AGB, convert to kg
+  if(what == "log_agb_inc_dbh")   lapply(existing_plots, function(x) {
+    p <- get(x, temp_env)
+    p$data[c("expfit", "lwr", "upr")] <-   p$data[c("expfit", "lwr", "upr")]*1000
+    assign(x, p, envir = temp_env)
+  })
+  
+ # get the legend
+  
+  assign("leg", g_legend(), envir = temp_env)
+  existing_plots <- c(existing_plots, "leg")
+  
+  all_plots[[what]] <- grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  {if(is.na(x)) grid.rect(gp=gpar(col="white")) else get(x, temp_env)}), ncol = 4)))
+  
+  if (site %in% sites_to_show_case) show_case[[paste0(site, what)]] <- grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots[-4], function(x)  {if(is.na(x)) grid.rect(gp=gpar(col="white")) else get(x, temp_env)}), ncol = 3)))
+  }  
+
+png(paste0("results/composite_plots/", site, ".png"), width = 8, height = 10, res = 300, units = "in")
+
+grid.arrange(grobs = all_plots, vp= grid::viewport(width=0.95, height=0.95), ncol = 1)
+
+grid::grid.text(what_to_show,  x = unit(0.01, "npc"), y = unit(rev(cumsum(c(1/length(what_to_show)/2, rep(1/length(what_to_show), length(what_to_show)-1)))), "npc"), rot = 90)
+
+dev.off()
+
+
+if(site %in% sites_to_show_case){
+  # save the plot
+  show_case[[paste0(site, "leg")]] <- get("leg", temp_env)
+}
+}
+
+png(paste0("doc/manuscript/tables_figures/show_case_response_plots.png"), width = 10, height = 8, res = 300, units = "in")
+
+grid.arrange(grobs = show_case, vp= grid::viewport(width=0.95, height=0.95), layout_matrix = matrix(c(1, 2, 3, 4, 5, 6, 7, 8), nrow = 4))
+
+grid::grid.text(what_to_show,  x = unit(0.015, "npc"), y = unit(rev(cumsum(c(1/length(what_to_show)/2, rep(1/length(what_to_show), length(what_to_show)-1))))*3/4+1/4, "npc"), rot = 90)
+
+grid::grid.text(sites_abb[sites_to_show_case[order(match(sites_to_show_case, sites))]], x = unit(cumsum(c(.05 +.9/2/2, rep(.9/2, 1))), "npc"), y = unit(.99,  "npc"))
 dev.off()
