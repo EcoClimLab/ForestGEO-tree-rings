@@ -51,11 +51,6 @@ Mart Vlam,
 Peter Zuidema
 
 
-*List not yet complete. Current list includes all those who have contributed tree-ring data and/or intellectually, but all not site PIs.*
-
-*other contributors may move up in the list if they contribute a lot*
-
-
 **Author Affiliations:**
 
 1. Conservation Ecology Center; Smithsonian Conservation Biology Institute; Front Royal, VA 22630, USA
@@ -180,7 +175,7 @@ This allows us to ask:
 
 We analyzed previously collected tree-ring data from ten sites ranging from 9.15$^\circ$ to 61.30$^\circ$ N latitude and representing a wide range of forest and tree types: tropical broadleaf deciduous and evergreen, temperate broadleaf deciduous and needleleaf evergreen, and boreal needleleaf evergreen (Tables 1, S1-S2).
 Nine of these sites (exception: LT) are large forest dynamics plots of the Forest Global Earth Observatory [ForestGEO; @anderson-teixeira_ctfs-forestgeo:_2015].
-Trees of species represented within the ForestGEO plots were cored within the plot (n=#) and/or in the vicinity (n=#; max distance: # km), following a variety of sampling protocols designed to meet the varied objectives of the original studies (Table 1). 
+Trees of species represented within the ForestGEO plots were cored within the plot (n=#) and/or in the vicinity (n=#; max distance: # km), following a variety of sampling protocols designed to meet the varied objectives of the original studies (Table S1). 
 In using this variety of data sources, we ensured that our approach was able to handle a variety of challenges presented by varying methodologies and forest types.
 
 
@@ -340,7 +335,8 @@ The relative importance of climate was modest at sites including SCBI (Fig. **5*
 
 ![**Figure 5 | Comparison of full top models for each growth metric ($\Delta r$, $BAI$, $\Delta AGB$) at sites where climatic controls are strong (Little Tesuque, left panel) and modest (SCBI, right panel).** Plotted are best fit models for each species, with transparent ribbons indicating 95% confidence intervals. For climate variables, best-fit polynomials are plotted with solid lines when both first- and second-order terms are signficant, DASHED lines when only one term is signficant, and DOTTED lines when neither is signficant. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/show_case_response_plots.png)
 
-**Interactive effects of $DBH$ and climate were found for #% of species-variable combinations**.
+**Interactive effects of $DBH$ and climate were found for #% of species-variable combinations**. 
+*(some details)* (Table S4).
 
 **Table / figure on climate - DBH interactions?** (*See [ISSUE #42 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/42)*)
 

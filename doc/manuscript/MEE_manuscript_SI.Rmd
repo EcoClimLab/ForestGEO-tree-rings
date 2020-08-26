@@ -94,6 +94,7 @@ kable(S2, format = "latex", booktabs = TRUE,  escape = F)%>%
 ## Table S3. allometric equations for bark thickness 
 
 \newpage
+## Table S4. Frequency of $DBH$-climate interactions across all sites and growth metrics
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
 library(kableExtra)
