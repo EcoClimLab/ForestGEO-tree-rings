@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 \raggedright
 
-**Title:** Using tree-ring records to simultaneously characterize the influence of tree size, climate, and other environmental drivers on annual growth
+**Title:** Using tree-ring records to simultaneously characterize the influence of tree size and climate drivers on annual growth
 
 **Authors (not yet complete, final order TBD):** 
 
@@ -262,9 +262,10 @@ For each species (at each site) independently, we ran a GLS model including ever
 We considered the model with lowest AIC as the top model. 
 We then tested the individual significance of each term in the top model, including both first- and second-order terms of polynomial fits to climate variables. To do so, we compared the AIC of the top model (containing the term) to a model lacking the term, counting as significant any term with $\Delta AIC \le$ 2.0.
 
-*Additive and interactive effects of climate and DBH*
+*Interactive effects of climate and DBH*
 
-(*See [ISSUE #42 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/42)*)
+We also ran GLS models testing for interactive effects of climate and DBH. For these, we modeled first-order linear relationships between $DBH$ and climate variables.
+(*Need to give a better description here. See [ISSUE #42 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/42)*)
 
 ### Results
 
@@ -336,9 +337,12 @@ The relative importance of climate was modest at sites including SCBI (Fig. **5*
 ![**Figure 5 | Comparison of full top models for each growth metric ($\Delta r$, $BAI$, $\Delta AGB$) at sites where climatic controls are strong (Little Tesuque, left panel) and modest (SCBI, right panel).** Plotted are best fit models for each species, with transparent ribbons indicating 95% confidence intervals. For climate variables, best-fit polynomials are plotted with solid lines when both first- and second-order terms are signficant, DASHED lines when only one term is signficant, and DOTTED lines when neither is signficant. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/show_case_response_plots.png)
 
 **Interactive effects of $DBH$ and climate were found for #% of species-variable combinations**. 
-*(some details)* (Table S4).
+Interactions were significant for over half of $DBH$-precipitation variable interactions for all three growth metrics (*51% for all*; Table S4).
+The majority (#%) of these interactions were positive, indicating that larger trees generally respond more positively (or less negatively) to precipitation or it's frequency (Fig. **6?**).
+Interactions between temperature variables and $DBH$ were significant for *~40%* of cases considered (Table S4). 
+The majority (#%) of these interactions were positive, indicating that larger trees generally respond less negatively (or more positively) to $T_{max}$ or $PET$ (Fig. **6?**).
 
-**Table / figure on climate - DBH interactions?** (*See [ISSUE #42 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/42)*)
+**figure on climate - DBH interactions?** (*See [ISSUE #42 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/42)*)
 
 
 ### Discussion
@@ -348,10 +352,13 @@ Results are broadly consistent with those obtained by traditional methods, but o
 *Climate sensitivity*
 
 Ideas to discuss:
+* $T_{max}$ and $PET$ tend to be better variables than the more commonly used $T_{mean}$
 
-* temperature sensitivity shifts from neg in warm climates to positive in cold climates, although @sniderhan_growth_2016 shows that the effect shifted to negative as warming progressed
+* trees tend to be sensitive to water over longer time scales (makes sense-- lags caused by soil moisture storage)
 
-* additive effects are common and should not be overlooked
+* temperature sensitivity shifts from neg in warm climates to positive in cold climates (although @sniderhan_growth_2016 shows that the effect shifted to negative as warming progressed)
+
+* additive effects are prevalent and should not be overlooked
 
 * nonlinear effects are prevalent
 
@@ -380,7 +387,7 @@ Alternative methods, such as regional curve standardization [e.g., REF] and size
 
 **We show that DBH is a strong driver of growth (any metric) relative to climate and that climate sensitivity often varies with DBH-- findings that have important implications for understanding changes in forest productivity in response to climate change.**
 The observed importance of $DBH$ as a driver of tree growth reinforces the concept that changes in forest structure/ demography are critical to changes in forest productivity [REFS; @mcdowell_pervasive_2020].
-The prevalence of interactive $DBH$-climate effects reinforces the concepts that drought tends to have a disproportionate impact on large trees [@bennett_larger_2015; @mcgregor_tree_nodate] and that *temperature sensitivity can vary across size classes (Rollinson et al. in review)*, implying that size should be considered in tree-ring analyses of climate sensitivity.
+The prevalence of interactive $DBH$-climate effects reinforces the concepts that large trees tend to be disproportionately sensitive to drought  [@bennett_larger_2015; @mcgregor_tree_nodate] but less sensitive to high temperatures *(Rollinson et al. in review)*, implying that size should be considered in tree-ring analyses of climate sensitivity.
 However, the relatively strong importance of $DBH$ in no way negates the importance of climate, as its effect would dominate changes in productivity in stands with relatively constant size structure.
 Some studies have made a start at combining tree rings and forest census data to get at the climate sensitivity of whole-forest productivity [e.g., @helcoski_growing_2019], but have been limited in that they were not underlain by models of individual tree growth that simultaneously characterized the effects of tree size and climate, as we do here.
 Further work will be required to combine this model with forest census data in order to understand the climate sensitivity of whole-forest productivity.
