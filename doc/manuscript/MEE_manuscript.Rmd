@@ -117,7 +117,7 @@ X#. Canadian Forest Service, Northern Forestry Centre, Edmonton, Alberta, Canada
 2. Here, we develop a new method that allows simultaneous non-linear modeling of the effects of objectively determined principle climate drivers and tree diameter. 
 Specifically, we first identify the most important climate drivers using the climwin R package.
 We then include these in generalized least squares models that simultaneously fit the detrending splines needed to pull out climate signals and flexibly account for nonlinearity of responses to tree diameter and climate variables.
-We apply this method to tree-ring data from **#** species at **nine/ten** globally distributed sites spanning a wide range of forest types. 
+We apply this method to tree-ring data from **#** species at ten globally distributed sites spanning a wide range of forest types. 
 
 3. Our analysis identified similar climate drivers to those obtained via traditional methods, but revealed that non-linear responses to climate variables were common. Radial growth increments, basal area increments, and biomass increments all varied non-linearly with tree diameter. [*something about interactions between climate sensitivity and diameter*] 
 
@@ -392,7 +392,7 @@ Further work will be required to combine this model with forest census data in o
 
 All this points to the potential importance of considering DBH in climate reconstructions.
 Traditional dendro methods seek to remove the influence of $DBH$, but our finding of prevalent $DBH$-$\Delta r$ interactions indicate that it should not be ignored.
-DBH is not always collected when cores are taken, and is not routinely preserved alongside tree-ring data. For example, the International Tree-Ring Data Bank (ITRDB) contains no structure for storing DBH records. DEN is new alternative [@rayback_DendroEcological_2020]. 
+DBH is not always collected when cores are taken, and is not routinely preserved alongside tree-ring data. For example, the International Tree-Ring Data Bank (ITRDB) contains no structure for storing DBH records. DEN is new alternative [@rayback_dendroecological_2020]. 
 
 *Conclusions* 
 
