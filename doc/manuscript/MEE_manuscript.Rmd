@@ -231,7 +231,7 @@ All ForestGEO climate records used here are archived in the ForestGEO Climate Da
 
 #### Analysis methods
 
-Our analysis consisted of two main steps: (1) identification of the most important climate drivers, and (2) combining $DBH$ and climate drivers into a multivariate model (Fig. 1). The analysis was run separately for each site.
+Our analysis consisted of two main steps: (1) identification of the most important climate drivers, and (2) combining $DBH$ and climate drivers into a multivariate model (Fig. **1**). The analysis was run separately for each site.
 
 ![**Figure 1 | DRAFT Schematic illustrating our analysis process.** This analysis is conducted separately for each site.](tables_figures/schematic_figure.png)
 
@@ -259,87 +259,86 @@ After determining that... , here we present results *(method)*.
 
 *Combining drivers in GLS model*
 
-Second, we combined candidate climate drivers and reconstructed $DBH$ data in a GLS model (Fig. 1). 
+Second, we combined candidate climate drivers and reconstructed $DBH$ data in a GLS model (Fig. **1**). 
 *(need to describe GLS models better)*
 *(DBH not included in models focused on climate sensitivity.)*
 We checked for collinearity among the full set of variables using the *vifstep* function (**REF**) and removed any variable with a variance inflation factor > 3. 
-For each species (at each site) independently, we ran a GLS model including every combination of the candidate climate variables (as a 2-degree polynomial to allow quadratic curve), $DBH$, a random intercept for each tree, and *a temporal autocorrelation matrix*. 
-We also ran models with a spline of DBH (3 knots).
-Across all possible models, variable AICc weights were summed to determine which drivers are most important. (*Valentine, we'll need some more details here.*)
-We considered the model containing those variables as the top model, noting that the top model can contain terms that are not individually significant in the context of that model.
+For each species (at each site) independently, we ran a GLS model including every combination of the candidate climate variables (as a 2-degree polynomial to allow quadratic curve), a spline of $DBH$ (3 knots), a random intercept for each tree, and *a temporal autocorrelation matrix*. 
+We considered the model with lowest AIC as the top model. 
+We then tested the individual significance of each term in the top model, including both first- and second-order terms of polynomial fits to climate variables. To do so, we compared the AIC of the top model (containing the term) to a model lacking the term, counting as significant any term with $\Delta AIC \le$ 2.0.
 
 *Additive and interactive effects of climate and DBH*
 
-**Table / figure on climate - DBH interactions?** (*See [ISSUE #42 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/42)*)
+(*See [ISSUE #42 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/42)*)
 
 ### Results
 
 *Identifying climate drivers*
 
-**Our process picked out similar climate drivers to what would be obtained via traditional methods (Figs. 2, S#; Appendix S2).**
+**Our process picked out similar climate drivers to what would be obtained via traditional methods (Figs. **2**, **S#**; Appendix S2).**
 
-![**Figure 2 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table S1) to potential evapotranspiration (PET), identified by both traditional methods and our method to be among the top climate drivers. Panel (**a**) shows a matrix of Pearson correlations between ring- width index and monthly climate variables. Panels (**b-d**) give statistics for time windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diaganol indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each time window, and (**d**) gives the $\Delta AIC$ for each. The time window with the minimum $\Delta AIC$ (0-3 months prior to August, or May-July; black circles), was identified as the optimal window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows GLS model output, where $PET$ was a candidate driver variable (along with $PPT$; $DBH$ not included in this model). Plotted are responses of species for which $PET$ was included in the top model. (THIS IS STILL CONFUSING-- add months prior in (a), maybe put box around months identified by climwin)](tables_figures/quilt_comparison.png)
+![**Figure 2 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table S1) to potential evapotranspiration (PET), identified by both traditional methods and our method to be among the top climate drivers. Panel (**a**) shows a matrix of Pearson correlations between ring- width index and monthly climate variables. Panels (**b-d**) give statistics for time windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diaganol indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each time window, and (**d**) gives the $\Delta AIC$ for each. The time window with the minimum $\Delta AIC$ (0-3 months prior to August, or May-July; black circles), was identified as the optimal window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows GLS model output, where $PET$ was a candidate driver variable (along with $PPT$; $DBH$ not included in this model). Plotted are responses of species for which $PET$ was included in the top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, DASHED lines when only one term is signficant, and DOTTED lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals.](tables_figures/quilt_comparison.png)
 
-**Across the three metrics of growth, the "landscape" of climate effects over various time windows was generally similar, but the optimal time window or even the top climate variable sometimes differed (Figs. S2-S4).**
+**Across the three metrics of growth, the "landscape" of climate effects over various time windows was generally similar, but the optimal time window or even the top climate variable sometimes differed (Figs. **S2**-**S4**).**
 Specifically, $\Delta r$, $BAI$, and $\Delta AGB$ consistently exhibited similar strength of correlation and direction of response to climate variables within the temperature and precipitation variable groups. 
-In some cases (n= # of #), both the optimal climate variable and time window were identical across growth metrics (e.g., Fig. S2). 
-In #  cases (), *climwin* identified the same climate variable but different (sometimes overlapping) time windows. 
-In *2* cases (precipitation variable group at LT, temperature variable group at HKK), *climwin* identified different climate variables, but identical or overlapping time windows (e.g., Fig. S3).
-Finally, in *2* cases (temperature variable group at BCI, precipitation variable group at HF), *climwin* identified different climate variables and different time windows (e.g., Fig. S4). All of these variables had weak effects and mixed responses among species in the final models (Fig. 3).
+In some cases (n= # of #), both the optimal climate variable and time window were identical across growth metrics (e.g., Fig. **S2**). 
+In #cases, *climwin* identified the same climate variable but different (sometimes overlapping) time windows. 
+In *2* cases (precipitation variable group at LT, temperature variable group at HKK), *climwin* identified different climate variables, but identical or overlapping time windows (e.g., Fig. **S3**).
+Finally, in *2* cases (temperature variable group at BCI, precipitation variable group at HF), *climwin* identified different climate variables and different time windows (e.g., Fig. **S4**). All of these variables had weak effects and mixed responses among species in the final models (Fig. **3**).
 Henceforth, we focus on the climate drivers identified when $\Delta r$ was the growth metric and for the full set of cores (i.e., including those for which $DBH$ could not be reconstructed.)
 
 **Climwin allowed objective selection of the strongest climate drivers and the time windows over which they were most influential.**
-The most commonly selected variables within the temperature group were $T_{max}$ and $PET$, each of which was identified by climwin as the top temperature-related driver *at four of the eight sites*. $T_{mean}$ and $T_{min}$ were never identified as top variables within the temperature group (Fig. 3).
-Within the precipitation group, precipitation amount (PRE) was identified as the top variable most frequently (n=*5 of 8* sites), but it was not uncommon that it was surpassed by precipitation frequency (WET; n=*3 of 8* sites). 
+The most commonly selected variables within the temperature group were $T_{max}$ and $PET$, each of which was identified by climwin as the top temperature-related driver *at four of the eight sites*. $T_{min}$ was the top driver at only *one site (BCI)*, and $T_{mean}$ was never identified as the top variable within the temperature group (Fig. **3**).
+Within the precipitation group, precipitation amount (PRE) was identified as the top variable most frequently (n=*6 of 9* sites), but it was not uncommon that it was surpassed by precipitation frequency (WET; n=*3 of 8* sites). 
 Optimal time windows often coincided with a site's peak growing season (n= *# of 10* for temperature variables, *# of 10* for precipitation variables), but exceptions were common. 
-At *4* sites (BCI, HKK, LT, and SCBI), the optimal window for precipitation variables spanned $\ge$ 8 months, ending during the peak growing months of the year of ring formation. 
+At the *5 lowest latitude* sites (BCI, HKK, LT, CB, and SCBI), the optimal window for precipitation variables spanned $\ge$ 8 months, ending during the peak growing months of the year of ring formation. 
+At the *3 highest latitude sites* (HF, ZOF, and SC), the optimal window for precipitation variables was a short ($\le$3 months) window during the previous growing season.
 Optimal windows for temperature variables tended to be shorter, the longest being a *6* month period during the summer (wet season) at HKK. 
 At two of the higher-latitude temperate sites (HF and Zofin), temperatures were most influential during late winter/ early spring.
 There were also a few instances where previous growing season conditions had the strongest influence.
 
   
-![**Figure 3 | Species-level responses to climwin-selected variables in precipitation and temperature variable groups.** For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/pre_temp_groups.png)
+![**Figure 3 | Species-level responses to climwin-selected variables in precipitation and temperature variable groups.** For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are signficant, DASHED lines when only one term is signficant, and DOTTED lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/pre_temp_groups.png)
 
 *Climate sensitivity*
 
-Precipitation responses were included in the best model at all sites and *for all but # species* (Fig. 3).
-Responses were most commonly positive, and were most pronounced at the driest site (Little Tesuque). 
+Precipitation responses were included in the best model at all sites and *for all but # species* (Fig. **3**).
+Responses were most commonly positive, and were most pronounced at the driest site (LT). 
 Precipitation terms included in top models were non-linear #% of the time, and significantly better than first-order linear model #% of the time.
-In some cases, the non-linearity was quite pronounced (e.g., Little Tesuque), with the most common pattern (#%) being a decelerating increase. 
+In some cases, the non-linearity was quite pronounced (e.g., LT), with the most common pattern (#%) being a decelerating increase. 
 
-Temperature responses were included in the best model at all sites *(but BCI? [ISSUE #62 in ForestGEO-climate-sensitivity](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/62))* and *for the majority of species* (Fig. 3).
-Specifically, a temperature term was included in the best model for # of # site-species combinations.
-Responses shifted from *near*-universally negative below 40$^\circ$ latitude to positive above 45$^\circ$ latitude. Harvard Forest, at 42.5$^\circ$ N, exhibited a mix of responses.
+Temperature responses were included in the best model at all sites and *for the majority of species* (Fig. **3**).
+Specifically, a temperature term was included in the best model for # of # site-species combinations, with at least one polynomial term significant for #, and both for #.
+Among the relationships with at least one significant term, responses shifted from near-universally negative below 40$^\circ$ latitude (exception: AFXY at HKK) to positive above 45$^\circ$ latitude. Harvard Forest, at 42.5$^\circ$ N, exhibited a mix of responses.
 *(It will be interesting to see what happens with Indian Creek, at 42.8 latitude.)*
 *(Note that Scotty Creek was previously positive, later shifted negative; [ISSUE #25 in ForestGEO-climate-sensitivity](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/25))*
-Temperature terms included in top models were non-linear #% of the time, and significantly better than first-order linear model #% of the time.
-The non-linearity was rarely pronounced... 
+Temperature terms included in top models were non-linear #% *(most)* of the time, and significantly better than first-order linear model #% of the time.
 
 *Influence of DBH*
 
-**All three growth metrics, $\Delta r$, $BAI$, and $\Delta AGB$, varied with $DBH$ for most species at all sites (Fig. 4).** 
-While $\Delta r$ varied significantly with $DBH$ for the majority of species-site combinations (n= # of #; Table **S#**), there was substantial variation in these trends, with patterns mixed across both forests and species within a single stand (Fig. 4).
+**All three growth metrics, $\Delta r$, $BAI$, and $\Delta AGB$, varied with $DBH$ for most species at all sites (Fig. **4**).** 
+While $\Delta r$ varied significantly with $DBH$ for the majority of species-site combinations (n= # of #; Table **S#**), there was substantial variation in these trends, with patterns mixed across both forests and species within a single stand (Fig. **4**).
 On one end of the spectrum, *Melia azedarach* at HKK had extremely rapid growth at small $DBH$, with $\Delta r$ ranging up to ~15mm yr^-1^, followed by fairly rapid declines with increasing $DBH$. 
-Similar patterns of approximately exponential decline in $\Delta r$ with $DBH$ were observed for conifer species at Little Tesuque and Scotty Creek--both relatively open forests--and a number of species in mesic temperate forests (Fig. 4).
+Similar patterns of approximately exponential decline in $\Delta r$ with $DBH$ were observed for conifer species at Little Tesuque and Scotty Creek--both relatively open forests--and a number of species in mesic temperate forests (Fig. **4**).
 At the other end of the spectrum, a number of species at sites where they presumably established under closed-canopy conditions (e.g., *Fagus* at SCBI and Zofin) had $\Delta r$ <1 mm yr^-1^ at small $DBH$, increased to peak $\Delta r$ between # and # cm $DBH$, and subsequently declined.  
 
-**The variable patterns in $\Delta r$ with $DBH$ translated into differences in variation in $BAI$ and $\Delta AGB$ with $DBH$, although trends in both of these were more consistent across sites and species, typically increasing to a peak at intermediate $DBH$ and then declining (Fig. 4).**
+**The variable patterns in $\Delta r$ with $DBH$ translated into differences in variation in $BAI$ and $\Delta AGB$ with $DBH$, although trends in both of these were more consistent across sites and species, typically increasing to a peak at intermediate $DBH$ and then declining (Fig. **4**).**
 
 
-![**Figure 4 | Growth sensitivity to DBH: (a) $\Delta r$, (b) $BAI$, (c) $\Delta AGB$.** Only relationships included in the top model for each site are shown.](tables_figures/DBH_responses.png)
+![**Figure 4 | Growth sensitivity to DBH: (a) $\Delta r$, (b) $BAI$, (c) $\Delta AGB$.** Relationships for species are plottend when included in the top model. Lines indicate a the optimal 3-knot spline fit, and transparent ribbons indicate 95% confidence intervals.](tables_figures/DBH_responses.png)
 
 *Additive and interactive effects of climate and DBH*
 
 **Both DBH and climate were included in the majority of top models, regardless of the growth metric used.** 
 Specifically, $DBH$ was included in #% of top models for $\Delta r$, #% of top models for $BAI$, and #% of top models for $\Delta AGB$.
-In general, $DBH$ explained more variation in growth rates than did climate (Fig. 5).
+In general, $DBH$ explained more variation in growth rates than did climate (Fig. **5**).
 
 **The relative importance of $DBH$ and climate shifted across growth metrics and climates (Figs. 5, S#_#).** (*It will be easier to fill this in once we complete [ISSUE #66 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/66)*).
-The relative importance of $DBH$ tended to be least for $\Delta r$, intermediate for $BAI$, and highest for $\Delta AGB$ (e.g., at SCBI; Fig. 5).
-However, there were exceptions (e.g., at Little Tesuque; Fig. 5).
-The relative importance of climate was modest at sites including SCBI, ..., and stronger at sites including Little Tesuque, ... (Figs 5, S#-S#). 
+The relative importance of $DBH$ tended to be least for $\Delta r$, intermediate for $BAI$, and highest for $\Delta AGB$ (e.g., at SCBI; Fig. **5**).
+However, there were exceptions (e.g., at Little Tesuque; Fig. **5**).
+The relative importance of climate was modest at sites including SCBI, ..., and stronger at sites including Little Tesuque, ... (Figs **5**, **S#**-**S#**). 
 
-![**Figure 5 | Comparison of full top models for each growth metric ($\Delta r$, $BAI$, $\Delta AGB$) at sites where climatic controls are modest (SCBI, left panel) and strong (Little Tesuque, right panel).** For each species, relationships are plotted if included in top model. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/full_model_comparison.png)
+![**Figure 5 | Comparison of full top models for each growth metric ($\Delta r$, $BAI$, $\Delta AGB$) at sites where climatic controls are strong (Little Tesuque, left panel) and modest (SCBI, right panel).** Plotted are best fit models for each species, with transparent ribbons indicating 95% confidence intervals. For climate variables, best-fit polynomials are plotted with solid lines when both first- and second-order terms are signficant, DASHED lines when only one term is signficant, and DOTTED lines when neither is signficant. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/show_case_response_plots.png)
 
 **Interactive effects of $DBH$ and climate were found for #% of species-variable combinations**.
 
@@ -362,7 +361,7 @@ Ideas to discuss:
 
 *Influence of DBH*
 
-**The diversity of growth trends in relation to $DBH$ observed here (Fig. 4) is largely attributable to species ecology and stand history (Fig. 4).**
+**The diversity of growth trends in relation to $DBH$ observed here (Fig. **4**) is largely attributable to species ecology and stand history (Fig. 4).**
 On one end of the spectrum, species that would have established in fairly open conditions--*i.e.*, shade-intolerant species and those at sites with more open canopies (e.g., LT, SC)-- exhibited rapid initial growth followed by exponential decline. 
 The most pronounced example of this pattern was *Melia azedarach* --a highly shade-intolerant species that generally establishes in the open [@baker_suppression_2006] and was sampled opportunistically outside the ForestGEO plot at HKK [@vlam_temperature_2014], where it presumably established under open conditions.
 Such patterns are consistent with dendrochronology's "textbook" patterns, which have been derived primarily from open-grown trees (DENDRO_REFS).
