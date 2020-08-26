@@ -1,11 +1,11 @@
-site code,site name,location,Jan T,July T,Ann. Precip.,vegetation type(s),n species,n cores,canopy positions ,tree statuses,original publication(s)
-SC,Scotty Creek,"NW Territories, Canada",,,,NE,1,,all,"live, dead",Sniderhan and Baltzer 2016
-Zofin,Zofin Forest Dynamics Plot,Czech Republic,,,,"NE, BD",3,,all,,Tumajer et al. 2017
-NB,Niobrara/Hansley,"Nebraska, United States",,,,"BD, NE",,,,,
-Harvard,Harvard Forest,"Massachusetts, USA",,,,"BD, NE",,,all,"live, dead",
-LDW,Lilly Dickey Woods,"Indiana, USA",,,,BD,6,,canopy,"live, dead","Maxwell, Harley, and Robeson 2016"
-SCBI,Smithsonian Conservation Biology Institute,"Virginia, USA",,,,"BD, NE",14,,all,"live, dead",Helcoski et al. 2019
-Utah,Utah Forest Dynamics Plot,"Utah, USA",,,,NE,,,,,
-LT,Little Tesuque,"New Mexico, USA",,,,NE,2,,,live,
-HKK,Huai Kha Khaeng,Thailand,,,,"BD, BE",,,all,live,"Vlam, Baker, Bunyavejchewin, and Zuidema 2014"
-BCI,Barro Colorado Island,Panama,,,,"BD, BE",3,,canopy,"live, dead","Alfaro-S${a}$nchez, Muller-Landau, Wright, and Camarero 2017"
+site code,site name,location,Jan T,July T,Ann. Precip.,vegetation type(s),n species,n cores,original publication(s)
+BCI,Barro Colorado Island,Panama,,,,"BD, BE",3,84,"Alfaro-S${a}$nchez, Muller-Landau, Wright, and Camarero 2017"
+HKK,Huai Kha Khaeng,Thailand,,,,"BD, BE",4,470,"Vlam, Baker, Bunyavejchewin, and Zuidema 2014"
+LT,Little Tesuque,"New Mexico, USA",,,,NE,2,34,
+CB,Cedar Breaks,"Utah, USA",,,,NE,(3),(38),
+SCBI,Smithsonian Conservation Biology Institute,"Virginia, USA",,,,"BD, NE",14,706,Helcoski et al. 2019
+LDW,Lilly Dickey Woods,"Indiana, USA",,,,BD,6,170,"Maxwell, Harley, and Robeson 2016"
+HF,Harvard Forest,"Massachusetts, USA",,,,"BD, NE",4,366,
+NB,Niobrara/Hansley,"Nebraska, United States",,,,"BD, NE",,,
+ZOF,Zofin Forest Dynamics Plot,Czech Republic,,,,"NE, BD",3,2068,Tumajer et al. 2017
+SC,Scotty Creek,"NW Territories, Canada",,,,NE,1,443,Sniderhan and Baltzer 2016

@@ -32,8 +32,6 @@ kable(S1, format = "latex", booktabs = TRUE,  escape = F)%>%
   column_spec(7, width = "1.4cm") %>%
   column_spec(8, width = "1cm") %>%
   #column_spec(9, width = "2cm") %>%
-  column_spec(10, width = "1.4cm") %>%
-  column_spec(11, width = "1.4cm") %>%
-  column_spec(12, width = "3cm") %>%
+  column_spec(10, width = "3cm") %>%
   kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
 ```

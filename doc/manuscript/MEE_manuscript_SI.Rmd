@@ -67,17 +67,20 @@ Our analysis included two sites where climate change has had pronounced effects 
 At SC, [temperatures have increased by X $^\circ$ over X years]..., resulting in negative growth trends in basal area index ($BAI$) starting around 1950 and significant growth declines since 1970 in `r round(249/(249+69+127)*100, digits=0)`% of trees [@sniderhan_growth_2016].
 
 \newpage
-## Tables S1. Site Details
+## Table S1. Site Details
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
 library(kableExtra)
 S1 <- read.csv("tables_figures/site_details.csv", stringsAsFactors = FALSE, check.names = FALSE)
 kable(S1, format = "latex", booktabs = TRUE,   escape = F)%>%
+  column_spec(2, width = "3cm") %>%
+  column_spec(5, width = "2cm") %>%
+  column_spec(6, width = "1.5cm") %>%
   kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
 ```
 
 \newpage
-## Tables S2. List of species analyzed
+## Table S2. List of species analyzed
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
 library(kableExtra)
