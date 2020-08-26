@@ -333,10 +333,10 @@ At the other end of the spectrum, a number of species at sites where they presum
 Specifically, $DBH$ was included in #% of top models for $\Delta r$, #% of top models for $BAI$, and #% of top models for $\Delta AGB$.
 In general, $DBH$ explained more variation in growth rates than did climate (Fig. **5**).
 
-**The relative importance of $DBH$ and climate shifted across growth metrics and climates (Figs. 5, S#_#).** (*It will be easier to fill this in once we complete [ISSUE #66 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/66)*).
+**The relative importance of $DBH$ and climate shifted across growth metrics and climates (Figs. **5**, **S5**-**S14**).** 
 The relative importance of $DBH$ tended to be least for $\Delta r$, intermediate for $BAI$, and highest for $\Delta AGB$ (e.g., at SCBI; Fig. **5**).
-However, there were exceptions (e.g., at Little Tesuque; Fig. **5**).
-The relative importance of climate was modest at sites including SCBI, ..., and stronger at sites including Little Tesuque, ... (Figs **5**, **S#**-**S#**). 
+However, there were exceptions, particularly when $\Delta r$ decreased steeply with $DBH$ (e.g., at Little Tesuque; Fig. **5**).
+The relative importance of climate was modest at sites including SCBI (Fig. **5**), HF (Fig. **S11**), and SC (Fig. **S14**), and stronger at sites including LT (Fig. **5**) and BCI (Fig. **S5**). 
 
 ![**Figure 5 | Comparison of full top models for each growth metric ($\Delta r$, $BAI$, $\Delta AGB$) at sites where climatic controls are strong (Little Tesuque, left panel) and modest (SCBI, right panel).** Plotted are best fit models for each species, with transparent ribbons indicating 95% confidence intervals. For climate variables, best-fit polynomials are plotted with solid lines when both first- and second-order terms are signficant, DASHED lines when only one term is signficant, and DOTTED lines when neither is signficant. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/show_case_response_plots.png)
 
