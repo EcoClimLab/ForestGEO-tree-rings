@@ -42,11 +42,12 @@ sites_with_dbh <- sites[-grep("CedarBreaks", sites)]
 sites_abb <- list(BCI  = "BCI",
                   HKK = "HKK",
                   NewMexico = "LT",
-                  CedarBreaks = "Utah",
+                  CedarBreaks = "CB",
                   SCBI = "SCBI",
                   LillyDickey = "LDW",
-                  HarvardForest = "Harvard",
-                  Zofin = "Zofin",
+                  HarvardForest = "HF",
+                  NB = "NB",
+                  Zofin = "ZOF",
                   ScottyCreek = "SC")
 
 # prepare function ####
@@ -96,7 +97,7 @@ png("doc/manuscript/tables_figures/DBH_responses.png", width = 8, height = 10, r
 grid.arrange(arrangeGrob(grobs = all_plots, ncol = 4, vp= grid::viewport(width=0.95, height=0.95)))
 
 
-grid::grid.text(sites_abb[sites_with_dbh], x = unit(0.01, "npc"), y = unit(rev(cumsum(c(1/n_sites/2, rep(1/n_sites, n_sites-1)))), "npc"), rot = 90)
+grid::grid.text(sites_abb[sites_with_dbh], x = unit(0.025, "npc"), y = unit(rev(cumsum(c(.95/n_sites/2, rep(.95/n_sites, n_sites-1)))) + .035, "npc"), rot = 90)
 
 grid::grid.text(what_to_show, x = unit(cumsum(c(.05 +.9/4/2, rep(.9/4, 2))), "npc"), y = unit(.99,  "npc"))
 
@@ -109,7 +110,7 @@ dev.off()
 
 what = "log_core_measurement"
 
-n_sites <- lenth(sites)
+n_sites <- length(sites)
 
 all_plots <- list()
 for(site in sites){
@@ -137,7 +138,7 @@ png("doc/manuscript/tables_figures/pre_temp_groups.png", width = 8, height = 10,
 grid.arrange(grobs = all_plots, vp= grid::viewport(width=0.95, height=0.95), ncol = 1)
 
 
-grid::grid.text(sites_abb[sites], x = unit(0.01, "npc"), y = unit(rev(cumsum(c(1/n_sites/2, rep(1/n_sites, n_sites-1)))), "npc"), rot = 90)
+grid::grid.text(sites_abb[sites], x = unit(0.025, "npc"), y = unit(rev(cumsum(c(.95/n_sites/2, rep(.95/n_sites, n_sites-1))) + 0.05), "npc"), rot = 90)
 
 grid::grid.text(c("Precipiation group", "Temperature group"), x = unit(cumsum(c(.05 +.9/3/2, rep(.9/3, 1))), "npc"), y = unit(.99,  "npc"))
 
