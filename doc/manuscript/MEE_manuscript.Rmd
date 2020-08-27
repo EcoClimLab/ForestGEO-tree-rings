@@ -401,6 +401,8 @@ DBH is not always collected when cores are taken, and is not routinely preserved
 Sets the foundation for considering other, slowly changing environmental drivers.
 
 ### Acknowledgements
+Thanks to Pete Kerby-Miller for bark thickness data.
+Helpful feedback was provided by Albert Kim...
 This analysis was funded by a Smithsonian Scholarly Studies grant to KAT, SM, HCM, and CP.
 
 ### Authors' contributions
