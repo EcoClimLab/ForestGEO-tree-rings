@@ -44,7 +44,7 @@ To fill in years at the beginning of the tree's lifespan, we likewise assumed th
 We note that these reconstructed growth records were used only for the reconstruction of $DBH$ and were not included as response variables in any of our analyses.
 
 
-In either case we need bark thickness--ideally allometries describing the relationship between DBH and bark thickness. 
+In either case we need bark thickness--ideally allometries describing the relationship between DBH and bark thickness (Table S4). 
 This is especially critical for thick-barked species
 When bark thickness data were available, we generated allometries ... 
 lognormal model with intercept forced to zero: lm(bark_depth.mm ~ -1 + log(dbh_no_bark.cm+1):bark_species, data = bark)
@@ -105,14 +105,14 @@ kable(S2, format = "latex", booktabs = TRUE,  escape = F)%>%
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
 library(kableExtra)
-allometries_table <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/climate_interactions_summary.csv", stringsAsFactors = FALSE, check.names = FALSE)
+allometries_table <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO_dendro/data_processed/dbh_to_bark_allometries_table.csv", stringsAsFactors = FALSE, check.names = FALSE)
 #kable(allometries_table, format = "latex", booktabs = TRUE,   escape = F)%>%
 #  kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
 ```
 
 
 \newpage
-## Table S4. Frequency of $DBH$-climate interactions across all sites and growth metrics
+## Table S5. Frequency of $DBH$-climate interactions across all sites and growth metrics
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
 library(kableExtra)
