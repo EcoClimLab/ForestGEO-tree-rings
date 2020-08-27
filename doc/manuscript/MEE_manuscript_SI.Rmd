@@ -102,6 +102,15 @@ kable(S2, format = "latex", booktabs = TRUE,  escape = F)%>%
 
 (**[ISSUE #71 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/71)
 
+```{r eval = TRUE, echo=FALSE, warning=FALSE}
+library(knitr)
+library(kableExtra)
+allometries_table <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/climate_interactions_summary.csv", stringsAsFactors = FALSE, check.names = FALSE)
+#kable(allometries_table, format = "latex", booktabs = TRUE,   escape = F)%>%
+#  kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
+```
+
+
 \newpage
 ## Table S4. Frequency of $DBH$-climate interactions across all sites and growth metrics
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
