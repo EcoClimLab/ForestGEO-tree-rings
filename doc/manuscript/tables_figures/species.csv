@@ -1,2 +1,2 @@
-Site,Code,Species,leaf type,n trees,n cores,bark
-SCBI,LITU,Liriodendron tulipifera,BD,NA,NA,NA
+species code,family,latin name,site(s) sampled,leaf type,leaf phenology,light requirements,bark allometry*
+$species_code in sitespecies.csv$,family in sitespecies.csv,$latin_name$ in sitespecies.csv,site codes,$leaf_type$ in sitespecies.csv,$leaf_phenology$ in sitespecies.csv,$light_requirements$ in sitespecies.csv,"""$bark_species$ in $bark_site$"""

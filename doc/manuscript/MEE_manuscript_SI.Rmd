@@ -80,7 +80,7 @@ kable(S1, format = "latex", booktabs = TRUE,   escape = F)%>%
 ```
 
 \newpage
-## Table S2. List of species analyzed
+## Table S2. Species analyzed, their characteristics, and bark allometries applied
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
 library(kableExtra)
@@ -88,10 +88,17 @@ S2 <- read.csv("tables_figures/species.csv", stringsAsFactors = FALSE, check.nam
 kable(S2, format = "latex", booktabs = TRUE,  escape = F)%>%
   kable_styling(latex_options = c("scale_down", "hold_position")) 
 ```
+*Bark allometry field indicates the species and site sampled to construct the bark allometry. When neither raw data nor an allometric equation for the study species was available, we selected the most appropriate equation that could be located for similar species. Equations are given in Table S4.
 
 \newpage
 
-## Table S3. allometric equations for bark thickness 
+## Table S3. Sampling details for species by site
+
+\newpage
+
+## Table S4. Allometric equations for bark thickness 
+
+(**[ISSUE #71 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/71)
 
 \newpage
 ## Table S4. Frequency of $DBH$-climate interactions across all sites and growth metrics
