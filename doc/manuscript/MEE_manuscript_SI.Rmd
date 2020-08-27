@@ -81,6 +81,7 @@ kable(S1, format = "latex", booktabs = TRUE,   escape = F)%>%
 
 \newpage
 ## Table S2. Species analyzed, their characteristics, and bark allometries applied
+(**[ISSUE #72 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/72)
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
 library(kableExtra)
@@ -93,6 +94,7 @@ kable(S2, format = "latex", booktabs = TRUE,  escape = F)%>%
 \newpage
 
 ## Table S3. Sampling details for species by site
+(**[ISSUE #73 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/73)
 
 \newpage
 
