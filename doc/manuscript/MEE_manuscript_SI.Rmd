@@ -88,12 +88,17 @@ kable(S1, format = "latex", booktabs = TRUE,   escape = F)%>%
 
 \newpage
 ## Table S2. Species analyzed, their characteristics, and bark allometries applied
-(**[ISSUE #72 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/72)
+*([ISSUE #72 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/72))*
+
+*NOTE: bark.allometry field is not yet right-- we will have just one latin name per site, corresponding to allometries in Table S4. But it does give correct info for what is currently applied. We also intend to find and apply more allometries.*
+
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
 library(kableExtra)
 S2 <- read.csv("tables_figures/species.csv", stringsAsFactors = FALSE, check.names = FALSE)
-kable(S2, format = "latex", booktabs = TRUE,  escape = F)%>%
+kable(S2, format = "latex", booktabs = TRUE,  escape = F, linesep = c('\\addlinespace'))%>%
+  row_spec(0, italic = F, bold = T) %>%
+  column_spec(8, width = "5cm") %>%
   kable_styling(latex_options = c("scale_down", "hold_position")) 
 ```
 *Bark allometry field indicates the species and site sampled to construct the bark allometry. When neither raw data nor an allometric equation for the study species was available, we selected the most appropriate equation that could be located for similar species. Equations are given in Table S4.
@@ -101,7 +106,7 @@ kable(S2, format = "latex", booktabs = TRUE,  escape = F)%>%
 \newpage
 
 ## Table S3. Sampling details for species by site
-*([ISSUE #73 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/73))*
+*([ISSUE #73 in ForestGEO-climate-sensitivity](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/73))*
 
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
@@ -111,6 +116,7 @@ kable(ss_table, format = "latex", booktabs = TRUE,   escape = F, linesep = c('\\
   row_spec(0, italic = F, bold = T) %>%
   kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
 ```
+*Maximum reconstructed $DBH$'s analyzed are less than maximum sampled $DBH$'s because we discard size ranges with < 3 conspecific trees.
 
 \newpage
 
