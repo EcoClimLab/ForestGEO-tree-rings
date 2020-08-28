@@ -106,15 +106,16 @@ X#. Canadian Forest Service, Northern Forestry Centre, Edmonton, Alberta, Canada
 # Key-words: A list in alphabetical order not exceeding eight words or short phrases. The most important key-words should appear in the title and the abstract as well as the key-word list. More advice on selecting good keywords can be found here.
 ```
 
+*NOTE TO COAUTHORS: I'd appreciate feedback on what you consider to be the most important results and conclusions to highlight in the abstract. I think we have many interesting findings with important implications.*
 
 1. Tree rings provide a valuable long-term record for understanding how climate shapes forest productivity. However, traditional analysis methods have not been designed to simultaneously account for the effects of tree size and climate, because they aggregate tree ring records of multiple trees into residual chronologies. This has limited the potential to use tree-rings to understand forest productivity in the current era of rapid climate change. 
 
-2. Here, we develop a new method that allows to keep the raw tree ring measurements and individual tree's metrics to simultaneously model non-linear effects of objectively determined principle climate drivers and e.g. tree diameter. 
+2. Here, we develop a new method to simultaneously model non-linear effects of objectively determined principle climate drivers and individual tree metrics (e.g., diameter). 
 Specifically, we first identify the most important climate drivers and their appropriate time window of influence using the climwin R package.
-We then include these in generalized least squares models to model tree rings (or derived measurements) while accounting for the temporal autocorrelation inherent to each individual tree's growth.
-We apply this method to tree-ring data from **#** species at ten globally distributed sites spanning a wide range of forest types. 
+We then include these in generalized least squares models to model tree growth while accounting for the temporal autocorrelation inherent to each individual tree's growth.
+We apply this method to tree-ring data from *~40* species at ten globally distributed sites spanning a wide range of forest types. 
 
-3. Our analysis identified similar climate drivers to those obtained via traditional methods, but revealed that non-linear responses to climate variables were common. Radial growth increments, basal area increments, and biomass increments all varied non-linearly with tree diameter. [*something about interactions between climate sensitivity and diameter*] 
+3. Our analysis identified similar climate drivers to those obtained via traditional methods, but revealed that non-linear responses to climate variables were common. Radial growth increments, basal area increments, and biomass increments all varied non-linearly with tree diameter. The relative importance of tree diameter versus climate varied across sites, and interactions between diameter and climate variables were prevalent (*~50%* of cases tested). 
 
 4. Our method provides a novel approach to objectively identifying the most important climate drivers of tree growth and combining them with tree diameter in nonlinear models.
 Our finding that nonlinear growth responses to climate variables are common contrasts with the assumption behind most contemporary dendrochonological analyses of the climate sensitivity of tree growth, but is consistent with physiological and ecological studies showing that biological rates often respond nonlinearly to climate drivers. 
@@ -126,6 +127,8 @@ Our approach opens the door for using tree-ring records improved understanding o
 \newpage
 
 ### Introduction
+
+*NOTE TO COAUTHORS: Intro is still pretty rough, so please don't worry about word-smithing. However, I'd appreciate input on the content, and important references (especially "DENDRO REFS", as most of you know that literature better than I do).*
 
 **Tree rings provide a long-term record of annual growth increments that is invaluable for understanding forests in an era of global change.** 
 Spanning time scales of decades to centuries or even millennia, they provide by far the most robust method for characterization of the interannual climate sensitivity of tree growth (REFS) and how it is changing [e.g., @sniderhan_growth_2016; @maxwell_declining_2016]. 
@@ -154,7 +157,7 @@ Yet, the standard practice in dendrochronology has been to fit linear relationsh
 Tree size (most commonly diameter breast height, $DBH$) is among the most important variables affecting tree growth rate [@muller-landau_testing_2006; @foster_predicting_2016; REFS]. 
 Radial growth increments (*i.e.*, tree-ring widths; $\Delta r$) may increase or decrease with tree size, often in a non-linear manner.
 Following a "juvenile growth phase", which is typically removed in traditional dendrological analyses, $\Delta r$ may decline, particularly in open-grown conifers (??; DENDRO_REFS).
-In contrast, in mesic closed-canopy forests, $\Delta r$ typically increases with tree diameter at breast height [$DBH$; @muller-landau_testing_2006; @anderson-teixeira_size-related_2015; REFS, DENDRO_REFS].
+In contrast, in mesic closed-canopy forests, $\Delta r$ typically increases with $DBH$ [@muller-landau_testing_2006; @anderson-teixeira_size-related_2015; REFS, DENDRO_REFS].
 For dendrological studies aimed at deciphering climate signals, tree size is not typically a variable of interest, and its influence is removed through detrending (DENDRO_REFS).
 While suitable for identifying climate signals (DENDRO_REFS), this approach is not optimal for subsequent inference of the climate sensitivity of forest productivity. 
 Although climate correlations can be transformed to climate sensitivity [*sensu* @charney_observed_2016]  and scaled to characterize the climate sensitivity of $ANPP_{stem}$ based on the scaling of $\Delta r$ with $DBH$ [@helcoski_growing_2019], they cannot be used to characterize known interactive effects of $DBH$ and climate on tree growth.
@@ -189,7 +192,7 @@ kable(sites)
       #caption = "Study sites")
 ```
 
-**Table 1 | Sites included in this analysis**
+**Table 1 | Sites included in this analysis**. Here and throughout, sites are ordered by latitude. Additional site information is provided in Table S1, and species and their sample sizes are detailed in Tables S2-S3. *Climate will be filled in based on CRU data.*
 ![ ](tables_figures/sites_table.png)
 ```{r eval=FALSE, echo=FALSE}
 # refs in this table need to go in the nocite metadata field at the top of the document
@@ -200,13 +203,14 @@ The full record for all cores was retained for analysis, with the exception of r
 Specifically, we excluded
 (1) species with <7 cores,
 (2) cores with <30 years of record,
-(3) parts of records before or after (whichever was shorter) any year where $\Delta r$ exceeded the mean plus five times the standard deviation of $\Delta r$ for the entire core, along with a 5-year buffer in the opposite direction, *(this part needs rewording)*
+(3) parts of records before or after (whichever was shorter) any year where $\Delta r$ exceeded the mean plus five times the standard deviation of $\Delta r$ for the entire core, along with a 5-year buffer in the opposite direction *(this part needs rewording)*,
 and (4) the final 20 years prior to death of trees cored dead. 
 The final criteria was implemented to avoid periods of growth decline and potentially altered climate sensitivity prior to death [@cailleret_synthesis_2017] ; REF on climate sensitivity).
 From analyses including $DBH$ (see below), we further excluded
 (1) trees for which we lacked data required to reconstruct $DBH$,
 (2) trees for which there was a significant inconsistency between measured $DBH$ and the sum of $\Delta r$'s across the core (*Appendix S1*),
 (3) parts of records where reconstructed $DBH$ (see below) was represented by <3 conspecific trees.
+In total, this resulted in inclusion of *#* cores, *#* of which could be included in analyses with $DBH$ (Table S3).
 
 For each year in the tree-ring records, we reconstructed $DBH$, as detailed in *Appendix S1*. 
 In most cases, when a recent $DBH$ measurement was available, $DBH$ was reconstructed from the outside in. 
@@ -214,11 +218,10 @@ In cases where $DBH$ was not available, but when we knew that the core hit pith 
 In either case, we used allometric equations between $DBH$ and bark thickness to account for changes in bark thickness as the tree grew (Appendix S1; Table S4).
 
 Once $DBH$ had been reconstructed, we used biomass allometries to estimate the corresponding aboveground biomass and diameter to area equation to get the corresponding basal area. We then calculated aboveground biomass growth increments ($\Delta AGB$) as [$AGB_{y+1}-AGB_y$] and basal area increment ($BAI$) as [$BAI_{y+1}-BAI_y$].
-For temperate sites, biomass allometries were sourced from allo-db (DETAILS; Gonzalez-Akre et al. in prep).
-For tropical sites, biomass allometries were sourced from the BIOMASS package (REF).
+Biomass allometries for temperate and tropical sites were calculated using the *allo-db* (Gonzalez-Akre et al. in prep) and *biomass* [@rejoumechain_biomass_2017] R packages, respectively.
 
 Monthly climate data for 1901-2019 were obtained from CRU v.4.04 [@harris_updated_2014; @harris_version_2020]. 
-Variables considered here included average daily minimum, maximum, and mean temperatures ($T_{min}$, $T_{max}$, $T_{mean}$, respectively); potential evapotranspiration ($PET$); precipitation ($PPT$); and precipitation day frequency ($PDF$). 
+*Variables considered here included average daily minimum, maximum, and mean temperatures ($T_{min}$ / currently "TMN", $T_{max}$ / currently "TMX", $T_{mean}$/ / currently "TMP", respectively); potential evapotranspiration ($PET$); precipitation ($PPT$/ currently "PRE"); and precipitation day frequency ($PDF$/ currently "WET").* 
 For BCI, we calculated $PPT$ and $PDF$ from daily precipitation readings made on BCI starting in 1929 [@paton_barro_2019].
 All ForestGEO climate records used here are archived in the ForestGEO Climate Data Portal, v1.0-alpha [@anderson-teixeira_forestgeoclimate_2020].
 
