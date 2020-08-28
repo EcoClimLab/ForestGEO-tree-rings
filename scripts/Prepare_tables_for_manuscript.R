@@ -95,9 +95,9 @@ summary_samples$site <- unlist(sites_abb[as.character(summary_samples$site)])
 ## save
 write.csv(summary_samples, "doc/manuscript/tables_figures/sampling_details.csv", row.names = F)
 
-# sites and species combo ####
-site_sp_combo <- unique(do.call(rbind, all_Biol)[, c("site", "species_code")])
-site_sp_combo$site <- unlist(sites_abb[as.character(site_sp_combo$site)])
+# # sites and species combo ####
+# site_sp_combo <- unique(do.call(rbind, all_Biol)[, c("site", "species_code")])
+# site_sp_combo$site <- unlist(sites_abb[as.character(site_sp_combo$site)])
 
 site_sp_combo <- site_sp_combo[order(site_sp_combo$site, site_sp_combo$species_code), ]
 
