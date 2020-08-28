@@ -103,10 +103,14 @@ kable(S2, format = "latex", booktabs = TRUE,  escape = F)%>%
 ## Table S3. Sampling details for species by site
 *([ISSUE #73 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/73))*
 
-This will include:
-
-site | species | n trees (all) | n cores (all) | n trees (DBH) | n cores (DBH) | DBH range: sampled | DBH range: reconstructed | date range | collected by
--- | -- | -- | -- | -- | -- | -- | -- | -- | --
+```{r eval = TRUE, echo=FALSE, warning=FALSE}
+library(knitr)
+library(kableExtra)
+ss_table <- read.csv("tables_figures/sampling_details.csv", stringsAsFactors = FALSE, check.names = FALSE)
+kable(ss_table, format = "latex", booktabs = TRUE,   escape = F, linesep = c('\\addlinespace'))%>%
+  row_spec(0, italic = F, bold = T) %>%
+  kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
+```
 
 \newpage
 
