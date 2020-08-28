@@ -150,29 +150,43 @@ site = "SCBI"
 v = "pet"
 what = "log_core_measurement"
 
-png("doc/manuscript/tables_figures/quilt_comparison.png", width = 10, height = 4 , units = "in", res = 300)
+png("doc/manuscript/tables_figures/quilt_comparison.png", width = 10, height = 5, units = "in", res = 300)
 
 layout(matrix(c(1, 1, 2, 3, 5, 5, 4, 6, 6, 7, 7, 7), nrow = 3), heights = c(3,2,1), widths = c(2.2, 1, 1, 2))
-par(mar = c(0,0,0,0))
+par(oma = c(1,0,2,0))
 
 ## a) quilt ####
 img <- readPNG(paste0("results/traditional_analysis/", site, "/1901_2009/figures/monthly_correlation/", v, ".png"))
 img1 <- img[50:(nrow(img)-150), 1:800, ] # keep only quilt half of plot
-img2 <- img[,800:(ncol(img)-60), ] # keep only legend
+img2 <- img[300:(nrow(img)-150),800:(ncol(img)-60), ] # keep only legend
 
 
-par(mar = c(0,0,0,0))
+par(mar = c(3,0,0,0), mgp = c(3,0,0))
 plot(0:100, 0:100, type = "n", axes = F, xlab = "", ylab = "")
 
 rasterImage( img1 , xleft = 0, xright = 100,
              ybottom = 0, ytop = 100)
 
+segments(x0 = c(28, 63), y0 = rep(97, 2), x1 = c(62, 93), y1 = rep(97, 2), lwd = 2, col = c("grey", "black"))
+text(x = c(mean(c(28, 62)), mean(c(63, 93))),
+     y = 100,
+     labels = c("previous year", "current year"),
+     col = c("grey", "black"))
+
 mtext("a)", side = 3, adj = 0.1, line = -2, cex = .8)
-par(mar = c(0,0,0,0))
+axis(1, at = seq(27, 94.5, length.out = 17), labels = rev(c(0:15, "")), cex.axis = .65, line = -1, col.ticks = "white", hadj = 1.5, tcl=-.1
+      )
+mtext("months prior to current August", side = 1, cex = .6, adj = 0.7, line = 0)
+
+title(expression(bold(underline("Traditional analysis"))), xpd = NA, line = .5, adj  = .7)
+
+par(mar = c(0,5,1,2))
 plot(0:100, 0:100, type = "n", axes = F, xlab = "", ylab = "")
 
 rasterImage( matrix(as.vector(as.raster(img2)), ncol = nrow(img2))[ncol(img2):1,], xleft = 10, xright = 110,
-             ybottom = 5, ytop = 100)
+             ybottom = 0, ytop = 100)
+text(x = 0, y = 50, labels = expression(bold("Correlation")), xpd = NA)
+legend(x = -15, y = 180, pch = c(21, 24), legend = c("0.05", "0.0002"), xpd = NA, bty = "n", title = expression(bold("Significance")))
 
 ## b,c,d,e) climwin ####
 img <- readPNG(list.files(paste0("results/", what, "/", site), pattern = v, full.names = T))
@@ -183,6 +197,7 @@ img3 <- img[80:(nrow(img)/2), c(1: (1*ncol(img)/4)) ,] # AIC
 img4 <- img[c((nrow(img)/2)+1):nrow(img), c((1*ncol(img)/4+1): (2*ncol(img)/4)) ,] # response
 
 for(i in 1:4) {
+  par(mar = c(0,0,0,0))
   plot(0:100, 0:100, type = "n", axes = F, xlab = "", ylab = "")
   
   rasterImage( get(paste0("img", i)) , xleft = 0, xright = 100,
@@ -198,6 +213,8 @@ for(i in 1:4) {
   
 }
 
+title(expression(bold(underline("Variable identification in"~ bolditalic("climwin") ~" step"))), xpd = NA, line = .5, adj = .55, outer = T)
+
 ## f) response curves ####
 temp_env <- new.env()
 load(paste0("results/", what, "/", site, "/env.RData"), temp_env)
@@ -205,15 +222,17 @@ load(paste0("results/", what, "/", site, "/env.RData"), temp_env)
 p <- get(paste0("p_", v), temp_env)
 p <- p + labs(y = expression(Delta*r~(mm)))
 p <- p + theme(legend.position="right", legend.text = element_text(size = 8)) # add legend
+p$layers[c(1,2)] <- NULL # remove vertical line and shading
 plot.new()              ## suggested by @Josh
 vps <- gridBase::baseViewports()
 pushViewport(vps$figure) ##   I am in the space of the autocorrelation plot
-vp1 <- plotViewport(c(0,0,0,0)) ## create new vp with margins, you play with this values 
+vp1 <- plotViewport(c(2,0,2,0)) ## create new vp with margins, you play with this values 
 
 print(p, vp = vp1)
 # windowsFonts(Times=windowsFont("TT Times New Roman"))
-grid.text(paste0(letters[6], ")"),x = 0.1, y = .95, gp=gpar(fontsize=9.8, fontfamily=""))
+grid.text(paste0(letters[6], ")"),x = 0.1, y = .90, gp=gpar(fontsize=9.8, fontfamily=""))
 
+title(expression(bold(underline("GLS output"))), xpd = NA, line = .5, adj = .85,  outer = T)
 # dev.off()####
 dev.off()
 
