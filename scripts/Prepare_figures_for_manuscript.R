@@ -167,6 +167,12 @@ plot(0:100, 0:100, type = "n", axes = F, xlab = "", ylab = "")
 rasterImage( img1 , xleft = 0, xright = 100,
              ybottom = 0, ytop = 100)
 
+rect(xleft = rev(seq(27, 94.5, length.out = 17))[5],
+     ybottom = 0,
+     xright = rev(seq(27, 94.5, length.out = 17))[2],
+     ytop = 90, 
+     lwd = 2)
+
 segments(x0 = c(28, 63), y0 = rep(97, 2), x1 = c(62, 93), y1 = rep(97, 2), lwd = 2, col = c("grey", "black"))
 text(x = c(mean(c(28, 62)), mean(c(63, 93))),
      y = 100,
