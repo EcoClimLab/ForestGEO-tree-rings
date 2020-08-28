@@ -94,20 +94,22 @@ kable(S2, format = "latex", booktabs = TRUE,  escape = F)%>%
 \newpage
 
 ## Table S3. Sampling details for species by site
-(**[ISSUE #73 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/73)
+*([ISSUE #73 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/73))*
 
 \newpage
 
 ## Table S4. Allometric equations for bark thickness 
 
-(**[ISSUE #71 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/71)
-
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
 library(kableExtra)
 allometries_table <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO_dendro/data_processed/dbh_to_bark_allometries_table.csv", stringsAsFactors = FALSE, check.names = FALSE)
-#kable(allometries_table, format = "latex", booktabs = TRUE,   escape = F)%>%
-#  kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
+kable(allometries_table, format = "latex", booktabs = TRUE,   escape = F, linesep = c('\\addlinespace'))%>%
+  column_spec(1, italic = T) %>%
+  column_spec(5, width = "3cm") %>%
+  column_spec(6, width = "6cm") %>%
+  row_spec(0, italic = F, bold = T) %>%
+  kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
 ```
 
 
