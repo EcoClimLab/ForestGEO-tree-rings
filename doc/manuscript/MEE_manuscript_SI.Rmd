@@ -149,7 +149,7 @@ table_raw <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/
 
 \newpage 
 ## Figure S1. Comparison of our approach with traditional methods of identifying climate signals
-![**Figure S1 | (Comparison of traditional approaches with ours).**  (THIS FIGURE IS JUST A MOCK-UP TO SHOW VALENTINE WHAT I HAVE IN MIND.) ](tables_figures/mock_comparison_traditional_method.png){ width=70% }
+![**Figure S1 | (Comparison of traditional approaches with ours).**  (THIS FIGURE IS JUST A MOCK-UP --NOT REAL DATA. REAL FIGURE WILL INCLUDE 3-4 COMMONLY STUDIED SPECIES FROM DIFFERENT SITES.) ](tables_figures/mock_comparison_traditional_method.png){ width=70% }
 
 \newpage
 ## Figure S2. Comparison of climwin output across growth metrics for the temperature variable group at Little Tesuque (New Mexico, USA)
