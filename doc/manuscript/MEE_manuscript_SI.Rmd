@@ -28,6 +28,8 @@ options(knitr.table.format = "latex")
 
 ## Appendix S1. Methods for reconstruction of $DBH$
 
+*This is still rough/ mostly notes.*
+
 For each core, $DBH$ can be reconstructed outside-in (based on recent $DBH$, subtracting growth recorded in tree rings) or inside-out (summing $\Delta r$ from the inside out). 
 We generally gave precedence to the outside-in approach.
 Specifically, when $DBH$ was taken at the time of coring,  
@@ -45,10 +47,10 @@ We note that these reconstructed growth records were used only for the reconstru
 
 
 In either case we need bark thickness--ideally allometries describing the relationship between DBH and bark thickness (Table S4). 
-This is especially critical for thick-barked species
-When bark thickness data were available, we generated allometries ... 
-lognormal model with intercept forced to zero: lm(bark_depth.mm ~ -1 + log(dbh_no_bark.cm+1):bark_species, data = bark)
-([issue #8 in ForestGEO_dendro](https://github.com/EcoClimLab/ForestGEO_dendro/issues/8))
+This is especially critical for thick-barked species.
+When bark thickness data were available, we generated allometries ([issue #8 in ForestGEO_dendro](https://github.com/EcoClimLab/ForestGEO_dendro/issues/8))... 
+lognormal model with intercept forced to zero: `lm(bark_depth.mm ~ -1 + log(dbh_no_bark.cm+1):bark_species, data = bark)`.
+When bark thickness data were not available, we used published bark allometries from other sources (Table S4)
 
 
 
@@ -56,6 +58,8 @@ lognormal model with intercept forced to zero: lm(bark_depth.mm ~ -1 + log(dbh_n
 
 ## Appendix S2.  Methods for comparing climwin results with traditional methods
 (**[ISSUE #35 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/35)
+
+*This is in process. For ~4 selected species (well-studied), we will build chronologies that exactly match the data used in this analysis. We'll then generate a figure like Fig. S1. We expect a pretty good match, as our results are basically consistent with previous studies at all these sites.*
 
 \newpage
 
@@ -65,6 +69,9 @@ lognormal model with intercept forced to zero: lm(bark_depth.mm ~ -1 + log(dbh_n
 
 Our analysis included two sites where climate change has had pronounced effects on tree growth: Scotty Creek, NW Territories, Canada (SC) and Little Tesuque, New Mexico, USA (LT).
 At SC, [temperatures have increased by X $^\circ$ over X years]..., resulting in negative growth trends in basal area index ($BAI$) starting around 1950 and significant growth declines since 1970 in `r round(249/(249+69+127)*100, digits=0)`% of trees [@sniderhan_growth_2016].
+At LT, *(drought has increased dramatically)*, resulting in many missing rings in recent years.
+
+*This is in process. We will try and compare 3 methods: (1) our standard approach, (2) detrending the climate variables (#53), (3) applying the climwin step only for older records--before the most rapid climate change. We will work with SC and LT researchers to determine which makes most sense, and use that as the main approach for these sites.*
 
 \newpage
 ## Table S1. Site Details
@@ -94,20 +101,27 @@ kable(S2, format = "latex", booktabs = TRUE,  escape = F)%>%
 \newpage
 
 ## Table S3. Sampling details for species by site
-(**[ISSUE #73 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/73)
+*([ISSUE #73 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/73))*
+
+This will include:
+
+site | species | n trees (all) | n cores (all) | n trees (DBH) | n cores (DBH) | DBH range: sampled | DBH range: reconstructed | date range | collected by
+-- | -- | -- | -- | -- | -- | -- | -- | -- | --
 
 \newpage
 
 ## Table S4. Allometric equations for bark thickness 
 
-(**[ISSUE #71 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/71)
-
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
 library(kableExtra)
 allometries_table <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO_dendro/data_processed/dbh_to_bark_allometries_table.csv", stringsAsFactors = FALSE, check.names = FALSE)
-#kable(allometries_table, format = "latex", booktabs = TRUE,   escape = F)%>%
-#  kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
+kable(allometries_table, format = "latex", booktabs = TRUE,   escape = F, linesep = c('\\addlinespace'))%>%
+  column_spec(1, italic = T) %>%
+  column_spec(5, width = "3cm") %>%
+  column_spec(6, width = "6cm") %>%
+  row_spec(0, italic = F, bold = T) %>%
+  kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
 ```
 
 
