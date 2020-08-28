@@ -4,6 +4,7 @@
 rm(list = ls())
 
 # load libraries ####
+library(tidyverse)
 
 # prepare sites abbrevaiations ####
 # give site abbrevationtion in paper
@@ -54,3 +55,40 @@ species_summary <- species_summary[order(species_summary$species.code), ]
 ## save
 
 write.csv(species_summary, "doc/manuscript/tables_figures/species.csv", row.names = F)
+
+# prepapre summary cores ####
+summary_cores <- read.csv("results/summary_cores_analyzed.csv")
+
+names(summary_cores)
+## get n trees all and n cores all
+idx = !grepl("dbh", summary_cores$what)
+
+A <- summary_cores[idx, ] %>%
+  group_by(site, species_code) %>%
+  summarize(n.trees.all = unique(n_trees),
+            n.cores.all = unique(n_cores))
+
+
+## get n trees all and n cores all
+idx = grepl("dbh", summary_cores$what)
+
+B <- summary_cores[idx, ] %>%
+  group_by(site, species_code) %>%
+  summarize(n.trees.dbh = unique(n_trees),
+            n.cores.dbh = unique(n_cores),
+            dbh.range.sampled = unique(paste(min_DBH_cores_sampled, max_DBH_cores_sampled, sep = "-")),
+            dbh.range.reconstructed = unique(paste(min_DBH_cores_reconstructed , max_DBH_cores_reconstructed , sep = "-"))[1] # taking first value of unique because this is from the log_core_measuremnt_dbh and that has one mode value as the rest (since others are NA for the first value in the data)
+            )
+
+# get date range
+C <- summary_cores %>%
+  group_by(site, species_code) %>%
+  summarize(date.range = unique(paste(start_year , end_year , sep = "-") )[1]) # taking first value of unique because this is from the log_core_measuremnt_dbh and that has one mode value as the rest (since others are NA for the first value in the data)
+
+
+## put everything together
+summary_samples <- left_join(left_join(A, B), C)
+
+
+## save
+write.csv(summary_samples, "doc/manuscript/tables_figures/sampling_details.csv", row.names = F)
