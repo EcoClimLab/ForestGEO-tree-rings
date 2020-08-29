@@ -112,7 +112,7 @@ X#. Canadian Forest Service, Northern Forestry Centre, Edmonton, Alberta, Canada
 
 *NOTE TO COAUTHORS: I'd appreciate feedback on what you consider to be the most important results and conclusions to highlight in the abstract. I think we have many interesting findings with important implications.*
 
-1. Tree rings provide a valuable long-term record for understanding how climate shapes forest productivity. However, traditional analysis methods have not been designed to simultaneously account for the effects of tree size and climate, because they aggregate growth records of multiple trees into residual chronologies. This has limited the potential to use tree-rings to understand forest productivity and its response to climate change. 
+1. Tree rings provide a valuable long-term record for understanding how climate shapes forest productivity. However, traditional analysis methods aggregate growth records of multiple trees into residual chronologies, and therefore cannot simultaneously account for the effects of tree size and climate. This has limited the potential to use tree-rings to understand forest productivity and its climate sensitivity. 
 
 2. Here, we develop a new method to simultaneously model non-linear effects of objectively determined principle climate drivers and tree diameter ($DBH$). 
 Specifically, we first identify the most important climate drivers and their appropriate time window of influence using the *climwin* R package.
@@ -124,7 +124,7 @@ We apply this method to tree-ring data from *~40* species at ten globally distri
 4. Our method provides a rigorous analytical framework for objectively identifying the most important climate drivers of tree growth and combining them with $DBH$ in nonlinear models.
 The need for such an approach is highlighted by our findings that nonlinear growth responses to climate variables are common, that growth rates vary nonlinearly with $DBH$, and that significant $DBH$ - climate interactions are common. 
 These findings imply that $DBH$ should be accounted for in analyses seeking to quantify the impacts of climate and other environmental drivers on tree growth.
-By providing a rigorous analytical framework for such analyses, our approach opens the door for using tree-rings to improve our understanding of forest responses to climate change. 
+By providing a framework for such analyses, our approach opens the door for using tree-rings to improve our understanding of forest responses to climate change. 
 
 **Keywords**:  climate sensitivity;  diameter; environmental change; Forest Global Earth Observatory (ForestGEO); generalized least squares; nonlinear; tree-ring
 
