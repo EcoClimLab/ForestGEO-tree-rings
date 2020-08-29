@@ -133,7 +133,7 @@ kable(allometries_table, format = "latex", booktabs = TRUE,   escape = F, linese
   row_spec(0, italic = F, bold = T) %>%
   kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
 ```
-
+For assignments of species as proxies for those with out available bark allometries, see Table S2.
 
 \newpage
 ## Table S5. Frequency of $DBH$-climate interactions across all sites and growth metrics
