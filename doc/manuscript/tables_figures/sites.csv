@@ -1,5 +1,5 @@
 site code,site name,location,Jan T,July T,Ann. Precip.,vegetation type(s),n species,n cores,original publication(s)
-BCI,Barro Colorado Island,Panama,,,,"BD, BE",3,84,"Alfaro-S${a}$nchez, Muller-Landau, Wright, and Camarero 2017"
+BCI,Barro Colorado Island,Panama,,,,"BD, BE",3,84,"Alfaro-S$\acute{a}$nchez, Muller-Landau, Wright, and Camarero 2017"
 HKK,Huai Kha Khaeng,Thailand,,,,"BD, BE",4,470,"Vlam, Baker, Bunyavejchewin, and Zuidema 2014"
 LT,Little Tesuque,"New Mexico, USA",,,,NE,2,34,
 CB,Cedar Breaks,"Utah, USA",,,,NE,(3),(38),
