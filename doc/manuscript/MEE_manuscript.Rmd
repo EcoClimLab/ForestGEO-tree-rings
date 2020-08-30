@@ -19,12 +19,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Kristina J. Anderson-Teixeira^1,2^*,
 Valentine Herrmann^1^,
-Christy Rollinson^#^,
-Erika B. Gonzalez-Akre^1^,
+Christy Rollinson^3^,
 Bianca Gonzalez^1^,
-Neil Pederson^#^,
+Erika B. Gonzalez-Akre^1^,
+Neil Pederson^4^,
 Camille Piponiot^1,2^,
-Ross Alexander^#^,
+Ross Alexander,
 Craig D. Allen,
 Raquel Alfaro-Sánchez,
 Taia Awada,
@@ -33,7 +33,7 @@ Patrick Baker,
 Sarayudh Bunyavejchewin,
 Paulo Cherubini,
 Justin Cooper,
-Stuart Davies,
+Stuart Davies^2^,
 Ryan Helcoski^1^,
 Vasickova Ivana,
 Kaspar Jakub,
@@ -41,8 +41,8 @@ Kamil Kral,
 James Lutz,
 Ellis Q. Margolis,
 Justin Maxwell,
-Sean McMahon,
-Helene Muller-Landau,
+Sean McMahon^2^,
+Helene Muller-Landau^2^,
 Samonil Pavil,
 Sabrina Russo,
 Anastasia Sniderhan,
@@ -57,7 +57,9 @@ Peter Zuidema
 
 2. Center for Tropical Forest Science-Forest Global Earth Observatory; Smithsonian Tropical Research Institute; Panama, Republic of Panama
 
-X#. Harvard Forest, Petersham, MA 01366, USA
+3. The Morton Arboretum, Lisle, Illinois, USA
+
+4. Harvard Forest, Petersham, MA 01366, USA
 
 X#. Canadian Forest Service, Northern Forestry Centre, Edmonton, Alberta, Canada
 
@@ -110,14 +112,14 @@ X#. Canadian Forest Service, Northern Forestry Centre, Edmonton, Alberta, Canada
 # Key-words: A list in alphabetical order not exceeding eight words or short phrases. The most important key-words should appear in the title and the abstract as well as the key-word list. More advice on selecting good keywords can be found here.
 ```
 
-*NOTE TO COAUTHORS: I'd appreciate feedback on what you consider to be the most important results and conclusions to highlight in the abstract. I think we have many interesting findings with important implications.*
+*NOTE TO COAUTHORS: I'd appreciate feedback on what you consider to be the most important results and conclusions to highlight in the abstract.*
 
 1. Tree rings provide a valuable long-term record for understanding how climate shapes forest productivity. However, traditional analysis methods aggregate growth records of multiple trees into residual chronologies, and therefore cannot simultaneously account for the effects of tree size and climate. This has limited the potential to use tree-rings to understand forest productivity and its climate sensitivity. 
 
 2. Here, we develop a new method to simultaneously model non-linear effects of objectively determined principle climate drivers and tree diameter ($DBH$). 
 Specifically, we first identify the most important climate drivers and their appropriate time window of influence using the *climwin* R package.
 We then include these in generalized least squares models to model tree growth while accounting for the temporal autocorrelation inherent to each individual tree's growth.
-We apply this method to tree-ring data from *~40* species at ten globally distributed sites spanning a wide range of forest types. 
+We apply this method to tree-ring data from *#* trees representing *~40* species at ten globally distributed sites spanning a wide range of forest types. 
 
 3. Our analysis identified similar climate drivers to those obtained via traditional methods, but revealed that non-linear responses to climate variables were common. Radial growth increments, basal area increments, and biomass increments all varied non-linearly with $DBH$. The relative importance of $DBH$ versus climate varied across sites, and interactions between $DBH$ and climate were prevalent (*~50%* of cases tested). 
 
@@ -135,18 +137,17 @@ By providing a framework for such analyses, our approach opens the door for usin
 
 **Tree rings provide a long-term record of annual growth increments that is invaluable for understanding forests in an era of global change.** 
 Spanning time scales of decades to centuries or even millennia, they provide by far the most robust method for characterization of the interannual climate sensitivity of tree growth (REFS) and how it is changing [e.g., @sniderhan_growth_2016; @maxwell_declining_2016]. 
-Combined with forest censuses, they can be used to estimate forest woody productivity [@graumlich_long-term_1989; @teets_linking_2018] and its climate sensitivity [@klesse_sampling_2018; @teets_quantifying_2018; @helcoski_growing_2019]. 
-They may also be used to examine long-term growth trends in response to changing environmental drivers, including climate, increasing atmospheric CO~2~ [reviewed in @walker_integrating_nodate], and deposition of pollutants including sulfur dioxide (SO~2~) and nitrogen oxides (NO~x~) [@mathias_disentangling_2018]. 
-This information is critical to predicting forest responses to climate change [@walker_integrating_nodate; REFS], and thereby reducing the enormous uncertainty surrounding future contributions of Earth's forests to the global carbon cycle [@friedlingstein_climatecarbon_2006].
-Yet, dendrochronological methods have been optimized to detect climate signals (DENDRO REFS) rather than to predict forest productivity and its climate sensitivity [@klesse_sampling_2018]. 
+Combined with forest censuses, they can be used to estimate forest woody productivity [$ANPP_{woody}$; @graumlich_long-term_1989; @teets_linking_2018] and its climate sensitivity [@klesse_sampling_2018; @teets_quantifying_2018; @helcoski_growing_2019]. 
+This information is critical to predicting forest responses to climate change, and thereby reducing the enormous uncertainty surrounding future contributions of Earth's forests to the global carbon cycle [@friedlingstein_climatecarbon_2006].
+Yet, dendrochronological methods have been optimized to detect climate signals rather than to predict forest productivity and its climate sensitivity [@klesse_sampling_2018]. 
 As a result, prevailing approaches hold a number of limitations for using tree-rings to address pressing questions concerning forest productivity in the current era of rapid environmental change.
 
 **To predict annual tree growth or forest productivity based on climate, a necessary first step is identification of the most important climate variables, the time frames over which they have the strongest influence over annual growth, and their additive or interactive effects.** 
-Traditional dendrochronological methods identify climate signals by examining month-by-month correlations of growth index chronologies to select climate variables--typically T, PPT, and PDSI--over the current year and, typically, previous year. 
-While appropriate for identifying the strongest signals for purposes such as historical climate reconstructions (e.g., DENDRO_REFS), this approach does not systematically examine the numerous potential multiple-month time windows to determine the single most influential window over which a given variable influences annual growth. 
-Needed is an objective approach to systematically evaluate the numerous potential climate variables and time windows. 
-Further, tree-ring studies generally do not consider additive or interactive effects of climate variables on annual growth [DENDRO_REFS; *but see VS-Lite* @foster_predicting_2016]. 
-Such effects are expected based on observations that temperature and moisture jointly shape photosynthesis (REFS), tree growth [@foster_predicting_2016], and forest productivity [e.g., @taylor_temperature_2017; EXTRATROPICAL_AND_TREE_LEVEL_REFS; @banbury_morgan_global_nodate].
+Traditional dendrochronological methods identify climate signals by examining month-by-month correlations of growth index chronologies to select climate variables--most commonly temperature and precipitation--over the current year and, typically, previous year (e.g., DENDRO_REFS). 
+While appropriate for identifying the strongest signals for purposes such as historical climate reconstructions (e.g., DENDRO_REFS) and for describing how each month's climate affects tree growth or productivity [e.g., @helcoski_growing_2019], this approach falls short of objectively identifying the most important climate drivers and their time windows of influence, which is needed for multivariate models of annual tree growth and forest productivity [e.g., @teets_quantifying_2018].
+Further, tree-ring studies generally do not consider additive or interactive effects of climate variables on annual growth [DENDRO_REFS; but see @foster_predicting_2016]. 
+Such effects are expected based on observations that temperature and moisture jointly shape photosynthesis (REFS), tree growth [@foster_predicting_2016], and forest productivity [e.g.,TREE_LEVEL_REFS; @banbury_morgan_global_nodate].
+Thus, to model tree growth responses to climate, we need an objective approach to systematically evaluate numerous potential climate variables and time windows in order to select principle climate drivers appropriate for inclusion in multivariate models. 
 
 **Traditional methods characterize only linear climate responses, potentially missing important nonlinearities that have been widely observed at other spatio-temporal scales.**
 Over time frames of seconds to days, most biological rates—- from photosynthesis to plant and animal respiration—-display a unimodal relationship to temporal variation in temperature. 
@@ -154,26 +155,22 @@ Specifically, these rates generally increase exponentially with temperature up t
 On the other end of the spatio-temporal spectrum, across regional to global climate gradients, annual forest productivity plateaus or decreases at high temperature, $T_{max}$, and potential evapotranspiration, $PET$ [@sullivan_long-term_2020; @banbury_morgan_global_nodate].
 Similarly, across global gradients, annual forest productivity increases with precipitation only up to a point, after which it plateaus or decreases [@banbury_morgan_global_nodate]. 
 Filling a critical gap between short-term physiological responses and the global gradients representing millennia of community assembly and species adaptation, the annual growth records of tree-rings capture tree growth responses to interannual climatic variation.
-Yet, the standard practice in dendrochronology has been to fit linear relationships (exception is VS-Lite, which fits plateau [@tolwinski-ward_bayesian_2013]), and we therefore know little about what, if any, nonlinearities occur in tree growth responses to interannual variation in climate.
+Yet, dendrochronological studies allowing for nonlinear or threshold responses of tree growth to climate are rare [@tolwinski-ward_bayesian_2013; @tumajer_increasing_2017], and we therefore know little about what, if any, nonlinearities occur in tree growth responses to interannual variation in climate.
 
-**Traditional methods do not characterize the effect of tree size or its potential interactions with climate variables.** 
-Tree size (most commonly diameter breast height, $DBH$) is among the most important variables affecting tree growth rate [@muller-landau_testing_2006; @foster_predicting_2016; REFS]. 
-Radial growth increments (*i.e.*, tree-ring widths; $\Delta r$) may increase or decrease with tree size, often in a non-linear manner.
-Following a "juvenile growth phase", which is typically removed in traditional dendrological analyses, $\Delta r$ may decline, particularly in open-grown conifers (??; DENDRO_REFS).
-In contrast, in mesic closed-canopy forests, $\Delta r$ typically increases with $DBH$ [@muller-landau_testing_2006; @anderson-teixeira_size-related_2015; REFS, DENDRO_REFS].
-For dendrological studies aimed at deciphering climate signals, tree size is not typically a variable of interest, and its influence is removed through detrending (DENDRO_REFS).
-While suitable for identifying climate signals (DENDRO_REFS), this approach is not optimal for subsequent inference of the climate sensitivity of forest productivity. 
-Although climate correlations can be transformed to climate sensitivity [*sensu* @charney_observed_2016]  and scaled to characterize the climate sensitivity of $ANPP_{stem}$ based on the scaling of $\Delta r$ with $DBH$ [@helcoski_growing_2019], they cannot be used to characterize known interactive effects of $DBH$ and climate on tree growth.
-For example, larger trees tend to exhibit greater growth reductions in drought years [@bennett_larger_2015 ; @mcgregor_tree_nodate].
-Thus, to use tree-rings to predict $ANPP_{stem}$ for a forest where not every tree was cored, we need models that include tree size.
+**Tree size (most commonly diameter breast height, $DBH$) is among the most important variables affecting tree growth rate [e.g., @muller-landau_testing_2006; @foster_predicting_2016] and its climate sensitivity [e.g., @bennett_larger_2015; @mcgregor_tree_nodate], yet traditional methods do not characterize its effect or its potential interactions with climate.** 
+For dendrological studies aimed at deciphering climate signals, $DBH$ is not typically a variable of interest, and its influence is removed through detrending (DENDRO_REFS).
+While convenient for identifying climate signals (DENDRO_REFS), this approach is not optimal for subsequent inference of the climate sensitivity of forest productivity.
+Although climate correlations can be transformed to climate sensitivity [*sensu* @charney_observed_2016] and scaled to characterize the climate sensitivity of $ANPP_{woody}$ based on the scaling of $\Delta r$ with $DBH$ [@helcoski_growing_2019], they cannot be used to characterize known interactive effects of $DBH$ and climate on tree growth.
+For example, larger trees tend to exhibit greater growth reductions in drought years [@bennett_larger_2015; @mcgregor_tree_nodate], and smaller trees can be more sensitive to temperature (*Rollinson et al. in review*).
+However, the removal of $DBH$ signals via detrending makes it impossible to account for such size differences in climate sensitivity. 
+To use tree-rings to predict tree growth and $ANPP_{woody}$, we need models that include $DBH$ and its potential climate interactions.
 
 **Here, we develop a new method that allows simultaneous consideration of the effects of tree size, objectively determined principle climate drivers, and other environmental drivers on annual tree growth.** 
 This allows us to ask:
 (1) What are the most important climate drivers of annual growth, and over which time windows?
 (2) What is the shape of the relationship between annual growth and climate drivers?
-(3) How do $\Delta r$, $BAI$, and aboveground biomass increments ($\Delta AGB$) vary with DBH?
-(4) How do climate drivers additively and interactively shape growth? 
-
+(3) How do $\Delta r$, $BAI$, and aboveground biomass increments ($\Delta AGB$) vary with $DBH$?
+(4) How do climate drivers and $DBH$ additively and interactively shape growth? 
 
 ### Materials and Methods
 
@@ -182,7 +179,7 @@ This allows us to ask:
 We analyzed previously collected tree-ring data from ten sites ranging from 9.15$^\circ$ to 61.30$^\circ$ N latitude and representing a wide range of forest and tree types: tropical broadleaf deciduous and evergreen, temperate broadleaf deciduous and needleleaf evergreen, and boreal needleleaf evergreen (Tables 1, S1-S2).
 Nine of these sites (exception: LT) are large forest dynamics plots of the Forest Global Earth Observatory [ForestGEO; @anderson-teixeira_ctfs-forestgeo:_2015].
 Trees of species represented within the ForestGEO plots were cored within the plot (n=#) and/or in the vicinity (n=#; max distance: # km), following a variety of sampling protocols designed to meet the varied objectives of the original studies (Tables S1, S3). 
-In using this variety of data sources, we ensured that our approach was able to handle a variety of challenges presented by varying methodologies and forest types.
+In using this diversity of data sources, we ensured that our approach was able to handle challenges presented by varying methodologies and forest types.
 
 
 ```{r eval=FALSE, echo=FALSE}
@@ -201,18 +198,18 @@ kable(sites)
 # refs in this table need to go in the nocite metadata field at the top of the document
 ```
 
-All tree cores were measured and cross-dated by the original researchers using standard dendrochronological practices. 
+All tree cores (n=*#*) were measured and cross-dated by the original researchers using standard dendrochronological practices. 
 The full record for all cores was retained for analysis, with the exception of records that had to be excluded due to insufficient sample size or anomalous growth patterns.
 Specifically, we excluded
 (1) species with <7 cores,
 (2) cores with <30 years of record,
-(3) parts of records before or after (whichever was shorter) any year where $\Delta r$ exceeded the mean plus five times the standard deviation of $\Delta r$ for the entire core, along with a 5-year buffer in the opposite direction *(this part needs rewording)*,
+(3) contiguous portions of cores containing large outliers ($\Delta r$ > mean plus 5 x SD of $\Delta r$ for the entire core),
 and (4) the final 20 years prior to death of trees cored dead. 
-The final criteria was implemented to avoid periods of growth decline and potentially altered climate sensitivity prior to death [@cailleret_synthesis_2017] ; REF on climate sensitivity).
+The final criteria was implemented to avoid periods of growth decline and potentially altered climate sensitivity prior to death [@cailleret_synthesis_2017; @desoto_low_2020].
 From analyses including $DBH$ (see below), we further excluded
 (1) trees for which we lacked data required to reconstruct $DBH$,
 (2) trees for which there was a significant inconsistency between measured $DBH$ and the sum of $\Delta r$'s across the core (*Appendix S1*),
-(3) parts of records where reconstructed $DBH$ (see below) was represented by <3 conspecific trees.
+and (3) parts of records where reconstructed $DBH$ (see below) was represented by <3 conspecific trees.
 In total, this resulted in inclusion of *#* cores, *#* of which could be included in analyses with $DBH$ (Table S3).
 
 For each year in the tree-ring records, we reconstructed $DBH$, as detailed in *Appendix S1*. 
@@ -350,6 +347,9 @@ The majority (#%) of these interactions were positive, indicating that larger tr
 
 
 ### Discussion
+
+*NOTE TO COAUTHORS: The discussion in particular is still very rough. I'd appreciate feedback on what points to emphasize here.*
+
 **We present a new method that allows simultaneous consideration of the effects of objectively determined principle climate drivers and tree size on annual growth.**
 Results are broadly consistent with those obtained by traditional methods, but offer several new insights.
 
@@ -382,11 +382,12 @@ Thus, patterns of decreasing $\Delta r$ with $DBH$ are likely limited to open-gr
 Contrary to the finding that $\Delta AGB$ increases continuously with $DBH$, which was derived from census data from globally distributed forests [@stephenson_rate_2014] and has also been observed in tree-rings [@foster_predicting_2016], we found evidence of saturation or decline in the majority **(`r round(20/26*100, digits=0)`%)** of species-site combinations analyzed.
 $\Delta AGB$ declines at high $DBH$ are presumably because trees are investing fixed C elsewhere--for example, reproduction.
 
-**These results have important implications for using tree-rings to infer growth responses to slowly-changing environmental drivers, including climate, atmospheric CO~2~, and deposition of SO~2~ and NO~x~.** 
-The observed trends in $\Delta r$ and $BAI$ with $DBH$ (Fig. 4) imply that two of the most commonly used growth-trend detection methods [@peters_detecting_2015] are inappropriate. 
-Specifically, conservative detrending, which applies stiff splines or mathematical functions (e.g., negative exponential) to remove trends in $\Delta r$ before analyzing residuals, would not be reliable across the diversity of $\Delta r$-$DBH$ relationships observed here, and also has a tendency to remove known long-term trends [@peters_detecting_2015].
-Basal area correction -- i.e., assuming that $BAI$ is fundamentally independent of tree size after the removal of the juvenile growth phase--is also problematic because $BAI$ shows a variety of trends with $DBH$ across large size classes. The most common pattern--*an increase to a peak at intermediate sizes, followed by decrease*--would imply that the basal area correction is most commonly biased towards finding positive trends for smaller trees and negative trends for larger trees.
-Alternative methods, such as regional curve standardization [e.g., REF] and size class isolation [e.g., @van_der_sleen_no_2015], are compatible with the size trends observed here and consistent with the recommendations of @peters_detecting_2015.
+**These results have important implications for using tree-rings to infer growth responses to slowly-changing environmental drivers, including climate, atmospheric CO~2~, and deposition of sulfur dioxide (SO~2~) and nitrogen oxides (NO~x~) [e.g., @mathias_disentangling_2018].** 
+The observed trends in $\Delta r$ and $BAI$ with $DBH$ (Fig. **4**) imply that two of the most commonly used growth-trend detection methods, conservative detrending and basal area correction [see @peters_detecting_2015], are inappropriate. 
+Specifically, conservative detrending, which applies stiff splines or mathematical functions (e.g., negative exponential) to remove trends in $\Delta r$ before analyzing residuals, would not be reliable across the diversity of $\Delta r$-$DBH$ relationships observed here.
+Basal area correction -- i.e., assuming that $BAI$ is fundamentally independent of tree size after the removal of the juvenile growth phase--is also problematic because $BAI$ shows a variety of trends with $DBH$ across large size classes. The most common pattern--an increase to a peak at intermediate sizes, followed by decrease--would imply that the basal area correction is most commonly biased towards finding positive trends for smaller trees and negative trends for larger trees.
+It is therefore not surprising that tree-ring studies examining the impact of rising CO~2~ on long-term growth growth trends reach inconsistent conclusions [@walker_integrating_nodate].
+
 
 *Additive and interactive effects of climate and DBH*
 
