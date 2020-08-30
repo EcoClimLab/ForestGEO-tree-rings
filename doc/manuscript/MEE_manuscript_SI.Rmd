@@ -82,7 +82,8 @@ S1 <- read.csv("tables_figures/site_details.csv", stringsAsFactors = FALSE, chec
 kable(S1, format = "latex", booktabs = TRUE,   escape = F)%>%
   column_spec(2, width = "3cm") %>%
   column_spec(5, width = "2cm") %>%
-  column_spec(6, width = "1.5cm") %>%
+  column_spec(6, width = "2cm") %>%
+  column_spec(7, width = "1.5cm") %>%
   kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
 ```
 
