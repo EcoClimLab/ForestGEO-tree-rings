@@ -104,7 +104,7 @@ clim_gaps <- clim_gaps[clim_gaps$start_climvar.class %in% climate_variables, ]
 CO2 <- read.csv(path_to_CO2)
 
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIIR2XE6NTINWACN6HC7KDWZK")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIKAN3VIHOJ3FMV6PI27KJ2VW")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
@@ -294,7 +294,7 @@ best_models_R_squared <- NULL
 data_to_keep <- c(ls(), "data_to_keep")
 
 
-for(site in switch(solution_to_global_trend, "none" = sites[c(8, 6, 7)], c("ScottyCreek", "NewMexico", "SCBI"))) {
+for(site in switch(solution_to_global_trend, "none" = sites, c("ScottyCreek", "NewMexico", "SCBI"))) {
   
   
   rm(list = ls()[!ls() %in% data_to_keep])
@@ -508,7 +508,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[c(8, 6, 7)], c("Scot
    
     # now do a species by species gls using log of raw measurements, spline on dbh and year (WITH AND WITHOUT CO2) ####
     
-    for(with_CO2 in switch(solution_to_global_trend, "none" = c(FALSE, TRUE), FALSE)) {
+    for(with_CO2 in switch(solution_to_global_trend, "none" = c(FALSE, TRUE)[1], FALSE)) {
       ## look at collinearity between climate variables ( and CO2n and dbh when relevant) and remove any variable with vif > 10 ####
     if(grepl("dbh", what) & with_CO2) X <- Biol[, c(as.character(best_results_combos$climate), "CO2", "dbh")]
     if(grepl("dbh", what) & !with_CO2) X <- Biol[, c(as.character(best_results_combos$climate), "dbh")]
@@ -807,6 +807,10 @@ for(site in switch(solution_to_global_trend, "none" = sites[c(8, 6, 7)], c("Scot
                             summarize(
                                       n_trees = n_distinct(treeID),
                                       n_cores = n_distinct(coreID),
+                                      min_DBH_cores_sampled = min(dbh_at_coring),
+                                      max_DBH_cores_sampled = max(dbh_at_coring),
+                                      min_DBH_cores_reconstructed = round(min(dbh), 1),
+                                      max_DBH_cores_reconstructed = round(max(dbh), 1),
                                       start_year = min(Year),
                                       end_year = max(Year)                                    )))
     
@@ -866,7 +870,7 @@ sink()
 } # for(solution_to_global_trend in ...)
 # summary plot for climate  ####
 
-A <- pivot_longer(all_Clim, paste0(climate_variables, rep(c("", "_detrended"), each = length(climate_variables))), "climate_var") 
+A <- pivot_longer(all_Clim, climate_variables, "climate_var") # A <- pivot_longer(all_Clim, paste0(climate_variables, rep(c("", "_detrended"), each = length(climate_variables))), "climate_var") 
 
 A$Year <- as.numeric(gsub("\\d\\d/\\d\\d/", "", A$Date))
 
@@ -875,11 +879,13 @@ A <- rbind(A, data.frame(sites.sitename = "All",
                          Year = CO2$year,
                          climate_var = "CO2",
                          value = CO2$CO2_ppm))
+A$group <- ifelse(grepl("_", A$climate_var), "dashed", "solid")
+
 variables_units_full <- variables_units
 variables_units_full[] <- paste(names(variables_units), variables_units, sep = "\n")
 
 png("results/Climate_variables_yearly_mean.png", width = 8, height = 10, res = 300, units = "in")
-ggplot(A, aes(x = Year, y = value, color = sites.sitename, group = grepl("_", climate_var))) +
+ggplot(A[A$group == "solid",], aes(x = Year, y = value, color = sites.sitename)) +
   geom_line() + 
   facet_wrap(vars(gsub("_detrended", "", climate_var)), ncol =1, scales = "free_y", strip.position = "left", labeller = as_labeller(variables_units_full)) +
   ylab(NULL) +

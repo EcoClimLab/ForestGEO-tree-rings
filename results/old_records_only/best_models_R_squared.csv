@@ -1,3 +1,0 @@
-"with_CO2","what","site","sp","model","R2m","R2c"
-FALSE,"log_core_measurement_dbh","NewMexico","PIPO","log_core_measurement ~ dbh + pet + I(pet^2) + pre + I(pre^2) + 1",0.34671095443565,0.854565974077575
-FALSE,"log_core_measurement_dbh","NewMexico","PIST2","log_core_measurement ~ dbh + I(dbh^2) + pet + I(pet^2) + pre + I(pre^2) + 1",0.641277889784001,0.771482652247376
