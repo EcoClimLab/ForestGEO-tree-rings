@@ -201,9 +201,9 @@ nocite: |
   @vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @tumajer_increasing_2017; @alfaro-sanchez_growth_2017; @helcoski_growing_2019; @aus_de_ar_tree_2018; @bumann_assessing_2019
 ---
 
-All tree cores (n=*#*) were measured and cross-dated by the original researchers using standard dendrochronological practices. 
-The full record for all cores was retained for analysis, with the exception of records that had to be excluded due to insufficient sample size or anomalous growth patterns.
-Specifically, we excluded
+All tree cores were measured and cross-dated by the original researchers using standard dendrochronological practices. 
+From among the full set of *#* original records, we excluded cores for which we detected errors (e.g., labeling inconsistencies, obvious dating errors) that could not be resolved before finalizing the analysis (n=*#*). 
+We also excluded records that had to be excluded due to insufficient sample size or anomalous growth patterns, including
 (1) species with <7 cores,
 (2) cores with <30 years of record,
 (3) contiguous portions of cores containing large outliers ($\Delta r$ > mean plus 5 x SD of $\Delta r$ for the entire core),
