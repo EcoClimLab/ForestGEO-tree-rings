@@ -20,3 +20,4 @@
 \contentsline {subsection}{Figure S12. Best GLS models for Niobrara/ Hansley (Nebraska, USA)}{21}{section*.35}% 
 \contentsline {subsection}{Figure S13. Best GLS models for Zofin (Czech Republic)}{22}{section*.36}% 
 \contentsline {subsection}{Figure S14. Best GLS models for Scotty Creek (NW Territories, Canada)}{23}{section*.38}% 
+\contentsline {subsection}{SI References}{24}{section*.40}% 

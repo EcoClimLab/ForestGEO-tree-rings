@@ -6,7 +6,8 @@ output:
     fig_caption: yes
     toc: true # table of content true
     toc_depth: 3  
-    
+bibliography: references.bib
+csl: methods-in-ecology-and-evolution.csl
 header-includes:  \usepackage{float}
                   \usepackage{caption}
                   \captionsetup[table]{font=footnotesize}
@@ -60,6 +61,19 @@ When bark thickness data were not available, we used published bark allometries 
 (**[ISSUE #35 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/35)
 
 *This is in process. For ~4 selected species (well-studied), we will build chronologies that exactly match the data used in this analysis. We'll then generate a figure like Fig. S1. We expect a pretty good match, as our results are basically consistent with previous studies at all these sites.*
+
+To verify that our methods gave similar results to traditional methods, we conducted a formal comparison for four well-studied species: PSME (Cedar Breaks, Utah), ABAL (Zofin), PIMA (Scotty Creek), and LITU (SCBI).
+
+The ring-width series from each core was standardized via ARSTAN using a 2/3rds $n$ spline, where $n$ is the number of years in the series (*Cook, 1985; Cook & Kairiukstis, 1990- citations in Helcoski*). 
+*(The following italic text is plagarized from Helcoski and needs to be reworded:)* *The influence of outliers in all series was reduced using the adaptive power transformation, which also stabilises the variance over time (Cook & Peters, 1997). Next, each series was stabilised using either the average correlation between raw ring-width series (rbar) method or a 1/ 3rds spline method to adjust changes in variance as series replica- tion decreased towards the earlier portion of each chronology (Jones et al., 1997). The 1/3rds spline method was chosen when replication in the inner portion of each chronology (c. the inner 30–50 yr of each record depending on full chronology length) dropped below three trees. Once that step was complete, a robust biweight mean chronology for each species was calculated from the ring-width indices (Cook, 1985). We chose to use residual chronologies because the autoregressive standardisation process in creating them removes much of the tree-level autocorrelation in growth and these chronologies would most likely contain the most conservative information on drivers of interannual growth (Cook, 1985).* 
+
+Following @helcoski_growing_2019, we defined chronology start dates according to the subsample signal strength (SSS), using a cutoff of SSS = 0.80 (or 80% of the population signal).
+Thus, for this analysis only, we defined chronology start dates as the year the SSS exceeded 0.80 or two years after the start of the climate record, whichever came later. 
+SSS exceeded 0.80 well before the start of the 1901 start of climate records for PSME (1800s), ABAL (1700), and PIMA (1850s). For LITU , SSS reached 0.8 with 11 trees in 1919, which we used as the start date for this series.
+We note that these start date criteria differ from those used in the main analysis (Table S3), which had earlier start dates because the analysis was not constrained by a need to represent the full population signal.
+End dates were defined as the last full year prior to sampling (Table S3).
+
+
 
 \newpage
 
@@ -212,3 +226,6 @@ table_raw <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/
 ## Figure S14. Best GLS models for Scotty Creek (NW Territories, Canada) 
 
 ![**Figure S14 | Best GLS models for Scotty Creek (NW Territories, Canada) for all three growth metrics: $\Delta r$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/ScottyCreek.png){ width=75% }
+
+\newpage
+## SI References
