@@ -4,7 +4,7 @@ output: word_document
 bibliography: references.bib
 csl: methods-in-ecology-and-evolution.csl
 nocite: | 
-  @vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @tumajer_increasing_2017; @alfaro-sanchez_growth_2017; @helcoski_growing_2019
+  @vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @tumajer_increasing_2017; @alfaro-sanchez_growth_2017; @helcoski_growing_2019; @aus_de_ar_tree_2018; @bumann_assessing_2019
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
