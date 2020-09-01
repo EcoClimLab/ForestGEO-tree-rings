@@ -3,8 +3,7 @@ title: ''
 output: word_document
 bibliography: references.bib
 csl: methods-in-ecology-and-evolution.csl
-nocite: | 
-  @vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @tumajer_increasing_2017; @alfaro-sanchez_growth_2017; @helcoski_growing_2019; @aus_de_ar_tree_2018; @bumann_assessing_2019
+
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -195,8 +194,12 @@ kable(sites)
 **Table 1 | Sites included in this analysis**. Here and throughout, sites are ordered by latitude. Additional site information is provided in Table S1, and species and their sample sizes are detailed in Tables S2-S3. *Climate will be filled in based on CRU data.*
 ![ ](tables_figures/sites_table.png)
 ```{r eval=FALSE, echo=FALSE}
-# refs in this table need to go in the nocite metadata field at the top of the document
+# refs in this table need to go in the nocite field below
 ```
+---
+nocite: | 
+  @vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @tumajer_increasing_2017; @alfaro-sanchez_growth_2017; @helcoski_growing_2019; @aus_de_ar_tree_2018; @bumann_assessing_2019
+---
 
 All tree cores (n=*#*) were measured and cross-dated by the original researchers using standard dendrochronological practices. 
 The full record for all cores was retained for analysis, with the exception of records that had to be excluded due to insufficient sample size or anomalous growth patterns.
