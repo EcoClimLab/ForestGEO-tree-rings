@@ -58,14 +58,12 @@ When bark thickness data were not available, we used published bark allometries 
 \newpage
 
 ## Appendix S2.  Methods for comparing climwin results with traditional methods
-(**[ISSUE #35 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/35)
+*([ISSUE #35 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/35))*
 
-*This is in process. For ~4 selected species (well-studied), we will build chronologies that exactly match the data used in this analysis. We'll then generate a figure like Fig. S1. We expect a pretty good match, as our results are basically consistent with previous studies at all these sites.*
-
-To verify that our methods gave similar results to traditional methods, we conducted a formal comparison for four well-studied species: PSME (Cedar Breaks, Utah), ABAL (Zofin), PIMA (Scotty Creek), and LITU (SCBI).
+To verify that our methods gave similar results to traditional methods, we conducted qualitative comparisons of our results to previous studies based on the same cores (Table **S5**). We also conducted a formal comparison using identical tree-ring and climate data for four well-studied species: PSME (Cedar Breaks, Utah), ABAL (Zofin), PIMA (Scotty Creek), and LITU (SCBI) (Fig. **S1**). We compared results from an analysis using conventional methods, as detailed below, to an analysis using our method as described in the Methods section, but with the *climwin* climate variable selection process limited to just the species of interest (as opposed to all species at the site), climate variables considered individually rather than additively, and with start date adjusted to match the conventional method.
 
 The ring-width series from each core was standardized via ARSTAN using a 2/3rds $n$ spline, where $n$ is the number of years in the series (*Cook, 1985; Cook & Kairiukstis, 1990- citations in Helcoski*). 
-*(The following italic text is plagarized from Helcoski and needs to be reworded:)* *The influence of outliers in all series was reduced using the adaptive power transformation, which also stabilises the variance over time (Cook & Peters, 1997). Next, each series was stabilised using either the average correlation between raw ring-width series (rbar) method or a 1/ 3rds spline method to adjust changes in variance as series replica- tion decreased towards the earlier portion of each chronology (Jones et al., 1997). The 1/3rds spline method was chosen when replication in the inner portion of each chronology (c. the inner 30–50 yr of each record depending on full chronology length) dropped below three trees. Once that step was complete, a robust biweight mean chronology for each species was calculated from the ring-width indices (Cook, 1985). We chose to use residual chronologies because the autoregressive standardisation process in creating them removes much of the tree-level autocorrelation in growth and these chronologies would most likely contain the most conservative information on drivers of interannual growth (Cook, 1985).* 
+*(The following italic text is plagarized from Helcoski and needs to be reworded:)* *The influence of outliers in all series was reduced using the adaptive power transformation, which also stabilises the variance over time (Cook & Peters, 1997). Next, each series was stabilised using either the average correlation between raw ring-width series (rbar) method or a 1/ 3rds spline method to adjust changes in variance as series replication decreased towards the earlier portion of each chronology (Jones et al., 1997). The 1/3rds spline method was chosen when replication in the inner portion of each chronology (c. the inner 30–50 yr of each record depending on full chronology length) dropped below three trees. Once that step was complete, a robust biweight mean chronology for each species was calculated from the ring-width indices (Cook, 1985). We chose to use residual chronologies because the autoregressive standardisation process in creating them removes much of the tree-level autocorrelation in growth and these chronologies would most likely contain the most conservative information on drivers of interannual growth (Cook, 1985).* 
 
 Following @helcoski_growing_2019, we defined chronology start dates according to the subsample signal strength (SSS), using a cutoff of SSS = 0.80 (or 80% of the population signal).
 Thus, for this analysis only, we defined chronology start dates as the year the SSS exceeded 0.80 or two years after the start of the climate record, whichever came later. 
@@ -151,7 +149,39 @@ kable(allometries_table, format = "latex", booktabs = TRUE,   escape = F, linese
 For assignments of species as proxies for those with out available bark allometries, see Table S2.
 
 \newpage
-## Table S5. Frequency of $DBH$-climate interactions across all sites and growth metrics
+## Table S5. Qualtiative comparison of results from this study with previous studies employing conventional methods
+
+```{r eval = TRUE, echo=FALSE, warning=FALSE}
+library(knitr)
+library(kableExtra)
+ss_table <- read.csv("tables_figures/qualitative_results_comparison.csv", stringsAsFactors = FALSE, check.names = FALSE)
+kable(ss_table, format = "latex", booktabs = TRUE,   escape = F, linesep = c('\\addlinespace'))%>%
+  add_header_above(c(" "," ", "Precipitation response" = 2, "Temperature response" = 2)) %>%
+  column_spec(3, width = "4cm") %>%
+  column_spec(4, width = "4cm") %>%
+  column_spec(5, width = "4cm") %>%
+  column_spec(6, width = "4cm") %>%
+  kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
+
+# refs in this table need to go in the nocite field below
+```
+---
+nocite: | 
+  @alfaro-sanchez_growth_2017; @vlam_temperature_2014; @helcoski_growing_2019; @maxwell_declining_2016; @aus_de_ar_tree_2018; @bumann_assessing_2019; @tumajer_increasing_2017; @sniderhan_growth_2016
+---
+Results from this study are the climate-only model. 
+For previous studies, we summarize responses only within the months considered here. 
+Beyond the methodological differences, original studies vary from this one and from one another in factors including
+exact set of cores analyzed,
+climate data sources,
+time frame of analysis,
+approaches to identifying candidate climate variables and windows (including whether this is done on a site or species level), 
+methods for detrending and standardizing to build chronologies,
+and whether the effects of temperature and precipitation are considered separately (original studies) or additively (this study).
+An analysis standardizing all of these factors for four species is present in Appendix **S2** and Fig. **S1**.
+
+\newpage
+## Table S6. Frequency of $DBH$-climate interactions across all sites and growth metrics
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
 library(kableExtra)

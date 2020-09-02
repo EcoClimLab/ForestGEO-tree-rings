@@ -277,7 +277,7 @@ Data for # of the sites are archived in the The DendroEcological Network (DEN) d
 
 *Identifying climate drivers*
 
-**Our process picked out similar climate drivers to what would be obtained via traditional methods (Figs. **2**, **S1**; Appendix S2), but with the advantage that *climwin* allowed objective selection of the strongest climate drivers and the time windows over which they were most influential.**
+**Our process picked out similar climate drivers to what would be obtained via traditional methods (Figs. **2**, **S1**; Table S5; Appendix S2), but with the advantage that *climwin* allowed objective selection of the strongest climate drivers and the time windows over which they were most influential.**
 The most commonly selected variables within the temperature group were $T_{max}$ and $PET$, each of which was identified by climwin as the top temperature-related driver *at four of the eight sites*. $T_{min}$ was the top driver at only *one site (BCI)*, and $T_{mean}$ was never identified as the top variable within the temperature group (Fig. **3**).
 Within the precipitation group, precipitation amount (PRE) was identified as the top variable most frequently (n=*6 of 9* sites), but it was not uncommon that it was surpassed by precipitation frequency (WET; n=*3 of 8* sites). 
 Optimal time windows often coincided with a site's peak growing season (n= *# of 10* for temperature variables, *# of 10* for precipitation variables), but exceptions were common. 
@@ -341,9 +341,9 @@ The relative importance of climate was modest at sites including SCBI (Fig. **5*
 ![**Figure 5 | Comparison of full top models for each growth metric ($\Delta r$, $BAI$, $\Delta AGB$) at sites where climatic controls are strong (Little Tesuque, left panel) and modest (SCBI, right panel).** Plotted are best fit models for each species, with transparent ribbons indicating 95% confidence intervals. For climate variables, best-fit polynomials are plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/show_case_response_plots.png)
 
 **Interactive effects of $DBH$ and climate were found for #% of species-variable combinations**. 
-Interactions were significant for over half of $DBH$-precipitation variable interactions for all three growth metrics (*51% for all*; Table S5).
+Interactions were significant for over half of $DBH$-precipitation variable interactions for all three growth metrics (*51% for all*; Table S6).
 The majority (#%) of these interactions were positive, indicating that larger trees generally respond more positively (or less negatively) to precipitation or it's frequency (Fig. **6?**).
-Interactions between temperature variables and $DBH$ were significant for *~40%* of cases considered (Table S5). 
+Interactions between temperature variables and $DBH$ were significant for *~40%* of cases considered (Table S6). 
 The majority (#%) of these interactions were positive, indicating that larger trees generally respond less negatively (or more positively) to $T_{max}$ or $PET$ (Fig. **6?**).
 
 **figure on climate - DBH interactions?** (*See [ISSUE #42 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/42)*)

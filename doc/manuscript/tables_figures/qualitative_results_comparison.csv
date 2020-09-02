@@ -1,0 +1,17 @@
+Site,Species,previously observed ,observed here,previously observed ,observed here,reference
+BCI,JACO,positive correlation to Apr-Dec precipitation (strongest of the 3 species),positive correlation to Mar-Dec precipitation (strongest of the 3 species),no sig. correlation to annual $T_{mean}$ or $T_{min}$,negative response to Feb-Mar $T_{min}$,Alfaro-S$\acute{a}$nchez et al. 2017
+,TEPA,"positive correlation to Apr-Dec precipitation (response weaker than JACO, similar to TRTU)","positive correlation to Mar-Dec precipitation (response weaker than JACO, similar to TRTU)",no sig. correlation to annual $T_{mean}$ or $T_{min}$,no sig. correlation to Feb-Mar $T_{min}$,Alfaro-S$\acute{a}$nchez et al. 2017
+,TRTU,"positive correlation to Apr-Dec precipitation (response weaker than JACO, similar to TEPA)","positive correlation to Mar-Dec precipitation (response weaker than JACO, similar to TEPA)",no sig. correlation to annual $T_{mean}$ or $T_{min}$,non-sig. slight positive response to Feb-Mar $T_{min}$,Alfaro-S$\acute{a}$nchez et al. 2017
+HKK,AFXY,"sig. positive correlation with June precip, otherwise n.s.",slight concave-down response to p.Sept-June precip frequency,"sig. negative correlation with $T_{max}$ in Aug and Dec; $T_{min}$ in p.Oct., Jul, Aug",slight concave-down response to Apr-Oct $T_{max}$,Vlam et al. 2013
+,CHTA,"sig. positive correlation with April precip, otherwise n.s.",slight concave-down response to p.Sept-June precip frequency,"sig. negative correlation with $T_{max}$ in May, Aug-Sept; $T_{min}$ in Feb, May, Aug",slight negative response to Apr-Oct $T_{max}$,Vlam et al. 2013
+,MEAZ,"sig. positive correlation with April precip, otherwise n.s.",concave-down response to p.Sept-June precip frequency,sig. negative correlation with $T_{max}$ in May-Aug; $T_{min}$ in May-Aug ,negative response to Apr-Oct $T_{max}$ ,Vlam et al. 2013
+,TOCI,sig. positive correlation with p.Oct-p.Nov and April-May precip,concave-down /increasing response to p.Sept-June precip frequency,sig. negative correlation with $T_{max}$ every month from pOct-June (excluding March); $T_{min}$ in Jan and Mar-Aug ,negative response to Apr-Oct $T_{max}$ ,Vlam et al. 2013
+LT,PIPO,,,,,
+,PIST2,,,,,
+CB,,,,,,
+SCBI,,,,,,Helcoski et al. 2019
+LDW,,,,,,"Maxwell, Harley, and Robeson 2016"
+HF,,,,,,
+NE,,,,,,Aus de Ar et al. 2018; Bumann et al. 2019
+ZOF,,,,,,Tumajer et al. 2017
+SC,,,,,,Sniderhan and Baltzer 2016

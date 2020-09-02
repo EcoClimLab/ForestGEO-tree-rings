@@ -1,6 +1,6 @@
 site code,site name,latitude,longitude,elevation (m.a.s.l.),cores within ForestGEO plot?,canopy positions ,tree statuses,date range,dormant season,months in climwin
 BCI,Barro Colorado Island,9.1543,-79.8461,120-160,no,canopy,"live, dead",1931-2014,Nov-Apr,pOct-cDec
-HKK,Huai Kha Khaeng,15.6324,99.217,549-638,no,all,live,1903-2011,,pOct-cDec
+HKK,Huai Kha Khaeng,15.6324,99.217,549-638,no,all,live,1903-2011,Nov-Apr,pOct-cDec
 LT,Little Tesuque,35.738376,-105.838154,,n.a.,all,live,1903-2018,,pMay-cAug
 CB,Utah Forest Dynamics Plot,37.6615,-112.8525,3020-3169,,,,1903-2007,,pMay-cAug
 SCBI,Smithsonian Conservation Biology Institute,38.8935,-78.1454,273-338,yes,all,"live, dead",1903-2017,Oct-Apr,pMay-cAug
