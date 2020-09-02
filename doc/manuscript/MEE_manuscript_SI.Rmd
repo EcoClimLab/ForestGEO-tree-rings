@@ -155,13 +155,14 @@ For assignments of species as proxies for those with out available bark allometr
 library(knitr)
 library(kableExtra)
 ss_table <- read.csv("tables_figures/qualitative_results_comparison.csv", stringsAsFactors = FALSE, check.names = FALSE)
-kable(ss_table, format = "latex", booktabs = TRUE,   escape = F, linesep = c('\\addlinespace'))%>%
+kable(ss_table, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = F, linesep = c('\\addlinespace'))%>%
   add_header_above(c(" "," ", "Precipitation response" = 2, "Temperature response" = 2)) %>%
-  column_spec(3, width = "4cm") %>%
-  column_spec(4, width = "4cm") %>%
-  column_spec(5, width = "4cm") %>%
-  column_spec(6, width = "4cm") %>%
-  kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
+  column_spec(3, width = "2.5cm") %>%
+  column_spec(4, width = "2.5cm") %>%
+  column_spec(5, width = "2.5cm") %>%
+  column_spec(6, width = "2.5cm") %>%
+  column_spec(7, width = "2cm") %>%
+  kable_styling(latex_options = c( "hold_position", "repeat header"), protect_latex = T, font_size = 9) 
 
 # refs in this table need to go in the nocite field below
 ```
@@ -170,7 +171,7 @@ nocite: |
   @alfaro-sanchez_growth_2017; @vlam_temperature_2014; @helcoski_growing_2019; @maxwell_declining_2016; @aus_de_ar_tree_2018; @bumann_assessing_2019; @tumajer_increasing_2017; @sniderhan_growth_2016
 ---
 Results from this study are the climate-only model. 
-For previous studies, we summarize responses only within the months considered here. 
+Where previous studies examined numerous climate variables or time windows [e.g., @helcoski_growing_2019], we focus on those most relevant to our findings. 
 Beyond the methodological differences, original studies vary from this one and from one another in factors including
 exact set of cores analyzed,
 climate data sources,
