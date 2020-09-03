@@ -186,7 +186,7 @@ plot(0:100, 0:100, type = "n", axes = F, xlab = "", ylab = "")
 rasterImage( img1 , xleft = 0, xright = 100,
              ybottom = 0, ytop = 100)
 
-rect(xleft = rev(seq(27, 94.5, length.out = 17))[5],
+rect(xleft = rev(seq(27, 94.5, length.out = 17))[5]+1,
      ybottom = 0,
      xright = rev(seq(27, 94.5, length.out = 17))[2],
      ytop = 90, 
@@ -199,7 +199,7 @@ text(x = c(mean(c(28, 62)), mean(c(63, 93))),
      col = c("grey", "black"))
 
 mtext("a)", side = 3, adj = 0.1, line = -2, cex = .8)
-axis(1, at = seq(27, 94.5, length.out = 17), labels = rev(c(0:15, "")), cex.axis = .65, line = -1, col.ticks = "white", hadj = 1.5, tcl=-.1
+axis(1, at = seq(27, 94.5, length.out = 17)+.2, labels = rev(c(0:15, "")), cex.axis = .65, line = -1, col.ticks = "white", hadj = 1.5, tcl=-.1
       )
 mtext("months prior to current August", side = 1, cex = .6, adj = 0.7, line = 0)
 
