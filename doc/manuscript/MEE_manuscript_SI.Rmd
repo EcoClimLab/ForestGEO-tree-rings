@@ -154,16 +154,37 @@ For assignments of species as proxies for those with out available bark allometr
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
 library(kableExtra)
-ss_table <- read.csv("tables_figures/qualitative_results_comparison.csv", stringsAsFactors = FALSE, check.names = FALSE)
-kable(ss_table, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = F, linesep = c('\\addlinespace'))%>%
-  add_header_above(c(" "," ", "Precipitation response" = 2, "Temperature response" = 2)) %>%
-  column_spec(3, width = "2.5cm") %>%
-  column_spec(4, width = "2.5cm") %>%
-  column_spec(5, width = "2.5cm") %>%
-  column_spec(6, width = "2.5cm") %>%
-  column_spec(7, width = "2cm") %>%
-  kable_styling(latex_options = c( "hold_position", "repeat header"), protect_latex = T, font_size = 9) 
+breakrow1<-10
+breakrow2<-24
+col_width<-"2.5cm"
+table_pt1 <- read.csv("tables_figures/qualitative_results_comparison.csv", 
+                     colClasses=c("NULL", NA, NA, NA, NA, NA, NA), 
+                     col.names=c("NULL", "species", "previously observed", "observed here", "previously observed", "observed here", "reference"), 
+                     skip=0, nrows=breakrow1,
+                     stringsAsFactors = FALSE, check.names = FALSE)
+kable(table_pt1, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = F, linesep = c('\\addlinespace'))%>%
+  add_header_above(c(" ", "Precipitation response" = 2, "Temperature response" = 2)) %>%
+  column_spec(2:5, width = col_width) %>%
+  column_spec(6, width = "2cm") %>%
+  pack_rows("Barro Colorado Island, Panama", 1, 3, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Huai Kha Khaeng, Thailand", 4, 7, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  kable_styling(latex_options = c( "hold_position", "repeat header"), protect_latex = T, font_size = 7) 
+```
 
+\newpage
+Table S5, cont.
+```{r eval = TRUE, echo=FALSE, warning=FALSE}
+table_pt2 <- read.csv("tables_figures/qualitative_results_comparison.csv", 
+                     colClasses=c("NULL", NA, NA, NA, NA, NA, NA), 
+                     col.names=c("NULL", "species", "previously observed", "observed here", "previously observed", "observed here", "reference"), 
+                     skip=breakrow1, nrows=breakrow2-breakrow1+1,
+                     stringsAsFactors = FALSE, check.names = FALSE)
+kable(table_pt2, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = F, linesep = c('\\addlinespace'))%>%
+  add_header_above(c(" ", "Precipitation response" = 2, "Temperature response" = 2)) %>%
+  column_spec(2:5, width = col_width) %>%
+  column_spec(6, width = "2cm") %>%
+  pack_rows("Smithsonian Conservation Biology Institute, Virginia, USA", 1, 14, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  kable_styling(latex_options = c( "hold_position", "repeat header"), protect_latex = T, font_size = 7) 
 # refs in this table need to go in the nocite field below
 ```
 ---

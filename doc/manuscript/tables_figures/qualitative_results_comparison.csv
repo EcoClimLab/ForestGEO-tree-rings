@@ -1,4 +1,4 @@
-Site,Species,previously observed ,observed here,previously observed ,observed here,reference
+Site,Species,PPT: previously observed ,PPT:observed here, T: previously observed ,T: observed here,reference
 BCI,JACO,positive correlation to Apr-Dec precipitation (strongest of the 3 species),positive correlation to Mar-Dec precipitation (strongest of the 3 species),no sig. correlation to annual $T_{mean}$ or $T_{min}$,negative response to Feb-Mar $T_{min}$,Alfaro-S$\acute{a}$nchez et al. 2017
 ,TEPA,"positive correlation to Apr-Dec precipitation (response weaker than JACO, similar to TRTU)","positive correlation to Mar-Dec precipitation (response weaker than JACO, similar to TRTU)",no sig. correlation to annual $T_{mean}$ or $T_{min}$,no sig. correlation to Feb-Mar $T_{min}$,Alfaro-S$\acute{a}$nchez et al. 2017
 ,TRTU,"positive correlation to Apr-Dec precipitation (response weaker than JACO, similar to TEPA)","positive correlation to Mar-Dec precipitation (response weaker than JACO, similar to TEPA)",no sig. correlation to annual $T_{mean}$ or $T_{min}$,non-sig. slight positive response to Feb-Mar $T_{min}$,Alfaro-S$\acute{a}$nchez et al. 2017
