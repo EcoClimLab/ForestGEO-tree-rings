@@ -50,6 +50,16 @@ sites_abb <- list(BCI  = "BCI",
                   Zofin = "ZOF",
                   ScottyCreek = "SC")
 
+# standardize variable neames ####
+v_names <- list(tmn = "expression(T[min]~",
+                tmx = "expression(T[max]~",
+                tmp = "expression(T[mean]~",
+                pet = "expression(PET~",
+                pre = "expression(PPT~",
+                wet = "expression(PDF~",
+                dbh = "expression(DBH~")
+
+
 # prepare function ####
 
 g_legend <- function(x = "pt"){
@@ -101,7 +111,7 @@ grid::grid.text(sites_abb[sites_with_dbh], x = unit(0.025, "npc"), y = unit(rev(
 
 grid::grid.text(what_to_show, x = unit(cumsum(c(.05 +.9/4/2, rep(.9/4, 2))), "npc"), y = unit(.99,  "npc"))
 
-grid::grid.text("dbh (cm)", x = unit(.5, "npc"), y = unit(0.015,  "npc"))
+grid::grid.text("DBH (cm)", x = unit(.5, "npc"), y = unit(0.015,  "npc"))
 
 dev.off()
 
@@ -125,6 +135,15 @@ for(site in sites){
   clim_var_group <- get("clim_var_group"  , temp_env)
   
   existing_plots <- existing_plots[match(c(1,2), sapply(gsub("p_", "", existing_plots), function(x) grep(x,  clim_var_group)[1]))]
+  
+  # sandardize varaible names
+  lapply(existing_plots, function(x) {
+    p <- get(x, temp_env)
+    p$labels$x <- eval(parse(text = gsub(" |  ", "~", gsub("-1", "\\^-1", paste0(gsub(substr(p$labels$x, 1, 4), v_names[substr(p$labels$x, 1, 3)], p$labels$x), ")")))))
+    assign(x, p, temp_env)
+  })
+  
+  # add legend
   
   assign("leg", g_legend(), envir = temp_env)
   existing_plots <- c(existing_plots, "leg")
@@ -229,6 +248,8 @@ p <- get(paste0("p_", v), temp_env)
 p <- p + labs(y = expression(Delta*r~(mm)))
 p <- p + theme(legend.position="right", legend.text = element_text(size = 8)) # add legend
 p$layers[c(1,2)] <- NULL # remove vertical line and shading
+p$labels$x <- eval(parse(text = gsub(" |  ", "~", gsub("-1", "\\^-1", paste0(gsub(substr(p$labels$x, 1, 4), v_names[substr(p$labels$x, 1, 3)], p$labels$x), ")"))))) # change varaible label
+  
 plot.new()              ## suggested by @Josh
 vps <- gridBase::baseViewports()
 pushViewport(vps$figure) ##   I am in the space of the autocorrelation plot
@@ -270,6 +291,13 @@ for(site in sites_with_dbh){
     p <- get(x, temp_env)
     p$data[c("expfit", "lwr", "upr")] <-   p$data[c("expfit", "lwr", "upr")]*1000
     assign(x, p, envir = temp_env)
+  })
+  
+  # standardize variable names
+  lapply(existing_plots, function(x) {
+    p <- get(x, temp_env)
+    p$labels$x <- eval(parse(text = gsub(" |  ", "~", gsub("-1", "\\^-1", paste0(gsub(substr(p$labels$x, 1, 4), v_names[substr(p$labels$x, 1, 3)], p$labels$x), ")")))))
+    assign(x, p, temp_env)
   })
   
  # get the legend
