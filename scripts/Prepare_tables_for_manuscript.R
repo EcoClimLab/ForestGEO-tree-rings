@@ -95,8 +95,11 @@ summary_samples <- left_join(left_join(A, B), C)
 ## change site names to abbreviations
 summary_samples$site <- unlist(sites_abb[as.character(summary_samples$site)])
 
+## add asterix for dbh.range.reconstructed
+names(summary_samples) <- gsub("dbh.range.reconstructed", "dbh.range.reconstructed\\*", names(summary_samples))
+
 ## save
-write.csv(summary_samples, "doc/manuscript/tables_figures/sampling_details.csv", row.names = F)
+write.csv(summary_samples, "doc/manuscript/tables_figures/sampling_details.csv", row.names = F, quote = F)
 
 # # sites and species combo ####
 # site_sp_combo <- unique(do.call(rbind, all_Biol)[, c("site", "species_code")])
