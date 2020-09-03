@@ -55,6 +55,11 @@ species_summary <- species_summary[order(species_summary$species.code), ]
 ## remove species that are not sampled in any site
 species_summary <- species_summary[!is.na(species_summary$sites.sampled), ]
 
+
+## replace underscores by spaces
+
+names(species_summary) <- gsub("\\.|_", " ", names(species_summary))
+
 ## save
 
 write.csv(species_summary, "doc/manuscript/tables_figures/species.csv", row.names = F)
@@ -97,6 +102,10 @@ summary_samples$site <- unlist(sites_abb[as.character(summary_samples$site)])
 
 ## add asterix for dbh.range.reconstructed
 names(summary_samples) <- gsub("dbh.range.reconstructed", "dbh.range.reconstructed\\*", names(summary_samples))
+
+## replace underscores by spaces
+
+names(summary_samples) <- gsub("\\.|_", " ", names(summary_samples))
 
 ## save
 write.csv(summary_samples, "doc/manuscript/tables_figures/sampling_details.csv", row.names = F, quote = F)

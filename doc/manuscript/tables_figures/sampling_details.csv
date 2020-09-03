@@ -1,4 +1,4 @@
-site,species_code,n.trees.all,n.cores.all,n.trees.dbh,n.cores.dbh,dbh.range.sampled,dbh.range.reconstructed*,date.range
+site,species code,n trees all,n cores all,n trees dbh,n cores dbh,dbh range sampled,dbh range reconstructed*,date range
 BCI,JACO,12,18,11,17,30.2-63.5,3.8-59.4,1931-2014
 BCI,TEPA,18,29,17,26,22.1-59.5,2.6-51.2,1931-2014
 BCI,TRTU,23,37,20,31,20.7-43.6,5.3-42.4,1931-2014
