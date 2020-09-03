@@ -15,7 +15,7 @@ sites_abb <- list(BCI  = "BCI",
                   SCBI = "SCBI",
                   LillyDickey = "LDW",
                   HarvardForest = "HF",
-                  NB = "NB",
+                  NB = "NE",
                   Zofin = "ZOF",
                   ScottyCreek = "SC")
 # load data ####
@@ -51,6 +51,9 @@ species_summary$bark.allometry <- tapply(paste(ifelse(is.na(species_list$bark_sp
 
 ## order by species code
 species_summary <- species_summary[order(species_summary$species.code), ]
+
+## remove species that are not sampled in any site
+species_summary <- species_summary[!is.na(species_summary$sites.sampled), ]
 
 ## save
 
