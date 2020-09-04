@@ -2,7 +2,7 @@ site code,site name,location,Jan T,July T,Ann. Precip.,vegetation type(s),n spec
 BCI,Barro Colorado Island,Panama,,,,"BD, BE",3,84,"Alfaro-S$\acute{a}$nchez, Muller-Landau, Wright, and Camarero 2017"
 HKK,Huai Kha Khaeng,Thailand,,,,"BD, BE",4,470,"Vlam, Baker, Bunyavejchewin, and Zuidema 2014"
 LT,Little Tesuque,"New Mexico, USA",,,,NE,2,34,
-CB,Cedar Breaks,"Utah, USA",,,,NE,3*,38*,
+CB,Cedar Breaks,"Utah, USA",,,,"NE, BD",7,203,
 SCBI,Smithsonian Conservation Biology Institute,"Virginia, USA",,,,"BD, NE",14,706,Helcoski et al. 2019
 LDW,Lilly Dickey Woods,"Indiana, USA",,,,BD,6,170,"Maxwell, Harley, and Robeson 2016"
 HF,Harvard Forest,"Massachusetts, USA",,,,"BD, NE",4,366,
