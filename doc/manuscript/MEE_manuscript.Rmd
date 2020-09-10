@@ -34,18 +34,18 @@ Paolo Cherubini,
 Justin Cooper,
 Stuart Davies^2^,
 Ryan Helcoski^1^,
-Vasickova Ivana,
-Kaspar Jakub,
+Jakub Kašpar^cz^,
 Kamil Kral,
 James Lutz,
 Ellis Q. Margolis,
 Justin Maxwell,
 Sean McMahon^2^,
 Helene Muller-Landau^2^,
-Samonil Pavil,
 Sabrina Russo,
+Pavel Šamonil^cz^,
 Anastasia Sniderhan,
 Alan J. Tepley^1,#^,
+Ivana Vašíčková^cz^, 
 Mart Vlam,
 Peter Zuidema
 
@@ -61,6 +61,8 @@ Peter Zuidema
 4. Harvard Forest, Petersham, MA 01366, USA
 
 X#. Canadian Forest Service, Northern Forestry Centre, Edmonton, Alberta, Canada
+
+cz. Department of Forest Ecology, The Silva Tarouca Research Institute for Landscape and Ornamental Gardening, Lidická 25/27, 602 00 Brno, Czech Republic
 
 *corresponding author: teixeirak@si.edu; +1 540 635 6546
 
@@ -284,7 +286,7 @@ Optimal time windows often coincided with a site's peak growing season (n= *# of
 At the *5 lowest latitude* sites (BCI, HKK, LT, CB, and SCBI), the optimal window for precipitation variables spanned $\ge$ 8 months, ending during the peak growing months of the year of ring formation. 
 At the *3 highest latitude sites* (HF, ZOF, and SC), the optimal window for precipitation variables was a short ($\le$ 3 months) window during the previous growing season.
 Optimal windows for temperature variables tended to be shorter, the longest being a *6* month period during the summer (wet season) at HKK. 
-At two of the higher-latitude temperate sites (HF and Zofin), temperatures were most influential during late winter/ early spring.
+At two of the higher-latitude temperate sites (HF and Žofín), temperatures were most influential during late winter/ early spring.
 There were also a few instances where previous growing season conditions had the strongest influence.
 
 ![**Figure 2 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table S2) to potential evapotranspiration ($PET$). Panel (**a**) shows a matrix of Pearson correlations between ring-width index and monthly climate variables. Black rectangle represents the period selected by *climwin* as the most influential window. Panels (**b-d**) give statistics for time windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diaganol indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each time window, and (**d**) gives the $\Delta AIC$ for each. The time window with the minimum $\Delta AIC$ (0-3 months prior to August, or May-July; black circles), was identified as the optimal window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows GLS model output, where $PET$ was a candidate driver variable (along with $PPT$; $DBH$ not included in this model). Plotted are responses of species for which $PET$ was included in the top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals.](tables_figures/quilt_comparison.png)
@@ -320,7 +322,7 @@ Temperature terms included in top models were non-linear #% *(most)* of the time
 While $\Delta r$ varied significantly with $DBH$ for the majority of species-site combinations (n= # of #; Table **S#**), there was substantial variation in these trends, with patterns mixed across both forests and species within a single stand (Fig. **4**).
 On one end of the spectrum, *Melia azedarach* at HKK had extremely rapid growth at small $DBH$, with $\Delta r$ ranging up to ~15mm yr^-1^, followed by fairly rapid declines with increasing $DBH$. 
 Similar patterns of approximately exponential decline in $\Delta r$ with $DBH$ were observed for conifer species at Little Tesuque and Scotty Creek--both relatively open forests--and a number of species in mesic temperate forests (Fig. **4**).
-At the other end of the spectrum, a number of species at sites where they presumably established under closed-canopy conditions (e.g., *Fagus* at SCBI and Zofin) had $\Delta r$ <1 mm yr^-1^ at small $DBH$, increased to peak $\Delta r$ between # and # cm $DBH$, and subsequently declined.  
+At the other end of the spectrum, a number of species at sites where they presumably established under closed-canopy conditions (e.g., *Fagus* at SCBI and Žofín) had $\Delta r$ <1 mm yr^-1^ at small $DBH$, increased to peak $\Delta r$ between # and # cm $DBH$, and subsequently declined.  
 
 **The variable patterns in $\Delta r$ with $DBH$ translated into differences in variation in $BAI$ and $\Delta AGB$ with $DBH$, although trends in both of these were more consistent across sites and species, typically increasing to a peak at intermediate $DBH$ and then declining (Fig. **4**).**
 
@@ -376,7 +378,7 @@ Ideas to discuss:
 On one end of the spectrum, species that would have established in fairly open conditions--*i.e.*, shade-intolerant species and those at sites with more open canopies (e.g., LT, SC)-- exhibited rapid initial growth followed by exponential decline. 
 The most pronounced example of this pattern was *Melia azedarach* --a highly shade-intolerant species that generally establishes in the open [@baker_suppression_2006] and was sampled opportunistically outside the ForestGEO plot at HKK [@vlam_temperature_2014], where it presumably established under open conditions.
 Such patterns are consistent with dendrochronology's "textbook" patterns, which have been derived primarily from open-grown trees (DENDRO_REFS).
-On the other end of the spectrum, shade-tolerant species (e.g. *Fagus* at SCBI and Zofin) exhibited initially low, but increasing, $\Delta r$.
+On the other end of the spectrum, shade-tolerant species (e.g. *Fagus* at SCBI and Žofín) exhibited initially low, but increasing, $\Delta r$.
 This pattern is consistent with patterns observed in stand-level census data from closed-canopy forests, including several in this analysis, where $\Delta r$ increases continuously with $DBH$ [@muller-landau_testing_2006; @anderson-teixeira_size-related_2015; Piponiot et al. in prep]. 
 While the low community mean $\Delta r$ at small $DBH$ observed in closed-canopy forests is in large part driven by slow-growing small stems that will never enter the cohort of trees sampled by coring (e.g., $\ge$ 10cm DBH), increases in $\Delta r$ with $DBH$ have also been observed for most species at SCBI using the same tree-ring data set analyzed here, but comparing across individuals using only contemporary data [@helcoski_growing_2019].
 Thus, patterns of decreasing $\Delta r$ with $DBH$ are likely limited to open-grown trees or those establishing in gaps.  
@@ -413,6 +415,7 @@ Sets the foundation for considering other, slowly changing environmental drivers
 Thanks to Pete Kerby-Miller for bark thickness data.
 Helpful feedback was provided by Albert Kim...
 This analysis was funded by a Smithsonian Scholarly Studies grant to KAT, SM, HCM, and CP.
+The participation of PS, JK, and IV from the Czech Republic was supported by the Czech Science Foundation, project No. 19-09427S
 
 ### Authors' contributions
 KAT, VH, CR, RA, CP conceived the ideas and designed methodology; 
