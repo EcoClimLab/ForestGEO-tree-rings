@@ -156,6 +156,7 @@ library(knitr)
 library(kableExtra)
 breakrow1<-10
 breakrow2<-24
+breakrow3<-32
 col_width<-"2.5cm"
 table_pt1 <- read.csv("tables_figures/qualitative_results_comparison.csv", 
                      colClasses=c("NULL", NA, NA, NA, NA, NA, NA), 
@@ -169,6 +170,7 @@ kable(table_pt1, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = 
   pack_rows("Barro Colorado Island, Panama", 1, 3, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
   pack_rows("Huai Kha Khaeng, Thailand", 4, 7, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
   kable_styling(latex_options = c( "hold_position", "repeat header"), protect_latex = T, font_size = 7) 
+# refs in this table need to go in the nocite field below
 ```
 
 \newpage
@@ -177,7 +179,7 @@ Table S5, cont.
 table_pt2 <- read.csv("tables_figures/qualitative_results_comparison.csv", 
                      colClasses=c("NULL", NA, NA, NA, NA, NA, NA), 
                      col.names=c("NULL", "species", "previously observed", "observed here", "previously observed", "observed here", "reference"), 
-                     skip=breakrow1, nrows=breakrow2-breakrow1+1,
+                     skip=breakrow1, nrows=breakrow2-breakrow1,
                      stringsAsFactors = FALSE, check.names = FALSE)
 kable(table_pt2, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = F, linesep = c('\\addlinespace'))%>%
   add_header_above(c(" ", "Precipitation response" = 2, "Temperature response" = 2)) %>%
@@ -187,9 +189,27 @@ kable(table_pt2, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = 
   kable_styling(latex_options = c( "hold_position", "repeat header"), protect_latex = T, font_size = 7) 
 # refs in this table need to go in the nocite field below
 ```
+
+\newpage
+Table S5, cont.
+```{r eval = TRUE, echo=FALSE, warning=FALSE}
+table_pt3 <- read.csv("tables_figures/qualitative_results_comparison.csv", 
+                     colClasses=c("NULL", NA, NA, NA, NA, NA, NA), 
+                     col.names=c("NULL", "species", "previously observed", "observed here", "previously observed", "observed here", "reference"), 
+                     skip=breakrow2, nrows=breakrow3-breakrow2,
+                     stringsAsFactors = FALSE, check.names = FALSE)
+kable(table_pt3, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = F, linesep = c('\\addlinespace'))%>%
+  add_header_above(c(" ", "Precipitation response" = 2, "Temperature response" = 2)) %>%
+  column_spec(2:5, width = col_width) %>%
+  column_spec(6, width = "2cm") %>%
+  pack_rows("Žofín Forest Dynamics Plot, Czech Republic", 4, 7, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Scotty Creek, NW Territories, Canada", 8, 8, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  kable_styling(latex_options = c( "hold_position", "repeat header"), protect_latex = T, font_size = 7) 
+# refs in this table need to go in the nocite field below
+```
 ---
 nocite: | 
-  @alfaro-sanchez_growth_2017; @vlam_temperature_2014; @helcoski_growing_2019; @maxwell_declining_2016; @aus_de_ar_tree_2018; @bumann_assessing_2019; @tumajer_increasing_2017; @sniderhan_growth_2016
+  @alfaro-sanchez_growth_2017; @vlam_temperature_2014; @helcoski_growing_2019; @maxwell_declining_2016; @aus_de_ar_tree_2018; @bumann_assessing_2019; @tumajer_increasing_2017; @sniderhan_growth_2016; @kaspar_species-specific_nodate
 ---
 Results from this study are the climate-only model. 
 Where previous studies examined numerous climate variables or time windows [e.g., @helcoski_growing_2019], we focus on those most relevant to our findings. 

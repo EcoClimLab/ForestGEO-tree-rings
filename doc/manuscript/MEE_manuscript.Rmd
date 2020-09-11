@@ -14,9 +14,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **Title:** Using tree-ring records to simultaneously characterize the influence of tree size and climate drivers on annual growth
 
-**Authors (not yet complete, final order TBD):** 
+**Authors:** 
 
-Kristina J. Anderson-Teixeira^1,2^*,
+[Kristina J. Anderson-Teixeira^1,2^*](0000-0001-8461-9713),
 Valentine Herrmann^1^,
 Christy Rollinson^3^,
 Bianca Gonzalez^1^,
@@ -34,7 +34,7 @@ Paolo Cherubini,
 Justin Cooper,
 Stuart Davies^2^,
 Ryan Helcoski^1^,
-Jakub Kašpar^cz^,
+[Jakub Kašpar^cz^](0000-0003-1780-6310),
 Kamil Kral,
 James Lutz,
 Ellis Q. Margolis,
@@ -42,10 +42,10 @@ Justin Maxwell,
 Sean McMahon^2^,
 Helene Muller-Landau^2^,
 Sabrina Russo,
-Pavel Šamonil^cz^,
+[Pavel Šamonil^cz^](0000-0002-7722-8797),
 Anastasia Sniderhan,
-Alan J. Tepley^1,#^,
-Ivana Vašíčková^cz^, 
+Alan J. Tepley^1,at^,
+[Ivana Vašíčková^cz^](0000-0002-6070-5956), 
 Mart Vlam,
 Peter Zuidema
 
@@ -60,7 +60,7 @@ Peter Zuidema
 
 4. Harvard Forest, Petersham, MA 01366, USA
 
-X#. Canadian Forest Service, Northern Forestry Centre, Edmonton, Alberta, Canada
+at. Canadian Forest Service, Northern Forestry Centre, Edmonton, Alberta, Canada
 
 cz. Department of Forest Ecology, The Silva Tarouca Research Institute for Landscape and Ornamental Gardening, Lidická 25/27, 602 00 Brno, Czech Republic
 
@@ -200,7 +200,7 @@ kable(sites)
 ```
 ---
 nocite: | 
-  @vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @tumajer_increasing_2017; @alfaro-sanchez_growth_2017; @helcoski_growing_2019; @aus_de_ar_tree_2018; @bumann_assessing_2019
+  @vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @alfaro-sanchez_growth_2017; @helcoski_growing_2019; @aus_de_ar_tree_2018; @bumann_assessing_2019; @samonil_individual-based_2013; @kaspar_species-specific_nodate
 ---
 
 All tree cores were measured and cross-dated by the original researchers using standard dendrochronological practices. 
@@ -289,7 +289,7 @@ Optimal windows for temperature variables tended to be shorter, the longest bein
 At two of the higher-latitude temperate sites (HF and Žofín), temperatures were most influential during late winter/ early spring.
 There were also a few instances where previous growing season conditions had the strongest influence.
 
-![**Figure 2 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table S2) to potential evapotranspiration ($PET$). Panel (**a**) shows a matrix of Pearson correlations between ring-width index and monthly climate variables. Black rectangle represents the period selected by *climwin* as the most influential window. Panels (**b-d**) give statistics for time windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diaganol indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each time window, and (**d**) gives the $\Delta AIC$ for each. The time window with the minimum $\Delta AIC$ (0-3 months prior to August, or May-July; black circles), was identified as the optimal window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows GLS model output, where $PET$ was a candidate driver variable (along with $PPT$; $DBH$ not included in this model). Plotted are responses of species for which $PET$ was included in the top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals.](tables_figures/quilt_comparison.png)
+![**Figure 2 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table S2) to potential evapotranspiration ($PET$). Panel (**a**) shows a matrix of Pearson correlations between ring-width index and monthly climate variables. Black rectangle represents the period selected by *climwin* as the most influential window. Panels (**b-d**) give statistics for time windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diaganol indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each time window, and (**d**) gives the $\Delta AIC$ for each. The time window with the minimum $\Delta AIC$ (0-3 months prior to August, or May-July; black circles), was identified as the optimal window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows GLS model output, where $PET$ was a candidate driver variable (along with $PPT$; $DBH$ not included in this model). Plotted are responses of species for which $PET$ was included in the top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are significant, dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals.](tables_figures/quilt_comparison.png)
 
 **Across the three metrics of growth, the "landscape" of climate effects over various time windows was generally similar, but the optimal time window or even the top climate variable sometimes differed (Figs. **S2**-**S4**).**
 Specifically, $\Delta r$, $BAI$, and $\Delta AGB$ consistently exhibited similar strength of correlation and direction of response to climate variables within the temperature and precipitation variable groups. 
@@ -300,7 +300,7 @@ Finally, in *2* cases of variables that had only weak effects and mixed response
 Henceforth, we focus on the climate drivers identified when $\Delta r$ was the growth metric and for the full set of cores (i.e., including those for which $DBH$ could not be reconstructed.)
 
   
-![**Figure 3 | Species-level responses of $\Delta r$ to climwin-selected variables in precipitation and temperature variable groups.** For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD. (THIS FIGURE WILL PROBABLY CHANGED INTO A 4COL X 5 ROW MATIX, DROPPING SPECIES KEY, WHICH CAN BE SEEN IN OTHER FIGURES)](tables_figures/pre_temp_groups.png)
+![**Figure 3 | Species-level responses of $\Delta r$ to climwin-selected variables in precipitation and temperature variable groups.** For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant, dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD. (THIS FIGURE WILL PROBABLY CHANGED INTO A 4COL X 5 ROW MATIX, DROPPING SPECIES KEY, WHICH CAN BE SEEN IN OTHER FIGURES)](tables_figures/pre_temp_groups.png)
 
 *Climate sensitivity*
 
@@ -327,7 +327,7 @@ At the other end of the spectrum, a number of species at sites where they presum
 **The variable patterns in $\Delta r$ with $DBH$ translated into differences in variation in $BAI$ and $\Delta AGB$ with $DBH$, although trends in both of these were more consistent across sites and species, typically increasing to a peak at intermediate $DBH$ and then declining (Fig. **4**).**
 
 
-![**Figure 4 | Growth sensitivity to DBH: (a) $\Delta r$, (b) $BAI$, (c) $\Delta AGB$.** Relationships for species are plottend when included in the top model. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are signficant, DASHED lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals.](tables_figures/DBH_responses.png)
+![**Figure 4 | Growth sensitivity to DBH: (a) $\Delta r$, (b) $BAI$, (c) $\Delta AGB$.** Relationships for species are plotted when included in the top model. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant, DASHED lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals.](tables_figures/DBH_responses.png)
 
 *Additive and interactive effects of climate and DBH*
 
@@ -340,7 +340,7 @@ The relative importance of $DBH$ tended to be least for $\Delta r$, intermediate
 However, there were exceptions, particularly when $\Delta r$ decreased steeply with $DBH$ (e.g., at Little Tesuque; Fig. **5**).
 The relative importance of climate was modest at sites including SCBI (Fig. **5**), HF (Fig. **S11**), and SC (Fig. **S14**), and stronger at sites including LT (Fig. **5**) and BCI (Fig. **S5**). 
 
-![**Figure 5 | Comparison of full top models for each growth metric ($\Delta r$, $BAI$, $\Delta AGB$) at sites where climatic controls are strong (Little Tesuque, left panel) and modest (SCBI, right panel).** Plotted are best fit models for each species, with transparent ribbons indicating 95% confidence intervals. For climate variables, best-fit polynomials are plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/show_case_response_plots.png)
+![**Figure 5 | Comparison of full top models for each growth metric ($\Delta r$, $BAI$, $\Delta AGB$) at sites where climatic controls are strong (Little Tesuque, left panel) and modest (SCBI, right panel).** Plotted are best fit models for each species, with transparent ribbons indicating 95% confidence intervals. For climate variables, best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant, dashed lines when only one term is significant, and dotted lines when neither is significant. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/show_case_response_plots.png)
 
 **Interactive effects of $DBH$ and climate were found for #% of species-variable combinations**. 
 Interactions were significant for over half of $DBH$-precipitation variable interactions for all three growth metrics (*51% for all*; Table S6).
@@ -371,6 +371,8 @@ Ideas to discuss:
 * additive effects are prevalent and should not be overlooked
 
 * nonlinear effects are prevalent
+
+* species climate sensitivity models could be improved by fitting climwin individually be species.
 
 *Influence of DBH*
 
@@ -405,7 +407,17 @@ Further work will be required to combine this model with forest census data in o
 
 All this points to the potential importance of considering DBH in climate reconstructions.
 Traditional dendro methods seek to remove the influence of $DBH$, but our finding of prevalent $DBH$-$\Delta r$ interactions indicate that it should not be ignored.
-DBH is not always collected when cores are taken, and is not routinely preserved alongside tree-ring data. For example, the International Tree-Ring Data Bank (ITRDB) contains no structure for storing DBH records. DEN is new alternative [@rayback_dendroecological_2020]. 
+*(Indeed, this is probably one factor contributing to the non-stationarity of climate signals in tree-ring records [@wilmking_global_2020].)*
+*(	Interactive effects of DBH and climate may suggest significant impact of different sampling strategy on results per individual site. -- e.g., stronger drought signal if just large trees are sampled. This is consistent with the dendro tradition of sampling canopy trees for strongest drought signals; however, our results suggest that temperature signals may be stronger in young trees.  )*
+*(height vs exposure/ social status of trees)*
+
+*Recommendations*
+
+Need to record/ preserve DBH.  DBH is not always collected when cores are taken, and is not routinely preserved alongside tree-ring data. For example, the International Tree-Ring Data Bank (ITRDB) contains no structure for storing DBH records. DEN is new alternative [@rayback_dendroecological_2020]. 
+
+Also need to record canopy positions.
+
+Sampling small trees should be important for disentangling whether non-stationarity of climate signals is a size artifact or driven by something else, may also be better for resolving temperature signals. 
 
 *Conclusions* 
 
