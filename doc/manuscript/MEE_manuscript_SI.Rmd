@@ -244,11 +244,11 @@ table_raw <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/
 
 \newpage
 ## Figure S3. Comparison of climwin output across growth metrics for the precipitation variable group at Little Tesuque (New Mexico, USA)
-![**Figure S3 | Comparison of climwin output across growth metrics for the precipitation variable group at Little Tesuque (New Mexico, USA).** Here, *climwin* identified precipitation (PRE) as the strongest climate variable for $\Delta r$ and $BAI$, but precipitation day frequency (WET) as the strongest climate variable for $\Delta AGB$.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/NewMexico_wet_pre.png)
+![**Figure S3 | Comparison of climwin output across growth metrics for the precipitation variable group at Little Tesuque (New Mexico, USA).** Here, *climwin* identified precipitation ($PPT$) as the strongest climate variable for $\Delta r$ and $BAI$, but precipitation day frequency ($PDF$) as the strongest climate variable for $\Delta AGB$.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/NewMexico_wet_pre.png)
 
 \newpage
 ## Figure S4. Comparison of climwin output across growth metrics for the precipitation variable group at Harvard Forest (Massachusetts, USA)
-![**Figure S4 | Comparison of climwin output across growth metrics for the precipitation variable group at Harvard Forest (Massachusetts, USA).** Here, *climwin* identified precipitation frequency (WET) as the strongest climate variable for $\Delta r$, but precipitation amount (PRE) as the strongest climate variable for $BAI$ and $\Delta AGB$. The optimal time window (circled) also differed across growth metrics.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/HarvardForest_pre_wet.png)
+![**Figure S4 | Comparison of climwin output across growth metrics for the precipitation variable group at Harvard Forest (Massachusetts, USA).** Here, *climwin* identified precipitation frequency ($PDF$) as the strongest climate variable for $\Delta r$, but precipitation amount ($PPT$) as the strongest climate variable for $BAI$ and $\Delta AGB$. The optimal time window (circled) also differed across growth metrics.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/HarvardForest_pre_wet.png)
 
 \newpage
 ## Figure S5. Best GLS models for Barro Colorado Island (Panama)

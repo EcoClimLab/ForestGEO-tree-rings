@@ -228,7 +228,7 @@ Once $DBH$ had been reconstructed, we used biomass allometries to estimate the c
 Biomass allometries for temperate and tropical sites were calculated using the R packages *allo-db* (Gonzalez-Akre et al. in prep) and *biomass* [@rejoumechain_biomass_2017], respectively.
 
 Monthly climate data for 1901-2019 were obtained from CRU v.4.04 [@harris_updated_2014; @harris_version_2020]. 
-*Variables considered here included average daily minimum, maximum, and mean temperatures ($T_{min}$ / currently "TMN", $T_{max}$ / currently "TMX", $T_{mean}$/ / currently "TMP", respectively); potential evapotranspiration ($PET$); precipitation ($PPT$/ currently "PRE"); and precipitation day frequency ($PDF$/ currently "WET").* 
+Variables considered here included average daily minimum, maximum, and mean temperatures ($T_{min}$, $T_{max}$, $T_{mean}$, respectively); potential evapotranspiration ($PET$); precipitation ($PPT$); and precipitation day frequency ($PDF$).
 For BCI, we calculated monthly $PPT$ and $PDF$ from daily precipitation readings made on BCI starting in 1929 [@paton_barro_2019].
 All ForestGEO climate records used here are archived in the ForestGEO Climate Data Portal, v1.0-alpha [@anderson-teixeira_forestgeoclimate_2020].
 
@@ -274,7 +274,7 @@ Within each of three categories of models run (climate only, $DBH$+climate, $DBH
 
 **Our process picked out similar climate drivers to what would be obtained via traditional methods (Figs. **2**, **S1**; Table S5; Appendix S2), but with the advantage that *climwin* allowed objective selection of the strongest climate drivers and the time windows over which they were most influential.**
 The most commonly selected variables within the temperature group were $T_{max}$ and $PET$, each of which was identified by climwin as the top temperature-related driver *at four of the eight sites*. $T_{min}$ was the top driver at only *one site (BCI)*, and $T_{mean}$ was never identified as the top variable within the temperature group (Fig. **3**).
-Within the precipitation group, precipitation amount (PRE) was identified as the top variable most frequently (n=*6 of 9* sites), but it was not uncommon that it was surpassed by precipitation frequency (WET; n=*3 of 8* sites). 
+Within the precipitation group, precipitation amount ($PPT$) was identified as the top variable most frequently (n=*6 of 9* sites), but it was not uncommon that it was surpassed by precipitation frequency ($PDF$; n=*3 of 8* sites). 
 Optimal time windows often coincided with a site's peak growing season (n= *# of 10* for temperature variables, *# of 10* for precipitation variables), but exceptions were common. 
 At the *5 lowest latitude* sites (BCI, HKK, LT, CB, and SCBI), the optimal window for precipitation variables spanned $\ge$ 8 months, ending during the peak growing months of the year of ring formation. 
 At the *3 highest latitude sites* (HF, ZOF, and SC), the optimal window for precipitation variables was a short ($\le$ 3 months) window during the previous growing season.
