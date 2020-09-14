@@ -25,9 +25,9 @@ Neil Pederson^4^,
 Camille Piponiot^1,2^,
 Ross Alexander,
 Craig D. Allen,
-Raquel Alfaro-Sánchez,
+Raquel Alfaro-Sánchez^wl^,
 Tala Awada,
-Jennifer Baltzar,
+Jennifer Baltzer^wl^,
 Patrick Baker,
 Sarayudh Bunyavejchewin,
 Paolo Cherubini,
@@ -43,7 +43,7 @@ Sean McMahon^2^,
 Helene Muller-Landau^2^,
 Sabrina Russo,
 [Pavel Šamonil^cz^](0000-0002-7722-8797),
-Anastasia Sniderhan,
+Anastasia Sniderhan^wl^,
 Alan J. Tepley^1,at^,
 [Ivana Vašíčková^cz^](0000-0002-6070-5956), 
 Mart Vlam,
@@ -59,6 +59,8 @@ Peter Zuidema
 3. The Morton Arboretum, Lisle, Illinois, USA
 
 4. Harvard Forest, Petersham, MA 01366, USA
+
+wl. Biology Department, Wilfrid Laurier University, 75 University Ave W, Waterloo, ON, N2L 3C5
 
 at. Canadian Forest Service, Northern Forestry Centre, Edmonton, Alberta, Canada
 
@@ -162,11 +164,12 @@ Yet, dendrochronological studies allowing for nonlinear or threshold responses o
 
 **Tree size (most commonly diameter breast height, $DBH$) is among the most important variables affecting tree growth rate [e.g., @muller-landau_testing_2006; @foster_predicting_2016] and its climate sensitivity [e.g., @bennett_larger_2015; @mcgregor_tree_nodate], yet traditional methods do not characterize its effect or its potential interactions with climate.** 
 For dendrological studies aimed at deciphering climate signals, $DBH$ is not typically a variable of interest, and its influence is removed through detrending (DENDRO_REFS).
+Moreover, many studies constrain sampling to only larger size classes.
 While convenient for identifying climate signals [(DENDRO_REFS)], this approach is not optimal for subsequent inference of the climate sensitivity of forest productivity.
 Although climate correlations can be transformed to climate sensitivity [*sensu* @charney_observed_2016] and scaled to characterize the climate sensitivity of $ANPP_{woody}$ based on the scaling of $\Delta r$ with $DBH$ [@helcoski_growing_2019], they cannot be used to characterize known interactive effects of $DBH$ and climate on tree growth.
 For example, larger trees tend to exhibit greater growth reductions in drought years [@bennett_larger_2015; @mcgregor_tree_nodate], and smaller trees can be more sensitive to temperature (*Rollinson et al. in review*).
 However, the removal of $DBH$ signals via detrending makes it impossible to account for such size differences in climate sensitivity. 
-To use tree-rings to predict tree growth and $ANPP_{woody}$, we need models that include $DBH$ and its potential climate interactions.
+To use tree-rings to predict tree growth, $ANPP_{woody}$, and forest dynamics, we need models that include $DBH$ and its potential climate interactions.
 
 **Here, we develop a new method that allows simultaneous consideration of the effects of tree size, objectively determined principle climate drivers, and other environmental drivers on annual tree growth.** 
 This allows us to ask:
