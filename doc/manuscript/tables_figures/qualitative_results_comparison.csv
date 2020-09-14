@@ -1,33 +1,36 @@
 Site,Species,PPT: previously observed ,PPT:observed here, T: previously observed ,T: observed here,reference
-BCI,JACO,positive correlation to Apr-Dec precipitation (strongest of the 3 species),positive correlation to Mar-Dec precipitation (strongest of the 3 species),no sig. correlation to annual $T_{mean}$ or $T_{min}$,negative response to Feb-Mar $T_{min}$,Alfaro-S$\acute{a}$nchez et al. 2017
-,TEPA,"positive correlation to Apr-Dec precipitation (response weaker than JACO, similar to TRTU)","positive correlation to Mar-Dec precipitation (response weaker than JACO, similar to TRTU)",no sig. correlation to annual $T_{mean}$ or $T_{min}$,no sig. correlation to Feb-Mar $T_{min}$,Alfaro-S$\acute{a}$nchez et al. 2017
-,TRTU,"positive correlation to Apr-Dec precipitation (response weaker than JACO, similar to TEPA)","positive correlation to Mar-Dec precipitation (response weaker than JACO, similar to TEPA)",no sig. correlation to annual $T_{mean}$ or $T_{min}$,non-sig. slight positive response to Feb-Mar $T_{min}$,Alfaro-S$\acute{a}$nchez et al. 2017
-HKK,AFXY,"sig. positive correlation with June precip, otherwise n.s.",slight concave-down response to p.Sept-June precip frequency,"sig. negative correlation with $T_{max}$ in Aug and Dec; $T_{min}$ in p.Oct., Jul, Aug",slight concave-down response to Apr-Oct $T_{max}$,Vlam et al. 2013
-,CHTA,"sig. positive correlation with April precip, otherwise n.s.",slight concave-down response to p.Sept-June precip frequency,"sig. negative correlation with $T_{max}$ in May, Aug-Sept; $T_{min}$ in Feb, May, Aug",slight negative response to Apr-Oct $T_{max}$,Vlam et al. 2013
-,MEAZ,"sig. positive correlation with April precip, otherwise n.s.",concave-down response to p.Sept-June precip frequency,sig. negative correlation with $T_{max}$ in May-Aug; $T_{min}$ in May-Aug ,negative response to Apr-Oct $T_{max}$ ,Vlam et al. 2013
-,TOCI,sig. positive correlation with p.Oct-p.Nov and April-May precip,concave-down /increasing response to p.Sept-June precip frequency,sig. negative correlation with $T_{max}$ every month from pOct-June (excluding March); $T_{min}$ in Jan and Mar-Aug ,negative response to Apr-Oct $T_{max}$ ,Vlam et al. 2013
+BCI,JACO,pos. correlation to Apr-Dec $PPT$ (strongest of the 3 species),pos. correlation to Mar-Dec $PPT$ (strongest of the 3 species),no sig. correlation to annual $T_{mean}$ or $T_{min}$,neg. response to Feb-Mar $T_{min}$,Alfaro-S$\'{a}$nchez et al. 2017
+,TEPA,"pos. correlation to Apr-Dec $PPT$ (response weaker than JACO, similar to TRTU)","pos. correlation to Mar-Dec $PPT$ (response weaker than JACO, similar to TRTU)",no sig. correlation to annual $T_{mean}$ or $T_{min}$,no sig. correlation to Feb-Mar $T_{min}$,Alfaro-S$\'{a}$nchez et al. 2017
+,TRTU,"pos. correlation to Apr-Dec $PPT$ (response weaker than JACO, similar to TEPA)","pos. correlation to Mar-Dec $PPT$(response weaker than JACO, similar to TEPA)",no sig. correlation to annual $T_{mean}$ or $T_{min}$,non-sig. slight pos. response to Feb-Mar $T_{min}$,Alfaro-S$\'{a}$nchez et al. 2017
+HKK,AFXY,"sig. pos. correlation with June $PPT$, otherwise n.s.",slight concave-down response to p.Sept-June $PPT$ frequency,"sig. neg. correlation with $T_{max}$ in Aug and Dec; $T_{min}$ in p.Oct., Jul, Aug",slight concave-down response to Apr-Oct $T_{max}$,Vlam et al. 2013
+,CHTA,"sig. pos. correlation with April $PPT$, otherwise n.s.",slight concave-down response to p.Sept-June $PPT$ frequency,"sig. neg. correlation with $T_{max}$ in May, Aug-Sept; $T_{min}$ in Feb, May, Aug",slight neg. response to Apr-Oct $T_{max}$,Vlam et al. 2013
+,MEAZ,"sig. pos. correlation with April $PPT$, otherwise n.s.",concave-down response to p.Sept-June $PPT$ frequency,sig. neg. correlation with $T_{max}$ in May-Aug; $T_{min}$ in May-Aug ,neg. response to Apr-Oct $T_{max}$ ,Vlam et al. 2013
+,TOCI,sig. pos. correlation with p.Oct-p.Nov and April-May $PPT$,concave-down /increasing response to p.Sept-June $PPT$ frequency,sig. neg. correlation with $T_{max}$ every month from pOct-June (excluding March); $T_{min}$ in Jan and Mar-Aug ,neg. response to Apr-Oct $T_{max}$ ,Vlam et al. 2013
 LT,PIPO,,,,,-
 ,PIST2,,,,,-
 CB,,,,,,-
-SCBI,CACO,"pos. correlations with May-Aug precip (sig. May, July)",,neg. correlations with May-Aug $PET$ (sig. May-July),**(sig or ns)** negative response to May-July $PET$,Helcoski et al. 2019
-,CAGL,pos. correlations with May-Aug precip (sig. May),,neg. correlations with May-Aug $PET$ (n.s.),**(sig or ns)** negative response to May-July $PET$,Helcoski et al. 2019
-,CAOVL,pos. correlations with May-Aug precip (sig. Aug),,neg. correlations with May-Aug $PET$ (sig. all months),**(sig or ns)** negative response to May-July $PET$,Helcoski et al. 2019
-,CATO,pos. correlations with May-Aug precip (n.s.),,neg. correlations with May-Aug $PET$ (sig. June),**(sig or ns)** negative response to May-July $PET$,Helcoski et al. 2019
-,FAGR,pos. correlations with May-Aug precip (sig. July-Aug),,neg. correlations with May-Aug $PET$ (sig. July-Aug),**(sig or ns)** negative response to May-July $PET$,Helcoski et al. 2019
-,FRAM,pos. correlations with May-Aug precip (sig. May-June),,neg. correlations with May-Aug $PET$ (sig. May-June),**(sig or ns)** negative response to May-July $PET$,Helcoski et al. 2019
-,FRNI,no sig. correlations with peak growing season precip,,no sig. correlations with peak growing season $PET$,**(sig or ns)** negative response to May-July $PET$,Helcoski et al. 2019
-,JUNI,pos. correlations with May-Aug precip (sig. Jun-Aug),,neg. correlations with May-Aug $PET$ (sig. July-Aug),non-sig. negative response to May-July $PET$,Helcoski et al. 2019
-,LITU,pos. correlations with May-Aug precip (sig. May-July),,neg. correlations with May-Aug $PET$ (sig. all months),**(sig or ns)** negative response to May-July $PET$,Helcoski et al. 2019
-,PIST,pos. correlations with May-Aug precip (n.s.),,neg. correlations with May-Aug $PET$ (n.s.),**(sig or ns)** negative response to May-July $PET$,Helcoski et al. 2019
-,QUAL,pos. correlations with May-Aug precip (sig. May),,neg. correlations with May-Aug $PET$ (sig. all months),**(sig or ns)** negative response to May-July $PET$,Helcoski et al. 2019
-,QUMO,pos. correlations with May-Aug precip (sig. May),,"neg. correlations with May-Aug $PET$ (sig. May-June, Aug)",**(sig or ns)** negative response to May-July $PET$,Helcoski et al. 2019
-,QURU,pos. correlations with May-Aug precip (n.s.),,"neg. correlations with May-Aug $PET$ (sig. May, July-Aug)",**(sig or ns)** negative response to May-July $PET$,Helcoski et al. 2019
-,QUVE,pos. correlations with May-Aug precip (sig. May-July),,neg. correlations with May-Aug $PET$ (sig. all months),**(sig or ns)** negative response to May-July $PET$,Helcoski et al. 2019
-LDW,,,,,,"Maxwell, Harley, and Robeson 2016"
+SCBI,CACO,"pos. correlations with May-Aug $PPT$ (sig. May, July)",,neg. correlations with May-Aug $PET$ (sig. May-July),**(sig or ns)** neg. response to May-July $PET$,Helcoski et al. 2019
+,CAGL,pos. correlations with May-Aug $PPT$ (sig. May),,neg. correlations with May-Aug $PET$ (n.s.),**(sig or ns)** neg. response to May-July $PET$,Helcoski et al. 2019
+,CAOVL,pos. correlations with May-Aug $PPT$ (sig. Aug),,neg. correlations with May-Aug $PET$ (sig. all months),**(sig or ns)** neg. response to May-July $PET$,Helcoski et al. 2019
+,CATO,pos. correlations with May-Aug $PPT$ (n.s.),,neg. correlations with May-Aug $PET$ (sig. June),**(sig or ns)** neg. response to May-July $PET$,Helcoski et al. 2019
+,FAGR,pos. correlations with May-Aug $PPT$ (sig. July-Aug),,neg. correlations with May-Aug $PET$ (sig. July-Aug),**(sig or ns)** neg. response to May-July $PET$,Helcoski et al. 2019
+,FRAM,pos. correlations with May-Aug $PPT$ (sig. May-June),,neg. correlations with May-Aug $PET$ (sig. May-June),**(sig or ns)** neg. response to May-July $PET$,Helcoski et al. 2019
+,FRNI,no sig. correlations with peak growing season $PPT$,,no sig. correlations with peak growing season $PET$,**(sig or ns)** neg. response to May-July $PET$,Helcoski et al. 2019
+,JUNI,pos. correlations with May-Aug $PPT$ (sig. Jun-Aug),,neg. correlations with May-Aug $PET$ (sig. July-Aug),non-sig. neg. response to May-July $PET$,Helcoski et al. 2019
+,LITU,pos. correlations with May-Aug $PPT$ (sig. May-July),,neg. correlations with May-Aug $PET$ (sig. all months),**(sig or ns)** neg. response to May-July $PET$,Helcoski et al. 2019
+,PIST,pos. correlations with May-Aug $PPT$ (n.s.),,neg. correlations with May-Aug $PET$ (n.s.),**(sig or ns)** neg. response to May-July $PET$,Helcoski et al. 2019
+,QUAL,pos. correlations with May-Aug $PPT$ (sig. May),,neg. correlations with May-Aug $PET$ (sig. all months),**(sig or ns)** neg. response to May-July $PET$,Helcoski et al. 2019
+,QUMO,pos. correlations with May-Aug $PPT$ (sig. May),,"neg. correlations with May-Aug $PET$ (sig. May-June, Aug)",**(sig or ns)** neg. response to May-July $PET$,Helcoski et al. 2019
+,QURU,pos. correlations with May-Aug $PPT$ (n.s.),,"neg. correlations with May-Aug $PET$ (sig. May, July-Aug)",**(sig or ns)** neg. response to May-July $PET$,Helcoski et al. 2019
+,QUVE,pos. correlations with May-Aug $PPT$ (sig. May-July),,neg. correlations with May-Aug $PET$ (sig. all months),**(sig or ns)** neg. response to May-July $PET$,Helcoski et al. 2019
+LDW,LITU,pos. correlations with Jun-Aug PDSI ,pos. response to June $PPT$ ,neg. response to Jun-Aug $T_{max}$ ,neg. response to June $PET$ ,"Maxwell, Harley, and Robeson 2016"
+,QUAL,pos. correlations with Jun-Aug PDSI ,pos. response to June $PPT$ ,neg. response to Jun-Aug $T_{max}$ ,neg. response to June $PET$ ,"Maxwell, Harley, and Robeson 2016"
+,QUMO,pos. correlations with Jun-Aug PDSI ,pos. response to June $PPT$ ,neg. response to Jun-Aug $T_{max}$ ,neg. response to June $PET$ ,"Maxwell, Harley, and Robeson 2016"
+,QUVE,pos. correlations with Jun-Aug PDSI ,pos. response to June $PPT$ ,neg. response to Jun-Aug $T_{max}$ ,neg. response to June $PET$ ,"Maxwell, Harley, and Robeson 2016"
 HF,,,,,,-
 NE,,,,,,Aus de Ar et al. 2018; Bumann et al. 2019
-ZOF,ABAL,no sig. correlations with June-July precip,slight concave-down response to p.Jun-p.July precipitation frequency,sig. pos. correlation to April T (strongest T correlation),positive response to Jan-March $T_{max}$,"Ka$\v{s}$par, Tumajer, Va$\v{s}\'{i}\v{c}$kov$\'{a}$, and $\v{S}$amonil, in review "
-,FASY,no sig. correlations with June-July precip,positive response to p.Jun-p.July precipitation frequency,sig. pos. correlation to Jan T (strongest T correlation),positive response to Jan-March $T_{max}$,"Ka$\v{s}$par, Tumajer, Va$\v{s}\'{i}\v{c}$kov$\'{a}$, and $\v{S}$amonil, in review "
-,PIAB,modest pos. correlations (n.s) with June-July precip,positive response to p.Jun-p.July precipitation frequency,sig. pos. correlation to March T (strongest current-year T correlation),positive response to Jan-March $T_{max}$,"Ka$\v{s}$par, Tumajer, Va$\v{s}\'{i}\v{c}$kov$\'{a}$, and $\v{S}$amonil, in review "
+ZOF,ABAL,no sig. correlations with June-July $PPT$,slight concave-down response to p.Jun-p.July $PPT$ frequency,sig. pos. correlation to April T (strongest T correlation),pos. response to Jan-March $T_{max}$,"Ka$\v{s}$par, Tumajer, Va$\v{s}\'{i}\v{c}$kov$\'{a}$, and $\v{S}$amonil, in review "
+,FASY,no sig. correlations with June-July $PPT$,pos. response to p.Jun-p.July $PPT$ frequency,sig. pos. correlation to Jan T (strongest T correlation),pos. response to Jan-March $T_{max}$,"Ka$\v{s}$par, Tumajer, Va$\v{s}\'{i}\v{c}$kov$\'{a}$, and $\v{S}$amonil, in review "
+,PIAB,modest pos. correlations (n.s) with June-July $PPT$,pos. response to p.Jun-p.July $PPT$ frequency,sig. pos. correlation to March T (strongest current-year T correlation),pos. response to Jan-March $T_{max}$,"Ka$\v{s}$par, Tumajer, Va$\v{s}\'{i}\v{c}$kov$\'{a}$, and $\v{S}$amonil, in review "
 ,,>700m elev. sites moisture limited June-Aug,,>700m elev. sites temperature limited except June-Aug,,Tumajer et al. 2017
 SC,,,,,,Sniderhan and Baltzer 2016

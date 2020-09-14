@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  11 SEP 2020 08:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  13 SEP 2020 16:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -829,6 +829,16 @@ LaTeX Warning: Command \v invalid in math mode on input line 241.
 LaTeX Warning: Command \' invalid in math mode on input line 241.
 
 [5] [6] [7] [8]
+
+LaTeX Warning: Command \' invalid in math mode on input line 526.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 527.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 528.
+
+
 Underfull \vbox (badness 10000) detected at line 539
  []
 
@@ -838,61 +848,61 @@ Underfull \vbox (badness 10000) detected at line 569
 
 [10]
 
-LaTeX Warning: Command \v invalid in math mode on input line 587.
+LaTeX Warning: Command \v invalid in math mode on input line 592.
 
 
-LaTeX Warning: Command \v invalid in math mode on input line 587.
+LaTeX Warning: Command \v invalid in math mode on input line 592.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 587.
+LaTeX Warning: Command \' invalid in math mode on input line 592.
 
 
-LaTeX Warning: Command \v invalid in math mode on input line 587.
+LaTeX Warning: Command \v invalid in math mode on input line 592.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 587.
+LaTeX Warning: Command \' invalid in math mode on input line 592.
 
 
-LaTeX Warning: Command \v invalid in math mode on input line 587.
+LaTeX Warning: Command \v invalid in math mode on input line 592.
 
 
-LaTeX Warning: Command \v invalid in math mode on input line 588.
+LaTeX Warning: Command \v invalid in math mode on input line 593.
 
 
-LaTeX Warning: Command \v invalid in math mode on input line 588.
+LaTeX Warning: Command \v invalid in math mode on input line 593.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 588.
+LaTeX Warning: Command \' invalid in math mode on input line 593.
 
 
-LaTeX Warning: Command \v invalid in math mode on input line 588.
+LaTeX Warning: Command \v invalid in math mode on input line 593.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 588.
+LaTeX Warning: Command \' invalid in math mode on input line 593.
 
 
-LaTeX Warning: Command \v invalid in math mode on input line 588.
+LaTeX Warning: Command \v invalid in math mode on input line 593.
 
 
-LaTeX Warning: Command \v invalid in math mode on input line 589.
+LaTeX Warning: Command \v invalid in math mode on input line 594.
 
 
-LaTeX Warning: Command \v invalid in math mode on input line 589.
+LaTeX Warning: Command \v invalid in math mode on input line 594.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 589.
+LaTeX Warning: Command \' invalid in math mode on input line 594.
 
 
-LaTeX Warning: Command \v invalid in math mode on input line 589.
+LaTeX Warning: Command \v invalid in math mode on input line 594.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 589.
+LaTeX Warning: Command \' invalid in math mode on input line 594.
 
 
-LaTeX Warning: Command \v invalid in math mode on input line 589.
+LaTeX Warning: Command \v invalid in math mode on input line 594.
 
 
-Underfull \vbox (badness 10000) detected at line 595
+Underfull \vbox (badness 10000) detected at line 600
  []
 
 [11] [12]
@@ -902,7 +912,7 @@ File: tables_figures/mock_comparison_traditional_method.png Graphic file (type
 png)
 <use tables_figures/mock_comparison_traditional_method.png>
 Package pdftex.def Info: tables_figures/mock_comparison_traditional_method.png 
- used on input line 628.
+ used on input line 633.
 (pdftex.def)             Requested size: 328.8268pt x 436.56741pt.
 [13 <./tables_figures/mock_comparison_traditional_method.png>]
 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sen
@@ -915,7 +925,7 @@ pe png)
 -sensitivity/results/climwin_plots_combined/NewMexico_pet.png>
 Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
 ab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/NewMexico_pet.p
-ng  used on input line 645.
+ng  used on input line 650.
 (pdftex.def)             Requested size: 469.76045pt x 375.80836pt.
 [14 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
 -sensitivity/results/climwin_plots_combined/NewMexico_pet.png (PNG copy)>]
@@ -929,7 +939,7 @@ e-sensitivity/results/climwin_plots_combined/NewMexico_wet_pre.png Graphic file
 -sensitivity/results/climwin_plots_combined/NewMexico_wet_pre.png>
 Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
 ab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/NewMexico_wet_p
-re.png  used on input line 666.
+re.png  used on input line 671.
 (pdftex.def)             Requested size: 469.76045pt x 375.80836pt.
 [15 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
 -sensitivity/results/climwin_plots_combined/NewMexico_wet_pre.png (PNG copy)>]
@@ -943,7 +953,7 @@ file (type png)
 -sensitivity/results/climwin_plots_combined/HarvardForest_pre_wet.png>
 Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
 ab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/HarvardForest_p
-re_wet.png  used on input line 685.
+re_wet.png  used on input line 690.
 (pdftex.def)             Requested size: 469.76045pt x 375.80836pt.
 [16 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
 -sensitivity/results/climwin_plots_combined/HarvardForest_pre_wet.png (PNG copy
@@ -956,7 +966,7 @@ e-sensitivity/results/composite_plots/BCI.png Graphic file (type png)
 -sensitivity/results/composite_plots/BCI.png>
 Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
 ab/ForestGEO-climate-sensitivity/results/composite_plots/BCI.png  used on input
- line 703.
+ line 708.
 (pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
 [17 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
 -sensitivity/results/composite_plots/BCI.png>]
@@ -968,7 +978,7 @@ e-sensitivity/results/composite_plots/HKK.png Graphic file (type png)
 -sensitivity/results/composite_plots/HKK.png>
 Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
 ab/ForestGEO-climate-sensitivity/results/composite_plots/HKK.png  used on input
- line 724.
+ line 729.
 (pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
 [18 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
 -sensitivity/results/composite_plots/HKK.png>]
@@ -980,7 +990,7 @@ e-sensitivity/results/composite_plots/NewMexico.png Graphic file (type png)
 -sensitivity/results/composite_plots/NewMexico.png>
 Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
 ab/ForestGEO-climate-sensitivity/results/composite_plots/NewMexico.png  used on
- input line 745.
+ input line 750.
 (pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
 [19 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
 -sensitivity/results/composite_plots/NewMexico.png>] [20]
@@ -992,7 +1002,7 @@ e-sensitivity/results/composite_plots/SCBI.png Graphic file (type png)
 -sensitivity/results/composite_plots/SCBI.png>
 Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
 ab/ForestGEO-climate-sensitivity/results/composite_plots/SCBI.png  used on inpu
-t line 783.
+t line 788.
 (pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
 [21 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
 -sensitivity/results/composite_plots/SCBI.png (PNG copy)>]
@@ -1004,7 +1014,7 @@ e-sensitivity/results/composite_plots/LillyDickey.png Graphic file (type png)
 -sensitivity/results/composite_plots/LillyDickey.png>
 Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
 ab/ForestGEO-climate-sensitivity/results/composite_plots/LillyDickey.png  used 
-on input line 804.
+on input line 809.
 (pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
 [22 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
 -sensitivity/results/composite_plots/LillyDickey.png>]
@@ -1018,7 +1028,7 @@ e-sensitivity/results/composite_plots/HarvardForest.png Graphic file (type png)
 -sensitivity/results/composite_plots/HarvardForest.png>
 Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
 ab/ForestGEO-climate-sensitivity/results/composite_plots/HarvardForest.png  use
-d on input line 827.
+d on input line 832.
 (pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
 [23 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
 -sensitivity/results/composite_plots/HarvardForest.png>] [24]
@@ -1030,7 +1040,7 @@ e-sensitivity/results/composite_plots/Zofin.png Graphic file (type png)
 -sensitivity/results/composite_plots/Zofin.png>
 Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
 ab/ForestGEO-climate-sensitivity/results/composite_plots/Zofin.png  used on inp
-ut line 855.
+ut line 860.
 (pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
 [25 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
 -sensitivity/results/composite_plots/Zofin.png>]
@@ -1042,23 +1052,23 @@ e-sensitivity/results/composite_plots/ScottyCreek.png Graphic file (type png)
 -sensitivity/results/composite_plots/ScottyCreek.png>
 Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
 ab/ForestGEO-climate-sensitivity/results/composite_plots/ScottyCreek.png  used 
-on input line 877.
+on input line 882.
 (pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
 [26 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
 -sensitivity/results/composite_plots/ScottyCreek.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 962.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 967.
 [27]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 962.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 967.
 (./MEE_manuscript_SI.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 962.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 962.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 967.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 967.
  ) 
 Here is how much of TeX's memory you used:
- 15858 strings out of 492616
- 241610 string characters out of 6129482
- 382066 words of memory out of 5000000
+ 15868 strings out of 492616
+ 241712 string characters out of 6129482
+ 382065 words of memory out of 5000000
  19278 multiletter control sequences out of 15000+600000
- 77027 words of font info for 126 fonts, out of 8000000 for 9000
+ 77488 words of font info for 131 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,13n,44p,1626b,467s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/
@@ -1082,7 +1092,7 @@ ublic/lm/lmri10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/l
 mri8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><
 /usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/
 texlive/2019/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on MEE_manuscript_SI.pdf (27 pages, 5267479 bytes).
+Output written on MEE_manuscript_SI.pdf (27 pages, 5267669 bytes).
 PDF statistics:
  449 PDF objects out of 1000 (max. 8388607)
  377 compressed objects within 4 object streams

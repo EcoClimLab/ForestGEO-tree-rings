@@ -156,7 +156,7 @@ library(knitr)
 library(kableExtra)
 breakrow1<-10
 breakrow2<-24
-breakrow3<-32
+breakrow3<-35
 col_width<-"2.5cm"
 table_pt1 <- read.csv("tables_figures/qualitative_results_comparison.csv", 
                      colClasses=c("NULL", NA, NA, NA, NA, NA, NA), 
@@ -202,8 +202,9 @@ kable(table_pt3, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = 
   add_header_above(c(" ", "Precipitation response" = 2, "Temperature response" = 2)) %>%
   column_spec(2:5, width = col_width) %>%
   column_spec(6, width = "2cm") %>%
-  pack_rows("Žofín Forest Dynamics Plot, Czech Republic", 4, 7, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
-  pack_rows("Scotty Creek, NW Territories, Canada", 8, 8, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Lilly Dickey Woods, Indiana, USA", 1, 4, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Žofín Forest Dynamics Plot, Czech Republic", 7, 10, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Scotty Creek, NW Territories, Canada", 11, 11, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
   kable_styling(latex_options = c( "hold_position", "repeat header"), protect_latex = T, font_size = 7) 
 # refs in this table need to go in the nocite field below
 ```
