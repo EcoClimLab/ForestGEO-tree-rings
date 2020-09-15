@@ -32,11 +32,20 @@ variables_to_show <- c("pet", "tmx")
 save.plots <- TRUE
 save.result.table <- TRUE
 
-## Define full.time.frame.end.years **** TO BE EDITED ****####
+## Define full.time.frame.end.years ####
 full.time.frame.end.years <- c(SCBI_litu = 2010,
                                   Zofin_ABAL = 2010,
                                   CedarBreaks_PSME = 2007, #using SCBI's for now but need to be changed
                                   ScottyCreek_PIMA = 2013)
+
+## Define start and end year for analysis for each species ####
+
+start.years.sss <- c(SCBI_litu = 1919, # 11 trees
+                     CedarBreaks_PSME = 1840, # 3 trees
+                     Zofin_ABAL = 1676, # 7 trees (serious dating errors according to Neil)
+                     ScottyCreek_PIMA = 1854 #13 trees
+                     ) # these dates were given by email by Neil Pederson when he created the psecies chrionologies for us... his threshold sss was .8
+
 
 ## Define start and end month for anlysis ####
 start <- -4#-4 # April of previous year
@@ -64,6 +73,9 @@ for(ssp in sites_species) {
 for(ssp in sites_species) {
   x <- read.csv(paste0("processed_data/core_data_with_best_climate_signal/log_core_measurement/", strsplit(ssp, "_")[[1]][1], ".csv"), stringsAsFactors = F)
   x <- x[grepl(strsplit(ssp, "_")[[1]][2], x$species_code, ignore.case = T), c("residuals", "coreID", "Year", "Date")]
+
+  # plot(residuals ~ Year, data = x, ylim = c(-5, 5), main = paste(ssp, "\n", length(unique(x$coreID))))
+  
   assign(paste0(ssp, "_ind_chron"), x)
 }
 
@@ -74,28 +86,21 @@ dir.create(paste0("results/formal_comparison/"), showWarnings = F)
 
 
 # output the SD of the detrended chronologies and mean_core_raw_per_species
-sd_coreres <- NULL # will store SD of the detrended chronologie
-
+sd_cores <- NULL # will store SD of the detrended chronologie
+# par(mfrow = c(1,4))
 for(ssp in sites_species) {
     core <- get(ssp)
    
-sd_coreres <- rbind(sd_coreres, data.frame(Species = ssp, SD = round(sd(core$res), 2)))
+sd_cores <- rbind(sd_cores, data.frame(Species = ssp, SD = round(sd(core$res), 2)))
+# plot(core$res ~ rownames(core), xlim = c(start.years.sss[ssp], full.time.frame.end.years[ssp]), main = paste(ssp, "\n", length(unique(get(paste0(ssp, "_ind_chron"))$coreID))))
 }
 
 # save sd_coreres for all species
-write.csv(sd_coreres, file = paste0("results/formal_comparison/SD_of_each_detrended_chornologies.csv"), row.names = F)
-
-
-## Define start and end year for analysis for each species ####
-
-start.years.sss <- c(SCBI_litu = 1919,
-                     CedarBreaks_PSME = 1800,
-                     Zofin_ABAL = 1700,
-                     ScottyCreek_PIMA = 1850) # these dates were given by email by Neil Pederson when he created the psecies chrionologies for us... his threshold sss was .8
+write.csv(sd_cores, file = paste0("results/formal_comparison/SD_of_each_detrended_chornologies.csv"), row.names = F)
 
 
 
-start.years.sss
+
 
 
 ## Run the 3 types of analysis to compare ####
@@ -126,8 +131,8 @@ start.years.sss
     
     # trim measurement years ####
     ## remove years of core measurement that are before climate record (+ first few first months to be able to look at window before measurement)
-    core <- core[as.numeric(rownames(core)) >= min(as.numeric(clim$year))+  window_range[1]/12, ]
-    ind_chron <- ind_chron[ind_chron$Year>= min(as.numeric(clim$year))+  window_range[1]/12, ]
+    core <- core[as.numeric(rownames(core)) >= (min(as.numeric(clim$year)) +  window_range[1]/12), ]
+    ind_chron <- ind_chron[ind_chron$Year>= (min(as.numeric(clim$year)) +  window_range[1]/12), ]
     
     ## remove years that are after climate record
     core <- core[as.numeric(rownames(core)) <= max(as.numeric(clim$year)), ]
@@ -143,7 +148,7 @@ start.years.sss
       boolFalse<-F
       while(boolFalse==F) {
         tryCatch({
-          corr.dcc.output <- tryCatch(my.dcc(core["res"], clim[, c("year", "month", v)], method = "correlation", start = start, end =  end, timespan = c(start.year, end.year), ci = 0.05, ci2 = 0.002))
+          corr.dcc.output <- tryCatch(my.dcc(chrono = core["res"], clim = clim[, c("year", "month", v)], method = "correlation", start = start, end =  end, timespan = c(start.year, end.year), ci = 0.05, ci2 = 0.002))
           boolFalse<-T
         },error=function(e){
         },finally={})
@@ -262,21 +267,32 @@ start.years.sss
                                ifelse((climwin.response_ind$ModelBeta - (1.96*climwin.response_ind$Std.Error)) <0 & (climwin.response_ind$ModelBeta + (1.96*climwin.response_ind$Std.Error)) >0, 20, NA)
       )
      
+      x.axis.labels <- reference_date[2] - c(window_range[1]:window_range[2])
+      x.axis.labels_prev <- x.axis.labels <=0
+      x.axis.labels <- ifelse(x.axis.labels_prev, rev(1:12)[abs(x.axis.labels) +1], x.axis.labels)
+      
+      x.axis.labels <- paste0(ifelse(x.axis.labels_prev, "p.", "c."),substr(month.abb, 1, 1)[x.axis.labels])
+      
       ### plot ###
       b <- barplot(barplot_matrix, col = barplot_border, density = barplot_density, border = barplot_border, beside = T, ylim = c(min(barplot_ci$lower), max(barplot_ci$upper)), main = "Month-by-month", ylab = "Beta coeficient", legend.text = T, args.legend = list(fill = barplot_border, density = NULL, legend =  c("Traditional (sp)", "Climwin (ind)"), x = "topright", bty = "n", border = "transparent"))
       
+      text(x = b[c(TRUE, FALSE)], y = par()$usr[3], labels =  x.axis.labels, srt = 45, cex = 0.8, xpd = NA)
+      
       segments(b, barplot_ci$lower, b, barplot_ci$upper, col = barplot_border)
       
-      
+      # plot sp vs individual climwin only
       ylim_plot <- range(c(climwin.response_sp$ModelBeta, climwin.response_ind$ModelBeta))
-      plot(x = corr.dcc.output$chg_rad_inc_clim, y = climwin.response_sp$ModelBeta, xlab = "Beta Coeficient Traditional", ylab = "Beta Coeficient Climwin", ylim = ylim_plot, main = "Comparison\nBeta coefficients", pch = 16)
+      plot(x = climwin.response_sp$ModelBeta, y = climwin.response_ind$ModelBeta, xlab = "Species Chronology", ylab = "Individuals in Mixed-effects Model", ylim = ylim_plot, main = "Comparison Beta coefficients\n1-month window Climwin", pch = 16)
       abline(0, 1)
-      points(x = corr.dcc.output$chg_rad_inc_clim, y = climwin.response_ind$ModelBeta, xlab = "dcc")
+      text(x = climwin.response_sp$ModelBeta, y = climwin.response_ind$ModelBeta, labels = x.axis.labels, cex = 0.8, pos = 4)
+     
       
-      legend("topleft", bty = "n",
-             pch = c(16,1),
-             legend = c("climwin sp",
-                        "climwin ind"))
+      # points(x = corr.dcc.output$chg_rad_inc_clim, y = climwin.response_ind$ModelBeta, xlab = "dcc")
+      # 
+      # legend("topleft", bty = "n",
+      #        pch = c(16,1),
+      #        legend = c("climwin sp",
+      #                   "climwin ind"))
       
       # barplot best month climwin ind
       
