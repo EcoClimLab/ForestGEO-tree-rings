@@ -203,6 +203,7 @@ start.years.sss
       climwin.response_ind <- climwin.response_ind[climwin.response_ind$WindowOpen == climwin.response_ind$WindowClose, ]
       climwin.response_ind <- climwin.response_ind[order(climwin.response_ind$WindowOpen, decreasing = T), c(2,3,4,5)]
       
+      
       ## get beta coeficient of both climwin results but for the  best window with individual chronologies ####
       best_window_ind <- climwin.output_ind$combos[1, c("WindowOpen", "WindowClose")]
       beta_best_window <- c(sp = climwin.output_sp[[1]]$Dataset[climwin.output_sp[[1]]$Dataset$WindowOpen %in% best_window_ind$WindowOpen & climwin.output_sp[[1]]$Dataset$WindowClose %in% best_window_ind$WindowClose,]$ModelBeta,
@@ -241,7 +242,7 @@ start.years.sss
       colors_plot <- c("black", "grey40", "grey70")
      ### prepare data and plot ####
       
-      barplot_matrix <- rbind(traditional = corr.dcc.output$chg_rad_inc_clim, 
+      barplot_matrix <- rbind(traditional_sp = corr.dcc.output$chg_rad_inc_clim, 
                               # climwin.response_sp$ModelBeta,
                               climwin_ind = climwin.response_ind$ModelBeta
       )
@@ -268,12 +269,12 @@ start.years.sss
       
       
       ylim_plot <- range(c(climwin.response_sp$ModelBeta, climwin.response_ind$ModelBeta))
-      plot(x = corr.dcc.output$chg_rad_inc_clim, y = climwin.response_sp$ModelBeta, xlab = "Beta Coeficient Traditional", ylab = "Beta Coeficient Climwin", ylim = ylim_plot, main = "Comparison\nBeta coefficients")
+      plot(x = corr.dcc.output$chg_rad_inc_clim, y = climwin.response_sp$ModelBeta, xlab = "Beta Coeficient Traditional", ylab = "Beta Coeficient Climwin", ylim = ylim_plot, main = "Comparison\nBeta coefficients", pch = 16)
       abline(0, 1)
-      points(x = corr.dcc.output$chg_rad_inc_clim, y = climwin.response_ind$ModelBeta, xlab = "dcc", pch = 16)
+      points(x = corr.dcc.output$chg_rad_inc_clim, y = climwin.response_ind$ModelBeta, xlab = "dcc")
       
       legend("topleft", bty = "n",
-             pch = c(1,16),
+             pch = c(16,1),
              legend = c("climwin sp",
                         "climwin ind"))
       
