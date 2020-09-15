@@ -343,6 +343,47 @@ file.remove(list.files(paste0("results/formal_comparison/tables"), full.names = 
 
 
 
-
+# compile plots ####
+  library(png)
+  imgs <- list.files(paste("results/formal_comparison/figures/"), full.names = T)
+  for(ssp in sites_species) {
+    
+    for(v in variables_to_show) {
+      
+      
+      # prepare file
+      png(paste0("results/formal_comparison/", ssp, "_", v, ".png" ), width = 10, height = 8, units = "in", res = 300)
+      
+      layout(matrix(c(1,2,3,4,5,6), nrow = 2, byrow = F))
+      
+      # get the plots we need
+      img_sp <- readPNG(imgs[grepl("sp", imgs) & grepl(paste(ssp), imgs) & grepl(paste(v), imgs)])
+      img_ind <- readPNG(imgs[grepl("ind", imgs) & grepl(paste(ssp), imgs) & grepl(paste(v), imgs)])
+      img_vs <- readPNG(imgs[grepl("vs", imgs) & grepl(paste(ssp), imgs) & grepl(paste(v), imgs)])
+      
+      # plot ####
+      
+      img1 <- img_sp[1:(nrow(img_sp)/2), (ncol(img_sp)/3):((ncol(img_sp)/3)*2),]
+      img2 <- img_ind[1:(nrow(img_ind)/2), (ncol(img_ind)/3):((ncol(img_ind)/3)*2),] 
+      img3 <- img_sp[(nrow(img_sp)/2):nrow(img_sp), (ncol(img_sp)/3):((ncol(img_sp)/3)*2),]
+      img4 <- img_ind[(nrow(img_ind)/2):nrow(img_ind), (ncol(img_ind)/3):((ncol(img_ind)/3)*2),]
+      img5 <- img_vs[, ((ncol(img_vs)/3)*2):ncol(img_vs),]
+      img6 <- img_vs[, (ncol(img_ind)/3):((ncol(img_ind)/3)*2),]
+      
+      par(mar = c(0,0,0,0))
+      for(i in 1:6) {
+        plot(0:100, 0:100, type = "n", axes = F, xlab = "", ylab = "")
+        
+        rasterImage( get(paste0("img",i)) , xleft = 0, xright = 100,
+                     ybottom = 0, ytop = 100)
+      }
+    
+    
+    
+  # dev.off() ####
+    
+    dev.off()
+    }
+  }
 
 
