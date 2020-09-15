@@ -105,9 +105,12 @@ write.csv(sd_cores, file = paste0("results/formal_comparison/SD_of_each_detrende
 
 ## Run the 3 types of analysis to compare ####
 
-  dir.create(paste0("results/formal_comparison/figures"), recursive = T, showWarnings = F)
-  dir.create(paste0("results/formal_comparison/tables"), recursive = T, showWarnings = F)
+dir.create(paste0("results/formal_comparison/figures"), recursive = T, showWarnings = F)
+file.remove(list.files(paste0("results/formal_comparison/figures"), full.names = T))
   
+dir.create(paste0("results/formal_comparison/tables"), recursive = T, showWarnings = F)
+file.remove(list.files(paste0("results/formal_comparison/tables"), full.names = T))
+
   
   for(f in sites_species) {
     print(f)
