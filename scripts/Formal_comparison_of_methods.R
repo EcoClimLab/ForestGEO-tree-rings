@@ -26,7 +26,7 @@ sites_species <-  c("SCBI_litu", "ScottyCreek_PIMA", "Zofin_ABAL", "CedarBreaks_
 
 # Define parameters and variables ####
 ## variables_to_show ?
-variables_to_show <- c("pet", "tmx")
+variables_to_show <- c("pet", "tmx", "wet", "pre")
 
 ## saving or not saving outputs ? ####
 save.plots <- TRUE
