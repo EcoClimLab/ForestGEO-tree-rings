@@ -70,10 +70,19 @@ for(ssp in sites_species) {
 }
 
 # load individual chronologies (same as rwl files but in different format) ####
+# par(mfrow = c(1, 4))
 for(ssp in sites_species) {
   x <- read.csv(paste0("processed_data/core_data_with_best_climate_signal/log_core_measurement/", strsplit(ssp, "_")[[1]][1], ".csv"), stringsAsFactors = F)
+  # hist(unique(x[ , c("coreID", "dbh_at_coring")])$dbh_at_coring, breaks = 20, main = "Histogram of dbh at coring", xlab = "")
+  # summary(unique(x[ , c("coreID", "dbh_at_coring")])$dbh_at_coring)
+  # 
+  # hist(tapply(x$core_measurement, x$coreID, function(y) sum(y*2/10)), main = "Histogram of sum core measurements", xlab = "")
+  # summary(tapply(x$core_measurement, x$coreID, function(y) sum(y*2/10)))
+  # A <- tapply(x$dbh_at_coring, x$coreID, max)
+  # if(ssp %in% "ScottyCreek_PIMA") x <- x[x$coreID %in% names(A)[order(A, decreasing = T)[1:50]], ]
   x <- x[grepl(strsplit(ssp, "_")[[1]][2], x$species_code, ignore.case = T), c("residuals", "coreID", "Year", "Date")]
 
+ 
   # plot(residuals ~ Year, data = x, ylim = c(-5, 5), main = paste(ssp, "\n", length(unique(x$coreID))))
   
   assign(paste0(ssp, "_ind_chron"), x)
@@ -157,9 +166,6 @@ file.remove(list.files(paste0("results/formal_comparison/tables"), full.names = 
         },finally={})
       } # doing a trycatch because "ScottyCreek_PIMA" failes often....
       
-      
-      # resp.dcc.output.v <- my.dcc(core, clim[, c("year", "month", v)], method = "response", start = ifelse(v %in% "frs", start.frs, start), end = ifelse(v %in% "frs", end.frs, end), timespan = c(start.year, end.year), ci = 0.05, ci2 = 0.002)
-      
       ## climwin on species chronologies ####
       baseline_sp = "lm(res ~ 1, data = core)"
       # mean_scaled_x <- function(x) mean(scale(x)) # this to average the scaled variables fir each window tested, instead of using just the scaled data.
@@ -214,8 +220,8 @@ file.remove(list.files(paste0("results/formal_comparison/tables"), full.names = 
       
       ## get beta coeficient of both climwin results but for the  best window with individual chronologies ####
       best_window_ind <- climwin.output_ind$combos[1, c("WindowOpen", "WindowClose")]
-      beta_best_window <- c(sp = climwin.output_sp[[1]]$Dataset[climwin.output_sp[[1]]$Dataset$WindowOpen %in% best_window_ind$WindowOpen & climwin.output_sp[[1]]$Dataset$WindowClose %in% best_window_ind$WindowClose,]$ModelBeta,
-                            ind = fixef(climwin.output_ind[[1]]$BestModel)[[2]])
+      beta_best_window <- rbind(sp = climwin.output_sp[[1]]$Dataset[climwin.output_sp[[1]]$Dataset$WindowOpen %in% best_window_ind$WindowOpen & climwin.output_sp[[1]]$Dataset$WindowClose %in% best_window_ind$WindowClose,],
+                            ind = climwin.output_ind[[1]]$Dataset[1,])
       
       ## plot climwin individual chronology model ####
       
@@ -284,10 +290,22 @@ file.remove(list.files(paste0("results/formal_comparison/tables"), full.names = 
       segments(b, barplot_ci$lower, b, barplot_ci$upper, col = barplot_border)
       
       # plot sp vs individual climwin only
-      ylim_plot <- range(c(climwin.response_sp$ModelBeta, climwin.response_ind$ModelBeta))
-      plot(x = climwin.response_sp$ModelBeta, y = climwin.response_ind$ModelBeta, xlab = "Species Chronology", ylab = "Individuals in Mixed-effects Model", ylim = ylim_plot, main = "Comparison Beta coefficients\n1-month window Climwin", pch = 16)
-      abline(0, 1)
-      text(x = climwin.response_sp$ModelBeta, y = climwin.response_ind$ModelBeta, labels = x.axis.labels, cex = 0.8, pos = 4)
+      ylim_plot <- range(c(climwin.response_ind$ModelBeta - 1.96 * climwin.response_ind$Std.Error, climwin.response_ind$ModelBeta + 1.96 * climwin.response_ind$Std.Error))
+      xlim_plot <- range(c(climwin.response_sp$ModelBeta - 1.96 * climwin.response_sp$Std.Error, climwin.response_sp$ModelBeta + 1.96 * climwin.response_sp$Std.Error))
+      
+      plot(x = climwin.response_sp$ModelBeta, y = climwin.response_ind$ModelBeta, xlab = "Species Chronology", ylab = "Individuals in Mixed-effects Model", ylim = ylim_plot, xlim = xlim_plot, main = "Comparison Beta coefficients\n1-month window Climwin", pch = 16)
+      segments(x0 = climwin.response_sp$ModelBeta - 1.96*climwin.response_sp$Std.Error, 
+               x1 = climwin.response_sp$ModelBeta + 1.96*climwin.response_sp$Std.Error,
+               y0 = climwin.response_ind$ModelBeta,
+               y1 = climwin.response_ind$ModelBeta,
+               col = "grey") # x axis CI
+      segments(x0 = climwin.response_sp$ModelBeta,
+               x1 = climwin.response_sp$ModelBeta,
+               y0 = climwin.response_ind$ModelBeta - 1.96*climwin.response_ind$Std.Error,
+               y1 = climwin.response_ind$ModelBeta + 1.96*climwin.response_ind$Std.Error,
+               col = "grey") # y axis CI
+      abline(0, 1, lty = 3)
+      # text(x = climwin.response_sp$ModelBeta, y = climwin.response_ind$ModelBeta, labels = x.axis.labels, cex = 0.8, pos = 4, col = "grey")
      
       
       # points(x = corr.dcc.output$chg_rad_inc_clim, y = climwin.response_ind$ModelBeta, xlab = "dcc")
@@ -297,7 +315,7 @@ file.remove(list.files(paste0("results/formal_comparison/tables"), full.names = 
       #        legend = c("climwin sp",
       #                   "climwin ind"))
       
-      # barplot best month climwin ind
+      # plot best month climwin ind
       
       time_window <- reference_date[2] - as.numeric(best_window_ind[, c("WindowOpen", "WindowClose")])
       time_window_prev <- time_window <= 0
@@ -305,15 +323,37 @@ file.remove(list.files(paste0("results/formal_comparison/tables"), full.names = 
       
       time_window_text <- paste(paste0(ifelse(time_window_prev, "p.", "c."),month.abb[time_window]), collapse = "-") #  paste0("\nfrom ", paste(paste0(ifelse(time_window_prev, "prev. ", "curr. "), month.abb[time_window]), collapse = "\nto "))
       
-      
-      barplot(beta_best_window, col = colors_plot[c(1, 3)], main = paste("Climwin best window (ind)\n",
-                                                                         time_window_text),
-              ylab = "Beta coeficient Climwin")
+      ylim_plot <- range(c(beta_best_window$ModelBeta - 1.96 * beta_best_window$Std.Error, beta_best_window$ModelBeta + 1.96 * beta_best_window$Std.Error))
       
       
+      plot(beta_best_window$ModelBeta,
+           xlim = c(0,3), 
+           ylim = ylim_plot,
+           col = colors_plot[c(1, 3)], 
+           main = paste("Climwin best window (ind)\n", time_window_text), 
+           ylab = "Beta coeficient Climwin", 
+           xlab = "", 
+           xaxt = "n",
+           pch = 16,
+           bty = "n")
+      segments(x0 = c(1,2), x1 = c(1,2),
+               y0 = beta_best_window$ModelBeta - 1.96 * beta_best_window$Std.Error, 
+               y1 = beta_best_window$ModelBeta + 1.96 * beta_best_window$Std.Error,
+               col = colors_plot[c(1, 3)])
       
       
-     ### dev.off() ####
+      axis(side = 1,
+           at = c(1, 2), tick = F,
+           labels = rownames(beta_best_window)
+           
+          
+          )
+      
+      
+      
+      
+     
+      ### dev.off() ####
       
       if(save.plots) dev.off()
       
