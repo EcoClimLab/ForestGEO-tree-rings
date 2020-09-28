@@ -1,0 +1,304 @@
+---
+title: "Supplementary Information"
+author:
+output: 
+  pdf_document:
+    fig_caption: yes
+    toc: true # table of content true
+    toc_depth: 3  
+bibliography: references.bib
+csl: methods-in-ecology-and-evolution.csl
+header-includes:  \usepackage{float}
+                  \usepackage{caption}
+                  \captionsetup[table]{font=footnotesize}
+                  \captionsetup[figure]{font=footnotesize}
+                  \captionsetup[figure]{labelformat=empty}
+                  \captionsetup[table]{labelformat=empty}
+                  \usepackage{pdflscape}
+                  \newcommand{\blandscape}{\begin{landscape}}
+                  \newcommand{\elandscape}{\end{landscape}}
+---
+
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+options(knitr.table.format = "latex")
+```
+
+
+\newpage
+
+## Appendix S1. Methods for reconstruction of $DBH$
+
+*This is still rough/ mostly notes.*
+
+For each core, $DBH$ can be reconstructed outside-in (based on recent $DBH$, subtracting growth recorded in tree rings) or inside-out (summing $\Delta r$ from the inside out). 
+We generally gave precedence to the outside-in approach.
+Specifically, when $DBH$ was taken at the time of coring,  
+At some of our sites where DBH was not taken at the time of coring (*SCBI*,), DBH measurements taken before or slightly after the time of coring could be used.
+(see [issue #19 in ForestGEO_dendro](https://github.com/EcoClimLab/ForestGEO_dendro/issues/19))
+If before, ... 
+If after...
+For all outside-in reconstructions, if a negative $DBH$ was predicted...
+
+When there were more than one cores for a tree, the $DBH$ reconstructions from each core were averaged to produce a single estimate of the tree's $DBH$ through time. 
+When the start or end dates of the records from the cores differed, we extrapolated growth of the shorter core to match the years covered by the longer core. 
+Specifically, to fill in years at the more recent end, we assumed that the average growth rate of the ten years prior to the missing records applied to the missing years. 
+To fill in years at the beginning of the tree's lifespan, we likewise assumed that the ten years adjacent to the missing record applied to the missing years; however, if this yielded a negative $DBH$ estimate for the earliest year in the reconstruction, we divided the existing minimum $DBH$ by number of years missing and applied that value to each year.
+We note that these reconstructed growth records were used only for the reconstruction of $DBH$ and were not included as response variables in any of our analyses.
+
+
+In either case we need bark thickness--ideally allometries describing the relationship between DBH and bark thickness (Table S4). 
+This is especially critical for thick-barked species.
+When bark thickness data were available, we generated allometries ([issue #8 in ForestGEO_dendro](https://github.com/EcoClimLab/ForestGEO_dendro/issues/8))... 
+lognormal model with intercept forced to zero: `lm(bark_depth.mm ~ -1 + log(dbh_no_bark.cm+1):bark_species, data = bark)`.
+When bark thickness data were not available, we used published bark allometries from other sources (Table S4)
+
+
+
+\newpage
+
+## Appendix S2.  Methods for comparing climwin results with traditional methods
+*([ISSUE #35 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/35))*
+
+To verify that our methods gave similar results to traditional methods, we conducted qualitative comparisons of our results to previous studies based on the same cores (Table **S5**). We also conducted a formal comparison using identical tree-ring and climate data for four well-studied species: PSME (Cedar Breaks, Utah), ABAL (Zofin), PIMA (Scotty Creek), and LITU (SCBI) (Fig. **S1**). We compared results from an analysis using conventional methods, as detailed below, to an analysis using our method as described in the Methods section, but with the *climwin* climate variable selection process limited to just the species of interest (as opposed to all species at the site), climate variables considered individually rather than additively, and with start date adjusted to match the conventional method.
+
+The ring-width series from each core was standardized via ARSTAN using a 2/3rds $n$ spline, where $n$ is the number of years in the series (*Cook, 1985; Cook & Kairiukstis, 1990- citations in Helcoski*). 
+*(The following italic text is plagarized from Helcoski and needs to be reworded:)* *The influence of outliers in all series was reduced using the adaptive power transformation, which also stabilises the variance over time (Cook & Peters, 1997). Next, each series was stabilised using either the average correlation between raw ring-width series (rbar) method or a 1/ 3rds spline method to adjust changes in variance as series replication decreased towards the earlier portion of each chronology (Jones et al., 1997). The 1/3rds spline method was chosen when replication in the inner portion of each chronology (c. the inner 30–50 yr of each record depending on full chronology length) dropped below three trees. Once that step was complete, a robust biweight mean chronology for each species was calculated from the ring-width indices (Cook, 1985). We chose to use residual chronologies because the autoregressive standardisation process in creating them removes much of the tree-level autocorrelation in growth and these chronologies would most likely contain the most conservative information on drivers of interannual growth (Cook, 1985).* 
+
+Following @helcoski_growing_2019, we defined chronology start dates according to the subsample signal strength (SSS), using a cutoff of SSS = 0.80 (or 80% of the population signal).
+Thus, for this analysis only, we defined chronology start dates as the year the SSS exceeded 0.80 or two years after the start of the climate record, whichever came later. 
+SSS exceeded 0.80 well before the start of the 1901 start of climate records for PSME (1800s), ABAL (1700), and PIMA (1850s). For LITU , SSS reached 0.8 with 11 trees in 1919, which we used as the start date for this series.
+We note that these start date criteria differ from those used in the main analysis (Table S3), which had earlier start dates because the analysis was not constrained by a need to represent the full population signal.
+End dates were defined as the last full year prior to sampling (Table S3).
+
+
+
+\newpage
+
+## Appendix S3.  Dealing with rapidly changing climate and tree growth
+
+[ISSUE #25 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/25)
+
+Our analysis included two sites where climate change has had pronounced effects on tree growth: Scotty Creek, NW Territories, Canada (SC) and Little Tesuque, New Mexico, USA (LT).
+At SC, [temperatures have increased by X $^\circ$ over X years]..., resulting in negative growth trends in basal area index ($BAI$) starting around 1950 and significant growth declines since 1970 in `r round(249/(249+69+127)*100, digits=0)`% of trees [@sniderhan_growth_2016].
+At LT, *(drought has increased dramatically)*, resulting in many missing rings in recent years.
+
+*This is in process. We will try and compare 3 methods: (1) our standard approach, (2) detrending the climate variables (#53), (3) applying the climwin step only for older records--before the most rapid climate change. We will work with SC and LT researchers to determine which makes most sense, and use that as the main approach for these sites.*
+
+\newpage
+## Table S1. Site Details
+```{r eval = TRUE, echo=FALSE, warning=FALSE}
+library(knitr)
+library(kableExtra)
+S1 <- read.csv("tables_figures/site_details.csv", stringsAsFactors = FALSE, check.names = FALSE)
+kable(S1, format = "latex", booktabs = TRUE,   escape = F)%>%
+  column_spec(2, width = "3cm") %>%
+  column_spec(5, width = "2cm") %>%
+  column_spec(6, width = "2cm") %>%
+  column_spec(7, width = "1.5cm") %>%
+  kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
+```
+
+\newpage
+## Table S2. Species analyzed, their characteristics, and bark allometries applied
+*([ISSUE #72 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/72))*
+
+*NOTE: bark.allometry field is not yet right-- we will have just one latin name per site, corresponding to allometries in Table S4. But it does give correct info for what is currently applied. We also intend to find and apply more allometries.*
+
+```{r eval = TRUE, echo=FALSE, warning=FALSE}
+library(knitr)
+library(kableExtra)
+S2 <- read.csv("tables_figures/species.csv", stringsAsFactors = FALSE, check.names = FALSE)
+kable(S2, format = "latex", booktabs = TRUE,  escape = F, linesep = c('\\addlinespace'))%>%
+  row_spec(0, italic = F, bold = T) %>%
+  column_spec(8, width = "5cm") %>%
+  kable_styling(latex_options = c("scale_down", "hold_position")) 
+```
+*Bark allometry field indicates the species and site sampled to construct the bark allometry. When neither raw data nor an allometric equation for the study species was available, we selected the most appropriate equation that could be located for similar species. Equations are given in Table S4.
+
+\newpage
+
+## Table S3. Sampling details for species by site
+*([ISSUE #73 in ForestGEO-climate-sensitivity](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/73))*
+
+```{r eval = TRUE, echo=FALSE, warning=FALSE}
+library(knitr)
+library(kableExtra)
+ss_table <- read.csv("tables_figures/sampling_details.csv", stringsAsFactors = FALSE, check.names = FALSE)
+kable(ss_table, format = "latex", booktabs = TRUE,   escape = F, linesep = c('\\addlinespace'))%>%
+  row_spec(0, italic = F, bold = T) %>%
+  kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
+```
+*Maximum reconstructed $DBH$'s analyzed are less than maximum sampled $DBH$'s because we discard size ranges with < 3 conspecific trees.
+
+\newpage
+
+## Table S4. Allometric equations for bark thickness 
+
+```{r eval = TRUE, echo=FALSE, warning=FALSE}
+library(knitr)
+library(kableExtra)
+allometries_table <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO_dendro/data_processed/dbh_to_bark_allometries_table.csv", stringsAsFactors = FALSE, check.names = FALSE)
+kable(allometries_table, format = "latex", booktabs = TRUE,   escape = F, linesep = c('\\addlinespace'))%>%
+  column_spec(1, italic = T) %>%
+  column_spec(5, width = "3cm") %>%
+  column_spec(6, width = "6cm") %>%
+  row_spec(0, italic = F, bold = T) %>%
+  kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
+```
+For assignments of species as proxies for those with out available bark allometries, see Table S2.
+
+\newpage
+## Table S5. Qualtiative comparison of results from this study with previous studies employing conventional methods
+
+```{r eval = TRUE, echo=FALSE, warning=FALSE}
+library(knitr)
+library(kableExtra)
+breakrow1<-10
+breakrow2<-24
+breakrow3<-35
+col_width<-"2.5cm"
+table_pt1 <- read.csv("tables_figures/qualitative_results_comparison.csv", 
+                     colClasses=c("NULL", NA, NA, NA, NA, NA, NA), 
+                     col.names=c("NULL", "species", "previously observed", "observed here", "previously observed", "observed here", "reference"), 
+                     skip=0, nrows=breakrow1,
+                     stringsAsFactors = FALSE, check.names = FALSE)
+kable(table_pt1, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = F, linesep = c('\\addlinespace'))%>%
+  add_header_above(c(" ", "Precipitation response" = 2, "Temperature response" = 2)) %>%
+  column_spec(2:5, width = col_width) %>%
+  column_spec(6, width = "2cm") %>%
+  pack_rows("Barro Colorado Island, Panama", 1, 3, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Huai Kha Khaeng, Thailand", 4, 7, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  kable_styling(latex_options = c( "hold_position", "repeat header"), protect_latex = T, font_size = 7) 
+# refs in this table need to go in the nocite field below
+```
+
+\newpage
+Table S5, cont.
+```{r eval = TRUE, echo=FALSE, warning=FALSE}
+table_pt2 <- read.csv("tables_figures/qualitative_results_comparison.csv", 
+                     colClasses=c("NULL", NA, NA, NA, NA, NA, NA), 
+                     col.names=c("NULL", "species", "previously observed", "observed here", "previously observed", "observed here", "reference"), 
+                     skip=breakrow1, nrows=breakrow2-breakrow1,
+                     stringsAsFactors = FALSE, check.names = FALSE)
+kable(table_pt2, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = F, linesep = c('\\addlinespace'))%>%
+  add_header_above(c(" ", "Precipitation response" = 2, "Temperature response" = 2)) %>%
+  column_spec(2:5, width = col_width) %>%
+  column_spec(6, width = "2cm") %>%
+  pack_rows("Smithsonian Conservation Biology Institute, Virginia, USA", 1, 14, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  kable_styling(latex_options = c( "hold_position", "repeat header"), protect_latex = T, font_size = 7) 
+# refs in this table need to go in the nocite field below
+```
+
+\newpage
+Table S5, cont.
+```{r eval = TRUE, echo=FALSE, warning=FALSE}
+table_pt3 <- read.csv("tables_figures/qualitative_results_comparison.csv", 
+                     colClasses=c("NULL", NA, NA, NA, NA, NA, NA), 
+                     col.names=c("NULL", "species", "previously observed", "observed here", "previously observed", "observed here", "reference"), 
+                     skip=breakrow2, nrows=breakrow3-breakrow2,
+                     stringsAsFactors = FALSE, check.names = FALSE)
+kable(table_pt3, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = F, linesep = c('\\addlinespace'))%>%
+  add_header_above(c(" ", "Precipitation response" = 2, "Temperature response" = 2)) %>%
+  column_spec(2:5, width = col_width) %>%
+  column_spec(6, width = "2cm") %>%
+  pack_rows("Lilly Dickey Woods, Indiana, USA", 1, 4, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Žofín Forest Dynamics Plot, Czech Republic", 7, 10, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Scotty Creek, NW Territories, Canada", 11, 11, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  kable_styling(latex_options = c( "hold_position", "repeat header"), protect_latex = T, font_size = 7) 
+# refs in this table need to go in the nocite field below
+```
+---
+nocite: | 
+  @alfaro-sanchez_growth_2017; @vlam_temperature_2014; @helcoski_growing_2019; @maxwell_declining_2016; @aus_de_ar_tree_2018; @bumann_assessing_2019; @tumajer_increasing_2017; @sniderhan_growth_2016; @kaspar_species-specific_nodate
+---
+Results from this study are the climate-only model. 
+Where previous studies examined numerous climate variables or time windows [e.g., @helcoski_growing_2019], we focus on those most relevant to our findings. 
+Beyond the methodological differences, original studies vary from this one and from one another in factors including
+exact set of cores analyzed,
+climate data sources,
+time frame of analysis,
+approaches to identifying candidate climate variables and windows (including whether this is done on a site or species level), 
+methods for detrending and standardizing to build chronologies,
+and whether the effects of temperature and precipitation are considered separately (original studies) or additively (this study).
+An analysis standardizing all of these factors for four species is present in Appendix **S2** and Fig. **S1**.
+
+\newpage
+## Table S6. Frequency of $DBH$-climate interactions across all sites and growth metrics
+```{r eval = TRUE, echo=FALSE, warning=FALSE}
+library(knitr)
+library(kableExtra)
+table_raw <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/climate_interactions_summary.csv", stringsAsFactors = FALSE, check.names = FALSE)
+#this reads in the table, but knit fails if I try to render it (probably because of underscores). It also needs ot be rearranged
+#kable(table_raw, format = "latex", booktabs = TRUE, caption = "Table S  . Frequency of DBH-climate interactions", escape = F)%>%
+#  kable_styling(latex_options = c("scale_down", "hold_position")) 
+```
+
+
+\newpage 
+## Figure S1. Comparison of our approach with traditional methods of identifying climate signals
+![**Figure S1 | (Comparison of traditional approaches with ours).**  (THIS FIGURE IS JUST A MOCK-UP --NOT REAL DATA. REAL FIGURE WILL INCLUDE 3-4 COMMONLY STUDIED SPECIES FROM DIFFERENT SITES.) ](tables_figures/mock_comparison_traditional_method.png){ width=70% }
+
+\newpage
+## Figure S2. Comparison of climwin output across growth metrics for the temperature variable group at Little Tesuque (New Mexico, USA)
+![**Figure S2 | Comparison of climwin output across growth metrics for the temperature variable group at Little Tesuque (New Mexico, USA).** Here, *climwin* identified potential evapotranspiration ($PET$) as the strongest climate variable across all three metrics of growth ($\Delta r$, BAI, $\Delta AGB$) and regardless of whether all cores were included in the analysis, or only those for which DBH could be reconstructed ($\Delta r$-trees with $DBH$, BAI, $\Delta AGB$).)](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/NewMexico_pet.png)
+
+\newpage
+## Figure S3. Comparison of climwin output across growth metrics for the precipitation variable group at Little Tesuque (New Mexico, USA)
+![**Figure S3 | Comparison of climwin output across growth metrics for the precipitation variable group at Little Tesuque (New Mexico, USA).** Here, *climwin* identified precipitation ($PPT$) as the strongest climate variable for $\Delta r$ and $BAI$, but precipitation day frequency ($PDF$) as the strongest climate variable for $\Delta AGB$.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/NewMexico_wet_pre.png)
+
+\newpage
+## Figure S4. Comparison of climwin output across growth metrics for the precipitation variable group at Harvard Forest (Massachusetts, USA)
+![**Figure S4 | Comparison of climwin output across growth metrics for the precipitation variable group at Harvard Forest (Massachusetts, USA).** Here, *climwin* identified precipitation frequency ($PDF$) as the strongest climate variable for $\Delta r$, but precipitation amount ($PPT$) as the strongest climate variable for $BAI$ and $\Delta AGB$. The optimal time window (circled) also differed across growth metrics.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/HarvardForest_pre_wet.png)
+
+\newpage
+## Figure S5. Best GLS models for Barro Colorado Island (Panama)
+
+![**Figure S5 | Best GLS models for Barro Colorado Island (Panama) for all three growth metrics: $\Delta r$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/BCI.png){ width=75% }
+
+\newpage
+## Figure S6. Best GLS models for Huai Kha Khaeng (Thailand) 
+
+![**Figure S6 | Best GLS models for Huai Kha Khaeng (Thailand) for all three growth metrics: $\Delta r$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/HKK.png){ width=75% }
+
+\newpage
+## Figure S7. Best GLS models for Little Tesuque (New Mexico, USA) 
+
+![**Figure S7 | Best GLS models for Little Tesuque  (New Mexico, USA) for all three growth metrics: $\Delta r$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/NewMexico.png){ width=75% }
+
+\newpage
+## Figure S8. Best GLS models for Cedar Breaks (Utah, USA) 
+
+[**Figure S8 | Best GLS models for Cedar Breaks  (Utah, USA) for all three growth metrics: $\Delta r$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.]
+
+\newpage
+## Figure S9. Best GLS models for SCBI (Virginia, USA) 
+
+![**Figure S9 | Best GLS models for SCBI (Virginia, USA) for all three growth metrics: $\Delta r$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/SCBI.png){ width=75% }
+
+\newpage
+## Figure S10. Best GLS models for Lilly Dickey Woods (Indiana, USA) 
+
+![**Figure S10 | Best GLS models for Lilly Dickey Woods (Indiana, USA) for all three growth metrics: $\Delta r$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/LillyDickey.png){ width=75% }
+
+
+\newpage
+## Figure S11. Best GLS models for Harvard Forest (Massachusetts, USA) 
+
+![**Figure S11 | Best GLS models for Harvard Forest (Massachusetts, USA) for all three growth metrics: $\Delta r$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/HarvardForest.png){ width=75% }
+
+\newpage
+## Figure S12. Best GLS models for Niobrara/ Hansley (Nebraska, USA) 
+
+\newpage
+## Figure S13. Best GLS models for Zofin (Czech Republic) 
+
+![**Figure S13 | Best GLS models for Zofin (Czech Republic) for all three growth metrics: $\Delta r$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/Zofin.png){ width=75% }
+
+\newpage
+## Figure S14. Best GLS models for Scotty Creek (NW Territories, Canada) 
+
+![**Figure S14 | Best GLS models for Scotty Creek (NW Territories, Canada) for all three growth metrics: $\Delta r$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/ScottyCreek.png){ width=75% }
+
+\newpage
+## SI References

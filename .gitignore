@@ -4,3 +4,6 @@ methods/.DS_Store
 results/*.RData
 results/.DS_Store
 .DS_Store
+Icon
+Icon
+processed_data/core_data_with_best_climate_signal/*

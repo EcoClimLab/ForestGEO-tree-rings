@@ -1,0 +1,29 @@
+Dear Kristina,
+
+
+thank you for including me in this interesting study and for sending over the draft.
+
+Here some thoughts:
+
+1) In the intro you state that tree rings can be used to estimate forest woody productivity. this is certainly true but a thorough discussion of the sampling bias (Cherubini et al. For Ecol manage 1998) and necessary sampling design (Nehrbass-Ahles Gl Ch BIol 2014) should be included.
+
+2) tree size affects tree growth rates, true, but is it really the diameter or rather tree age, tree height, crown size, root depth? A physiological discussion is probably needed here.
+
+3) How were the sites selected? Site selection is crucial to correctly interpret the results.
+
+4) The diversity of growth trends in relation to DBH is largely attributable to species ecology and stand history, true; stand dynamics strongly affect stand structure and therefore tree diameter and growth trends.
+
+5) “small stems that will never enter the cohort of trees sampled by coring”, see previous comment on sampling bias (Cherubini et al. 1998)
+
+6) “deposition of sulfur dioxide”: is it still a problem of relecance?
+
+7) “the impact of rising CO2 on long-term growth trends reach inconsistent conclusions”: because of the influence of stand dynamics.
+
+8) The ITRDB doesn’t contain any structure for storing DBH records, but ring widths allow the reconstruction of diameter over time.
+
+Hope it helps.
+
+Best regards,
+
+Paolo
+--

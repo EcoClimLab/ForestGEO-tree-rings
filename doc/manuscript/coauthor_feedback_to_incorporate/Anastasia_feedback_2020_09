@@ -1,0 +1,24 @@
+Below are the answers to the specific questions that you wanted feedback on. I didn’t get the opportunity to dig into the paper in too much depth at this point, but the read through looks promising!
+ 
+Jenn – can you confirm that the allometric equations for PIMA bark thickness at Scotty in Table S4 should be credited to Patankar & Baltzer (unpublished data)?
+ 
+•          ensure that anyone from your site warranting coauthorship (or acknowledgement) is included
+            Note that incorrect spelling of Jennifer Baltzer in author list
+•          check site info in tables 1 and S1, provide missing info. In particular, we need a best estimate of dormant season for most sites
+            Table 1 – looks good. Only note is that “NW Territories” isn’t an abbreviation that I’ve seen used for the Northwest Territories – the territory is either listed as “NWT” or “NT” as its abbreviation, though I recognize that you may be just trying to give as much information without needing a third line to accommodate it.
+            Table S1 – I’m not sure where the elevation data came from, but a 16 m range in elevation seems very high for Scotty. I don’t have a DEM for the area handy, but I generally have listed it at 280 m, give or take maybe 2-3 meters across the ForestGeo plot. I am assuming that the date range provided reflects the starting year of your analysis, rather than the date range of the series we provided since they almost all start in 1903 and I’m sure there are sites other than Scotty with older trees than that as well!  Dormant season estimate for Scotty Creek: September through April
+•          Do you agree that the selected 15-mo window in which we search for best climate variables (Table S1) is appropriate for your site? We can adjust easily, although I'd prefer to keep it close to 15 months so that its relatively standard across sites
+            Yes, pMay – cAug is great.
+•          Do the selected climate variables/ windows make sense based on your knowledge of the forest? (Note that selection will remain automatic, but unexpected selections may point to a fault in the process.)
+            Yes, nothing concerning about the climate variables and windows at SC
+•          Do the climate and DBH responses make sense based on your knowledge of the forest? (Again, the process is automatic, but unexpected results may point to a fault in the process.)
+(I know the results of SC are still in the works, so flag me when we have those results and I will comment then)
+•          Will it be okay to make your data public alongside all the other data/code behind the manuscript? (The code and results will be made public via GitHub, but I don't think there will be a problem in holding back some raw data if needed.)
+Yes.
+•          Would you be interested in archiving your data in the The DendroEcological Network (DEN) database (https://www.uvm.edu/femc/dendro)? DEN is a new tree-ring database that includes more ecological information (critically, DBH). We have written code to put the SCBI data in their format, and I'm in touch with the database managers, who would be happy to accept data from this project.
+Yes, the Scotty Creek ring width data is already available on the ITRDB, but it would be great to have the additional ecological information available too if posting in both locations doesn’t cause any problems
+ 
+Additional comments:
+Table S3: dbh.range.sampled for SC has defaulted to a date rather than DBH ranges
+Table S4: source should probably be Rajit Patankar and Jennifer Baltzer (unpublished data)
+As per Paolo Cherubini’s comment 8, it seems as though the MS needs to emphasize that having ring width data without knowing that the series is a complete core means that diameter cannot be reconstructed.

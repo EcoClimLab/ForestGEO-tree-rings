@@ -1,0 +1,11 @@
+site code,site name,location,Jan T,July T,Ann. Precip.,vegetation type(s),n species,n cores,original publication(s)
+BCI,Barro Colorado Island,Panama,,,,"BD, BE",3,84,"Alfaro-S$\'{a}$nchez, Muller-Landau, Wright, and Camarero 2017"
+HKK,Huai Kha Khaeng,Thailand,,,,"BD, BE",4,470,"Vlam, Baker, Bunyavejchewin, and Zuidema 2014"
+LT,Little Tesuque,"New Mexico, USA",,,,NE,2,34,
+CB,Cedar Breaks,"Utah, USA",,,,"NE, BD",7,203,
+SCBI,Smithsonian Conservation Biology Institute,"Virginia, USA",,,,"BD, NE",14,706,Helcoski et al. 2019
+LDW,Lilly Dickey Woods,"Indiana, USA",,,,BD,6,170,"Maxwell, Harley, and Robeson 2016"
+HF,Harvard Forest,"Massachusetts, USA",,,,"BD, NE",4,366,
+NE,Niobrara/Halsey,"Nebraska, United States",,,,"BD, NE",3,,Aus de Ar et al. 2018; Bumann et al. 2019
+ZOF,$\v{Z}$of$\'{i}$n Forest Dynamics Plot,Czech Republic,,,,"NE, BD",4,2068,"$\v{S}$amonil et al. 2013; Ka$\v{s}$par, Tumajer, Va$\v{s}\'{i}\v{c}$kov$\'{a}$, and $\v{S}$amonil, in review "
+SC,Scotty Creek,"NW Territories, Canada",,,,NE,1,443,Sniderhan and Baltzer 2016

@@ -1,0 +1,19 @@
+$BCI
+$BCI$log_core_measurement
+[1] "dtr" "pet"
+
+$BCI$log_core_measurement_dbh
+[1] "dtr" "pet"
+
+$BCI$log_agb_inc_dbh
+[1] "dtr" "pet" "tmn"
+
+$BCI$log_BAI_dbh
+[1] "dtr" "pet" "cld"
+
+
+$CedarBreaks
+$CedarBreaks$log_core_measurement
+[1] "pet" "cld"
+
+
