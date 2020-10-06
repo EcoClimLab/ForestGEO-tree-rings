@@ -12,6 +12,7 @@ library(gridExtra)
 library(snow)
 library(MuMIn)
 library(tidyverse)
+library(raster)
 
 # prepare parameters ####
 ## paths to data ####
@@ -39,7 +40,8 @@ sites.sitenames <- c(BCI = "Barro_Colorado_Island",
                      ScottyCreek = "Scotty_Creek",
                      Zofin = "Zofin",
                      HKK = "Huai_Kha_Khaeng",
-                     NewMexico = "New_Mexico")
+                     NewMexico = "New_Mexico",
+                     Nebraska = "Niobara")
 
 ## analysis parameters ####
 reference_dates <- list(BCI = c(30, 12),
@@ -50,7 +52,8 @@ reference_dates <- list(BCI = c(30, 12),
                         NewMexico = c(30, 8),
                         SCBI = c(30, 8),
                         ScottyCreek = c(30, 8),
-                        Zofin= c(30, 8)) # refday in slidingwin
+                        Zofin= c(30, 8),
+                        Nebraska = c(30, 8)) # refday in slidingwin
 window_ranges <- list(BCI = c(15, 0),
                       CedarBreaks = c(15, 0),
                       HarvardForest = c(15, 0),
@@ -59,7 +62,8 @@ window_ranges <- list(BCI = c(15, 0),
                       NewMexico = c(15, 0),
                       SCBI = c(15, 0),
                       ScottyCreek = c(15, 0),
-                      Zofin = c(15, 0))# range in slidingwin
+                      Zofin = c(15, 0),
+                      Nebraska = c(15, 0))# range in slidingwin
 # reference_date <- c(30, 8) # refday in slidingwin
 # window_range <- c(15, 0) #range in slidingwin
 
@@ -104,7 +108,7 @@ clim_gaps <- clim_gaps[clim_gaps$start_climvar.class %in% climate_variables, ]
 CO2 <- read.csv(path_to_CO2)
 
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIKAN3VIHOJ3FMV6PI27KJ2VW")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIMPY46JBODIHZPIFNC7QSSN4")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
@@ -268,7 +272,7 @@ all_Biol <- lapply(all_Biol, function(Biol) {
   })
 
 ## Run the Analysis ####
-for(solution_to_global_trend in c("none", "detrend_climate", "use_only_older_records")) {
+for(solution_to_global_trend in c("none", "detrend_climate", "use_only_older_records")[c(1,2)]) {
   if(solution_to_global_trend %in% "none") {
     detrended = FALSE
     old_records_only = FALSE
@@ -304,7 +308,7 @@ for(site in switch(solution_to_global_trend, "none" = sites, c("ScottyCreek", "N
   reference_date <- reference_dates[[site]]
   window_range <-  window_ranges[[site]]
   
-  if(!detrended & !old_records_only) file.remove(list.files("results/explorations/residuals_by_tag/", pattern = site, full.names = T))
+  if(!detrended & !old_records_only) file.remove(list.files("results/residuals_by_tag_examples/", pattern = site, full.names = T))
   
   variables_dropped[[site]] <- list()
   
@@ -366,7 +370,7 @@ for(site in switch(solution_to_global_trend, "none" = sites, c("ScottyCreek", "N
       
       
       if(!detrended & !old_records_only & rbinom(1, 1, 0.05)==1) {
-        png(paste0('results/explorations/residuals_by_tag/', paste(x$species_code[1], x$tree_status[1], t, sep = "_" ), "_", gsub("log_", "", what), "_Year_GAM", "_", site, '.png'),
+        png(paste0('results/residuals_by_tag_examples/', paste(x$species_code[1], x$tree_status[1], t, sep = "_" ), "_", gsub("log_", "", what), "_Year_GAM", "_", site, '.png'),
             width = 8,
             height =8,
             units = "in",
@@ -508,7 +512,7 @@ for(site in switch(solution_to_global_trend, "none" = sites, c("ScottyCreek", "N
    
     # now do a species by species gls using log of raw measurements, spline on dbh and year (WITH AND WITHOUT CO2) ####
     
-    for(with_CO2 in switch(solution_to_global_trend, "none" = c(FALSE, TRUE)[1], FALSE)) {
+    for(with_CO2 in switch(solution_to_global_trend, "none" = c(FALSE, TRUE), FALSE)) {
       ## look at collinearity between climate variables ( and CO2n and dbh when relevant) and remove any variable with vif > 10 ####
     if(grepl("dbh", what) & with_CO2) X <- Biol[, c(as.character(best_results_combos$climate), "CO2", "dbh")]
     if(grepl("dbh", what) & !with_CO2) X <- Biol[, c(as.character(best_results_combos$climate), "dbh")]

@@ -9,6 +9,7 @@ library(png)
 # make plots ####
 for(solution in c("/", "with_detrended_climate/", "old_records_only/")[-3]) {
   # clear folder of old plots ####
+  dir.create(paste0("results/", solution, "climwin_plots_combined/"), recursive = T)
   file.remove(list.files(paste0("results/", solution, "climwin_plots_combined/"), full.names = T))
   
   # prepare site names ####

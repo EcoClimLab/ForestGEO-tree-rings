@@ -46,7 +46,7 @@ sites_abb <- list(BCI  = "BCI",
                   SCBI = "SCBI",
                   LillyDickey = "LDW",
                   HarvardForest = "HF",
-                  NB = "NE",
+                  Nebraska = "NE",
                   Zofin = "ZOF",
                   ScottyCreek = "SC")
 
