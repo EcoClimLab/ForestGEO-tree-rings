@@ -88,14 +88,17 @@ jm. Department of Geography, Indiana University, Bloomington, Indiana, USA
 # Discussion - 900 / (5)
 ## References: figure ~40 words each, so 50 refs = 2000
 ## Display items: figure ~100 words for each caption = 700 words
-# Table1- table of sites
-# Fig1- schematic illustrating our process
-# Fig2- climate senstivity (SCBI example): (a) Helcoski quilt plot, (b) Climwin panel a, (c) GLS output
-# Fig3-  multipanel- GLS results for climate sensitivity at all sites (3 columns with the 3 variable type groupings, 1 row per site) 
-# Fig4-relationship of ∆r and ∆AGB to DBH (all site-species combinations)
+```
+
+```{r eval = TRUE, echo=FALSE, warning=FALSE, results='hide'}
+#Tables
+sites = 1
+#Figures
+schematic=1
+SCBI_example=2
+clim_sens=3
+size=4
 # Fig5/ table2- DBH/climate interactions
-
-
 ```
 
 \newpage
@@ -186,18 +189,19 @@ Nine of these sites (exception: LT) are large forest dynamics plots of the Fores
 Trees of species represented within the ForestGEO plots were cored within the plot (n=#) and/or in the vicinity (n=#; max distance: # km), following a variety of sampling protocols designed to meet the varied objectives of the original studies (Tables S1, S3). 
 In using this diversity of data sources, we ensured that our approach was able to handle challenges presented by varying methodologies and forest types.
 
-
-```{r eval=FALSE, echo=FALSE}
-
-# I tried to put in table, as in [Camille's paper](https://github.com/EcoClimLab/ForestGEO-tree-size-carbon/blob/master/paper_treesize_draft.Rmd), but couldn't make it work.
-library(knitr)
-library(kableExtra)
+```{r sites, eval=FALSE, echo=FALSE}
+# This generates a table, but doesn't format nicely and messes up special characters in names, so turned off.
+library(knitr)  
+#kableExtra  library will mess it up!
 sites <- read.csv("tables_figures/sites.csv", stringsAsFactors = FALSE, check.names = FALSE)
-kable(sites)
-      #caption = "Study sites")
+
+knitr::kable(sites[, c("site code",	"site name",	"location",	"July T",	"Jan T",	"Ann. Precip.",	"vegetation type(s)",	"n species",	"n cores",	"original publication(s)")], 
+                  col.names = c("site code",	"site name",	"location",	"July T",	"Jan T",	"Ann. Precip.",	"vegetation type(s)",	"n species",	"n cores",	"original publication(s)"), 
+                  caption = "Table 1. Sites included in this analysis.") 
 ```
 
-**Table 1 | Sites included in this analysis**. Here and throughout, sites are ordered by latitude. Additional site information is provided in Table S1, and species and their sample sizes are detailed in Tables S2-S3. *Climate will be filled in based on CRU data.*
+
+**Table 1 | Sites included in this analysis**. Here and throughout, sites are ordered by mean July T. Additional site information is provided in Table S1, and species and their sample sizes are detailed in Tables S2-S3. *Climate will be filled in based on CRU data.*
 ![ ](tables_figures/sites_table.png)
 ```{r eval=FALSE, echo=FALSE}
 # refs in this table need to go in the nocite field below
@@ -236,7 +240,7 @@ All ForestGEO climate records used here are archived in the ForestGEO Climate Da
 
 #### Analysis methods
 
-Our analysis consisted of two main steps: (1) identification of the most important climate drivers, and (2) combining $DBH$ and climate drivers into a multivariate model (Fig. **1**). The analysis was run separately for each site and each response variable ($\Delta r$, $BAI$, or $\Delta AGB$).
+Our analysis consisted of two main steps: (1) identification of the most important climate drivers, and (2) combining $DBH$ and climate drivers into a multivariate model (Fig. `r schematic`). The analysis was run separately for each site and each response variable ($\Delta r$, $BAI$, or $\Delta AGB$).
 
 ![**Figure 1 | DRAFT Schematic illustrating our analysis process.** This analysis is conducted separately for each site.](tables_figures/schematic_figure.png)
 
@@ -396,6 +400,7 @@ It is therefore not surprising that tree-ring studies examining the impact of ri
 **We show that DBH is a strong driver of growth (any metric) relative to climate and that climate sensitivity often varies with DBH-- findings that have important implications for understanding changes in forest productivity in response to climate change.**
 The observed importance of $DBH$ as a driver of tree growth reinforces the concept that changes in forest structure/ demography are critical to changes in forest productivity [REFS; @mcdowell_pervasive_2020].
 The prevalence of interactive $DBH$-climate effects reinforces the concepts that large trees tend to be disproportionately sensitive to drought  [@bennett_larger_2015; @mcgregor_tree_nodate] but less sensitive to high temperatures *(Rollinson et al. in review)*, implying that size should be considered in tree-ring analyses of climate sensitivity.
+(@hacket-pain_consistent_2016 show an interaction)
 However, the relatively strong importance of $DBH$ in no way negates the importance of climate, as its effect would dominate changes in productivity in stands with relatively constant size structure.
 Some studies have made a start at combining tree rings and forest census data to get at the climate sensitivity of whole-forest productivity [e.g., @helcoski_growing_2019], but have been limited in that they were not underlain by models of individual tree growth that simultaneously characterized the effects of tree size and climate, as we do here.
 Further work will be required to combine this model with forest census data in order to understand the climate sensitivity of whole-forest productivity.
