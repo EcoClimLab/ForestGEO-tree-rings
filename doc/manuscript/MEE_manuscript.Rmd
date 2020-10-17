@@ -1,6 +1,8 @@
 ---
 title: ''
-output: word_document
+output: 
+    bookdown::word_document2: 
+      reference_docx: word-styles-reference.docx #make sure this line is indented! see this guide for formatting: https://rmarkdown.rstudio.com/articles_docx.html
 bibliography: references.bib
 csl: methods-in-ecology-and-evolution.csl
 
@@ -103,7 +105,7 @@ size=4
 
 \newpage
 
-### Abstract
+# Abstract
 
 ```{r eval=FALSE, echo=FALSE}
 ## The Abstract must not exceed 350 words and should list the main results and conclusions, using simple, factual, numbered statements:
@@ -139,7 +141,7 @@ By providing a framework for such analyses, our approach opens the door for usin
 
 \newpage
 
-### Introduction
+# Introduction
 
 
 **Tree rings provide a long-term record of annual growth increments that is invaluable for understanding forests in an era of global change.** 
@@ -180,9 +182,9 @@ This allows us to ask:
 (3) How do $RW$, $BAI$, and aboveground biomass increments ($\Delta AGB$) vary with $DBH$?
 (4) How do climate drivers and $DBH$ additively and interactively shape growth? 
 
-### Materials and Methods
+# Materials and Methods
 
-#### Data sources and preparation
+## Data sources and preparation
 
 We analyzed previously collected tree-ring data from ten sites ranging from 9.15$^\circ$ to 61.30$^\circ$ N latitude and representing a wide range of forest and tree types: tropical broadleaf deciduous and evergreen, temperate broadleaf deciduous and needleleaf evergreen, and boreal needleleaf evergreen (Tables 1, S1-S2).
 Nine of these sites (exception: LT) are large forest dynamics plots of the Forest Global Earth Observatory [ForestGEO; @anderson-teixeira_ctfs-forestgeo:_2015].
@@ -238,13 +240,13 @@ Variables considered here included average daily minimum, maximum, and mean temp
 For BCI, we calculated monthly $PPT$ and $PDF$ from daily precipitation readings made on BCI starting in 1929 [@paton_barro_2019].
 All ForestGEO climate records used here are archived in the ForestGEO Climate Data Portal, v1.0-alpha [@anderson-teixeira_forestgeoclimate_2020].
 
-#### Analysis methods
+## Analysis methods
 
 Our analysis consisted of two main steps: (1) identification of the most important climate drivers and the time window over which they operate, and (2) combining $DBH$ and climate drivers into a multivariate model (Fig. `r schematic`). The analysis was run separately for each site and each response variable ($RW$, $BAI$, or $\Delta AGB$).
 
 ![**Figure 1 | DRAFT Schematic illustrating our analysis process.** This analysis is conducted separately for each site.](tables_figures/schematic_figure.png)
 
-*Identifying key climate drivers*
+### Identifying key climate drivers
 
 **We used the *climwin* package in R [@van_de_pol_identifying_2016] to identify the most important climate driver and the time window over which its effect was strongest for each of two categories of variables: a temperature group (mean, min, and max temperature; PET) and a precipitation group (precipitation, number of days with precipitation).**
 For this, we detrended the response variable to remove the influence of all non-climatic drivers (*e.g.*, growth and aging of the tree, change in competitive dynamics, atmospheric pollution), which is essential for identifying climatic drivers [@fritts_tree_1976]. 
@@ -263,7 +265,7 @@ After determining that... , here we present results *(method)*.
 
 We verified that this process identified similar climate variable-month combinations as what would be identified using traditional methods for individual species, as detailed in Appendix S2. (**[ISSUE #35 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/35)**)
 
-*Combining drivers in GLS model*
+### Combining drivers in GLS model
 
 Having identified candidate climate drivers in temperature and precipitation variable groups, we next combined climate variables (all models) and $DBH$ (models with $DBH$ and its climate interactions) in a generalized least squares (GLS) model (Fig. **1**). 
 Before running the models, we checked for collinearity among the candidate variables using the *vifstep* function (**REF**) and removed any variable with a variance inflation factor > 3 (none required removal).
@@ -274,9 +276,9 @@ For models including interactive effects of climate and $DBH$, we included only 
 Within each of three categories of models run (climate only, $DBH$+climate, $DBH$ x climate), we selected as the top model that with the lowest AIC.  
 
 
-### Results
+# Results
 
-*Identifying climate drivers*
+### Identifying climate drivers
 
 **Our process picked out similar climate drivers to what would be obtained via traditional methods (Figs. **2**, **S1**; Table S5; Appendix S2), but with the advantage that *climwin* allowed objective selection of the strongest climate drivers and the time windows over which they were most influential.**
 The most commonly selected variables within the temperature group were $T_{max}$ and $PET$, each of which was identified by climwin as the top temperature-related driver *at four of the eight sites*. $T_{min}$ was the top driver at only *one site (BCI)*, and $T_{mean}$ was never identified as the top variable within the temperature group (Fig. **3**).
@@ -301,7 +303,7 @@ Henceforth, we focus on the climate drivers identified when $RW$ was the growth 
   
 ![**Figure 3 | Species-level responses of $RW$ to climwin-selected variables in precipitation and temperature variable groups.** For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. For each relationship shown, other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD. (THIS FIGURE WILL PROBABLY CHANGED INTO A 4COL X 5 ROW MATIX, DROPPING SPECIES KEY, WHICH CAN BE SEEN IN OTHER FIGURES)](tables_figures/pre_temp_groups.png)
 
-*Climate sensitivity*
+### Climate sensitivity
 
 Precipitation responses were included in the best model at all sites and *for all but # species* (Fig. **3**).
 Responses were most commonly positive, and were most pronounced at the driest site (LT). 
@@ -315,7 +317,7 @@ Among the relationships with at least one significant term, responses shifted fr
 *(Note that Scotty Creek was previously positive, later shifted negative; [ISSUE #25 in ForestGEO-climate-sensitivity](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/25))*
 Temperature terms included in top models were non-linear #% *(most)* of the time, and significantly better than first-order linear model #% of the time.
 
-*Influence of DBH*
+### Influence of DBH
 
 **All three growth metrics, $RW$, $BAI$, and $\Delta AGB$, varied with $DBH$ for most species at all sites (Fig. **4**).** 
 While $RW$ varied significantly with $DBH$ for the majority of species-site combinations (n= # of #; Table **S#**), there was substantial variation in these trends, with patterns mixed across both forests and species within a single stand (Fig. **4**).
@@ -328,7 +330,7 @@ At the other end of the spectrum, a number of species at sites where they presum
 
 ![**Figure 4 | Growth sensitivity to DBH: (a) $RW$, (b) $BAI$, (c) $\Delta AGB$.** Relationships for species are plotted when included in the top model. Other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), DASHED lines when only one term is significant, and dotted lines when neither is significant.  Transparent ribbons indicate 95% confidence intervals.](tables_figures/DBH_responses.png)
 
-*Additive and interactive effects of climate and DBH*
+### Additive and interactive effects of climate and DBH
 
 **Both DBH and climate were included in the majority of top models, regardless of the growth metric used.** 
 Specifically, $DBH$ was included in #% of top models for $RW$, #% of top models for $BAI$, and #% of top models for $\Delta AGB$.
@@ -350,18 +352,18 @@ The majority (#%) of these interactions were positive, indicating that larger tr
 **figure on climate - DBH interactions?** (*See [ISSUE #42 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/42)*)
 
 
-### Discussion
+# Discussion
 
 **We present a new method that allows simultaneous consideration of the effects of objectively determined principle climate drivers and tree size on annual growth.**
 Results are broadly consistent with those obtained by traditional methods, but offer several new insights.
 
-#### corroboration of insight from conventional methods
+## corroboration of insight from conventional methods
 *( more objective approach to produce similar results to what has been shown using more conventional methods)*
 
-#### new insight
+## new insight
 *(could potentially provide new insight that would not be expected using more conventional methods.  It would be useful if there are examples from the analysis in this paper that could clearly illustrate new insight that would not have been found with conventional methods. )*
 
-#### future challenges (?)
+## future challenges (?)
 *(still face a problem when future climate is outside of the range of values used to model the climate-growth relationship. )*
 
 
@@ -431,20 +433,20 @@ Sampling small trees should be important for disentangling whether non-stationar
 
 Sets the foundation for considering other, slowly changing environmental drivers.
 
-### Acknowledgements
+# Acknowledgements
 Thanks to Pete Kerby-Miller for bark thickness data.
 Helpful feedback was provided by Albert Kim...
 This analysis was funded by a Smithsonian Scholarly Studies grant to KAT, SM, HCM, and CP.
 The participation of PS, JK, and IV from the Czech Republic was supported by the Czech Science Foundation, project No. 19-09427S
 
-### Authors' contributions
+# Authors' contributions
 KAT, VH, CR, RA, CP conceived the ideas and designed methodology; 
 [most authors] collected the data; 
 VH, BG, EGA, and NP organized and analysed the data; 
 KAT led the writing of the manuscript. 
 All authors contributed critically to the drafts and gave final approval for publication.
 
-### Data availability
+# Data availability
 ```{r eval=FALSE, echo=FALSE}
 # To enable readers to locate archived data from papers, we require that authors list the database and the respective accession numbers or DOIs for all data from the manuscript that has been made publicly available.
 ```
@@ -454,7 +456,7 @@ All authors contributed critically to the drafts and gave final approval for pub
 Code and full results are available via the project repository in GitHub (github.com/EcoClimLab/ForestGEO-climate-sensitivity) and archived in Zenodo (DOI: TBD) .
 Data for # of the sites are archived in the The DendroEcological Network (DEN) database [@rayback_dendroecological_2020]. 
 
-### References
+# References
 
 
 
