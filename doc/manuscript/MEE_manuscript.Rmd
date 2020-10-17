@@ -208,7 +208,7 @@ knitr::kable(sites[, c("site code",	"site name",	"location",	"July T",	"Jan T",	
 ```
 ---
 nocite: | 
-  @vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @alfaro-sanchez_growth_2017; @helcoski_growing_2019; @aus_de_ar_tree_2018; @bumann_assessing_2019; @samonil_individual-based_2013; @kaspar_species-specific_nodate
+  @vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @alfaro-sanchez_growth_2017; @helcoski_growing_2019; @gonzalez-akre_scbi-forestgeoscbi-forestgeo-data_2020-1; @aus_de_ar_tree_2018; @bumann_assessing_2019; @samonil_individual-based_2013; @kaspar_species-specific_nodate
 ---
 
 All tree cores were measured and cross-dated by the original researchers using standard dendrochronological practices. 
