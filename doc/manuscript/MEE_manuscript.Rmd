@@ -73,9 +73,7 @@ jm. Department of Geography, Indiana University, Bloomington, Indiana, USA
 
 **Running headline:** [45 chars]
 
-*NOTE TO COAUTHORS: The text is still pretty rough, so please don't worry about word-smithing. However, I'd appreciate input on the content, and important references (especially "DENDRO REFS", as most of you know that literature better than I do).*
 
-*Target journal is MEE. We are already over the word limit, so I'd appreciate advice on what should be cut/moved to appendix.*
 
 ```{r eval=FALSE, echo=FALSE}
 ## Target journal: Methods in Ecology & Evolution (IF 7.09)
@@ -121,7 +119,6 @@ size=4
 # Key-words: A list in alphabetical order not exceeding eight words or short phrases. The most important key-words should appear in the title and the abstract as well as the key-word list. More advice on selecting good keywords can be found here.
 ```
 
-*NOTE TO COAUTHORS: I'd appreciate feedback on what you consider to be the most important results and conclusions to highlight in the abstract.*
 
 1. Tree rings provide a valuable long-term record for understanding how climate shapes forest productivity. However, traditional analysis methods aggregate growth records of multiple trees into residual chronologies, and therefore cannot simultaneously account for the effects of tree size and climate. This has limited the potential to use tree-rings to understand forest productivity and its climate sensitivity. 
 
@@ -186,7 +183,7 @@ This allows us to ask:
 
 ## Data sources and preparation
 
-We analyzed previously collected tree-ring data from ten sites ranging from 9.15$^\circ$ to 61.30$^\circ$ N latitude and representing a wide range of forest and tree types: tropical broadleaf deciduous and evergreen, temperate broadleaf deciduous and needleleaf evergreen, and boreal needleleaf evergreen (Tables 1, S1-S2).
+We analyzed previously collected tree-ring data from ten sites ranging from 9.15$^\circ$ to 61.30$^\circ$ N latitude and representing a wide range of forest and tree types: tropical broadleaf deciduous and evergreen, temperate broadleaf deciduous and needleleaf evergreen, and boreal needleleaf evergreen (Tables `r sites`, S1-S2).
 Nine of these sites (exception: LT) are large forest dynamics plots of the Forest Global Earth Observatory [ForestGEO; @anderson-teixeira_ctfs-forestgeo_2015].
 Trees of species represented within the ForestGEO plots were cored within the plot (n=#) and/or in the vicinity (n=#; max distance: # km), following a variety of sampling protocols designed to meet the varied objectives of the original studies (Tables S1, S3). 
 In using this diversity of data sources, we ensured that our approach was able to handle challenges presented by varying methodologies and forest types.
@@ -249,18 +246,17 @@ Our analysis consisted of two main steps: (1) identification of the most importa
 ### Identifying key climate drivers
 
 **We used the *climwin* package in R [@van_de_pol_identifying_2016] to identify the most important climate driver and the time window over which its effect was strongest for each of two categories of variables: a temperature group (mean, min, and max temperature; PET) and a precipitation group (precipitation, number of days with precipitation).**
-For this, we detrended the response variable to remove the influence of all non-climatic drivers (*e.g.*, growth and aging of the tree, change in competitive dynamics, atmospheric pollution), which is essential for identifying climatic drivers [@fritts_tree_1976]. 
-Specifically, we used a generalized additive model (GAM) to fit a spline to individual growth records ($RW$, $BAI$, or $\Delta AGB$) from each core, thereby producing residuals.
+To remove low-frequency variation that most likely represents responses to non-climatic drivers (*e.g.*, growth and aging of the tree, change in competitive dynamics, atmospheric pollution), we detrended the response variables by using a generalized additive model (GAM) to fit a spline to individual growth records ($RW$, $BAI$, or $\Delta AGB$) from each core, thereby producing residuals.
 We then used *climwin* to identify the climate variables most strongly correlated to the residuals of $RW$, $BAI$, or $\Delta AGB$, specifying quadratic fits to allow for potential nonlinearities in the climate response.
-Within *climwin*, we specified a mixed effects model using species and core identity as random effects: `residual ~ [climate] + (1 | sp) + (1 | treeID)`. 
-Here, for each permutation, `climate` specifies one of the climate drivers in the climate variable group, analyzed over one of all possible combinations of time periods, at monthly resolution, over a 15 month period ending near the time of cessation of formation of each annual ring (*Table S1*). (**[ISSUE #51 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/51)**)
+Within *climwin*, we specified a mixed effects model using species and core identity as random effects: `residual growth index ~ [climate] + (1 | sp) + (1 | treeID)`. 
+Here, for each permutation, `climate` specifies one of the climate drivers in the climate variable group, analyzed over one of all possible combinations of consecutive months over a 15 month period ending near the time of cessation of formation of each annual ring (*Table S1*). (**[ISSUE #51 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/51)**)
 *Climwin* runs all potential models to select the best fit (lowest AIC), and does k-fold cross-validation in its computation of AIC to guard against over-fitting [@van_de_pol_identifying_2016]. 
 For each group of candidate climate variables, we move forward with the best variable over the time window identified by *climwin* as a candidate climate variable for the multivariate models. 
 
 A challenge to this system arose for the sites that have undergone the most rapid changes in climate and tree growth: SC and LT, where trees exhibit significant growth declines attributed to rising temperatures [@sniderhan_growth_2016] and increasing drought (REF), respectively. 
 *([ISSUE #25 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/25))*
 Problematically, correlating tree growth residuals from which climate-driven trends had been removed against the climate signal with a strong directional trend would not necessarily identify the most relevant climate drivers.
-For these sites, we experimented with three approaches to identifying the most important climate drivers (1) the method described above, (2) detrending the climate variables prior to the climwin step, and (3) excluding *decades with the most pronounced climate change* from the climwin step of the analysis (Appendix S3).
+For these sites, we experimented with three approaches to identifying the most important climate drivers (1) the method described above, (2) detrending the climate variables **(AT:prewhitening?)** prior to the climwin step, and (3) excluding *decades with the most pronounced climate change* from the climwin step of the analysis (Appendix S3).
 After determining that... , here we present results *(method)*. 
 
 We verified that this process identified similar climate variable-month combinations as what would be identified using traditional methods for individual species, as detailed in Appendix S2. (**[ISSUE #35 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/35)**)
@@ -359,6 +355,7 @@ Results are broadly consistent with those obtained by traditional methods, but o
 
 ## corroboration of insight from conventional methods
 *( more objective approach to produce similar results to what has been shown using more conventional methods)*
+*(for identigying climate variables... Is the benefit of the new approach that it is a more objective way to reach the same interpretation, or are there cases when it would produce a different interpretation?)*
 
 ## new insight
 *(could potentially provide new insight that would not be expected using more conventional methods.  It would be useful if there are examples from the analysis in this paper that could clearly illustrate new insight that would not have been found with conventional methods. )*
@@ -386,9 +383,9 @@ Ideas to discuss:
 *Influence of DBH*
 
 **The diversity of growth trends in relation to $DBH$ observed here (Fig. **4**) is largely attributable to species ecology and stand history (Fig. 4).**
-On one end of the spectrum, species that would have established in fairly open conditions--*i.e.*, shade-intolerant species and those at sites with more open canopies (e.g., LT, SC)-- exhibited rapid initial growth followed by exponential decline. 
+On one end of the spectrum, species that would have established in fairly open conditions--*i.e.*, shade-intolerant species and those at sites with more open canopies (e.g., LT, SC)-- exhibited rapid initial growth followed by a roughly exponential decline. 
 The most pronounced example of this pattern was *Melia azedarach* --a highly shade-intolerant species that generally establishes in the open [@baker_suppression_2006] and was sampled opportunistically outside the ForestGEO plot at HKK [@vlam_temperature_2014], where it presumably established under open conditions.
-Such patterns are consistent with dendrochronology's "textbook" patterns, which have been derived primarily from open-grown trees (DENDRO_REFS).
+Such patterns are consistent with dendrochronology's "textbook" patterns, which have been derived primarily from open-grown trees (*DENDRO_REFS: See refs in Biondi and Qeadan 2008. Tree-Ring Research 64:81-96.*).
 On the other end of the spectrum, shade-tolerant species (e.g. *Fagus* at SCBI and Žofín) exhibited initially low, but increasing, $RW$.
 This pattern is consistent with patterns observed in stand-level census data from closed-canopy forests, including several in this analysis, where $RW$ increases continuously with $DBH$ [@muller-landau_testing_2006; @anderson-teixeira_size-related_2015; Piponiot et al. in prep]. 
 While the low community mean $RW$ at small $DBH$ observed in closed-canopy forests is in large part driven by slow-growing small stems that will never enter the cohort of trees sampled by coring (e.g., $\ge$ 10cm DBH), increases in $RW$ with $DBH$ have also been observed for most species at SCBI using the same tree-ring data set analyzed here, but comparing across individuals using only contemporary data [@helcoski_growing_2019].
