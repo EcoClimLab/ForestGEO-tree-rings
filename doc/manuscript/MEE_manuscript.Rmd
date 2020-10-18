@@ -98,9 +98,24 @@ schematic=1
 SCBI_example=2
 clim_sens=3
 size=4
+full_examples = 5
 # Fig5/ table2- DBH/climate interactions
 ```
 
+```{r eval = TRUE, echo=FALSE, warning=FALSE, results='hide'}
+#READING IN TABLES TO GET STATS FOR TEXT
+path_to_repo <- (dirname(dirname(getwd()))) # this gets path so that anybody to knit
+
+#species
+species <- read.csv(paste0(path_to_repo, "/doc/manuscript/tables_figures/species.csv"), stringsAsFactors = FALSE, check.names = FALSE)
+  n_species <- nrow(species) 
+  
+sampling_details <- read.csv(paste0(path_to_repo, "/doc/manuscript/tables_figures/sampling_details.csv"), stringsAsFactors = FALSE, check.names = FALSE)
+  n_trees_all <- sum(na.omit(sampling_details[, "n trees all"]))  #CHECK WITH V IF THIS IS BEFORE OR AFTER EXCLUSION of cores
+  n_trees_dbh <- sum(na.omit(sampling_details[, "n trees dbh"]))
+  n_cores_all <- sum(na.omit(sampling_details[, "n cores all"]))  #CHECK WITH V IF THIS IS BEFORE OR AFTER EXCLUSION of cores
+  n_cores_dbh <- sum(na.omit(sampling_details[, "n cores dbh"]))
+```
 \newpage
 
 # Abstract
@@ -125,7 +140,7 @@ size=4
 2. Here, we develop a new method to simultaneously model non-linear effects of objectively determined principle climate drivers and reconstructed tree diameter ($DBH$). 
 Specifically, we first identify the most important climate drivers and their appropriate time window of influence using the *climwin* R package.
 We then include these in generalized least squares models to model tree growth while accounting for the temporal autocorrelation inherent to each individual tree's growth.
-We apply this method to tree-ring data from *#* trees representing *~40* species at ten globally distributed sites spanning a wide range of forest types. 
+We apply this method to tree-ring data from `r n_trees_all` trees representing `r n_species` species at ten globally distributed sites spanning a wide range of forest types. 
 
 3. Our analysis identified similar climate drivers operating over similar time windows to those obtained via traditional methods, but revealed that non-linear responses to climate variables were common. Growth rates--expressed as ring widths, basal area increments, or biomass increments--varied non-linearly with $DBH$. The relative importance of $DBH$ versus climate varied across sites, and interactions between $DBH$ and climate were prevalent (*~50%* of cases tested). 
 
@@ -223,7 +238,7 @@ From analyses including $DBH$ (see below), we further excluded
 (1) trees for which we lacked data required to reconstruct $DBH$,
 (2) trees for which there was a significant inconsistency between measured $DBH$ and the sum of $RW$'s across the core (*Appendix S1*),
 and (3) parts of records where reconstructed $DBH$ (see below) was represented by <3 conspecific trees.
-In total, this resulted in inclusion of *#* cores, *#* of which could be included in analyses with $DBH$ (Table S3).
+In total, this resulted in inclusion of *#* cores, `r n_cores_dbh` of which could be included in analyses with $DBH$ (Table S3).
 
 For each year in the tree-ring records, we reconstructed $DBH$, as detailed in *Appendix S1*. 
 In most cases, when a recent $DBH$ measurement was available, $DBH$ was reconstructed from the outside in. 
@@ -264,7 +279,7 @@ We verified that this process identified similar climate variable-month combinat
 
 ### Combining drivers in GLS model
 
-Having identified candidate climate drivers in temperature and precipitation variable groups, we next combined climate variables (all models) and $DBH$ (models with $DBH$ and its climate interactions) in a generalized least squares (GLS) model (Fig. **1**). 
+Having identified candidate climate drivers in temperature and precipitation variable groups, we next combined climate variables (all models) and $DBH$ (models with $DBH$ and its climate interactions) in a generalized least squares (GLS) model (Fig. `r schematic`). 
 Before running the models, we checked for collinearity among the candidate variables using the *vifstep* function (**REF**) and removed any variable with a variance inflation factor > 3 (none required removal).
 Within the GLS models, our response variables were $log[\Delta r]$, $log[BAI]$, or $log[\Delta AGB]$. 
 Rather than detrending these variables to produce residuals, the temporal autocorrelation of individual tree's growth was accounted for by the specifying an autocorrelation structure of order 1, with $Year$ as a continuous time covariate and $coreID$ as a grouping factor, in the GLS's model specification.
@@ -277,8 +292,8 @@ Within each of three categories of models run (climate only, $DBH$+climate, $DBH
 
 ### Identifying climate drivers
 
-**Our process picked out similar climate drivers to what would be obtained via traditional methods (Figs. **2**, **S1**; Table S5; Appendix S2), but with the advantage that *climwin* allowed objective selection of the strongest climate drivers and the time windows over which they were most influential.**
-The most commonly selected variables within the temperature group were $T_{max}$ and $PET$, each of which was identified by climwin as the top temperature-related driver *at four of the eight sites*. $T_{min}$ was the top driver at only *one site (BCI)*, and $T_{mean}$ was never identified as the top variable within the temperature group (Fig. **3**).
+**Our process picked out similar climate drivers to what would be obtained via traditional methods (Figs. `r SCBI_example`, **S1**; Table S5; Appendix S2), but with the advantage that *climwin* allowed objective selection of the strongest climate drivers and the time windows over which they were most influential.**
+The most commonly selected variables within the temperature group were $T_{max}$ and $PET$, each of which was identified by climwin as the top temperature-related driver *at four of the eight sites*. $T_{min}$ was the top driver at only *one site (BCI)*, and $T_{mean}$ was never identified as the top variable within the temperature group (Fig. `r clim_sens`).
 Within the precipitation group, precipitation amount ($PPT$) was identified as the top variable most frequently (n=*6 of 9* sites), but it was not uncommon that it was surpassed by precipitation frequency ($PDF$; n=*3 of 8* sites). 
 Optimal time windows often coincided with a site's peak growing season (n= *# of 10* for temperature variables, *# of 10* for precipitation variables), but exceptions were common. 
 At the *5 lowest latitude* sites (BCI, HKK, LT, CB, and SCBI), the optimal window for precipitation variables spanned $\ge$ 8 months, ending during the peak growing months of the year of ring formation. 
@@ -294,7 +309,7 @@ Specifically, $RW$, $BAI$, and $\Delta AGB$ consistently exhibited similar stren
 In some cases (n= # of #), both the optimal climate variable and time window were identical across growth metrics (e.g., Fig. **S2**). 
 In #cases, *climwin* identified the same climate variable but different (sometimes overlapping) time windows. 
 In *2* cases (precipitation variable group at LT, temperature variable group at HKK), *climwin* identified different climate variables, but identical or overlapping time windows (e.g., Fig. **S3**).
-Finally, in *2* cases of variables that had only weak effects and mixed responses among species in the final models (temperature variable group at BCI, precipitation variable group at HF; Figs. **3, S5, S11**), *climwin* identified different climate variables and different time windows (e.g., Fig. **S4**). 
+Finally, in *2* cases of variables that had only weak effects and mixed responses among species in the final models (temperature variable group at BCI, precipitation variable group at HF; Figs. `r clim_sens`, **S5, S11**), *climwin* identified different climate variables and different time windows (e.g., Fig. **S4**). 
 Henceforth, we focus on the climate drivers identified when $RW$ was the growth metric and for the full set of cores (i.e., including those for which $DBH$ could not be reconstructed.)
 
   
@@ -302,12 +317,12 @@ Henceforth, we focus on the climate drivers identified when $RW$ was the growth 
 
 ### Climate sensitivity
 
-Precipitation responses were included in the best model at all sites and *for all but # species* (Fig. **3**).
+Precipitation responses were included in the best model at all sites and *for all but # species* (Fig. `r clim_sens`).
 Responses were most commonly positive, and were most pronounced at the driest site (LT). 
 Precipitation terms included in top models were non-linear #% of the time, and significantly better than first-order linear model #% of the time.
 In some cases, the non-linearity was quite pronounced (e.g., LT), with the most common pattern (#%) being a decelerating increase. 
 
-Temperature responses were included in the best model at all sites and *for the majority of species* (Fig. **3**).
+Temperature responses were included in the best model at all sites and *for the majority of species* (Fig. `r clim_sens`).
 Specifically, a temperature term was included in the best model for # of # site-species combinations, with at least one polynomial term significant for #, and both for #.
 Among the relationships with at least one significant term, responses shifted from near-universally negative below 40$^\circ$ latitude (exception: AFXY at HKK) to positive above 45$^\circ$ latitude. Harvard Forest, at 42.5$^\circ$ N, exhibited a mix of responses.
 *(It will be interesting to see what happens with Indian Creek, at 42.8 latitude.)*
@@ -316,13 +331,13 @@ Temperature terms included in top models were non-linear #% *(most)* of the time
 
 ### Influence of DBH
 
-**All three growth metrics, $RW$, $BAI$, and $\Delta AGB$, varied with $DBH$ for most species at all sites (Fig. **4**).** 
-While $RW$ varied significantly with $DBH$ for the majority of species-site combinations (n= # of #; Table **S#**), there was substantial variation in these trends, with patterns mixed across both forests and species within a single stand (Fig. **4**).
+**All three growth metrics, $RW$, $BAI$, and $\Delta AGB$, varied with $DBH$ for most species at all sites (Fig. `r size`).** 
+While $RW$ varied significantly with $DBH$ for the majority of species-site combinations (n= # of #; Table **S#**), there was substantial variation in these trends, with patterns mixed across both forests and species within a single stand (Fig. `r size`).
 On one end of the spectrum, *Melia azedarach* at HKK had extremely rapid growth at small $DBH$, with $RW$ ranging up to ~15mm yr^-1^, followed by fairly rapid declines with increasing $DBH$. 
-Similar patterns of approximately exponential decline in $RW$ with $DBH$ were observed for conifer species at Little Tesuque and Scotty Creek--both relatively open forests--and a number of species in mesic temperate forests (Fig. **4**).
+Similar patterns of approximately exponential decline in $RW$ with $DBH$ were observed for conifer species at Little Tesuque and Scotty Creek--both relatively open forests--and a number of species in mesic temperate forests (Fig. `r size`).
 At the other end of the spectrum, a number of species at sites where they presumably established under closed-canopy conditions (e.g., *Fagus* at SCBI and Žofín) had $RW$ <1 mm yr^-1^ at small $DBH$, increased to peak $RW$ between # and # cm $DBH$, and subsequently declined.  
 
-**The variable patterns in $RW$ with $DBH$ translated into differences in variation in $BAI$ and $\Delta AGB$ with $DBH$, although trends in both of these were more consistent across sites and species, typically increasing to a peak at intermediate $DBH$ and then declining (Fig. **4**).**
+**The variable patterns in $RW$ with $DBH$ translated into differences in variation in $BAI$ and $\Delta AGB$ with $DBH$, although trends in both of these were more consistent across sites and species, typically increasing to a peak at intermediate $DBH$ and then declining (Fig. `r size`).**
 
 
 ![**Figure 4 | Growth sensitivity to DBH: (a) $RW$, (b) $BAI$, (c) $\Delta AGB$.** Relationships for species are plotted when included in the top model. Other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), DASHED lines when only one term is significant, and dotted lines when neither is significant.  Transparent ribbons indicate 95% confidence intervals.](tables_figures/DBH_responses.png)
@@ -331,12 +346,12 @@ At the other end of the spectrum, a number of species at sites where they presum
 
 **Both DBH and climate were included in the majority of top models, regardless of the growth metric used.** 
 Specifically, $DBH$ was included in #% of top models for $RW$, #% of top models for $BAI$, and #% of top models for $\Delta AGB$.
-In general, $DBH$ explained more variation in growth rates than did climate (Fig. **5**).
+In general, $DBH$ explained more variation in growth rates than did climate (Fig. `r full_examples`).
 
-**The relative importance of $DBH$ and climate shifted across growth metrics and climates (Figs. **5**, **S5**-**S14**).** 
-The relative importance of $DBH$ tended to be least for $RW$, intermediate for $BAI$, and highest for $\Delta AGB$ (e.g., at SCBI; Fig. **5**).
-However, there were exceptions, particularly when $RW$ decreased steeply with $DBH$ (e.g., at Little Tesuque; Fig. **5**).
-The relative importance of climate was modest at sites including SCBI (Fig. **5**), HF (Fig. **S11**), and SC (Fig. **S14**), and stronger at sites including LT (Fig. **5**) and BCI (Fig. **S5**). 
+**The relative importance of $DBH$ and climate shifted across growth metrics and climates (Figs. `r full_examples`, **S5**-**S14**).** 
+The relative importance of $DBH$ tended to be least for $RW$, intermediate for $BAI$, and highest for $\Delta AGB$ (e.g., at SCBI; Fig. `r full_examples`).
+However, there were exceptions, particularly when $RW$ decreased steeply with $DBH$ (e.g., at Little Tesuque; Fig. `r full_examples`).
+The relative importance of climate was modest at sites including SCBI (Fig. `r full_examples`), HF (Fig. **S11**), and SC (Fig. **S14**), and stronger at sites including LT (Fig. `r full_examples`) and BCI (Fig. **S5**). 
 
 ![**Figure 5 | Comparison of full top models for each growth metric ($RW$, $BAI$, $\Delta AGB$) at sites where climatic controls are strong (Little Tesuque, left panel) and modest (SCBI, right panel).** Plotted are best fit models for each species, with transparent ribbons indicating 95% confidence intervals. For climate variables, best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant, dashed lines when only one term is significant, and dotted lines when neither is significant. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/show_case_response_plots.png)
 
@@ -384,7 +399,7 @@ Ideas to discuss:
 
 *Influence of DBH*
 
-**The diversity of growth trends in relation to $DBH$ observed here (Fig. **4**) is largely attributable to species ecology and stand history (Fig. 4).**
+**The diversity of growth trends in relation to $DBH$ observed here (Fig. `r size`) is largely attributable to species ecology and stand history (Fig. 4).**
 On one end of the spectrum, species that would have established in fairly open conditions--*i.e.*, shade-intolerant species and those at sites with more open canopies (e.g., LT, SC)-- exhibited rapid initial growth followed by a roughly exponential decline. 
 The most pronounced example of this pattern was *Melia azedarach* --a highly shade-intolerant species that generally establishes in the open [@baker_suppression_2006] and was sampled opportunistically outside the ForestGEO plot at HKK [@vlam_temperature_2014], where it presumably established under open conditions.
 Such patterns are consistent with dendrochronology's "textbook" patterns, which have been derived primarily from open-grown trees (*DENDRO_REFS: See refs in Biondi and Qeadan 2008. Tree-Ring Research 64:81-96.*).
@@ -398,7 +413,7 @@ Contrary to the finding that $\Delta AGB$ increases continuously with $DBH$, whi
 $\Delta AGB$ declines at high $DBH$ are presumably because trees are investing fixed C elsewhere--for example, reproduction.
 
 **These results have important implications for using tree-rings to infer growth responses to slowly-changing environmental drivers, including climate, atmospheric CO~2~, and deposition of sulfur dioxide (SO~2~) and nitrogen oxides (NO~x~) [e.g., @mathias_disentangling_2018].** 
-The observed trends in $RW$ and $BAI$ with $DBH$ (Fig. **4**) imply that two of the most commonly used growth-trend detection methods, conservative detrending and basal area correction [see @peters_detecting_2015], are inappropriate. 
+The observed trends in $RW$ and $BAI$ with $DBH$ (Fig. `r size`) imply that two of the most commonly used growth-trend detection methods, conservative detrending and basal area correction [see @peters_detecting_2015], are inappropriate. 
 Specifically, conservative detrending, which applies stiff splines or mathematical functions (e.g., negative exponential) to remove trends in $RW$ before analyzing residuals, would not be reliable across the diversity of $RW$-$DBH$ relationships observed here.
 Basal area correction -- i.e., assuming that $BAI$ is fundamentally independent of tree size after the removal of the juvenile growth phase--is also problematic because $BAI$ shows a variety of trends with $DBH$ across large size classes. The most common pattern--an increase to a peak at intermediate sizes, followed by decrease--would imply that the basal area correction is most commonly biased towards finding positive trends for smaller trees and negative trends for larger trees.
 It is therefore not surprising that tree-ring studies examining the impact of rising CO~2~ on long-term growth growth trends reach inconsistent conclusions [@walker_integrating_2020].
