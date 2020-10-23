@@ -272,7 +272,7 @@ For each group of candidate climate variables, we move forward with the best var
 A challenge to this system arose for the sites that have undergone the most rapid changes in climate and tree growth: SC and LT, where trees exhibit significant growth declines attributed to rising temperatures [@sniderhan_growth_2016] and increasing drought (REF), respectively. 
 *([ISSUE #25 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/25))*
 Problematically, correlating tree growth residuals from which climate-driven trends had been removed against the climate signal with a strong directional trend would not necessarily identify the most relevant climate drivers.
-For these sites, we experimented with three approaches to identifying the most important climate drivers (1) the method described above, (2) detrending the climate variables **(AT:prewhitening?)** prior to the climwin step, and (3) excluding *decades with the most pronounced climate change* from the climwin step of the analysis (Appendix S3).
+For these sites, we experimented with three approaches to identifying the most important climate drivers (1) the method described above, (2) detrending the climate variables **(AT:prewhitening?)** prior to the climwin step, and (3) excluding *decades with the most pronounced climate change* from the climwin step of the analysis [*sensu*  @sniderhan_growth_2016] (Appendix S3).
 After determining that... , here we present results *(method)*. 
 
 We verified that this process identified similar climate variable-month combinations as what would be identified using traditional methods for individual species, as detailed in Appendix S2. (**[ISSUE #35 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/35)**)
@@ -298,7 +298,7 @@ Within the precipitation group, precipitation amount ($PPT$) was identified as t
 Optimal time windows often coincided with a site's peak growing season (n= *# of 10* for temperature variables, *# of 10* for precipitation variables), but exceptions were common. 
 At the *5 lowest latitude* sites (BCI, HKK, LT, CB, and SCBI), the optimal window for precipitation variables spanned $\ge$ 8 months, ending during the peak growing months of the year of ring formation. 
 At the *3 highest latitude sites* (HF, ZOF, and SC), the optimal window for precipitation variables was a short ($\le$ 3 months) window during the previous growing season.
-Optimal windows for temperature variables tended to be shorter, the longest being a *6* month period during the summer (wet season) at HKK. 
+Optimal windows for temperature variables tended to be shorter, the longest being a *6*-month period during the summer (wet season) at HKK. 
 At two of the higher-latitude temperate sites (HF and Žofín), temperatures were most influential during late winter/ early spring.
 There were also a few instances where previous growing season conditions had the strongest influence.
 
