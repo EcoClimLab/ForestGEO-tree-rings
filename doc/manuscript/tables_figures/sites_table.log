@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  24 OCT 2020 08:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  25 OCT 2020 09:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -843,14 +843,14 @@ LaTeX Warning: Command \v invalid in math mode on input line 104.
 Package caption Warning: Unused \captionsetup[figure] on input line 60.
 See the caption package documentation for explanation.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 107.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 109.
 [1
 
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 107.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 109.
 (./sites_table.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 107.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 107.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 109.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 109.
  ) 
 Here is how much of TeX's memory you used:
  15348 strings out of 492616
@@ -867,7 +867,7 @@ ist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2019/texmf-dist/fonts/type
 1/public/lm/lmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/l
 m/lmmi7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmr10.pfb
 ></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
-Output written on sites_table.pdf (1 page, 48646 bytes).
+Output written on sites_table.pdf (1 page, 49052 bytes).
 PDF statistics:
  36 PDF objects out of 1000 (max. 8388607)
  28 compressed objects within 1 object stream
