@@ -26,6 +26,7 @@ library(kableExtra)
 sites <- read.csv("sites.csv", stringsAsFactors = FALSE, check.names = FALSE)
 sites_table <- subset(sites, select = -c(MAT) ) #drop MAT column
 kable(sites_table, format = "latex", booktabs = TRUE,  escape = F)%>%
+  add_header_above(c(" ", " "," ", "1950 - 2019 climate" = 3, " " , " "," "," ")) %>%
   column_spec(1, width = "1cm") %>%
   column_spec(2, width = "3cm") %>%
   column_spec(3, width = "3cm") %>%

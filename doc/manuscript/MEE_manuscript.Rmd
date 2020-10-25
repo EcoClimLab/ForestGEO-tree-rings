@@ -216,7 +216,7 @@ knitr::kable(sites[, c("site code",	"site name",	"location",	"July T",	"Jan T",	
 ```
 
 
-**Table 1 | Sites included in this analysis**. Here and throughout, sites are ordered by mean July T. Additional site information is provided in Table S1, and species and their sample sizes are detailed in Tables S2-S3. *Climate will be filled in based on CRU data.*
+**Table 1 | Sites included in this analysis**. Here and throughout, sites are ordered by descending mean annual temperature. Additional site information is provided in Table S1, and species and their sample sizes are detailed in Tables S2-S3. *Climate will be filled in based on CRU data.*
 ![ ](tables_figures/sites_table.png)
 ```{r eval=FALSE, echo=FALSE}
 # refs in this table need to go in the nocite field below
