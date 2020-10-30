@@ -41,7 +41,6 @@ James Lutz,
 Ellis Q. Margolis,
 Justin Maxwell^jm^,
 Sean McMahon^2^,
-Helene Muller-Landau^2^,
 Sabrina Russo,
 [Pavel Šamonil^cz^](0000-0002-7722-8797),
 Anastasia Sniderhan^wl^,
@@ -448,8 +447,8 @@ Sampling small trees should be important for disentangling whether non-stationar
 Sets the foundation for considering other, slowly changing environmental drivers.
 
 # Acknowledgements
-Thanks to Pete Kerby-Miller for bark thickness data.
-Helpful feedback was provided by Albert Kim...
+Thanks to Helene Muller-Landau and Pete Kerby-Miller for bark thickness data.
+Helpful feedback was provided by Helene Muller-Landau, Albert Kim...
 This analysis was funded by a Smithsonian Scholarly Studies grant to KAT, SM, HCM, and CP.
 The participation of PS, JK, and IV from the Czech Republic was supported by the Czech Science Foundation, project No. 19-09427S
 
