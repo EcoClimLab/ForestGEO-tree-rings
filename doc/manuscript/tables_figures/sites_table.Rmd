@@ -23,8 +23,10 @@ options(knitr.table.format = "latex")
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
 library(kableExtra)
-S1 <- read.csv("sites.csv", stringsAsFactors = FALSE, check.names = FALSE)
-kable(S1, format = "latex", booktabs = TRUE,  escape = F)%>%
+sites <- read.csv("sites.csv", stringsAsFactors = FALSE, check.names = FALSE)
+sites_table <- subset(sites, select = -c(MAT) ) #drop MAT column
+kable(sites_table, format = "latex", booktabs = TRUE,  escape = F)%>%
+  add_header_above(c(" ", " "," ", "1950 - 2019 climate" = 3, " " , " "," "," ")) %>%
   column_spec(1, width = "1cm") %>%
   column_spec(2, width = "3cm") %>%
   column_spec(3, width = "3cm") %>%
@@ -35,3 +37,4 @@ kable(S1, format = "latex", booktabs = TRUE,  escape = F)%>%
   column_spec(10, width = "3cm") %>%
   kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
 ```
+*don't trust this climate data
