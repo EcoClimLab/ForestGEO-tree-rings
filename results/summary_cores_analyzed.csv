@@ -169,3 +169,15 @@
 "ScottyCreek","log_core_measurement_dbh","PIMA",101,101,7,14.9,0.5,12.5,1903,2013
 "ScottyCreek","log_agb_inc_dbh","PIMA",101,101,7,14.9,0.6,12.5,1903,2013
 "ScottyCreek","log_BAI_dbh","PIMA",101,101,7,14.9,0.6,12.5,1903,2013
+"Zofin","log_core_measurement","ABAL",55,55,41,121,NA,NA,1903,2011
+"Zofin","log_core_measurement","FASY",1369,1369,NA,NA,NA,NA,1903,2013
+"Zofin","log_core_measurement","PCAB",644,644,NA,NA,NA,NA,1903,2011
+"Zofin","log_core_measurement_dbh","ABAL",50,50,41,121,21.3,108.5,1903,2011
+"Zofin","log_core_measurement_dbh","FASY",1358,1358,NA,NA,0.1,115.3,1903,2013
+"Zofin","log_core_measurement_dbh","PCAB",599,599,NA,NA,0.5,126.4,1903,2011
+"Zofin","log_agb_inc_dbh","ABAL",50,50,41,121,21.3,108.5,1903,2011
+"Zofin","log_agb_inc_dbh","FASY",1358,1358,NA,NA,0.2,115.3,1903,2013
+"Zofin","log_agb_inc_dbh","PCAB",599,599,NA,NA,0.8,126.4,1903,2011
+"Zofin","log_BAI_dbh","ABAL",50,50,41,121,21.3,108.5,1903,2011
+"Zofin","log_BAI_dbh","FASY",1358,1358,NA,NA,0.2,115.3,1903,2013
+"Zofin","log_BAI_dbh","PCAB",599,599,NA,NA,0.8,126.4,1903,2011

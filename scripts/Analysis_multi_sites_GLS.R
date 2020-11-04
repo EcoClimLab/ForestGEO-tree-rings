@@ -19,7 +19,7 @@ library(raster)
 
 path_to_climate_data <- "https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/CRU/CRU_v4_04/" # "https://raw.githubusercontent.com/forestgeo/Climate/master/Gridded_Data_Products/Historical%20Climate%20Data/CRU_v4_01/" # 
 
-path_to_climate_data_NM <- "C:/Users/HerrmannV/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO_dendro/data/cores/NM/CRU_climate/" # *TO BE EDITED* because the dendro repo is private... I ave to give absolute path (tokens are changing all the time in Github with private repos.... so it would be a pain to have to change them everytime...)
+path_to_climate_data_NM <- "C:/Users/HerrmannV/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO_dendro/data/climate/NM/CRU_climate/" # *TO BE EDITED* because the dendro repo is private... I ave to give absolute path (tokens are changing all the time in Github with private repos.... so it would be a pain to have to change them everytime...)
 
 path_to_BCI_pre <- "https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/Met_Stations/BCI/El_Claro_precip_starting_1929/pre_BCI.csv"
 path_to_BCI_wet <- "https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/Met_Stations/BCI/El_Claro_precip_starting_1929/wet_BCI.csv"
@@ -108,7 +108,7 @@ clim_gaps <- clim_gaps[clim_gaps$start_climvar.class %in% climate_variables, ]
 CO2 <- read.csv(path_to_CO2)
 
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIMPY46JBODIHZPIFNC7QSSN4")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIILL5BAAUTQLZFTJGS7VGMCO")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
