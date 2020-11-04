@@ -17,8 +17,8 @@ for(solution in c("/", "with_detrended_climate/", "old_records_only/")[-3]) {
   sites <- gsub("_all_env.RData", "", sites)
   
   # prepare order_plots ####
-  order_plots <- list(log_core_measurement = expression(Delta*r~"- all cores"), 
-                      log_core_measurement_dbh= expression(Delta*r~"- trees with DBH"), 
+  order_plots <- list(log_core_measurement = expression(RW~"- all cores"), 
+                      log_core_measurement_dbh= expression(RW~"- trees with DBH"), 
                       log_BAI_dbh = "BAI",
                       log_agb_inc_dbh = "AGB")
   
@@ -54,7 +54,7 @@ for(solution in c("/", "with_detrended_climate/", "old_records_only/")[-3]) {
       # plot
       
       for(i in seq_along(imgs_v)){
-        y_lab = order_plots[[strsplit(imgs_v[i], "/")[[1]][2]]]
+        y_lab = order_plots[[strsplit(imgs_v[i], "/")[[1]][3]]]
         v = gsub("^.*climwin_|_quad.*$", "", imgs_v[i])
         img <- readPNG(imgs_v[i])
         img1 <- img[1:(nrow(img)/2), ,] # keep only first half of plot
@@ -68,7 +68,7 @@ for(solution in c("/", "with_detrended_climate/", "old_records_only/")[-3]) {
                      ybottom = 0, ytop = 100)
         
         mtext(side = 2, text = v)
-        mtext(side = 2, text = y_lab, line =-2)
+        mtext(side = 2, text = y_lab, line = -2)
         
         par(mar = c(0,0,0,0))
         plot(0:100, 0:100, type = "n", axes = F, xlab = "", ylab = "")

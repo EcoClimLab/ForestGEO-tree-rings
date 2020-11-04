@@ -72,7 +72,7 @@ g_legend <- function(x = "pt"){
 }
 
 # DBH response at each sites and for each response ####
-what_to_show <- c("log_core_measurement_dbh" = expression(Delta*r~(mm)), "log_BAI_dbh" = expression(BAI~(cm^2)), "log_agb_inc_dbh" = expression(Delta*AGB~(kg)))
+what_to_show <- c("log_core_measurement_dbh" = expression(RW~(mm)), "log_BAI_dbh" = expression(BAI~(cm^2)), "log_agb_inc_dbh" = expression(Delta*AGB~(kg)))
 
 n_sites <- length(sites_with_dbh)
 
@@ -246,7 +246,7 @@ temp_env <- new.env()
 load(paste0("results/", what, "/", site, "/env.RData"), temp_env)
 
 p <- get(paste0("p_", v), temp_env)
-p <- p + labs(y = expression(Delta*r~(mm)))
+p <- p + labs(y = expression(RW~(mm)))
 p <- p + theme(legend.position="right", legend.text = element_text(size = 8)) # add legend
 p$layers[c(1,2)] <- NULL # remove vertical line and shading
 p$labels$x <- eval(parse(text = gsub(" |  ", "~", gsub("-1", "\\^-1", paste0(gsub(substr(p$labels$x, 1, 4), v_names[substr(p$labels$x, 1, 3)], p$labels$x), ")"))))) # change varaible label
@@ -266,7 +266,7 @@ dev.off()
 
 
 # create composite image of all models for each sites + show case 2 sites ####
-what_to_show <- c("log_core_measurement_dbh" = expression(Delta*r~(mm)), "log_BAI_dbh" = expression(BAI~(cm^2)), "log_agb_inc_dbh" = expression(Delta*AGB~(kg)))
+what_to_show <- c("log_core_measurement_dbh" = expression(RW~(mm)), "log_BAI_dbh" = expression(BAI~(cm^2)), "log_agb_inc_dbh" = expression(Delta*AGB~(kg)))
 
 sites_to_show_case <- c("SCBI", "NewMexico")
 show_case <- list()
