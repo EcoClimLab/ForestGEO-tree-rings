@@ -270,6 +270,7 @@ what_to_show <- c("log_core_measurement_dbh" = expression(RW~(mm)), "log_BAI_dbh
 
 sites_to_show_case <- c("SCBI", "NewMexico")
 show_case <- list()
+
 for(site in sites_with_dbh){
   all_plots <- list()
   for( what in names(what_to_show)) {
@@ -282,7 +283,7 @@ for(site in sites_with_dbh){
   # get variable in order or Precipitation, Temperature and cloud groups (but complicated because, pet is in both temp and dtr),....
   clim_var_group <- get("clim_var_group"  , temp_env)
   
-  existing_plots <- existing_plots[c(1, match(c(1,2), sapply(gsub("p_", "", existing_plots), function(x) grep(x,  clim_var_group)[1])))]
+  existing_plots <- existing_plots[c(1, na.omit(match(c(1,2), sapply(gsub("p_", "", existing_plots), function(x) grep(x,  clim_var_group)[1]))))]
   
   # change ylim to scale across sites 
   lapply(existing_plots, function(x) assign(x, get(x, temp_env) + ylim(range(get("ylim_p", temp_env))* ifelse(what == "log_agb_inc_dbh", 1000, 1)), envir = temp_env))
