@@ -175,8 +175,9 @@ layout(matrix(c(1, 1, 2, 3, 5, 5, 4, 6, 6, 7, 7, 7), nrow = 3), heights = c(3,2,
 par(oma = c(1,0,2,0))
 
 ## a) quilt ####
-img <- readPNG(paste0("results/traditional_analysis/", site, "/1901_2009/figures/monthly_correlation/", v, ".png"))
-img1 <- img[50:(nrow(img)-150), 1:800, ] # keep only quilt half of plot
+img <- readTIFF(paste0("C:/Users/HerrmannV/Dropbox (Smithsonian)/GitHub/climate_sensitivity_cores/results/1901_2009/figures/monthly_correlation/CRU_", site, "_1901_2016/", v, ".tif"), as.is = T)
+
+img1 <- img[30:(nrow(img)-150), 1:800, ] # keep only quilt half of plot
 img2 <- img[300:(nrow(img)-150),800:(ncol(img)-60), ] # keep only legend
 
 
@@ -189,14 +190,14 @@ rasterImage( img1 , xleft = 0, xright = 100,
 rect(xleft = rev(seq(27, 94.5, length.out = 17))[5]+1,
      ybottom = 0,
      xright = rev(seq(27, 94.5, length.out = 17))[2],
-     ytop = 90, 
-     lwd = 2)
+     ytop = 85, 
+     lwd = 2) # add rectangle on May-Jul
 
-segments(x0 = c(28, 63), y0 = rep(97, 2), x1 = c(62, 93), y1 = rep(97, 2), lwd = 2, col = c("grey", "black"))
-text(x = c(mean(c(28, 62)), mean(c(63, 93))),
-     y = 100,
-     labels = c("previous year", "current year"),
-     col = c("grey", "black"))
+# segments(x0 = c(28, 63), y0 = rep(97, 2), x1 = c(62, 93), y1 = rep(97, 2), lwd = 2, col = c("grey", "black"))
+# text(x = c(mean(c(28, 62)), mean(c(63, 93))),
+#      y = 100,
+#      labels = c("previous year", "current year"),
+#      col = c("grey", "black"))
 
 mtext("a)", side = 3, adj = 0.1, line = -2, cex = .8)
 axis(1, at = seq(27, 94.5, length.out = 17)+.2, labels = rev(c(0:15, "")), cex.axis = .65, line = -1, col.ticks = "white", hadj = 1.5, tcl=-.1
@@ -210,8 +211,8 @@ plot(0:100, 0:100, type = "n", axes = F, xlab = "", ylab = "")
 
 rasterImage( matrix(as.vector(as.raster(img2)), ncol = nrow(img2))[ncol(img2):1,], xleft = 10, xright = 110,
              ybottom = 0, ytop = 100)
-text(x = 0, y = 50, labels = expression(bold("Correlation")), xpd = NA)
-legend(x = -15, y = 180, pch = c(21, 24), legend = c("0.05", "0.0002"), xpd = NA, bty = "n", title = expression(bold("Significance")))
+text(x = -5, y = 50, labels = expression(bold("Correlation")), xpd = NA)
+legend(x = -18, y = 180, pch = c(21, 24), legend = c("0.05", "0.0002"), xpd = NA, bty = "n", title = expression(bold("Significance")))
 
 ## b,c,d,e) climwin ####
 img <- readPNG(list.files(paste0("results/", what, "/", site), pattern = v, full.names = T))

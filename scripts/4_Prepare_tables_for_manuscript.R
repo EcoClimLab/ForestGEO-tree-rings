@@ -19,7 +19,7 @@ sites_abb <- list(BCI  = "BCI",
                   Zofin = "ZOF",
                   ScottyCreek = "SC")
 # load data ####
-species_list <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data/species%20list/sitespecies.csv?token=AEWDCINETB6DDQ5LD37JT7C7KJIX2", stringsAsFactors = F)
+species_list <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data/species%20list/sitespecies.csv?token=AEWDCIKFARYAZGEDSDHZEOC7VPV64", stringsAsFactors = F)
 # bark <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data/bark/bark_depth.csv?token=AEWDCIMNKUU2YC7ET5X5HZK7KJK3W")
 
 load("results/BCI_all_env.RData")
@@ -117,3 +117,4 @@ write.csv(summary_samples, "doc/manuscript/tables_figures/sampling_details.csv",
 # site_sp_combo <- site_sp_combo[order(site_sp_combo$site, site_sp_combo$species_code), ]
 # 
 # write.csv(site_sp_combo, "doc/manuscript/tables_figures/site_species_combos.csv", row.names = F)
+
