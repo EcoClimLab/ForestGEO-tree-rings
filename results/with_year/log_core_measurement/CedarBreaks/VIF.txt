@@ -1,0 +1,11 @@
+No variable from the 3 input variables has collinearity problem. 
+
+The linear correlation coefficients ranges between: 
+min correlation ( Year ~ pre ):  -0.0201446 
+max correlation ( pet ~ pre ):  -0.5873426 
+
+---------- VIFs of the remained variables -------- 
+  Variables      VIF
+1       pre 1.527141
+2       pet 1.531841
+3      Year 1.003807
