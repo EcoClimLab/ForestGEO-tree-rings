@@ -108,7 +108,7 @@ clim_gaps <- clim_gaps[clim_gaps$start_climvar.class %in% climate_variables, ]
 CO2 <- read.csv(path_to_CO2)
 
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIILL5BAAUTQLZFTJGS7VGMCO")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCILLNSWIB6Z2FVQANNS7VVT5K")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
@@ -579,7 +579,11 @@ for(site in switch(solution_to_global_trend, "none" = sites, c("ScottyCreek", "N
       stopCluster(clust)
       dd$cw <- cumsum(dd$weight)
       
-       # save dd
+      # add a column in dd if any u-shaped and so model not considered in best model
+      columns_to_check_for_ushape <- grep(paste(climate_variables, collapse = "|"), names(dd), value = T)
+      dd$any_u_shaped <-   apply(dd[, columns_to_check_for_ushape], 1, function(x) any(tapply(as.numeric(sign(x)), rep(1:(length(x)/2), each=2), paste, collapse = "") %in% c("-11")))
+       
+      # save dd
       write.csv(dd, file = paste0("results/", ifelse(with_CO2, "with_CO2/", ""), ifelse(detrended, "with_detrended_climate/", ""), ifelse(old_records_only, "old_records_only/", ""), what, "/", site, "/", sp, "_model_comparisons.csv"), row.names = F)
       
       # get sum of weights
@@ -593,7 +597,7 @@ for(site in switch(solution_to_global_trend, "none" = sites, c("ScottyCreek", "N
       
       
       # update the results of the best model to REML = T
-      best_model <- update(get.models(dd, 1)[[1]], method = "REML")
+      best_model <- update(get.models(dd, which(dd$any_u_shaped==0)[1])[[1]], method = "REML") # take first model without a u-shape in climate variable
       # get the results of the model that includes the variables that have sum of weight > 0.9
       # if(sum(sum_of_weights_for_each_term[!grepl("(coreID|Year)", names(sum_of_weights_for_each_term))] > 0.9) == 0 ) {
       #   best_model <- update(fm1, fixe = ~1, method = "REML") #intercept only model if none of the variables have 0.9 sum of weitgh

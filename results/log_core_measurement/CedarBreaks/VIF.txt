@@ -1,10 +1,10 @@
 No variable from the 2 input variables has collinearity problem. 
 
 The linear correlation coefficients ranges between: 
-min correlation ( pet ~ pre ):  -0.5873426 
-max correlation ( pet ~ pre ):  -0.5873426 
+min correlation ( pet ~ pre ):  -0.5731175 
+max correlation ( pet ~ pre ):  -0.5731175 
 
 ---------- VIFs of the remained variables -------- 
   Variables      VIF
-1       pre 1.526651
-2       pet 1.526651
+1       pre 1.489123
+2       pet 1.489123
