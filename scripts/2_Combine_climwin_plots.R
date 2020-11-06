@@ -7,7 +7,7 @@ rm(list = ls())
 library(png)
 
 # make plots ####
-for(solution in c("/", "with_detrended_climate/", "old_records_only/")[-3]) {
+for(solution in c("", "detrend_climate/", "old_records_only/", "young_records_only/")[-c(1,2)]) {
   # clear folder of old plots ####
   dir.create(paste0("results/", solution, "climwin_plots_combined/"), recursive = T)
   file.remove(list.files(paste0("results/", solution, "climwin_plots_combined/"), full.names = T))
@@ -29,7 +29,7 @@ for(solution in c("/", "with_detrended_climate/", "old_records_only/")[-3]) {
   )
   
   # prepare and save figures ####
-  for (site in switch(solution, "/" = sites, c("ScottyCreek", "NewMexico", "SCBI"))) {
+  for (site in switch(solution, "/" = sites, c("ScottyCreek", "NewMexico", "SCBI")[1])) {
     imgs <- list.files(paste0("results/", solution, c("log_core_measurement", "log_core_measurement_dbh", "log_agb_inc_dbh", "log_BAI_dbh"), "/", site), pattern = "climwin", full.names = T)
     
     variables <- regmatches(imgs, regexpr("climwin_\\D{3}_", imgs))
