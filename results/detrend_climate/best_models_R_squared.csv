@@ -1,0 +1,5 @@
+"with_CO2","what","site","sp","model","R2m","R2c"
+FALSE,"log_core_measurement","ScottyCreek","PIMA","log_core_measurement ~ pre + I(pre^2) + tmx + 1",0.00115838062680596,0.00115841705401575
+FALSE,"log_core_measurement_dbh","ScottyCreek","PIMA","log_core_measurement ~ dbh + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.350173422502321,0.539055430210391
+FALSE,"log_agb_inc_dbh","ScottyCreek","PIMA","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + 1",0.30324974515882,0.427595264990727
+FALSE,"log_BAI_dbh","ScottyCreek","PIMA","log_BAI ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + 1",0.120247518333367,0.342370929188972
