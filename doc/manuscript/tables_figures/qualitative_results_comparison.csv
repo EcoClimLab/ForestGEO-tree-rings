@@ -28,9 +28,9 @@ LDW,LITU,pos. correlations with Jun-Aug PDSI ,pos. response to June $PPT$ ,neg. 
 ,QUMO,pos. correlations with Jun-Aug PDSI ,pos. response to June $PPT$ ,neg. response to Jun-Aug $T_{max}$ ,neg. response to June $PET$ ,"Maxwell, Harley, and Robeson 2016"
 ,QUVE,pos. correlations with Jun-Aug PDSI ,pos. response to June $PPT$ ,neg. response to Jun-Aug $T_{max}$ ,neg. response to June $PET$ ,"Maxwell, Harley, and Robeson 2016"
 HF,,,,,,-
-NE,BEPA,,,,,Bumann et al. 2019
+NE,BEPA,little relationship to ppt within analysis timeframe (exception: pos. corr. with pAug pre); stronger relationship to streamflow and PDSI,,little relationship to T_{mean} within analysis timeframe (exception: neg. corr. with pJune and cJan T_{mean}),,Bumann et al. 2019
 ,JUVI,,,,,Aus de Ar et al. 2018
-,PIPO,,,,,
+,PIPO,,,,,Aus de Ar et al. 2018
 ZOF,ABAL,no sig. correlations with June-July $PPT$,slight concave-down response to p.Jun-p.July $PPT$ frequency,sig. pos. correlation to April T (strongest T correlation),pos. response to Jan-March $T_{max}$,"Ka$\v{s}$par, Tumajer, Va$\v{s}\'{i}\v{c}$kov$\'{a}$, and $\v{S}$amonil, in review "
 ,FASY,no sig. correlations with June-July $PPT$,pos. response to p.Jun-p.July $PPT$ frequency,sig. pos. correlation to Jan T (strongest T correlation),pos. response to Jan-March $T_{max}$,"Ka$\v{s}$par, Tumajer, Va$\v{s}\'{i}\v{c}$kov$\'{a}$, and $\v{S}$amonil, in review "
 ,PIAB,modest pos. correlations (n.s) with June-July $PPT$,pos. response to p.Jun-p.July $PPT$ frequency,sig. pos. correlation to March T (strongest current-year T correlation),pos. response to Jan-March $T_{max}$,"Ka$\v{s}$par, Tumajer, Va$\v{s}\'{i}\v{c}$kov$\'{a}$, and $\v{S}$amonil, in review "
