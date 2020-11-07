@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  13 SEP 2020 16:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  7 NOV 2020 09:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -485,12 +485,6 @@ Package graphics Info: Driver file: pdftex.def on input line 99.
 )
 \Gin@req@height=\dimen125
 \Gin@req@width=\dimen126
-) (/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/grffile.sty
-Package: grffile 2017/06/30 v1.18 Extended file name support for graphics (HO)
-Package grffile Info: Option `multidot' is set to `true'.
-Package grffile Info: Option `extendedchars' is set to `false'.
-Package grffile Info: Option `space' is set to `true'.
-Package grffile Info: \Gin@ii of package `graphicx' fixed on input line 494.
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count117
@@ -644,36 +638,38 @@ Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 \rotheadsize=\dimen167
 \c@nlinenum=\count139
 \TeXr@lab=\toks34
-) (./MEE_manuscript_SI.aux)
+)
+\cslhangindent=\skip60
+(./MEE_manuscript_SI.aux)
 \openout1 = `MEE_manuscript_SI.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 80.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 80.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 90.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 90.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 80.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 90.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Info: Redefining \microtypecontext on input line 80.
+LaTeX Info: Redefining \microtypecontext on input line 90.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
@@ -715,7 +711,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box48
-Package hyperref Info: Link coloring OFF on input line 80.
+Package hyperref Info: Link coloring OFF on input line 90.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -723,9 +719,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count146
 )
-LaTeX Info: Redefining \ref on input line 80.
-LaTeX Info: Redefining \pageref on input line 80.
-LaTeX Info: Redefining \nameref on input line 80.
+LaTeX Info: Redefining \ref on input line 90.
+LaTeX Info: Redefining \pageref on input line 90.
+LaTeX Info: Redefining \nameref on input line 90.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -768,334 +764,164 @@ Package: ltcaption 2018/08/26 v1.4-95 longtable captions (AR)
 Package caption Info: threeparttable package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 82.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 92.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 82.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 92.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 82.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 92.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 82.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 92.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 82.
+(Font)              <12> on input line 92.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 82.
+(Font)              <8> on input line 92.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 82.
-LaTeX Font Info:    Try loading font information for U+msa on input line 82.
+(Font)              <6> on input line 92.
+LaTeX Font Info:    Try loading font information for U+msa on input line 92.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 82.
+LaTeX Font Info:    Try loading font information for U+msb on input line 92.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-) (./MEE_manuscript_SI.toc
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 1.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 1.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 1.
-)
+) (./MEE_manuscript_SI.toc)
 \tf@toc=\write3
 \openout3 = `MEE_manuscript_SI.toc'.
 
 [1
 
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 130.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 105.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 105.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 105.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 140.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [2] [3] [4]
 
-LaTeX Warning: Command \v invalid in math mode on input line 241.
+LaTeX Warning: Command \v invalid in math mode on input line 251.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 241.
+LaTeX Warning: Command \' invalid in math mode on input line 251.
 
-[5] [6] [7] [8]
+[5] [6] [7] [8] [9]
 
-LaTeX Warning: Command \' invalid in math mode on input line 526.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 527.
+LaTeX Warning: Command \' invalid in math mode on input line 580.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 528.
+LaTeX Warning: Command \' invalid in math mode on input line 581.
 
 
-Underfull \vbox (badness 10000) detected at line 539
- []
+LaTeX Warning: Command \' invalid in math mode on input line 582.
 
-[9]
-Underfull \vbox (badness 10000) detected at line 569
+
+Underfull \vbox (badness 10000) detected at line 593
  []
 
 [10]
-
-LaTeX Warning: Command \v invalid in math mode on input line 592.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 592.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 592.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 592.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 592.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 592.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 593.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 593.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 593.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 593.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 593.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 593.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 594.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 594.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 594.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 594.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 594.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 594.
-
-
-Underfull \vbox (badness 10000) detected at line 600
+Underfull \vbox (badness 10000) detected at line 623
  []
 
-[11] [12]
-<tables_figures/mock_comparison_traditional_method.png, id=146, 529.98pt x 703.
+[11]
+
+LaTeX Warning: Command \v invalid in math mode on input line 648.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 648.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 648.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 648.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 648.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 648.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 649.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 649.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 649.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 649.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 649.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 649.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 652.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 652.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 652.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 652.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 652.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 652.
+
+
+Underfull \vbox (badness 10000) detected at line 654
+ []
+
+[12] [13]
+<tables_figures/mock_comparison_traditional_method.png, id=108, 529.98pt x 703.
 62875pt>
 File: tables_figures/mock_comparison_traditional_method.png Graphic file (type 
 png)
 <use tables_figures/mock_comparison_traditional_method.png>
 Package pdftex.def Info: tables_figures/mock_comparison_traditional_method.png 
- used on input line 633.
+ used on input line 687.
 (pdftex.def)             Requested size: 328.8268pt x 436.56741pt.
-[13 <./tables_figures/mock_comparison_traditional_method.png>]
-</Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sen
-sitivity/results/climwin_plots_combined/NewMexico_pet.png, id=159, 722.7pt x 57
-8.16pt>
-File: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climat
-e-sensitivity/results/climwin_plots_combined/NewMexico_pet.png Graphic file (ty
-pe png)
-<use /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
--sensitivity/results/climwin_plots_combined/NewMexico_pet.png>
-Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
-ab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/NewMexico_pet.p
-ng  used on input line 650.
-(pdftex.def)             Requested size: 469.76045pt x 375.80836pt.
-[14 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
--sensitivity/results/climwin_plots_combined/NewMexico_pet.png (PNG copy)>]
-</Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sen
-sitivity/results/climwin_plots_combined/NewMexico_wet_pre.png, id=169, 722.7pt 
-x 578.16pt>
-File: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climat
-e-sensitivity/results/climwin_plots_combined/NewMexico_wet_pre.png Graphic file
- (type png)
-<use /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
--sensitivity/results/climwin_plots_combined/NewMexico_wet_pre.png>
-Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
-ab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/NewMexico_wet_p
-re.png  used on input line 671.
-(pdftex.def)             Requested size: 469.76045pt x 375.80836pt.
-[15 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
--sensitivity/results/climwin_plots_combined/NewMexico_wet_pre.png (PNG copy)>]
-</Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sen
-sitivity/results/climwin_plots_combined/HarvardForest_pre_wet.png, id=176, 722.
-7pt x 578.16pt>
-File: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climat
-e-sensitivity/results/climwin_plots_combined/HarvardForest_pre_wet.png Graphic 
-file (type png)
-<use /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
--sensitivity/results/climwin_plots_combined/HarvardForest_pre_wet.png>
-Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
-ab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/HarvardForest_p
-re_wet.png  used on input line 690.
-(pdftex.def)             Requested size: 469.76045pt x 375.80836pt.
-[16 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
--sensitivity/results/climwin_plots_combined/HarvardForest_pre_wet.png (PNG copy
-)>]
-</Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sen
-sitivity/results/composite_plots/BCI.png, id=183, 578.16pt x 722.7pt>
-File: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climat
-e-sensitivity/results/composite_plots/BCI.png Graphic file (type png)
-<use /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
--sensitivity/results/composite_plots/BCI.png>
-Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
-ab/ForestGEO-climate-sensitivity/results/composite_plots/BCI.png  used on input
- line 708.
-(pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
-[17 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
--sensitivity/results/composite_plots/BCI.png>]
-</Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sen
-sitivity/results/composite_plots/HKK.png, id=191, 578.16pt x 722.7pt>
-File: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climat
-e-sensitivity/results/composite_plots/HKK.png Graphic file (type png)
-<use /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
--sensitivity/results/composite_plots/HKK.png>
-Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
-ab/ForestGEO-climate-sensitivity/results/composite_plots/HKK.png  used on input
- line 729.
-(pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
-[18 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
--sensitivity/results/composite_plots/HKK.png>]
-</Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sen
-sitivity/results/composite_plots/NewMexico.png, id=199, 578.16pt x 722.7pt>
-File: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climat
-e-sensitivity/results/composite_plots/NewMexico.png Graphic file (type png)
-<use /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
--sensitivity/results/composite_plots/NewMexico.png>
-Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
-ab/ForestGEO-climate-sensitivity/results/composite_plots/NewMexico.png  used on
- input line 750.
-(pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
-[19 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
--sensitivity/results/composite_plots/NewMexico.png>] [20]
-</Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sen
-sitivity/results/composite_plots/SCBI.png, id=213, 578.16pt x 722.7pt>
-File: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climat
-e-sensitivity/results/composite_plots/SCBI.png Graphic file (type png)
-<use /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
--sensitivity/results/composite_plots/SCBI.png>
-Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
-ab/ForestGEO-climate-sensitivity/results/composite_plots/SCBI.png  used on inpu
-t line 788.
-(pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
-[21 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
--sensitivity/results/composite_plots/SCBI.png (PNG copy)>]
-</Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sen
-sitivity/results/composite_plots/LillyDickey.png, id=220, 578.16pt x 722.7pt>
-File: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climat
-e-sensitivity/results/composite_plots/LillyDickey.png Graphic file (type png)
-<use /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
--sensitivity/results/composite_plots/LillyDickey.png>
-Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
-ab/ForestGEO-climate-sensitivity/results/composite_plots/LillyDickey.png  used 
-on input line 809.
-(pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
-[22 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
--sensitivity/results/composite_plots/LillyDickey.png>]
-</Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sen
-sitivity/results/composite_plots/HarvardForest.png, id=228, 578.16pt x 722.7pt>
-
-File: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climat
-e-sensitivity/results/composite_plots/HarvardForest.png Graphic file (type png)
-
-<use /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
--sensitivity/results/composite_plots/HarvardForest.png>
-Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
-ab/ForestGEO-climate-sensitivity/results/composite_plots/HarvardForest.png  use
-d on input line 832.
-(pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
-[23 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
--sensitivity/results/composite_plots/HarvardForest.png>] [24]
-</Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sen
-sitivity/results/composite_plots/Zofin.png, id=241, 578.16pt x 722.7pt>
-File: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climat
-e-sensitivity/results/composite_plots/Zofin.png Graphic file (type png)
-<use /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
--sensitivity/results/composite_plots/Zofin.png>
-Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
-ab/ForestGEO-climate-sensitivity/results/composite_plots/Zofin.png  used on inp
-ut line 860.
-(pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
-[25 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
--sensitivity/results/composite_plots/Zofin.png>]
-</Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sen
-sitivity/results/composite_plots/ScottyCreek.png, id=250, 578.16pt x 722.7pt>
-File: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climat
-e-sensitivity/results/composite_plots/ScottyCreek.png Graphic file (type png)
-<use /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
--sensitivity/results/composite_plots/ScottyCreek.png>
-Package pdftex.def Info: /Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimL
-ab/ForestGEO-climate-sensitivity/results/composite_plots/ScottyCreek.png  used 
-on input line 882.
-(pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
-[26 </Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate
--sensitivity/results/composite_plots/ScottyCreek.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 967.
-[27]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 967.
-(./MEE_manuscript_SI.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 967.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 967.
- ) 
+[14 <./tables_figures/mock_comparison_traditional_method.png>]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.704 ...climwin_plots_combined/NewMexico_pet.png}
+                                                   
 Here is how much of TeX's memory you used:
- 15868 strings out of 492616
- 241712 string characters out of 6129482
- 382065 words of memory out of 5000000
- 19278 multiletter control sequences out of 15000+600000
- 77488 words of font info for 131 fonts, out of 8000000 for 9000
+ 15617 strings out of 492616
+ 231236 string characters out of 6129482
+ 383245 words of memory out of 5000000
+ 19150 multiletter control sequences out of 15000+600000
+ 70209 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,13n,44p,1626b,467s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/
-texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/20
-19/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2019/texmf-dist/
-fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2019/texmf-dist/fonts/enc/
-dvips/lm/lm-mathsy.enc}</usr/local/texlive/2019/texmf-dist/fonts/type1/public/l
-m/lmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmbx12.p
-fb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmbx7.pfb></usr/lo
-cal/texlive/2019/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive
-/2019/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2019/texm
-f-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2019/texmf-dist/fon
-ts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/p
-ublic/lm/lmmi5.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lm
-mi7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></u
-sr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/te
-xlive/2019/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2019/
-texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2019/texmf-dist/f
-onts/type1/public/lm/lmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/p
-ublic/lm/lmri10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/l
-mri8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><
-/usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/
-texlive/2019/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on MEE_manuscript_SI.pdf (27 pages, 5267669 bytes).
-PDF statistics:
- 449 PDF objects out of 1000 (max. 8388607)
- 377 compressed objects within 4 object streams
- 106 named destinations out of 1000 (max. 500000)
- 16637 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 37i,15n,41p,1566b,421s stack positions out of 5000i,500n,10000p,200000b,80000s
 
+!  ==> Fatal error occurred, no output PDF file produced!

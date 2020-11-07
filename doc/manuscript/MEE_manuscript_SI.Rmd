@@ -24,6 +24,11 @@ options(tinytex.verbose = TRUE)
 options(knitr.table.format = "latex")
 ```
 
+```{r eval = TRUE, echo=TRUE, warning=FALSE} 
+#, results='hide'}
+#READING IN TABLES TO GET STATS FOR TEXT
+path_to_dir <- dirname(dirname(getwd())) # get path to repo (ForestGEO-climate-sensitivity)
+```
 
 \newpage
 
@@ -31,7 +36,7 @@ options(knitr.table.format = "latex")
 
 *This is still rough/ mostly notes.*
 
-For each core, $DBH$ can be reconstructed outside-in (based on recent $DBH$, subtracting growth recorded in tree rings) or inside-out (summing $\Delta r$ from the inside out). 
+For each core, $DBH$ can be reconstructed outside-in (based on recent $DBH$, subtracting growth recorded in tree rings) or inside-out (summing $RW$ from the inside out). 
 We generally gave precedence to the outside-in approach.
 Specifically, when $DBH$ was taken at the time of coring,  
 At some of our sites where DBH was not taken at the time of coring (*SCBI*,), DBH measurements taken before or slightly after the time of coring could be used.
@@ -203,8 +208,10 @@ kable(table_pt3, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = 
   column_spec(2:5, width = col_width) %>%
   column_spec(6, width = "2cm") %>%
   pack_rows("Lilly Dickey Woods, Indiana, USA", 1, 4, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
-  pack_rows("Žofín Forest Dynamics Plot, Czech Republic", 7, 10, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
-  pack_rows("Scotty Creek, NW Territories, Canada", 11, 11, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Harvard Forest, Massachusetts, USA", 5, 5, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Niobrara and Hansley, Nebraska, USA", 6, 8, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  #pack_rows("Žofín Forest Dynamics Plot, Czech Republic", 9, 12, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  #pack_rows("Scotty Creek, NW Territories, Canada", 13, 13, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
   kable_styling(latex_options = c( "hold_position", "repeat header"), protect_latex = T, font_size = 7) 
 # refs in this table need to go in the nocite field below
 ```
@@ -229,7 +236,7 @@ An analysis standardizing all of these factors for four species is present in Ap
 library(knitr)
 library(kableExtra)
 table_raw <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/climate_interactions_summary.csv", stringsAsFactors = FALSE, check.names = FALSE)
-#this reads in the table, but knit fails if I try to render it (probably because of underscores). It also needs ot be rearranged
+#this reads in the table, but knit fails if I try to render it (probably because of underscores). It also needs to be rearranged
 #kable(table_raw, format = "latex", booktabs = TRUE, caption = "Table S  . Frequency of DBH-climate interactions", escape = F)%>%
 #  kable_styling(latex_options = c("scale_down", "hold_position")) 
 ```
@@ -241,51 +248,56 @@ table_raw <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/
 
 \newpage
 ## Figure S2. Comparison of climwin output across growth metrics for the temperature variable group at Little Tesuque (New Mexico, USA)
-![**Figure S2 | Comparison of climwin output across growth metrics for the temperature variable group at Little Tesuque (New Mexico, USA).** Here, *climwin* identified potential evapotranspiration ($PET$) as the strongest climate variable across all three metrics of growth ($\Delta r$, BAI, $\Delta AGB$) and regardless of whether all cores were included in the analysis, or only those for which DBH could be reconstructed ($\Delta r$-trees with $DBH$, BAI, $\Delta AGB$).)](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/NewMexico_pet.png)
+```{r , echo=FALSE, fig.align = "center", out.width='75%', fig.pos='H'}
+
+  knitr::include_graphics(paste0(path_to_dir, "/results/climwin_plots_combined/NewMexico_pet.png"))
+```
+
+**Figure S2 | Comparison of climwin output across growth metrics for the temperature variable group at Little Tesuque (New Mexico, USA).** Here, *climwin* identified potential evapotranspiration ($PET$) as the strongest climate variable across all three metrics of growth ($RW$, BAI, $\Delta AGB$) and regardless of whether all cores were included in the analysis, or only those for which DBH could be reconstructed ($RW$-trees with $DBH$, BAI, $\Delta AGB$).
 
 \newpage
 ## Figure S3. Comparison of climwin output across growth metrics for the precipitation variable group at Little Tesuque (New Mexico, USA)
-![**Figure S3 | Comparison of climwin output across growth metrics for the precipitation variable group at Little Tesuque (New Mexico, USA).** Here, *climwin* identified precipitation ($PPT$) as the strongest climate variable for $\Delta r$ and $BAI$, but precipitation day frequency ($PDF$) as the strongest climate variable for $\Delta AGB$.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/NewMexico_wet_pre.png)
+![**Figure S3 | Comparison of climwin output across growth metrics for the precipitation variable group at Little Tesuque (New Mexico, USA).** Here, *climwin* identified precipitation ($PPT$) as the strongest climate variable for $RW$ and $BAI$, but precipitation day frequency ($PDF$) as the strongest climate variable for $\Delta AGB$.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/NewMexico_wet_pre.png)
 
 \newpage
 ## Figure S4. Comparison of climwin output across growth metrics for the precipitation variable group at Harvard Forest (Massachusetts, USA)
-![**Figure S4 | Comparison of climwin output across growth metrics for the precipitation variable group at Harvard Forest (Massachusetts, USA).** Here, *climwin* identified precipitation frequency ($PDF$) as the strongest climate variable for $\Delta r$, but precipitation amount ($PPT$) as the strongest climate variable for $BAI$ and $\Delta AGB$. The optimal time window (circled) also differed across growth metrics.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/HarvardForest_pre_wet.png)
+![**Figure S4 | Comparison of climwin output across growth metrics for the precipitation variable group at Harvard Forest (Massachusetts, USA).** Here, *climwin* identified precipitation frequency ($PDF$) as the strongest climate variable for $RW$, but precipitation amount ($PPT$) as the strongest climate variable for $BAI$ and $\Delta AGB$. The optimal time window (circled) also differed across growth metrics.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/HarvardForest_pre_wet.png)
 
 \newpage
 ## Figure S5. Best GLS models for Barro Colorado Island (Panama)
 
-![**Figure S5 | Best GLS models for Barro Colorado Island (Panama) for all three growth metrics: $\Delta r$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/BCI.png){ width=75% }
+![**Figure S5 | Best GLS models for Barro Colorado Island (Panama) for all three growth metrics: $RW$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/BCI.png){ width=75% }
 
 \newpage
 ## Figure S6. Best GLS models for Huai Kha Khaeng (Thailand) 
 
-![**Figure S6 | Best GLS models for Huai Kha Khaeng (Thailand) for all three growth metrics: $\Delta r$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/HKK.png){ width=75% }
+![**Figure S6 | Best GLS models for Huai Kha Khaeng (Thailand) for all three growth metrics: $RW$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/HKK.png){ width=75% }
 
 \newpage
 ## Figure S7. Best GLS models for Little Tesuque (New Mexico, USA) 
 
-![**Figure S7 | Best GLS models for Little Tesuque  (New Mexico, USA) for all three growth metrics: $\Delta r$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/NewMexico.png){ width=75% }
+![**Figure S7 | Best GLS models for Little Tesuque  (New Mexico, USA) for all three growth metrics: $RW$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/NewMexico.png){ width=75% }
 
 \newpage
 ## Figure S8. Best GLS models for Cedar Breaks (Utah, USA) 
 
-[**Figure S8 | Best GLS models for Cedar Breaks  (Utah, USA) for all three growth metrics: $\Delta r$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.]
+[**Figure S8 | Best GLS models for Cedar Breaks  (Utah, USA) for all three growth metrics: $RW$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.]
 
 \newpage
 ## Figure S9. Best GLS models for SCBI (Virginia, USA) 
 
-![**Figure S9 | Best GLS models for SCBI (Virginia, USA) for all three growth metrics: $\Delta r$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/SCBI.png){ width=75% }
+![**Figure S9 | Best GLS models for SCBI (Virginia, USA) for all three growth metrics: $RW$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/SCBI.png){ width=75% }
 
 \newpage
 ## Figure S10. Best GLS models for Lilly Dickey Woods (Indiana, USA) 
 
-![**Figure S10 | Best GLS models for Lilly Dickey Woods (Indiana, USA) for all three growth metrics: $\Delta r$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/LillyDickey.png){ width=75% }
+![**Figure S10 | Best GLS models for Lilly Dickey Woods (Indiana, USA) for all three growth metrics: $RW$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/LillyDickey.png){ width=75% }
 
 
 \newpage
 ## Figure S11. Best GLS models for Harvard Forest (Massachusetts, USA) 
 
-![**Figure S11 | Best GLS models for Harvard Forest (Massachusetts, USA) for all three growth metrics: $\Delta r$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/HarvardForest.png){ width=75% }
+![**Figure S11 | Best GLS models for Harvard Forest (Massachusetts, USA) for all three growth metrics: $RW$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/HarvardForest.png){ width=75% }
 
 \newpage
 ## Figure S12. Best GLS models for Niobrara/ Hansley (Nebraska, USA) 
@@ -293,12 +305,12 @@ table_raw <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/
 \newpage
 ## Figure S13. Best GLS models for Zofin (Czech Republic) 
 
-![**Figure S13 | Best GLS models for Zofin (Czech Republic) for all three growth metrics: $\Delta r$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/Zofin.png){ width=75% }
+![**Figure S13 | Best GLS models for Zofin (Czech Republic) for all three growth metrics: $RW$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/Zofin.png){ width=75% }
 
 \newpage
 ## Figure S14. Best GLS models for Scotty Creek (NW Territories, Canada) 
 
-![**Figure S14 | Best GLS models for Scotty Creek (NW Territories, Canada) for all three growth metrics: $\Delta r$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/ScottyCreek.png){ width=75% }
+![**Figure S14 | Best GLS models for Scotty Creek (NW Territories, Canada) for all three growth metrics: $RW$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/ScottyCreek.png){ width=75% }
 
 \newpage
 ## SI References
