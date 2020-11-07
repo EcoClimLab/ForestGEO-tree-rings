@@ -8,4 +8,5 @@
 \contentsline {subsection}{Table S5. Qualtiative comparison of results from this study with previous studies employing conventional methods}{10}{section*.13}% 
 \contentsline {subsection}{Table S6. Frequency of \(DBH\)-climate interactions across all sites and growth metrics}{14}{section*.14}% 
 \contentsline {subsection}{Figure S1. Comparison of our approach with traditional methods of identifying climate signals}{15}{section*.15}% 
-\contentsline {subsection}{SI References}{16}{section*.17}% 
+\contentsline {subsection}{Figure S2. Comparison of climwin output across growth metrics for the temperature variable group at Little Tesuque (New Mexico, USA)}{16}{section*.17}% 
+\contentsline {subsection}{SI References}{17}{section*.18}% 
