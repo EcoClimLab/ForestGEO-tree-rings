@@ -272,7 +272,7 @@ all_Biol <- lapply(all_Biol, function(Biol) {
   })
 
 ## Run the Analysis ####
-for(solution_to_global_trend in c("none", "detrend_climate", "old_records_only", "young_records_only")[c(2)]) {
+for(solution_to_global_trend in c("none", "detrend_climate", "old_records_only", "young_records_only")[]) {
   
   last_year_older_records = 1970
   
@@ -308,7 +308,7 @@ best_models_R_squared <- NULL
 data_to_keep <- c(ls(), "data_to_keep")
 
 
-for(site in switch(solution_to_global_trend, "none" = sites, c("ScottyCreek", "NewMexico", "SCBI")[1])) {
+for(site in switch(solution_to_global_trend, "none" = sites, c("ScottyCreek", "NewMexico", "SCBI")[])) {
   
   
   rm(list = ls()[!ls() %in% data_to_keep])
