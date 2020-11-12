@@ -17,11 +17,11 @@ library(raster)
 # prepare parameters ####
 ## paths to data ####
 
-path_to_climate_data <- "https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/CRU/CRU_v4_04/" # "https://raw.githubusercontent.com/forestgeo/Climate/master/Gridded_Data_Products/Historical%20Climate%20Data/CRU_v4_01/" # 
+path_to_climate_data <- "https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/CRU/CRU_corrected/"
 
 path_to_climate_data_NM <- "C:/Users/HerrmannV/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO_dendro/data/climate/NM/CRU_climate/" # *TO BE EDITED* because the dendro repo is private... I ave to give absolute path (tokens are changing all the time in Github with private repos.... so it would be a pain to have to change them everytime...)
 
-path_to_BCI_pre <- "https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/Met_Stations/BCI/El_Claro_precip_starting_1929/pre_BCI.csv"
+# path_to_BCI_pre <- "https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/Met_Stations/BCI/El_Claro_precip_starting_1929/pre_BCI.csv"
 path_to_BCI_wet <- "https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/Met_Stations/BCI/El_Claro_precip_starting_1929/wet_BCI.csv"
 
 path_to_CO2 <- "https://raw.githubusercontent.com/forestgeo/Climate/master/Other_environmental_data/CO2_data/CO2_MOANA_NOAA_combined.csv"
@@ -91,24 +91,24 @@ variables_units <- c(pre = "(mm mo-1)",
 for(clim_v in climate_variables) {
   assign(clim_v, 
          rbind(
-           read.csv(paste0(path_to_climate_data, clim_v,  ".1901.2019-ForestGEO_sites-6-03.csv")), #forestGEO sites
+           read.csv(paste0(path_to_climate_data, clim_v,  "_CRU_corrected_conservative.csv")), #forestGEO sites #.1901.2019-ForestGEO_sites-6-03.csv")), 
            read.csv(paste0(path_to_climate_data_NM, clim_v, ".1901.2019-NM_site-7-10.csv")) # NM site
            )
   )
   
 }
 
-BCI_pre <- read.csv(path_to_BCI_pre, stringsAsFactors = F)
+# BCI_pre <- read.csv(path_to_BCI_pre, stringsAsFactors = F)
 BCI_wet <- read.csv(path_to_BCI_wet, stringsAsFactors = F)
 
-clim_gaps <- read.csv("https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/CRU/scripts/CRU_gaps_analysis/all_sites.reps.csv")
+clim_gaps <- read.csv("https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/CRU/CRU_corrected/CRU_gaps_analysisall_sites.reps.csv")
 clim_gaps <- clim_gaps[clim_gaps$start_climvar.class %in% climate_variables, ]
 
 ## CO2 data ####
 CO2 <- read.csv(path_to_CO2)
 
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCILLNSWIB6Z2FVQANNS7VVT5K")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIKFUBLF3Q5TDTQAYUK7W2C5E")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
@@ -122,7 +122,10 @@ for(clim_v in climate_variables) {
   x <- get(clim_v)
   
   ### subset for the sites we care about
-  x <- droplevels(x[x$sites.sitename %in% sites.sitenames, ])
+  x <- droplevels(x[x$sites_sitename %in% sites.sitenames, ])
+  
+  ### replace rows that are all NA by -999 for CedarCreaks by -999, just because that will cause issues later otherwise, but don't worry, those vairablewill be ignored later
+  if(all(is.na(x[x$sites_sitename %in% sites.sitenames[["CedarBreaks"]], -1]))) x[x$sites_sitename %in% sites.sitenames[["CedarBreaks"]], -1] <- -999
   
   ### reshape to long format
   x_long <- reshape(x, 
@@ -131,23 +134,23 @@ for(clim_v in climate_variables) {
   
   ### format date
   x_long$Date <- gsub("X", "", x_long$Date)
-  x_long$Date <- as.Date(x_long$Date , format = "%Y.%m.%d")
+  x_long$Date <- as.Date(x_long$Date , format = "%Y_%m_%d")
   
   
   ### combine all variables in one
-  if(clim_v == climate_variables [1]) all_Clim <- x_long[, c(1:3)]
-  else all_Clim <- merge(all_Clim, x_long[, c(1:3)], by = c("sites.sitename", "Date"), all = T)
+  if(clim_v == climate_variables[1]) all_Clim <- x_long[, c(1:3)]
+  else all_Clim <- merge(all_Clim, x_long[, c(1:3)], by = c("sites_sitename", "Date"), all = T)
   
 }
 
-### replace BCI pre and wet by local data
-idx_BCI <- all_Clim$sites.sitename %in% "Barro_Colorado_Island"
+# ### replace BCI pre and wet by local data
+idx_BCI <- all_Clim$sites_sitename %in% "Barro_Colorado_Island"
 
-all_Clim$pre[idx_BCI] <- BCI_pre$climvar.val[match(format(all_Clim$Date[idx_BCI], "%Y-%m"), format(as.Date(BCI_pre$Date), "%Y-%m"))]
+# all_Clim$pre[idx_BCI] <- BCI_pre$climvar.val[match(format(all_Clim$Date[idx_BCI], "%Y-%m"), format(as.Date(BCI_pre$Date), "%Y-%m"))]
 all_Clim$wet[idx_BCI] <- BCI_wet$climvar.val[match(format(all_Clim$Date[idx_BCI], "%Y-%m"), format(as.Date(BCI_wet$Date), "%Y-%m"))]
 
 ### remove BCI pre and wet from clim gap as it is not relevant anymore
-clim_gaps <- clim_gaps[!(clim_gaps$start_sites.sitename %in% "Barro_Colorado_Island" & clim_gaps$start_climvar.class %in% c("pre", "wet")), ]
+clim_gaps <- clim_gaps[!(clim_gaps$start_sites_sitename %in% "Barro_Colorado_Island" & clim_gaps$start_climvar.class %in% c("wet")), ]
 
 # keep only complete rows (this will remove BCI dat for years where we don't have pre data)
 
@@ -157,7 +160,7 @@ all_Clim <- all_Clim[complete.cases(all_Clim), ]
 for(clim_v in climate_variables) {
 
   all_Clim$y <- all_Clim[, clim_v]
-  all_Clim[paste(clim_v, "detrended", sep = "_")] <- gam(y ~ s(as.numeric(Date), by = sites.sitename), data = all_Clim)$residuals
+  all_Clim[paste(clim_v, "detrended", sep = "_")] <- gam(y ~ s(as.numeric(Date), by = sites_sitename), data = all_Clim)$residuals
   all_Clim$y <- NULL
   
 }
@@ -166,7 +169,7 @@ for(clim_v in climate_variables) {
 all_Clim$Date <- format(all_Clim$Date, "%d/%m/%Y") 
 
 ### add site column
-all_Clim$site <- names(sites.sitenames)[match(all_Clim$sites.sitename, sites.sitenames) ]
+all_Clim$site <- names(sites.sitenames)[match(all_Clim$sites_sitename, sites.sitenames) ]
 
 
 ### save prepared clim data 
@@ -178,7 +181,7 @@ write.csv(all_Clim, "processed_data/Climate_data_all_sites.csv", row.names = F)
 
 for (site in sites) {
   Biol <- all_Biol[[site]]
-  Clim <- droplevels(all_Clim[all_Clim$sites.sitename %in% sites.sitenames[site], ])
+  Clim <- droplevels(all_Clim[all_Clim$sites_sitename %in% sites.sitenames[site], ])
   
   ### format date to dd/mm/yyyy ####
   Biol$Date <- paste0("15/06/", Biol$Year) # dd/mm/yyyy setting up as june 15, ARBITRATY
@@ -211,8 +214,8 @@ variables_to_drop <- list() # these will automatically be dropped because no mat
 for(site in sites) {
   
   Biol <- all_Biol[[site]]
-  Clim <- droplevels(all_Clim[all_Clim$sites.sitename %in% sites.sitenames[site], ])
-  clim_gap <- clim_gaps[clim_gaps$start_sites.sitename %in% sites.sitenames[site], ]
+  Clim <- droplevels(all_Clim[all_Clim$sites_sitename %in% sites.sitenames[site], ])
+  clim_gap <- clim_gaps[clim_gaps$start_sites_sitename %in% sites.sitenames[site], ]
   
   if(nrow(clim_gap) > 0) {
     Clim$Year <- as.numeric(sapply(strsplit(Clim$Date, "/"), "[[", 3))
@@ -325,7 +328,7 @@ for(site in switch(solution_to_global_trend, "none" = sites, c("ScottyCreek", "N
   for(what in switch(as.character(any(!is.na(all_Biol[[site]]$dbh))), "TRUE" = c("log_core_measurement", "log_core_measurement_dbh", "log_agb_inc_dbh", "log_BAI_dbh"), "FALSE" = "log_core_measurement")) {
     
     Biol <- all_Biol[[site]]
-    Clim <- droplevels(all_Clim[all_Clim$sites.sitename %in% sites.sitenames[site], ])
+    Clim <- droplevels(all_Clim[all_Clim$sites_sitename %in% sites.sitenames[site], ])
 
     ## create folders if don't exist ####
     dir.create(paste0("results/", what, "/", site), showWarnings = F, recursive = T)
@@ -427,15 +430,15 @@ for(site in switch(solution_to_global_trend, "none" = sites, c("ScottyCreek", "N
     
     
     results <- slidingwin( baseline = eval(parse(text = baseline)),
-                           xvar =list(#dtr = Clim$dtr,
-                                      pet = Clim[,paste0("pet", ifelse(detrend_climate, "_detrended", ""))], 
-                                      tmn = Clim[,paste0("tmn", ifelse(detrend_climate, "_detrended", ""))], 
-                                      tmp = Clim[,paste0("tmp", ifelse(detrend_climate, "_detrended", ""))], 
-                                      tmx = Clim[,paste0("tmx", ifelse(detrend_climate, "_detrended", ""))],
-                                      #cld = Clim$cld, 
-                                      pre = Clim[,paste0("pre", ifelse(detrend_climate, "_detrended", ""))], 
-                                      wet = Clim[,paste0("wet", ifelse(detrend_climate, "_detrended", ""))]
-                           ),
+                           xvar =  list(
+                             pet = Clim[,paste0("pet", ifelse(detrend_climate, "_detrended", ""))], 
+                             tmn = Clim[,paste0("tmn", ifelse(detrend_climate, "_detrended", ""))], 
+                             tmp = Clim[,paste0("tmp", ifelse(detrend_climate, "_detrended", ""))], 
+                             tmx = Clim[,paste0("tmx", ifelse(detrend_climate, "_detrended", ""))],
+                             pre = Clim[,paste0("pre", ifelse(detrend_climate, "_detrended", ""))], 
+                             wet = Clim[,paste0("wet", ifelse(detrend_climate, "_detrended", ""))]
+                           )
+                           [switch(site, "CedarBreaks" = c( "tmn", "tmp", "tmx", "pre"), c("pet", "tmn", "tmp", "tmx", "pre", "wet"))],
                            type = "absolute", 
                            range = window_range,
                            stat = c("mean"),
@@ -891,8 +894,8 @@ A <- pivot_longer(all_Clim, climate_variables, "climate_var") # A <- pivot_longe
 
 A$Year <- as.numeric(gsub("\\d\\d/\\d\\d/", "", A$Date))
 
-A <- aggregate(value ~ sites.sitename + Year + climate_var, data = A, FUN =mean)
-A <- rbind(A, data.frame(sites.sitename = "All",
+A <- aggregate(value ~ sites_sitename + Year + climate_var, data = A, FUN =mean)
+A <- rbind(A, data.frame(sites_sitename = "All",
                          Year = CO2$year,
                          climate_var = "CO2",
                          value = CO2$CO2_ppm))
@@ -902,7 +905,7 @@ variables_units_full <- variables_units
 variables_units_full[] <- paste(names(variables_units), variables_units, sep = "\n")
 
 png("results/Climate_variables_yearly_mean.png", width = 8, height = 10, res = 300, units = "in")
-ggplot(A[A$group == "solid",], aes(x = Year, y = value, color = sites.sitename)) +
+ggplot(A[A$group == "solid",], aes(x = Year, y = value, color = sites_sitename)) +
   geom_line() + 
   facet_wrap(vars(gsub("_detrended", "", climate_var)), ncol =1, scales = "free_y", strip.position = "left", labeller = as_labeller(variables_units_full)) +
   ylab(NULL) +

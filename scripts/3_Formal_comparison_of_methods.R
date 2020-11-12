@@ -153,7 +153,7 @@ for(f in sites_species) {
   start.year <- max(min(clim$year), start.year, min(ind_chron$Year))# max(min(clim$year), start.years[which(site_sps[!site_sps %in% species_to_drop] %in% f)])
   
   # run analysis for each variable
-  for (v in variables_to_show) { # names(clim)[-columns_to_remove]
+  for (v in  switch(f, "CedarBreaks_PSME" = c("tmx", "pre"), variables_to_show)) { # names(clim)[-columns_to_remove]
     print(v)
     
     ## traditional ####
@@ -388,7 +388,7 @@ library(png)
 imgs <- list.files(paste("results/formal_comparison/figures/"), full.names = T)
 for(ssp in sites_species) {
   
-  for(v in variables_to_show) {
+  for(v in  switch(f, "CedarBreaks_PSME" = c("tmx", "pre"), variables_to_show)) {
     
     
     # prepare file

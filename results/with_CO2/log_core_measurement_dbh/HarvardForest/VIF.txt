@@ -1,12 +1,12 @@
 No variable from the 4 input variables has collinearity problem. 
 
 The linear correlation coefficients ranges between: 
-min correlation ( dbh ~ pet ):  0.1094952 
-max correlation ( dbh ~ CO2 ):  0.4474909 
+min correlation ( dbh ~ pet ):  0.109153 
+max correlation ( dbh ~ CO2 ):  0.4569614 
 
 ---------- VIFs of the remained variables -------- 
   Variables      VIF
-1       wet 1.192386
-2       pet 1.123696
-3       CO2 1.408863
-4       dbh 1.250849
+1       wet 1.170389
+2       pet 1.113380
+3       CO2 1.418696
+4       dbh 1.264322

@@ -1,5 +1,4 @@
 "species code","family","latin name","sites sampled","leaf type","leaf phenology","light requirements","bark allometry"
-"ABAL","Pinaceae","Abies alba","ZOF","needleleaf","evergreen","shade-tolerant","neglected in Zofin"
 "ABBI","Pinaceae","Abies bifolia","CB","needleleaf","evergreen","","neglected in CedarBreaks"
 "ACRU","Sapindaceae","Acer rubrum","HF","broadleaf","deciduous (cold)","","acru in HarvardForest"
 "ACSA","Sapindaceae","Acer saccharum","LDW","broadleaf","deciduous (cold)","","acru in LillyDickey, acru in LillyDickey"
@@ -13,7 +12,6 @@
 "CATO","Juglandaceae","Carya tomentosa","SCBI","broadleaf","deciduous (cold)","","cato in SCBI"
 "CHTA","Meliaceae","Chukrasia tabularis ","HKK","broadleaf","brevi-deciduous (drought)","","neglected in HKK"
 "FAGR","Fagaceae","Fagus grandifolia","HF, SCBI","broadleaf","deciduous (cold)","","neglected in HarvardForest, neglected in LillyDickey, neglected in SCBI"
-"FASY","Fagaceae","Fagus sylvatica","ZOF","broadleaf","deciduous (cold)","shade-tolerant","neglected in Zofin"
 "FRAM","Oleaceae","Fraxinus americana","LDW, SCBI","broadleaf","deciduous (cold)","","Fraxinus ssp. in LillyDickey, fram in SCBI"
 "FRNI","Oleaceae","Fraxinus nigra","SCBI","broadleaf","deciduous (cold)","","fram in SCBI"
 "JACO","Bignoniaceae","Jacaranada copaia","BCI","broadleaf","deciduous (drought)","light-demanding","JCO in BCI"
