@@ -3,8 +3,8 @@
 "log_agb_inc_dbh","BCI","water",0
 "log_BAI_dbh","BCI","water",0
 "log_core_measurement_dbh","CedarBreaks","water",0
-"log_agb_inc_dbh","CedarBreaks","water",85.71
-"log_BAI_dbh","CedarBreaks","water",85.71
+"log_agb_inc_dbh","CedarBreaks","water",83.33
+"log_BAI_dbh","CedarBreaks","water",83.33
 "log_core_measurement_dbh","HarvardForest","water",100
 "log_agb_inc_dbh","HarvardForest","water",100
 "log_BAI_dbh","HarvardForest","water",100
@@ -28,9 +28,9 @@
 "log_BAI_dbh","ScottyCreek","water",100
 "log_agb_inc_dbh","BCI","temperature",0
 "log_BAI_dbh","BCI","temperature",50
-"log_core_measurement_dbh","CedarBreaks","temperature",33.33
-"log_agb_inc_dbh","CedarBreaks","temperature",42.86
-"log_BAI_dbh","CedarBreaks","temperature",42.86
+"log_core_measurement_dbh","CedarBreaks","temperature",40
+"log_agb_inc_dbh","CedarBreaks","temperature",50
+"log_BAI_dbh","CedarBreaks","temperature",50
 "log_core_measurement_dbh","HarvardForest","temperature",50
 "log_agb_inc_dbh","HarvardForest","temperature",33.33
 "log_BAI_dbh","HarvardForest","temperature",33.33
