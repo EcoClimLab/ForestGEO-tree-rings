@@ -27,7 +27,45 @@ options(knitr.table.format = "latex")
 ```{r eval = TRUE, echo=FALSE, warning=FALSE, results='hide'}
 #READING IN TABLES TO GET STATS FOR TEXT
 path_to_dir <- dirname(dirname(getwd())) # get path to repo (ForestGEO-climate-sensitivity)
+
+
+# SUPPLEMENTARY INFO (this chunk must be repeated in MEE_manuscript_SI.Rmd)
+#Appendices
+
+DBH_reconstruction <- "S1"
+climate_correction <- "S2"
+traditional_comparison <- "S3"
+changing_climate <- "S4"
+
+DBH_reconstruction_title <- "Appendix S1. Methods for reconstruction of $DBH$"
+climate_correction_title <- "Appendix S2. Methods for climate data evaluation and correction"
+traditional_comparison_title <- "Appendix S3.  Methods for comparing climwin results with traditional methods"
+changing_climate_title <- "Appendix S4.  Dealing with rapidly changing climate and tree growth"
+
+#SI table numbers
+site_details = "S1"
+species_table = "S2"
+sampling_details_table = "S3"
+bark_allometries = "S4"
+qualitative_results_comparison = "S5"
+climate_interactions_summary = "S6"
+
+#SI table captions
+site_details_legend <- "Table S1. Site Details."
+species_table_legend <-"Table S2. Species analyzed, their characteristics, and bark allometries applied."
+sampling_details_legend <- "Table S3. Sampling details for species by site."
+bark_allometries_legend <- "Table S4. Allometric equations for bark thickness."
+qualitative_results_comparison_legend <- "Table S5. Qualtiative comparison of results from this study with previous studies employing conventional methods."
+climate_interactions_summary_legend <- "Table S6. Frequency of $DBH$-climate interactions across all sites and growth metrics."
+
+#SI figure numbers
+traditional_comparison = "S1"
+
+#SI figure captions
+traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals."
+
 ```
+
 
 \newpage
 
@@ -57,11 +95,13 @@ When bark thickness data were available, we generated allometries ([issue #8 in 
 lognormal model with intercept forced to zero: `lm(bark_depth.mm ~ -1 + log(dbh_no_bark.cm+1):bark_species, data = bark)`.
 When bark thickness data were not available, we used published bark allometries from other sources (Table S4)
 
+\newpage
+## Appendix S2. Methods for climate data evaluation and correction
 
 
 \newpage
 
-## Appendix S2.  Methods for comparing climwin results with traditional methods
+## Appendix S3.  Methods for comparing climwin results with traditional methods
 *([ISSUE #35 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/35))*
 
 To verify that our methods gave similar results to traditional methods, we conducted qualitative comparisons of our results to previous studies based on the same cores (Table **S5**). We also conducted a formal comparison using identical tree-ring and climate data for four well-studied species: PSME (Cedar Breaks, Utah), ABAL (Zofin), PIMA (Scotty Creek), and LITU (SCBI) (Fig. **S1**). We compared results from an analysis using conventional methods, as detailed below, to an analysis using our method as described in the Methods section, but with the *climwin* climate variable selection process limited to just the species of interest (as opposed to all species at the site), climate variables considered individually rather than additively, and with start date adjusted to match the conventional method.
@@ -79,7 +119,7 @@ End dates were defined as the last full year prior to sampling (Table S3).
 
 \newpage
 
-## Appendix S3.  Dealing with rapidly changing climate and tree growth
+## Appendix S4.  Dealing with rapidly changing climate and tree growth
 
 [ISSUE #25 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/25)
 

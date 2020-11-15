@@ -1,6 +1,7 @@
 ---
 title: ''
 output: 
+    #pdf_document: 
     bookdown::word_document2: 
       reference_docx: word-styles-reference.docx #make sure this line is indented! see this guide for formatting: https://rmarkdown.rstudio.com/articles_docx.html
 bibliography: references.bib
@@ -99,6 +100,42 @@ clim_sens=3
 size=4
 full_examples = 5
 # Fig5/ table2- DBH/climate interactions
+
+# SUPPLEMENTARY INFO (this chunk must be repeated in MEE_manuscript_SI.Rmd)
+#Appendices
+
+DBH_reconstruction <- "S1"
+climate_correction <- "S2"
+traditional_comparison <- "S3"
+changing_climate <- "S4"
+
+DBH_reconstruction_title <- "Appendix S1. Methods for reconstruction of $DBH$"
+climate_correction_title <- "Appendix S2. Methods for climate data evaluation and correction"
+traditional_comparison_title <- "Appendix S3.  Methods for comparing climwin results with traditional methods"
+changing_climate_title <- "Appendix S4.  Dealing with rapidly changing climate and tree growth"
+
+#SI table numbers
+site_details = "S1"
+species_table = "S2"
+sampling_details_table = "S3"
+bark_allometries = "S4"
+qualitative_results_comparison = "S5"
+climate_interactions_summary = "S6"
+
+#SI table captions
+site_details_legend <- "Table S1. Site Details."
+species_table_legend <-"Table S2. Species analyzed, their characteristics, and bark allometries applied."
+sampling_details_legend <- "Table S3. Sampling details for species by site."
+bark_allometries_legend <- "Table S4. Allometric equations for bark thickness."
+qualitative_results_comparison_legend <- "Table S5. Qualtiative comparison of results from this study with previous studies employing conventional methods."
+climate_interactions_summary_legend <- "Table S6. Frequency of $DBH$-climate interactions across all sites and growth metrics."
+
+#SI figure numbers
+traditional_comparison = "S1"
+
+#SI figure captions
+traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals."
+
 ```
 
 ```{r eval = TRUE, echo=FALSE, warning=FALSE, results='hide'}
@@ -198,9 +235,9 @@ This allows us to ask:
 
 ## Data sources and preparation
 
-We analyzed previously collected tree-ring data from ten sites ranging from 9.15$^\circ$ to 61.30$^\circ$ N latitude and representing a wide range of forest and tree types: tropical broadleaf deciduous and evergreen, temperate broadleaf deciduous and needleleaf evergreen, and boreal needleleaf evergreen (Tables `r sites`, S1-S2).
+We analyzed previously collected tree-ring data from ten sites ranging from 9.15$^\circ$ to 61.30$^\circ$ N latitude and representing a wide range of forest and tree types: tropical broadleaf deciduous and evergreen, temperate broadleaf deciduous and needleleaf evergreen, and boreal needleleaf evergreen (Tables `r sites`, `r site_details`, `r species_table`).
 Nine of these sites (exception: LT) are large forest dynamics plots of the Forest Global Earth Observatory [ForestGEO; @anderson-teixeira_ctfs-forestgeo_2015].
-Trees of species represented within the ForestGEO plots were cored within the plot (n=#) and/or in the vicinity (n=#; max distance: # km), following a variety of sampling protocols designed to meet the varied objectives of the original studies (Tables S1, S3). 
+Trees of species represented within the ForestGEO plots were cored within the plot (n=#) and/or in the vicinity (n=#; max distance: # km), following a variety of sampling protocols designed to meet the varied objectives of the original studies (Tables `r site_details`, `r sampling_details_table`). 
 In using this diversity of data sources, we ensured that our approach was able to handle challenges presented by varying methodologies and forest types.
 
 ```{r sites, eval=FALSE, echo=FALSE}
@@ -215,7 +252,7 @@ knitr::kable(sites[, c("site code",	"site name",	"location",	"July T",	"Jan T",	
 ```
 
 
-**Table 1 | Sites included in this analysis**. Here and throughout, sites are ordered by descending mean annual temperature. Additional site information is provided in Table S1, and species and their sample sizes are detailed in Tables S2-S3. 
+**Table 1 | Sites included in this analysis**. Here and throughout, sites are ordered by descending mean annual temperature. Additional site information is provided in Table `r site_details`, and species and their sample sizes are detailed in Tables `r species_table`-`r sampling_details_table`. 
 ![ ](tables_figures/sites_table.png)
 ```{r eval=FALSE, echo=FALSE}
 # refs in this table need to go in the nocite field below
@@ -235,22 +272,22 @@ and (4) the final 20 years prior to death of trees cored dead.
 The final criteria was implemented to avoid periods of growth decline and potentially altered climate sensitivity prior to death [@cailleret_synthesis_2017; @desoto_low_2020].
 From analyses including $DBH$ (see below), we further excluded
 (1) trees for which we lacked data required to reconstruct $DBH$,
-(2) trees for which there was a significant inconsistency between measured $DBH$ and the sum of $RW$'s across the core (*Appendix S1*),
+(2) trees for which there was a significant inconsistency between measured $DBH$ and the sum of $RW$'s across the core (Appendix `r DBH_reconstruction`),
 and (3) parts of records where reconstructed $DBH$ (see below) was represented by <3 conspecific trees.
-In total, this resulted in inclusion of *#* cores, `r n_cores_dbh` of which could be included in analyses with $DBH$ (Table S3).
+In total, this resulted in inclusion of *#* cores, `r n_cores_dbh` of which could be included in analyses with $DBH$ (Table `r sampling_details_table`).
 
-For each year in the tree-ring records, we reconstructed $DBH$, as detailed in *Appendix S1*. 
+For each year in the tree-ring records, we reconstructed $DBH$, as detailed in Appendix `r DBH_reconstruction`. 
 In most cases, when a recent $DBH$ measurement was available, $DBH$ was reconstructed from the outside in. 
 In cases where $DBH$ was not available, but when we knew that the core hit pith or could reasonably estimate how far off it was based on the curvature of the rings [@applequist_simple_1958; @duncan_evaluation_1989], $DBH$ was reconstructed from the inside out. 
-In either case, we used allometric equations between $DBH$ and bark thickness to account for changes in bark thickness as the tree grew (Appendix S1; Tables S2, S4).
+In either case, we used allometric equations between $DBH$ and bark thickness to account for changes in bark thickness as the tree grew (Appendix `r DBH_reconstruction`; Tables `r species_table`, `r bark_allometries`).
 
 Once $DBH$ had been reconstructed, we used biomass allometries to estimate the corresponding aboveground biomass and diameter to area equation to get the corresponding basal area. We then calculated aboveground biomass growth increments ($\Delta AGB$) as [$AGB_{y+1}-AGB_y$] and basal area increment ($BAI$) as [$BAI_{y+1}-BAI_y$].
 Biomass allometries for temperate and tropical sites were calculated using the R packages *allo-db* (Gonzalez-Akre et al. in prep) and *biomass* [@rejoumechain_biomass_2017], respectively.
 
-Monthly climate data for 1901-2019 were obtained from CRU v.4.04 [@harris_updated_2014; @harris_version_2020]. 
-Variables considered here included average daily minimum, maximum, and mean temperatures ($T_{min}$, $T_{max}$, $T_{mean}$, respectively); potential evapotranspiration ($PET$); precipitation ($PPT$); and precipitation day frequency ($PDF$).
-For BCI, we calculated monthly $PPT$ and $PDF$ from daily precipitation readings made on BCI starting in 1929 [@paton_barro_2019].
-All ForestGEO climate records used here are archived in the ForestGEO Climate Data Portal, v1.0-alpha [@anderson-teixeira_forestgeoclimate_2020].
+Monthly climate data for 1901-2019 were obtained from CRU v.4.04 [@harris_updated_2014; @harris_version_2020], and in some cases corrected based on more local records (Appendix `r climate_correction`). 
+Variables considered here included average daily minimum, maximum, and mean temperatures ($T_{min}$, $T_{max}$, $T_{mean}$, respectively); precipitation ($PPT$); and, when deemed reliable (Appendix `r climate_correction`), potential evapotranspiration ($PET$) and precipitation day frequency ($PDF$).
+*For BCI, we calculated monthly $PPT$ and $PDF$ from daily precipitation readings made on BCI starting in 1929 [@paton_barro_2019].*
+All ForestGEO climate records used here are archived in the ForestGEO Climate Data Portal, *v1.0-alpha* [@anderson-teixeira_forestgeoclimate_2020].
 
 ## Analysis methods
 
@@ -266,17 +303,17 @@ We then used *climwin* to identify the climate variables most strongly correlate
 Within *climwin*, we specified a mixed effects model using species and core identity as random effects: `residual growth index ~ [climate] + (1 | sp) + (1 | treeID)`.
 We allowed first-order linear or concave-down second-order polynomial fits, but ignored any concave-up fits on the basis that these are not expected biologically and, when identified in initial analyses, often appeared to be cases of over-fitting (**[ISSUE #84 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/84)**).
 
-Here, for each permutation, `climate` specifies one of the climate drivers in the climate variable group, analyzed over one of all possible combinations of consecutive months over a 15 month period ending near the time of cessation of formation of each annual ring (*Table S1*). (**[ISSUE #51 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/51)**)
+Here, for each permutation, `climate` specifies one of the climate drivers in the climate variable group, analyzed over one of all possible combinations of consecutive months over a 15 month period ending near the time of cessation of formation of each annual ring (Table `r site_details`). (**[ISSUE #51 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/51)**)
 *Climwin* runs all potential models to select the best fit (lowest AIC), and does k-fold cross-validation in its computation of AIC to guard against over-fitting [@van_de_pol_identifying_2016]. 
 For each group of candidate climate variables, we move forward with the best variable over the time window identified by *climwin* as a candidate climate variable for the multivariate models. 
 
 A challenge to this system arose for the sites that have undergone the most rapid changes in climate and tree growth: SC and LT, where trees exhibit significant growth declines attributed to rising temperatures [@sniderhan_growth_2016] and increasing drought (REF), respectively. 
 *([ISSUE #25 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/25))*
 Problematically, correlating tree growth residuals from which climate-driven trends had been removed against the climate signal with a strong directional trend would not necessarily identify the most relevant climate drivers.
-For these sites, we experimented with three approaches to identifying the most important climate drivers (1) the method described above, (2) detrending the climate variables **(AT:prewhitening?)** prior to the climwin step, and (3) excluding *decades with the most pronounced climate change* from the climwin step of the analysis [*sensu*  @sniderhan_growth_2016] (Appendix S3).
+For these sites, we experimented with three approaches to identifying the most important climate drivers (1) the method described above, (2) detrending the climate variables **(AT:prewhitening?)** prior to the climwin step, and (3) excluding *decades with the most pronounced climate change* from the climwin step of the analysis [*sensu*  @sniderhan_growth_2016] (Appendix `r changing_climate`).
 After determining that... , here we present results *(method)*. 
 
-We verified that this process identified similar climate variable-month combinations as what would be identified using traditional methods for individual species, as detailed in Appendix S2. (**[ISSUE #35 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/35)**)
+We verified that this process identified similar climate variable-month combinations as what would be identified using traditional methods for individual species, as detailed in Appendix `r traditional_comparison`. (**[ISSUE #35 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/35)**)
 
 ### Combining drivers in GLS model
 
@@ -293,7 +330,7 @@ Within each of three categories of models run (climate only, $DBH$+climate, $DBH
 
 ### Identifying climate drivers
 
-**Our process picked out similar climate drivers to what would be obtained via traditional methods (Figs. `r SCBI_example`, **S1**; Table S5; Appendix S2), but with the advantage that *climwin* allowed objective selection of the strongest climate drivers and the time windows over which they were most influential.**
+**Our process picked out similar climate drivers to what would be obtained via traditional methods (Figs. `r SCBI_example`, **S2**; Table `r qualitative_results_comparison`; Appendix `r traditional_comparison`), but with the advantage that *climwin* allowed objective selection of the strongest climate drivers and the time windows over which they were most influential.**
 The most commonly selected variables within the temperature group were $T_{max}$ and $PET$, each of which was identified by climwin as the top temperature-related driver *at four of the eight sites*. $T_{min}$ was the top driver at only *one site (BCI)*, and $T_{mean}$ was never identified as the top variable within the temperature group (Fig. `r clim_sens`).
 Within the precipitation group, precipitation amount ($PPT$) was identified as the top variable most frequently (n=*6 of 9* sites), but it was not uncommon that it was surpassed by precipitation frequency ($PDF$; n=*3 of 8* sites). 
 Optimal time windows often coincided with a site's peak growing season (n= *# of 10* for temperature variables, *# of 10* for precipitation variables), but exceptions were common. 
@@ -303,7 +340,7 @@ Optimal windows for temperature variables tended to be shorter, the longest bein
 At two of the higher-latitude temperate sites (HF and Žofín), temperatures were most influential during late winter/ early spring.
 There were also a few instances where previous growing season conditions had the strongest influence.
 
-![**Figure 2 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table S2) to potential evapotranspiration ($PET$). Panel (**a**) shows a matrix of Pearson correlations between ring-width index and monthly climate variables (using the chronologies of Helcoski et al. 2019). Black rectangle represents the period selected by *climwin* as the most influential window. Panels (**b-d**) give statistics for time windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diaganol indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each time window, and (**d**) gives the $\Delta AIC$ for each. The time window with the minimum $\Delta AIC$ (0-3 months prior to August, or May-July; black circles), was identified as the optimal window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows GLS model output, where $PET$ was a candidate driver variable (along with $PPT$; $DBH$ not included in this model). Plotted are responses of species for which $PET$ was included in the top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are significant, dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals.](tables_figures/quilt_comparison.png)
+![**Figure 2 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table `r species_table`) to potential evapotranspiration ($PET$). Panel (**a**) shows a matrix of Pearson correlations between ring-width index and monthly climate variables (using the chronologies of Helcoski et al. 2019). Black rectangle represents the period selected by *climwin* as the most influential window. Panels (**b-d**) give statistics for time windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diaganol indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each time window, and (**d**) gives the $\Delta AIC$ for each. The time window with the minimum $\Delta AIC$ (0-3 months prior to August, or May-July; black circles), was identified as the optimal window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows GLS model output, where $PET$ was a candidate driver variable (along with $PPT$; $DBH$ not included in this model). Plotted are responses of species for which $PET$ was included in the top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are significant, dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals.](tables_figures/quilt_comparison.png)
 
 **Across the three metrics of growth, the "landscape" of climate effects over various time windows was generally similar, but the optimal time window or even the top climate variable sometimes differed (Figs. **S2**-**S4**).**
 Specifically, $RW$, $BAI$, and $\Delta AGB$ consistently exhibited similar strength of correlation and direction of response to climate variables within the temperature and precipitation variable groups. 
@@ -357,9 +394,9 @@ The relative importance of climate was modest at sites including SCBI (Fig. `r f
 ![**Figure 5 | Comparison of full top models for each growth metric ($RW$, $BAI$, $\Delta AGB$) at sites where climatic controls are strong (Little Tesuque, left panel) and modest (SCBI, right panel).** Plotted are best fit models for each species, with transparent ribbons indicating 95% confidence intervals. For climate variables, best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant, dashed lines when only one term is significant, and dotted lines when neither is significant. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/show_case_response_plots.png)
 
 **Interactive effects of $DBH$ and climate were found for #% of species-variable combinations**. 
-Interactions were significant for over half of $DBH$-precipitation variable interactions for all three growth metrics (*51% for all*; Table S6).
+Interactions were significant for over half of $DBH$-precipitation variable interactions for all three growth metrics (*51% for all*; Table `r climate_interactions_summary`).
 The majority (#%) of these interactions were positive, indicating that larger trees generally respond more positively (or less negatively) to precipitation or it's frequency (Fig. **6?**).
-Interactions between temperature variables and $DBH$ were significant for *~40%* of cases considered (Table S6). 
+Interactions between temperature variables and $DBH$ were significant for *~40%* of cases considered (Table `r climate_interactions_summary`). 
 The majority (#%) of these interactions were positive, indicating that larger trees generally respond less negatively (or more positively) to $T_{max}$ or $PET$ (Fig. **6?**).
 
 **figure on climate - DBH interactions?** (*See [ISSUE #42 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/42)*)
@@ -472,6 +509,28 @@ All authors contributed critically to the drafts and gave final approval for pub
 
 Code and full results are available via the project repository in GitHub (github.com/EcoClimLab/ForestGEO-climate-sensitivity) and archived in Zenodo (DOI: TBD) .
 Data for # of the sites are archived in the The DendroEcological Network (DEN) database [@rayback_dendroecological_2020]. 
+
+# Supplementary files
+
+`r DBH_reconstruction_title`
+
+`r climate_correction_title`
+
+`r traditional_comparison_title`
+
+`r changing_climate_title` 
+
+`r site_details_legend` 
+
+`r species_table_legend`
+
+`r sampling_details_legend`
+
+`r bark_allometries_legend` 
+
+`r qualitative_results_comparison_legend`
+
+`r climate_interactions_summary_legend`
 
 # References
 
