@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  15 NOV 2020 16:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  15 NOV 2020 17:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -799,19 +799,20 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 92.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-) (./MEE_manuscript_SI.toc)
+) (./MEE_manuscript_SI.toc
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 1.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 1.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 1.
+)
 \tf@toc=\write3
 \openout3 = `MEE_manuscript_SI.toc'.
 
 [1
 
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 105.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 105.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 105.
 LaTeX Font Info:    Try loading font information for T1+lmtt on input line 140.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/lm/t1lmtt.fd
@@ -901,27 +902,137 @@ Underfull \vbox (badness 10000) detected at line 655
  []
 
 [13] [14] [15]
-<tables_figures/mock_comparison_traditional_method.png, id=118, 529.98pt x 703.
-62875pt>
-File: tables_figures/mock_comparison_traditional_method.png Graphic file (type 
-png)
-<use tables_figures/mock_comparison_traditional_method.png>
-Package pdftex.def Info: tables_figures/mock_comparison_traditional_method.png 
- used on input line 689.
+<tables_figures/SI_figures/mock_comparison_traditional_method.png, id=163, 529.
+98pt x 703.62875pt>
+File: tables_figures/SI_figures/mock_comparison_traditional_method.png Graphic 
+file (type png)
+<use tables_figures/SI_figures/mock_comparison_traditional_method.png>
+Package pdftex.def Info: tables_figures/SI_figures/mock_comparison_traditional_
+method.png  used on input line 689.
 (pdftex.def)             Requested size: 328.8268pt x 436.56741pt.
-[16 <./tables_figures/mock_comparison_traditional_method.png>]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.704 ...lts/climwin_plots_combined/NewMexico_pet}
-                                                   \end{center} 
-Here is how much of TeX's memory you used:
- 15625 strings out of 492616
- 231417 string characters out of 6129482
- 381333 words of memory out of 5000000
- 19152 multiletter control sequences out of 15000+600000
- 70292 words of font info for 101 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 37i,15n,41p,1566b,421s stack positions out of 5000i,500n,10000p,200000b,80000s
+[16 <./tables_figures/SI_figures/mock_comparison_traditional_method.png>] [17] 
+[18]
+<tables_figures/SI_figures/HarvardForest_pre_wet.png, id=184, 722.7pt x 578.16p
+t>
+File: tables_figures/SI_figures/HarvardForest_pre_wet.png Graphic file (type pn
+g)
+<use tables_figures/SI_figures/HarvardForest_pre_wet.png>
+Package pdftex.def Info: tables_figures/SI_figures/HarvardForest_pre_wet.png  u
+sed on input line 738.
+(pdftex.def)             Requested size: 469.76045pt x 375.80836pt.
+[19 <./tables_figures/SI_figures/HarvardForest_pre_wet.png (PNG copy)>]
+<tables_figures/SI_figures/composite_plots/BCI.png, id=195, 578.16pt x 722.7pt>
 
-!  ==> Fatal error occurred, no output PDF file produced!
+File: tables_figures/SI_figures/composite_plots/BCI.png Graphic file (type png)
+
+<use tables_figures/SI_figures/composite_plots/BCI.png>
+Package pdftex.def Info: tables_figures/SI_figures/composite_plots/BCI.png  use
+d on input line 756.
+(pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
+[20 <./tables_figures/SI_figures/composite_plots/BCI.png>]
+<tables_figures/SI_figures/composite_plots/HKK.png, id=203, 578.16pt x 722.7pt>
+
+File: tables_figures/SI_figures/composite_plots/HKK.png Graphic file (type png)
+
+<use tables_figures/SI_figures/composite_plots/HKK.png>
+Package pdftex.def Info: tables_figures/SI_figures/composite_plots/HKK.png  use
+d on input line 777.
+(pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
+[21 <./tables_figures/SI_figures/composite_plots/HKK.png>]
+<tables_figures/SI_figures/composite_plots/NewMexico.png, id=211, 578.16pt x 72
+2.7pt>
+File: tables_figures/SI_figures/composite_plots/NewMexico.png Graphic file (typ
+e png)
+<use tables_figures/SI_figures/composite_plots/NewMexico.png>
+Package pdftex.def Info: tables_figures/SI_figures/composite_plots/NewMexico.pn
+g  used on input line 798.
+(pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
+[22 <./tables_figures/SI_figures/composite_plots/NewMexico.png>] [23]
+<tables_figures/SI_figures/composite_plots/SCBI.png, id=224, 578.16pt x 722.7pt
+>
+File: tables_figures/SI_figures/composite_plots/SCBI.png Graphic file (type png
+)
+<use tables_figures/SI_figures/composite_plots/SCBI.png>
+Package pdftex.def Info: tables_figures/SI_figures/composite_plots/SCBI.png  us
+ed on input line 836.
+(pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
+[24 <./tables_figures/SI_figures/composite_plots/SCBI.png (PNG copy)>]
+<tables_figures/SI_figures/composite_plots/LillyDickey.png, id=231, 578.16pt x 
+722.7pt>
+File: tables_figures/SI_figures/composite_plots/LillyDickey.png Graphic file (t
+ype png)
+<use tables_figures/SI_figures/composite_plots/LillyDickey.png>
+Package pdftex.def Info: tables_figures/SI_figures/composite_plots/LillyDickey.
+png  used on input line 857.
+(pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
+[25 <./tables_figures/SI_figures/composite_plots/LillyDickey.png>]
+<tables_figures/SI_figures/composite_plots/HarvardForest.png, id=240, 578.16pt 
+x 722.7pt>
+File: tables_figures/SI_figures/composite_plots/HarvardForest.png Graphic file 
+(type png)
+<use tables_figures/SI_figures/composite_plots/HarvardForest.png>
+Package pdftex.def Info: tables_figures/SI_figures/composite_plots/HarvardFores
+t.png  used on input line 879.
+(pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
+[26 <./tables_figures/SI_figures/composite_plots/HarvardForest.png>] [27]
+<tables_figures/SI_figures/composite_plots/Zofin.png, id=253, 578.16pt x 722.7p
+t>
+File: tables_figures/SI_figures/composite_plots/Zofin.png Graphic file (type pn
+g)
+<use tables_figures/SI_figures/composite_plots/Zofin.png>
+Package pdftex.def Info: tables_figures/SI_figures/composite_plots/Zofin.png  u
+sed on input line 907.
+(pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
+[28 <./tables_figures/SI_figures/composite_plots/Zofin.png>]
+<tables_figures/SI_figures/composite_plots/ScottyCreek.png, id=261, 578.16pt x 
+722.7pt>
+File: tables_figures/SI_figures/composite_plots/ScottyCreek.png Graphic file (t
+ype png)
+<use tables_figures/SI_figures/composite_plots/ScottyCreek.png>
+Package pdftex.def Info: tables_figures/SI_figures/composite_plots/ScottyCreek.
+png  used on input line 929.
+(pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
+[29 <./tables_figures/SI_figures/composite_plots/ScottyCreek.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1009.
+[30]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1009.
+(./MEE_manuscript_SI.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1009.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1009.
+ ) 
+Here is how much of TeX's memory you used:
+ 15811 strings out of 492616
+ 236995 string characters out of 6129482
+ 382706 words of memory out of 5000000
+ 19217 multiletter control sequences out of 15000+600000
+ 77110 words of font info for 127 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 40i,15n,44p,1626b,465s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/
+texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/20
+19/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2019/texmf-dist/
+fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2019/texmf-dist/fonts/enc/
+dvips/lm/lm-mathsy.enc}</usr/local/texlive/2019/texmf-dist/fonts/type1/public/l
+m/lmbx10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmbx12.p
+fb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmbx7.pfb></usr/lo
+cal/texlive/2019/texmf-dist/fonts/type1/public/lm/lmbx8.pfb></usr/local/texlive
+/2019/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2019/texm
+f-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2019/texmf-dist/fon
+ts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/p
+ublic/lm/lmmi5.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lm
+mi7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></u
+sr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/te
+xlive/2019/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2019/
+texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2019/texmf-dist/f
+onts/type1/public/lm/lmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/p
+ublic/lm/lmri10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/l
+mri8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><
+/usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/
+texlive/2019/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
+Output written on MEE_manuscript_SI.pdf (30 pages, 3091908 bytes).
+PDF statistics:
+ 460 PDF objects out of 1000 (max. 8388607)
+ 387 compressed objects within 4 object streams
+ 108 named destinations out of 1000 (max. 500000)
+ 16635 words of extra memory for PDF output out of 17280 (max. 10000000)
+
