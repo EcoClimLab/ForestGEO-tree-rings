@@ -37,4 +37,3 @@ kable(sites_table, format = "latex", booktabs = TRUE,  escape = F)%>%
   column_spec(10, width = "3cm") %>%
   kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
 ```
-*don't trust this climate data
