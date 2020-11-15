@@ -29,6 +29,11 @@ options(knitr.table.format = "latex")
 path_to_dir <- dirname(dirname(getwd())) # get path to repo (ForestGEO-climate-sensitivity)
 
 # MOVE FIGURE FILES
+#traditional comparison
+flist <- list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/formal_comparison/figures/", "^climwin_vs_dcc_.+[.]png$", full.names = TRUE)
+file.copy(flist, "/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/doc/manuscript/tables_figures/SI_figures/traditional_comparison/")
+
+#composite plots
 flist <- list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/", full.names = TRUE)
 file.copy(flist, "/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/doc/manuscript/tables_figures/SI_figures/composite_plots/")
 
