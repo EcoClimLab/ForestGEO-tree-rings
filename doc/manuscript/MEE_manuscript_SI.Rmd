@@ -291,8 +291,12 @@ table_raw <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/
 
 \newpage 
 ## Figure S1. Comparison of our approach with traditional methods of identifying climate signals
-![**Figure S1 | (Comparison of traditional approaches with ours).**  (THIS FIGURE IS JUST A MOCK-UP --NOT REAL DATA. REAL FIGURE WILL INCLUDE 3-4 COMMONLY STUDIED SPECIES FROM DIFFERENT SITES.) ](tables_figures/SI_figures/mock_comparison_traditional_method.png){ width=70% }
 
+![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBreaks_PSME_pre.png){ width=70% }
+
+![](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBreaks_PSME_tmx.png){ width=70% }
+
+**Figure S1 | (Comparison of traditional approaches with ours).**  (Example is Cedar Breaks PSME response to (a) PRE and (b) TMX. We have 3 more sites...) 
 
 \newpage
 ## Figure S2. Comparison of climwin output across growth metrics for the temperature variable group at Little Tesuque (New Mexico, USA)
