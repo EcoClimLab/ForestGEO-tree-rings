@@ -23,7 +23,8 @@ sites.sitenames <- c(BCI = "Barro Colorado Island",
                      ScottyCreek = "Scotty Creek",
                      Zofin = "Zofin",
                      HKK = "Huai Kha Khaeng",
-                     NewMexico = "New_Mexico")[sites]
+                     NewMexico = "New_Mexico",
+                     Nebraska = "Niobara")[sites]
 sites_coords <- sites_coords[sites_coords$Site.name %in% sites.sitenames, c("Site.name", "Latitude", "Longitude")]
 
 # add coordinates of New Mexico site
@@ -36,7 +37,7 @@ sites_coords$site <- names(sites.sitenames)[match(sites_coords$Site.name, sites.
 sites <- sites_coords$site[order(sites_coords$Latitude)]
 
 # sites with dbh
-sites_with_dbh <- sites[-grep("CedarBreaks", sites)]
+sites_with_dbh <- sites #[-grep("CedarBreaks", sites)]
 
 # give site abbrevationtion in paper
 sites_abb <- list(BCI  = "BCI",
