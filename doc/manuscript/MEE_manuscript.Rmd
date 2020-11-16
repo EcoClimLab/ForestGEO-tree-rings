@@ -142,6 +142,18 @@ climwin_sameV_sameW = "S5"
 climwin_sameV_diffW = "S6"
 climwin_diffV_diffW = "S8"
 
+all_GLS = "S9-S18"
+GLS_BCI = "S9"
+GLS_HKK = "S10"
+GLS_SCBI = "S11"
+GLS_LDW = "S12"
+GLS_HF = "S13"
+GLS_ZOF = "S14"
+GLS_NE = "S15"
+GLS_LT = "S16"
+GLS_CB = "S17"
+GLS_SC = "S18"
+
 #SI figure captions
 SCBI_traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals: LITU at SCBI."
 Zofin_traditional_comparison_legend <- "Figure S2. Comparison of our approach with traditional methods of identifying climate signals: ABAL at Zofin."
@@ -151,6 +163,17 @@ SC_traditional_comparison_legend <- "Figure S4. Comparison of our approach with 
 climwin_sameV_sameW_legend = "Figure S5. (PRE at SCBI)"
 climwin_sameV_diffW_legend = "Figure S6. (PET at SCBI)"
 climwin_diffV_diffW_legend = "Figure S7. (TMP/TMN at BCI)"
+
+GLS_BCI_legend = "Figure S9. Best GLS models for Barro Colorado Island (Panama)"
+GLS_HKK_legend = "Figure S10. Best GLS models for Huai Kha Khaeng (Thailand)"
+GLS_SCBI_legend = "Figure S11. Best GLS models for the Smithsonian Conservation Biology Institute (Virginia, USA)"
+GLS_LDW_legend = "Figure S12. Best GLS models for Lilley Dickey Woods (Indiana, USA)"
+GLS_HF_legend = "Figure S13. Best GLS models for Harvard Forest (Massachusetts, USA) "
+GLS_ZOF_legend = "Figure S14. Best GLS models for Zofin Forest (Czech Republic)"
+GLS_NE_legend = "Figure S15. Best GLS models for Niobrara/ Halsey (Nebraska, USA)"
+GLS_LT_legend = "Figure S16. Best GLS models for Little Tesuque (New Mexico, USA)"
+GLS_CB_legend = "Figure S17. Best GLS models for Cedar Breaks (Utah, USA)"
+GLS_SC_legend = "Figure S18. Best GLS models for Scotty Creek (Northwest Territory, Canada)"
 ```
 
 ```{r eval = TRUE, echo=FALSE, warning=FALSE, results='hide'}
@@ -400,10 +423,10 @@ At the other end of the spectrum, a number of species at sites where they presum
 Specifically, $DBH$ was included in #% of top models for $RW$, #% of top models for $BAI$, and #% of top models for $\Delta AGB$.
 In general, $DBH$ explained more variation in growth rates than did climate (Fig. `r full_examples`).
 
-**The relative importance of $DBH$ and climate shifted across growth metrics and climates (Figs. `r full_examples`, **S5**-**S14**).** 
+**The relative importance of $DBH$ and climate shifted across growth metrics and climates (Figs. `r full_examples`, `r all_GLS`).** 
 The relative importance of $DBH$ tended to be least for $RW$, intermediate for $BAI$, and highest for $\Delta AGB$ (e.g., at SCBI; Fig. `r full_examples`).
 However, there were exceptions, particularly when $RW$ decreased steeply with $DBH$ (e.g., at Little Tesuque; Fig. `r full_examples`).
-The relative importance of climate was modest at sites including SCBI (Fig. `r full_examples`), HF (Fig. **S11**), and SC (Fig. **S14**), and stronger at sites including LT (Fig. `r full_examples`) and BCI (Fig. **S5**). 
+The relative importance of climate was modest at sites including SCBI (Fig. `r full_examples`), HF (Fig. `r GLS_HF`), and SC (Fig. `r GLS_SC`), and stronger at sites including LT (Fig. `r full_examples`) and BCI (Fig. `r GLS_BCI`). 
 
 ![**Figure 5 | Comparison of full top models for each growth metric ($RW$, $BAI$, $\Delta AGB$) at sites where climatic controls are strong (Little Tesuque, left panel) and modest (SCBI, right panel).** Plotted are best fit models for each species, with transparent ribbons indicating 95% confidence intervals. For climate variables, best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant, dashed lines when only one term is significant, and dotted lines when neither is significant. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/show_case_response_plots.png)
 

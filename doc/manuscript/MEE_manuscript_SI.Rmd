@@ -83,6 +83,18 @@ climwin_sameV_sameW = "S5"
 climwin_sameV_diffW = "S6"
 climwin_diffV_diffW = "S8"
 
+all_GLS = "S9-S18"
+GLS_BCI = "S9"
+GLS_HKK = "S10"
+GLS_SCBI = "S11"
+GLS_LDW = "S12"
+GLS_HF = "S13"
+GLS_ZOF = "S14"
+GLS_NE = "S15"
+GLS_LT = "S16"
+GLS_CB = "S17"
+GLS_SC = "S18"
+
 #SI figure captions
 SCBI_traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals: LITU at SCBI."
 Zofin_traditional_comparison_legend <- "Figure S2. Comparison of our approach with traditional methods of identifying climate signals: ABAL at Zofin."
@@ -92,6 +104,22 @@ SC_traditional_comparison_legend <- "Figure S4. Comparison of our approach with 
 climwin_sameV_sameW_legend = "Figure S5. (PRE at SCBI)"
 climwin_sameV_diffW_legend = "Figure S6. (PET at SCBI)"
 climwin_diffV_diffW_legend = "Figure S7. (TMP/TMN at BCI)"
+
+
+GLS_BCI_legend = "Figure S9. Best GLS models for Barro Colorado Island (Panama)"
+GLS_HKK_legend = "Figure S10. Best GLS models for Huai Kha Khaeng (Thailand)"
+GLS_SCBI_legend = "Figure S11. Best GLS models for the Smithsonian Conservation Biology Institute (Virginia, USA)"
+GLS_LDW_legend = "Figure S12. Best GLS models for Lilley Dickey Woods (Indiana, USA)"
+GLS_HF_legend = "Figure S13. Best GLS models for Harvard Forest (Massachusetts, USA) "
+GLS_ZOF_legend = "Figure S14. Best GLS models for Zofin Forest (Czech Republic)"
+GLS_NE_legend = "Figure S15. Best GLS models for Niobrara/ Halsey (Nebraska, USA)"
+GLS_LT_legend = "Figure S16. Best GLS models for Little Tesuque (New Mexico, USA)"
+GLS_CB_legend = "Figure S17. Best GLS models for Cedar Breaks (Utah, USA)"
+GLS_SC_legend = "Figure S18. Best GLS models for Scotty Creek (Northwest Territory, Canada)"
+
+# ~~~~~~~~~~ (below here does not need to be copied to main doc) ~~~~~~~~~~
+# Generic legends
+GLS_generic_legend = " for all three growth metrics examined here. Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD."
 
 ```
 
@@ -367,53 +395,64 @@ table_raw <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/
 
 
 \newpage
-## Figure S5. Best GLS models for Barro Colorado Island (Panama)
+## `r GLS_BCI_legend`
 
-![**Figure S5 | Best GLS models for Barro Colorado Island (Panama) for all three growth metrics: $RW$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/SI_figures/composite_plots/BCI.png){ width=75% }
+![`r GLS_BCI_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/BCI.png){ width=75% }
 
-\newpage
-## Figure S6. Best GLS models for Huai Kha Khaeng (Thailand) 
-
-![**Figure S6 | Best GLS models for Huai Kha Khaeng (Thailand) for all three growth metrics: $RW$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/SI_figures/composite_plots/HKK.png){ width=75% }
-
-\newpage
-## Figure S7. Best GLS models for Little Tesuque (New Mexico, USA) 
-
-![**Figure S7 | Best GLS models for Little Tesuque  (New Mexico, USA) for all three growth metrics: $RW$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/SI_figures/composite_plots/NewMexico.png){ width=75% }
-
-\newpage
-## Figure S8. Best GLS models for Cedar Breaks (Utah, USA) 
-
-[**Figure S8 | Best GLS models for Cedar Breaks  (Utah, USA) for all three growth metrics: $RW$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.]
-
-\newpage
-## Figure S9. Best GLS models for SCBI (Virginia, USA) 
-
-![**Figure S9 | Best GLS models for SCBI (Virginia, USA) for all three growth metrics: $RW$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/SI_figures/composite_plots/SCBI.png){ width=75% }
-
-\newpage
-## Figure S10. Best GLS models for Lilly Dickey Woods (Indiana, USA) 
-
-![**Figure S10 | Best GLS models for Lilly Dickey Woods (Indiana, USA) for all three growth metrics: $RW$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/SI_figures/composite_plots/LillyDickey.png){ width=75% }
 
 
 \newpage
-## Figure S11. Best GLS models for Harvard Forest (Massachusetts, USA) 
+## `r GLS_HKK_legend`
 
-![**Figure S11 | Best GLS models for Harvard Forest (Massachusetts, USA) for all three growth metrics: $RW$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/SI_figures/composite_plots/HarvardForest.png){ width=75% }
-
-\newpage
-## Figure S12. Best GLS models for Niobrara/ Hansley (Nebraska, USA) 
+![`r GLS_HKK_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/HKK.png){ width=75% }
 
 \newpage
-## Figure S13. Best GLS models for Zofin (Czech Republic) 
+## `r GLS_SCBI_legend`
 
-![**Figure S13 | Best GLS models for Zofin (Czech Republic) for all three growth metrics: $RW$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/SI_figures/composite_plots/Zofin.png){ width=75% }
+![`r GLS_SCBI_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/SCBI.png){ width=75% }
 
 \newpage
-## Figure S14. Best GLS models for Scotty Creek (NW Territories, Canada) 
+## `r GLS_LDW_legend`
 
-![**Figure S14 | Best GLS models for Scotty Creek (NW Territories, Canada) for all three growth metrics: $RW$, $BAI$, and $\Delta AGB$.** Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/SI_figures/composite_plots/ScottyCreek.png){ width=75% }
+![`r GLS_LDW_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/LillyDickey.png){ width=75% }
+
+\newpage
+## `r GLS_HF_legend`
+
+![`r GLS_HF_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/HarvardForest.png){ width=75% }
+
+\newpage
+## `r GLS_ZOF_legend`
+
+![`r GLS_ZOF_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/Zofin.png){ width=75% }
+
+\newpage
+## `r GLS_NE_legend`
+
+``` {r eval = FALSE, echo=FALSE, warning=FALSE}
+
+# ![`r GLS_NE_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/Nebraska.png){ width=75% }
+
+```
+
+\newpage
+## `r GLS_LT_legend`
+
+![`r GLS_LT_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/NewMexico.png){ width=75% }
+
+\newpage
+## `r GLS_CB_legend`
+
+``` {r eval = FALSE, echo=FALSE, warning=FALSE}
+
+# ![`r GLS_CB_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/CedarBreaks.png){ width=75% }
+```
+
+\newpage
+## `r GLS_SC_legend`
+
+![`r GLS_SC_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/ScottyCreek.png){ width=75% }
+
 
 
 \newpage
