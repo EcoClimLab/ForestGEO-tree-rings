@@ -8,18 +8,21 @@
 \contentsline {subsection}{Table S4. Allometric equations for bark thickness}{10}{section*.12}% 
 \contentsline {subsection}{Table S5. Qualtiative comparison of results from this study with previous studies employing conventional methods}{11}{section*.14}% 
 \contentsline {subsection}{Table S6. Frequency of \(DBH\)-climate interactions across all sites and growth metrics}{15}{section*.15}% 
-\contentsline {subsection}{Figure S1. Comparison of our approach with traditional methods of identifying climate signals}{16}{section*.16}% 
-\contentsline {subsection}{Figure S2. Comparison of climwin output across growth metrics for the temperature variable group at Little Tesuque (New Mexico, USA)}{17}{section*.17}% 
-\contentsline {subsection}{Figure S3. Comparison of climwin output across growth metrics for the precipitation variable group at Little Tesuque (New Mexico, USA)}{18}{section*.18}% 
-\contentsline {subsection}{Figure S4. Comparison of climwin output across growth metrics for the precipitation variable group at Harvard Forest (Massachusetts, USA)}{19}{section*.19}% 
-\contentsline {subsection}{Figure S5. Best GLS models for Barro Colorado Island (Panama)}{20}{section*.21}% 
-\contentsline {subsection}{Figure S6. Best GLS models for Huai Kha Khaeng (Thailand)}{21}{section*.23}% 
-\contentsline {subsection}{Figure S7. Best GLS models for Little Tesuque (New Mexico, USA)}{22}{section*.25}% 
-\contentsline {subsection}{Figure S8. Best GLS models for Cedar Breaks (Utah, USA)}{23}{section*.27}% 
-\contentsline {subsection}{Figure S9. Best GLS models for SCBI (Virginia, USA)}{24}{section*.28}% 
-\contentsline {subsection}{Figure S10. Best GLS models for Lilly Dickey Woods (Indiana, USA)}{25}{section*.30}% 
-\contentsline {subsection}{Figure S11. Best GLS models for Harvard Forest (Massachusetts, USA)}{26}{section*.32}% 
-\contentsline {subsection}{Figure S12. Best GLS models for Niobrara/ Hansley (Nebraska, USA)}{27}{section*.34}% 
-\contentsline {subsection}{Figure S13. Best GLS models for Zofin (Czech Republic)}{28}{section*.35}% 
-\contentsline {subsection}{Figure S14. Best GLS models for Scotty Creek (NW Territories, Canada)}{29}{section*.37}% 
-\contentsline {subsection}{SI References}{30}{section*.39}% 
+\contentsline {subsection}{Figure S1. Comparison of our approach with traditional methods of identifying climate signals: LITU at SCBI.}{16}{section*.16}% 
+\contentsline {subsection}{Figure S2. Comparison of our approach with traditional methods of identifying climate signals: ABAL at Zofin.}{17}{section*.17}% 
+\contentsline {subsection}{Figure S3. Comparison of our approach with traditional methods of identifying climate signals: PSME at Cedar Breaks.}{18}{section*.18}% 
+\contentsline {subsection}{Figure S3. Comparison of our approach with traditional methods of identifying climate signals: PSME at Cedar Breaks.}{19}{section*.19}% 
+\contentsline {subsection}{Figure S5. (PRE at SCBI)}{20}{section*.20}% 
+\contentsline {subsection}{Figure S6. (PET at SCBI)}{21}{section*.21}% 
+\contentsline {subsection}{Figure S7. (TMP/TMN at BCI)}{22}{section*.22}% 
+\contentsline {subsection}{Figure S5. Best GLS models for Barro Colorado Island (Panama)}{23}{section*.23}% 
+\contentsline {subsection}{Figure S6. Best GLS models for Huai Kha Khaeng (Thailand)}{24}{section*.25}% 
+\contentsline {subsection}{Figure S7. Best GLS models for Little Tesuque (New Mexico, USA)}{25}{section*.27}% 
+\contentsline {subsection}{Figure S8. Best GLS models for Cedar Breaks (Utah, USA)}{26}{section*.29}% 
+\contentsline {subsection}{Figure S9. Best GLS models for SCBI (Virginia, USA)}{27}{section*.30}% 
+\contentsline {subsection}{Figure S10. Best GLS models for Lilly Dickey Woods (Indiana, USA)}{28}{section*.32}% 
+\contentsline {subsection}{Figure S11. Best GLS models for Harvard Forest (Massachusetts, USA)}{29}{section*.34}% 
+\contentsline {subsection}{Figure S12. Best GLS models for Niobrara/ Hansley (Nebraska, USA)}{30}{section*.36}% 
+\contentsline {subsection}{Figure S13. Best GLS models for Zofin (Czech Republic)}{31}{section*.37}% 
+\contentsline {subsection}{Figure S14. Best GLS models for Scotty Creek (NW Territories, Canada)}{32}{section*.39}% 
+\contentsline {subsection}{SI References}{33}{section*.41}% 

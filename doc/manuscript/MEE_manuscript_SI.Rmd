@@ -28,10 +28,15 @@ options(knitr.table.format = "latex")
 #READING IN TABLES TO GET STATS FOR TEXT
 path_to_dir <- dirname(dirname(getwd())) # get path to repo (ForestGEO-climate-sensitivity)
 
-# MOVE FIGURE FILES
+# MOVE FIGURE FILES (doing this because I got an error when using the absolute path to call figures)
 #traditional comparison
 flist <- list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/formal_comparison/figures/", "^climwin_vs_dcc_.+[.]png$", full.names = TRUE)
 file.copy(flist, "/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/doc/manuscript/tables_figures/SI_figures/traditional_comparison/")
+
+# climwin plots
+flist <- list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/", full.names = TRUE)
+file.copy(flist, "/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/doc/manuscript/tables_figures/SI_figures/climwin_plots_combined/")
+
 
 #composite plots
 flist <- list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/", full.names = TRUE)
@@ -67,10 +72,26 @@ qualitative_results_comparison_legend <- "Table S5. Qualtiative comparison of re
 climate_interactions_summary_legend <- "Table S6. Frequency of $DBH$-climate interactions across all sites and growth metrics."
 
 #SI figure numbers
-traditional_comparison = "S1"
+all_traditional_comparisons = "S1-S4"
+SCBI_traditional_comparison = "S1"
+Zofin_traditional_comparison = "S2"
+CB_traditional_comparison = "S3"
+SC_traditional_comparison = "S4"
+
+all_climwin = "S5-S7"
+climwin_sameV_sameW = "S5"
+climwin_sameV_diffW = "S6"
+climwin_diffV_diffW = "S8"
 
 #SI figure captions
-traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals."
+SCBI_traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals: LITU at SCBI."
+Zofin_traditional_comparison_legend <- "Figure S2. Comparison of our approach with traditional methods of identifying climate signals: ABAL at Zofin."
+CB_traditional_comparison_legend <- "Figure S3. Comparison of our approach with traditional methods of identifying climate signals: PSME at Cedar Breaks."
+SC_traditional_comparison_legend <- "Figure S4. Comparison of our approach with traditional methods of identifying climate signals: PIMA at Scotty Creek."
+
+climwin_sameV_sameW_legend = "Figure S5. (PRE at SCBI)"
+climwin_sameV_diffW_legend = "Figure S6. (PET at SCBI)"
+climwin_diffV_diffW_legend = "Figure S7. (TMP/TMN at BCI)"
 
 ```
 
@@ -288,38 +309,62 @@ table_raw <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/
 #  kable_styling(latex_options = c("scale_down", "hold_position")) 
 ```
 
+\newpage 
+## `r SCBI_traditional_comparison_legend`
+![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_SCBI_LITU_pre.png){ width=70% }
+
+![](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_SCBI_LITU_pet.png){ width=70% }
+
+**`r SCBI_traditional_comparison_legend`.**  ( NEEDS  FULL CAPTION.. response to (a) PRE and (b) PET.) 
 
 \newpage 
-## Figure S1. Comparison of our approach with traditional methods of identifying climate signals
+
+## `r Zofin_traditional_comparison_legend`
+
+![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_ABAL_wet.png){ width=70% }
+
+![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_ABAL_tmx.png){ width=70% }
+
+**`r Zofin_traditional_comparison_legend`.**  ( NEEDS  FULL CAPTION.. response to (a) PDF and (b) TMX ) 
+
+\newpage 
+## `r CB_traditional_comparison_legend`
 
 ![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBreaks_PSME_pre.png){ width=70% }
 
 ![](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBreaks_PSME_tmx.png){ width=70% }
 
-**Figure S1 | (Comparison of traditional approaches with ours).**  (Example is Cedar Breaks PSME response to (a) PRE and (b) TMX. We have 3 more sites...) 
+**`r CB_traditional_comparison_legend`.**  ( NEEDS  FULL CAPTION..  response to (a) PRE and (b) TMX. ) 
+
+\newpage 
+## `r CB_traditional_comparison_legend`
+
+![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCreek_PIMA_pre.png){ width=70% }
+
+![](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCreek_PIMA_tmx.png){ width=70% }
+
+**`r CB_traditional_comparison_legend`.**  ( NEEDS  FULL CAPTION..  response to (a) PRE and (b) TMX. ) 
+
+
 
 \newpage
-## Figure S2. Comparison of climwin output across growth metrics for the temperature variable group at Little Tesuque (New Mexico, USA)
-```{r , echo=FALSE, fig.align = "center", out.width='75%', fig.pos='H'}
+## `r climwin_sameV_sameW_legend`
+![](tables_figures/SI_figures/climwin_plots_combined/SCBI_pre.png)
 
- # knitr::include_graphics(paste0(path_to_dir, "/results/climwin_plots_combined/NewMexico_pet.png"))
-```
-
-**Figure S2 | Comparison of climwin output across growth metrics for the temperature variable group at Little Tesuque (New Mexico, USA).** Here, *climwin* identified potential evapotranspiration ($PET$) as the strongest climate variable across all three metrics of growth ($RW$, BAI, $\Delta AGB$) and regardless of whether all cores were included in the analysis, or only those for which DBH could be reconstructed ($RW$-trees with $DBH$, BAI, $\Delta AGB$).
+**`r climwin_sameV_sameW_legend`** Here, *climwin* identified **GIVE WINDOW** precipitation ($PPT$) as the strongest climate variable across all four analyses ($RW$ with and without trees for which $DBH$ could not be reconstructed, $BAI$, $\Delta AGB$).
 
 \newpage
-## Figure S3. Comparison of climwin output across growth metrics for the precipitation variable group at Little Tesuque (New Mexico, USA)
+## `r climwin_sameV_diffW_legend`
+![](tables_figures/SI_figures/climwin_plots_combined/SCBI_pet.png)
 
-```{r , echo=FALSE, fig.align = "center", out.width='75%', fig.pos='H'}
-
- # knitr::include_graphics(paste0(path_to_dir, "/results/climwin_plots_combined/NewMexico_wet_pre.png"))
-```
-
-**Figure S3 | Comparison of climwin output across growth metrics for the precipitation variable group at Little Tesuque (New Mexico, USA).** Here, *climwin* identified precipitation ($PPT$) as the strongest climate variable for $RW$ and $BAI$, but precipitation day frequency ($PDF$) as the strongest climate variable for $\Delta AGB$.
+**`r climwin_sameV_diffW_legend`** Here, *climwin* identified potential evapotranspiration ($PET$) as the strongest climate variable across all four analyses ($RW$ with and without trees for which $DBH$ could not be reconstructed, $BAI$, $\Delta AGB$), but a different window (**GIVE WINDOW**) was chosen for  $BAI$ and $\Delta AGB$ than for $RW$ (**GIVE WINDOW**).
 
 \newpage
-## Figure S4. Comparison of climwin output across growth metrics for the precipitation variable group at Harvard Forest (Massachusetts, USA)
-![**Figure S4 | Comparison of climwin output across growth metrics for the precipitation variable group at Harvard Forest (Massachusetts, USA).** Here, *climwin* identified precipitation frequency ($PDF$) as the strongest climate variable for $RW$, but precipitation amount ($PPT$) as the strongest climate variable for $BAI$ and $\Delta AGB$. The optimal time window (circled) also differed across growth metrics.](tables_figures/SI_figures/HarvardForest_pre_wet.png)
+## `r climwin_diffV_diffW_legend`
+![](tables_figures/SI_figures/climwin_plots_combined/BCI_tmp_tmn.png)
+
+**`r climwin_diffV_diffW_legend`** Here....
+
 
 \newpage
 ## Figure S5. Best GLS models for Barro Colorado Island (Panama)
