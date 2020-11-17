@@ -6,9 +6,6 @@ HKK,AFXY,"sig. pos. correlation with June $PPT$, otherwise n.s.",slight concave-
 ,CHTA,"sig. pos. correlation with April $PPT$, otherwise n.s.",slight concave-down response to p.Sept-June $PPT$ frequency,"sig. neg. correlation with $T_{max}$ in May, Aug-Sept; $T_{min}$ in Feb, May, Aug",slight neg. response to Apr-Oct $T_{max}$,Vlam et al. 2013
 ,MEAZ,"sig. pos. correlation with April $PPT$, otherwise n.s.",concave-down response to p.Sept-June $PPT$ frequency,sig. neg. correlation with $T_{max}$ in May-Aug; $T_{min}$ in May-Aug ,neg. response to Apr-Oct $T_{max}$ ,Vlam et al. 2013
 ,TOCI,sig. pos. correlation with p.Oct-p.Nov and April-May $PPT$,concave-down /increasing response to p.Sept-June $PPT$ frequency,sig. neg. correlation with $T_{max}$ every month from pOct-June (excluding March); $T_{min}$ in Jan and Mar-Aug ,neg. response to Apr-Oct $T_{max}$ ,Vlam et al. 2013
-LT,PIPO,,,,,-
-,PIST2,,,,,-
-CB,,,,,,-
 SCBI,CACO,"pos. correlations with May-Aug $PPT$ (sig. May, July)",,neg. correlations with May-Aug $PET$ (sig. May-July),**(sig or ns)** neg. response to May-July $PET$,Helcoski et al. 2019
 ,CAGL,pos. correlations with May-Aug $PPT$ (sig. May),,neg. correlations with May-Aug $PET$ (n.s.),**(sig or ns)** neg. response to May-July $PET$,Helcoski et al. 2019
 ,CAOVL,pos. correlations with May-Aug $PPT$ (sig. Aug),,neg. correlations with May-Aug $PET$ (sig. all months),**(sig or ns)** neg. response to May-July $PET$,Helcoski et al. 2019
@@ -27,12 +24,19 @@ LDW,LITU,pos. correlations with Jun-Aug PDSI ,pos. response to June $PPT$ ,neg. 
 ,QUAL,pos. correlations with Jun-Aug PDSI ,pos. response to June $PPT$ ,neg. response to Jun-Aug $T_{max}$ ,neg. response to June $PET$ ,"Maxwell, Harley, and Robeson 2016"
 ,QUMO,pos. correlations with Jun-Aug PDSI ,pos. response to June $PPT$ ,neg. response to Jun-Aug $T_{max}$ ,neg. response to June $PET$ ,"Maxwell, Harley, and Robeson 2016"
 ,QUVE,pos. correlations with Jun-Aug PDSI ,pos. response to June $PPT$ ,neg. response to Jun-Aug $T_{max}$ ,neg. response to June $PET$ ,"Maxwell, Harley, and Robeson 2016"
-HF,,,,,,-
-NE,BEPA,little relationship to ppt within analysis timeframe (exception: pos. corr. with pAug pre); stronger relationship to streamflow and PDSI,,little relationship to $T_{mean}$ within analysis timeframe (exception: neg. corr. with pJune and cJan $T_{mean}$),,Bumann et al. 2019
-,JUVI,pos. correlations with $PPT$ pJul-cJune,,neg. correlation to cJun-cJul $T_{mean}$,,Aus de Ar et al. 2018
-,PIPO,pos. correlations with $PPT$ cApr-cAug,,"neg. correlation to $T_{mean}$ in pJul, pSep, cMay, cJul",,Aus de Ar et al. 2018
+HF,ACRU,,,no response to Jan- April $T{min}$*,neg. correlation to Mar $PET$,Alexander et al. 2019
+,BEAL,,,no response to Jan- April $T{min}$*,ns neg correlation with Mar $PET$,Alexander et al. 2019
+,QURU,,,no response to Jan- April $T{min}$*,slight concave-down decreasing response to Mar $PET$,Alexander et al. 2019
+,TSCA,,,pos. response to Jan- April $T{min}$*,pos. response to March $PET$,Alexander et al. 2019
 ZOF,ABAL,no sig. correlations with June-July $PPT$,slight concave-down response to p.Jun-p.July $PPT$ frequency,sig. pos. correlation to April T (strongest T correlation),pos. response to Jan-March $T_{max}$,"Ka$\v{s}$par, Tumajer, Va$\v{s}\'{i}\v{c}$kov$\'{a}$, and $\v{S}$amonil, in review "
 ,FASY,no sig. correlations with June-July $PPT$,pos. response to p.Jun-p.July $PPT$ frequency,sig. pos. correlation to Jan T (strongest T correlation),pos. response to Jan-March $T_{max}$,"Ka$\v{s}$par, Tumajer, Va$\v{s}\'{i}\v{c}$kov$\'{a}$, and $\v{S}$amonil, in review "
 ,PIAB,modest pos. correlations (n.s) with June-July $PPT$,pos. response to p.Jun-p.July $PPT$ frequency,sig. pos. correlation to March T (strongest current-year T correlation),pos. response to Jan-March $T_{max}$,"Ka$\v{s}$par, Tumajer, Va$\v{s}\'{i}\v{c}$kov$\'{a}$, and $\v{S}$amonil, in review "
 ,,>700m elev. sites moisture limited June-Aug,,>700m elev. sites temperature limited except June-Aug,,Tumajer et al. 2017
+NE,BEPA,little relationship to ppt within analysis timeframe (exception: pos. corr. with pAug pre); stronger relationship to streamflow and PDSI,,little relationship to $T_{mean}$ within analysis timeframe (exception: neg. corr. with pJune and cJan $T_{mean}$),,Bumann et al. 2019
+,JUVI,pos. correlations with $PPT$ pJul-cJune,,neg. correlation to cJun-cJul $T_{mean}$,,Aus de Ar et al. 2018
+,PIPO,pos. correlations with $PPT$ cApr-cAug,,"neg. correlation to $T_{mean}$ in pJul, pSep, cMay, cJul",,Aus de Ar et al. 2018
+LT,PIPO,,,,,-
+,PIST2,,,,,-
+CB,,,,,,-
+,,,,,,
 SC,,,,,,Sniderhan and Baltzer 2016

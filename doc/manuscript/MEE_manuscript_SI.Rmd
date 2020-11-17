@@ -159,9 +159,35 @@ When bark thickness data were not available, we used published bark allometries 
 \newpage
 
 ## `r traditional_comparison_title`
+
+To verify that our methods gave similar results to traditional methods, we conducted qualitative comparisons of our results to previous studies based on the same cores (Table `r qualitative_results_comparison`) and conducted a formal quantitative comparison for four species (Figs. `r all_traditional_comparisons`), as detailed below. 
+
+*Qualitative comparison*
+
+For all species-site combinations, we reviewed previous studies characterizing the climate sensitivity of growth using conventional methods. 
+In most cases, we were able to compare with previous studies from the same sites and sets of cores. 
+When these were not available, we reviewed regional-level analyses believed to be representative of the site. 
+
+Results from previous studies were compiled alongside results from the climate-only model if this study (Table `r qualitative_results_comparison`). 
+Where previous studies examined numerous climate variables or time windows [e.g., @helcoski_growing_2019], we focus on those most relevant to our findings. 
+
+Beyond the methodological differences, original studies based on the same sets of cores varied from this one and from one another in factors including
+the exact set of cores analyzed,
+climate data sources,
+time frame of analysis,
+approaches to identifying candidate climate variables and windows (including whether this is done on a site or species level), 
+methods for detrending and standardizing to build chronologies,
+and whether the effects of temperature and precipitation are considered separately (original studies) or additively (this study).
+To standardize for such differences, we selected a subset of species for a standardized quantitative comparison, as detailed below.
+
+*Quantitative comparison*
+
+
 *([ISSUE #35 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/35))*
 
-To verify that our methods gave similar results to traditional methods, we conducted qualitative comparisons of our results to previous studies based on the same cores (Table **S5**). We also conducted a formal comparison using identical tree-ring and climate data for four well-studied species: PSME (Cedar Breaks, Utah), ABAL (Zofin), PIMA (Scotty Creek), and LITU (SCBI) (Fig. **S1**). We compared results from an analysis using conventional methods, as detailed below, to an analysis using our method as described in the Methods section, but with the *climwin* climate variable selection process limited to just the species of interest (as opposed to all species at the site), climate variables considered individually rather than additively, and with start date adjusted to match the conventional method.
+We also conducted a formal comparison using identical tree-ring and climate data for four species: PSME (Cedar Breaks, Utah), ABAL (Zofin), PIMA (Scotty Creek), and LITU (SCBI; Figs. `r all_traditional_comparisons`). These species were selected for analysis because they have been well-studied in the past, and there was no manipulation of study species based on analysis results. 
+
+We compared results from an analysis using conventional methods, as detailed below, to an analysis using our method as described in the Methods section, but with the *climwin* climate variable selection process limited to just the species of interest (as opposed to all species at the site), climate variables considered individually rather than additively, and with start date adjusted to match the conventional method.
 
 The ring-width series from each core was standardized via ARSTAN using a 2/3rds $n$ spline, where $n$ is the number of years in the series (*Cook, 1985; Cook & Kairiukstis, 1990- citations in Helcoski*). 
 *(The following italic text is plagarized from Helcoski and needs to be reworded:)* *The influence of outliers in all series was reduced using the adaptive power transformation, which also stabilises the variance over time (Cook & Peters, 1997). Next, each series was stabilised using either the average correlation between raw ring-width series (rbar) method or a 1/ 3rds spline method to adjust changes in variance as series replication decreased towards the earlier portion of each chronology (Jones et al., 1997). The 1/3rds spline method was chosen when replication in the inner portion of each chronology (c. the inner 30–50 yr of each record depending on full chronology length) dropped below three trees. Once that step was complete, a robust biweight mean chronology for each species was calculated from the ring-width indices (Cook, 1985). We chose to use residual chronologies because the autoregressive standardisation process in creating them removes much of the tree-level autocorrelation in growth and these chronologies would most likely contain the most conservative information on drivers of interannual growth (Cook, 1985).* 
@@ -169,8 +195,8 @@ The ring-width series from each core was standardized via ARSTAN using a 2/3rds 
 Following @helcoski_growing_2019, we defined chronology start dates according to the subsample signal strength (SSS), using a cutoff of SSS = 0.80 (or 80% of the population signal).
 Thus, for this analysis only, we defined chronology start dates as the year the SSS exceeded 0.80 or two years after the start of the climate record, whichever came later. 
 SSS exceeded 0.80 well before the start of the 1901 start of climate records for PSME (1800s), ABAL (1700), and PIMA (1850s). For LITU , SSS reached 0.8 with 11 trees in 1919, which we used as the start date for this series.
-We note that these start date criteria differ from those used in the main analysis (Table S3), which had earlier start dates because the analysis was not constrained by a need to represent the full population signal.
-End dates were defined as the last full year prior to sampling (Table S3).
+We note that these start date criteria differ from those used in the main analysis (Table `r sampling_details_table`), which had earlier start dates because the analysis was not constrained by a need to represent the full population signal.
+End dates were defined as the last full year prior to sampling (Table `r sampling_details_table`).
 
 
 
@@ -255,9 +281,9 @@ For assignments of species as proxies for those with out available bark allometr
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
 library(kableExtra)
-breakrow1<-10
-breakrow2<-24
-breakrow3<-37
+breakrow1<-15
+breakrow2<-29
+breakrow3<-42
 col_width<-"2.5cm"
 table_pt1 <- read.csv("tables_figures/qualitative_results_comparison.csv", 
                      colClasses=c("NULL", NA, NA, NA, NA, NA, NA), 
@@ -270,6 +296,7 @@ kable(table_pt1, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = 
   column_spec(6, width = "2cm") %>%
   pack_rows("Barro Colorado Island, Panama", 1, 3, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
   pack_rows("Huai Kha Khaeng, Thailand", 4, 7, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Smithsonian Conservation Biology Institute, Virginia, USA", 8, 15, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
   kable_styling(latex_options = c( "hold_position", "repeat header"), protect_latex = T, font_size = 7) 
 # refs in this table need to go in the nocite field below
 ```
@@ -286,7 +313,9 @@ kable(table_pt2, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = 
   add_header_above(c(" ", "Precipitation response" = 2, "Temperature response" = 2)) %>%
   column_spec(2:5, width = col_width) %>%
   column_spec(6, width = "2cm") %>%
-  pack_rows("Smithsonian Conservation Biology Institute, Virginia, USA", 1, 14, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Smithsonian Conservation Biology Institute, Virginia, USA (cont.)", 1, 6, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Lilly Dickey Woods, Indiana, USA", 7, 10, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Harvard Forest, Massachusetts, USA", 11, 14, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
   kable_styling(latex_options = c( "hold_position", "repeat header"), protect_latex = T, font_size = 7) 
 # refs in this table need to go in the nocite field below
 ```
@@ -303,11 +332,9 @@ kable(table_pt3, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = 
   add_header_above(c(" ", "Precipitation response" = 2, "Temperature response" = 2)) %>%
   column_spec(2:5, width = col_width) %>%
   column_spec(6, width = "2cm") %>%
-  pack_rows("Lilly Dickey Woods, Indiana, USA", 1, 4, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
-  pack_rows("Harvard Forest, Massachusetts, USA", 5, 5, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
-  pack_rows("Niobrara and Hansley, Nebraska, USA", 6, 8, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
-  pack_rows("Žofín Forest Dynamics Plot, Czech Republic", 9, 12, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
-  pack_rows("Scotty Creek, NW Territories, Canada", 13, 13, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Žofín Forest Dynamics Plot, Czech Republic", 1, 3, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Niobrara and Hansley, Nebraska, USA", 4, 7, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  #pack_rows("Scotty Creek, NW Territories, Canada", 13, 13, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
   kable_styling(latex_options = c( "hold_position", "repeat header"), protect_latex = T, font_size = 7) 
 # refs in this table need to go in the nocite field below
 ```
@@ -315,16 +342,11 @@ kable(table_pt3, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = 
 nocite: | 
   @alfaro-sanchez_growth_2017; @vlam_temperature_2014; @helcoski_growing_2019; @maxwell_declining_2016; @aus_de_ar_tree_2018; @bumann_assessing_2019; @tumajer_increasing_2017; @sniderhan_growth_2016; @kaspar_species-specific_nodate
 ---
-Results from this study are the climate-only model. 
-Where previous studies examined numerous climate variables or time windows [e.g., @helcoski_growing_2019], we focus on those most relevant to our findings. 
-Beyond the methodological differences, original studies vary from this one and from one another in factors including
-exact set of cores analyzed,
-climate data sources,
-time frame of analysis,
-approaches to identifying candidate climate variables and windows (including whether this is done on a site or species level), 
-methods for detrending and standardizing to build chronologies,
-and whether the effects of temperature and precipitation are considered separately (original studies) or additively (this study).
-An analysis standardizing all of these factors for four species is present in Appendix **S2** and Fig. **S1**.
+*Indicates results from a regional study including but not limited to cores from the focal site.
+
+**Indicates results from a regional study not including the focal site, but believed to be representative.
+
+
 
 \newpage
 ## Table S6. Frequency of $DBH$-climate interactions across all sites and growth metrics
@@ -429,11 +451,10 @@ table_raw <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/
 \newpage
 ## `r GLS_NE_legend`
 
-``` {r eval = FALSE, echo=FALSE, warning=FALSE}
 
-# ![`r GLS_NE_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/Nebraska.png){ width=75% }
+![`r GLS_NE_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/Nebraska.png){ width=75% }
 
-```
+
 
 \newpage
 ## `r GLS_LT_legend`
@@ -443,10 +464,9 @@ table_raw <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/
 \newpage
 ## `r GLS_CB_legend`
 
-``` {r eval = FALSE, echo=FALSE, warning=FALSE}
 
-# ![`r GLS_CB_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/CedarBreaks.png){ width=75% }
-```
+![`r GLS_CB_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/CedarBreaks.png){ width=75% }
+
 
 \newpage
 ## `r GLS_SC_legend`
