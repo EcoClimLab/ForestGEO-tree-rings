@@ -1,10 +1,10 @@
 No variable from the 2 input variables has collinearity problem. 
 
 The linear correlation coefficients ranges between: 
-min correlation ( tmx ~ pre ):  -0.3337596 
-max correlation ( tmx ~ pre ):  -0.3337596 
+min correlation ( tmx ~ pre ):  -0.3350891 
+max correlation ( tmx ~ pre ):  -0.3350891 
 
 ---------- VIFs of the remained variables -------- 
-  Variables     VIF
-1       pre 1.12536
-2       tmx 1.12536
+  Variables      VIF
+1       pre 1.126487
+2       tmx 1.126487

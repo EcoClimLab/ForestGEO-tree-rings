@@ -43,9 +43,9 @@
 "log_core_measurement_dbh","Nebraska","temperature",33.33
 "log_agb_inc_dbh","Nebraska","temperature",100
 "log_BAI_dbh","Nebraska","temperature",0
-"log_core_measurement_dbh","NewMexico","temperature",0
-"log_agb_inc_dbh","NewMexico","temperature",50
-"log_BAI_dbh","NewMexico","temperature",0
+"log_core_measurement_dbh","NewMexico","temperature",50
+"log_agb_inc_dbh","NewMexico","temperature",0
+"log_BAI_dbh","NewMexico","temperature",50
 "log_core_measurement_dbh","SCBI","temperature",9.09
 "log_agb_inc_dbh","SCBI","temperature",38.46
 "log_BAI_dbh","SCBI","temperature",25

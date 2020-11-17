@@ -9,35 +9,33 @@ library(gridExtra)
 library(ggplot2)
 library(grid)
 
-# prepare site list and site coordinates ####
+# prepare site list and order by average temperature ####
 sites <- list.dirs("results/log_core_measurement", full.names = F, recursive = F)
 
 
-sites_coords <- read.csv("https://raw.githubusercontent.com/forestgeo/Site-Data/master/ForestGEO_site_data.csv")
-setdiff(sites, sites_coords$Site.name)
-sites.sitenames <- c(BCI = "Barro Colorado Island", 
-                     CedarBreaks = "Utah Forest Dynamics Plot",
-                     HarvardForest = "Harvard Forest",
-                     LillyDickey = "Lilly Dickey Woods",
-                     SCBI = "Smithsonian Conservation Biology Institute",
-                     ScottyCreek = "Scotty Creek",
-                     Zofin = "Zofin",
-                     HKK = "Huai Kha Khaeng",
-                     NewMexico = "New_Mexico",
-                     Nebraska = "Niobara")[sites]
-sites_coords <- sites_coords[sites_coords$Site.name %in% sites.sitenames, c("Site.name", "Latitude", "Longitude")]
+# sites_coords <- read.csv("https://raw.githubusercontent.com/forestgeo/Site-Data/master/ForestGEO_site_data.csv")
+# setdiff(sites, sites_coords$Site.name)
+# sites.sitenames <- c(BCI = "Barro Colorado Island", 
+#                      CedarBreaks = "Utah Forest Dynamics Plot",
+#                      HarvardForest = "Harvard Forest",
+#                      LillyDickey = "Lilly Dickey Woods",
+#                      SCBI = "Smithsonian Conservation Biology Institute",
+#                      ScottyCreek = "Scotty Creek",
+#                      Zofin = "Zofin",
+#                      HKK = "Huai Kha Khaeng",
+#                      NewMexico = "New_Mexico",
+#                      Nebraska = "Niobara")[sites]
+# sites_coords <- sites_coords[sites_coords$Site.name %in% sites.sitenames, c("Site.name", "Latitude", "Longitude")]
+# 
+# # add coordinates of New Mexico site
+# sites_coords <- rbind(sites_coords, data.frame(Site.name = "New_Mexico", Latitude = 35.738376, Longitude = -105.838154 ))
+# 
+# # add site column 
+# sites_coords$site <- names(sites.sitenames)[match(sites_coords$Site.name, sites.sitenames)]
+# 
+# # order sites by latitude
+# sites <- sites_coords$site[order(sites_coords$Latitude)]
 
-# add coordinates of New Mexico site
-sites_coords <- rbind(sites_coords, data.frame(Site.name = "New_Mexico", Latitude = 35.738376, Longitude = -105.838154 ))
-
-# add site column 
-sites_coords$site <- names(sites.sitenames)[match(sites_coords$Site.name, sites.sitenames)]
-
-# order sites by latitude
-sites <- sites_coords$site[order(sites_coords$Latitude)]
-
-# sites with dbh
-sites_with_dbh <- sites #[-grep("CedarBreaks", sites)]
 
 # give site abbrevationtion in paper
 sites_abb <- list(BCI  = "BCI",
@@ -50,6 +48,16 @@ sites_abb <- list(BCI  = "BCI",
                   Nebraska = "NE",
                   Zofin = "ZOF",
                   ScottyCreek = "SC")
+
+
+# order sites by average temperature
+MAT_order <- read.csv("doc/manuscript/tables_figures/sites.csv")
+
+sites <- names(sites_abb[match(MAT_order$site.code, sites_abb)])
+
+
+# sites with dbh
+sites_with_dbh <- sites #[-grep("CedarBreaks", sites)]
 
 # standardize variable neames ####
 v_names <- list(tmn = "expression(T[min]~",

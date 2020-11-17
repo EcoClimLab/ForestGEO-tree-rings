@@ -126,16 +126,18 @@ FALSE,"log_BAI_dbh","Nebraska","BEPA","water","log_BAI ~ dbh + wet + dbh:wet","w
 FALSE,"log_BAI_dbh","Nebraska","PIPO","water","log_BAI ~ dbh + tmn + wet + dbh:wet","wet",-0.00969085416430764,2.58382890109184e-12
 FALSE,"log_BAI_dbh","Nebraska","PIPO","temperature","log_BAI ~ dbh + tmn + wet + dbh:tmn","tmn",0.00339021877349817,0.0635268434207847
 FALSE,"log_BAI_dbh","Nebraska","JUVI","water","log_BAI ~ dbh + wet + dbh:wet","wet",-0.00667973149349179,0.000631658779657765
-FALSE,"log_core_measurement_dbh","NewMexico","PIPO","water","log_core_measurement ~ dbh + pre + I(pre^2) + dbh:pre","pre",0.000185781004688754,0.258996033305014
-FALSE,"log_core_measurement_dbh","NewMexico","PIST2","water","log_core_measurement ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",0.000755460196438548,0.000151578191145353
-FALSE,"log_core_measurement_dbh","NewMexico","PIST2","temperature","log_core_measurement ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",-0.00376168778145259,0.576832786617919
-FALSE,"log_agb_inc_dbh","NewMexico","PIPO","water","log_agb_inc ~ dbh + pet + wet + I(wet^2) + dbh:wet","wet",-0.00466688428721437,0.0020233552145977
-FALSE,"log_agb_inc_dbh","NewMexico","PIPO","temperature","log_agb_inc ~ dbh + pet + wet + I(wet^2) + dbh:pet","pet",0.0230163050134721,3.92013916924925e-05
-FALSE,"log_agb_inc_dbh","NewMexico","PIST2","water","log_agb_inc ~ dbh + pet + wet + I(wet^2) + dbh:wet","wet",-0.00272910423870511,0.153476269995141
-FALSE,"log_agb_inc_dbh","NewMexico","PIST2","temperature","log_agb_inc ~ dbh + pet + wet + I(wet^2) + dbh:pet","pet",0.00504282696121286,0.434115108628502
-FALSE,"log_BAI_dbh","NewMexico","PIPO","water","log_BAI ~ dbh + pre + I(pre^2) + dbh:pre","pre",0.000250174107052014,0.15140900700038
-FALSE,"log_BAI_dbh","NewMexico","PIST2","water","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",0.00076225535676827,6.2143523956951e-05
-FALSE,"log_BAI_dbh","NewMexico","PIST2","temperature","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",-0.0039925015790899,0.534666362444461
+FALSE,"log_core_measurement_dbh","NewMexico","PIPO","water","log_core_measurement ~ dbh + pre + I(pre^2) + tmx + I(tmx^2) + dbh:pre","pre",5.65099861000886e-05,0.701229488919905
+FALSE,"log_core_measurement_dbh","NewMexico","PIPO","temperature","log_core_measurement ~ dbh + pre + I(pre^2) + tmx + I(tmx^2) + dbh:tmx","tmx",0.00279633783262372,0.0457878181512222
+FALSE,"log_core_measurement_dbh","NewMexico","PIST2","water","log_core_measurement ~ dbh + pre + I(pre^2) + tmx + dbh:pre","pre",0.000513840101486011,0.00512658498195032
+FALSE,"log_core_measurement_dbh","NewMexico","PIST2","temperature","log_core_measurement ~ dbh + pre + I(pre^2) + tmx + dbh:tmx","tmx",-0.00223794123132391,0.208808827701663
+FALSE,"log_agb_inc_dbh","NewMexico","PIPO","water","log_agb_inc ~ dbh + pre + I(pre^2) + tmx + I(tmx^2) + dbh:pre","pre",0.000183600833685813,0.246637239587315
+FALSE,"log_agb_inc_dbh","NewMexico","PIPO","temperature","log_agb_inc ~ dbh + pre + I(pre^2) + tmx + I(tmx^2) + dbh:tmx","tmx",0.0027788807542028,0.065731205911053
+FALSE,"log_agb_inc_dbh","NewMexico","PIST2","water","log_agb_inc ~ dbh + pre + I(pre^2) + tmx + dbh:pre","pre",0.000522270233062684,0.00309572329010989
+FALSE,"log_agb_inc_dbh","NewMexico","PIST2","temperature","log_agb_inc ~ dbh + pre + I(pre^2) + tmx + dbh:tmx","tmx",-0.00334779256382276,0.0505449147388346
+FALSE,"log_BAI_dbh","NewMexico","PIPO","water","log_BAI ~ dbh + pre + I(pre^2) + tmx + I(tmx^2) + dbh:pre","pre",0.000131567595504948,0.400274542596581
+FALSE,"log_BAI_dbh","NewMexico","PIPO","temperature","log_BAI ~ dbh + pre + I(pre^2) + tmx + I(tmx^2) + dbh:tmx","tmx",0.00321077985612888,0.0311462430397382
+FALSE,"log_BAI_dbh","NewMexico","PIST2","water","log_BAI ~ dbh + pre + I(pre^2) + tmx + dbh:pre","pre",0.000517305223243378,0.00334049021281949
+FALSE,"log_BAI_dbh","NewMexico","PIST2","temperature","log_BAI ~ dbh + pre + I(pre^2) + tmx + dbh:tmx","tmx",-0.00307268432505563,0.0722655994547216
 FALSE,"log_core_measurement_dbh","SCBI","CACO","water","log_core_measurement ~ pet + pre + I(pre^2) + pre:dbh","pre",-2.68263576820602e-05,0.734259458169878
 FALSE,"log_core_measurement_dbh","SCBI","CACO","temperature","log_core_measurement ~ pet + pre + I(pre^2) + pet:dbh","pet",0.00375600538375892,0.0541506006246367
 FALSE,"log_core_measurement_dbh","SCBI","CAGL","water","log_core_measurement ~ pet + pre + I(pre^2) + pre:dbh","pre",9.43518259323569e-06,0.805680237100665
