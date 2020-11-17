@@ -19,7 +19,7 @@ library(raster)
 
 path_to_climate_data <- "https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/CRU/CRU_corrected/"
 
-path_to_climate_data_NM <- "C:/Users/HerrmannV/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO_dendro/data/climate/NM/CRU_climate/" # *TO BE EDITED* because the dendro repo is private... I ave to give absolute path (tokens are changing all the time in Github with private repos.... so it would be a pain to have to change them everytime...)
+path_to_climate_data_NM <- "C:/Users/HerrmannV/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO_dendro/data/climate/NM/CRU_climate/CRU_corrected/" # *TO BE EDITED* because the dendro repo is private... I ave to give absolute path (tokens are changing all the time in Github with private repos.... so it would be a pain to have to change them everytime...)
 
 # path_to_BCI_pre <- "https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/Met_Stations/BCI/El_Claro_precip_starting_1929/pre_BCI.csv"
 path_to_BCI_wet <- "https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/Met_Stations/BCI/El_Claro_precip_starting_1929/wet_BCI.csv"
@@ -92,7 +92,7 @@ for(clim_v in climate_variables) {
   assign(clim_v, 
          rbind(
            read.csv(paste0(path_to_climate_data, clim_v,  "_CRU_corrected_conservative.csv")), #forestGEO sites #.1901.2019-ForestGEO_sites-6-03.csv")), 
-           read.csv(paste0(path_to_climate_data_NM, clim_v, ".1901.2019-NM_site-7-10.csv")) # NM site
+           read.csv(paste0(path_to_climate_data_NM, clim_v, "_CRU_corrected_conservative.csv")) # NM site
            )
   )
   
@@ -125,7 +125,7 @@ for(clim_v in climate_variables) {
   x <- droplevels(x[x$sites_sitename %in% sites.sitenames, ])
   
   ### replace rows that are all NA by -999 for CedarCreaks by -999, just because that will cause issues later otherwise, but don't worry, those vairablewill be ignored later
-  if(all(is.na(x[x$sites_sitename %in% sites.sitenames[["CedarBreaks"]], -1]))) x[x$sites_sitename %in% sites.sitenames[["CedarBreaks"]], -1] <- -999
+  if(all(is.na(x[x$sites_sitename %in% sites.sitenames[c("CedarBreaks", "NewMexico")], -1]))) x[x$sites_sitename %in% sites.sitenames[c("CedarBreaks", "NewMexico")], -1] <- -999
   
   ### reshape to long format
   x_long <- reshape(x, 
@@ -438,7 +438,7 @@ for(site in switch(solution_to_global_trend, "none" = sites, c("ScottyCreek", "N
                              pre = Clim[,paste0("pre", ifelse(detrend_climate, "_detrended", ""))], 
                              wet = Clim[,paste0("wet", ifelse(detrend_climate, "_detrended", ""))]
                            )
-                           [switch(site, "CedarBreaks" = c( "tmn", "tmp", "tmx", "pre"), c("pet", "tmn", "tmp", "tmx", "pre", "wet"))],
+                           [switch(site, "CedarBreaks" = c( "tmn", "tmp", "tmx", "pre"), "NewMexico" = c( "tmn", "tmp", "tmx", "pre"), c("pet", "tmn", "tmp", "tmx", "pre", "wet"))],
                            type = "absolute", 
                            range = window_range,
                            stat = c("mean"),
