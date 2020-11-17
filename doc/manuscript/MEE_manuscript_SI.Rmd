@@ -119,6 +119,8 @@ GLS_SC_legend = "Figure S18. Best GLS models for Scotty Creek (Northwest Territo
 
 # ~~~~~~~~~~ (below here does not need to be copied to main doc) ~~~~~~~~~~
 # Generic legends
+traditional_comparison_generic_legend = "Shown are repsonses to the precipitation- and temperature-group variables selected as most influential by the *climwin* analysis. Left panels show a month-by-month comparison of *beta* (slope) coefficients for the relationship between tree growth and the monthly climate variable from species-level residual chronologies (traditional approach) and from individual-level analysis in *climwin* (approach presented here). Center panels compare the monthly *beta* coefficient estimates, with the dotted line indicating 1:1 correspondence. Finally, the right panels compare *beta* coefficients for the optimal window selected by *climwin*. Error bars indicate standard error of slope estimates. Note that 1:1 correspondence is not necessarily expected. See Appendix 5 for analysis methods and discussion of expected correspondence."
+
 GLS_generic_legend = " for all three growth metrics examined here. Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD."
 
 ```
@@ -213,7 +215,7 @@ At LT, *(drought has increased dramatically)*, resulting in many missing rings i
 *This is in process. We will try and compare 3 methods: (1) our standard approach, (2) detrending the climate variables (#53), (3) applying the climwin step only for older records--before the most rapid climate change. We will work with SC and LT researchers to determine which makes most sense, and use that as the main approach for these sites.*
 
 \newpage
-## Table S1. Site Details
+## `r site_details_legend` 
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
 library(kableExtra)
@@ -227,10 +229,10 @@ kable(S1, format = "latex", booktabs = TRUE,   escape = F)%>%
 ```
 
 \newpage
-## Table S2. Species analyzed, their characteristics, and bark allometries applied
+## `r species_table_legend` 
 *([ISSUE #72 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/72))*
 
-*NOTE: bark.allometry field is not yet right-- we will have just one latin name per site, corresponding to allometries in Table S4. But it does give correct info for what is currently applied. We also intend to find and apply more allometries.*
+*NOTE: bark.allometry field is not yet right-- we will have just one latin name per site, corresponding to allometries in Table `r bark_allometries`. But it does give correct info for what is currently applied. We also intend to find and apply more allometries.*
 
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
@@ -241,11 +243,11 @@ kable(S2, format = "latex", booktabs = TRUE,  escape = F, linesep = c('\\addline
   column_spec(8, width = "5cm") %>%
   kable_styling(latex_options = c("scale_down", "hold_position")) 
 ```
-*Bark allometry field indicates the species and site sampled to construct the bark allometry. When neither raw data nor an allometric equation for the study species was available, we selected the most appropriate equation that could be located for similar species. Equations are given in Table S4.
+*Bark allometry field indicates the species and site sampled to construct the bark allometry. When neither raw data nor an allometric equation for the study species was available, we selected the most appropriate equation that could be located for similar species. Equations are given in Table `r bark_allometries`.
 
 \newpage
 
-## Table S3. Sampling details for species by site
+## `r sampling_details_legend` 
 *([ISSUE #73 in ForestGEO-climate-sensitivity](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/73))*
 
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
@@ -260,7 +262,7 @@ kable(ss_table, format = "latex", booktabs = TRUE,   escape = F, linesep = c('\\
 
 \newpage
 
-## Table S4. Allometric equations for bark thickness 
+## `r bark_allometries_legend`
 
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
@@ -273,10 +275,10 @@ kable(allometries_table, format = "latex", booktabs = TRUE,   escape = F, linese
   row_spec(0, italic = F, bold = T) %>%
   kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
 ```
-For assignments of species as proxies for those with out available bark allometries, see Table S2.
+For assignments of species as proxies for those with out available bark allometries, see Table `r species_table`.
 
 \newpage
-## Table S5. Qualtiative comparison of results from this study with previous studies employing conventional methods
+## `r qualitative_results_comparison_legend`
 
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
@@ -302,7 +304,7 @@ kable(table_pt1, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = 
 ```
 
 \newpage
-Table S5, cont.
+`r qualitative_results_comparison`, cont.
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 table_pt2 <- read.csv("tables_figures/qualitative_results_comparison.csv", 
                      colClasses=c("NULL", NA, NA, NA, NA, NA, NA), 
@@ -321,7 +323,7 @@ kable(table_pt2, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = 
 ```
 
 \newpage
-Table S5, cont.
+`r qualitative_results_comparison`, cont.
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 table_pt3 <- read.csv("tables_figures/qualitative_results_comparison.csv", 
                      colClasses=c("NULL", NA, NA, NA, NA, NA, NA), 
@@ -349,7 +351,7 @@ nocite: |
 
 
 \newpage
-## Table S6. Frequency of $DBH$-climate interactions across all sites and growth metrics
+## `r climate_interactions_summary_legend` 
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
 library(kableExtra)
@@ -361,39 +363,55 @@ table_raw <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/
 
 \newpage 
 ## `r SCBI_traditional_comparison_legend`
+**Precipitation**
+
 ![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_SCBI_LITU_pre.png){ width=70% }
+
+**Potential Evapotranspiration**
 
 ![](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_SCBI_LITU_pet.png){ width=70% }
 
-**`r SCBI_traditional_comparison_legend`.**  ( NEEDS  FULL CAPTION.. response to (a) PRE and (b) PET.) 
+**`r SCBI_traditional_comparison_legend`**  `r traditional_comparison_generic_legend`
 
 \newpage 
 
 ## `r Zofin_traditional_comparison_legend`
 
+**Precipitation Day Frequency**
+
 ![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_ABAL_wet.png){ width=70% }
+
+**Maximum temperature**
 
 ![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_ABAL_tmx.png){ width=70% }
 
-**`r Zofin_traditional_comparison_legend`.**  ( NEEDS  FULL CAPTION.. response to (a) PDF and (b) TMX ) 
+**`r Zofin_traditional_comparison_legend`**  `r traditional_comparison_generic_legend`
 
 \newpage 
 ## `r CB_traditional_comparison_legend`
+
+**Precipitation**
 
 ![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBreaks_PSME_pre.png){ width=70% }
 
+**Maximum temperature**
+
 ![](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBreaks_PSME_tmx.png){ width=70% }
 
-**`r CB_traditional_comparison_legend`.**  ( NEEDS  FULL CAPTION..  response to (a) PRE and (b) TMX. ) 
+**`r CB_traditional_comparison_legend`**  `r traditional_comparison_generic_legend`
 
 \newpage 
-## `r CB_traditional_comparison_legend`
+## `r SC_traditional_comparison_legend`
+
+**Precipitation**
 
 ![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCreek_PIMA_pre.png){ width=70% }
 
+**Maximum temperature**
+
 ![](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCreek_PIMA_tmx.png){ width=70% }
 
-**`r CB_traditional_comparison_legend`.**  ( NEEDS  FULL CAPTION..  response to (a) PRE and (b) TMX. ) 
+**`r SC_traditional_comparison_legend`**  `r traditional_comparison_generic_legend`
 
 
 
