@@ -187,21 +187,43 @@ To standardize for such differences, we selected a subset of species for a stand
 
 *Quantitative comparison*
 
+We also conducted a formal comparison of our approach to conventional methods using identical tree-ring and climate data for four species: PSME (Cedar Breaks, Utah), ABAL ($\v{Z}$of$\'{i}$n), PIMA (Scotty Creek), and LITU (SCBI; Figs. `r all_traditional_comparisons`). 
+These species were pre-selected for analysis because they have been well-studied in the past, and the species set was not manipulated after initiating the analysis.
+For each species, we compared climate sensitivities for the top precipitation- and temperature- group variables, as identified in the main analysis. 
 
-*([ISSUE #35 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/35))*
+Prior to analysis, data were prepared and cleaned as described in the Methods section, resulting in an identical set of records for input into each analysis.
+For the approach developed here, analysis was conducted as described in the Methods section, but with the *climwin* climate variable selection process limited to just the species of interest (as opposed to all species at the site), climate variables considered individually rather than additively, analysis of only first-order linear relationships, and with start date adjusted to match the conventional method (see below). 
+Following the *climwin* analysis step, we extracted *beta* coefficients describing the slope of the relationship between climate and $RW$.
+*Beta* coefficients, along with their standard error, were obtained for each month within the analysis time frame (Table `r site_details`) and for the time window identified as optimal by *climwin*.
 
-We also conducted a formal comparison using identical tree-ring and climate data for four species: PSME (Cedar Breaks, Utah), ABAL ($\v{Z}$of$\'{i}$n), PIMA (Scotty Creek), and LITU (SCBI; Figs. `r all_traditional_comparisons`). These species were selected for analysis because they have been well-studied in the past, and there was no manipulation of study species based on analysis results. 
-
-We compared results from an analysis using conventional methods, as detailed below, to an analysis using our method as described in the Methods section, but with the *climwin* climate variable selection process limited to just the species of interest (as opposed to all species at the site), climate variables considered individually rather than additively, and with start date adjusted to match the conventional method.
-
-The ring-width series from each core was standardized via ARSTAN using a 2/3rds $n$ spline, where $n$ is the number of years in the series (*Cook, 1985; Cook & Kairiukstis, 1990- citations in Helcoski*). 
+For the analysis using conventional methods, the ring-width series from each core was standardized via ARSTAN using a 2/3rds $n$ spline, where $n$ is the number of years in the series (*Cook, 1985; Cook & Kairiukstis, 1990- citations in Helcoski*). 
 *(The following italic text is self-plagarized from Helcoski and needs to be reworded:)* *The influence of outliers in all series was reduced using the adaptive power transformation, which also stabilises the variance over time (Cook & Peters, 1997). Next, each series was stabilised using either the average correlation between raw ring-width series (rbar) method or a 1/ 3rds spline method to adjust changes in variance as series replication decreased towards the earlier portion of each chronology (Jones et al., 1997). The 1/3rds spline method was chosen when replication in the inner portion of each chronology (c. the inner 30–50 yr of each record depending on full chronology length) dropped below three trees. Once that step was complete, a robust biweight mean chronology for each species was calculated from the ring-width indices (Cook, 1985). We chose to use residual chronologies because the autoregressive standardisation process in creating them removes much of the tree-level autocorrelation in growth and these chronologies would most likely contain the most conservative information on drivers of interannual growth (Cook, 1985).* 
 
 Following @helcoski_growing_2019, we defined chronology start dates according to the subsample signal strength (SSS), using a cutoff of SSS = 0.80 (or 80% of the population signal).
 Thus, for this analysis only, we defined chronology start dates as the year the SSS exceeded 0.80 or two years after the start of the climate record, whichever came later. 
-SSS exceeded 0.80 well before the start of the 1901 start of climate records for PSME (1800s), ABAL (1700), and PIMA (1850s). For LITU , SSS reached 0.8 with 11 trees in 1919, which we used as the start date for this series.
+SSS exceeded 0.80 well before the start of the 1901 start of climate records for PSME (1800s), ABAL (1700), and PIMA (1850s). For LITU, SSS reached 0.8 with 11 trees in 1919, which we used as the start date for this series.
 We note that these start date criteria differ from those used in the main analysis (Table `r sampling_details_table`), which had earlier start dates because the analysis was not constrained by a need to represent the full population signal.
 End dates were defined as the last full year prior to sampling (Table `r sampling_details_table`).
+
+*Beta* (slope) coefficients for the relationship between tree growth and the monthly climate variable were derived as in @helcoski_growing_2019:
+*(SELF-PLAGIARIZED CONTENT:) Analyses of climate–growth relationships were conducted using ‘dplR’ (Bunn, 2008) and ‘bootRes’ (Zang & Biondi, 2013), which correlated functions and bootstrapped confidence intervals for the relationships between annual growth and monthly climate variables following Biondi & Waikul (2004).* 
+Pearson correlations between climate variables and tree-ring chronologies were converted to linear slopes using the method of @charney_observed_2016.
+
+Finally, we generated plots comparing month-by-month *beta* coefficients describing climate sensitivity, and also comparing *beta* coefficients for the window identified as optimal by *climwin* Figs. `r all_traditional_comparisons`). 
+
+We note that despite designing the analyses to be as comparable as possible, one-to-one correspondence of *beta* coefficients is not necessarily expected for several reasons.
+First, although the analysis time frame is standardized between the two approaches, the relative influence of each year will generally vary between the two approaches. 
+The traditional approach, which all cores into a single residual chronology with one value per year, gives equal weighting to each year.
+In contrast, the approach developed here effectively weights years relative to the number of cores available for each. 
+Thus, where many younger trees are included in the analysis, the two approaches will effectively give different weights to the years included in the analysis period. 
+In cases where climate-sensitivity differs between old and young trees, or where the climate and/or climate response changed substantially over the analysis time frame [e.g., at Scotty Creek; Fig. `r SC_traditional_comparison`; @sniderhan_growth_2016], this may lead to divergence of the climate sensitivities estimated by the two methods.  
+
+Second, traditional analysis methods (using ARSTAN) are designed to distill population-level variation to obtain the strongest possible climate signal for the reconstruction of past climate (**REF**), not to characterize climate responses on the individual level, where variation is inherently higher. 
+While conversion of Pearson correlations to linear slopes *sensu* @charney_observed_2016 approximates climate responses, it does not provide an exact slope describing the relationship between individual-level or population mean growth and climate. 
+This is because standardization of variance and averaging of individual-level residuals prior to the climate analysis fundamentally alters and obfuscates individual-level responses. 
+
+We suspect that both of these factors may underlie the tendency for the traditional method to estimate stronger climate sensitivity than the approach developed here for Scotty Creek (Fig. `r SC_traditional_comparison`), a comprehensively sampled black spruce forest (i.e., including young trees) on melting permafrost. 
+We note, however, that there are no statistically significant differences in the *beta* coefficients of the two approaches at this site.
 
 
 
