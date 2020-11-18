@@ -30,15 +30,18 @@ path_to_dir <- dirname(dirname(getwd())) # get path to repo (ForestGEO-climate-s
 
 # MOVE FIGURE FILES (doing this because I got an error when using the absolute path to call figures)
 #traditional comparison
+do.call(file.remove, list(list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/doc/manuscript/tables_figures/SI_figures/traditional_comparison/", full.names = TRUE))) # first remove old files
 flist <- list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/formal_comparison/figures/", "^climwin_vs_dcc_.+[.]png$", full.names = TRUE)
 file.copy(flist, "/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/doc/manuscript/tables_figures/SI_figures/traditional_comparison/")
 
 # climwin plots
+do.call(file.remove, list(list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/doc/manuscript/tables_figures/SI_figures/climwin_plots_combined/", full.names = TRUE))) # first remove old files
 flist <- list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/climwin_plots_combined/", full.names = TRUE)
 file.copy(flist, "/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/doc/manuscript/tables_figures/SI_figures/climwin_plots_combined/")
 
 
 #composite plots
+do.call(file.remove, list(list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/doc/manuscript/tables_figures/SI_figures/composite_plots/", full.names = TRUE))) # first remove old files
 flist <- list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/", full.names = TRUE)
 file.copy(flist, "/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/doc/manuscript/tables_figures/SI_figures/composite_plots/")
 
@@ -365,11 +368,11 @@ table_raw <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/
 ## `r SCBI_traditional_comparison_legend`
 **Precipitation**
 
-![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_SCBI_LITU_pre.png){ width=70% }
+![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_SCBI_LITU_pre.png){ width=95% }
 
 **Potential Evapotranspiration**
 
-![](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_SCBI_LITU_pet.png){ width=70% }
+![](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_SCBI_LITU_pet.png){ width=95%}
 
 **`r SCBI_traditional_comparison_legend`**  `r traditional_comparison_generic_legend`
 
@@ -379,11 +382,11 @@ table_raw <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/
 
 **Precipitation Day Frequency**
 
-![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_ABAL_wet.png){ width=70% }
+![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_ABAL_wet.png){ width=95% }
 
 **Maximum temperature**
 
-![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_ABAL_tmx.png){ width=70% }
+![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_ABAL_tmx.png){ width=95% }
 
 **`r Zofin_traditional_comparison_legend`**  `r traditional_comparison_generic_legend`
 
@@ -392,11 +395,11 @@ table_raw <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/
 
 **Precipitation**
 
-![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBreaks_PSME_pre.png){ width=70% }
+![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBreaks_PSME_pre.png){ width=95% }
 
 **Maximum temperature**
 
-![](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBreaks_PSME_tmx.png){ width=70% }
+![](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBreaks_PSME_tmx.png){ width=95% }
 
 **`r CB_traditional_comparison_legend`**  `r traditional_comparison_generic_legend`
 
@@ -405,11 +408,11 @@ table_raw <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/
 
 **Precipitation**
 
-![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCreek_PIMA_pre.png){ width=70% }
+![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCreek_PIMA_pre.png){ width=95% }
 
 **Maximum temperature**
 
-![](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCreek_PIMA_tmx.png){ width=70% }
+![](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCreek_PIMA_tmx.png){ width=95% }
 
 **`r SC_traditional_comparison_legend`**  `r traditional_comparison_generic_legend`
 
