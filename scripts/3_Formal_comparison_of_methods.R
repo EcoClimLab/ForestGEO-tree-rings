@@ -246,10 +246,11 @@ for(f in sites_species) {
     
     ### prepare ploting device ####
     if(save.plots)  png(paste0('results/formal_comparison/figures/climwin_vs_dcc_', f, "_",v, '.png'),
-                        width = 10,
-                        height =8,
+                        width = 8,
+                        height =4,
                         units = "in",
-                        res = 300)
+                        res = 300, 
+                        pointsize = 14)
     
     par(mfrow = c(1, 3), mar = c(4,4,4,0), oma = c(0,0,1,1), mgp = c(2, 1, 0))
     
@@ -282,10 +283,10 @@ for(f in sites_species) {
     
     x.axis.labels <- paste0(ifelse(x.axis.labels_prev, "p.", "c."),substr(month.abb, 1, 1)[x.axis.labels])
     
-    ### plot ###
-    b <- barplot(barplot_matrix, col = barplot_border, density = barplot_density, border = barplot_border, beside = T, ylim = c(min(barplot_ci$lower), max(barplot_ci$upper)), main = "Month-by-month", ylab = "Beta coeficient", legend.text = T, args.legend = list(fill = barplot_border, density = NULL, legend =  c("Traditional (sp)", "Climwin (ind)"), x = "topright", bty = "n", border = "transparent"))
+    ### plot ####
+    b <- barplot(barplot_matrix, col = barplot_border, density = barplot_density, border = barplot_border, beside = T, ylim = c(min(barplot_ci$lower), max(barplot_ci$upper)), main = "Month-by-month", ylab = "Beta coeficient", legend.text = T, args.legend = list(fill = barplot_border, density = NULL, legend =  c("Traditional (sp)", "Climwin (ind)"), x = "top", bty = "n", border = "transparent", cex = .8))
     
-    text(x = b[c(TRUE, FALSE)], y = par()$usr[3], labels =  x.axis.labels, srt = 45, cex = 0.8, xpd = NA)
+    text(x = b[c(TRUE, FALSE)], y = par()$usr[3]*(1+0.19), labels =  x.axis.labels, srt = 45, cex = 0.8, xpd = NA)
     
     segments(b, barplot_ci$lower, b, barplot_ci$upper, col = barplot_border)
     
@@ -293,7 +294,7 @@ for(f in sites_species) {
     ylim_plot <- range(c(climwin.response_ind$ModelBeta - 1.96 * climwin.response_ind$Std.Error, climwin.response_ind$ModelBeta + 1.96 * climwin.response_ind$Std.Error))
     xlim_plot <- range(c(climwin.response_sp$ModelBeta - 1.96 * climwin.response_sp$Std.Error, climwin.response_sp$ModelBeta + 1.96 * climwin.response_sp$Std.Error))
     
-    plot(x = climwin.response_sp$ModelBeta, y = climwin.response_ind$ModelBeta, xlab = "Species Chronology", ylab = "Individuals in Mixed-effects Model", ylim = ylim_plot, xlim = xlim_plot, main = "Comparison Beta coefficients\n1-month window Climwin", pch = 16)
+    plot(x = climwin.response_sp$ModelBeta, y = climwin.response_ind$ModelBeta, xlab = "Species Chronology", ylab = "Individuals in Mixed-effects Model", ylim = ylim_plot, xlim = xlim_plot, main = "Comparison Beta coefficients\n1-month window Climwin", pch = 16, xpd = NA)
     segments(x0 = climwin.response_sp$ModelBeta - 1.96*climwin.response_sp$Std.Error, 
              x1 = climwin.response_sp$ModelBeta + 1.96*climwin.response_sp$Std.Error,
              y0 = climwin.response_ind$ModelBeta,
@@ -408,7 +409,7 @@ for(ssp in sites_species) {
     img3 <- img_sp[(nrow(img_sp)/2):nrow(img_sp), (ncol(img_sp)/3):((ncol(img_sp)/3)*2),]
     img4 <- img_ind[(nrow(img_ind)/2):nrow(img_ind), (ncol(img_ind)/3):((ncol(img_ind)/3)*2),]
     img5 <- img_vs[, ((ncol(img_vs)/3)*2):ncol(img_vs),]
-    img6 <- img_vs[, (ncol(img_ind)/3):((ncol(img_ind)/3)*2),]
+    img6 <- img_vs[, (ncol(img_vs)/3):((ncol(img_vs)/3)*2),]
     
     par(mar = c(0,0,0,0))
     for(i in 1:6) {
