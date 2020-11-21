@@ -31,7 +31,7 @@ Craig D. Allen,
 Raquel Alfaro-Sánchez^wl^,
 Tala Awada,
 Jennifer L. Baltzer^wl^,
-Patrick Baker,
+Patrick J. Baker,
 Sarayudh Bunyavejchewin,
 Paolo Cherubini,
 Justin Cooper,
@@ -336,7 +336,7 @@ Our analysis consisted of two main steps: (1) identification of the most importa
 ### Identifying key climate drivers
 
 **We used the *climwin* package in R [@van_de_pol_identifying_2016] to identify the most important climate driver and the time window over which its effect was strongest for each of two categories of variables: a temperature group (mean, min, and max temperature; PET) and a precipitation group (precipitation, number of days with precipitation).**
-To remove low-frequency variation that most likely represents responses to non-climatic drivers (*e.g.*, growth and aging of the tree, change in competitive dynamics, atmospheric pollution), we detrended the response variables by using a generalized additive model (GAM) to fit a spline to individual growth records ($RW$, $BAI$, or $\Delta AGB$) from each core, thereby producing residuals.
+To remove low-frequency variation that most likely represents responses to non-climatic drivers (*e.g.*, growth and aging of the tree, change in competitive dynamics, atmospheric pollution), we detrended the response variables by using a generalized additive model (GAM) to fit a spline to individual growth records ($RW$, $BAI$, or $\Delta AGB$) from each core, thereby producing residuals. (*How did you decide how flexible to make the spline?*)
 We then used *climwin* to identify the climate variables most strongly correlated to the residuals of $RW$, $BAI$, or $\Delta AGB$, specifying quadratic fits to allow for potential nonlinearities in the climate response.
 Within *climwin*, we specified a mixed effects model using species and core identity as random effects: `residual growth index ~ [climate] + (1 | sp) + (1 | treeID)`.
 We allowed first-order linear or concave-down second-order polynomial fits, but ignored any concave-up fits on the basis that these are not expected biologically and, when identified in initial analyses, often appeared to be cases of over-fitting (**[ISSUE #84 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/84)**).
@@ -426,13 +426,13 @@ In general, $DBH$ explained more variation in growth rates than did climate (Fig
 **The relative importance of $DBH$ and climate shifted across growth metrics and climates (Figs. `r full_examples`, `r all_GLS`).** 
 The relative importance of $DBH$ tended to be least for $RW$, intermediate for $BAI$, and highest for $\Delta AGB$ (e.g., at SCBI; Fig. `r full_examples`).
 However, there were exceptions, particularly when $RW$ decreased steeply with $DBH$ (e.g., at Little Tesuque; Fig. `r full_examples`).
-The relative importance of climate was modest at sites including SCBI (Fig. `r full_examples`), HF (Fig. `r GLS_HF`), and SC (Fig. `r GLS_SC`), and stronger at sites including LT (Fig. `r full_examples`) and BCI (Fig. `r GLS_BCI`). 
+The relative importance of climate was modest (but still significant) at sites including SCBI (Fig. `r full_examples`), HF (Fig. `r GLS_HF`), and SC (Fig. `r GLS_SC`), and stronger at sites including LT (Fig. `r full_examples`) and BCI (Fig. `r GLS_BCI`). 
 
 ![**Figure 5 | Comparison of full top models for each growth metric ($RW$, $BAI$, $\Delta AGB$) at sites where climatic controls are strong (Little Tesuque, left panel) and modest (SCBI, right panel).** Plotted are best fit models for each species, with transparent ribbons indicating 95% confidence intervals. For climate variables, best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant, dashed lines when only one term is significant, and dotted lines when neither is significant. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/show_case_response_plots.png)
 
 **Interactive effects of $DBH$ and climate were found for #% of species-variable combinations**. 
 Interactions were significant for over half of $DBH$-precipitation variable interactions for all three growth metrics (*51% for all*; Table `r climate_interactions_summary`).
-The majority (#%) of these interactions were positive, indicating that larger trees generally respond more positively (or less negatively) to precipitation or it's frequency (Fig. **6?**).
+The majority (#%) of these interactions were positive, indicating that larger trees generally respond more positively (or less negatively) to precipitation or its frequency (Fig. **6?**).
 Interactions between temperature variables and $DBH$ were significant for *~40%* of cases considered (Table `r climate_interactions_summary`). 
 The majority (#%) of these interactions were positive, indicating that larger trees generally respond less negatively (or more positively) to $T_{max}$ or $PET$ (Fig. **6?**).
 
@@ -460,7 +460,6 @@ Results are broadly consistent with those obtained by traditional methods, but o
 
 Ideas to discuss:
 
-* $T_{max}$ and $PET$ tend to be better variables than the more commonly used $T_{mean}$
 
 * trees tend to be sensitive to water over longer time scales (makes sense-- lags caused by soil moisture storage)
 
@@ -476,13 +475,14 @@ Ideas to discuss:
 
 **The diversity of growth trends in relation to $DBH$ observed here (Fig. `r size`) is largely attributable to species ecology and stand history (Fig. 4).**
 On one end of the spectrum, species that would have established in fairly open conditions--*i.e.*, shade-intolerant species and those at sites with more open canopies (e.g., LT, SC)-- exhibited rapid initial growth followed by a roughly exponential decline. 
-The most pronounced example of this pattern was *Melia azedarach* --a highly shade-intolerant species that generally establishes in the open [@baker_suppression_2006] and was sampled opportunistically outside the ForestGEO plot at HKK [@vlam_temperature_2014], where it presumably established under open conditions.
-Such patterns are consistent with dendrochronology's "textbook" patterns, which have been derived primarily from open-grown trees (*DENDRO_REFS: See refs in Biondi and Qeadan 2008. Tree-Ring Research 64:81-96.*).
+The most pronounced example of this pattern was *Melia azedarach* --a highly shade-intolerant species that establishes in the open [@baker_suppression_2006] and was sampled opportunistically outside the ForestGEO plot at HKK [@vlam_temperature_2014], where it presumably established under open conditions (*Baker 2005, Ecological monographs*).
+Such patterns are consistent with dendrochronology's "textbook" patterns, which have been derived primarily from trees that established in high-light environments (*DENDRO_REFS: See refs in Biondi and Qeadan 2008. Tree-Ring Research 64:81-96.; There are several earlier references in B&B 2006 describing this pattern. *).
 On the other end of the spectrum, shade-tolerant species (e.g. *Fagus* at SCBI and Žofín) exhibited initially low, but increasing, $RW$.
 This pattern is consistent with patterns observed in stand-level census data from closed-canopy forests, including several in this analysis, where $RW$ increases continuously with $DBH$ [@muller-landau_testing_2006; @anderson-teixeira_size-related_2015; Piponiot et al. in prep]. 
 While the low community mean $RW$ at small $DBH$ observed in closed-canopy forests is in large part driven by slow-growing small stems that will never enter the cohort of trees sampled by coring (e.g., $\ge$ 10cm DBH), increases in $RW$ with $DBH$ have also been observed for most species at SCBI using the same tree-ring data set analyzed here, but comparing across individuals using only contemporary data [@helcoski_growing_2019].
 Thus, patterns of decreasing $RW$ with $DBH$ are likely limited to open-grown trees or those establishing in gaps.  
 --  (*cite Sheil et al. 2017 [Clark et al. 2007?](https://esajournals-onlinelibrary-wiley-com.smithsonian.idm.oclc.org/doi/epdf/10.1890/06-1039.1); [Schleip et al. 2015](https://onlinelibrary-wiley-com.smithsonian.idm.oclc.org/doi/abs/10.1002/env.2324)*).
+-- *from PB: I think the one thing that is very hard to take into account (and which you noted in bold at the start of the paragraph) is stand history. I worry about looking for/finding general patterns just on tree size, as that ignores the historical dynamics that might influence these patterns.*
 
 Contrary to the finding that $\Delta AGB$ increases continuously with $DBH$, which was derived from census data from globally distributed forests [@stephenson_rate_2014] and has also been observed in tree-rings [@foster_predicting_2016], we found evidence of saturation or decline in the majority **(`r round(20/26*100, digits=0)`%)** of species-site combinations analyzed.
 $\Delta AGB$ declines at high $DBH$ are presumably because trees are investing fixed C elsewhere--for example, reproduction.
@@ -490,7 +490,7 @@ $\Delta AGB$ declines at high $DBH$ are presumably because trees are investing f
 @forrester_does_2021 clarifies that $\Delta AGB$ increases with size across census data, but often declines with size over the course of a tree's life. 
 
 **These results have important implications for using tree-rings to infer growth responses to slowly-changing environmental drivers, including climate, atmospheric CO~2~, and deposition of sulfur dioxide (SO~2~) and nitrogen oxides (NO~x~) [e.g., @mathias_disentangling_2018].** 
-The observed trends in $RW$ and $BAI$ with $DBH$ (Fig. `r size`) imply that two of the most commonly used growth-trend detection methods, conservative detrending and basal area correction [see @peters_detecting_2015], are inappropriate. 
+The observed trends in $RW$ and $BAI$ with $DBH$ (Fig. `r size`) imply that two of the most commonly used growth-trend detection methods (*clarify what this means*), conservative detrending and basal area correction [see @peters_detecting_2015], are inappropriate. 
 Specifically, conservative detrending, which applies stiff splines or mathematical functions (e.g., negative exponential) to remove trends in $RW$ before analyzing residuals, would not be reliable across the diversity of $RW$-$DBH$ relationships observed here.
 Basal area correction -- i.e., assuming that $BAI$ is fundamentally independent of tree size after the removal of the juvenile growth phase--is also problematic because $BAI$ shows a variety of trends with $DBH$ across large size classes. The most common pattern--an increase to a peak at intermediate sizes, followed by decrease--would imply that the basal area correction is most commonly biased towards finding positive trends for smaller trees and negative trends for larger trees.
 It is therefore not surprising that tree-ring studies examining the impact of rising CO~2~ on long-term growth growth trends reach inconsistent conclusions [@walker_integrating_2020].

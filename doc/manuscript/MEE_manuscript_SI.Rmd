@@ -135,7 +135,7 @@ GLS_generic_legend = " for all three growth metrics examined here. Precipitation
 
 *This is still rough/ mostly notes.*
 
-For each core, $DBH$ can be reconstructed outside-in (based on recent $DBH$, subtracting growth recorded in tree rings) or inside-out (summing $RW$ from the inside out). 
+For each core, $DBH$ can be reconstructed outside-in (based on recent $DBH$, subtracting growth recorded in tree rings) or inside-out (summing $RW$ from the inside out,--only when core hit pith or distance to pith can be reliably estimated). 
 We generally gave precedence to the outside-in approach.
 Specifically, when $DBH$ was taken at the time of coring,  
 At some of our sites where DBH was not taken at the time of coring (*SCBI*,), DBH measurements taken before or slightly after the time of coring could be used.
