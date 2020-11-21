@@ -252,6 +252,7 @@ kable(S1, format = "latex", booktabs = TRUE,   escape = F)%>%
   column_spec(7, width = "1.5cm") %>%
   kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
 ```
+* Refers to approximate period during which woody growth ceases (dry season in the tropics, winter for temperate and boreal sites).
 
 \newpage
 ## `r species_table_legend` 
