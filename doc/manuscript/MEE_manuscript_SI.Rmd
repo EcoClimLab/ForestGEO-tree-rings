@@ -165,7 +165,7 @@ When bark thickness data were not available, we used published bark allometries 
 
 ## `r traditional_comparison_title`
 
-To verify that our methods gave similar results to traditional methods, we conducted qualitative comparisons of our results to previous studies based on the same cores (Table `r qualitative_results_comparison`) and conducted a formal quantitative comparison for four species (Figs. `r all_traditional_comparisons`), as detailed below. 
+To test whether our methods gave similar results to traditional methods, we conducted qualitative comparisons of our results to previous studies based on the same cores (Table `r qualitative_results_comparison`) and conducted a formal quantitative comparison for four species (Figs. `r all_traditional_comparisons`), as detailed below. 
 
 *Qualitative comparison*
 
@@ -173,7 +173,7 @@ For all species-site combinations, we reviewed previous studies characterizing t
 In most cases, we were able to compare with previous studies from the same sites and sets of cores. 
 When these were not available, we reviewed regional-level analyses believed to be representative of the site. 
 
-Results from previous studies were compiled alongside results from the climate-only model if this study (Table `r qualitative_results_comparison`). 
+Results from previous studies were compiled alongside results from the climate-only model in this study (Table `r qualitative_results_comparison`). 
 Where previous studies examined numerous climate variables or time windows [e.g., @helcoski_growing_2019], we focus on those most relevant to our findings. 
 
 Beyond the methodological differences, original studies based on the same sets of cores varied from this one and from one another in factors including
@@ -188,7 +188,7 @@ To standardize for such differences, we selected a subset of species for a stand
 *Quantitative comparison*
 
 We also conducted a formal comparison of our approach to conventional methods using identical tree-ring and climate data for four species: PSME (Cedar Breaks, Utah), ABAL ($\v{Z}$of$\'{i}$n), PIMA (Scotty Creek), and LITU (SCBI; Figs. `r all_traditional_comparisons`). 
-These species were pre-selected for analysis because they have been well-studied in the past, and the species set was not manipulated after initiating the analysis.
+These species were selected for analysis because they have been well-studied in the past.
 For each species, we compared climate sensitivities for the top precipitation- and temperature- group variables, as identified in the main analysis. 
 
 Prior to analysis, data were prepared and cleaned as described in the Methods section, resulting in an identical set of records for input into each analysis.
@@ -214,11 +214,11 @@ Finally, we generated plots comparing month-by-month *beta* coefficients describ
 We note that despite designing the analyses to be as comparable as possible, one-to-one correspondence of *beta* coefficients is not necessarily expected for several reasons.
 First, although the analysis time frame is standardized between the two approaches, the relative influence of each year will generally vary between the two approaches. 
 The traditional approach, which all cores into a single residual chronology with one value per year, gives equal weighting to each year.
-In contrast, the approach developed here effectively weights years relative to the number of cores available for each. 
+In contrast, under the approach developed here, the number records per year will vary across the analysis time frame, generally increasing over time as the younger trees enter the analysis. 
 Thus, where many younger trees are included in the analysis, the two approaches will effectively give different weights to the years included in the analysis period. 
 In cases where climate-sensitivity differs between old and young trees, or where the climate and/or climate response changed substantially over the analysis time frame [e.g., at Scotty Creek; Fig. `r SC_traditional_comparison`; @sniderhan_growth_2016], this may lead to divergence of the climate sensitivities estimated by the two methods.  
 
-Second, traditional analysis methods (using ARSTAN) are designed to distill population-level variation to obtain the strongest possible climate signal for the reconstruction of past climate (**REF**), not to characterize climate responses on the individual level, where variation is inherently higher. 
+Second, traditional analysis methods (using ARSTAN) were primarily designed to distill population-level variation to obtain the strongest possible climate signal for the reconstruction of past climate (**Cook & Kariustis **), not to characterize climate responses on the individual level, where variation is inherently higher. 
 While conversion of Pearson correlations to linear slopes *sensu* @charney_observed_2016 approximates climate responses, it does not provide an exact slope describing the relationship between individual-level or population mean growth and climate. 
 This is because standardization of variance and averaging of individual-level residuals prior to the climate analysis fundamentally alters and obfuscates individual-level responses. 
 
