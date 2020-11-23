@@ -8,6 +8,7 @@ library(png)
 library(gridExtra)
 library(ggplot2)
 library(grid)
+library(tiff)
 
 # prepare site list and order by average temperature ####
 sites <- list.dirs("results/log_core_measurement", full.names = F, recursive = F)

@@ -1,11 +1,11 @@
 No variable from the 3 input variables has collinearity problem. 
 
 The linear correlation coefficients ranges between: 
-min correlation ( CO2 ~ pre ):  0.1900276 
-max correlation ( pet ~ pre ):  -0.5112878 
+min correlation ( CO2 ~ pre ):  0.1110201 
+max correlation ( pet ~ pre ):  -0.4955478 
 
 ---------- VIFs of the remained variables -------- 
   Variables      VIF
-1       pre 1.362802
-2       pet 1.393939
-3       CO2 1.068112
+1       pre 1.325588
+2       pet 1.369694
+3       CO2 1.046237

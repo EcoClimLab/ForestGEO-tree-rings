@@ -1,11 +1,11 @@
 No variable from the 3 input variables has collinearity problem. 
 
 The linear correlation coefficients ranges between: 
-min correlation ( tmx ~ pre ):  0.1183624 
-max correlation ( CO2 ~ pre ):  0.3201628 
+min correlation ( tmx ~ pre ):  0.1638723 
+max correlation ( CO2 ~ pre ):  0.3316326 
 
 ---------- VIFs of the remained variables -------- 
   Variables      VIF
-1       pre 1.119328
-2       tmx 1.035453
-3       CO2 1.137551
+1       pre 1.131284
+2       tmx 1.084663
+3       CO2 1.185969

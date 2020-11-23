@@ -1,11 +1,11 @@
 No variable from the 3 input variables has collinearity problem. 
 
 The linear correlation coefficients ranges between: 
-min correlation ( dbh ~ wet ):  0.02636048 
-max correlation ( tmp ~ wet ):  -0.4844769 
+min correlation ( dbh ~ wet ):  0.060429 
+max correlation ( tmp ~ wet ):  -0.3972418 
 
 ---------- VIFs of the remained variables -------- 
   Variables      VIF
-1       wet 1.325765
-2       tmp 1.359344
-3       dbh 1.041005
+1       wet 1.213701
+2       tmp 1.250912
+3       dbh 1.057378
