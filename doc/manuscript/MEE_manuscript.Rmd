@@ -349,7 +349,7 @@ Here, for each permutation, `climate` specifies one of the climate drivers in th
 *Climwin* runs all potential models to select the best fit (lowest AIC), and does k-fold cross-validation in its computation of AIC to guard against over-fitting [@van_de_pol_identifying_2016]. 
 For each group of candidate climate variables, we move forward with the best variable over the time window identified by *climwin* as a candidate climate variable for the multivariate models. 
 
-A challenge to this system arose for the sites that have undergone the most rapid changes in climate and tree growth: SC and LT, where trees exhibit significant growth declines attributed to rising temperatures [@sniderhan_growth_2016] and increasing drought (REF), respectively. 
+A challenge to this system arose for the sites that have undergone the most rapid changes in climate and tree growth: SC and LT, where trees exhibit significant growth declines attributed to rising temperatures [@sniderhan_growth_2016] and increasingly warm drought [@williams_temperature_2012], respectively. 
 *([ISSUE #25 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/25))*
 Problematically, correlating tree growth residuals from which climate-driven trends had been removed against the climate signal with a strong directional trend would not necessarily identify the most relevant climate drivers.
 For these sites, we experimented with three approaches to identifying the most important climate drivers (1) the method described above, (2) detrending the climate variables **(AT:prewhitening?)** prior to the climwin step, and (3) excluding *decades with the most pronounced climate change* from the climwin step of the analysis [*sensu*  @sniderhan_growth_2016] (Appendix `r changing_climate`).
@@ -372,7 +372,7 @@ Within each of three categories of models run (climate only, $DBH$+climate, $DBH
 
 ### Identifying climate drivers
 
-**Our process picked out similar climate drivers to what would be obtained via traditional methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`; Table `r qualitative_results_comparison`; Appendix `r traditional_comparison`), but with the advantage that *climwin* allowed automated, objective selection of the strongest climate drivers and the time windows over which they were most influential.**
+**Our process picked out similar climate drivers to what would be obtained via traditional methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`; Table `r qualitative_results_comparison`; Appendix `r traditional_comparison`), but with the advantage that *climwin* allowed automated selection of the strongest climate drivers and the time windows over which they were most influential.**
 The most commonly selected variables within the temperature group were $T_{max}$ and $PET$, each of which was identified by climwin as the top temperature-related driver *at four of the eight sites*. $T_{min}$ was the top driver at only *one site (BCI)*, and $T_{mean}$ was never identified as the top variable within the temperature group (Fig. `r clim_sens`).
 Within the precipitation group, precipitation amount ($PPT$) was identified as the top variable most frequently (n=*6 of 9* sites), but it was not uncommon that it was surpassed by precipitation frequency ($PDF$; n=*3 of 8* sites). 
 Optimal time windows often coincided with a site's peak growing season (n= *# of 10* for temperature variables, *# of 10* for precipitation variables), but exceptions were common. 
