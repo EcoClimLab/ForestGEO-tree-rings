@@ -7,7 +7,7 @@ output:
     toc: true # table of content true
     toc_depth: 3  
 bibliography: references.bib
-csl: methods-in-ecology-and-evolution.csl
+csl: global-change-biology.csl
 header-includes:  \usepackage{float}
                   \usepackage{caption}
                   \captionsetup[table]{font=footnotesize}

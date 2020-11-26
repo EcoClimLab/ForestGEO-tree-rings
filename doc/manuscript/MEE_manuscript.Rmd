@@ -5,7 +5,7 @@ output:
     bookdown::word_document2: 
       reference_docx: word-styles-reference.docx #make sure this line is indented! see this guide for formatting: https://rmarkdown.rstudio.com/articles_docx.html
 bibliography: references.bib
-csl: methods-in-ecology-and-evolution.csl
+csl: global-change-biology.csl
 
 ---
 ```{r setup, include=FALSE}
@@ -76,21 +76,13 @@ jm. Department of Geography, Indiana University, Bloomington, Indiana, USA
 
 
 ```{r eval=FALSE, echo=FALSE}
-## Target journal: Methods in Ecology & Evolution (IF 7.09)
-## Instructions for authors: https://besjournals.onlinelibrary.wiley.com/hub/journal/2041210X/author-guidelines
-
 ## potential reviewers: Jane Foster, M. Evans,  van der Pol, 
 
-# Research article:  should have a maximum of 6000-7000 words (including tables/figure captions and references) and describe new methods and how they may be used.
+## Target journal: Global Change Biology
+## Instructions for authors: https://onlinelibrary-wiley-com.smithsonian.idm.oclc.org/page/journal/13652486/homepage/forauthors.html
+## Primary Research Articles present the results of a completed research project and are up to 8000 words in length. Word limits apply to the main body of the text (Introduction, Materials and Methods, Results, Discussion, and Acknowledgements).
+## I don't think GCB has an official limit on display items (a recently accepted article has 10 figures and 4 tables).
 
-### Length planning:
-## Main text ~4300 words --> ~28 paragraphs averaging 150 words
-# Intro- 900/ 6
-# Methods- 1500 / (11)
-# Results - 1000/ (6)
-# Discussion - 900 / (5)
-## References: figure ~40 words each, so 50 refs = 2000
-## Display items: figure ~100 words for each caption = 700 words
 ```
 
 ```{r eval = TRUE, echo=FALSE, warning=FALSE, results='hide'}
