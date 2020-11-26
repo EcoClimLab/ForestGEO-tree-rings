@@ -229,8 +229,9 @@ By providing a framework for such analyses, our approach opens the door for usin
 **Tree rings provide a long-term record of annual growth increments that is invaluable for understanding forests in an era of global change.** 
 Spanning time scales of decades to centuries or even millennia, they provide by far the most robust method for characterization of the interannual climate sensitivity of tree growth [@fritts_tree_1976] and how it is changing [e.g., @sniderhan_growth_2016; @maxwell_declining_2016]. 
 Combined with forest censuses, they can be used to estimate forest woody productivity [$ANPP_{woody}$; @graumlich_long-term_1989; @teets_linking_2018] and its climate sensitivity [@klesse_sampling_2018; @teets_quantifying_2018; @helcoski_growing_2019]. 
+*other global change drivers*
 This information is critical to predicting forest responses to climate change, and thereby reducing the enormous uncertainty surrounding future contributions of Earth's forests to the global carbon cycle [@friedlingstein_climatecarbon_2006].
-Yet, dendrochronological records have been traditionally collected and analyzed to detect climate signals rather than to predict forest productivity and its climate sensitivity [@klesse_sampling_2018].
+Yet, collection and analysis of dendrochronological records has been traditionally been optimized to detect climate signals rather than to predict forest productivity, its climate sensitivity, and how it may be changing [@cherubini_potential_1998; @nehrbassahles_influence_2014; @klesse_sampling_2018].
 As a result, prevailing approaches hold a number of limitations for using tree-rings to address pressing questions concerning forest productivity in the current era of rapid environmental change.
 
 **Dendrochronological methods to characterize the climate sensitivity of tree growth have been optimized to obtain the strongest possible climate signal for climate reconstructions, but face limitations when it comes to characterizing the climate sensitivity of individual trees or $ANPP_{woody}$.**
@@ -260,8 +261,19 @@ For example, larger trees tend to be relatively more sensitive to drought [@benn
 However, the removal of $DBH$ signals via detrending makes it impossible to account for such size differences in climate sensitivity. 
 To use tree-rings to predict tree growth, $ANPP_{woody}$, and forest dynamics, we need models that include $DBH$ and its potential climate interactions.
 
-**Characterizing how tree growth is responding to global change (slowly-changing environmental drivers) is very challenging and uncertain.**
+**Characterizing how tree growth and forest productivity are responding to global change (slowly-changing environmental drivers) is very challenging and uncertain.**
 
+- directional climate change (as opposed to variation), CO~2~, and atmospheric deposition are all potentially influencing tree growth.
+
+- at the same time, stand dynamics influence growth; many forests are secondary, and ANPP_woody may decline as stands age 
+
+- a variety of methods are used to account for simultaneous changes in tree size, including... (DENDRO_REFS).
+
+- One commonly applied approach is to assume that $BAI$ is fundamentally independent of size (DENDRO_REFS).
+
+- None of these methods is fully satisfactory, being subject to various sampling and analysis biases [@cherubini_potential_1998; @nehrbassahles_influence_2014], leaving great uncertainty as to what the tree-ring record can tell us about the impact of rising CO~2~ [@walker_integrating_2020]. 
+
+- It is necessary to *simultaneously* account for the influences of changing tree size and environmental drivers.
 
 **Here, we develop a new method that allows simultaneous consideration of the effects of tree size and objectively determined principle climate drivers on annual tree growth.** 
 This allows us to ask:
