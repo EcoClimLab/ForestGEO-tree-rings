@@ -107,16 +107,17 @@ year_fig = 7
 
 # SUPPLEMENTARY INFO (this chunk must be repeated in MEE_manuscript_SI.Rmd)
 #Appendices
+site_details_appendix <- "S1"
+DBH_reconstruction <- "S2"
+climate_correction <- "S3"
+traditional_comparison <- "S4"
+changing_climate <- "S5"
 
-DBH_reconstruction <- "S1"
-climate_correction <- "S2"
-traditional_comparison <- "S3"
-changing_climate <- "S4"
-
-DBH_reconstruction_title <- "Appendix S1. Methods for reconstruction of $DBH$"
-climate_correction_title <- "Appendix S2. Methods for climate data evaluation and correction"
-traditional_comparison_title <- "Appendix S3.  Methods for comparing climwin results with traditional methods"
-changing_climate_title <- "Appendix S4.  Dealing with rapidly changing climate and tree growth"
+site_details_appendix_title<- "Appendix S1. Methods for reconstruction of $DBH$"
+DBH_reconstruction_title <- "Appendix S2. Methods for reconstruction of $DBH$"
+climate_correction_title <- "Appendix S3. Methods for climate data evaluation and correction"
+traditional_comparison_title <- "Appendix S4.  Methods for comparing climwin results with traditional methods"
+changing_climate_title <- "Appendix S5.  Dealing with rapidly changing climate and tree growth"
 
 #SI table numbers
 site_details = "S1"
@@ -237,7 +238,7 @@ By providing a framework for such analyses, our approach opens the door for usin
 Spanning time scales of decades to centuries or even millennia, they provide by far the most robust method for characterization of the interannual climate sensitivity of tree growth [@fritts_tree_1976] and how it is changing [e.g., @sniderhan_growth_2016; @maxwell_declining_2016]. 
 Combined with forest censuses, they can be used to estimate forest woody productivity [$ANPP_{woody}$; @graumlich_long-term_1989; @teets_linking_2018] and its climate sensitivity [@klesse_sampling_2018; @teets_quantifying_2018; @helcoski_growing_2019]. 
 This information is critical to predicting forest responses to climate change, and thereby reducing the enormous uncertainty surrounding future contributions of Earth's forests to the global carbon cycle [@friedlingstein_climatecarbon_2006].
-Yet, dendrochronological records have been traditionally collected and analyzed to detect climate signals rather than to predict forest productivity and its climate sensitivity [@klesse_sampling_2018]. 
+Yet, dendrochronological records have been traditionally collected and analyzed to detect climate signals rather than to predict forest productivity and its climate sensitivity [@klesse_sampling_2018].
 As a result, prevailing approaches hold a number of limitations for using tree-rings to address pressing questions concerning forest productivity in the current era of rapid environmental change.
 
 **Dendrochronological methods to characterize the climate sensitivity of tree growth have been optimized to obtain the strongest possible climate signal for climate reconstructions, but face limitations when it comes to characterizing the climate sensitivity of individual trees or $ANPP_{woody}$.**
@@ -266,6 +267,9 @@ Although climate correlations can be transformed to climate sensitivity [*sensu*
 For example, larger trees tend to be relatively more sensitive to drought [@bennett_larger_2015; @gillerot_tree_2020; @mcgregor_tree_2020], and smaller trees can be more sensitive to temperature (*Rollinson et al. in review*).
 However, the removal of $DBH$ signals via detrending makes it impossible to account for such size differences in climate sensitivity. 
 To use tree-rings to predict tree growth, $ANPP_{woody}$, and forest dynamics, we need models that include $DBH$ and its potential climate interactions.
+
+**Characterizing how tree growth is responding to global change (slowly-changing environmental drivers) is very challenging and uncertain.**
+
 
 **Here, we develop a new method that allows simultaneous consideration of the effects of tree size and objectively determined principle climate drivers on annual tree growth.** 
 This allows us to ask:
@@ -321,16 +325,13 @@ and (3) parts of records where reconstructed $DBH$ (see below) was represented b
 In total, this resulted in inclusion of *#* cores, `r n_cores_dbh` of which could be included in analyses with $DBH$ (Table `r sampling_details_table`).
 
 For each year in the tree-ring records, we reconstructed $DBH$, as detailed in Appendix `r DBH_reconstruction`. 
-In most cases, when a recent $DBH$ measurement was available, $DBH$ was reconstructed from the outside in. 
-In cases where $DBH$ was not available, but when we knew that the core hit pith or could reasonably estimate how far off it was based on the curvature of the rings [@applequist_simple_1958; @duncan_evaluation_1989], $DBH$ was reconstructed from the inside out. 
-In either case, we used allometric equations between $DBH$ and bark thickness to account for changes in bark thickness as the tree grew (Appendix `r DBH_reconstruction`; Tables `r species_table`, `r bark_allometries`).
+We used allometric equations between $DBH$ and bark thickness to account for changes in bark thickness as the tree grew (Appendix `r DBH_reconstruction`; Tables `r species_table`, `r bark_allometries`).
 
 Once $DBH$ had been reconstructed, we used biomass allometries to estimate the corresponding aboveground biomass and diameter to area equation to get the corresponding basal area. We then calculated aboveground biomass growth increments ($\Delta AGB$) as [$AGB_{y+1}-AGB_y$] and basal area increment ($BAI$) as [$BAI_{y+1}-BAI_y$].
-Biomass allometries for temperate and tropical sites were calculated using the R packages *allo-db* (Gonzalez-Akre et al. in prep) and *biomass* [@rejoumechain_biomass_2017], respectively.
+Biomass allometries for temperate and tropical sites were calculated using the R packages *allo-db* (Gonzalez-Akre et al. in review) and *biomass* [@rejoumechain_biomass_2017], respectively.
 
 Monthly climate data for 1901-2019 were obtained from CRU v.4.04 [@harris_updated_2014; @harris_version_2020], and in a few cases corrected based on more local records (Appendix `r climate_correction`). 
 Variables considered here included average daily minimum, maximum, and mean temperatures ($T_{min}$, $T_{max}$, $T_{mean}$, respectively); precipitation ($PPT$); and, when deemed reliable (Appendix `r climate_correction`), potential evapotranspiration ($PET$) and precipitation day frequency ($PDF$).
-*For BCI, we calculated monthly $PPT$ and $PDF$ from daily precipitation readings made on BCI starting in 1929 [@paton_barro_2019].*
 All ForestGEO climate records used here are archived in the ForestGEO Climate Data Portal, *v1.0-alpha* [@anderson-teixeira_forestgeoclimate_2020].
 
 ## Analysis methods

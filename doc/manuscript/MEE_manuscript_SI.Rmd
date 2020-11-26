@@ -48,15 +48,17 @@ file.copy(flist, "/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/Fores
 # SUPPLEMENTARY INFO (this chunk must be repeated in MEE_manuscript_SI.Rmd)
 
 #Appendices
-DBH_reconstruction <- "S1"
-climate_correction <- "S2"
-traditional_comparison <- "S3"
-changing_climate <- "S4"
+site_details_appendix <- "S1"
+DBH_reconstruction <- "S2"
+climate_correction <- "S3"
+traditional_comparison <- "S4"
+changing_climate <- "S5"
 
-DBH_reconstruction_title <- "Appendix S1. Methods for reconstruction of $DBH$"
-climate_correction_title <- "Appendix S2. Methods for climate data evaluation and correction"
-traditional_comparison_title <- "Appendix S3.  Methods for comparing climwin results with traditional methods"
-changing_climate_title <- "Appendix S4.  Dealing with rapidly changing climate and tree growth"
+site_details_appendix_title<- "Appendix S1. Methods for reconstruction of $DBH$"
+DBH_reconstruction_title <- "Appendix S2. Methods for reconstruction of $DBH$"
+climate_correction_title <- "Appendix S3. Methods for climate data evaluation and correction"
+traditional_comparison_title <- "Appendix S4.  Methods for comparing climwin results with traditional methods"
+changing_climate_title <- "Appendix S5.  Dealing with rapidly changing climate and tree growth"
 
 #SI table numbers
 site_details = "S1"
@@ -131,9 +133,21 @@ GLS_generic_legend = " for all three growth metrics examined here. Precipitation
 
 \newpage
 
+## `r site_details_appendix_title`
+
+*(include descriptions of stand history, global change dynamics)*
+
+### Barro Colorado Island, Panama
+
+
+\newpage
+
 ## `r DBH_reconstruction_title`
 
 *This is still rough/ mostly notes.*
+
+In most cases, when a recent $DBH$ measurement was available, $DBH$ was reconstructed from the outside in. 
+In cases where $DBH$ was not available, but when we knew that the core hit pith or could reasonably estimate how far off it was based on the curvature of the rings [@applequist_simple_1958; @duncan_evaluation_1989], $DBH$ was reconstructed from the inside out. 
 
 For each core, $DBH$ can be reconstructed outside-in (based on recent $DBH$, subtracting growth recorded in tree rings) or inside-out (summing $RW$ from the inside out,--only when core hit pith or distance to pith can be reliably estimated). 
 We generally gave precedence to the outside-in approach.
@@ -160,6 +174,7 @@ When bark thickness data were not available, we used published bark allometries 
 \newpage
 ## `r climate_correction_title`
 
+*For BCI, we calculated monthly $PPT$ and $PDF$ from daily precipitation readings made on BCI starting in 1929 [@paton_barro_2019].*
 
 \newpage
 
