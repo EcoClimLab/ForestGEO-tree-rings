@@ -636,7 +636,6 @@ Data for # of the sites are archived in the The DendroEcological Network (DEN) d
 
 `r qualitative_results_comparison_legend`
 
-`r interactions_and_year_summaries_legend`
 
 # References
 
