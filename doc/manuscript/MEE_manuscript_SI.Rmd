@@ -66,7 +66,6 @@ species_table = "S2"
 sampling_details_table = "S3"
 bark_allometries = "S4"
 qualitative_results_comparison = "S5"
-climate_interactions_summary = "S6"
 
 #SI table captions
 site_details_legend <- "Table S1. Site Details."
@@ -74,7 +73,6 @@ species_table_legend <-"Table S2. Species analyzed, their characteristics, and b
 sampling_details_legend <- "Table S3. Sampling details for species by site."
 bark_allometries_legend <- "Table S4. Allometric equations for bark thickness."
 qualitative_results_comparison_legend <- "Table S5. Qualtiative comparison of results from this study with previous studies employing conventional methods."
-climate_interactions_summary_legend <- "Table S6. Frequency of $DBH$-climate interactions across all sites and growth metrics."
 
 #SI figure numbers
 all_traditional_comparisons = "S1-S4"
@@ -394,17 +392,6 @@ nocite: |
 **Indicates results from a regional study not including the focal site, but believed to be representative.
 
 
-
-\newpage
-## `r climate_interactions_summary_legend` 
-```{r eval = TRUE, echo=FALSE, warning=FALSE}
-library(knitr)
-library(kableExtra)
-table_raw <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/climate_interactions_summary.csv", stringsAsFactors = FALSE, check.names = FALSE)
-#this reads in the table, but knit fails if I try to render it (probably because of underscores). It also needs to be rearranged
-#kable(table_raw, format = "latex", booktabs = TRUE, caption = "Table S  . Frequency of DBH-climate interactions", escape = F)%>%
-#  kable_styling(latex_options = c("scale_down", "hold_position")) 
-```
 
 \newpage 
 ## `r SCBI_traditional_comparison_legend`
