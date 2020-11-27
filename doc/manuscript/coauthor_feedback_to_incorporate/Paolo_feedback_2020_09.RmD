@@ -7,9 +7,13 @@ Here some thoughts:
 
 1) In the intro you state that tree rings can be used to estimate forest woody productivity. this is certainly true but a thorough discussion of the sampling bias (Cherubini et al. For Ecol manage 1998) and necessary sampling design (Nehrbass-Ahles Gl Ch BIol 2014) should be included.
 
+*Downloaded/ added to refs folder, added citations (but not yet any discussion). These are very relevant... I'm starting to read them.*
+
 2) tree size affects tree growth rates, true, but is it really the diameter or rather tree age, tree height, crown size, root depth? A physiological discussion is probably needed here.
 
 3) How were the sites selected? Site selection is crucial to correctly interpret the results.
+
+*Added an appendix for site details, including site history.*
 
 4) The diversity of growth trends in relation to DBH is largely attributable to species ecology and stand history, true; stand dynamics strongly affect stand structure and therefore tree diameter and growth trends.
 

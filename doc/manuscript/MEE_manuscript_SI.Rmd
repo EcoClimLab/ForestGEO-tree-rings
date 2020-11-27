@@ -7,7 +7,7 @@ output:
     toc: true # table of content true
     toc_depth: 3  
 bibliography: references.bib
-csl: methods-in-ecology-and-evolution.csl
+csl: global-change-biology.csl
 header-includes:  \usepackage{float}
                   \usepackage{caption}
                   \captionsetup[table]{font=footnotesize}
@@ -48,15 +48,17 @@ file.copy(flist, "/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/Fores
 # SUPPLEMENTARY INFO (this chunk must be repeated in MEE_manuscript_SI.Rmd)
 
 #Appendices
-DBH_reconstruction <- "S1"
-climate_correction <- "S2"
-traditional_comparison <- "S3"
-changing_climate <- "S4"
+site_details_appendix <- "S1"
+DBH_reconstruction <- "S2"
+climate_correction <- "S3"
+traditional_comparison <- "S4"
+changing_climate <- "S5"
 
-DBH_reconstruction_title <- "Appendix S1. Methods for reconstruction of $DBH$"
-climate_correction_title <- "Appendix S2. Methods for climate data evaluation and correction"
-traditional_comparison_title <- "Appendix S3.  Methods for comparing climwin results with traditional methods"
-changing_climate_title <- "Appendix S4.  Dealing with rapidly changing climate and tree growth"
+site_details_appendix_title<- "Appendix S1. Methods for reconstruction of $DBH$"
+DBH_reconstruction_title <- "Appendix S2. Methods for reconstruction of $DBH$"
+climate_correction_title <- "Appendix S3. Methods for climate data evaluation and correction"
+traditional_comparison_title <- "Appendix S4.  Methods for comparing climwin results with traditional methods"
+changing_climate_title <- "Appendix S5.  Dealing with rapidly changing climate and tree growth"
 
 #SI table numbers
 site_details = "S1"
@@ -131,9 +133,21 @@ GLS_generic_legend = " for all three growth metrics examined here. Precipitation
 
 \newpage
 
+## `r site_details_appendix_title`
+
+*(include descriptions of stand history, global change dynamics)*
+
+### Barro Colorado Island, Panama
+
+
+\newpage
+
 ## `r DBH_reconstruction_title`
 
 *This is still rough/ mostly notes.*
+
+In most cases, when a recent $DBH$ measurement was available, $DBH$ was reconstructed from the outside in. 
+In cases where $DBH$ was not available, but when we knew that the core hit pith or could reasonably estimate how far off it was based on the curvature of the rings [@applequist_simple_1958; @duncan_evaluation_1989], $DBH$ was reconstructed from the inside out. 
 
 For each core, $DBH$ can be reconstructed outside-in (based on recent $DBH$, subtracting growth recorded in tree rings) or inside-out (summing $RW$ from the inside out,--only when core hit pith or distance to pith can be reliably estimated). 
 We generally gave precedence to the outside-in approach.
@@ -160,6 +174,7 @@ When bark thickness data were not available, we used published bark allometries 
 \newpage
 ## `r climate_correction_title`
 
+*For BCI, we calculated monthly $PPT$ and $PDF$ from daily precipitation readings made on BCI starting in 1929 [@paton_barro_2019].*
 
 \newpage
 
@@ -234,8 +249,12 @@ We note, however, that there are no statistically significant differences in the
 [ISSUE #25 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/25)
 
 Our analysis included two sites where climate change has had pronounced effects on tree growth: Scotty Creek, NW Territories, Canada (SC) and Little Tesuque, New Mexico, USA (LT).
-At SC, [temperatures have increased by X $^\circ$ over X years]..., resulting in negative growth trends in basal area index ($BAI$) starting around 1950 and significant growth declines since 1970 in `r round(249/(249+69+127)*100, digits=0)`% of trees [@sniderhan_growth_2016].
-At LT, *(drought has increased dramatically)*, resulting in many missing rings in recent years.
+At SC, rapidly rising temperatures are causing melting permafrost, summer moisture stress, resulting in negative growth trends in basal area index ($BAI$) starting around 1950 and significant growth declines since 1970 in `r round(249/(249+69+127)*100, digits=0)`% of trees [@sniderhan_growth_2016].
+At LT, increasingly warm drought has dramatically reduced growth [@williams_temperature_2012], resulting in many missing rings in recent years.
+
+Problematically, correlating tree growth residuals from which climate-driven trends had been removed against the climate signal with a strong directional trend would not necessarily identify the most relevant climate drivers.
+
+For these sites, we experimented with three approaches to identifying the most important climate drivers (1) the method described above, (2) detrending the climate variables **(AT:prewhitening?)** prior to the climwin step, and (3) splitting analyses into decades before and after 1970 [*sensu*  @sniderhan_growth_2016] (Appendix `r changing_climate`).
 
 *This is in process. We will try and compare 3 methods: (1) our standard approach, (2) detrending the climate variables (#53), (3) applying the climwin step only for older records--before the most rapid climate change. We will work with SC and LT researchers to determine which makes most sense, and use that as the main approach for these sites.*
 
