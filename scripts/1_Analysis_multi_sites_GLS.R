@@ -108,7 +108,7 @@ clim_gaps <- clim_gaps[clim_gaps$start_climvar.class %in% climate_variables, ]
 CO2 <- read.csv(path_to_CO2)
 
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIKG5HNRLP6BLX76RTS7X3RTY")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIORI2UTTF4G3ILQUGS7Y2I7Q")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
@@ -524,7 +524,7 @@ for(site in switch(solution_to_global_trend, "none" = sites, c("ScottyCreek", "N
    
     # now do a species by species gls using log of raw measurements, spline on dbh and year (WITH AND WITHOUT CO2) ####
     
-    for(with_CO2 in switch(solution_to_global_trend, "none" = c(FALSE, TRUE), FALSE)) {
+    for(with_CO2 in switch(as.character(solution_to_global_trend == "none" & grepl("dbh", what)), "TRUE" = c(FALSE, TRUE), "FALSE" = FALSE)) {
       ## look at collinearity between climate variables ( and CO2n and dbh when relevant) and remove any variable with vif > 10 ####
     if(grepl("dbh", what) & with_CO2) X <- Biol[, c(as.character(best_results_combos$climate), "CO2", "dbh")]
     if(grepl("dbh", what) & !with_CO2) X <- Biol[, c(as.character(best_results_combos$climate), "dbh")]
