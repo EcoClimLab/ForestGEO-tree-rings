@@ -100,18 +100,22 @@ full_examples = 5
 year_fig = 7
 
 # SUPPLEMENTARY INFO (this chunk must be repeated in MEE_manuscript_SI.Rmd)
+
 #Appendices
 site_details_appendix <- "S1"
 DBH_reconstruction <- "S2"
 climate_correction <- "S3"
 traditional_comparison <- "S4"
 changing_climate <- "S5"
+decadal_analysis_appendix <- "S6"
 
-site_details_appendix_title<- "Appendix S1. Methods for reconstruction of $DBH$"
+site_details_appendix_title<- "Appendix S1. Site Details"
 DBH_reconstruction_title <- "Appendix S2. Methods for reconstruction of $DBH$"
 climate_correction_title <- "Appendix S3. Methods for climate data evaluation and correction"
-traditional_comparison_title <- "Appendix S4.  Methods for comparing climwin results with traditional methods"
-changing_climate_title <- "Appendix S5.  Dealing with rapidly changing climate and tree growth"
+traditional_comparison_title <- "Appendix S4. Methods for comparing our approach with traditional methods"
+changing_climate_title <- "Appendix S5. Dealing with rapidly changing climate and tree growth"
+decadal_analysis_appendix_title <- "Appendix S6. Analysis of DBH-growth relationships by decade"
+
 
 #SI table numbers
 site_details = "S1"
@@ -253,8 +257,8 @@ Dendrochronological studies allowing for nonlinear or threshold responses of tre
 Furthermore, tree-ring studies do not commonly consider the additive or interactive effects of climate variables on annual growth [but see @meko_seascorr_2011; @foster_predicting_2016]. 
 Temperature and moisture are known to jointly shape tree growth [@beedlow_importance_2013; @foster_predicting_2016] and forest productivity [e.g., @alexander_relative_2018; @banbury_morgan_global_nodate], but their influence may occur over different time windows.
 
-**Tree size (most commonly diameter breast height, $DBH$) is among the most important variables affecting tree growth rate [e.g., @muller-landau_testing_2006; @foster_predicting_2016] and its climate sensitivity [e.g., @bennett_larger_2015; @mcgregor_tree_2020], yet traditional methods do not characterize its effect or its potential interactions with climate.** 
-For dendrochronological studies aimed at deciphering climate signals, $DBH$ is not typically a variable of interest, and its influence is removed through detrending [@cook_calculating_1997].
+**Tree diameter at breast height ($DBH$) is closely correlated with numerous variables affecting tree growth rate [e.g., height, crown size and position, root mass; REF] and therefore is one of the most important variables influencing growth [e.g., @muller-landau_testing_2006; @foster_predicting_2016] and its climate sensitivity [e.g., @bennett_larger_2015; @mcgregor_tree_2020].**
+However, for dendrochronological studies aimed at deciphering climate signals, $DBH$ is not typically a variable of interest, and its influence is removed through detrending [@cook_calculating_1997].
 Moreover, many studies constrain sampling to only larger size classes.
 While convenient for identifying climate signals [Fritz 1976?(DENDRO_REFS)], this approach is not optimal for subsequent inference of the climate sensitivity of forest productivity.
 Although climate correlations can be transformed to climate sensitivity [*sensu* @charney_observed_2016] and scaled to characterize the climate sensitivity of $ANPP_{woody}$ based on the scaling of $RW$ with $DBH$ [@helcoski_growing_2019], they cannot be used to characterize known interactive effects of $DBH$ and climate on tree growth.
@@ -368,9 +372,10 @@ Rather than detrending these variables to produce residuals, the temporal autoco
 For each species independently, we ran every combination of the candidate climate variables and $DBH$, including both first- and second-order terms of polynomial for each.
 For climate responses, we allowed concave-down fits, but ignored any concave-up fits on the basis that these are not expected biologically and, when identified in initial analyses, often appeared to be cases of over-fitting.
 
-To test for $DBH \times$ climate interactions and $year$ effects, we limited the analysis of each species to years for which the $DBH$ range represented by at least 3 individuals spanned at least half the total range of that species, dropping species entirely if < 30 years met this criteria.  **HAVE YET TO TRY THIS **
+To test for $DBH \times$ climate interactions and $year$ effects, we limited the analysis of each species to years for which the $DBH$ range represented by at least 3 individuals spanned at least half the total range of that species, dropping species entirely if < 30 years met this criteria.  **(HAVE YET TO TRY THIS) **
 For models including interactive effects of climate and $DBH$, we tested for interactions between first-order linear terms for climate variables and $DBH$.
 For models including $year$, we tested for first-order linear effects of $year$.
+To verify that GLS model trends for $year$ were real, as opposed to an artifact of inherent covariation between $DBH$ and $year$ within each core, we separately analyzed $DBH$-growth relationships by decade (Appendix `r decadal_analysis_appendix`). **(CAMERON'S WORK [IN THIS REPO](https://github.com/EcoClimLab/tree-rings_global-change))**
 For simplicity and consistency with previous literature, we present only the models with $BAI$ as the growth metric, noting that responses were similar across metrics. 
 
 Within each of three categories of models run (climate only, climate + $DBH$, climate $\times DBH$, climate + $DBH$ + $year$), we selected as the top model that with the lowest AIC.  
@@ -467,10 +472,13 @@ The majority (#%) of these interactions were positive, indicating that larger tr
 
 ## Effects of year
 
-Growth rates changed directionally over time--i.e., there was a significant effect of `year` in the GLS model-- for # of the # species- site combinations tested (Table `r interactions_and_year_summaries`).
-In the majority of cases (#%), the trend was negative.
+There was a significant effect of `year` in the GLS models for # of the # species- site combinations tested (Table `r interactions_and_year_summaries`), and these trends matched those observed in a separate analysis of $DBH$-growth relationships by year (Appendix `r decadal_analysis_appendix`; **ADD SI FIGS**).
+In the majority of cases (#%), the growth trend over time was negative.
 Declines were particularly dramatic (**give some criteria**) for *all four species at Harvard Forest, PIPO at Little Tesuque, POTR at Cedar Breaks, and PIMA at Scotty Creek* (Fig. `r year_fig`).
 In these cases, models without `year` predicted declines in growth at large DBH that should more properly be attributed to the effect of year (Fig. `r year_fig`).
+Significant positive growth trends were observed for only # species, **LIST**, and all were modest compared to the steep negative trends observed for some species.
+Growth rate was independent of `year` for only # species:  **LIST**.
+
 
 ![**Figure 7 | DRAFT FIGURE. GLS model with and without year, maybe decadal analysis plot. IT WOULD BE BEST TO COMBINE THE 2 DBH FIGURES (PANELS 1,2). CURRENT EXAMPLE IS JUST SCOTTY CREEK, BUT IT WOULD BE GOOD TO SHOW AT LEAST ONE OTHER.](tables_figures/year_figure_sketch.png)
 
@@ -505,6 +513,7 @@ Most notably, the fact that our approach is able to simultaneously model the eff
 
 ## changing growth rates
 - growth rates changing directionally
+- stand dynamics strongly affect stand structure and therefore tree diameter and growth trends.
 
 *corroboration of existing evidence*
 
@@ -513,6 +522,14 @@ Most notably, the fact that our approach is able to simultaneously model the eff
 
 *new insight*
 
+- Analyses of CO~2~ effects reach inconsistent conclusions because of stand dynamics, sampling bias, analysis methods...
+- We believe our analysis methods to be robust,
+- Our sampling varies by sites, and sites analyzed have decent year x DBH coverage, but biases could remain (need to do some research on this, believe it's mostly stand dynamics)
+- main bias would be stand dynamics. This is probably the case at secondary forests (HF, SCBI...). Even within mature forests, light-demanding species that establish in gaps (JACO at BCI, MEAZ at HKK) would tend to experience an increasingly competitive environment. 
+
+- In stands with no known stand-clearing disturbance within or shortly prior to the analysis time frame (ZOF?, NM?, CB, SC), trends would represent more gradual successional trends or responses to global change.
+- At NM and SC, rapid declines in growth make sense in light of rapid climate change. They also correspond to observations of high tree mortality rates.
+- At ZOF and CB,  trends are more mixed...
 ~~~~
 
 ## future challenges (?)
@@ -543,7 +560,7 @@ The most pronounced example of this pattern was *Melia azedarach* --a highly sha
 Such patterns are consistent with dendrochronology's "textbook" patterns, which have been derived primarily from trees that established in high-light environments (*DENDRO_REFS: See refs in Biondi and Qeadan 2008. Tree-Ring Research 64:81-96.; There are several earlier references in B&B 2006 describing this pattern. *).
 On the other end of the spectrum, shade-tolerant species (e.g. *Fagus* at SCBI and Žofín) exhibited initially low, but increasing, $RW$.
 This pattern is consistent with patterns observed in stand-level census data from closed-canopy forests, including several in this analysis, where $RW$ increases continuously with $DBH$ [@muller-landau_testing_2006; @anderson-teixeira_size-related_2015; Piponiot et al. in prep]. 
-While the low community mean $RW$ at small $DBH$ observed in closed-canopy forests is in large part driven by slow-growing small stems that will never enter the cohort of trees sampled by coring (e.g., $\ge$ 10cm DBH), increases in $RW$ with $DBH$ have also been observed for most species at SCBI using the same tree-ring data set analyzed here, but comparing across individuals using only contemporary data [@helcoski_growing_2019].
+While the low community mean $RW$ at small $DBH$ observed in closed-canopy forests is in large part driven by slow-growing small stems that will never enter the cohort of trees sampled by coring (e.g., $\ge$ 10cm DBH) (*see Cherubini et al. 1998*), increases in $RW$ with $DBH$ have also been observed for most species at SCBI using the same tree-ring data set analyzed here, but comparing across individuals using only contemporary data [@helcoski_growing_2019].
 Thus, patterns of decreasing $RW$ with $DBH$ are likely limited to open-grown trees or those establishing in gaps.  
 --  (*cite Sheil et al. 2017 [Clark et al. 2007?](https://esajournals-onlinelibrary-wiley-com.smithsonian.idm.oclc.org/doi/epdf/10.1890/06-1039.1); [Schleip et al. 2015](https://onlinelibrary-wiley-com.smithsonian.idm.oclc.org/doi/abs/10.1002/env.2324)*).
 -- *from PB: I think the one thing that is very hard to take into account (and which you noted in bold at the start of the paragraph) is stand history. I worry about looking for/finding general patterns just on tree size, as that ignores the historical dynamics that might influence these patterns.*

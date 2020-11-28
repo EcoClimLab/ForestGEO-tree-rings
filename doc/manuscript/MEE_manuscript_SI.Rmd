@@ -53,12 +53,14 @@ DBH_reconstruction <- "S2"
 climate_correction <- "S3"
 traditional_comparison <- "S4"
 changing_climate <- "S5"
+decadal_analysis_appendix <- "S6"
 
 site_details_appendix_title<- "Appendix S1. Site Details"
 DBH_reconstruction_title <- "Appendix S2. Methods for reconstruction of $DBH$"
 climate_correction_title <- "Appendix S3. Methods for climate data evaluation and correction"
-traditional_comparison_title <- "Appendix S4.  Methods for comparing our approach with traditional methods"
-changing_climate_title <- "Appendix S5.  Dealing with rapidly changing climate and tree growth"
+traditional_comparison_title <- "Appendix S4. Methods for comparing our approach with traditional methods"
+changing_climate_title <- "Appendix S5. Dealing with rapidly changing climate and tree growth"
+decadal_analysis_appendix_title <- "Appendix S6. Analysis of DBH-growth relationships by decade"
 
 #SI table numbers
 site_details = "S1"
@@ -137,6 +139,27 @@ GLS_generic_legend = " for all three growth metrics examined here. Precipitation
 
 ### Barro Colorado Island, Panama
 
+### Huai Kha Khaeng, Thailand
+
+### Smithsonian Conservation Biology Institute, Virginia, USA
+
+### Lilly Dickey Woods, Indiana, USA
+
+### Harvard Forest, USA
+
+### $\v{Z}$of$\'{i}$n Forest Dynamics Plot, Czech Republic
+
+
+### Niobrara, Nebraska, USA
+Riparian site
+BEPA are growing on N facing slopes near stream
+
+### Little Tesuque, New Mexico, USA
+
+### Cedar Breaks, Utah, USA
+
+### Scotty Creek, Northwest Territories, Canada
+melting permafrost
 
 \newpage
 
