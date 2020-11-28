@@ -1,8 +1,8 @@
-\contentsline {subsection}{Appendix S1. Methods for reconstruction of \(DBH\)}{2}{section*.2}% 
+\contentsline {subsection}{Appendix S1. Site Details}{2}{section*.2}% 
 \contentsline {subsubsection}{Barro Colorado Island, Panama}{2}{section*.3}% 
 \contentsline {subsection}{Appendix S2. Methods for reconstruction of \(DBH\)}{3}{section*.4}% 
 \contentsline {subsection}{Appendix S3. Methods for climate data evaluation and correction}{4}{section*.5}% 
-\contentsline {subsection}{Appendix S4. Methods for comparing climwin results with traditional methods}{5}{section*.6}% 
+\contentsline {subsection}{Appendix S4. Methods for comparing our approach with traditional methods}{5}{section*.6}% 
 \contentsline {subsection}{Appendix S5. Dealing with rapidly changing climate and tree growth}{7}{section*.7}% 
 \contentsline {subsection}{Table S1. Site Details.}{8}{section*.8}% 
 \contentsline {subsection}{Table S2. Species analyzed, their characteristics, and bark allometries applied.}{9}{section*.10}% 

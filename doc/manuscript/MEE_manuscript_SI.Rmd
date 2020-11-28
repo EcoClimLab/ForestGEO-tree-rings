@@ -5,7 +5,7 @@ output:
   pdf_document:
     fig_caption: yes
     toc: true # table of content true
-    toc_depth: 3  
+    toc_depth: 2  
 bibliography: references.bib
 csl: global-change-biology.csl
 header-includes:  \usepackage{float}
@@ -54,10 +54,10 @@ climate_correction <- "S3"
 traditional_comparison <- "S4"
 changing_climate <- "S5"
 
-site_details_appendix_title<- "Appendix S1. Methods for reconstruction of $DBH$"
+site_details_appendix_title<- "Appendix S1. Site Details"
 DBH_reconstruction_title <- "Appendix S2. Methods for reconstruction of $DBH$"
 climate_correction_title <- "Appendix S3. Methods for climate data evaluation and correction"
-traditional_comparison_title <- "Appendix S4.  Methods for comparing climwin results with traditional methods"
+traditional_comparison_title <- "Appendix S4.  Methods for comparing our approach with traditional methods"
 changing_climate_title <- "Appendix S5.  Dealing with rapidly changing climate and tree growth"
 
 #SI table numbers
@@ -377,8 +377,8 @@ kable(table_pt3, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = 
   add_header_above(c(" ", "Precipitation response" = 2, "Temperature response" = 2)) %>%
   column_spec(2:5, width = col_width) %>%
   column_spec(6, width = "2cm") %>%
-  pack_rows("Žofín Forest Dynamics Plot, Czech Republic", 1, 3, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
-  pack_rows("Niobrara and Hansley, Nebraska, USA", 4, 7, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Žofín Forest Dynamics Plot, Czech Republic", 1, 4, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Niobrara and Hansley, Nebraska, USA", 5, 7, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
   #pack_rows("Scotty Creek, NW Territories, Canada", 13, 13, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
   kable_styling(latex_options = c( "hold_position", "repeat header"), protect_latex = T, font_size = 7) 
 # refs in this table need to go in the nocite field below
@@ -390,8 +390,6 @@ nocite: |
 *Indicates results from a regional study including but not limited to cores from the focal site.
 
 **Indicates results from a regional study not including the focal site, but believed to be representative.
-
-
 
 \newpage 
 ## `r SCBI_traditional_comparison_legend`
