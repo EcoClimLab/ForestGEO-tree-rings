@@ -280,6 +280,12 @@ For these sites, we experimented with three approaches to identifying the most i
 *This is in process. We will try and compare 3 methods: (1) our standard approach, (2) detrending the climate variables (#53), (3) applying the climwin step only for older records--before the most rapid climate change. We will work with SC and LT researchers to determine which makes most sense, and use that as the main approach for these sites.*
 
 \newpage
+
+## `r decadal_analysis_appendix_title`
+
+**(CAMERON'S WORK [IN THIS REPO](https://github.com/EcoClimLab/tree-rings_global-change))**
+
+\newpage
 ## `r site_details_legend` 
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
