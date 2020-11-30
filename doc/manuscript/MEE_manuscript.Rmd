@@ -36,6 +36,7 @@ Sarayudh Bunyavejchewin,
 Paolo Cherubini,
 Justin Cooper,
 Stuart J. Davies^2^,
+Cameron Dow^1^,
 Ryan Helcoski^1^,
 [Jakub Kašpar^cz^](0000-0003-1780-6310),
 James Lutz,
@@ -525,8 +526,8 @@ Results are broadly consistent with those obtained by traditional methods, revea
 
 *corroboration of existing evidence*
 
+
 - at HKK, @nock_longterm_2011 observed decreases in BAI (by standardized size classes) over time
-- dramatic growth declines at LT and SC are consistent with increasing tree mortality
 
 *new insight*
 
@@ -538,12 +539,13 @@ Results are broadly consistent with those obtained by traditional methods, revea
 - In stands with no known stand-clearing disturbance within or shortly prior to the analysis time frame (ZOF?, NM?, CB, SC), trends would represent more gradual successional trends or responses to global change.
 - At NM and SC, rapid declines in growth make sense in light of rapid climate change. They also correspond to observations of high tree mortality rates.
 - At ZOF and CB,  trends are more mixed...
+
 ~~~~
 
 ## Future challenges (?) {-#Future}
 *(still face a problem when future climate is outside of the range of values used to model the climate-growth relationship. )*
 
-*(growth rate should respond strongly to a tree's relative DBH within a site, which we don't have going back in time)*
+*(growth rate should respond strongly to a tree's relative DBH within a site, which we don't have going back in time/ disentangling DBH and year is tough)*
 
 *Climate sensitivity*
 
