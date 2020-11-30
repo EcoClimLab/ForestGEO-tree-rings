@@ -67,7 +67,7 @@ window_ranges <- list(BCI = c(15, 0),
 # reference_date <- c(30, 8) # refday in slidingwin
 # window_range <- c(15, 0) #range in slidingwin
 
-clim_var_group <- list(water = c("pre", "wet"),
+clim_var_group <- list(water = c("pre", "wet", "SF"),
                        temperature = c("tmp", "tmn", "tmx", "pet")#,
                        # c("dtr", "cld", "pet")
 ) # see issue 14, PET is in both the TMP and DTR groups. If it comes out as the best in both groups (should always be for the same time frame), then there are only 2 candidate variables for the GLS
@@ -84,7 +84,8 @@ variables_units <- c(pre = "(mm mo-1)",
                      dtr = "(C)", 
                      cld = "%",
                      dbh = "(cm)",
-                     CO2 = "(ppm)")
+                     CO2 = "(ppm)",
+                     SF = "(m3 s-1)")
 # load data ####
 ## climate data ####
 
@@ -101,6 +102,8 @@ for(clim_v in climate_variables) {
 # BCI_pre <- read.csv(path_to_BCI_pre, stringsAsFactors = F)
 BCI_wet <- read.csv(path_to_BCI_wet, stringsAsFactors = F)
 
+NE_SF <- read.csv("https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/Met_Stations/Niobrara/Niobrara_river_streamflow.csv")
+
 clim_gaps <- read.csv("https://raw.githubusercontent.com/forestgeo/Climate/master/Climate_Data/CRU/CRU_corrected/CRU_gaps_analysisall_sites.reps.csv")
 clim_gaps <- clim_gaps[clim_gaps$start_climvar.class %in% climate_variables, ]
 
@@ -108,7 +111,7 @@ clim_gaps <- clim_gaps[clim_gaps$start_climvar.class %in% climate_variables, ]
 CO2 <- read.csv(path_to_CO2)
 
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIORI2UTTF4G3ILQUGS7Y2I7Q")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIN2KSWYCXFKYFYAJZ27ZZKLS")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
@@ -143,20 +146,34 @@ for(clim_v in climate_variables) {
   
 }
 
-# ### replace BCI pre and wet by local data
+### replace BCI wet by local data ####
 idx_BCI <- all_Clim$sites_sitename %in% "Barro_Colorado_Island"
 
-# all_Clim$pre[idx_BCI] <- BCI_pre$climvar.val[match(format(all_Clim$Date[idx_BCI], "%Y-%m"), format(as.Date(BCI_pre$Date), "%Y-%m"))]
-all_Clim$wet[idx_BCI] <- BCI_wet$climvar.val[match(format(all_Clim$Date[idx_BCI], "%Y-%m"), format(as.Date(BCI_wet$Date), "%Y-%m"))]
 
-### remove BCI pre and wet from clim gap as it is not relevant anymore
+all_Clim$wet[idx_BCI] <- BCI_wet$climvar.val[match(format(all_Clim$Date[idx_BCI], "%Y-%m"), format(as.Date(BCI_wet$Date), "%Y-%m"))]
+# all_Clim$pre[idx_BCI] <- BCI_pre$climvar.val[match(format(all_Clim$Date[idx_BCI], "%Y-%m"), format(as.Date(BCI_pre$Date), "%Y-%m"))]
+
+
+### remove BCI wet from clim gap as it is not relevant anymore
 clim_gaps <- clim_gaps[!(clim_gaps$start_sites_sitename %in% "Barro_Colorado_Island" & clim_gaps$start_climvar.class %in% c("wet")), ]
 
-# keep only complete rows (this will remove BCI dat for years where we don't have pre data)
+### add stream flow at NE ####
+unique(all_Clim$site)
+
+all_Clim$SF <- -999
+
+NE_SF$Date <- as.Date(paste(NE_SF$year, NE_SF$monthno, "15", sep = "-"))
+
+idx_NE <- all_Clim$sites_sitename %in% "Niobara"
+
+all_Clim[idx_NE, ]$SF <- NE_SF$meandis_m3s[match(substr(all_Clim$Date[idx_NE], 1, 7), substr(NE_SF$Date, 1, 7))]
+
+
+# keep only complete rows (this will remove BCI data for years where we don't have pre data, same for NE SF)
 
 all_Clim <- all_Clim[complete.cases(all_Clim), ]
 
-### add columns for detrend climate variables 
+### add columns for detrend climate variables ####
 for(clim_v in climate_variables) {
 
   all_Clim$y <- all_Clim[, clim_v]
@@ -165,7 +182,7 @@ for(clim_v in climate_variables) {
   
 }
 
-### format date to dd/mm/yyyy
+### format date to dd/mm/yyyy ####
 all_Clim$Date <- format(all_Clim$Date, "%d/%m/%Y") 
 
 ### add site column
@@ -275,7 +292,7 @@ all_Biol <- lapply(all_Biol, function(Biol) {
   })
 
 ## Run the Analysis ####
-for(solution_to_global_trend in c("none", "detrend_climate", "old_records_only", "young_records_only")[]) {
+for(solution_to_global_trend in c("none", "detrend_climate", "old_records_only", "young_records_only")[1]) {
   
   last_year_older_records = 1970
   
@@ -311,7 +328,7 @@ best_models_R_squared <- NULL
 data_to_keep <- c(ls(), "data_to_keep")
 
 
-for(site in switch(solution_to_global_trend, "none" = sites, c("ScottyCreek", "NewMexico", "SCBI")[])) {
+for(site in switch(solution_to_global_trend, "none" = sites[6], c("ScottyCreek", "NewMexico", "SCBI")[])) {
   
   
   rm(list = ls()[!ls() %in% data_to_keep])
@@ -436,9 +453,10 @@ for(site in switch(solution_to_global_trend, "none" = sites, c("ScottyCreek", "N
                              tmp = Clim[,paste0("tmp", ifelse(detrend_climate, "_detrended", ""))], 
                              tmx = Clim[,paste0("tmx", ifelse(detrend_climate, "_detrended", ""))],
                              pre = Clim[,paste0("pre", ifelse(detrend_climate, "_detrended", ""))], 
-                             wet = Clim[,paste0("wet", ifelse(detrend_climate, "_detrended", ""))]
+                             wet = Clim[,paste0("wet", ifelse(detrend_climate, "_detrended", ""))],
+                             SF = Clim[,paste0("SF", ifelse(detrend_climate, "_detrended", ""))]
                            )
-                           [switch(site, "CedarBreaks" = c( "tmn", "tmp", "tmx", "pre"), "NewMexico" = c( "tmn", "tmp", "tmx", "pre"), c("pet", "tmn", "tmp", "tmx", "pre", "wet"))],
+                           [switch(site, "CedarBreaks" = c( "tmn", "tmp", "tmx", "pre"), "NewMexico" = c( "tmn", "tmp", "tmx", "pre"), Nebraska = c("pet", "tmn", "tmp", "tmx", "pre", "wet", "SF"), c("pet", "tmn", "tmp", "tmx", "pre", "wet"))],
                            type = "absolute", 
                            range = window_range,
                            stat = c("mean"),
@@ -592,7 +610,7 @@ for(site in switch(solution_to_global_trend, "none" = sites, c("ScottyCreek", "N
       dd$cw <- cumsum(dd$weight)
       
       # add a column in dd if any u-shaped and so model not considered in best model
-      columns_to_check_for_ushape <- grep(paste(climate_variables, collapse = "|"), names(dd), value = T)
+      columns_to_check_for_ushape <- grep(paste(c(climate_variables, "SF"), collapse = "|"), names(dd), value = T)
       dd$any_u_shaped <-   apply(dd[, columns_to_check_for_ushape], 1, function(x) any(tapply(as.numeric(sign(x)), rep(1:(length(x)/2), each=2), paste, collapse = "") %in% c("-11")))
        
       # save dd
@@ -888,11 +906,13 @@ sink()
 # 
 
 } # for(solution_to_global_trend in ...)
+
 # summary plot for climate  ####
 
-A <- pivot_longer(all_Clim, climate_variables, "climate_var") # A <- pivot_longer(all_Clim, paste0(climate_variables, rep(c("", "_detrended"), each = length(climate_variables))), "climate_var") 
+A <- pivot_longer(all_Clim, c(climate_variables, "SF"), "climate_var") # A <- pivot_longer(all_Clim, paste0(climate_variables, rep(c("", "_detrended"), each = length(climate_variables))), "climate_var") 
 
 A$Year <- as.numeric(gsub("\\d\\d/\\d\\d/", "", A$Date))
+A$value[A$value%in%-999] <- NA
 
 A <- aggregate(value ~ sites_sitename + Year + climate_var, data = A, FUN =mean)
 A <- rbind(A, data.frame(sites_sitename = "All",
