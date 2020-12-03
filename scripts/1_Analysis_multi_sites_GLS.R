@@ -300,7 +300,7 @@ all_Biol <- lapply(all_Biol, function(Biol) {
   })
 
 ## Run the Analysis ####
-for(solution_to_global_trend in c("none", "detrend_climate", "old_records_only", "young_records_only")[]) {
+for(solution_to_global_trend in c("none", "detrend_climate", "old_records_only", "young_records_only")[1]) {
   
   last_year_older_records = 1970
   
@@ -955,8 +955,8 @@ sink()
 
 # save all_Species_Year_to_keep to keep for Year analysis or climate interactions #####
 if(solution_to_global_trend %in% "none") {
-  write.csv(all_Species_Year_to_keep, file = "results/all_Species_Year_to_keep_for_Year_or_clim_x_dbh.csv", row.names = F)
-  write.csv(species_removed_from_year_analysis, file = "results/with_Year/species_removed_from_year_analysis.csv", row.names = F )
+  write.csv(all_Species_Year_to_keep, file = "results/Species_Year_to_keep_for_Year_or_clim_x_dbh.csv", row.names = F)
+  write.csv(species_removed_from_year_analysis, file = "results/species_removed_from_year_analysis.csv", row.names = F )
 }
 
 } # for(solution_to_global_trend in ...)
