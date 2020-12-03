@@ -15,7 +15,9 @@ sites_abb <- list(BCI  = "BCI",
                   SCBI = "SCBI",
                   LillyDickey = "LDW",
                   HarvardForest = "HF",
-                  Nebraska = "NE",
+                  # Nebraska = "NE",
+                  Niobara = "Niobara",
+                  Hansley = "Hansley",
                   Zofin = "ZOF",
                   ScottyCreek = "SC")
 # load data ####

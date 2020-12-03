@@ -41,7 +41,10 @@ sites.sitenames <- c(BCI = "Barro_Colorado_Island",
                      Zofin = "Zofin",
                      HKK = "Huai_Kha_Khaeng",
                      NewMexico = "New_Mexico",
-                     Nebraska = "Niobara")
+                     # Nebraska = "Niobara",
+                     Niobara = "Niobara",
+                     Hansley = "Niobara"
+                     )
 
 ## analysis parameters ####
 reference_dates <- list(BCI = c(30, 12),
@@ -53,7 +56,9 @@ reference_dates <- list(BCI = c(30, 12),
                         SCBI = c(30, 8),
                         ScottyCreek = c(30, 8),
                         Zofin= c(30, 8),
-                        Nebraska = c(30, 8)) # refday in slidingwin
+                        # Nebraska = c(30, 8),
+                        Niobara = c(30, 8),
+                        Hansley = c(30, 8)) # refday in slidingwin
 window_ranges <- list(BCI = c(15, 0),
                       CedarBreaks = c(15, 0),
                       HarvardForest = c(15, 0),
@@ -63,7 +68,9 @@ window_ranges <- list(BCI = c(15, 0),
                       SCBI = c(15, 0),
                       ScottyCreek = c(15, 0),
                       Zofin = c(15, 0),
-                      Nebraska = c(15, 0))# range in slidingwin
+                      # Nebraska = c(15, 0),
+                      Niobara = c(15, 0),
+                      Hansley = c(15, 0))# range in slidingwin
 # reference_date <- c(30, 8) # refday in slidingwin
 # window_range <- c(15, 0) #range in slidingwin
 
@@ -85,7 +92,8 @@ variables_units <- c(pre = "(mm mo-1)",
                      cld = "%",
                      dbh = "(cm)",
                      CO2 = "(ppm)",
-                     SF = "(m3 s-1)")
+                     SF = "(m3 s-1)",
+                     Year = "")
 # load data ####
 ## climate data ####
 
@@ -111,7 +119,7 @@ clim_gaps <- clim_gaps[clim_gaps$start_climvar.class %in% climate_variables, ]
 CO2 <- read.csv(path_to_CO2)
 
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIN2KSWYCXFKYFYAJZ27ZZKLS")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIIQ3RK3X4PFNKH4MKC7Z73F4")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
@@ -292,7 +300,7 @@ all_Biol <- lapply(all_Biol, function(Biol) {
   })
 
 ## Run the Analysis ####
-for(solution_to_global_trend in c("none", "detrend_climate", "old_records_only", "young_records_only")[1]) {
+for(solution_to_global_trend in c("none", "detrend_climate", "old_records_only", "young_records_only")[]) {
   
   last_year_older_records = 1970
   
@@ -323,12 +331,13 @@ climate_interactions <- NULL # this is just to show case
 best_model_summaries <- NULL
 best_models_R_squared <- NULL
 # ylim_p <- list() # this is to later readjust ylim in the GLS results plots, to standardize ylim across sites
-
+all_Species_Year_to_keep <- NULL
+species_removed_from_year_analysis <- NULL
 ## save every object names up until now to erase other stuff before runing each new site
 data_to_keep <- c(ls(), "data_to_keep")
 
 
-for(site in switch(solution_to_global_trend, "none" = sites[6], c("ScottyCreek", "NewMexico", "SCBI")[])) {
+for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", "NewMexico", "SCBI")[])) {
   
   
   rm(list = ls()[!ls() %in% data_to_keep])
@@ -342,7 +351,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[6], c("ScottyCreek",
   
   variables_dropped[[site]] <- list()
   
-  for(what in switch(as.character(any(!is.na(all_Biol[[site]]$dbh))), "TRUE" = c("log_core_measurement", "log_core_measurement_dbh", "log_agb_inc_dbh", "log_BAI_dbh"), "FALSE" = "log_core_measurement")) {
+  for(what in switch(as.character(any(!is.na(all_Biol[[site]]$dbh))), "TRUE" = c("log_core_measurement", "log_core_measurement_dbh", "log_agb_inc_dbh", "log_BAI_dbh")[], "FALSE" = "log_core_measurement")) {
     
     Biol <- all_Biol[[site]]
     Clim <- droplevels(all_Clim[all_Clim$sites_sitename %in% sites.sitenames[site], ])
@@ -350,6 +359,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[6], c("ScottyCreek",
     ## create folders if don't exist ####
     dir.create(paste0("results/", what, "/", site), showWarnings = F, recursive = T)
     dir.create(paste0("results/with_CO2/", what, "/", site), showWarnings = F, recursive = T)
+    dir.create(paste0("results/with_Year/", what, "/", site), showWarnings = F, recursive = T)
     
     dir.create(paste0("results/", solution_to_global_trend, "/", what, "/", site), showWarnings = F, recursive = T)
     
@@ -357,6 +367,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[6], c("ScottyCreek",
     if(!detrend_climate & !old_records_only &!young_records_only) {
       file.remove(list.files(paste0("results/", what, "/", site), full.names = T))
     file.remove(list.files(paste0("results/with_CO2/", what, "/", site), full.names = T))
+    file.remove(list.files(paste0("results/with_Year/", what, "/", site), full.names = T))
     } 
   
     file.remove(list.files(paste0("results/", ifelse(solution_to_global_trend %in% "none", "", paste0(solution_to_global_trend, "/")), what, "/", site), full.names = T))
@@ -454,9 +465,9 @@ for(site in switch(solution_to_global_trend, "none" = sites[6], c("ScottyCreek",
                              tmx = Clim[,paste0("tmx", ifelse(detrend_climate, "_detrended", ""))],
                              pre = Clim[,paste0("pre", ifelse(detrend_climate, "_detrended", ""))], 
                              wet = Clim[,paste0("wet", ifelse(detrend_climate, "_detrended", ""))],
-                             SF = Clim[,paste0("SF", ifelse(detrend_climate, "_detrended", ""))]
+                             SF = Clim$SF # not detrended because nodon't ru at Niabora
                            )
-                           [switch(site, "CedarBreaks" = c( "tmn", "tmp", "tmx", "pre"), "NewMexico" = c( "tmn", "tmp", "tmx", "pre"), Nebraska = c("pet", "tmn", "tmp", "tmx", "pre", "wet", "SF"), c("pet", "tmn", "tmp", "tmx", "pre", "wet"))],
+                           [switch(site, "CedarBreaks" = c( "tmn", "tmp", "tmx", "pre"), "NewMexico" = c( "tmn", "tmp", "tmx", "pre"), Niobara = c("pet", "tmn", "tmp", "tmx", "pre", "wet", "SF"), c("pet", "tmn", "tmp", "tmx", "pre", "wet"))],
                            type = "absolute", 
                            range = window_range,
                            stat = c("mean"),
@@ -519,7 +530,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[6], c("ScottyCreek",
     # 
     ### Save the signal into Biol ####
     for(i in best_results_combos$model_ID) {
-      print(paste("adding climate data to Biol for model", i))
+      print(paste("adding climate data to Biol for model", i, "in", what))
      
       
       # if(any(grepl("I\\(climate\\^2\\)", names( results[[i]]$BestModelData)))) {
@@ -540,21 +551,48 @@ for(site in switch(solution_to_global_trend, "none" = sites[6], c("ScottyCreek",
   
     
    
-    # now do a species by species gls using log of raw measurements, spline on dbh and year (WITH AND WITHOUT CO2) ####
+    # now do a species by species gls using log of raw measurements, spline on dbh and year (WITH AND WITHOUT CO2 or Year) ####
     
-    for(with_CO2 in switch(as.character(solution_to_global_trend == "none" & grepl("dbh", what)), "TRUE" = c(FALSE, TRUE), "FALSE" = FALSE)) {
-      ## look at collinearity between climate variables ( and CO2n and dbh when relevant) and remove any variable with vif > 10 ####
-    if(grepl("dbh", what) & with_CO2) X <- Biol[, c(as.character(best_results_combos$climate), "CO2", "dbh")]
-    if(grepl("dbh", what) & !with_CO2) X <- Biol[, c(as.character(best_results_combos$climate), "dbh")]
-    if(!grepl("dbh", what) & with_CO2) X <- Biol[, c(as.character(best_results_combos$climate), "CO2")]
-    if(!grepl("dbh", what) & !with_CO2) X <- Biol[, c(as.character(best_results_combos$climate))]
+    ## first check if we are allowed to try Year or CO2 based on this criteria: 
+    ### we limited the analysis of each species to years for which the dbh range was represented by at least 3 individuals and spanned at least half the total DBH range of that species
+    
+    ## look at range of dbh for each species
+    dbh_range_by_species <- aggregate(dbh ~ species_code, data = Biol, FUN = function(x) max(x) - min(x))
+
+    ## look at range of dbh for each year and each species
+    dbh_range_by_Year_and_species <- aggregate(dbh ~ Year + species_code, data = Biol, FUN = function(x) max(x) - min(x))
+    
+    ## for each species, look at if the range of dbh in a a year is at least half the total range of dbh for that species
+    dbh_range_by_Year_and_species$sp_range <- dbh_range_by_species$dbh[match(dbh_range_by_Year_and_species$species_code, dbh_range_by_species$species_code)]
+    
+    dbh_range_by_Year_and_species$enough_dbh_range <- dbh_range_by_Year_and_species$dbh >= dbh_range_by_Year_and_species$sp_range/2
+    
+    ## keep a list of species x year combo to keep in analysis.
+    Species_Year_to_keep <- dbh_range_by_Year_and_species[dbh_range_by_Year_and_species$enough_dbh_range, c("species_code", "Year")]
+    
+    if(solution_to_global_trend %in% "none" & any(table(Species_Year_to_keep$species_code)<30)) species_removed_from_year_analysis <- rbind(species_removed_from_year_analysis, data.frame(site, species_code = names(which(table(Species_Year_to_keep$species_code)<30))))
+    
+    ## remove any species that have less than 30 years
+    Species_Year_to_keep <- Species_Year_to_keep[Species_Year_to_keep$species_code %in% names(which(table(Species_Year_to_keep$species_code)>=30)), ]
+    
+    ## keep a record of that
+    
+    if(solution_to_global_trend %in% "none") all_Species_Year_to_keep <- unique(rbind(all_Species_Year_to_keep,                             data.frame(site,                                                 Species_Year_to_keep)))
+    
+   for(with_Year_or_CO2 in switch(as.character(solution_to_global_trend == "none" & grepl("dbh", what) & nrow(Species_Year_to_keep)>0), "TRUE" = c("", "Year", "CO2")[], "FALSE" = "")) {
+      
+      ## look at collinearity between climate variables ( and CO2 and Year and dbh when relevant) and remove any variable with vif > 10 ####
+    if(grepl("dbh", what) & !with_Year_or_CO2 %in% "") X <- Biol[, c(as.character(best_results_combos$climate), with_Year_or_CO2, "dbh")]
+    if(grepl("dbh", what) & with_Year_or_CO2 %in% "") X <- Biol[, c(as.character(best_results_combos$climate), "dbh")]
+    if(!grepl("dbh", what) & !with_Year_or_CO2 %in% "") X <- Biol[, c(as.character(best_results_combos$climate), with_Year_or_CO2)]
+    if(!grepl("dbh", what) & with_Year_or_CO2 %in% "") X <- Biol[, c(as.character(best_results_combos$climate))]
     
     X <- X[!duplicated(X),]
     
     
     usdm::vif(X)
     (vif_res <-  usdm::vifstep(X, th = 3))
-    sink(paste0("results/", ifelse(with_CO2, "with_CO2/", ""), ifelse(solution_to_global_trend %in% "none", "", paste0(solution_to_global_trend, "/")), what, "/", site, "/VIF.txt"))
+    sink(paste0("results/", ifelse(with_Year_or_CO2 %in% "", "", paste0("with_", with_Year_or_CO2, "/")), ifelse(solution_to_global_trend %in% "none", "", paste0(solution_to_global_trend, "/")), what, "/", site, "/VIF.txt"))
     print(vif_res)
     sink()
     variables_to_keep <- as.character(vif_res@results$Variables)
@@ -570,17 +608,23 @@ for(site in switch(solution_to_global_trend, "none" = sites[6], c("ScottyCreek",
     # prepare subset for dredge
     sexpr <-parse(text = paste("!(", paste0("(`I(", variables_to_keep, "^2)` & !", variables_to_keep, ")", collapse = "|"), ")"))
     
-    # remove second order term for CO2
-    full_model_formula <- gsub("I\\(CO2\\^2\\) \\+ ", "", full_model_formula)
-    sexpr <- parse(text =gsub("\\| \\(`I\\(CO2\\^2\\)` & \\!CO2\\)", "", sexpr))
+    # remove second order term for CO2 and Year
+    full_model_formula <- gsub("I\\(CO2\\^2\\) \\+ |I\\(Year\\^2\\) \\+ ", "", full_model_formula)
+    sexpr <- parse(text =gsub("\\| \\(`I\\(CO2\\^2\\)` & \\!CO2\\)|\\| \\(`I\\(Year\\^2\\)` & \\!Year\\)", "", sexpr))
    
     
     ## identify what variables we should keep for each species, looking at the sum of AIC weights ####
     
+    if( with_Year_or_CO2 %in% "") species_to_keep <- unique(Biol$species_code) else species_to_keep <- unique(Species_Year_to_keep$species_code)
+    
+    
     sum_of_weights_for_each_term_by_sp <- NULL
-    for(sp in unique(Biol$species_code)) {
+    for(sp in species_to_keep) {
       start_time <- Sys.time()
       x <- Biol[Biol$species_code %in% sp,]
+      
+      # keep only years with enough data if we look at CO2 or Year
+      if(!with_Year_or_CO2 %in% "") x <- x[x$Year %in% Species_Year_to_keep$Year[Species_Year_to_keep$species_code %in% sp],]
       
       cat("Running GLS and dredging for species", sp , "and its", length(unique(x$coreID)), "trees...\n")
       
@@ -614,7 +658,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[6], c("ScottyCreek",
       dd$any_u_shaped <-   apply(dd[, columns_to_check_for_ushape], 1, function(x) any(tapply(as.numeric(sign(x)), rep(1:(length(x)/2), each=2), paste, collapse = "") %in% c("-11")))
        
       # save dd
-      write.csv(dd, file = paste0("results/", ifelse(with_CO2, "with_CO2/", ""), ifelse(solution_to_global_trend %in% "none", "", paste0(solution_to_global_trend, "/")), what, "/", site, "/", sp, "_model_comparisons.csv"), row.names = F)
+      write.csv(dd, file = paste0("results/", ifelse(with_Year_or_CO2 %in% "", "", paste0("with_", with_Year_or_CO2, "/")), ifelse(solution_to_global_trend %in% "none", "", paste0(solution_to_global_trend, "/")), what, "/", site, "/", sp, "_model_comparisons.csv"), row.names = F)
       
       # get sum of weights
       # sum_of_weights_for_each_term <- dd[, grepl(paste(c(variables_to_keep, "dbh", "Year"), collapse = "|"), names(dd))]
@@ -644,7 +688,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[6], c("ScottyCreek",
       # save into best_model_summaries
       best_model_summaries <- rbind(
         best_model_summaries,
-        data.frame(with_CO2,
+        data.frame(with_Year_or_CO2,
                    what,
                    site,
                    sp,
@@ -652,7 +696,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[6], c("ScottyCreek",
                    summary(best_model)$tTable)
       )
       best_models_R_squared <- rbind(best_models_R_squared,
-                                     data.frame(with_CO2,
+                                     data.frame(with_Year_or_CO2,
                                                 what,
                                                 site,
                                                 sp,
@@ -664,24 +708,28 @@ for(site in switch(solution_to_global_trend, "none" = sites[6], c("ScottyCreek",
       (ellapsed_time <- difftime(end_time, start_time, units = "mins"))
   
       
-      # try interaction between DBH and climate variable ####
-      if(grepl("dbh", what) & !with_CO2 & "dbh" %in% variables_to_keep & !detrend_climate & !old_records_only & !young_records_only) {
+      # try interaction between DBH and climate if we are not looking at Year or CO2, but if there is the same criteria met than for trying CO2 and Yeart ####
+   
+      if(grepl("dbh", what) & with_Year_or_CO2 %in% "" & "dbh" %in% variables_to_keep & !detrend_climate & !old_records_only & !young_records_only & sp %in% Species_Year_to_keep$species_code) {
+        
+        x <- x[x$Year %in% Species_Year_to_keep$Year[Species_Year_to_keep$species_code %in% sp],]
         
         for(g in names(clim_var_group)) {
-          v_int <-   names(which(sapply(clim_var_group[[g]], grepl, as.character(best_model$call[2]))))
+          v_int <- names(which(sapply(clim_var_group[[g]], grepl, as.character(best_model$call[2]))))
         
           if(length(v_int) > 0 ) {
             bm_clim_int <- update(best_model, fixe = as.formula(paste0("~ . - I(dbh^2) + dbh:", v_int)))
             climate_interactions <- 
-              rbind(climate_interactions,                                         data.frame(with_CO2,
-                                                                                             what,
-                                                                                             site,
-                                                                                             species = sp,
-                                                                                             climate_group = g,
-                                                                                             model_formula = as.character(bm_clim_int$call[2]),
-                                                                                             variable = v_int,
-                                                                                             interaction_coef = fixef(bm_clim_int)[grepl(":", names(fixef(bm_clim_int)))],
-                                                                                             p_value = summary(bm_clim_int)$tTable[grepl(":", rownames(summary(bm_clim_int)$tTable)), "p-value"])
+              rbind(climate_interactions,                                         data.frame(
+                what,
+                site,
+                species = sp,
+                climate_group = g,
+                model_formula = as.character(bm_clim_int$call[2]),
+                variable = v_int,
+                interaction_coef = fixef(bm_clim_int)[grepl(":", names(fixef(bm_clim_int)))],
+                p_value = summary(bm_clim_int)$tTable[grepl(":", rownames(summary(bm_clim_int)$tTable)), "p-value"]
+              )
               )
           }
           
@@ -698,12 +746,12 @@ for(site in switch(solution_to_global_trend, "none" = sites[6], c("ScottyCreek",
     }
     
     
-    rownames(sum_of_weights_for_each_term_by_sp) <- unique(Biol$species_code)
+    rownames(sum_of_weights_for_each_term_by_sp) <- species_to_keep
     
     sum_of_weights_for_each_term_by_sp
     
     # save the plot
-    png(paste0('results/', ifelse(with_CO2, "with_CO2/", ""), ifelse(solution_to_global_trend %in% "none", "", paste0(solution_to_global_trend, "/")), what, "/", site, "/GLS_Sum_of_AICweights_", site, '.png'),
+    png(paste0('results/', ifelse(with_Year_or_CO2 %in% "", "", paste0("with_", with_Year_or_CO2, "/")), ifelse(solution_to_global_trend %in% "none", "", paste0(solution_to_global_trend, "/")), what, "/", site, "/GLS_Sum_of_AICweights_", site, '.png'),
         width = 10,
         height =8,
         units = "in",
@@ -817,7 +865,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[6], c("ScottyCreek",
     
     
     # save plot
-    png(paste0('results/', ifelse(with_CO2, "with_CO2/", ""), ifelse(solution_to_global_trend %in% "none", "", paste0(solution_to_global_trend, "/")), what, "/", site, "/GLS_ALL_variables_responses_", site, '.png'),
+    png(paste0('results/', ifelse(with_Year_or_CO2 %in% "", "", paste0("with_", with_Year_or_CO2, "/")), ifelse(solution_to_global_trend %in% "none", "", paste0(solution_to_global_trend, "/")), what, "/", site, "/GLS_ALL_variables_responses_", site, '.png'),
         width = 10,
         height =8,
         units = "in",
@@ -834,10 +882,10 @@ for(site in switch(solution_to_global_trend, "none" = sites[6], c("ScottyCreek",
     dev.off()
      
     # save plots at this point to later fetch them  ####
-    save(list = grep("^p_|pt|clim_var_group$|ylim_p", ls(), value = T), file = paste0('results/', ifelse(with_CO2, "with_CO2/", ""), ifelse(solution_to_global_trend %in% "none", "", paste0(solution_to_global_trend, "/")), what, "/", site, "/env.RData"))
+    save(list = grep("^p_|pt|clim_var_group$|ylim_p", ls(), value = T), file = paste0('results/', ifelse(with_Year_or_CO2 %in% "", "", paste0("with_", with_Year_or_CO2, "/")), ifelse(solution_to_global_trend %in% "none", "", paste0(solution_to_global_trend, "/")), what, "/", site, "/env.RData"))
     
    
-    } # for(with_CO2 in c(FALSE, TRUE)) 
+    } # for(with_Year_or_CO2 in ...) 
      
    # summarize data used in this analysis ####
     summary_data <- rbind(summary_data, data.frame(site = site, what = what,  
@@ -905,7 +953,15 @@ sink()
 # } # if nothng shows up, no variables were kicked because of collinarity issues
 # 
 
+# save all_Species_Year_to_keep to keep for Year analysis or climate interactions #####
+if(solution_to_global_trend %in% "none") {
+  write.csv(all_Species_Year_to_keep, file = "results/all_Species_Year_to_keep_for_Year_or_clim_x_dbh.csv", row.names = F)
+  write.csv(species_removed_from_year_analysis, file = "results/with_Year/species_removed_from_year_analysis.csv", row.names = F )
+}
+
 } # for(solution_to_global_trend in ...)
+
+
 
 # summary plot for climate  ####
 

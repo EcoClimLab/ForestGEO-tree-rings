@@ -6,7 +6,7 @@ max correlation ( dbh ~ CO2 ):  0.6170125
 
 ---------- VIFs of the remained variables -------- 
   Variables      VIF
-1       pre 1.100851
-2       tmp 1.297644
-3       CO2 1.831887
-4       dbh 1.618378
+1       pre 1.027952
+2       tmn 1.369080
+3       CO2 1.958304
+4       dbh 1.615817
