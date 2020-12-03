@@ -29,7 +29,7 @@ for(solution in c("/", "detrend_climate/", "old_records_only/", "young_records_o
   )
   
   # prepare and save figures ####
-  for (site in switch(solution, "/" = sites, c("ScottyCreek", "NewMexico", "SCBI")[1])) {
+  for (site in switch(solution, "/" = sites, c("ScottyCreek", "NewMexico", "SCBI"))) {
     imgs <- list.files(paste0("results/", solution, c("log_core_measurement", "log_core_measurement_dbh", "log_agb_inc_dbh", "log_BAI_dbh"), "/", site), pattern = "climwin", full.names = T)
     
     variables <- regmatches(imgs, regexpr("climwin_\\D{3}_", imgs))

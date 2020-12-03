@@ -48,7 +48,7 @@ sites_abb <- list(BCI  = "BCI",
                   HarvardForest = "HF",
                   # Nebraska = "NE",
                   Niobara = "Niobara",
-                  Hansley = "Hansley",
+                  Hansley = "NE",
                   Zofin = "ZOF",
                   ScottyCreek = "SC")
 
@@ -347,3 +347,4 @@ grid::grid.text(what_to_show,  x = unit(0.015, "npc"), y = unit(rev(cumsum(c(1/l
 
 grid::grid.text(sites_abb[sites_to_show_case[order(match(sites_to_show_case, sites))]], x = unit(cumsum(c(.05 +.9/2/2, rep(.9/2, 1))), "npc"), y = unit(.99,  "npc"))
 dev.off()
+
