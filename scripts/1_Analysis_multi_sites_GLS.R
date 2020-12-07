@@ -126,6 +126,16 @@ all_Biol <- split(all_Biol, all_Biol$site)
 sites <- names(all_Biol)
 
 # prepare data ####
+## species colors ####
+all_species_codes <- lapply(all_Biol, function(x) levels(droplevels(x$species_code)))
+all_species_colors <- lapply(all_species_codes, function(x) {
+  a <- scales::hue_pal()(length(x))
+  names(a) <- x
+  a
+})
+sapply(all_species_colors, scales::show_col)
+# names(species_colors) <- all_species_codes
+# species_colors["CAOVL"] <- species_colors["CAOV"] # make CAOV and CAOVL the smae color
 
 ## climate data ####
 for(clim_v in climate_variables) {
@@ -300,7 +310,7 @@ all_Biol <- lapply(all_Biol, function(Biol) {
   })
 
 ## Run the Analysis ####
-for(solution_to_global_trend in c("none", "detrend_climate", "old_records_only", "young_records_only")[1]) {
+for(solution_to_global_trend in c("none", "detrend_climate", "old_records_only", "young_records_only")[]) {
   
   last_year_older_records = 1970
   
@@ -570,7 +580,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
     ## keep a list of species x year combo to keep in analysis.
     Species_Year_to_keep <- dbh_range_by_Year_and_species[dbh_range_by_Year_and_species$enough_dbh_range, c("species_code", "Year")]
     
-    if(solution_to_global_trend %in% "none" & any(table(Species_Year_to_keep$species_code)<30)) species_removed_from_year_analysis <- rbind(species_removed_from_year_analysis, data.frame(site, species_code = names(which(table(Species_Year_to_keep$species_code)<30))))
+    if(solution_to_global_trend %in% "none" & any(table(Species_Year_to_keep$species_code)<30)) species_removed_from_year_analysis <- unique(rbind(species_removed_from_year_analysis, data.frame(site, species_code = names(which(table(Species_Year_to_keep$species_code)<30)))))
     
     ## remove any species that have less than 30 years
     Species_Year_to_keep <- Species_Year_to_keep[Species_Year_to_keep$species_code %in% names(which(table(Species_Year_to_keep$species_code)>=30)), ]
@@ -579,7 +589,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
     
     if(solution_to_global_trend %in% "none") all_Species_Year_to_keep <- unique(rbind(all_Species_Year_to_keep,                             data.frame(site,                                                 Species_Year_to_keep)))
     
-   for(with_Year_or_CO2 in switch(as.character(solution_to_global_trend == "none" & grepl("dbh", what) & nrow(Species_Year_to_keep)>0), "TRUE" = c("", "Year", "CO2")[], "FALSE" = "")) {
+   for(with_Year_or_CO2 in switch(as.character(solution_to_global_trend == "none" & grepl("dbh", what) & nrow(Species_Year_to_keep)>0), "TRUE" = c("", "Year", "CO2")[-3], "FALSE" = "")) {
       
       ## look at collinearity between climate variables ( and CO2 and Year and dbh when relevant) and remove any variable with vif > 10 ####
     if(grepl("dbh", what) & !with_Year_or_CO2 %in% "") X <- Biol[, c(as.character(best_results_combos$climate), with_Year_or_CO2, "dbh")]
@@ -806,13 +816,16 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
       } # ignore warnings
       
       # if(!is.null(pt)) {
+      pt$species_code <- pt$species
       pt$species <- factor(pt$species, levels = rownames(sum_of_weights_for_each_term_by_sp))
       pt$species <- factor(paste0(pt$species, " (",tapply(Biol$coreID,  Biol$species_code, function(x) length(unique(x)))[as.character(pt$species)], ")"))
       pt$expfit <- exp(pt$fit + .5*pt$sigma^2) # exp(pt$fit) would give epected median.
       pt$lwr <- exp(pt$fit + .5*pt$sigma^2 - 1.96 * pt$se.fit)# exp(pt$fit - 1.96 * pt$se.fit)
       pt$upr <- exp(pt$fit + .5*pt$sigma^2 + 1.96 * pt$se.fit)
      
-      
+      species_colors <- all_species_colors[[site]]
+      names(species_colors) <- pt$species[match(names(species_colors), pt$species_code)]
+        
       p <- ggplot(data = pt[pt$draw,], aes(x = varying_x, y = expfit, group = species))
       if(v != "dbh") p <- p + geom_rect(xmin = mean(Biol[, v], na.rm = T) - sd(Biol[, v], na.rm = T), ymin = min(pt$lwr), xmax = mean(Biol[, v], na.rm = T) + sd(Biol[, v], na.rm = T), ymax = max(pt$upr), fill = "grey" , alpha=0.01) + geom_vline(xintercept = mean(Biol[, v], na.rm = T), col = "grey")
       
@@ -822,13 +835,15 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
       
       time_window_text <- paste(paste0(ifelse(time_window_prev, "p.", "c."),month.abb[time_window]), collapse = "-") #  paste0("\nfrom ", paste(paste0(ifelse(time_window_prev, "prev. ", "curr. "), month.abb[time_window]), collapse = "\nto "))
       
+      
       p <- p + geom_line(aes(col = species), linetype = as.character(p$data$sig)) +
         # scale_x_continuous(trans= ifelse(v %in% "dbh", 'log','identity')) +
         labs(#title = paste0(v, ifelse(v %in% best_results_combos$climate, time_window_text, "")),
              x = paste(v, ifelse(v %in% best_results_combos$climate, time_window_text, ""), variables_units[[v]]),
              y = "") + #"core measurements") +
         geom_ribbon(aes(ymin=lwr, ymax=upr, bg = species), alpha=0.25) +
-        scale_colour_hue(drop = F) + scale_fill_hue(drop = F) + 
+        scale_color_manual(values = species_colors) + scale_fill_manual(values = species_colors) +
+        # scale_colour_hue(drop = F) + scale_fill_hue(drop = F) + 
         theme_classic() +
         theme(text = element_text(size = 10))
       
@@ -843,13 +858,14 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
     }
     
     g_legend <- function()
-      {
-      a.gplot <- ggplot(data = pt, aes(x = varying_x, y = expfit)) + geom_line(aes(group = species, col = species)) +  geom_ribbon(aes(ymin=lwr, ymax=upr, bg = species), alpha=0.25)
-      tmp <- ggplot_gtable(ggplot_build(a.gplot))
-      leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
-      legend <- tmp$grobs[[leg]]
-      return(legend)
-      }
+    {
+      a.gplot <- ggplot(data = pt, aes(x = varying_x, y = expfit)) + geom_line(aes(group = species, col = species)) +  geom_ribbon(aes(ymin=lwr, ymax=upr, bg = species), alpha=0.25) +
+        scale_color_manual(values = species_colors) + scale_fill_manual(values = species_colors)
+        tmp <- ggplot_gtable(ggplot_build(a.gplot))
+        leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
+        legend <- tmp$grobs[[leg]]
+        return(legend)
+    }
     
     # existing_plots <- paste0("p_",  c("dbh", variables_to_keep))
     existing_plots <- ls()[grepl("^p_", ls())]
@@ -955,8 +971,8 @@ sink()
 
 # save all_Species_Year_to_keep to keep for Year analysis or climate interactions #####
 if(solution_to_global_trend %in% "none") {
-  write.csv(all_Species_Year_to_keep, file = "results/Species_Year_to_keep_for_Year_or_clim_x_dbh.csv", row.names = F)
-  write.csv(species_removed_from_year_analysis, file = "results/species_removed_from_year_analysis.csv", row.names = F )
+  write.csv(all_Species_Year_to_keep, file = "results/Species_Year_kept_for_Year_or_clim_x_dbh.csv", row.names = F)
+  write.csv(species_removed_from_year_analysis, file = "results/Species_droped_for_Year_or_clim_x_dbh.csv", row.names = F )
 }
 
 } # for(solution_to_global_trend in ...)
