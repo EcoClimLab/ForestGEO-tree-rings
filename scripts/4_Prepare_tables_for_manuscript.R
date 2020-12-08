@@ -21,7 +21,7 @@ sites_abb <- list(BCI  = "BCI",
                   Zofin = "ZOF",
                   ScottyCreek = "SC")
 # load data ####
-species_list <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data/species%20list/sitespecies.csv?token=AEWDCIPVFUDQFVEDD7K7RZC73EP4M", stringsAsFactors = F)
+species_list <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data/species%20list/sitespecies.csv?token=AEWDCIJAQN2KPRHGSP3F35K73EXGG", stringsAsFactors = F)
 # bark <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data/bark/bark_depth.csv?token=AEWDCIMNKUU2YC7ET5X5HZK7KJK3W")
 
 load("results/BCI_all_env.RData")
@@ -49,7 +49,10 @@ species_sites$site <- unlist(sites_abb[gsub("\\d", "", row.names(species_sites))
 species_summary$sites.sampled <- tapply(species_sites$site, species_sites$species_code, paste0, collapse = ", ")[as.character(species_summary$species.code)]
 
 ## add bark allomatries
-species_summary$bark.allometry <- tapply(paste0(ifelse(is.na(species_list$bark_species) | species_list$bark_species == "", "neglected", paste(species_list$bark_species, "in ")), species_list$bark_site), species_list$species_code, paste, collapse = ", ")[as.character(species_summary$species.code)]
+species_summary$bark.allometry <- tapply(paste0(ifelse(is.na(species_list$bark_species) | species_list$bark_species == "", "neglected", paste(species_list$latin, "in ")), species_list$bark_site), species_list$species_code, function(x) paste(unique(x), collapse = ", "))[as.character(species_summary$species.code)]
+
+species_summary$bark.allometry <- gsub(", neglected.*$", "", species_summary$bark.allometry ) # remove repetition of neglected
+species_summary$bark.allometry <- gsub(" ,", ",", species_summary$bark.allometry ) # remove space before comma
 
 ## order by species code
 species_summary <- species_summary[order(species_summary$species.code), ]
