@@ -310,7 +310,7 @@ all_Biol <- lapply(all_Biol, function(Biol) {
   })
 
 ## Run the Analysis ####
-for(solution_to_global_trend in c("none", "detrend_climate", "old_records_only", "young_records_only")[]) {
+for(solution_to_global_trend in c("none", "detrend_climate", "old_records_only", "young_records_only")[1]) {
   
   last_year_older_records = 1970
   
@@ -347,7 +347,7 @@ species_removed_from_year_analysis <- NULL
 data_to_keep <- c(ls(), "data_to_keep")
 
 
-for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", "NewMexico", "SCBI")[])) {
+for(site in switch(solution_to_global_trend, "none" = sites[1], c("ScottyCreek", "NewMexico", "SCBI")[])) {
   
   
   rm(list = ls()[!ls() %in% data_to_keep])
@@ -383,7 +383,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
     file.remove(list.files(paste0("results/", ifelse(solution_to_global_trend %in% "none", "", paste0(solution_to_global_trend, "/")), what, "/", site), full.names = T))
   
     
-    ## if looking at older records only, remove data prioir to date chosen ####
+    ## if looking at older records only, remove data prior to date chosen ####
     if(old_records_only) Biol <- Biol[Biol$Year <= last_year_older_records, ]
     if(young_records_only) Biol <- Biol[Biol$Year > last_year_older_records, ]
     
@@ -487,7 +487,20 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
                            cdate = Clim$Date, bdate = Biol[!is.na(Biol$residuals), ]$Date,
                            cmissing = "method1") 
     
-    # Check if best windows for each variable meet the maximum gap requirement (average of month-variale combination <= 5% of the time period) ####
+    
+    # # change best windows to the 95 CI (see ssue #95) ####
+    # names(results$combos) <- c("response", "climate", "type", "stat", "func", "original_DeltaAICc", "original_WindowOpen", "original_WindowClose")
+    # mytry <- NULL
+    # for(i in 1:nrow(results$combos)) {
+    #   mytry <- rbind(mytry, cbind(results$combos[i, ], get_95_CI_window_showed_in_plot(dataset = results[[i]]$Dataset)))
+    # }
+    # if(!all(order(mytry$original_DeltaAICc) == order(mytry$deltaAICc))) stop("not same order of AICc")
+#   }
+# }
+# }
+    
+    
+# Check if best windows for each variable meet the maximum gap requirement (average of month-variale combination <= 5% of the time period) ####
     adjusted_clim_gap <- adjusted_clim_gaps[[site]]
     variables_dropped_site <- NULL
     
@@ -925,7 +938,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
 } # for sites in ..
 
 # save summary_data ####
-if(!detrend_climate & !old_records_only & !young_records_only) write.csv(summary_data, "results/summary_cores_analyzed.csv", row.names = F)
+if(solution_to_global_trend %in% "none") write.csv(summary_data, "results/summary_cores_analyzed.csv", row.names = F)
 
 # save best_models summaries ####
 write.csv(best_model_summaries, file = paste0("results/", ifelse(solution_to_global_trend %in% "none", "", paste0(solution_to_global_trend, "/")), "best_model_summaries.csv"), row.names = F)
