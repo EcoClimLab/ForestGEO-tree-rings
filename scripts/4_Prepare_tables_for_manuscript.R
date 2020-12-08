@@ -21,7 +21,7 @@ sites_abb <- list(BCI  = "BCI",
                   Zofin = "ZOF",
                   ScottyCreek = "SC")
 # load data ####
-species_list <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data/species%20list/sitespecies.csv?token=AEWDCINRXO6SKIMAPCIKMQ2726I7S", stringsAsFactors = F)
+species_list <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data/species%20list/sitespecies.csv?token=AEWDCIPVFUDQFVEDD7K7RZC73EP4M", stringsAsFactors = F)
 # bark <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data/bark/bark_depth.csv?token=AEWDCIMNKUU2YC7ET5X5HZK7KJK3W")
 
 load("results/BCI_all_env.RData")
@@ -49,7 +49,7 @@ species_sites$site <- unlist(sites_abb[gsub("\\d", "", row.names(species_sites))
 species_summary$sites.sampled <- tapply(species_sites$site, species_sites$species_code, paste0, collapse = ", ")[as.character(species_summary$species.code)]
 
 ## add bark allomatries
-species_summary$bark.allometry <- tapply(paste(ifelse(is.na(species_list$bark_species) | species_list$bark_species == "", "neglected", species_list$bark_species), "in", species_list$site), species_list$species_code, paste, collapse = ", ")[as.character(species_summary$species.code)]
+species_summary$bark.allometry <- tapply(paste0(ifelse(is.na(species_list$bark_species) | species_list$bark_species == "", "neglected", paste(species_list$bark_species, "in ")), species_list$bark_site), species_list$species_code, paste, collapse = ", ")[as.character(species_summary$species.code)]
 
 ## order by species code
 species_summary <- species_summary[order(species_summary$species.code), ]
@@ -70,6 +70,7 @@ write.csv(species_summary, "doc/manuscript/tables_figures/species.csv", row.name
 summary_cores <- read.csv("results/summary_cores_analyzed.csv")
 
 names(summary_cores)
+
 ## get n trees all and n cores all
 idx = !grepl("dbh", summary_cores$what)
 
@@ -98,6 +99,14 @@ C <- summary_cores %>%
 
 ## put everything together
 summary_samples <- left_join(left_join(A, B), C)
+
+## replace n_trees_dbh by 0 if NA
+summary_samples$n.trees.dbh[is.na(summary_samples$n.trees.dbh)] <- 0
+summary_samples$n.cores.dbh[is.na(summary_samples$n.cores.dbh)] <- 0
+
+## replace dbh.range.sampled NA-NA by "unknown"
+summary_samples$dbh.range.sampled[summary_samples$dbh.range.sampled %in% "NA-NA"] <- "unknown"
+  
 
 ## change site names to abbreviations
 summary_samples$site <- unlist(sites_abb[as.character(summary_samples$site)])
