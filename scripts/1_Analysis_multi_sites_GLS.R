@@ -119,7 +119,7 @@ clim_gaps <- clim_gaps[clim_gaps$start_climvar.class %in% climate_variables, ]
 CO2 <- read.csv(path_to_CO2)
 
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIIQ3RK3X4PFNKH4MKC7Z73F4")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCINQIURFEQVUBFINT2C73E3T6")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
@@ -347,7 +347,7 @@ species_removed_from_year_analysis <- NULL
 data_to_keep <- c(ls(), "data_to_keep")
 
 
-for(site in switch(solution_to_global_trend, "none" = sites[1], c("ScottyCreek", "NewMexico", "SCBI")[])) {
+for(site in switch(solution_to_global_trend, "none" = sites, c("ScottyCreek", "NewMexico", "SCBI")[])) {
   
   
   rm(list = ls()[!ls() %in% data_to_keep])
@@ -946,9 +946,17 @@ write.csv(best_models_R_squared, file = paste0("results/", ifelse(solution_to_gl
 # save and summarize climate_interactions ####
 if(!detrend_climate & !old_records_only & !young_records_only) {
   write.csv(climate_interactions, file = "results/climate_interactions_coeficients.csv", row.names = F)
-
-climate_interactions_summary <- aggregate(p_value ~ what + site + climate_group, data = climate_interactions, FUN = function(x) round(sum(x<0.05)*100/length(x), 2))
-names(climate_interactions_summary) <- gsub("p_value", "freq_sig", names(climate_interactions_summary))
+  
+  n_sig <- aggregate(p_value ~ what + site + climate_group, data = climate_interactions, FUN = function(x) sum(x<0.05))
+  n_species <- aggregate(species ~ what + site + climate_group, data = climate_interactions, FUN = function(x) length(unique(x)))
+  freq_sig <- aggregate(p_value ~ what + site + climate_group, data = climate_interactions, FUN = function(x) round(sum(x<0.05)*100/length(x), 2))
+  
+  names(n_sig) <- gsub("p_value", "n_sig", names(n_sig))
+  names(n_species) <- gsub("species", "n_species", names(n_species))
+  names(freq_sig) <- gsub("p_value", "freq_sig", names(freq_sig))
+  
+  
+climate_interactions_summary <- left_join(left_join(n_sig, n_species), freq_sig)
 
 write.csv(climate_interactions_summary, file = "results/climate_interactions_summary.csv", row.names = F)
 } # if(!detrend_climate)
