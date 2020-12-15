@@ -347,7 +347,7 @@ species_removed_from_year_analysis <- NULL
 data_to_keep <- c(ls(), "data_to_keep")
 
 
-for(site in switch(solution_to_global_trend, "none" = sites, c("ScottyCreek", "NewMexico", "SCBI")[])) {
+for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", "NewMexico", "SCBI")[])) {
   
   
   rm(list = ls()[!ls() %in% data_to_keep])
@@ -357,7 +357,7 @@ for(site in switch(solution_to_global_trend, "none" = sites, c("ScottyCreek", "N
   reference_date <- reference_dates[[site]]
   window_range <-  window_ranges[[site]]
   
-  if(!detrend_climate & !old_records_only & !young_records_only) file.remove(list.files("results/residuals_by_tag_examples/", pattern = site, full.names = T))
+  # if(!detrend_climate & !old_records_only & !young_records_only) file.remove(list.files("results/residuals_by_tag_examples/", pattern = site, full.names = T))
   
   variables_dropped[[site]] <- list()
   
@@ -419,7 +419,7 @@ for(site in switch(solution_to_global_trend, "none" = sites, c("ScottyCreek", "N
       test <- gam(Y~ s(Year), data = x)
       
       
-      if(!detrend_climate & !old_records_only & !young_records_only & rbinom(1, 1, 0.05)==1) {
+      if(!detrend_climate & !old_records_only & !young_records_only & FALSE) { # rbinom(1, 1, 0.05)==1) {
         png(paste0('results/residuals_by_tag_examples/', paste(x$species_code[1], x$tree_status[1], t, sep = "_" ), "_", gsub("log_", "", what), "_Year_GAM", "_", site, '.png'),
             width = 8,
             height =8,
@@ -839,7 +839,7 @@ for(site in switch(solution_to_global_trend, "none" = sites, c("ScottyCreek", "N
       species_colors <- all_species_colors[[site]]
       names(species_colors) <- pt$species[match(names(species_colors), pt$species_code)]
         
-      p <- ggplot(data = pt[pt$draw,], aes(x = varying_x, y = expfit, group = species))
+      p <- ggplot(data = pt[pt$draw,], aes(x = varying_x, y = expfit))
       if(v != "dbh") p <- p + geom_rect(xmin = mean(Biol[, v], na.rm = T) - sd(Biol[, v], na.rm = T), ymin = min(pt$lwr), xmax = mean(Biol[, v], na.rm = T) + sd(Biol[, v], na.rm = T), ymax = max(pt$upr), fill = "grey" , alpha=0.01) + geom_vline(xintercept = mean(Biol[, v], na.rm = T), col = "grey")
       
       time_window <- reference_date[2] - as.numeric(best_results_combos[best_results_combos$climate %in% v, c("WindowOpen", "WindowClose")])
@@ -855,7 +855,7 @@ for(site in switch(solution_to_global_trend, "none" = sites, c("ScottyCreek", "N
              x = paste(v, ifelse(v %in% best_results_combos$climate, time_window_text, ""), variables_units[[v]]),
              y = "") + #"core measurements") +
         geom_ribbon(aes(ymin=lwr, ymax=upr, bg = species), alpha=0.25) +
-        scale_color_manual(values = species_colors) + scale_fill_manual(values = species_colors) +
+        scale_color_manual(values = species_colors[unique(pt$species[pt$draw])]) + scale_fill_manual(values = species_colors[unique(pt$species[pt$draw])]) +
         # scale_colour_hue(drop = F) + scale_fill_hue(drop = F) + 
         theme_classic() +
         theme(text = element_text(size = 10))
