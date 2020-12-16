@@ -924,7 +924,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
     dev.off()
      
     # save plots at this point to later fetch them  ####
-    save(list = grep("^p_|pt|clim_var_group$|ylim_p", ls(), value = T), file = paste0('results/', ifelse(with_Year_or_CO2 %in% "", "", paste0("with_", with_Year_or_CO2, "/")), ifelse(solution_to_global_trend %in% "none", "", paste0(solution_to_global_trend, "/")), what, "/", site, "/env.RData"))
+    save(list = grep("^p_|pt|clim_var_group$|ylim_p|species_colors", ls(), value = T), file = paste0('results/', ifelse(with_Year_or_CO2 %in% "", "", paste0("with_", with_Year_or_CO2, "/")), ifelse(solution_to_global_trend %in% "none", "", paste0(solution_to_global_trend, "/")), what, "/", site, "/env.RData"))
     
    
     } # for(with_Year_or_CO2 in ...) 

@@ -76,12 +76,14 @@ v_names <- list(tmn = "expression(T[min]~",
 
 g_legend <- function(x = "pt"){
   p <- get(x, temp_env)
-  a.gplot <- ggplot(data = p, aes(x = varying_x, y = expfit)) + geom_line(aes(group = species, col = species)) +  geom_ribbon(aes(ymin=lwr, ymax=upr, col = NULL, bg = species), alpha=0.25) + theme(legend.title=element_blank())+ guides(col=guide_legend(ncol=2), bg=guide_legend(ncol=2))
+  a.gplot <- ggplot(data = p, aes(x = varying_x, y = expfit)) + geom_line(aes(group = species, col = species)) +  geom_ribbon(aes(ymin=lwr, ymax=upr, col = NULL, bg = species), alpha=0.25)+
+    scale_color_manual(values = species_colors) + scale_fill_manual(values = species_colors) + theme(legend.title=element_blank(),  legend.background = element_blank(), legend.box.background =element_blank())+ guides(col=guide_legend(ncol=2), bg=guide_legend(ncol=2))
   tmp <- ggplot_gtable(ggplot_build(a.gplot))
   leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
   legend <- tmp$grobs[[leg]]
   return(legend)
 }
+
 
 # DBH response at each sites and for each response ####
 what_to_show <- c("log_core_measurement_dbh" = expression(RW~(mm)), "log_BAI_dbh" = expression(BAI~(cm^2)), "log_agb_inc_dbh" = expression(Delta*AGB~(kg)))
@@ -202,10 +204,15 @@ for(site in sites_with_dbh){
     
     # save x-range
     xlim_p[[paste0(site, what)]] <-  range(p$data$Year)
+    
+    # get the species colors
+    species_colors <- get("species_colors", temp_env)
   } # for what in ...
   
   # add a plot for the legend
+
   all_plots[[paste0(site, "leg")]] <- g_legend()
+
 } # for site in sites
 
 png("doc/manuscript/tables_figures/Year_responses_BAI_only.png", width = 8, height = 10, res = 300, units = "in")
