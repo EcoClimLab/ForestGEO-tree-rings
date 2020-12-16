@@ -805,6 +805,9 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
         best_model <- get(paste0(sp, "_best_model"))
         x <- Biol[Biol$species_code %in% sp,]
         
+        # keep only years with enough data if we look at CO2 or Year
+          if(!with_Year_or_CO2 %in% "") x <- x[x$Year %in% Species_Year_to_keep$Year[Species_Year_to_keep$species_code %in% sp],]
+        
         varying_x <- data.frame(varying_x = seq(min(x[, v], na.rm = T), max(x[, v], na.rm = T), length.out = 100)) ; colnames(varying_x) <- v
         # constant_variables <- c("dbh", variables_to_keep)[!c("dbh", variables_to_keep) %in% v]
         constant_variables <- c(variables_to_keep)[!c(variables_to_keep) %in% v]
@@ -840,7 +843,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
       names(species_colors) <- pt$species[match(names(species_colors), pt$species_code)]
         
       p <- ggplot(data = pt[pt$draw,], aes(x = varying_x, y = expfit))
-      if(v != "dbh") p <- p + geom_rect(xmin = mean(Biol[, v], na.rm = T) - sd(Biol[, v], na.rm = T), ymin = min(pt$lwr), xmax = mean(Biol[, v], na.rm = T) + sd(Biol[, v], na.rm = T), ymax = max(pt$upr), fill = "grey" , alpha=0.01) + geom_vline(xintercept = mean(Biol[, v], na.rm = T), col = "grey")
+      if(!v %in% c("dbh", "Year")) p <- p + geom_rect(xmin = mean(Biol[, v], na.rm = T) - sd(Biol[, v], na.rm = T), ymin = min(pt$lwr), xmax = mean(Biol[, v], na.rm = T) + sd(Biol[, v], na.rm = T), ymax = max(pt$upr), fill = "grey" , alpha=0.01) + geom_vline(xintercept = mean(Biol[, v], na.rm = T), col = "grey")
       
       time_window <- reference_date[2] - as.numeric(best_results_combos[best_results_combos$climate %in% v, c("WindowOpen", "WindowClose")])
       time_window_prev <- time_window <= 0
@@ -883,7 +886,12 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
     # existing_plots <- paste0("p_",  c("dbh", variables_to_keep))
     existing_plots <- ls()[grepl("^p_", ls())]
     
-    grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  get(x) + ylim(range(ylim_p))), ncol = ifelse(length(existing_plots) %in% 4, 2, length(existing_plots)))),
+    grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x) {
+      x <- get(x)
+      x$layers[[1]]$aes_params$ymin <- range(ylim_p)[1]
+      x$layers[[1]]$aes_params$ymax <- range(ylim_p)[2]
+      x + ylim(range(ylim_p))
+      }), ncol = ifelse(length(existing_plots) %in% 4, 2, length(existing_plots)))),
                  g_legend(),
                  nrow = 1,
                  widths = c(10, 1))
@@ -900,10 +908,15 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
         units = "in",
         res = 300)
     
-    grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  get(x) + ylim(range(ylim_p))), ncol = ifelse(length(existing_plots) %in% 4, 2, length(existing_plots)))),
-                 g_legend(),
-                 nrow = 1,
-                 widths = c(10, 1))
+    grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x) {
+      x <- get(x)
+      x$layers[[1]]$aes_params$ymin <- range(ylim_p)[1]
+      x$layers[[1]]$aes_params$ymax <- range(ylim_p)[2]
+      x + ylim(range(ylim_p))
+    }), ncol = ifelse(length(existing_plots) %in% 4, 2, length(existing_plots)))),
+    g_legend(),
+    nrow = 1,
+    widths = c(10, 1))
     
     grid::grid.text(switch (gsub("_dbh", "", what), log_core_measurement = "core measurement (mm)",
                             log_agb_inc = "AGB increment (Mg C)",
