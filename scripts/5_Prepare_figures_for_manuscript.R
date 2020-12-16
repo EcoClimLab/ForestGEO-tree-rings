@@ -127,6 +127,99 @@ grid::grid.text("DBH (cm)", x = unit(.5, "npc"), y = unit(0.015,  "npc"))
 
 dev.off()
 
+# Year response at each sites and for each response ####
+what_to_show <- c("log_core_measurement_dbh" = expression(RW~(mm)), "log_BAI_dbh" = expression(BAI~(cm^2)), "log_agb_inc_dbh" = expression(Delta*AGB~(kg)))
+
+n_sites <- length(sites_with_dbh)
+
+all_plots <- list()
+for(site in sites_with_dbh){
+  for(what in names(what_to_show)) {
+    temp_env <- new.env()
+    load(paste0('results/with_Year/', what, "/", site, "/env.RData"), envir = temp_env) 
+    
+    p <- get("p_Year", envir = temp_env)
+    
+    # remove title and xlab of p
+    p$labels$title <- NULL
+    p$labels$x <- NULL
+    p$labels$xintercept <- NULL
+    
+    # change ylim to scale across sites 
+    p <- p + ylim(range(get("ylim_p", temp_env)) * ifelse(what == "log_agb_inc_dbh", 1000, 1)) # ylim(ylim_p[[what]][["dbh"]])
+    
+    # if p is AGB, convert to kg
+    if(what == "log_agb_inc_dbh") p$data[c("expfit", "lwr", "upr")] <-   p$data[c("expfit", "lwr", "upr")]*1000
+    
+    # save into all_plots
+    all_plots[[paste0(site, what)]] <- p
+  } # for what in ...
+  
+  # add a plot for the legend
+  all_plots[[paste0(site, "leg")]] <- g_legend()
+} # for site in sites
+
+png("doc/manuscript/tables_figures/Year_responses.png", width = 8, height = 10, res = 300, units = "in")
+
+grid.arrange(arrangeGrob(grobs = all_plots, ncol = 4, vp= grid::viewport(width=0.95, height=0.95)))
+
+
+grid::grid.text(sites_abb[sites_with_dbh], x = unit(0.025, "npc"), y = unit(rev(cumsum(c(.95/n_sites/2, rep(.95/n_sites, n_sites-1)))) + .035, "npc"), rot = 90)
+
+grid::grid.text(what_to_show, x = unit(cumsum(c(.05 +.9/4/2, rep(.9/4, 2))), "npc"), y = unit(.99,  "npc"))
+
+grid::grid.text("Year", x = unit(.5, "npc"), y = unit(0.015,  "npc"))
+
+dev.off()
+
+# Year response only for log_BAI_dbh response ####
+what_to_show <- c("log_BAI_dbh" = expression(BAI~(cm^2)))
+
+n_sites <- length(sites_with_dbh)
+
+all_plots <- list()
+xlim_p <- NULL
+for(site in sites_with_dbh){
+  for(what in names(what_to_show)) {
+    temp_env <- new.env()
+    load(paste0('results/with_Year/', what, "/", site, "/env.RData"), envir = temp_env) 
+    
+    p <- get("p_Year", envir = temp_env)
+    
+    # remove title and xlab of p
+    p$labels$title <- NULL
+    p$labels$x <- NULL
+    p$labels$xintercept <- NULL
+    
+    # change ylim to scale across sites 
+    p <- p + ylim(range(get("ylim_p", temp_env)) * ifelse(what == "log_agb_inc_dbh", 1000, 1)) # ylim(ylim_p[[what]][["dbh"]])
+    
+    # if p is AGB, convert to kg
+    if(what == "log_agb_inc_dbh") p$data[c("expfit", "lwr", "upr")] <-   p$data[c("expfit", "lwr", "upr")]*1000
+    
+    # save into all_plots
+    all_plots[[paste0(site, what)]] <- p
+    
+    # save x-range
+    xlim_p[[paste0(site, what)]] <-  range(p$data$Year)
+  } # for what in ...
+  
+  # add a plot for the legend
+  all_plots[[paste0(site, "leg")]] <- g_legend()
+} # for site in sites
+
+png("doc/manuscript/tables_figures/Year_responses_BAI_only.png", width = 8, height = 10, res = 300, units = "in")
+
+grid.arrange(do.call(arrangeGrob, c(lapply(all_plots, function(x) if(!is.null(x$data)) x + xlim(range(xlim_p)) else x), ncol = 2)), vp= grid::viewport(width=0.95, height=0.95))
+
+grid::grid.text(sites_abb[sites_with_dbh], x = unit(0.025, "npc"), y = unit(rev(cumsum(c(.95/n_sites/2, rep(.95/n_sites, n_sites-1)))) + .035, "npc"), rot = 90)
+
+grid::grid.text(what_to_show, x = unit(0.5, "npc"), y = unit(.99,  "npc"))
+
+grid::grid.text("Year", x = unit(.5, "npc"), y = unit(0.015,  "npc"))
+
+dev.off()
+
 # Pre and Temp groups ####
 
 
