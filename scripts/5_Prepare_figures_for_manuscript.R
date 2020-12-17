@@ -110,6 +110,10 @@ for(site in sites_with_dbh){
     
     # save into all_plots
     all_plots[[paste0(site, what)]] <- p
+    
+    
+    # get the species colors
+    species_colors <- get("species_colors", temp_env)
   } # for what in ...
   
   # add a plot for the legend
@@ -155,6 +159,10 @@ for(site in sites_with_dbh){
     
     # save into all_plots
     all_plots[[paste0(site, what)]] <- p
+    
+    
+    # get the species colors
+    species_colors <- get("species_colors", temp_env)
   } # for what in ...
   
   # add a plot for the legend
@@ -254,6 +262,10 @@ for(site in sites){
     p$labels$x <- eval(parse(text = gsub(" |  ", "~", gsub("-1", "\\^-1", paste0(gsub(substr(p$labels$x, 1, 4), v_names[substr(p$labels$x, 1, 3)], p$labels$x), ")")))))
     assign(x, p, temp_env)
   })
+  
+  
+  # get the species colors
+  species_colors <- get("species_colors", temp_env)
   
   # add legend
   
@@ -413,6 +425,10 @@ for(site in sites_with_dbh){
     p$labels$x <- eval(parse(text = gsub(" |  ", "~", gsub("-1", "\\^-1", paste0(gsub(substr(p$labels$x, 1, 4), v_names[substr(p$labels$x, 1, 3)], p$labels$x), ")")))))
     assign(x, p, temp_env)
   })
+  
+  
+  # get the species colors
+  species_colors <- get("species_colors", temp_env)
   
  # get the legend
   

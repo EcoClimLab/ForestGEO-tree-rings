@@ -5,6 +5,8 @@ rm(list = ls())
 
 # load libraries ####
 library(png)
+sites <- list.files("results/log_core_measurement", pattern = "env.RData")
+sites <- gsub("_all_env.RData", "", sites)
 
 # make plots ####
 for(solution in c("/", "detrend_climate/", "old_records_only/", "young_records_only/")[]) {
@@ -13,8 +15,7 @@ for(solution in c("/", "detrend_climate/", "old_records_only/", "young_records_o
   file.remove(list.files(paste0("results/", solution, "climwin_plots_combined/"), full.names = T))
   
   # prepare site names ####
-  sites <- list.files("results", pattern = "env.RData")
-  sites <- gsub("_all_env.RData", "", sites)
+  
   
   # prepare order_plots ####
   order_plots <- list(log_core_measurement = expression(RW~"- all cores"), 
