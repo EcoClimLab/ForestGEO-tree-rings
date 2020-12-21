@@ -49,7 +49,8 @@ species_sites$site <- unlist(sites_abb[gsub("\\d", "", row.names(species_sites))
 species_summary$sites.sampled <- tapply(species_sites$site, species_sites$species_code, paste0, collapse = ", ")[as.character(species_summary$species.code)]
 
 ## add bark allomatries
-species_summary$bark.allometry <- tapply(paste0(ifelse(is.na(species_list$bark_species) | species_list$bark_species == "", "neglected", paste(species_list$bark_latin, "in ")), species_list$bark_site), species_list$species_code, function(x) paste(unique(x), collapse = ", "))[as.character(species_summary$species.code)]
+species_summary$bark.allometry <- tapply(ifelse(is.na(species_list$bark_species) | species_list$bark_species == "", "neglected", species_list$bark_latin), species_list$species_code, function(x) paste(unique(x), collapse = ", "))[as.character(species_summary$species.code)] #tapply(paste0(ifelse(is.na(species_list$bark_species) | species_list$bark_species == "", "neglected", paste(species_list$bark_latin, "in ")), species_list$bark_site), species_list$species_code, function(x) paste(unique(x), collapse = ", "))[as.character(species_summary$species.code)]
+
 
 species_summary$bark.allometry <- gsub(", neglected.*$", "", species_summary$bark.allometry ) # remove repetition of neglected
 species_summary$bark.allometry <- gsub(" ,", ",", species_summary$bark.allometry ) # remove space before comma
