@@ -16,24 +16,24 @@
 \contentsline {subsection}{Appendix S6. Analysis of DBH-growth relationships by decade}{8}{section*.17}% 
 \contentsline {subsection}{Table S1. Site Details.}{9}{section*.18}% 
 \contentsline {subsection}{Table S2. Species analyzed, their characteristics, and bark allometries applied.}{10}{section*.20}% 
-\contentsline {subsection}{Table S3. Sampling details for species by site.}{12}{section*.22}% 
-\contentsline {subsection}{Table S4. Allometric equations for bark thickness.}{13}{section*.24}% 
-\contentsline {subsection}{Table S5. Qualtiative comparison of results from this study with previous studies employing conventional methods.}{14}{section*.26}% 
-\contentsline {subsection}{Figure S1. Comparison of our approach with traditional methods of identifying climate signals: LITU at SCBI.}{17}{section*.27}% 
-\contentsline {subsection}{Figure S2. Comparison of our approach with traditional methods of identifying climate signals: ABAL at Zofin.}{18}{section*.28}% 
-\contentsline {subsection}{Figure S3. Comparison of our approach with traditional methods of identifying climate signals: PSME at Cedar Breaks.}{19}{section*.29}% 
-\contentsline {subsection}{Figure S4. Comparison of our approach with traditional methods of identifying climate signals: PIMA at Scotty Creek.}{20}{section*.30}% 
-\contentsline {subsection}{Figure S5. (PRE at SCBI)}{21}{section*.31}% 
-\contentsline {subsection}{Figure S6. (PET at SCBI)}{22}{section*.32}% 
-\contentsline {subsection}{Figure S7. (TMP/TMN at BCI)}{23}{section*.33}% 
-\contentsline {subsection}{Figure S9. Best GLS models for Barro Colorado Island (Panama)}{24}{section*.34}% 
-\contentsline {subsection}{Figure S10. Best GLS models for Huai Kha Khaeng (Thailand)}{25}{section*.36}% 
-\contentsline {subsection}{Figure S11. Best GLS models for the Smithsonian Conservation Biology Institute (Virginia, USA)}{26}{section*.38}% 
-\contentsline {subsection}{Figure S12. Best GLS models for Lilley Dickey Woods (Indiana, USA)}{27}{section*.40}% 
-\contentsline {subsection}{Figure S13. Best GLS models for Harvard Forest (Massachusetts, USA)}{28}{section*.42}% 
-\contentsline {subsection}{Figure S14. Best GLS models for Zofin Forest (Czech Republic)}{29}{section*.44}% 
-\contentsline {subsection}{Figure S15. Best GLS models for Niobrara/ Halsey (Nebraska, USA)}{30}{section*.46}% 
-\contentsline {subsection}{Figure S16. Best GLS models for Little Tesuque (New Mexico, USA)}{31}{section*.48}% 
-\contentsline {subsection}{Figure S17. Best GLS models for Cedar Breaks (Utah, USA)}{32}{section*.50}% 
-\contentsline {subsection}{Figure S18. Best GLS models for Scotty Creek (Northwest Territory, Canada)}{33}{section*.52}% 
-\contentsline {subsection}{SI References}{34}{section*.54}% 
+\contentsline {subsection}{Table S3. Sampling details for species by site.}{11}{section*.22}% 
+\contentsline {subsection}{Table S4. Allometric equations for bark thickness.}{13}{section*.23}% 
+\contentsline {subsection}{Table S5. Qualtiative comparison of results from this study with previous studies employing conventional methods.}{14}{section*.25}% 
+\contentsline {subsection}{Figure S1. Comparison of our approach with traditional methods of identifying climate signals: LITU at SCBI.}{17}{section*.26}% 
+\contentsline {subsection}{Figure S2. Comparison of our approach with traditional methods of identifying climate signals: ABAL at Zofin.}{18}{section*.27}% 
+\contentsline {subsection}{Figure S3. Comparison of our approach with traditional methods of identifying climate signals: PSME at Cedar Breaks.}{19}{section*.28}% 
+\contentsline {subsection}{Figure S4. Comparison of our approach with traditional methods of identifying climate signals: PIMA at Scotty Creek.}{20}{section*.29}% 
+\contentsline {subsection}{Figure S5. (PRE at SCBI)}{21}{section*.30}% 
+\contentsline {subsection}{Figure S6. (PET at SCBI)}{22}{section*.31}% 
+\contentsline {subsection}{Figure S7. (PRE/WET at Harvard Forest)}{23}{section*.32}% 
+\contentsline {subsection}{Figure S9. Best GLS models for Barro Colorado Island (Panama)}{24}{section*.33}% 
+\contentsline {subsection}{Figure S10. Best GLS models for Huai Kha Khaeng (Thailand)}{25}{section*.35}% 
+\contentsline {subsection}{Figure S11. Best GLS models for the Smithsonian Conservation Biology Institute (Virginia, USA)}{26}{section*.37}% 
+\contentsline {subsection}{Figure S12. Best GLS models for Lilley Dickey Woods (Indiana, USA)}{27}{section*.39}% 
+\contentsline {subsection}{Figure S13. Best GLS models for Harvard Forest (Massachusetts, USA)}{28}{section*.41}% 
+\contentsline {subsection}{Figure S14. Best GLS models for Zofin Forest (Czech Republic)}{29}{section*.43}% 
+\contentsline {subsection}{Figure S15. Best GLS models for Niobrara/ Halsey (Nebraska, USA)}{30}{section*.45}% 
+\contentsline {subsection}{Figure S16. Best GLS models for Little Tesuque (New Mexico, USA)}{31}{section*.47}% 
+\contentsline {subsection}{Figure S17. Best GLS models for Cedar Breaks (Utah, USA)}{32}{section*.49}% 
+\contentsline {subsection}{Figure S18. Best GLS models for Scotty Creek (Northwest Territory, Canada)}{33}{section*.51}% 
+\contentsline {subsection}{SI References}{34}{section*.53}% 
