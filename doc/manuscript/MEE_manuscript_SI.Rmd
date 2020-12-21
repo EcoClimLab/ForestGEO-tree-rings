@@ -108,7 +108,7 @@ SC_traditional_comparison_legend <- "Figure S4. Comparison of our approach with 
 
 climwin_sameV_sameW_legend = "Figure S5. (PRE at SCBI)"
 climwin_sameV_diffW_legend = "Figure S6. (PET at SCBI)"
-climwin_diffV_diffW_legend = "Figure S7. (TMP/TMN at BCI)"
+climwin_diffV_diffW_legend = "Figure S7. (PRE/WET at Harvard Forest)"
 
 
 GLS_BCI_legend = "Figure S9. Best GLS models for Barro Colorado Island (Panama)"
@@ -232,10 +232,10 @@ For the approach developed here, analysis was conducted as described in the Meth
 Following the *climwin* analysis step, we extracted *beta* coefficients describing the slope of the relationship between climate and $RW$.
 *Beta* coefficients, along with their standard error, were obtained for each month within the analysis time frame (Table `r site_details`) and for the time window identified as optimal by *climwin*.
 
-For the analysis using conventional methods, the ring-width series from each core was standardized via ARSTAN using a 2/3rds $n$ spline, where $n$ is the number of years in the series (*Cook, 1985; Cook & Kairiukstis, 1990- citations in Helcoski*). 
-*(The following italic text is self-plagarized from Helcoski and needs to be reworded:)* *The influence of outliers in all series was reduced using the adaptive power transformation, which also stabilises the variance over time (Cook & Peters, 1997). Next, each series was stabilised using either the average correlation between raw ring-width series (rbar) method or a 1/ 3rds spline method to adjust changes in variance as series replication decreased towards the earlier portion of each chronology (Jones et al., 1997). The 1/3rds spline method was chosen when replication in the inner portion of each chronology (c. the inner 30–50 yr of each record depending on full chronology length) dropped below three trees. Once that step was complete, a robust biweight mean chronology for each species was calculated from the ring-width indices (Cook, 1985). We chose to use residual chronologies because the autoregressive standardisation process in creating them removes much of the tree-level autocorrelation in growth and these chronologies would most likely contain the most conservative information on drivers of interannual growth (Cook, 1985).* 
+For the analysis using conventional methods, the ring-width series from each core was standardized via ARSTAN using a 2/3rds $n$ spline, where $n$ is the number of years in the series [@cook_time_1985; @cook_methods_1990]. 
+*(The following italic text is self-plagarized from Helcoski and needs to be reworded:)* *The influence of outliers in all series was reduced using the adaptive power transformation, which also stabilises the variance over time [@cook_calculating_1997]. Next, each series was stabilised using either the average correlation between raw ring-width series (rbar) method or a 1/3rds spline method to adjust changes in variance as series replication decreased towards the earlier portion of each chronology [@jones_estimating_1997]. The 1/3rds spline method was chosen when replication in the inner portion of each chronology (c. the inner 30–50 yr of each record depending on full chronology length) dropped below three trees. Once that step was complete, a robust biweight mean chronology for each species was calculated from the ring-width indices [@cook_time_1985]. We chose to use residual chronologies because the autoregressive standardisation process in creating them removes much of the tree-level autocorrelation in growth and these chronologies would most likely contain the most conservative information on drivers of interannual growth [@cook_time_1985].*
 
-Following @helcoski_growing_2019, we defined chronology start dates according to the subsample signal strength (SSS), using a cutoff of SSS = 0.80 (or 80% of the population signal).
+We defined chronology start dates according to the subsample signal strength (SSS), using a cutoff of SSS = 0.80 (or 80% of the population signal).
 Thus, for this analysis only, we defined chronology start dates as the year the SSS exceeded 0.80 or two years after the start of the climate record, whichever came later. 
 SSS exceeded 0.80 well before the start of the 1901 start of climate records for PSME (1800s), ABAL (1700), and PIMA (1850s). For LITU, SSS reached 0.8 with 11 trees in 1919, which we used as the start date for this series.
 We note that these start date criteria differ from those used in the main analysis (Table `r sampling_details_table`), which had earlier start dates because the analysis was not constrained by a need to represent the full population signal.
@@ -277,8 +277,6 @@ Problematically, correlating tree growth residuals from which climate-driven tre
 
 For these sites, we experimented with three approaches to identifying the most important climate drivers (1) the method described above, (2) detrending the climate variables **(AT:prewhitening?)** prior to the climwin step, and (3) splitting analyses into decades before and after 1970 [*sensu*  @sniderhan_growth_2016] (Appendix `r changing_climate`).
 
-*This is in process. We will try and compare 3 methods: (1) our standard approach, (2) detrending the climate variables (#53), (3) applying the climwin step only for older records--before the most rapid climate change. We will work with SC and LT researchers to determine which makes most sense, and use that as the main approach for these sites.*
-
 \newpage
 
 ## `r decadal_analysis_appendix_title`
@@ -304,12 +302,10 @@ kable(S1, format = "latex", booktabs = TRUE,   escape = F)%>%
 ## `r species_table_legend` 
 *([ISSUE #72 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/72))*
 
-*NOTE: bark.allometry field is not yet right-- we will have just one latin name per site, corresponding to allometries in Table `r bark_allometries`. But it does give correct info for what is currently applied. We also intend to find and apply more allometries.*
-
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
 library(kableExtra)
-S2 <- read.csv("tables_figures/species.csv", stringsAsFactors = FALSE, check.names = FALSE)
+S2 <- read.csv("tables_figures/species.csv", col.names = c("species code", "family","latin name", "sites sampled", "leaf type", "leaf phenology", "light requirements", "bark allometry*"), stringsAsFactors = FALSE, check.names = FALSE)
 kable(S2, format = "latex", booktabs = TRUE,  escape = F, linesep = c('\\addlinespace'))%>%
   row_spec(0, italic = F, bold = T) %>%
   column_spec(8, width = "5cm") %>%
@@ -320,15 +316,14 @@ kable(S2, format = "latex", booktabs = TRUE,  escape = F, linesep = c('\\addline
 \newpage
 
 ## `r sampling_details_legend` 
-*([ISSUE #73 in ForestGEO-climate-sensitivity](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/73))*
 
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
 library(kableExtra)
-ss_table <- read.csv("tables_figures/sampling_details.csv", stringsAsFactors = FALSE, check.names = FALSE)
-kable(ss_table, format = "latex", booktabs = TRUE,   escape = F, linesep = c('\\addlinespace'))%>%
-  row_spec(0, italic = F, bold = T) %>%
-  kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
+ss_table <- read.csv("tables_figures/sampling_details.csv", col.names = c("site", "species code", "n trees", "n cores", "n trees", "n cores", "sampled", "reconstructed*", "date range"), stringsAsFactors = FALSE, check.names = FALSE)
+kable(ss_table, format = "latex", booktabs = TRUE,   escape = F, linesep = c('\\addlinespace'), longtable = T)%>%
+  add_header_above(c(" ", " ", "all"=2, "with DBH"=2, "DBH range" = 2, " ")) %>%
+  kable_styling(latex_options = c("scale_down", "hold_position","repeat_header"), protect_latex = T) 
 ```
 *Maximum reconstructed $DBH$'s analyzed are less than maximum sampled $DBH$'s because we discard size ranges with < 3 conspecific trees.
 
@@ -488,7 +483,7 @@ nocite: |
 
 \newpage
 ## `r climwin_diffV_diffW_legend`
-![](tables_figures/SI_figures/climwin_plots_combined/BCI_tmp_tmn.png)
+![](tables_figures/SI_figures/climwin_plots_combined/HarvardForest_pre_wet.png)
 
 **`r climwin_diffV_diffW_legend`** Here....
 
