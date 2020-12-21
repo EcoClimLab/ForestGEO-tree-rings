@@ -337,7 +337,7 @@ Our analysis consisted of two main steps: (1) identification of the most importa
 
 ![**Figure 1 | DRAFT Schematic illustrating our analysis process.** This analysis is conducted separately for each site.](tables_figures/schematic_figure.png)
 
-### Identifying key climate drivers {-#Identifying}
+### Climate variable selection {-#Climate}
 
 **We used the *climwin* package in R [@van_de_pol_identifying_2016] to identify the most important climate driver and the time window over which its effect was strongest for each of two categories of variables: a temperature group ($T_{min}$, $T_{max}$, $T_{mean}$, and $PET$) and a precipitation group ($PPT$, $PDF$).**
 To remove low-frequency variation that most likely represents responses to non-climatic drivers (*e.g.*, growth and aging of the tree, change in competitive dynamics, atmospheric pollution), we detrended the response variables by using a generalized additive model (GAM) to fit a spline to individual growth records ($RW$, $BAI$, or $\Delta AGB$) from each core, thereby producing residuals. (*How did you decide how flexible to make the spline?*)
@@ -379,7 +379,7 @@ While one-to-one correspondence of estimated climate coefficients was neither ex
 
 ![**Figure 2 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table `r species_table`) to potential evapotranspiration ($PET$). Panel (**a**) shows a matrix of Pearson correlations between ring-width index and monthly climate variables (using the chronologies of Helcoski et al. 2019). Black rectangle represents the period selected by *climwin* as the most influential window. Panels (**b-d**) give statistics for time windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diaganol indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each time window, and (**d**) gives the $\Delta AIC$ for each. The time window with the minimum $\Delta AIC$ (0-3 months prior to August, or May-July; black circles), was identified as the optimal window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows GLS model output, where $PET$ was a candidate driver variable (along with $PPT$; $DBH$ not included in this model). Plotted are responses of species for which $PET$ was included in the top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are significant, dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals.](tables_figures/quilt_comparison.png)
 
-## Identifying climate drivers {-#Identifying}
+## Climate variable selection {-#Climate}
 
 ```{r , eval=FALSE, echo=FALSE}
 ## Tallies for the following paragraph (Dec.21)
@@ -420,14 +420,8 @@ $T_{mean}$ and $T_{min}$ were each identified as the top driver at only one site
 Optimal time windows most commonly coincided at least partially with the months of most active growth in the current year (Fig. `r clim_sens`; Table `r site_details`): wet seasons in the tropics (precipitation variables at both BCI and HKK; $T_{max}$ at HKK) or late spring/ early summer in the extratropics (n= 5 of 8 each for temperature and precipitation variables).
 In the tropics, the windows over which precipitation was influential included part (BCI) or all (HKK) of the dry season.
 In the extratropics, there were two cases where temperature variables were most influential in late winter/early spring (March $PET$ at HF; Jan-March $T_{max}$ at ZOF; Fig. `r clim_sens`).
-*(Results before this are up-to-date as of Dec. 21. The following need updating.)*
-There were also cases where previous growing season conditions were influential:...
-At the *5 lowest latitude* sites (BCI, HKK, LT, CB, and SCBI), the optimal window for precipitation variables spanned $\ge$ 8 months, ending during the peak growing months of the year of ring formation. 
-At the *3 highest latitude sites* (HF, ZOF, and SC), the optimal window for precipitation variables was a short ($\le$ 3 months) window during the previous growing season.
-Optimal windows for temperature variables tended to be shorter, the longest being a *6*-month period during the summer (wet season) at HKK. 
-At two of the higher-latitude temperate sites (HF and Žofín), temperatures were most influential during late winter/ early spring.
-There were also a few instances where previous growing season conditions had the strongest influence.
-
+There were also cases where previous growing season conditions were influential, including precipitation variables at SCBI, Harvard Forest, Zofin, and Scotty Creek, and temperature variables at Niobrara and Cedar Breaks. 
+In two cases ($PPT$ at SCBI and $T_{max}$ at Cedar Breaks), the window of influence spanned >12 months to include past and current growing seasons. 
 
 ![**Figure 3 | Species-level responses of $RW$ to climwin-selected variables in precipitation and temperature variable groups.** *Climwin*-selected climate variables are coded on the x-axes as the climate variable name followed by the range of months (p=previous year, c=current year) over which it is most influential. For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. For each relationship shown, other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD. (THIS FIGURE WILL PROBABLY CHANGED INTO A 4COL X 5 ROW MATIX, DROPPING SPECIES KEY, WHICH CAN BE SEEN IN OTHER FIGURES)](tables_figures/pre_temp_groups.png)
 
