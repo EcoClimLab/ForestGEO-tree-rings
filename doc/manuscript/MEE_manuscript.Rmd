@@ -372,14 +372,12 @@ Within each of three categories of models run (climate only, climate + $DBH$, cl
 
 # Results {-#Results}
 
-## Comparison with traditional methods {-#Comparison}
+## Climate sensitivity {-#Climate}
 
-Using $RW$ as the growth metric, our process picked out similar climate drivers to what would be obtained via traditional methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`; Table `r qualitative_results_comparison`; Appendix `r traditional_comparison`).
+Using $RW$ as the growth metric, our process identified similar climate sensitivities to those identified via traditional analysis methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`; Table `r qualitative_results_comparison`; Appendix `r traditional_comparison`).
 While one-to-one correspondence of estimated climate coefficients was neither expected nor observed, estimates were correlated and rarely differed significantly (Appendix `r traditional_comparison`; `r all_traditional_comparisons`).
 
 ![**Figure 2 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table `r species_table`) to potential evapotranspiration ($PET$). Panel (**a**) shows a matrix of Pearson correlations between ring-width index and monthly climate variables (using the chronologies of Helcoski et al. 2019). Black rectangle represents the period selected by *climwin* as the most influential window. Panels (**b-d**) give statistics for time windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diaganol indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each time window, and (**d**) gives the $\Delta AIC$ for each. The time window with the minimum $\Delta AIC$ (0-3 months prior to August, or May-July; black circles), was identified as the optimal window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows GLS model output, where $PET$ was a candidate driver variable (along with $PPT$; $DBH$ not included in this model). Plotted are responses of species for which $PET$ was included in the top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are significant, dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals.](tables_figures/quilt_comparison.png)
-
-## Climate variable selection {-#Climate}
 
 ```{r , eval=FALSE, echo=FALSE}
 ## Tallies for the following paragraph (Dec.21)
@@ -387,11 +385,11 @@ While one-to-one correspondence of estimated climate coefficients was neither ex
 #sameV_diffW: BCIp, BCIt, CBp, CBt, HFt, HKKp, LDWt, NMp, SCBIt, SCp, ZOFt
 #diffV_diffW: HFp, HKKt
 ```
-The three metrics of growth ($RW$, $BAI$, and $\Delta AGB$), consistently exhibited similar strength of correlation and direction of response to climate variables across the range of potential time windows, but the optimal time window or even the top climate variable sometimes differed (Figs. `r all_climwin`).
-In some cases (n= 7 of 20), both the optimal climate variable and time window were identical across growth metrics (e.g., Fig. `r climwin_sameV_sameW`). 
+The three metrics of growth ($RW$, $BAI$, and $\Delta AGB$)  exhibited similar strength of correlation and direction of response to climate variables across the range of potential time windows, but the optimal time window or even the top climate variable sometimes differed (Figs. `r all_climwin`).
+In 7 of 20 cases, both the optimal climate variable and time window were identical across growth metrics (e.g., Fig. `r climwin_sameV_sameW`). 
 In 11 cases, *climwin* identified the same climate variable but different (often overlapping) time windows (e.g., Fig. `r climwin_sameV_diffW`). 
 Finally, two cases of variables that had only weak effects and mixed responses among species in the final models (temperature variable group at HKK, precipitation variable group at HF; Figs. `r clim_sens`, `r GLS_HKK`, `r GLS_HF`), *climwin* identified different climate variables and different time windows (e.g., Fig. `r climwin_diffV_diffW`). 
-Henceforth, we focus on the climate drivers identified when $RW$ was the growth metric and for the full set of cores (*i.e.*, including those for which $DBH$ could not be reconstructed.)
+Henceforth, unless otherwise noted, we focus on the climate drivers identified when $RW$ was the growth metric and for the full set of cores (*i.e.*, including those for which $DBH$ could not be reconstructed.)
 
 ```{r , eval=FALSE, echo=FALSE}
 ## Tallies for the above paragraph (Dec.21)
@@ -400,6 +398,7 @@ Henceforth, we focus on the climate drivers identified when $RW$ was the growth 
 ```
 Within the precipitation group, precipitation amount ($PPT$) and frequency ($PDF$) were each identified as the top variable in four of the eight sites with both variables available (Fig. `r clim_sens`). 
 At the one site for which streamflow data were available (NIO), $PDF$ was selected as a stronger--*albiet* weak--driver (Figs. `r clim_sens`).
+
 The most commonly selected variables within the temperature group were $T_{max}$ and $PET$, which were identified by *climwin* as the top temperature-related driver at five and three of the ten sites, respectively, noting that $PET$ was not available for two of these sites. 
 $T_{mean}$ and $T_{min}$ were each identified as the top driver at only one site (NIO and BCI, respectively), noting that the effects of $T_{min}$ at BCI were only marginally significant (Fig. `r clim_sens`).
 
@@ -425,7 +424,7 @@ In two cases ($PPT$ at SCBI and $T_{max}$ at Cedar Breaks), the window of influe
 
 ![**Figure 3 | Species-level responses of $RW$ to climwin-selected variables in precipitation and temperature variable groups.** *Climwin*-selected climate variables are coded on the x-axes as the climate variable name followed by the range of months (p=previous year, c=current year) over which it is most influential. For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. For each relationship shown, other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD. (THIS FIGURE WILL PROBABLY CHANGED INTO A 4COL X 5 ROW MATIX, DROPPING SPECIES KEY, WHICH CAN BE SEEN IN OTHER FIGURES)](tables_figures/pre_temp_groups.png)
 
-## Climate sensitivity {-#Climate}
+(*Results up to this point are current as of Dec. 21. Those following need to be updated. I also want to reorganize to integrate with the content above*)
 
 For the majority of species-site combinations, both a precipitation and a temperature variable were included in the top model.
 Specifically, of # species-site combinations, both terms were significant for #,
