@@ -25,7 +25,7 @@
 \contentsline {subsection}{Figure S4. Comparison of our approach with traditional methods of identifying climate signals: PIMA at Scotty Creek.}{20}{section*.29}% 
 \contentsline {subsection}{Figure S5. (PRE at SCBI)}{21}{section*.30}% 
 \contentsline {subsection}{Figure S6. (PET at SCBI)}{22}{section*.31}% 
-\contentsline {subsection}{Figure S7. (PRE/WET at Harvard Forest)}{23}{section*.32}% 
+\contentsline {subsection}{Figure S7. (TMX/TMP at HKK)}{23}{section*.32}% 
 \contentsline {subsection}{Figure S9. Best GLS models for Barro Colorado Island (Panama)}{24}{section*.33}% 
 \contentsline {subsection}{Figure S10. Best GLS models for Huai Kha Khaeng (Thailand)}{25}{section*.35}% 
 \contentsline {subsection}{Figure S11. Best GLS models for the Smithsonian Conservation Biology Institute (Virginia, USA)}{26}{section*.37}% 

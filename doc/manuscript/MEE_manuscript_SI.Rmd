@@ -108,7 +108,7 @@ SC_traditional_comparison_legend <- "Figure S4. Comparison of our approach with 
 
 climwin_sameV_sameW_legend = "Figure S5. (PRE at SCBI)"
 climwin_sameV_diffW_legend = "Figure S6. (PET at SCBI)"
-climwin_diffV_diffW_legend = "Figure S7. (PRE/WET at Harvard Forest)"
+climwin_diffV_diffW_legend = "Figure S7. (TMX/TMP at HKK)"
 
 
 GLS_BCI_legend = "Figure S9. Best GLS models for Barro Colorado Island (Panama)"
@@ -300,7 +300,7 @@ kable(S1, format = "latex", booktabs = TRUE,   escape = F)%>%
 
 \newpage
 ## `r species_table_legend` 
-*([ISSUE #72 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/72))*
+
 
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
@@ -309,6 +309,8 @@ S2 <- read.csv("tables_figures/species.csv", col.names = c("species code", "fami
 kable(S2, format = "latex", booktabs = TRUE,  escape = F, linesep = c('\\addlinespace'))%>%
   row_spec(0, italic = F, bold = T) %>%
   column_spec(8, width = "5cm") %>%
+  column_spec(3, italic = T) %>%
+  column_spec(8, italic = T) %>%
   kable_styling(latex_options = c("scale_down", "hold_position")) 
 ```
 *Bark allometry field indicates the species and site sampled to construct the bark allometry. When neither raw data nor an allometric equation for the study species was available, we selected the most appropriate equation that could be located for similar species. Equations are given in Table `r bark_allometries`.
@@ -483,7 +485,7 @@ nocite: |
 
 \newpage
 ## `r climwin_diffV_diffW_legend`
-![](tables_figures/SI_figures/climwin_plots_combined/HarvardForest_pre_wet.png)
+![](tables_figures/SI_figures/climwin_plots_combined/HKK_tmp_tmx.png)
 
 **`r climwin_diffV_diffW_legend`** Here....
 
