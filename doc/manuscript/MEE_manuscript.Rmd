@@ -374,7 +374,7 @@ Within each of three categories of models run (climate only, climate + $DBH$, cl
 
 ## Climate sensitivity {-#Climate}
 
-Using $RW$ as the growth metric, our process identified similar climate sensitivities to those identified via traditional analysis methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`; Table `r qualitative_results_comparison`; Appendix `r traditional_comparison`).
+Using $RW$ as the growth metric, our process identified similar climate drivers to those identified via traditional analysis methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`; Table `r qualitative_results_comparison`; Appendix `r traditional_comparison`).
 While one-to-one correspondence of estimated climate coefficients was neither expected nor observed, estimates were correlated and rarely differed significantly (Appendix `r traditional_comparison`; `r all_traditional_comparisons`).
 
 ![**Figure 2 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table `r species_table`) to potential evapotranspiration ($PET$). Panel (**a**) shows a matrix of Pearson correlations between ring-width index and monthly climate variables (using the chronologies of Helcoski et al. 2019). Black rectangle represents the period selected by *climwin* as the most influential window. Panels (**b-d**) give statistics for time windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diaganol indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each time window, and (**d**) gives the $\Delta AIC$ for each. The time window with the minimum $\Delta AIC$ (0-3 months prior to August, or May-July; black circles), was identified as the optimal window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows GLS model output, where $PET$ was a candidate driver variable (along with $PPT$; $DBH$ not included in this model). Plotted are responses of species for which $PET$ was included in the top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are significant, dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals.](tables_figures/quilt_comparison.png)
@@ -389,22 +389,37 @@ The three metrics of growth ($RW$, $BAI$, and $\Delta AGB$)  exhibited similar s
 In 7 of 20 cases, both the optimal climate variable and time window were identical across growth metrics (e.g., Fig. `r climwin_sameV_sameW`). 
 In 11 cases, *climwin* identified the same climate variable but different (often overlapping) time windows (e.g., Fig. `r climwin_sameV_diffW`). 
 Finally, two cases of variables that had only weak effects and mixed responses among species in the final models (temperature variable group at HKK, precipitation variable group at HF; Figs. `r clim_sens`, `r GLS_HKK`, `r GLS_HF`), *climwin* identified different climate variables and different time windows (e.g., Fig. `r climwin_diffV_diffW`). 
-Henceforth, unless otherwise noted, we focus on the climate drivers identified when $RW$ was the growth metric and for the full set of cores (*i.e.*, including those for which $DBH$ could not be reconstructed.)
+Henceforth, unless otherwise noted, we focus on the climate sensitivities identified with $RW$ as the growth metric and for the full set of cores (*i.e.*, including those for which $DBH$ could not be reconstructed.)
 
 ```{r , eval=FALSE, echo=FALSE}
-## Tallies for the above paragraph (Dec.21)
+## Tallies for the paragraph below (as of Dec. 22)
+#BCI: 1 species with both, 2 with just P
+#HKK: 3 species with both, 1 with just T
+#SCBI: 11 species with both, 3 with just P (FRNI, FAGR, PIST)
+#LDW:  4 species with both,  2  with just P
+#HF:  4 species with both
+#ZOF:  3 species with both
+#NIO:  1 species with both
+#LT:  2 species with both
+#CB:  7 species with both,  1 with just P (POTR)
+#SC:  1 species with both
+```
+Within the context of the GLS model, which tested for first- and negative second- order linear effects of both a precipitation and a temperature variable, both a precipitation and a temperature variable were included in the top model for 80% of site-species combinations (n=37 of 46; Fig. `r clim_sens`). 
+There were eight site-species combinations for which only a precipitation term was significant (2 at BCI, 3 at SCBI, 2 at LDW, and 1 at CB), one for which only a temperature term was significant (CHTA at HKK), and none with no significant climate responses. 
+Precipitation and temperature variables were rarely influential over the same time window (exception: LDW).  
+Below, we summarize the precipitation and temperature variables included in these models and their direction of response. 
+
+
+![**Figure 3 | Species-level responses of $RW$ to climwin-selected variables in precipitation and temperature variable groups.** *Climwin*-selected climate variables are coded on the x-axes as the climate variable name followed by the range of months (p=previous year, c=current year) over which it is most influential. For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. For each relationship shown, other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD. (THIS FIGURE WILL PROBABLY CHANGED INTO A 4COL X 5 ROW MATIX, DROPPING SPECIES KEY, WHICH CAN BE SEEN IN OTHER FIGURES)](tables_figures/pre_temp_groups.png)
+
+```{r , eval=FALSE, echo=FALSE}
+## Tallies for the  paragraph below (Dec.21)
+
+###Variables selected: 
 #PPT over PDF: 8 sites with both. PDF selected in HKK, HF, ZOF, Niobrara
 #T group:Tmax at 5, PET at 3, Tmin at 1, Tmp at 1
-```
-Within the precipitation group, precipitation amount ($PPT$) and frequency ($PDF$) were each identified as the top variable in four of the eight sites with both variables available (Fig. `r clim_sens`). 
-At the one site for which streamflow data were available (NIO), $PDF$ was selected as a stronger--*albiet* weak--driver (Figs. `r clim_sens`).
 
-The most commonly selected variables within the temperature group were $T_{max}$ and $PET$, which were identified by *climwin* as the top temperature-related driver at five and three of the ten sites, respectively, noting that $PET$ was not available for two of these sites. 
-$T_{mean}$ and $T_{min}$ were each identified as the top driver at only one site (NIO and BCI, respectively), noting that the effects of $T_{min}$ at BCI were only marginally significant (Fig. `r clim_sens`).
-
-
-```{r , eval=FALSE, echo=FALSE}
-## Tallies for the following paragraph (Dec.21)
+###Windows selected: 
 # BCI: precip dry season (12mo), T dry season (2 mo) 
 #HKK: PDF dry season + edges (9mo), T wet season (8 mo)
 #SCBI: precip p June - cAug (15 mo), PET current gs (3 mo)
@@ -412,30 +427,35 @@ $T_{mean}$ and $T_{min}$ were each identified as the top driver at only one site
 #HF: PDF pMay (1mo), PET cMar (1mo)
 #ZOF: pre pJune-pJul (2mo), TMX Jan-Mar (3mo)
 #NIO: wet cMay (1mo), TMP pJune (1mo)
-#LT: pNov-cJul (9mo), TMX cMay-Jul (3mo)
-#CB: cApr-cJul(4mo), TMXpJul-cJul(13mo)
-#SC:pJun-pAug(3mo), TMXcJul (1mo)
+#LT: P pNov-cJul (9mo), TMX cMay-Jul (3mo)
+#CB: P cApr-cJul(4mo), TMXpJul-cJul(13mo)
+#SC: P pJun-pAug(3mo), TMXcJul (1mo)
 ```
+Responses to precipitation amount ($PPT$) and frequency ($PDF$) were included in the best model for all but one species (Fig. `r clim_sens`).
+$PPT$ and $PDF$ were each identified as the top variable in four of the eight sites with both variables available, while $PPT$ was the only option at two (LT and CB).
+Optimal time windows most commonly coincided at least partially with the months of most active growth in the current year (Fig. `r clim_sens`; Table `r site_details`):  wet seasons in the tropics (BCI and HKK) or late spring/ early summer in the extratropics (n= 5 of 8).
+In the tropics, the long time windows over which precipitation was influential (12 mo at BCI, 9 mo at HKK) also included the majority (BCI) or all (HKK) of the dry season.
+At three extratropical sites (LDW, NIO, and CB), the most influential windows were limited to the current spring and early summer, whereas optimal windows at two sites extended back to the previous fall (LT) or summer (SCBI).
+Finally, at three sites (HF, ZOF, and SC), precipitation of the previous growing season was the most influential variable. 
+Responses to $PPT$ or $PDF$ were predominantly positive, with positive first-order linear terms for all but two species (*Tsuga canadensis* at HF and *Betula papyrifera* at NIO; Fig. `r clim_sens`).
+Negative second-order terms were commonly included in the best model (*# of #* with positive first-order terms), generally resulting in a deceleration or decline at the highest levels of precipitation, but occasionally producing a unimodal (e.g., several species at SCBI) or predominantly negative response (e.g., BEAL at HF; Fig. `r clim_sens`). 
+At the riparian site (NIO), for which streamflow was included as a candidate variable in the precipitation group, May $PDF$ was selected as the strongest driver but had a modest negative effect on growth, indicating that water availability was not a significant limitation for *Betula papyrifera* at this site.
+
+*rearranged to here.*
+
+The most commonly selected variables within the temperature group were $T_{max}$ and $PET$, which were identified by *climwin* as the top temperature-related driver at five and three of the ten sites, respectively, noting that $PET$ was not available for two of these sites. 
+$T_{mean}$ and $T_{min}$ were each identified as the top driver at only one site (NIO and BCI, respectively), noting that the effects of $T_{min}$ at BCI were only marginally significant (Fig. `r clim_sens`).
+
+
 Optimal time windows most commonly coincided at least partially with the months of most active growth in the current year (Fig. `r clim_sens`; Table `r site_details`): wet seasons in the tropics (precipitation variables at both BCI and HKK; $T_{max}$ at HKK) or late spring/ early summer in the extratropics (n= 5 of 8 each for temperature and precipitation variables).
-In the tropics, the windows over which precipitation was influential included part (BCI) or all (HKK) of the dry season.
 In the extratropics, there were two cases where temperature variables were most influential in late winter/early spring (March $PET$ at HF; Jan-March $T_{max}$ at ZOF; Fig. `r clim_sens`).
-There were also cases where previous growing season conditions were influential, including precipitation variables at SCBI, Harvard Forest, Zofin, and Scotty Creek, and temperature variables at Niobrara and Cedar Breaks. 
+There were also cases where previous growing season conditions were influential, including  temperature variables at Niobrara and Cedar Breaks. 
 In two cases ($PPT$ at SCBI and $T_{max}$ at Cedar Breaks), the window of influence spanned >12 months to include past and current growing seasons. 
 
-![**Figure 3 | Species-level responses of $RW$ to climwin-selected variables in precipitation and temperature variable groups.** *Climwin*-selected climate variables are coded on the x-axes as the climate variable name followed by the range of months (p=previous year, c=current year) over which it is most influential. For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. For each relationship shown, other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD. (THIS FIGURE WILL PROBABLY CHANGED INTO A 4COL X 5 ROW MATIX, DROPPING SPECIES KEY, WHICH CAN BE SEEN IN OTHER FIGURES)](tables_figures/pre_temp_groups.png)
 
 (*Results up to this point are current as of Dec. 21. Those following need to be updated. I also want to reorganize to integrate with the content above*)
 
-For the majority of species-site combinations, both a precipitation and a temperature variable were included in the top model.
-Specifically, of # species-site combinations, both terms were significant for #,
-only the precipitation variable was significant for #,
-only the temperature variable was significant for #,
-and # had no climate response.
 
-Precipitation responses ($PPT$ or $PDF$) were included in the best model at all sites and *for all but # species* (Fig. `r clim_sens`).
-Among these, responses predominantly positive (*i.e.*, positive first-order linear coefficient), with the single exception of a slightly negative response of *Tsuga canadensis* to March $PPT$ at Harvard Forest.
-In #% of site-species combinations, the best model contained a negative second-order term, resulting in a leveling or decrease in growth rate above long-term mean $PPT$ or $PDF$.
-Responses were most pronounced at the driest site (LT). 
 
 Temperature responses were included in the best model at all sites and *for the majority of species* (Fig. `r clim_sens`).
 Specifically, a first-order temperature term was included in the best model for # of # site-species combinations, a second-order polynomial term significant for #.
