@@ -406,7 +406,7 @@ Henceforth, unless otherwise noted, we focus on the climate sensitivities identi
 ```
 Within the context of the GLS model, which tested for first- and negative second- order linear effects of both a precipitation and a temperature variable, both a precipitation and a temperature variable were included in the top model for 80% of site-species combinations (n=37 of 46; Fig. `r clim_sens`). 
 There were eight site-species combinations for which only a precipitation term was significant (2 at BCI, 3 at SCBI, 2 at LDW, and 1 at CB), one for which only a temperature term was significant (CHTA at HKK), and none with no significant climate responses. 
-Precipitation and temperature variables were rarely influential over the same time window (exception: LDW).  
+Precipitation and temperature variables were rarely influential over the same time window (exception: LDW).
 Below, we summarize the precipitation and temperature variables included in these models and their direction of response. 
 
 
@@ -431,7 +431,7 @@ Below, we summarize the precipitation and temperature variables included in thes
 #CB: P cApr-cJul(4mo), TMXpJul-cJul(13mo)
 #SC: P pJun-pAug(3mo), TMXcJul (1mo)
 ```
-Responses to precipitation amount ($PPT$) and frequency ($PDF$) were included in the best model for all but one species (Fig. `r clim_sens`).
+Responses to precipitation amount ($PPT$) and frequency ($PDF$) were included in the best model for all but one species, and were predominantly positive (Fig. `r clim_sens`).
 $PPT$ and $PDF$ were each identified as the top variable in four of the eight sites with both variables available, while $PPT$ was the only option at two (LT and CB).
 Optimal time windows most commonly coincided at least partially with the months of most active growth in the current year (Fig. `r clim_sens`; Table `r site_details`):  wet seasons in the tropics (BCI and HKK) or late spring/ early summer in the extratropics (n= 5 of 8).
 In the tropics, the long time windows over which precipitation was influential (12 mo at BCI, 9 mo at HKK) also included the majority (BCI) or all (HKK) of the dry season.
@@ -441,39 +441,22 @@ Responses to $PPT$ or $PDF$ were predominantly positive, with positive first-ord
 Negative second-order terms were commonly included in the best model (*# of #* with positive first-order terms), generally resulting in a deceleration or decline at the highest levels of precipitation, but occasionally producing a unimodal (e.g., several species at SCBI) or predominantly negative response (e.g., BEAL at HF; Fig. `r clim_sens`). 
 At the riparian site (NIO), for which streamflow was included as a candidate variable in the precipitation group, May $PDF$ was selected as the strongest driver but had a modest negative effect on growth, indicating that water availability was not a significant limitation for *Betula papyrifera* at this site.
 
-*rearranged to here.*
-
-The most commonly selected variables within the temperature group were $T_{max}$ and $PET$, which were identified by *climwin* as the top temperature-related driver at five and three of the ten sites, respectively, noting that $PET$ was not available for two of these sites. 
+A temperature variable was included in the best model for all but eight site-species combinations, with predominantly negative responses (*#*% of species; Fig. `r clim_sens`).
+The most commonly selected variables within the temperature group were $T_{max}$ and $PET$, which were identified by *climwin* as the top temperature-related driver at five and three of the ten sites, respectively, noting that $PET$ was not available for two sites. 
 $T_{mean}$ and $T_{min}$ were each identified as the top driver at only one site (NIO and BCI, respectively), noting that the effects of $T_{min}$ at BCI were only marginally significant (Fig. `r clim_sens`).
-
-
-Optimal time windows most commonly coincided at least partially with the months of most active growth in the current year (Fig. `r clim_sens`; Table `r site_details`): wet seasons in the tropics (precipitation variables at both BCI and HKK; $T_{max}$ at HKK) or late spring/ early summer in the extratropics (n= 5 of 8 each for temperature and precipitation variables).
-In the extratropics, there were two cases where temperature variables were most influential in late winter/early spring (March $PET$ at HF; Jan-March $T_{max}$ at ZOF; Fig. `r clim_sens`).
-There were also cases where previous growing season conditions were influential, including  temperature variables at Niobrara and Cedar Breaks. 
-In two cases ($PPT$ at SCBI and $T_{max}$ at Cedar Breaks), the window of influence spanned >12 months to include past and current growing seasons. 
-
-
-(*Results up to this point are current as of Dec. 21. Those following need to be updated. I also want to reorganize to integrate with the content above*)
-
-
-
-Temperature responses were included in the best model at all sites and *for the majority of species* (Fig. `r clim_sens`).
-Specifically, a first-order temperature term was included in the best model for # of # site-species combinations, a second-order polynomial term significant for #.
-The majority (#%) of significant temperature responses were negative.
-Exceptions included positive responses of
-*Tsuga canadensis* (HF) to March $PET$,
-all three species at Zofin to to January-March $T_{max}$,
-**NE TBD**,
-and *Picea mariana* at Scotty Creek. 
-We note, however, that the temperature response of the latter is negative above the long-term mean temperature when the analysis is split pre- and post-1970 (Figs. **ADD SI FIGS**).
+Optimal time windows most commonly occurred during the peak growing season of the current year (n= 5 of 10 sites), but there were cases where optimal windows occurred during the preceding dry season (BCI), late winter/early spring (HF, ZOF), the previous growing season (NIO), or a 13-month window extending from past to current growing season (CB).
+Within the tropics, there was minimal effect of temperature at BCI and a negative effect of wet season $T_{max}$ for three of four species at HKK.
+For temperate sites with optimal time windows covering the current and/or past growing season, responses were universally negative (i.e., negative first-order linear or unimodal, peaking at temperatures lower than the long-term mean). 
+In contrast, there were positive effects of Jan-March $T_{max}$ for all three species at ZOF and of March $PET$ for *Tsuga Canadensis* at HF, the latter contrasting with a negative response of the other three species at HF (Fig. `r clim_sens`).
+At the highest-latitude site (SC), which has undergone rapid warming and permafrost melt, *Picea mariana* responded positively (but with wide 95% CI on the slope) to temperature over the full analysis period (1903-2013); however, responses were predominately positive prior to 1970 and predominantly negative afterwards (Fig. **CREATE AN SI FIGURE!**). 
 
 ## Influence of DBH {-#Influence}
 
 **All three growth metrics, $RW$, $BAI$, and $\Delta AGB$, varied with $DBH$ for most species at all sites (Fig. `r size`).** 
 While $RW$ varied significantly with $DBH$ for the majority of species-site combinations (n= # of #; Table **S#**), there was substantial variation in these trends, with patterns mixed across both forests and species within a single stand (Fig. `r size`).
-On one end of the spectrum, *Melia azedarach* at HKK had extremely rapid growth at small $DBH$, with $RW$ ranging up to ~15mm yr^-1^, followed by fairly rapid declines with increasing $DBH$. 
+On one end of the spectrum, the light-demanding species *Melia azedarach* at HKK had extremely rapid growth at small $DBH$, with $RW$ ranging up to ~15mm yr^-1^, followed by fairly rapid declines with increasing $DBH$. 
 Similar patterns of approximately exponential decline in $RW$ with $DBH$ were observed for conifer species at Little Tesuque and Scotty Creek--both relatively open forests--and a number of species in mesic temperate forests (Fig. `r size`).
-At the other end of the spectrum, a number of species at sites where they presumably established under closed-canopy conditions (e.g., *Fagus* at SCBI and Žofín) had $RW$ <1 mm yr^-1^ at small $DBH$, increased to peak $RW$ between # and # cm $DBH$, and subsequently declined.  
+At the other end of the spectrum, a number of shade-tolerant species at sites where they presumably established under closed-canopy conditions (e.g., *Fagus* at SCBI and Žofín) had $RW$ <1 mm yr^-1^ at small $DBH$, increased to peak $RW$ between # and # cm $DBH$, and subsequently declined.  
 
 **The variable patterns in $RW$ with $DBH$ translated into differences in variation in $BAI$ and $\Delta AGB$ with $DBH$, although trends in both of these were more consistent across sites and species, typically increasing to a peak at intermediate $DBH$ and then declining (Fig. `r size`).**
 
