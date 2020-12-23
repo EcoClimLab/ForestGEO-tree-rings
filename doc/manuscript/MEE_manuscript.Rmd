@@ -452,6 +452,8 @@ At the highest-latitude site (SC), which has undergone rapid warming and permafr
 
 ## Influence of DBH {-#Influence}
 
+*(here, I want to frame presentation around light-tolerance and stand openness:)*
+
 **All three growth metrics, $RW$, $BAI$, and $\Delta AGB$, varied with $DBH$ for most species at all sites (Fig. `r size`).** 
 While $RW$ varied significantly with $DBH$ for the majority of species-site combinations (n= # of #; Table **S#**), there was substantial variation in these trends, with patterns mixed across both forests and species within a single stand (Fig. `r size`).
 On one end of the spectrum, the light-demanding species *Melia azedarach* at HKK had extremely rapid growth at small $DBH$, with $RW$ ranging up to ~15mm yr^-1^, followed by fairly rapid declines with increasing $DBH$. 
@@ -461,7 +463,7 @@ At the other end of the spectrum, a number of shade-tolerant species at sites wh
 **The variable patterns in $RW$ with $DBH$ translated into differences in variation in $BAI$ and $\Delta AGB$ with $DBH$, although trends in both of these were more consistent across sites and species, typically increasing to a peak at intermediate $DBH$ and then declining (Fig. `r size`).**
 
 
-![**Figure 4 | Growth sensitivity to DBH: (a) $RW$, (b) $BAI$, (c) $\Delta AGB$.** Relationships for species are plotted when included in the top model. Other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), DASHED lines when only one term is significant, and dotted lines when neither is significant.  Transparent ribbons indicate 95% confidence intervals.](tables_figures/DBH_responses.png)
+![**Figure 4 | Growth sensitivity to DBH: (a) $RW$, (b) $BAI$, (c) $\Delta AGB$.** Relationships for species are plotted when included in the top model. Other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant.  Transparent ribbons indicate 95% confidence intervals.](tables_figures/DBH_responses.png)
 
 ## Additive and interactive effects of climate and DBH {-#Additive}
 
