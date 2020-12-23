@@ -305,7 +305,7 @@ kable(S1, format = "latex", booktabs = TRUE,   escape = F)%>%
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
 library(kableExtra)
-S2 <- read.csv("tables_figures/species.csv", col.names = c("species code", "family","latin name", "sites sampled", "leaf type", "leaf phenology", "light requirements", "bark allometry*"), stringsAsFactors = FALSE, check.names = FALSE)
+S2 <- read.csv("tables_figures/species.csv", col.names = c("species code", "family","latin name", "sites sampled", "leaf type", "leaf phenology", "light requirements*", "bark allometry**"), stringsAsFactors = FALSE, check.names = FALSE)
 kable(S2, format = "latex", booktabs = TRUE,  escape = F, linesep = c('\\addlinespace'))%>%
   row_spec(0, italic = F, bold = T) %>%
   column_spec(8, width = "5cm") %>%
@@ -313,7 +313,9 @@ kable(S2, format = "latex", booktabs = TRUE,  escape = F, linesep = c('\\addline
   column_spec(8, italic = T) %>%
   kable_styling(latex_options = c("scale_down", "hold_position")) 
 ```
-*Bark allometry field indicates the species and site sampled to construct the bark allometry. When neither raw data nor an allometric equation for the study species was available, we selected the most appropriate equation that could be located for similar species. Equations are given in Table `r bark_allometries`.
+*For extratropical species, light requirements are classified based on the database of @niinemets_tolerance_2006. For tropical species, categorization is based on @alfaro-sanchez_growth_2017 for BCI and @vlam_temperature_2014 for HKK.
+
+**Bark allometry field indicates the species and site sampled to construct the bark allometry. When neither raw data nor an allometric equation for the study species was available, we selected the most appropriate equation that could be located for similar species. Equations are given in Table `r bark_allometries`.
 
 \newpage
 
