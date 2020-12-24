@@ -452,15 +452,29 @@ At the highest-latitude site (SC), which has undergone rapid warming and permafr
 
 ## Influence of DBH {-#Influence}
 
-*(here, I want to frame presentation around light-tolerance and stand openness:)*
+```{r , eval=TRUE, echo=FALSE}
+## Tallies for the  paragraph below (Dec.23)
+n_spst_DBH_analyzed= 42 # n species with DBH analyzed: 42 (45 - 3)
+n_spst_DBH_sig=34 #  species with sig first-order linear DBH term
+n_spst_DBH_2nd_order=25
+n_spst_DBH_2nd_order_neg=22
+n_spst_BAI_DBH_best_model=41 #exception: ACRU at HF and 
+n_spst_BAI_DBH_best_model_neg=40 #exception: PIPO at LT (reconstructed DBH down to only 15cm), which is neg but not significant
+n_spst_BAI_DBH_best_model_2nd_neg=41
+n_spst_dAGB_DBH_best_model=42 
+```
 
 **All three growth metrics, $RW$, $BAI$, and $\Delta AGB$, varied with $DBH$ for most species at all sites (Fig. `r size`).** 
-While $RW$ varied significantly with $DBH$ for the majority of species-site combinations (n= # of #; Table **S#**), there was substantial variation in these trends, with patterns mixed across both forests and species within a single stand (Fig. `r size`).
-On one end of the spectrum, the light-demanding species *Melia azedarach* at HKK had extremely rapid growth at small $DBH$, with $RW$ ranging up to ~15mm yr^-1^, followed by fairly rapid declines with increasing $DBH$. 
-Similar patterns of approximately exponential decline in $RW$ with $DBH$ were observed for conifer species at Little Tesuque and Scotty Creek--both relatively open forests--and a number of species in mesic temperate forests (Fig. `r size`).
-At the other end of the spectrum, a number of shade-tolerant species at sites where they presumably established under closed-canopy conditions (e.g., *Fagus* at SCBI and Žofín) had $RW$ <1 mm yr^-1^ at small $DBH$, increased to peak $RW$ between # and # cm $DBH$, and subsequently declined.  
+$RW$ varied significantly with $DBH$ for `r round(n_spst_DBH_sig/ n_spst_DBH_analyzed*100)`% of species-site combinations (n= `r n_spst_DBH_sig` of `r n_spst_DBH_analyzed`), and the majority of best models included a significant second-order linear $DBH$ term (n= `r n_spst_DBH_2nd_order`, `r n_spst_DBH_2nd_order_neg` of which were negative; Table **S#**). 
+There was substantial variation in these trends, with patterns mixed across both forests and species within a single stand (Fig. `r size`).
+On one end of the spectrum, some species exhibited maximum $RW$ at low $DBH$, followed by fairly rapid declines in $RW$ with increasing $DBH$. 
+Species following this pattern either had low to at most intermediate shade tolerance (e.g., *Melia azedarach* at HKK, *Juglans nigra* at SCBI, *Acer rubrum* at HF, *Betula papyrifera* at NIO; *Populous tremuloides* at CB; Table `r species_table`) and/or growing in relatively open stands (e.g., both species at LT, *Picea mariana* at SC; Fig. `r size`).
+At the other end of the spectrum, some species had low $RW$ at small $DBH$, increased to peak $RW$ at intermediate $DBH$, and subsequently declined.
+These included, but were not limited to, shade-tolerant species at sites where they presumably established under closed-canopy conditions (e.g., *Trichilia tuberculata* and *Tetragastris panamensis* at BCI; *Fagus* spp. at SCBI and Žofín, *Acer saccharum* at LDW, *Picea* spp. at Žofín and CC; Table `r species_table`).  
 
-**The variable patterns in $RW$ with $DBH$ translated into differences in variation in $BAI$ and $\Delta AGB$ with $DBH$, although trends in both of these were more consistent across sites and species, typically increasing to a peak at intermediate $DBH$ and then declining (Fig. `r size`).**
+**The variable patterns in $RW$ with $DBH$ translated into differences in variation in $BAI$ and $\Delta AGB$ with $DBH$, although trends in both of these were far more consistent across sites and species, most commonly increasing to a peak at intermediate $DBH$ and then declining (Fig. `r size`).**
+Best models for $BAI$ included $DBH$ and $DBH^2$ for `r n_spst_BAI_DBH_best_model` of `r n_spst_DBH_analyzed` species (exception: *Acer rubrum* at HF), with a positive coefficient for $DBH$ in `r n_spst_BAI_DBH_best_model_neg` (exception: non-significant negative coefficient for *Pinus ponderosa* at LT, whose reconstructed DBH extended down to only 15cm within the time frame analyzed) and universally negative coefficients for $DBH^2$.
+For $\Delta AGB$, models were even more consistent, with the best models for `r round(n_spst_dAGB_DBH_best_model/ n_spst_DBH_analyzed*100)`% of species containing a positive coefficient for $DBH$ and a negative coefficient for $DBH^2$.
 
 
 ![**Figure 4 | Growth sensitivity to DBH: (a) $RW$, (b) $BAI$, (c) $\Delta AGB$.** Relationships for species are plotted when included in the top model. Other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant.  Transparent ribbons indicate 95% confidence intervals.](tables_figures/DBH_responses.png)
@@ -468,21 +482,43 @@ At the other end of the spectrum, a number of shade-tolerant species at sites wh
 ## Additive and interactive effects of climate and DBH {-#Additive}
 
 **When a precipitation variable, a temperature variable, and $DBH$ were all included as candidate variables in the GLS models, typically all three were included in the top model, regardless of the growth metric used.** 
-Climate responses were generally similar to those described above, although some of the weaker climate responses were not consistently included in top models (Figs. `r clim_sens`, `r all_GLS`).
+Climate responses were generally similar to those described above for models without a $DBH$ term, although some of the weaker climate responses were not consistently included in top models (e.g., $T_{min}$ responses at BCI; Figs. `r clim_sens`, `r all_GLS`).
 Responses to $DBH$ were as described above (Fig. `r size`).
 
 **In general, $DBH$ explained more variation in growth rates than did climate, but its relative importance varied across growth metrics and sites (Figs. `r full_examples`, `r all_GLS`).**
 The relative importance of $DBH$ tended to be least for $RW$, intermediate for $BAI$, and highest for $\Delta AGB$ (e.g., at SCBI; Fig. `r full_examples`).
 However, there were exceptions, particularly when $RW$ decreased steeply with $DBH$ (e.g., LT; Fig. `r full_examples`).
-The relative importance of climate was modest (but still significant) at sites including SCBI (Fig. `r full_examples`), HF (Fig. `r GLS_HF`), and SC (Fig. `r GLS_SC`), and stronger at sites including LT (Fig. `r full_examples`) and BCI (Fig. `r GLS_BCI`). 
+The relative importance of climate was modest (but still significant) at sites including SCBI (Fig. `r full_examples`), HF (Fig. `r GLS_HF`), and SC (Fig. `r GLS_SC`), and stronger at sites including BCI (Fig. `r GLS_BCI`) and LT (Fig. `r full_examples`). 
 
 ![**Figure 5 | Comparison of full top models for each growth metric ($RW$, $BAI$, $\Delta AGB$) at sites where climatic controls are strong (Little Tesuque, left panel) and modest (SCBI, right panel).** Plotted are best fit models for each species, with transparent ribbons indicating 95% confidence intervals. For climate variables, best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant, dashed lines when only one term is significant, and dotted lines when neither is significant. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.  CHANGE THIS TO THE MODELS INCLUDING YEAR??? ](tables_figures/show_case_response_plots.png)
 
-**Interactive effects of climate and $DBH$ were found for # of the # species-variable combinations for which they could be tested**. 
-Interactions were significant for over half of $DBH$-precipitation variable interactions for all three growth metrics (*51% for all*; Table `r interactions_and_year_summaries`).
-The majority (#%) of these interactions were positive, indicating that larger trees generally respond more positively (or less negatively) to precipitation or its frequency (Fig.  `r interactions_fig`).
-Interactions between temperature variables and $DBH$ were significant for *~40%* of cases considered (Table `r interactions_and_year_summaries`). 
-The majority (#%) of these interactions were positive, indicating that larger trees generally respond less negatively (or more positively) to $T_{max}$ or $PET$ (Fig.  `r interactions_fig`).
+```{r , eval=TRUE, echo=FALSE}
+## Tallies for the  paragraph below (Dec.24)
+n_DBHx_analyzed=219
+n_DBHx_analyzed_sig=82
+#precip:
+n_DBHxP_RW_analyzed= 38
+n_DBHxP_RW_sig=13
+n_DBHxP_BAI_analyzed= 38
+n_DBHxP_BAI_sig=18
+n_DBHxP_RW_sig_pos=12 #(exceptions: QURU & ACRU at HF, BEPA at NIO, QUVE at SCBI,  ACSA at LDW, AFXY at HKK)
+#T:
+n_DBHxT_BAI_analyzed= 35
+n_DBHxT_BAI_sig=10
+n_DBHxT_BAI_sig_neg=6
+```
+
+Interactive effects of climate and $DBH$ were found for `r n_DBHx_analyzed_sig` of the `r n_DBHx_analyzed` (`r round(n_DBHx_analyzed_sig/ n_DBHx_analyzed*100)`%) species-variable combinations for which they could be tested. 
+With $BAI$ as the growth metric, interactions were significant for `r round(n_DBHxP_BAI_sig/ n_DBHxP_BAI_analyzed*100)`% of $DBH$-precipitation variable interactions for all three growth metrics (Table `r interactions_and_year_summaries`).
+The majority (`r round(n_DBHxP_RW_sig_pos/n_DBHxP_BAI_sig*100)`%) of these interactions were positive, indicating that larger trees generally respond more positively (or less negatively) to precipitation or its frequency (Fig.  `r interactions_fig`).
+Among the `r n_DBHxP_BAI_sig-n_DBHxP_RW_sig_pos` exceptions, only 3 occurred in species responding positively to precipitation in the current growing season. 
+
+Temperature variables and $DBH$ had significant interactive effects on $BAI$ for `r round(n_DBHxT_BAI_sig/ n_DBHxT_BAI_analyzed*100)`% of cases considered (Table `r interactions_and_year_summaries`). 
+Directions of these interactions were mixed, with `r n_DBHxT_BAI_sig_neg` of `r n_DBHxT_BAI_sig` significant interactions negative (*i.e.*, more negative/ less positive response of larger trees to higher temperatures).
+Five of these six significant negative interactions occurred in water-limited forests (2 in HKK, 1 in LT, 2 in CB; Fig. `r clim_sens`).
+
+
+*(Results up to this point updated Dec2020. Content below this point is old.)*
 
 **figure on climate - DBH interactions? EFFECT SEEMS TO BE FAIRLY STRONG AT LT AND MAYBE SC (NEEDS UPDATING)** (*See [ISSUE #42 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/42)*)
 
