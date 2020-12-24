@@ -615,6 +615,16 @@ At NM and SC, rapid declines in growth make sense in light of rapid climate chan
 
 At ZOF and CB,  trends are more mixed...
 
+
+(*conclusions*)
+Altogether, results obtained using our analysis method reveal a much richer picture of the factors influencing tree growth than has previously been possible. 
+We find that growth is generally simultaneously influenced by temperature and precipitation over different time windows, 
+that nonlinear climate responses and interactive effects of climate with $DBH$ are common,
+that growth--measured by any metric--almost universally varies with $DBH$, 
+and that growth of most species has been changing directionally in response to changing environment (stand successional status or global change).
+These findings go against many of the assumptions that traditional dendrochronology methods, which sample and analyze data in order to minimize such effects.
+However, from an ecological perspective, these effects are of great significance.  
+
 ~~~~
 
 ## Future challenges (?) {-#Future}
