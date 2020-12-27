@@ -96,9 +96,8 @@ schematic=1
 SCBI_example=2
 clim_sens=3
 size=4
-full_examples = 5
-interactions_fig = 6 #DBH/climate interactions
-year_fig = 7
+interactions_fig = 5 #DBH/climate interactions
+year_fig = 6
 
 # SUPPLEMENTARY INFO (this chunk must be repeated in MEE_manuscript_SI.Rmd)
 
@@ -349,7 +348,7 @@ For each group of candidate climate variables, we moved forward with the best va
 
 We tested whether this process identified similar climate variable-month combinations as what would be identified using traditional methods for individual species, as detailed in Appendix `r traditional_comparison`. 
 Furthermore, we explored alternate methods of climate variable selection for the two sites that have undergone the most rapid changes in climate and tree growth: SC, where rapidly rising temperatures are causing melting permafrost, summer moisture stress, and growth declines [@sniderhan_growth_2016], and LT, where increasingly warm drought has dramatically reduced growth [@williams_temperature_2012]. 
-We ultimately determined that the method described above was reliable for the purposes of this analysis (Appendix `r changing_climate_title`).
+We ultimately determined that the method described above was reliable for the purposes of this analysis (Appendix `r changing_climate`).
 
 ### Combining drivers in GLS model {-#Combining}
 
@@ -374,10 +373,10 @@ Within each of three categories of models run (climate only, climate + $DBH$, cl
 
 ## Climate sensitivity {-#Climate}
 
-Using $RW$ as the growth metric, our process identified similar climate drivers to those identified via traditional analysis methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`; Table `r qualitative_results_comparison`; Appendix `r traditional_comparison`).
+Using $RW$ as the growth metric, our process identified similar climate drivers to those identified via traditional dendrochronological analysis methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`; Table `r qualitative_results_comparison`; Appendix `r traditional_comparison`).
 While one-to-one correspondence of estimated climate coefficients was neither expected nor observed, estimates were correlated and rarely differed significantly (Appendix `r traditional_comparison`; `r all_traditional_comparisons`).
 
-![**Figure 2 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table `r species_table`) to potential evapotranspiration ($PET$). Panel (**a**) shows a matrix of Pearson correlations between ring-width index and monthly climate variables (using the chronologies of Helcoski et al. 2019). Black rectangle represents the period selected by *climwin* as the most influential window. Panels (**b-d**) give statistics for time windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diaganol indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each time window, and (**d**) gives the $\Delta AIC$ for each. The time window with the minimum $\Delta AIC$ (0-3 months prior to August, or May-July; black circles), was identified as the optimal window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows GLS model output, where $PET$ was a candidate driver variable (along with $PPT$; $DBH$ not included in this model). Plotted are responses of species for which $PET$ was included in the top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are significant, dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals.](tables_figures/quilt_comparison.png)
+![**Figure 2 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table `r species_table`) to potential evapotranspiration ($PET$). Panel (**a**) shows a matrix of Pearson correlations between ring-width index and monthly climate variables (using the chronologies of Helcoski et al. 2019). Black rectangle represents the period selected by *climwin* as the most influential window. Panels (**b-d**) give statistics for time windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diaganol indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each time window, and (**d**) gives the $\Delta AIC$ for each. The time window with the minimum $\Delta AIC$ (1-3 months prior to August, or May-July; black circles), was identified as the optimal window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows GLS model output, where $PET$ was a candidate driver variable (along with $PPT$; $DBH$ not included in this model). Plotted are responses of species for which $PET$ was included in the top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are significant, dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals.](tables_figures/quilt_comparison.png)
 
 ```{r , eval=FALSE, echo=FALSE}
 ## Tallies for the following paragraph (Dec.21)
@@ -388,8 +387,8 @@ While one-to-one correspondence of estimated climate coefficients was neither ex
 The three metrics of growth ($RW$, $BAI$, and $\Delta AGB$)  exhibited similar strength of correlation and direction of response to climate variables across the range of potential time windows, but the optimal time window or even the top climate variable sometimes differed (Figs. `r all_climwin`).
 In 7 of 20 cases, both the optimal climate variable and time window were identical across growth metrics (e.g., Fig. `r climwin_sameV_sameW`). 
 In 11 cases, *climwin* identified the same climate variable but different (often overlapping) time windows (e.g., Fig. `r climwin_sameV_diffW`). 
-Finally, two cases of variables that had only weak effects and mixed responses among species in the final models (temperature variable group at HKK, precipitation variable group at HF; Figs. `r clim_sens`, `r GLS_HKK`, `r GLS_HF`), *climwin* identified different climate variables and different time windows (e.g., Fig. `r climwin_diffV_diffW`). 
-Henceforth, unless otherwise noted, we focus on the climate sensitivities identified with $RW$ as the growth metric and for the full set of cores (*i.e.*, including those for which $DBH$ could not be reconstructed.)
+Finally, in two cases of variables that had only weak effects and mixed responses among species in the final models (temperature variable group at HKK, precipitation variable group at HF; Figs. `r clim_sens`, `r GLS_HKK`, `r GLS_HF`), *climwin* identified different climate variables and different time windows (e.g., Fig. `r climwin_diffV_diffW`). 
+Henceforth, unless otherwise noted, we focus on the climate sensitivities identified with $RW$ as the growth metric and for the full set of cores (*i.e.*, including those for which $DBH$ could not be reconstructed).
 
 ```{r , eval=FALSE, echo=FALSE}
 ## Tallies for the paragraph below (as of Dec. 22)
@@ -468,11 +467,11 @@ n_spst_dAGB_DBH_best_model=42
 $RW$ varied significantly with $DBH$ for `r round(n_spst_DBH_sig/ n_spst_DBH_analyzed*100)`% of species-site combinations (n= `r n_spst_DBH_sig` of `r n_spst_DBH_analyzed`), and the majority of best models included a significant second-order linear $DBH$ term (n= `r n_spst_DBH_2nd_order`, `r n_spst_DBH_2nd_order_neg` of which were negative; Table **S#**). 
 There was substantial variation in these trends, with patterns mixed across both forests and species within a single stand (Fig. `r size`).
 On one end of the spectrum, some species exhibited maximum $RW$ at low $DBH$, followed by fairly rapid declines in $RW$ with increasing $DBH$. 
-Species following this pattern either had low to at most intermediate shade tolerance (e.g., *Melia azedarach* at HKK, *Juglans nigra* at SCBI, *Acer rubrum* at HF, *Betula papyrifera* at NIO; *Populous tremuloides* at CB; Table `r species_table`) and/or growing in relatively open stands (e.g., both species at LT, *Picea mariana* at SC; Fig. `r size`).
+Species following this pattern either had low to at most intermediate shade tolerance (e.g., *Melia azedarach* at HKK, *Juglans nigra* at SCBI, *Acer rubrum* at HF, *Betula papyrifera* at NIO; *Populous tremuloides* at CB; Table `r species_table`) and/or grew in relatively open stands (e.g., both species at LT, *Picea mariana* at SC; Fig. `r size`).
 At the other end of the spectrum, some species had low $RW$ at small $DBH$, increased to peak $RW$ at intermediate $DBH$, and subsequently declined.
 These included, but were not limited to, shade-tolerant species at sites where they presumably established under closed-canopy conditions (e.g., *Trichilia tuberculata* and *Tetragastris panamensis* at BCI; *Fagus* spp. at SCBI and Žofín, *Acer saccharum* at LDW, *Picea* spp. at Žofín and CC; Table `r species_table`).  
 
-**The variable patterns in $RW$ with $DBH$ translated into differences in variation in $BAI$ and $\Delta AGB$ with $DBH$, although trends in both of these were far more consistent across sites and species, most commonly increasing to a peak at intermediate $DBH$ and then declining (Fig. `r size`).**
+**Trends in both $BAI$ and $\Delta AGB$ were far more consistent across sites and species, most commonly increasing to a peak at intermediate $DBH$ and then declining (Fig. `r size`).**
 Best models for $BAI$ included $DBH$ and $DBH^2$ for `r n_spst_BAI_DBH_best_model` of `r n_spst_DBH_analyzed` species (exception: *Acer rubrum* at HF), with a positive coefficient for $DBH$ in `r n_spst_BAI_DBH_best_model_neg` (exception: non-significant negative coefficient for *Pinus ponderosa* at LT, whose reconstructed DBH extended down to only 15cm within the time frame analyzed) and universally negative coefficients for $DBH^2$.
 For $\Delta AGB$, models were even more consistent, with the best models for `r round(n_spst_dAGB_DBH_best_model/ n_spst_DBH_analyzed*100)`% of species containing a positive coefficient for $DBH$ and a negative coefficient for $DBH^2$.
 
@@ -481,16 +480,14 @@ For $\Delta AGB$, models were even more consistent, with the best models for `r 
 
 ## Additive and interactive effects of climate and DBH {-#Additive}
 
-**When a precipitation variable, a temperature variable, and $DBH$ were all included as candidate variables in the GLS models, typically all three were included in the top model, regardless of the growth metric used.** 
+When a precipitation variable, a temperature variable, and $DBH$ were all included as candidate variables in the GLS models, typically all three were included in the top model, regardless of the growth metric used.
 Climate responses were generally similar to those described above for models without a $DBH$ term, although some of the weaker climate responses were not consistently included in top models (e.g., $T_{min}$ responses at BCI; Figs. `r clim_sens`, `r all_GLS`).
 Responses to $DBH$ were as described above (Fig. `r size`).
 
-**In general, $DBH$ explained more variation in growth rates than did climate, but its relative importance varied across growth metrics and sites (Figs. `r full_examples`, `r all_GLS`).**
-The relative importance of $DBH$ tended to be least for $RW$, intermediate for $BAI$, and highest for $\Delta AGB$ (e.g., at SCBI; Fig. `r full_examples`).
-However, there were exceptions, particularly when $RW$ decreased steeply with $DBH$ (e.g., LT; Fig. `r full_examples`).
-The relative importance of climate was modest (but still significant) at sites including SCBI (Fig. `r full_examples`), HF (Fig. `r GLS_HF`), and SC (Fig. `r GLS_SC`), and stronger at sites including BCI (Fig. `r GLS_BCI`) and LT (Fig. `r full_examples`). 
-
-![**Figure 5 | Comparison of full top models for each growth metric ($RW$, $BAI$, $\Delta AGB$) at sites where climatic controls are strong (Little Tesuque, left panel) and modest (SCBI, right panel).** Plotted are best fit models for each species, with transparent ribbons indicating 95% confidence intervals. For climate variables, best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant, dashed lines when only one term is significant, and dotted lines when neither is significant. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.  CHANGE THIS TO THE MODELS INCLUDING YEAR??? ](tables_figures/show_case_response_plots.png)
+In general, $DBH$ explained more variation in growth rates than did climate, but its relative importance varied across growth metrics and sites (Figs. `r all_GLS`).
+The relative importance of $DBH$ tended to be least for $RW$, intermediate for $BAI$, and highest for $\Delta AGB$ (e.g., at SCBI; Fig. `r GLS_SCBI`).
+However, there were exceptions, particularly when $RW$ decreased steeply with $DBH$ (e.g., LT; Fig. `r GLS_LT`).
+The relative importance of climate was modest (but still significant) at sites including SCBI (Fig. `r GLS_SCBI`), HF (Fig. `r GLS_HF`), and SC (Fig. `r GLS_SC`), and stronger at sites including BCI (Fig. `r GLS_BCI`) and LT (Fig. `r GLS_LT`). 
 
 ```{r , eval=TRUE, echo=FALSE}
 ## Tallies for the  paragraph below (Dec.24)
@@ -499,26 +496,27 @@ n_DBHx_analyzed_sig=82
 #precip:
 n_DBHxP_RW_analyzed= 38
 n_DBHxP_RW_sig=13
+n_DBHxP_RW_sig_pos=13-3 #(exceptions: BEAL & TSCA at HF, AFXY at HKK)
 n_DBHxP_BAI_analyzed= 38
 n_DBHxP_BAI_sig=18
-n_DBHxP_RW_sig_pos=12 #(exceptions: QURU & ACRU at HF, BEPA at NIO, QUVE at SCBI,  ACSA at LDW, AFXY at HKK)
+n_DBHxP_BAI_sig_pos=18-6 #(exceptions: QURU & ACRU at HF, BEPA at NIO, QUVE at SCBI,  ACSA at LDW, AFXY at HKK)
 #T:
+n_DBHxT_RW_analyzed= 34
+n_DBHxT_RW_sig=13
+n_DBHxT_RW_sig_neg=5 #notable that it's minority neg for RW, contrasting with slight majority neg for BAI 
 n_DBHxT_BAI_analyzed= 35
 n_DBHxT_BAI_sig=10
-n_DBHxT_BAI_sig_neg=6
+n_DBHxT_BAI_sig_neg=6 #mostly drought signal
 ```
 
 Interactive effects of climate and $DBH$ were found for `r n_DBHx_analyzed_sig` of the `r n_DBHx_analyzed` (`r round(n_DBHx_analyzed_sig/ n_DBHx_analyzed*100)`%) species-variable combinations for which they could be tested. 
-With $BAI$ as the growth metric, interactions were significant for `r round(n_DBHxP_BAI_sig/ n_DBHxP_BAI_analyzed*100)`% of $DBH$-precipitation variable interactions for all three growth metrics (Table `r interactions_and_year_summaries`).
-The majority (`r round(n_DBHxP_RW_sig_pos/n_DBHxP_BAI_sig*100)`%) of these interactions were positive, indicating that larger trees generally respond more positively (or less negatively) to precipitation or its frequency (Fig.  `r interactions_fig`).
-Among the `r n_DBHxP_BAI_sig-n_DBHxP_RW_sig_pos` exceptions, only 3 occurred in species responding positively to precipitation in the current growing season. 
+For precipitation variables, interactions were significant for `r round(n_DBHxP_RW_sig/ n_DBHxP_RW_analyzed*100)`% of interactions with $RW$ as the growth metric and for `r round(n_DBHxP_BAI_sig/ n_DBHxP_BAI_analyzed*100)`% with $BAI$ as the growth metric (Table `r interactions_and_year_summaries`).
+The majority of these interactions were positive (`r round(n_DBHxP_RW_sig_pos/n_DBHxP_RW_sig*100)`% for $RW$; `r round(n_DBHxP_BAI_sig_pos/n_DBHxP_BAI_sig*100)`% for $BAI$), indicating that larger trees generally respond more positively (or less negatively) to precipitation or its frequency (Fig.  `r interactions_fig`).
+Among the exceptions to this pattern (n=`r n_DBHxP_RW_sig-n_DBHxP_RW_sig_pos` for $RW$, `r n_DBHxP_BAI_sig-n_DBHxP_BAI_sig_pos` for $BAI$), only a minority (n=1 for $RW$, 3 for $BAI$) occurred in species responding positively to precipitation in the current growing season. 
 
-Temperature variables and $DBH$ had significant interactive effects on $BAI$ for `r round(n_DBHxT_BAI_sig/ n_DBHxT_BAI_analyzed*100)`% of cases considered (Table `r interactions_and_year_summaries`). 
-Directions of these interactions were mixed, with `r n_DBHxT_BAI_sig_neg` of `r n_DBHxT_BAI_sig` significant interactions negative (*i.e.*, more negative/ less positive response of larger trees to higher temperatures).
-Five of these six significant negative interactions occurred in water-limited forests (2 in HKK, 1 in LT, 2 in CB; Fig. `r clim_sens`).
-
-
-*(Results up to this point updated Dec2020. Content below this point is old.)*
+Temperature variable $\times DBH$ interactions were significant for `r round(n_DBHxT_RW_sig/ n_DBHxT_RW_analyzed*100)`% of cases with $RW$ as the growth metric and for `r round(n_DBHxT_BAI_sig/ n_DBHxT_BAI_analyzed*100)`% with $BAI$ as the growth metric (Table `r interactions_and_year_summaries`).
+Directions of these interactions were mixed, with `r n_DBHxT_RW_sig_neg` of `r n_DBHxT_RW_sig` significant interactions negative with $RW$ as the growth metric and `r n_DBHxT_BAI_sig_neg` of `r n_DBHxT_BAI_sig` significant interactions negative when $BAI$ was the growth metric.
+For both $RW$ and $BAI$, the majority of significant negative interactions (*i.e.*, more negative/ less positive response of larger trees to higher temperatures) occurred in the more water-limited forests (HKK, LT, CB), whereas positive interactions were more common in mesic forests (SCBI, HF, ZOF).
 
 **figure on climate - DBH interactions? EFFECT SEEMS TO BE FAIRLY STRONG AT LT AND MAYBE SC (NEEDS UPDATING)** (*See [ISSUE #42 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/42)*)
 
@@ -526,15 +524,27 @@ Five of these six significant negative interactions occurred in water-limited fo
 
 ## Effects of year {-#Effects}
 
-There was a significant effect of `year` in the GLS models for # of the # species- site combinations tested (Table `r interactions_and_year_summaries`), and these trends matched those observed in a separate analysis of $DBH$-growth relationships by year (Appendix `r decadal_analysis_appendix`; **ADD SI FIGS**).
-In the majority of cases (#%), the growth trend over time was negative.
-Declines were particularly dramatic (**give some criteria**) for *all four species at Harvard Forest, PIPO at Little Tesuque, POTR at Cedar Breaks, and PIMA at Scotty Creek* (Fig. `r year_fig`).
+```{r , eval=TRUE, echo=FALSE}
+## Tallies for the  paragraph below (Dec.27)
+n_tested=40 #same for all metrics
+n_best_model_RW=32
+n_best_model_BAI=33
+n_best_model_AGB=36
+n_best_model_neg_RW=32-2 #(exceptions:  FASY at ZOF, PIPU at CB) (94%)
+n_best_model_neg_BAI=33-3 #(exceptions:  FASY at ZOF, PIPU and POTR at CB) (91%)
+n_best_model_neg_AGB=36-3 #(exceptions:  FASY at ZOF, PIPU and POTR at CB) (92%)
+```
+
+*(tentative results.  We're not yet getting the constraints on scope right. It is messing up on POTR, for which only ~20 yrs of data get included.)*
+
+There was a significant effect of `year` in the GLS models for `r n_best_model_RW` - `r n_best_model_AGB` (depending on growth metric) of the `r n_tested` species- site combinations tested (Table `r interactions_and_year_summaries`), and these trends matched those observed in a separate analysis of $DBH$-growth relationships by year (Appendix `r decadal_analysis_appendix`; **ADD SI FIGS**).
+In the majority of cases (91-94%, depending on growth metric), the growth trend over time was negative.
+Declines were particularly dramatic (**give some criteria**) for *all four species at Harvard Forest, PIPO at Little Tesuque, **POTR at Cedar Breaks**, and PIMA at Scotty Creek* (Fig. `r year_fig`).
 In these cases, models without `year` predicted declines in growth at large DBH that should more properly be attributed to the effect of year (Fig. `r year_fig`).
-Significant positive growth trends were observed for only # species, **LIST**, and all were modest compared to the steep negative trends observed for some species.
-Growth rate was independent of `year` for only # species:  **LIST**.
+Significant positive growth trends were observed for only three species, FASY at ZOF, PIPU and **POTR** at CB, and all were modest compared to the steep negative trends observed for some species.
+Growth rate was consistently independent of `year` for only four species: *Chukrasia tabularis* at HKK, *Fraxinus nigra* at SCBI, and *Picea engelmannii* and *Pinus flexilis* at CB.
 
-
-![**Figure 7 | DRAFT FIGURE. GLS model with and without year, maybe decadal analysis plot. IT WOULD BE BEST TO COMBINE THE 2 DBH FIGURES (PANELS 1,2). CURRENT EXAMPLE IS JUST SCOTTY CREEK, BUT IT WOULD BE GOOD TO SHOW AT LEAST ONE OTHER.](tables_figures/year_figure_sketch.png)
+![**Figure 6 | DRAFT FIGURE. GLS model with and without year, maybe decadal analysis plot. IT WOULD BE BEST TO COMBINE THE 2 DBH FIGURES (PANELS 1,2). CURRENT EXAMPLE IS JUST SCOTTY CREEK, BUT IT WOULD BE GOOD TO SHOW AT LEAST ONE OTHER.](tables_figures/year_figure_sketch.png)
 
 # Discussion {-#Discussion}
 
