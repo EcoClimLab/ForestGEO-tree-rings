@@ -361,7 +361,9 @@ For climate responses, we allowed concave-down fits, but ignored any concave-up 
 
 For models including interactive effects of climate and $DBH$, we tested for interactions between first-order linear terms for climate variables and $DBH$.
 
-To test for $year$ effects, we limited the analysis of each species to years for which the $DBH$ range represented by at least 3 individuals spanned at least half the total range of that species, dropping species entirely if < 30 years met this criteria. 
+To test for $year$ effects, we limited the analysis to species with reasonable coverage of an $DBH$ x `year` matrix.
+Specifically, we required that the species be represented by cores from  $\ge$ 3 trees spanning  $\ge$ 40% the total $DBH$ range for $\ge 2/3$ of the total time range analyzed. 
+Species that failed to meet this criteria (n= **N**) were excluded from this analysis.
 We then ran models as described above, including a  first-order linear effect of $year$.
 To verify that GLS model trends for $year$ were real, as opposed to an artifact of inherent covariation between $DBH$ and $year$ within each core, we separately analyzed $DBH$-growth relationships by decade (Appendix `r decadal_analysis_appendix`). 
 For simplicity and consistency with previous literature, we present only the models with $BAI$ as the growth metric, noting that responses were similar across metrics. 
