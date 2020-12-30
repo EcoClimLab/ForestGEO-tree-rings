@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  15 NOV 2020 09:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  30 DEC 2020 18:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -810,6 +810,11 @@ Overfull \hbox (0.78969pt too wide) in paragraph at lines 107--107
  []
 
 
+Overfull \hbox (1.89981pt too wide) in paragraph at lines 107--107
+[]|\T1/lmr/m/n/10 (-20) BCNM|  
+ []
+
+
 LaTeX Warning: Command \' invalid in math mode on input line 107.
 
 
@@ -853,11 +858,11 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 110.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 110.
  ) 
 Here is how much of TeX's memory you used:
- 15348 strings out of 492616
- 226456 string characters out of 6129482
+ 15346 strings out of 492616
+ 226434 string characters out of 6129482
  365697 words of memory out of 5000000
  19016 multiletter control sequences out of 15000+600000
- 20335 words of font info for 40 fonts, out of 8000000 for 9000
+ 20252 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,13n,38p,810b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/
@@ -867,7 +872,7 @@ ist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2019/texmf-dist/fonts/type
 1/public/lm/lmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/l
 m/lmmi7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmr10.pfb
 ></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
-Output written on sites_table.pdf (1 page, 48701 bytes).
+Output written on sites_table.pdf (1 page, 48628 bytes).
 PDF statistics:
  36 PDF objects out of 1000 (max. 8388607)
  28 compressed objects within 1 object stream

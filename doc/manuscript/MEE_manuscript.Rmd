@@ -145,7 +145,7 @@ climwin_sameV_diffW = "S6"
 climwin_diffV_diffW = "S8"
 
 all_GLS = "S9-S18"
-GLS_BCI = "S9"
+GLS_BCNM = "S9"
 GLS_HKK = "S10"
 GLS_SCBI = "S11"
 GLS_LDW = "S12"
@@ -164,9 +164,9 @@ SC_traditional_comparison_legend <- "Figure S4. Comparison of our approach with 
 
 climwin_sameV_sameW_legend = "Figure S5. (PRE at SCBI)"
 climwin_sameV_diffW_legend = "Figure S6. (PET at SCBI)"
-climwin_diffV_diffW_legend = "Figure S7. (TMP/TMN at BCI)"
+climwin_diffV_diffW_legend = "Figure S7. (TMP/TMN at BCNM)"
 
-GLS_BCI_legend = "Figure S9. Best GLS models for Barro Colorado Island (Panama)"
+GLS_BCNM_legend = "Figure S9. Best GLS models for Barro Colorado Nature Monument (Panama)"
 GLS_HKK_legend = "Figure S10. Best GLS models for Huai Kha Khaeng (Thailand)"
 GLS_SCBI_legend = "Figure S11. Best GLS models for the Smithsonian Conservation Biology Institute (Virginia, USA)"
 GLS_LDW_legend = "Figure S12. Best GLS models for Lilley Dickey Woods (Indiana, USA)"
@@ -303,7 +303,7 @@ In using this diversity of data sources, we ensured that our approach was able t
 ```
 ---
 nocite: | 
-  @vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @alfaro-sanchez_growth_2017; @helcoski_growing_2019 @gonzalez-akre_scbi-forestgeoscbi-forestgeo-data_2020-1; @aus_de_ar_tree_2018; @bumann_assessing_2019; @samonil_individual-based_2013; @kaspar_species-specific_nodate; @alexander_potential_2019; @finzi_carbon_2020
+  @vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @alfaro-sanchez_growth_2017; @helcoski_growing_2019 @gonzalez-akre_scbi-forestgeoscbi-forestgeo-data_2020-1;  @bumann_assessing_2019; @samonil_individual-based_2013; @kaspar_species-specific_nodate; @alexander_potential_2019; @finzi_carbon_2020
 ---
 
 All tree cores were cross-dated and measured by the original researchers using standard dendrochronological practices. 
@@ -385,7 +385,7 @@ While one-to-one correspondence of estimated climate coefficients was neither ex
 ```{r , eval=FALSE, echo=FALSE}
 ## Tallies for the following paragraph (Dec.21)
 #sameV_sameW: LDWp, NMt, NIOt, NIOp, SCBIp, SCt, ZOFp
-#sameV_diffW: BCIp, BCIt, CBp, CBt, HFt, HKKp, LDWt, NMp, SCBIt, SCp, ZOFt
+#sameV_diffW: BCNMp, BCNMt, CBp, CBt, HFt, HKKp, LDWt, NMp, SCBIt, SCp, ZOFt
 #diffV_diffW: HFp, HKKt
 ```
 The three metrics of growth ($RW$, $BAI$, and $\Delta AGB$)  exhibited similar strength of correlation and direction of response to climate variables across the range of potential time windows, but the optimal time window or even the top climate variable sometimes differed (Figs. `r all_climwin`).
@@ -396,7 +396,7 @@ Henceforth, unless otherwise noted, we focus on the climate sensitivities identi
 
 ```{r , eval=FALSE, echo=FALSE}
 ## Tallies for the paragraph below (as of Dec. 22)
-#BCI: 1 species with both, 2 with just P
+#BCNM: 1 species with both, 2 with just P
 #HKK: 3 species with both, 1 with just T
 #SCBI: 11 species with both, 3 with just P (FRNI, FAGR, PIST)
 #LDW:  4 species with both,  2  with just P
@@ -408,7 +408,7 @@ Henceforth, unless otherwise noted, we focus on the climate sensitivities identi
 #SC:  1 species with both
 ```
 Within the context of the GLS model, which tested for first- and negative second- order linear effects of both a precipitation and a temperature variable, both a precipitation and a temperature variable were included in the top model for 80% of site-species combinations (n=37 of 46; Fig. `r clim_sens`). 
-There were eight site-species combinations for which only a precipitation term was significant (2 at BCI, 3 at SCBI, 2 at LDW, and 1 at CB), one for which only a temperature term was significant (CHTA at HKK), and none with no significant climate responses. 
+There were eight site-species combinations for which only a precipitation term was significant (2 at BCNM, 3 at SCBI, 2 at LDW, and 1 at CB), one for which only a temperature term was significant (CHTA at HKK), and none with no significant climate responses. 
 Precipitation and temperature variables were rarely influential over the same time window (exception: LDW).
 Below, we summarize the precipitation and temperature variables included in these models and their direction of response. 
 
@@ -423,7 +423,7 @@ Below, we summarize the precipitation and temperature variables included in thes
 #T group:Tmax at 5, PET at 3, Tmin at 1, Tmp at 1
 
 ###Windows selected: 
-# BCI: precip dry season (12mo), T dry season (2 mo) 
+# BCNM: precip dry season (12mo), T dry season (2 mo) 
 #HKK: PDF dry season + edges (9mo), T wet season (8 mo)
 #SCBI: precip p June - cAug (15 mo), PET current gs (3 mo)
 #LDW: precip c June (1 mo), PET current June (1mo)
@@ -436,8 +436,8 @@ Below, we summarize the precipitation and temperature variables included in thes
 ```
 Responses to precipitation amount ($PPT$) and frequency ($PDF$) were included in the best model for all but one species, and were predominantly positive (Fig. `r clim_sens`).
 $PPT$ and $PDF$ were each identified as the top variable in four of the eight sites with both variables available, while $PPT$ was the only option at two (LT and CB).
-Optimal time windows most commonly coincided at least partially with the months of most active growth in the current year (Fig. `r clim_sens`; Table `r site_details`):  wet seasons in the tropics (BCI and HKK) or late spring/ early summer in the extratropics (n= 5 of 8).
-In the tropics, the long time windows over which precipitation was influential (12 mo at BCI, 9 mo at HKK) also included the majority (BCI) or all (HKK) of the dry season.
+Optimal time windows most commonly coincided at least partially with the months of most active growth in the current year (Fig. `r clim_sens`; Table `r site_details`):  wet seasons in the tropics (BCNM and HKK) or late spring/ early summer in the extratropics (n= 5 of 8).
+In the tropics, the long time windows over which precipitation was influential (12 mo at BCNM, 9 mo at HKK) also included the majority (BCNM) or all (HKK) of the dry season.
 At three extratropical sites (LDW, NIO, and CB), the most influential windows were limited to the current spring and early summer, whereas optimal windows at two sites extended back to the previous fall (LT) or summer (SCBI).
 Finally, at three sites (HF, ZOF, and SC), precipitation of the previous growing season was the most influential variable. 
 Responses to $PPT$ or $PDF$ were predominantly positive, with positive first-order linear terms for all but two species (*Tsuga canadensis* at HF and *Betula papyrifera* at NIO; Fig. `r clim_sens`).
@@ -446,9 +446,9 @@ At the riparian site (NIO), for which streamflow was included as a candidate var
 
 A temperature variable was included in the best model for all but eight site-species combinations, with predominantly negative responses (*#*% of species; Fig. `r clim_sens`).
 The most commonly selected variables within the temperature group were $T_{max}$ and $PET$, which were identified by *climwin* as the top temperature-related driver at five and three of the ten sites, respectively, noting that $PET$ was not available for two sites. 
-$T_{mean}$ and $T_{min}$ were each identified as the top driver at only one site (NIO and BCI, respectively), noting that the effects of $T_{min}$ at BCI were only marginally significant (Fig. `r clim_sens`).
-Optimal time windows most commonly occurred during the peak growing season of the current year (n= 5 of 10 sites), but there were cases where optimal windows occurred during the preceding dry season (BCI), late winter/early spring (HF, ZOF), the previous growing season (NIO), or a 13-month window extending from past to current growing season (CB).
-Within the tropics, there was minimal effect of temperature at BCI and a negative effect of wet season $T_{max}$ for three of four species at HKK.
+$T_{mean}$ and $T_{min}$ were each identified as the top driver at only one site (NIO and BCNM, respectively), noting that the effects of $T_{min}$ at BCNM were only marginally significant (Fig. `r clim_sens`).
+Optimal time windows most commonly occurred during the peak growing season of the current year (n= 5 of 10 sites), but there were cases where optimal windows occurred during the preceding dry season (BCNM), late winter/early spring (HF, ZOF), the previous growing season (NIO), or a 13-month window extending from past to current growing season (CB).
+Within the tropics, there was minimal effect of temperature at BCNM and a negative effect of wet season $T_{max}$ for three of four species at HKK.
 For temperate sites with optimal time windows covering the current and/or past growing season, responses were universally negative (i.e., negative first-order linear or unimodal, peaking at temperatures lower than the long-term mean). 
 In contrast, there were positive effects of Jan-March $T_{max}$ for all three species at ZOF and of March $PET$ for *Tsuga Canadensis* at HF, the latter contrasting with a negative response of the other three species at HF (Fig. `r clim_sens`).
 At the highest-latitude site (SC), which has undergone rapid warming and permafrost melt, *Picea mariana* responded positively (but with wide 95% CI on the slope) to temperature over the full analysis period (1903-2013); however, responses were predominately positive prior to 1970 and predominantly negative afterwards (Fig. **CREATE AN SI FIGURE!**). 
@@ -473,7 +473,7 @@ There was substantial variation in these trends, with patterns mixed across both
 On one end of the spectrum, some species exhibited maximum $RW$ at low $DBH$, followed by fairly rapid declines in $RW$ with increasing $DBH$. 
 Species following this pattern either had low to at most intermediate shade tolerance (e.g., *Melia azedarach* at HKK, *Juglans nigra* at SCBI, *Acer rubrum* at HF, *Betula papyrifera* at NIO; *Populous tremuloides* at CB; Table `r species_table`) and/or grew in relatively open stands (e.g., both species at LT, *Picea mariana* at SC; Fig. `r size`).
 At the other end of the spectrum, some species had low $RW$ at small $DBH$, increased to peak $RW$ at intermediate $DBH$, and subsequently declined.
-These included, but were not limited to, shade-tolerant species at sites where they presumably established under closed-canopy conditions (e.g., *Trichilia tuberculata* and *Tetragastris panamensis* at BCI; *Fagus* spp. at SCBI and Žofín, *Acer saccharum* at LDW, *Picea* spp. at Žofín and CB; Table `r species_table`).  
+These included, but were not limited to, shade-tolerant species at sites where they presumably established under closed-canopy conditions (e.g., *Trichilia tuberculata* and *Tetragastris panamensis* at BCNM; *Fagus* spp. at SCBI and Žofín, *Acer saccharum* at LDW, *Picea* spp. at Žofín and CB; Table `r species_table`).  
 
 **Trends in both $BAI$ and $\Delta AGB$ were far more consistent across sites and species, most commonly increasing to a peak at intermediate $DBH$ and then declining (Fig. `r size`).**
 Best models for $BAI$ included $DBH$ and $DBH^2$ for `r n_spst_BAI_DBH_best_model` of `r n_spst_DBH_analyzed` species (exception: *Acer rubrum* at HF), with a positive coefficient for $DBH$ in `r n_spst_BAI_DBH_best_model_neg` (exception: non-significant negative coefficient for *Pinus ponderosa* at LT, whose reconstructed DBH extended down to only 15cm within the time frame analyzed) and universally negative coefficients for $DBH^2$.
@@ -485,13 +485,13 @@ For $\Delta AGB$, models were even more consistent, with the best models for `r 
 ## Additive and interactive effects of climate and DBH {-#Additive}
 
 When a precipitation variable, a temperature variable, and $DBH$ were all included as candidate variables in the GLS models, typically all three were included in the top model, regardless of the growth metric used.
-Climate responses were generally similar to those described above for models without a $DBH$ term, although some of the weaker climate responses were not consistently included in top models (e.g., $T_{min}$ responses at BCI; Figs. `r clim_sens`, `r all_GLS`).
+Climate responses were generally similar to those described above for models without a $DBH$ term, although some of the weaker climate responses were not consistently included in top models (e.g., $T_{min}$ responses at BCNM; Figs. `r clim_sens`, `r all_GLS`).
 Responses to $DBH$ were as described above (Fig. `r size`).
 
 In general, $DBH$ explained more variation in growth rates than did climate, but its relative importance varied across growth metrics and sites (Figs. `r all_GLS`).
 The relative importance of $DBH$ tended to be least for $RW$, intermediate for $BAI$, and highest for $\Delta AGB$ (e.g., at SCBI; Fig. `r GLS_SCBI`).
 However, there were exceptions, particularly when $RW$ decreased steeply with $DBH$ (e.g., LT; Fig. `r GLS_LT`).
-The relative importance of climate was modest (but still significant) at sites including SCBI (Fig. `r GLS_SCBI`), HF (Fig. `r GLS_HF`), and SC (Fig. `r GLS_SC`), and stronger at sites including BCI (Fig. `r GLS_BCI`) and LT (Fig. `r GLS_LT`). 
+The relative importance of climate was modest (but still significant) at sites including SCBI (Fig. `r GLS_SCBI`), HF (Fig. `r GLS_HF`), and SC (Fig. `r GLS_SC`), and stronger at sites including BCNM (Fig. `r GLS_BCNM`) and LT (Fig. `r GLS_LT`). 
 
 ```{r , eval=TRUE, echo=FALSE}
 ## Tallies for the  paragraph below (Dec.24)
@@ -621,7 +621,7 @@ We believe our analysis methods to be robust,
 
 Our sampling varies by sites, and sites analyzed have decent year x DBH coverage, but biases could remain (need to do some research on this, believe it's mostly stand dynamics)
 
-Main bias would be stand dynamics. This is probably the case at secondary forests (HF, SCBI...). Even within mature forests, light-demanding species that establish in gaps (JACO at BCI, MEAZ at HKK) would tend to experience an increasingly competitive environment. 
+Main bias would be stand dynamics. This is probably the case at secondary forests (HF, SCBI...). Even within mature forests, light-demanding species that establish in gaps (JACO at BCNM, MEAZ at HKK) would tend to experience an increasingly competitive environment. 
 
 In stands with no known stand-clearing disturbance within or shortly prior to the analysis time frame (ZOF?, NM?, CB, SC), trends would represent more gradual successional trends or responses to global change.
 

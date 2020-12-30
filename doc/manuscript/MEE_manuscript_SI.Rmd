@@ -89,7 +89,7 @@ climwin_sameV_diffW = "S6"
 climwin_diffV_diffW = "S8"
 
 all_GLS = "S9-S18"
-GLS_BCI = "S9"
+GLS_BCNM = "S9"
 GLS_HKK = "S10"
 GLS_SCBI = "S11"
 GLS_LDW = "S12"
@@ -111,7 +111,7 @@ climwin_sameV_diffW_legend = "Figure S6. (PET at SCBI)"
 climwin_diffV_diffW_legend = "Figure S7. (TMX/TMP at HKK)"
 
 
-GLS_BCI_legend = "Figure S9. Best GLS models for Barro Colorado Island (Panama)"
+GLS_BCNM_legend = "Figure S9. Best GLS models for Barro Colorado Nature Monument (Panama)"
 GLS_HKK_legend = "Figure S10. Best GLS models for Huai Kha Khaeng (Thailand)"
 GLS_SCBI_legend = "Figure S11. Best GLS models for the Smithsonian Conservation Biology Institute (Virginia, USA)"
 GLS_LDW_legend = "Figure S12. Best GLS models for Lilley Dickey Woods (Indiana, USA)"
@@ -137,7 +137,7 @@ GLS_generic_legend = " for all three growth metrics examined here. Precipitation
 
 *(include descriptions of stand history, global change dynamics)*
 
-### Barro Colorado Island, Panama
+### Barro Colorado Nature Monument, Panama
 
 ### Huai Kha Khaeng, Thailand
 
@@ -195,7 +195,7 @@ When bark thickness data were not available, we used published bark allometries 
 \newpage
 ## `r climate_correction_title`
 
-*For BCI, we calculated monthly $PPT$ and $PDF$ from daily precipitation readings made on BCI starting in 1929 [@paton_barro_2019].*
+*For BCNM, we calculated monthly $PPT$ and $PDF$ from daily precipitation readings made on BCNM starting in 1929 [@paton_barro_2019].*
 
 \newpage
 
@@ -313,7 +313,7 @@ kable(S2, format = "latex", booktabs = TRUE,  escape = F, linesep = c('\\addline
   column_spec(8, italic = T) %>%
   kable_styling(latex_options = c("scale_down", "hold_position")) 
 ```
-*For extratropical species, light requirements are classified based on the database of @niinemets_tolerance_2006. For tropical species, categorization is based on @alfaro-sanchez_growth_2017 for BCI and @vlam_temperature_2014 for HKK.
+*For extratropical species, light requirements are classified based on the database of @niinemets_tolerance_2006. For tropical species, categorization is based on @alfaro-sanchez_growth_2017 for BCNM and @vlam_temperature_2014 for HKK.
 
 **Bark allometry field indicates the species and site sampled to construct the bark allometry. When neither raw data nor an allometric equation for the study species was available, we selected the most appropriate equation that could be located for similar species. Equations are given in Table `r bark_allometries`.
 
@@ -367,7 +367,7 @@ kable(table_pt1, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = 
   add_header_above(c(" ", "Precipitation response" = 2, "Temperature response" = 2)) %>%
   column_spec(2:5, width = col_width) %>%
   column_spec(6, width = "2cm") %>%
-  pack_rows("Barro Colorado Island, Panama", 1, 3, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Barro Colorado Nature Monument, Panama", 1, 3, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
   pack_rows("Huai Kha Khaeng, Thailand", 4, 7, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
   pack_rows("Smithsonian Conservation Biology Institute, Virginia, USA", 8, 15, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
   kable_styling(latex_options = c( "hold_position", "repeat header"), protect_latex = T, font_size = 7) 
@@ -413,7 +413,7 @@ kable(table_pt3, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = 
 ```
 ---
 nocite: | 
-  @alfaro-sanchez_growth_2017; @vlam_temperature_2014; @helcoski_growing_2019; @maxwell_declining_2016; @aus_de_ar_tree_2018; @bumann_assessing_2019; @tumajer_increasing_2017; @sniderhan_growth_2016; @kaspar_species-specific_nodate
+  @alfaro-sanchez_growth_2017; @vlam_temperature_2014; @helcoski_growing_2019; @maxwell_declining_2016; @bumann_assessing_2019; @tumajer_increasing_2017; @sniderhan_growth_2016; @kaspar_species-specific_nodate
 ---
 *Indicates results from a regional study including but not limited to cores from the focal site.
 
@@ -493,9 +493,9 @@ nocite: |
 
 
 \newpage
-## `r GLS_BCI_legend`
+## `r GLS_BCNM_legend`
 
-![`r GLS_BCI_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/BCI.png){ width=75% }
+![`r GLS_BCNM_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/BCI.png){ width=75% }
 
 
 
