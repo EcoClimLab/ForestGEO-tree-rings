@@ -293,7 +293,7 @@ This allows us to ask:
 
 We analyzed previously collected tree-ring data from ten sites ranging from 9.15$^\circ$ to 61.30$^\circ$ N latitude and representing a wide range of forest and tree types: tropical broadleaf deciduous and evergreen, temperate broadleaf deciduous and needleleaf evergreen, and boreal needleleaf evergreen (Tables `r sites`, `r site_details`, `r species_table`).
 Nine of these sites (exception: LT) are large forest dynamics plots of the Forest Global Earth Observatory [ForestGEO; @anderson-teixeira_ctfs-forestgeo_2015].
-Trees of species represented within the ForestGEO plots were cored within the plot (n=#) and/or in the vicinity (n=#; max distance: # km), following a variety of sampling protocols designed to meet the varied objectives of the original studies (Tables `r site_details`, `r sampling_details_table`). 
+Trees of species represented within the ForestGEO plots were cored within the plot (n=#) and/or within 10 km (n=#), following a variety of sampling protocols designed to meet the varied objectives of the original studies (Tables `r site_details`, `r sampling_details_table`). 
 In using this diversity of data sources, we ensured that our approach was able to handle challenges presented by varying methodologies and forest types.
 
 **Table 1 | Sites included in this analysis**. Here and throughout, sites are ordered by descending mean annual temperature. Additional site information is provided in Table `r site_details`, and species and their sample sizes are detailed in Tables `r species_table`-`r sampling_details_table`. 
@@ -303,7 +303,7 @@ In using this diversity of data sources, we ensured that our approach was able t
 ```
 ---
 nocite: | 
-  @vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @alfaro-sanchez_growth_2017; @helcoski_growing_2019 @gonzalez-akre_scbi-forestgeoscbi-forestgeo-data_2020-1;  @bumann_assessing_2019; @samonil_individual-based_2013; @kaspar_species-specific_nodate; @alexander_potential_2019; @finzi_carbon_2020
+  @vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @alfaro-sanchez_growth_2017; @helcoski_growing_2019 @gonzalez-akre_scbi-forestgeoscbi-forestgeo-data_2020-1; @bumann_assessing_2019; @samonil_individual-based_2013; @kaspar_species-specific_nodate; @alexander_potential_2019; @finzi_carbon_2020
 ---
 
 All tree cores were cross-dated and measured by the original researchers using standard dendrochronological practices. 
