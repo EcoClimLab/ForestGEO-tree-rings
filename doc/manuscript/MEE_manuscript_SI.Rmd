@@ -139,6 +139,7 @@ GLS_generic_legend = " for all three growth metrics examined here. Precipitation
 
 ### Barro Colorado Nature Monument, Panama
 
+
 ### Huai Kha Khaeng, Thailand
 
 ### Smithsonian Conservation Biology Institute, Virginia, USA
@@ -275,7 +276,7 @@ At LT, increasingly warm drought has dramatically reduced growth [@williams_temp
 
 Problematically, correlating tree growth residuals from which climate-driven trends had been removed against the climate signal with a strong directional trend would not necessarily identify the most relevant climate drivers.
 
-For these sites, we experimented with three approaches to identifying the most important climate drivers (1) the method described above, (2) detrending the climate variables **(AT:prewhitening?)** prior to the climwin step, and (3) splitting analyses into decades before and after 1970 [*sensu*  @sniderhan_growth_2016] (Appendix `r changing_climate`).
+For these sites, we experimented with three approaches to identifying the most important climate drivers (1) the method described above, (2) detrending the climate variables **(AT:prewhitening?)** prior to the climwin step, and (3) splitting analyses into decades before and after 1970 [*sensu*  @sniderhan_growth_2016].
 
 \newpage
 
