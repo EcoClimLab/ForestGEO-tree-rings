@@ -1,7 +1,7 @@
 methods/.DS_Store
 .Rproj.user
 .RData
-results/*/*.RData
+results/*/*all_env.RData
 results/.DS_Store
 .DS_Store
 Icon
