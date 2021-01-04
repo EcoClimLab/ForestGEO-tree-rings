@@ -119,7 +119,7 @@ clim_gaps <- clim_gaps[clim_gaps$start_climvar.class %in% climate_variables, ]
 CO2 <- read.csv(path_to_CO2)
 
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIO676VK5UZQSOGLLHK74NVTM")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCILQOK4TQ3MAIQUMJKK76N5BA")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
@@ -310,7 +310,7 @@ all_Biol <- lapply(all_Biol, function(Biol) {
   })
 
 ## Run the Analysis ####
-for(solution_to_global_trend in c("none", "detrend_climate", "old_records_only", "young_records_only")) {
+for(solution_to_global_trend in c("none", "detrend_climate", "old_records_only", "young_records_only")[1]) {
   
   last_year_older_records = 1970
   
@@ -347,7 +347,7 @@ species_removed_from_year_analysis <- NULL
 data_to_keep <- c(ls(), "data_to_keep")
 
 
-for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", "NewMexico", "SCBI")[])) {
+for(site in switch(solution_to_global_trend, "none" = sites[-1], c("ScottyCreek", "NewMexico", "SCBI")[])) {
   
   
   rm(list = ls()[!ls() %in% data_to_keep])
@@ -579,57 +579,36 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
     ## first check if we are allowed to try Year or CO2 based on this criteria ####
     ### we limited the analysis of each species to years for which the dbh range was represented by at least 3 individuals and spanned at least half the total DBH range of that species
     
-    ## look at range of dbh for each species
+    ## look at range of dbh and Year for each species
     dbh_range_by_species <- aggregate(dbh ~ species_code, data = Biol, FUN = function(x) max(x) - min(x))
+    year_range_by_species <- aggregate(Year ~ species_code, data = Biol, FUN = function(x) max(x) - min(x))
 
     ## look at range of dbh for each year and each species
     dbh_range_by_Year_and_species <- aggregate(dbh ~ Year + species_code, data = Biol, FUN = function(x) max(x) - min(x))
     
     ## for each species, look at if the range of dbh in a a year is at least half the total range of dbh for that species
-    dbh_range_by_Year_and_species$sp_range <- dbh_range_by_species$dbh[match(dbh_range_by_Year_and_species$species_code, dbh_range_by_species$species_code)]
+    dbh_range_by_Year_and_species$sp_dbh_range <- dbh_range_by_species$dbh[match(dbh_range_by_Year_and_species$species_code, dbh_range_by_species$species_code)]
     
-    dbh_range_by_Year_and_species$enough_dbh_range <- dbh_range_by_Year_and_species$dbh >= dbh_range_by_Year_and_species$sp_range/2
+    dbh_range_by_Year_and_species$enough_dbh_range <- dbh_range_by_Year_and_species$dbh >= dbh_range_by_Year_and_species$sp_dbh_range/2.5 # 2 for hal, 3 for 1/3rd) 2.5 for 40%
+  
     
     ## keep a list of species x year combo to keep in analysis.
     Species_Year_to_keep <- dbh_range_by_Year_and_species[dbh_range_by_Year_and_species$enough_dbh_range, c("species_code", "Year")]
     
-    if(solution_to_global_trend %in% "none" & any(table(Species_Year_to_keep$species_code)<30)) species_removed_from_year_analysis <- unique(rbind(species_removed_from_year_analysis, data.frame(site, species_code = names(which(table(Species_Year_to_keep$species_code)<30)))))
     
-    ## remove any species that have less than 30 years
-    Species_Year_to_keep <- Species_Year_to_keep[Species_Year_to_keep$species_code %in% names(which(table(Species_Year_to_keep$species_code)>=30)), ]
+    ## for each species, look at if the total n years meetin dbh criteria above is enough 
+    year_range_by_species$period_range_limit <- year_range_by_species$Year/3*2 # 2 third of the total 
+    
+    if(solution_to_global_trend %in% "none" & any(table(Species_Year_to_keep$species_code)<year_range_by_species$period_range_limit)) species_removed_from_year_analysis <- unique(rbind(species_removed_from_year_analysis, data.frame(site, species_code = names(which(table(Species_Year_to_keep$species_code)< year_range_by_species$period_range_limit )))))
+    
+    ## remove any species that have less than the criteria n years
+    Species_Year_to_keep <- Species_Year_to_keep[Species_Year_to_keep$species_code %in% names(which(table(Species_Year_to_keep$species_code)>=year_range_by_species$period_range_limit)), ]
     
     ## keep a record of that
     
     if(solution_to_global_trend %in% "none") all_Species_Year_to_keep <- unique(rbind(all_Species_Year_to_keep,                             data.frame(site,                                                 Species_Year_to_keep)))
     
-    # ## then check if we are allowed to try Year or CO2 based on this second criteria ####
-    # ### we limited the analysis of each species to dbh  for which the year range was represented by at least 3 individuals and spanned at least half the total year range of that species
-    # 
-    # ## look at range of dbh for each species
-    # year_range_by_species <- aggregate(Year ~ species_code, data = Biol, FUN = function(x) max(x) - min(x))
-    # 
-    # ## look at range of dbh for each year and each species
-    # year_range_by_dbh_and_species <- aggregate(Year ~ round(dbh) + species_code, data = Biol, FUN = function(x) max(x) - min(x))
-    # names(year_range_by_dbh_and_species)[1] <- "dbh"
-    # 
-    # ## for each species, look at if the range of dbh in a a year is at least half the total range of dbh for that species
-    # year_range_by_dbh_and_species$sp_range <- year_range_by_species$Year[match(year_range_by_dbh_and_species$species_code, year_range_by_species$species_code)]
-    # 
-    # year_range_by_dbh_and_species$enough_Year_range <- year_range_by_dbh_and_species$Year >= year_range_by_dbh_and_species$sp_range/2
-    # 
-    # ## keep a list of species x dbh combo to keep in analysis.
-    # Species_dbh_to_keep <- year_range_by_dbh_and_species[year_range_by_dbh_and_species$enough_Year_range, c("species_code", "dbh")]
-    # 
-    # # if(solution_to_global_trend %in% "none" & any(table(Species_dbh_to_keep$species_code)<30)) species_removed_from_dbh_analysis <- unique(rbind(species_removed_from_dbh_analysis, data.frame(site, species_code = names(which(table(Species_dbh_to_keep$species_code)<30)))))
-    # # 
-    # # ## remove any species that have less than 30 years
-    # # Species_dbh_to_keep <- Species_dbh_to_keep[Species_dbh_to_keep$species_code %in% names(which(table(Species_dbh_to_keep$species_code)>=30)), ]
-    # 
-    # ## keep a record of that
-    # 
-    # if(solution_to_global_trend %in% "none") all_Species_dbh_to_keep <- unique(rbind(all_Species_dbh_to_keep,                             data.frame(site,                                                 Species_dbh_to_keep)))
-    
-    
+    ## then run GLS ####
    for(with_Year_or_CO2 in switch(as.character(solution_to_global_trend == "none" & grepl("dbh", what) & nrow(Species_Year_to_keep)>0), "TRUE" = c("", "Year", "CO2")[-3], "FALSE" = "")) {
       
       ## look at collinearity between climate variables ( and CO2 and Year and dbh when relevant) and remove any variable with vif > 10 ####
@@ -675,7 +654,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
       x <- Biol[Biol$species_code %in% sp,]
       
       # keep only years with enough data if we look at CO2 or Year
-      if(!with_Year_or_CO2 %in% "") x <- x[x$Year %in% Species_Year_to_keep$Year[Species_Year_to_keep$species_code %in% sp],]
+      # if(!with_Year_or_CO2 %in% "") x <- x[x$Year %in% Species_Year_to_keep$Year[Species_Year_to_keep$species_code %in% sp],]
       
       cat("Running GLS and dredging for species", sp , "and its", length(unique(x$coreID)), "trees...\n")
       
@@ -763,7 +742,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
    
       if(grepl("dbh", what) & with_Year_or_CO2 %in% "" & "dbh" %in% variables_to_keep & !detrend_climate & !old_records_only & !young_records_only & sp %in% Species_Year_to_keep$species_code) {
         
-        x <- x[x$Year %in% Species_Year_to_keep$Year[Species_Year_to_keep$species_code %in% sp],]
+        # x <- x[x$Year %in% Species_Year_to_keep$Year[Species_Year_to_keep$species_code %in% sp],]
         
         for(g in names(clim_var_group)) {
           v_int <- names(which(sapply(clim_var_group[[g]], grepl, as.character(best_model$call[2]))))
@@ -834,7 +813,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
         x <- Biol[Biol$species_code %in% sp,]
         
         # keep only years with enough data if we look at CO2 or Year
-        if(!with_Year_or_CO2 %in% "") x <- x[x$Year %in% Species_Year_to_keep$Year[Species_Year_to_keep$species_code %in% sp],]
+        # if(!with_Year_or_CO2 %in% "") x <- x[x$Year %in% Species_Year_to_keep$Year[Species_Year_to_keep$species_code %in% sp],]
         
         varying_x <- data.frame(varying_x = seq(min(x[, v], na.rm = T), max(x[, v], na.rm = T), length.out = 100)) ; colnames(varying_x) <- v
         # constant_variables <- c("dbh", variables_to_keep)[!c("dbh", variables_to_keep) %in% v]
@@ -850,7 +829,8 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
                     data.frame(newd, 
                                variable = v, 
                                species = sp, 
-                               varying_x = newd[, v], data.frame(predict(best_model, newd, type = "link", level = 0, se.fit = T)), 
+                               varying_x = newd[, v], 
+                               data.frame(predict(best_model, newd, type = "link", level = 0, se.fit = T)), 
                                sigma = sigma(best_model), # get residual Standard error to correct prediction of mean when back-transforming
                                draw = any(grepl(v,names(best_model$coefficients$fixed))),
                                sig = switch(as.character(sum(summary(best_model)$tTable[grep(v, rownames(summary(best_model)$tTable)), "p-value"] < .05)), "2" = "solid", "1" = "twodash", "0" = "dotted")))
@@ -869,6 +849,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
      
       species_colors <- all_species_colors[[site]]
       names(species_colors) <- pt$species[match(names(species_colors), pt$species_code)]
+      species_colors <- species_colors[!is.na(names(species_colors))]
         
       p <- ggplot(data = pt[pt$draw,], aes(x = varying_x, y = expfit))
       if(!v %in% c("dbh", "Year")) p <- p + geom_rect(xmin = mean(Biol[, v], na.rm = T) - sd(Biol[, v], na.rm = T), ymin = min(pt$lwr), xmax = mean(Biol[, v], na.rm = T) + sd(Biol[, v], na.rm = T), ymax = max(pt$upr), fill = "grey" , alpha=0.01) + geom_vline(xintercept = mean(Biol[, v], na.rm = T), col = "grey")
@@ -891,7 +872,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
         theme_classic() +
         theme(text = element_text(size = 10))
       
-      if(any(pt$draw)) {
+      if(any(pt$draw) | v %in% "Year") {
         assign(paste0("p_", v), p +
                theme(legend.position="none")) 
       }
@@ -970,7 +951,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
                                       start_year = min(Year),
                                       end_year = max(Year)                                    )))
     # save environment ####
-    if(!detrend_climate & !old_records_only & !young_records_only) save.image(file = paste0("results/", ifelse(solution_to_global_trend %in% "none", "", paste0(solution_to_global_trend, "/")), what, "/", site, "_all_env.RData"))
+    save.image(file = paste0("results/", ifelse(solution_to_global_trend %in% "none", "", paste0(solution_to_global_trend, "/")), what, "/", site, "_all_env.RData"))
     
   } # for (what in ...)
   
