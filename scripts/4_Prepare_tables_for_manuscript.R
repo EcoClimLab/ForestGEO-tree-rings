@@ -8,7 +8,7 @@ library(tidyverse)
 
 # prepare sites abbrevaiations ####
 # give site abbrevationtion in paper
-sites_abb <- list(BCI  = "BCI",
+sites_abb <- list(BCI  = "BCNM",
                   HKK = "HKK",
                   NewMexico = "LT",
                   CedarBreaks = "CB",
@@ -16,13 +16,12 @@ sites_abb <- list(BCI  = "BCI",
                   LillyDickey = "LDW",
                   HarvardForest = "HF",
                   # Nebraska = "NE",
-                  Niobara = "Niobara",
+                  Niobara = "NIO",
                   Hansley = "Hansley",
                   Zofin = "ZOF",
                   ScottyCreek = "SC")
 # load data ####
-species_list <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data/species%20list/sitespecies.csv?token=AEWDCIJZDFZB5VLVPXZ5ZLC74UDM4", stringsAsFactors = F)
-# bark <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data/bark/bark_depth.csv?token=AEWDCIMNKUU2YC7ET5X5HZK7KJK3W")
+species_list <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data/species%20list/sitespecies.csv?token=AEWDCINSE4NKQ6PDHEPMW5C76XRJQ")
 
 load("results/log_core_measurement/BCI_all_env.RData")
 
