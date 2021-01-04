@@ -39,7 +39,7 @@ sites <- list.dirs("results/log_core_measurement", full.names = F, recursive = F
 
 
 # give site abbrevationtion in paper
-sites_abb <- list(BCI  = "BCI",
+sites_abb <- list(BCI  = "BCNM",
                   HKK = "HKK",
                   NewMexico = "LT",
                   CedarBreaks = "CB",
@@ -47,7 +47,7 @@ sites_abb <- list(BCI  = "BCI",
                   LillyDickey = "LDW",
                   HarvardForest = "HF",
                   # Nebraska = "NE",
-                  Niobara = "Niobara",
+                  Niobara = "NIO",
                   Hansley = "NE",
                   Zofin = "ZOF",
                   ScottyCreek = "SC")
@@ -62,7 +62,7 @@ sites <- names(sites_abb[match(MAT_order$site.code, sites_abb)])
 # sites with dbh
 sites_with_dbh <- sites #[-grep("CedarBreaks", sites)]
 
-# standardize variable neames ####
+# standardize variable names ####
 v_names <- list(tmn = "expression(T[min]~",
                 tmx = "expression(T[max]~",
                 tmp = "expression(T[mean]~",
