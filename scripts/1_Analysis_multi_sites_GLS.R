@@ -154,31 +154,6 @@ all_species_colors <- lapply(all_species_codes, function(x) {
 # species_colors["CAOVL"] <- species_colors["CAOV"] # make CAOV and CAOVL the smae color
 
 
-# create a plot with only legend by sites and species
-all_legends <- list()
-for(site in sites) {
-  x <- all_Biol[[site]]
-  x <- x[!is.na(x$dbh),]
-  x <- x[!duplicated(x$species_code),]
-  a.gplot <- ggplot(x, aes(x = Year, y = dbh)) + geom_line(aes(group = paste(genus, species), col = paste(genus, species))) +  geom_ribbon(aes(ymin=min(dbh), ymax=max(dbh), bg = paste(genus, species)), alpha=0.25) + labs(col = sites_abb[[site]], bg = sites_abb[[site]])+ theme(legend.background = element_blank(), legend.box.background =element_blank(),  legend.justification = "left", legend.margin=margin(0,0,0,0), legend.box.margin=margin(0,0,0,10)) #+ guides(col=guide_legend(ncol=2), bg=guide_legend(ncol=2))
-  
-  # a.gplot <- ggplot(x, aes(x = Year, y = dbh)) + geom_line(aes(group = paste0(genus, " ", species, " (", species_code, ")"), col = paste0(genus, " ", species, " (", species_code, ")"))) +  geom_ribbon(aes(ymin=min(dbh), ymax=max(dbh), bg = paste0(genus, " ", species, " (", species_code, ")")), alpha=0.25) + labs(col = sites_abb[[site]], bg = sites_abb[[site]])+ theme(legend.background = element_blank(), legend.box.background =element_blank()) #+ guides(col=guide_legend(ncol=2), bg=guide_legend(ncol=2))
-
-  all_legends[[site]] <- ggplot_gtable(ggplot_build(a.gplot))$grobs[[which(sapply( ggplot_gtable(ggplot_build(a.gplot))$grobs, function(x) x$name) == "guide-box")]]
-
-}
-
-# make all legend the same width
-maxwidth <- do.call(grid::unit.pmax, lapply(all_legends, function(x) x$widths[2:5]))
-for (i in 1:length(all_legends)){
-  all_legends[[i]]$widths[2:5] <- as.list(maxwidth)
-}
-
-
-
-save(all_legends, file = "results/all_legends.Rdata")
-
-
 ## climate data ####
 for(clim_v in climate_variables) {
   print(clim_v)
@@ -1065,6 +1040,30 @@ if(solution_to_global_trend %in% "none") {
 
 
 
+# make an object holding the legend for species analyzed
+
+all_legends <- list()
+for(site in sites) {
+  x <- all_Biol[[site]]
+  x <- x[!is.na(x$dbh),]
+  x <- x[x$species_code %in% summary_data$species_code[summary_data$site %in% site],]
+  x <- droplevels(x[!duplicated(x$species_code),])
+
+  a.gplot <- ggplot(x, aes(x = Year, y = dbh)) + geom_line(aes(group = paste(genus, species), col = paste(genus, species))) +  geom_ribbon(aes(ymin=min(dbh), ymax=max(dbh), bg = paste(genus, species)), alpha=0.25) + labs(col = sites_abb[[site]], bg = sites_abb[[site]])+ theme(legend.background = element_blank(), legend.box.background =element_blank(),  legend.justification = "left", legend.margin=margin(0,0,0,0), legend.box.margin=margin(0,0,0,10)) #+ guides(col=guide_legend(ncol=2), bg=guide_legend(ncol=2))
+  
+  # a.gplot <- ggplot(x, aes(x = Year, y = dbh)) + geom_line(aes(group = paste0(genus, " ", species, " (", species_code, ")"), col = paste0(genus, " ", species, " (", species_code, ")"))) +  geom_ribbon(aes(ymin=min(dbh), ymax=max(dbh), bg = paste0(genus, " ", species, " (", species_code, ")")), alpha=0.25) + labs(col = sites_abb[[site]], bg = sites_abb[[site]])+ theme(legend.background = element_blank(), legend.box.background =element_blank()) #+ guides(col=guide_legend(ncol=2), bg=guide_legend(ncol=2))
+  
+  all_legends[[site]] <- ggplot_gtable(ggplot_build(a.gplot))$grobs[[which(sapply( ggplot_gtable(ggplot_build(a.gplot))$grobs, function(x) x$name) == "guide-box")]]
+  
+}
+
+# make all legend the same width
+maxwidth <- do.call(grid::unit.pmax, lapply(all_legends, function(x) x$widths[2:5]))
+for (i in 1:length(all_legends)){
+  all_legends[[i]]$widths[2:5] <- as.list(maxwidth)
+}
+
+save(all_legends, file = "results/all_legends.Rdata")
 # summary plot for climate  ####
 
 A <- pivot_longer(all_Clim, c(climate_variables, "SF"), "climate_var") # A <- pivot_longer(all_Clim, paste0(climate_variables, rep(c("", "_detrended"), each = length(climate_variables))), "climate_var") 
