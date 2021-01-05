@@ -17,7 +17,7 @@ sites_abb <- list(BCI  = "BCNM",
                   HarvardForest = "HF",
                   # Nebraska = "NE",
                   Niobara = "NIO",
-                  Hansley = "Hansley",
+                  # Hansley = "Hansley",
                   Zofin = "ZOF",
                   ScottyCreek = "SC")
 # load data ####
@@ -42,6 +42,7 @@ species_summary <- species_summary[!duplicated(species_summary),]
 ## add list of sites
 
 species_sites <- data.frame(species_code = unlist(sapply(all_Biol, function(x) as.character(unique(x$species_code)))))
+species_sites <- species_sites[-grep("Hansley", row.names(species_sites)),,drop=FALSE] # remove Hansley if is there
 
 species_sites$site <- unlist(sites_abb[gsub("\\d", "", row.names(species_sites))])
 
@@ -110,6 +111,8 @@ summary_samples$n.cores.dbh[is.na(summary_samples$n.cores.dbh)] <- 0
 ## replace dbh.range.sampled NA-NA by "unknown"
 summary_samples$dbh.range.sampled[summary_samples$dbh.range.sampled %in% "NA-NA"] <- "unknown"
   
+## remove Hansley if there (should not starting  next run)
+summary_samples <- droplevels(summary_samples[!summary_samples$site %in% "Hansley",])
 
 ## change site names to abbreviations
 summary_samples$site <- unlist(sites_abb[as.character(summary_samples$site)])

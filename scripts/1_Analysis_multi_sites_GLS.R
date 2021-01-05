@@ -119,11 +119,12 @@ clim_gaps <- clim_gaps[clim_gaps$start_climvar.class %in% climate_variables, ]
 CO2 <- read.csv(path_to_CO2)
 
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCILQOK4TQ3MAIQUMJKK76N5BA")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIKCKSEVT3HX35QYWNK77WYUO")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
 sites <- names(all_Biol)
+sites <- sites[!sites %in% "Hansley"] # remove Hansley
 
 # prepare data ####
 ## species colors ####
