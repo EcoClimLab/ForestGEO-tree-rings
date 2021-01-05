@@ -1046,11 +1046,14 @@ all_legends <- list()
 for(site in sites) {
   x <- all_Biol[[site]]
   x <- x[!is.na(x$dbh),]
-  x <- x[x$species_code %in% summary_data$species_code[summary_data$site %in% site],]
+  # x <- x[x$species_code %in% summary_data$species_code[summary_data$site %in% site],]
   x <- droplevels(x[!duplicated(x$species_code),])
-
-  a.gplot <- ggplot(x, aes(x = Year, y = dbh)) + geom_line(aes(group = paste(genus, species), col = paste(genus, species))) +  geom_ribbon(aes(ymin=min(dbh), ymax=max(dbh), bg = paste(genus, species)), alpha=0.25) + labs(col = sites_abb[[site]], bg = sites_abb[[site]])+ theme(legend.background = element_blank(), legend.box.background =element_blank(),  legend.justification = "left", legend.margin=margin(0,0,0,0), legend.box.margin=margin(0,0,0,10)) #+ guides(col=guide_legend(ncol=2), bg=guide_legend(ncol=2))
   
+  species_colors <- all_species_colors[[site]]
+  names(species_colors) <- paste(x$genus, x$species)[match( names(species_colors), x$species_code)]
+
+  a.gplot <- ggplot(x, aes(x = Year, y = dbh)) + geom_line(aes(group = paste(genus, species), col = paste(genus, species))) +  geom_ribbon(aes(ymin=min(dbh), ymax=max(dbh), bg = paste(genus, species)), alpha=0.25) + labs(col = sites_abb[[site]], bg = sites_abb[[site]])+ theme(legend.background = element_blank(), legend.box.background =element_blank(),  legend.justification = "left", legend.margin=margin(0,0,0,0), legend.box.margin=margin(0,0,0,10)) +  #+ guides(col=guide_legend(ncol=2), bg=guide_legend(ncol=2))
+  scale_color_manual(values = species_colors[paste(x$genus, x$species)]) + scale_fill_manual(values = species_colors[paste(x$genus, x$species)])
   # a.gplot <- ggplot(x, aes(x = Year, y = dbh)) + geom_line(aes(group = paste0(genus, " ", species, " (", species_code, ")"), col = paste0(genus, " ", species, " (", species_code, ")"))) +  geom_ribbon(aes(ymin=min(dbh), ymax=max(dbh), bg = paste0(genus, " ", species, " (", species_code, ")")), alpha=0.25) + labs(col = sites_abb[[site]], bg = sites_abb[[site]])+ theme(legend.background = element_blank(), legend.box.background =element_blank()) #+ guides(col=guide_legend(ncol=2), bg=guide_legend(ncol=2))
   
   all_legends[[site]] <- ggplot_gtable(ggplot_build(a.gplot))$grobs[[which(sapply( ggplot_gtable(ggplot_build(a.gplot))$grobs, function(x) x$name) == "guide-box")]]
