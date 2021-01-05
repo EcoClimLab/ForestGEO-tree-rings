@@ -549,7 +549,7 @@ In these cases, models without `year` predicted declines in growth at large DBH 
 Significant positive growth trends were observed for only three species, FASY at ZOF, PIPU and **POTR** at CB, and all were modest compared to the steep negative trends observed for some species.
 Growth rate was consistently independent of `year` for only four species: *Chukrasia tabularis* at HKK, *Fraxinus nigra* at SCBI, and *Picea engelmannii* and *Pinus flexilis* at CB.
 
-![**Figure 6 | DRAFT FIGURE. GLS model with and without year, maybe decadal analysis plot. IT WOULD BE BEST TO COMBINE THE 2 DBH FIGURES (PANELS 1,2). CURRENT EXAMPLE IS JUST SCOTTY CREEK, BUT IT WOULD BE GOOD TO SHOW AT LEAST ONE OTHER.](tables_figures/year_figure_sketch.png)
+![**Figure 6 | (Responses to year, for species tested).](tables_figures/Year_responses.png)
 
 # Discussion {-#Discussion}
 
