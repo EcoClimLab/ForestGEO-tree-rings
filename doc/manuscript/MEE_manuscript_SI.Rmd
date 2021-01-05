@@ -240,7 +240,7 @@ We defined chronology start dates according to the subsample signal strength (SS
 Thus, for this analysis only, we defined chronology start dates as the year the SSS exceeded 0.80 or two years after the start of the climate record, whichever came later. 
 SSS exceeded 0.80 well before the start of the 1901 start of climate records for PSME (1800s), ABAL (1700), and PIMA (1850s). For LITU, SSS reached 0.8 with 11 trees in 1919, which we used as the start date for this series.
 We note that these start date criteria differ from those used in the main analysis (Table `r sampling_details_table`), which had earlier start dates because the analysis was not constrained by a need to represent the full population signal.
-End dates were defined as the last full year prior to sampling (Table `r sampling_details_table`).
+End dates were defined as the last full year prior to sampling (Table `r sampling_details_table`), or 2000 for CB.
 
 *Beta* (slope) coefficients for the relationship between tree growth and the monthly climate variable were derived as in @helcoski_growing_2019:
 *(SELF-PLAGIARIZED CONTENT:) Analyses of climate–growth relationships were conducted using ‘dplR’ (Bunn, 2008) and ‘bootRes’ (Zang & Biondi, 2013), which correlated functions and bootstrapped confidence intervals for the relationships between annual growth and monthly climate variables following Biondi & Waikul (2004).* 
