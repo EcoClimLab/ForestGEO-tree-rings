@@ -1043,6 +1043,7 @@ if(solution_to_global_trend %in% "none") {
 # make an object holding the legend for species analyzed
 
 all_legends <- list()
+all_legends_2_cols <- list()
 for(site in sites) {
   x <- all_Biol[[site]]
   x <- x[!is.na(x$dbh),]
@@ -1058,6 +1059,8 @@ for(site in sites) {
   
   all_legends[[site]] <- ggplot_gtable(ggplot_build(a.gplot))$grobs[[which(sapply( ggplot_gtable(ggplot_build(a.gplot))$grobs, function(x) x$name) == "guide-box")]]
   
+  a.gplot <- a.gplot + guides(col=guide_legend(ncol=2), bg=guide_legend(ncol=2))
+  all_legends_2_cols[[site]]  <- ggplot_gtable(ggplot_build(a.gplot))$grobs[[which(sapply( ggplot_gtable(ggplot_build(a.gplot))$grobs, function(x) x$name) == "guide-box")]]
 }
 
 # make all legend the same width
@@ -1066,7 +1069,8 @@ for (i in 1:length(all_legends)){
   all_legends[[i]]$widths[2:5] <- as.list(maxwidth)
 }
 
-save(all_legends, file = "results/all_legends.Rdata")
+save(list=c("all_legends", "all_legends_2_cols"), file = "results/all_legends.Rdata")
+
 # summary plot for climate  ####
 
 A <- pivot_longer(all_Clim, c(climate_variables, "SF"), "climate_var") # A <- pivot_longer(all_Clim, paste0(climate_variables, rep(c("", "_detrended"), each = length(climate_variables))), "climate_var") 

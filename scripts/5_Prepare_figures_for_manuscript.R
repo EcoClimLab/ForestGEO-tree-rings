@@ -397,14 +397,14 @@ for(site in sites_with_dbh){
   for( what in names(what_to_show)) {
   
   temp_env <- new.env()
-  load(paste0('results/', what, "/", site, "/env.RData"), envir = temp_env) 
+  load(paste0('results/with_Year/', what, "/", site, "/env.RData"), envir = temp_env) 
   
   existing_plots <- ls(temp_env)[grepl("^p_", ls(temp_env))]
   
   # get variable in order or Precipitation, Temperature and cloud groups (but complicated because, pet is in both temp and dtr),....
   clim_var_group <- get("clim_var_group"  , temp_env)
   
-  existing_plots <- existing_plots[c(1, na.omit(match(c(1,2), sapply(gsub("p_", "", existing_plots), function(x) grep(x,  clim_var_group)[1]))))]
+  existing_plots <- existing_plots[c(1, length(existing_plots), na.omit(match(c(1,2), sapply(gsub("p_", "", existing_plots), function(x) grep(x,  clim_var_group)[1]))))]
   
   # change ylim to scale across sites 
   lapply(existing_plots, function(x) assign(x, get(x, temp_env) + ylim(range(get("ylim_p", temp_env))* ifelse(what == "log_agb_inc_dbh", 1000, 1)), envir = temp_env))
@@ -417,9 +417,9 @@ for(site in sites_with_dbh){
   })
   
   # standardize variable names
-  lapply(existing_plots, function(x) {
+  lapply(existing_plots[-2], function(x) { # -2 is to not do it for Year
     p <- get(x, temp_env)
-    p$labels$x <- eval(parse(text = gsub(" |  ", "~", gsub("-1", "\\^-1", paste0(gsub(substr(p$labels$x, 1, 4), v_names[substr(p$labels$x, 1, 3)], p$labels$x), ")")))))
+    p$labels$x <- eval(parse(text = gsub(" |  ", "~", gsub("-1", "\\^-1", paste0(gsub(substr(p$labels$x, 1, 4), v_names[tolower(substr(p$labels$x, 1, 3))], p$labels$x), ")")))))
     assign(x, p, temp_env)
   })
   
@@ -429,34 +429,46 @@ for(site in sites_with_dbh){
   
  # get the legend
   
-  assign("leg", g_legend(), envir = temp_env)
-  existing_plots <- c(existing_plots, "leg")
+  # assign("leg", g_legend(), envir = temp_env)
+  # existing_plots <- c(existing_plots, "leg")
+
   
   all_plots[[what]] <- grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  {if(is.na(x)) grid.rect(gp=gpar(col="white")) else get(x, temp_env)}), ncol = 4)))
   
-  if (site %in% sites_to_show_case) show_case[[paste0(site, what)]] <- grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots[-4], function(x)  {if(is.na(x)) grid.rect(gp=gpar(col="white")) else get(x, temp_env)}), ncol = 3)))
+  if (site %in% sites_to_show_case) show_case[[paste0(site, what)]] <-  all_plots[[what]]  #grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots[-4], function(x)  {if(is.na(x)) grid.rect(gp=gpar(col="white")) else get(x, temp_env)}), ncol = 3)))
   }  
 
 png(paste0("results/composite_plots/", site, ".png"), width = 8, height = 10, res = 300, units = "in")
 
-grid.arrange(grobs = all_plots, vp= grid::viewport(width=0.95, height=0.95), ncol = 1)
+grid.arrange(
+arrangeGrob(grobs = all_plots, ncol = 1), 
+arrangeGrob( all_legends[[site]]),
+ncol = 2,  widths = c(4,1))
+
+# grid.arrange(grobs = all_plots, vp= grid::viewport(width=0.95, height=0.95), ncol = 1)
 
 grid::grid.text(what_to_show,  x = unit(0.01, "npc"), y = unit(rev(cumsum(c(1/length(what_to_show)/2, rep(1/length(what_to_show), length(what_to_show)-1)))), "npc"), rot = 90)
 
 dev.off()
 
 
-if(site %in% sites_to_show_case){
-  # save the plot
-  show_case[[paste0(site, "leg")]] <- get("leg", temp_env)
-}
+# if(site %in% sites_to_show_case){
+#   # save the plot
+#   show_case[[paste0(site, "leg")]] <- get("leg", temp_env)
+# }
 }
 
 png(paste0("doc/manuscript/tables_figures/show_case_response_plots.png"), width = 10, height = 8, res = 300, units = "in")
 
-grid.arrange(grobs = show_case, vp= grid::viewport(width=0.95, height=0.95), layout_matrix = matrix(c(1, 2, 3, 4, 5, 6, 7, 8), nrow = 4))
+grid.arrange(
+  arrangeGrob(grobs = show_case, layout_matrix = matrix(c(1, 2, 3, 4, 5, 6), nrow = 3)), 
+  arrangeGrob( grobs = all_legends_2_cols[sites_to_show_case], ncol = 2),
+  ncol = 1,  heights = c(2,1))
 
-grid::grid.text(what_to_show,  x = unit(0.015, "npc"), y = unit(rev(cumsum(c(1/length(what_to_show)/2, rep(1/length(what_to_show), length(what_to_show)-1))))*3/4+1/4, "npc"), rot = 90)
+
+# grid.arrange(grobs = show_case, vp= grid::viewport(width=0.95, height=0.95), layout_matrix = matrix(c(1, 2, 3, 4, 5, 6, 7, 8), nrow = 4))
+
+grid::grid.text(what_to_show,  x = unit(0.015, "npc"), y = unit((rev(cumsum(c(1.3/length(what_to_show)/2, rep(1.3/2/length(what_to_show), length(what_to_show)-1)))))+0.25, "npc"), rot = 90)
 
 grid::grid.text(sites_abb[sites_to_show_case[order(match(sites_to_show_case, sites))]], x = unit(cumsum(c(.05 +.9/2/2, rep(.9/2, 1))), "npc"), y = unit(.99,  "npc"))
 dev.off()
