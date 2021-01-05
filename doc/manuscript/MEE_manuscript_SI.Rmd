@@ -407,8 +407,10 @@ kable(table_pt3, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = 
   column_spec(2:5, width = col_width) %>%
   column_spec(6, width = "2cm") %>%
   pack_rows("Žofín Forest Dynamics Plot, Czech Republic", 1, 4, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
-  pack_rows("Niobrara and Hansley, Nebraska, USA", 5, 7, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
-  #pack_rows("Scotty Creek, NW Territories, Canada", 13, 13, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Niobrara, Nebraska, USA", 5, 5, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Little Tesuque, New Mexico, USA", 6, 7, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Cedar Breaks, Utah, USA", 8, 8, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Scotty Creek, NW Territories, Canada", 9, 9, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
   kable_styling(latex_options = c( "hold_position", "repeat header"), protect_latex = T, font_size = 7) 
 # refs in this table need to go in the nocite field below
 ```
