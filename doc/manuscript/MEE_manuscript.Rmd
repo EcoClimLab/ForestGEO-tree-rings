@@ -414,7 +414,7 @@ Precipitation and temperature variables were rarely influential over the same ti
 Below, we summarize the precipitation and temperature variables included in these models and their direction of response. 
 
 
-![**Figure 3 | Species-level responses of $RW$ to climwin-selected variables in precipitation and temperature variable groups.** *Climwin*-selected climate variables are coded on the x-axes as the climate variable name followed by the range of months (p=previous year, c=current year) over which it is most influential. For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. For each relationship shown, other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD. (THIS FIGURE WILL PROBABLY CHANGED INTO A 4COL X 5 ROW MATIX, DROPPING SPECIES KEY, WHICH CAN BE SEEN IN OTHER FIGURES)](tables_figures/pre_temp_groups.png)
+![**Figure 3 | Species-level responses of $RW$ to climwin-selected variables in precipitation and temperature variable groups.** *Climwin*-selected climate variables are coded on the x-axes as the climate variable name followed by the range of months (p=previous year, c=current year) over which it is most influential. For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. For each relationship shown, other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/pre_temp_groups.png)
 
 ```{r , eval=FALSE, echo=FALSE}
 ## Tallies for the  paragraph below (Dec.21)
@@ -549,7 +549,7 @@ In these cases, models without `year` predicted declines in growth at large DBH 
 Significant positive growth trends were observed for only three species, FASY at ZOF, PIPU and **POTR** at CB, and all were modest compared to the steep negative trends observed for some species.
 Growth rate was consistently independent of `year` for only four species: *Chukrasia tabularis* at HKK, *Fraxinus nigra* at SCBI, and *Picea engelmannii* and *Pinus flexilis* at CB.
 
-![**Figure 6 | (Responses to year, for species tested).](tables_figures/Year_responses.png)
+![**Figure 6 | (Responses to year, for species tested).  For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. For each relationship shown, other terms in the model are held constant at their median. ](tables_figures/Year_responses_BAI_only.png)
 
 # Discussion {-#Discussion}
 
