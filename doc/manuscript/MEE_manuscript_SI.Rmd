@@ -309,9 +309,7 @@ library(kableExtra)
 S2 <- read.csv("tables_figures/species.csv", col.names = c("species code", "family","latin name", "sites sampled", "leaf type", "leaf phenology", "light requirements*", "bark allometry**"), stringsAsFactors = FALSE, check.names = FALSE)
 kable(S2, format = "latex", booktabs = TRUE,  escape = F, linesep = c('\\addlinespace'))%>%
   row_spec(0, italic = F, bold = T) %>%
-  column_spec(8, width = "5cm") %>%
   column_spec(3, italic = T) %>%
-  column_spec(8, italic = T) %>%
   kable_styling(latex_options = c("scale_down", "hold_position")) 
 ```
 *For extratropical species, light requirements are classified based on the database of @niinemets_tolerance_2006. For tropical species, categorization is based on @alfaro-sanchez_growth_2017 for BCNM and @vlam_temperature_2014 for HKK.
@@ -342,12 +340,14 @@ library(kableExtra)
 allometries_table <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO_dendro/data_processed/dbh_to_bark_allometries_table.csv", stringsAsFactors = FALSE, check.names = FALSE)
 kable(allometries_table, format = "latex", booktabs = TRUE,   escape = F, linesep = c('\\addlinespace'))%>%
   column_spec(1, italic = T) %>%
-  column_spec(5, width = "3cm") %>%
-  column_spec(6, width = "6cm") %>%
+  column_spec(6, width = "3cm") %>%
+  column_spec(7, width = "6cm") %>%
   row_spec(0, italic = F, bold = T) %>%
   kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
 ```
 For assignments of species as proxies for those with out available bark allometries, see Table `r species_table`.
+
+**NEED TO ADD REFERENCES FOR THE BARK ALLOMETRIES!!!**
 
 \newpage
 ## `r qualitative_results_comparison_legend`
