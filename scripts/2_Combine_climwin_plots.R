@@ -8,6 +8,16 @@ library(png)
 sites <- list.files("results/log_core_measurement", pattern = "env.RData")
 sites <- gsub("_all_env.RData", "", sites)
 
+
+# standardize variable names ####
+v_names_and_units <- list(tmn = "expression(T[min]~(C))",
+                tmx = "expression(T[max]~(C))",
+                tmp = "expression(T[mean]~(C))",
+                pet = "expression(PET~(mm~day^-1))",
+                pre = "expression(PPT~(mm~mo^-1))",
+                wet = "expression(PDF~(days~mo^-1))",
+                dbh = "expression(DBH~(cm))")
+
 # make plots ####
 for(solution in c("/", "detrend_climate/", "old_records_only/", "young_records_only/")[]) {
   # clear folder of old plots ####
@@ -68,7 +78,7 @@ for(solution in c("/", "detrend_climate/", "old_records_only/", "young_records_o
         rasterImage( img1 , xleft = 0, xright = 100,
                      ybottom = 0, ytop = 100)
         
-        mtext(side = 2, text = v)
+        mtext(side = 2, text = eval(parse(text = v_names_and_units[[v]])))
         mtext(side = 2, text = y_lab, line = -2)
         
         par(mar = c(0,0,0,0))
