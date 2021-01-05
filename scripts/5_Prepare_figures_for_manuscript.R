@@ -13,31 +13,6 @@ library(tiff)
 # prepare site list and order by average temperature ####
 sites <- list.dirs("results/log_core_measurement", full.names = F, recursive = F)
 
-
-# sites_coords <- read.csv("https://raw.githubusercontent.com/forestgeo/Site-Data/master/ForestGEO_site_data.csv")
-# setdiff(sites, sites_coords$Site.name)
-# sites.sitenames <- c(BCI = "Barro Colorado Island", 
-#                      CedarBreaks = "Utah Forest Dynamics Plot",
-#                      HarvardForest = "Harvard Forest",
-#                      LillyDickey = "Lilly Dickey Woods",
-#                      SCBI = "Smithsonian Conservation Biology Institute",
-#                      ScottyCreek = "Scotty Creek",
-#                      Zofin = "Zofin",
-#                      HKK = "Huai Kha Khaeng",
-#                      NewMexico = "New_Mexico",
-#                      Nebraska = "Niobara")[sites]
-# sites_coords <- sites_coords[sites_coords$Site.name %in% sites.sitenames, c("Site.name", "Latitude", "Longitude")]
-# 
-# # add coordinates of New Mexico site
-# sites_coords <- rbind(sites_coords, data.frame(Site.name = "New_Mexico", Latitude = 35.738376, Longitude = -105.838154 ))
-# 
-# # add site column 
-# sites_coords$site <- names(sites.sitenames)[match(sites_coords$Site.name, sites.sitenames)]
-# 
-# # order sites by latitude
-# sites <- sites_coords$site[order(sites_coords$Latitude)]
-
-
 # give site abbrevationtion in paper
 sites_abb <- list(BCI  = "BCNM",
                   HKK = "HKK",
@@ -58,6 +33,8 @@ MAT_order <- read.csv("doc/manuscript/tables_figures/sites.csv")
 
 sites <- names(sites_abb[match(MAT_order$site.code, sites_abb)])
 
+# load all legends ####
+load("results/all_legends.Rdata")
 
 # sites with dbh
 sites_with_dbh <- sites #[-grep("CedarBreaks", sites)]
@@ -117,19 +94,38 @@ for(site in sites_with_dbh){
   } # for what in ...
   
   # add a plot for the legend
-  all_plots[[paste0(site, "leg")]] <- g_legend()
+  # all_plots[[paste0(site, "leg")]] <- all_legends[[site]]#g_legend()
 } # for site in sites
 
-png("doc/manuscript/tables_figures/DBH_responses.png", width = 8, height = 10, res = 300, units = "in")
 
-grid.arrange(arrangeGrob(grobs = all_plots, ncol = 4, vp= grid::viewport(width=0.95, height=0.95)))
+all_legends_left <- all_legends[sites_with_dbh[seq(1, length(sites_with_dbh), by = 2)]]
+all_legends_right <- all_legends[sites_with_dbh[seq(2, length(sites_with_dbh), by = 2)]]
 
+leg_lengths_left <- unlist(lapply(all_legends_left, function(x) nrow(x$grobs[[1]])))
+leg_lengths_right <- unlist(lapply(all_legends_right, function(x) nrow(x$grobs[[1]])))
+
+layout_matrix_left <- matrix(rep( 1:length(leg_lengths_left), leg_lengths_left), ncol = 1)
+layout_matrix_right <- matrix(rep( 1:length(leg_lengths_right), leg_lengths_right), ncol = 1)
+
+
+# png("doc/manuscript/tables_figures/species_legends.png", width =4, height = 10, res = 300, units = "in")
+# grid.arrange(
+#              arrangeGrob( grobs =all_legends_left, layout_matrix = layout_matrix_left),
+#              arrangeGrob( grobs =all_legends_right, layout_matrix = layout_matrix_right), ncol = 2)
+# dev.off()
+
+
+png("doc/manuscript/tables_figures/DBH_responses.png", width = 10, height = 10, res = 300, units = "in")
+
+grid.arrange(arrangeGrob(grobs = all_plots, ncol = 3, vp= grid::viewport(width=0.95, height=0.95)), 
+arrangeGrob( grobs =all_legends_left, layout_matrix = layout_matrix_left, size="first"),
+arrangeGrob( grobs =all_legends_right, layout_matrix = layout_matrix_right), ncol = 3,  widths = c(4,1,1))
 
 grid::grid.text(sites_abb[sites_with_dbh], x = unit(0.025, "npc"), y = unit(rev(cumsum(c(.95/n_sites/2, rep(.95/n_sites, n_sites-1)))) + .035, "npc"), rot = 90)
 
-grid::grid.text(what_to_show, x = unit(cumsum(c(.05 +.9/4/2, rep(.9/4, 2))), "npc"), y = unit(.99,  "npc"))
+grid::grid.text(what_to_show, x = unit(cumsum(c(.05 +.9/4.5/2, rep(.9/4.5, 2))), "npc"), y = unit(.99,  "npc"))
 
-grid::grid.text("DBH (cm)", x = unit(.5, "npc"), y = unit(0.015,  "npc"))
+grid::grid.text("DBH (cm)", x = unit(.35, "npc"), y = unit(0.015,  "npc"))
 
 dev.off()
 
@@ -166,17 +162,17 @@ for(site in sites_with_dbh){
   } # for what in ...
   
   # add a plot for the legend
-  all_plots[[paste0(site, "leg")]] <- g_legend()
+  # all_plots[[paste0(site, "leg")]] <- all_legends[[site]]#g_legend()
 } # for site in sites
 
 png("doc/manuscript/tables_figures/Year_responses.png", width = 8, height = 10, res = 300, units = "in")
 
-grid.arrange(arrangeGrob(grobs = all_plots, ncol = 4, vp= grid::viewport(width=0.95, height=0.95)))
+grid.arrange(arrangeGrob(grobs = all_plots, ncol = 3, vp= grid::viewport(width=0.95, height=0.95)))
 
 
 grid::grid.text(sites_abb[sites_with_dbh], x = unit(0.025, "npc"), y = unit(rev(cumsum(c(.95/n_sites/2, rep(.95/n_sites, n_sites-1)))) + .035, "npc"), rot = 90)
 
-grid::grid.text(what_to_show, x = unit(cumsum(c(.05 +.9/4/2, rep(.9/4, 2))), "npc"), y = unit(.99,  "npc"))
+grid::grid.text(what_to_show, x = unit(cumsum(c(.05 +.9/2.9/2, rep(.9/2.9, 2))), "npc"), y = unit(.99,  "npc"))
 
 grid::grid.text("Year", x = unit(.5, "npc"), y = unit(0.015,  "npc"))
 
@@ -219,19 +215,19 @@ for(site in sites_with_dbh){
   
   # add a plot for the legend
 
-  all_plots[[paste0(site, "leg")]] <- g_legend()
+  # all_plots[[paste0(site, "leg")]] <- g_legend()
 
 } # for site in sites
 
-png("doc/manuscript/tables_figures/Year_responses_BAI_only.png", width = 8, height = 10, res = 300, units = "in")
+png("doc/manuscript/tables_figures/Year_responses_BAI_only.png", width = 8, height = 8, res = 300, units = "in")
 
 grid.arrange(do.call(arrangeGrob, c(lapply(all_plots, function(x) if(!is.null(x$data)) x + xlim(range(xlim_p)) else x), ncol = 2)), vp= grid::viewport(width=0.95, height=0.95))
 
-grid::grid.text(sites_abb[sites_with_dbh], x = unit(0.025, "npc"), y = unit(rev(cumsum(c(.95/n_sites/2, rep(.95/n_sites, n_sites-1)))) + .035, "npc"), rot = 90)
+grid::grid.text(sites_abb[sites_with_dbh], x = unit(c(0.025,0.51), "npc"), y = unit(rep(rev(cumsum(c(.95/(n_sites/2), rep(.95/(n_sites/2), (n_sites/2)-1)))),each = 2)-0.05, "npc"), rot = 90)
 
-grid::grid.text(what_to_show, x = unit(0.5, "npc"), y = unit(.99,  "npc"))
+grid::grid.text(what_to_show, x = unit(0.5, "npc"), y = unit(.985,  "npc"))
 
-grid::grid.text("Year", x = unit(.5, "npc"), y = unit(0.015,  "npc"))
+grid::grid.text("Year", x = unit(c(.25, .75), "npc"), y = unit(0.015,  "npc"))
 
 dev.off()
 
@@ -260,6 +256,7 @@ for(site in sites){
   lapply(existing_plots, function(x) {
     p <- get(x, temp_env)
     p$labels$x <- eval(parse(text = gsub(" |  ", "~", gsub("-1", "\\^-1", paste0(gsub(substr(p$labels$x, 1, 4), v_names[substr(p$labels$x, 1, 3)], p$labels$x), ")")))))
+    p$theme$plot.background <-element_blank()
     assign(x, p, temp_env)
   })
   
@@ -269,21 +266,21 @@ for(site in sites){
   
   # add legend
   
-  assign("leg", g_legend(), envir = temp_env)
-  existing_plots <- c(existing_plots, "leg")
+  # assign("leg", g_legend(), envir = temp_env)
+  # existing_plots <- c(existing_plots, "leg")
   
-  all_plots[[paste0(site, what)]] <- grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  {if(is.na(x)) grid.rect(gp=gpar(col="white")) else get(x, temp_env)}), ncol = 3)))
+  all_plots[[paste0(site, what)]] <- grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  {if(is.na(x)) grid.rect(gp=gpar(col="white")) else get(x, temp_env)}), ncol = 2)))
   
 } # for(site in sites)
 
-png("doc/manuscript/tables_figures/pre_temp_groups.png", width = 8, height = 10, res = 300, units = "in")
+png("doc/manuscript/tables_figures/pre_temp_groups.png", width = 8.2, height = 8.2, res = 300, units = "in")
 
-grid.arrange(grobs = all_plots, vp= grid::viewport(width=0.95, height=0.95), ncol = 1)
+grid.arrange(grobs = all_plots, vp= grid::viewport(width=0.95, height=0.95), ncol = 2)
 
 
-grid::grid.text(sites_abb[sites], x = unit(0.025, "npc"), y = unit(rev(cumsum(c(.95/n_sites/2, rep(.95/n_sites, n_sites-1))) + 0.05), "npc"), rot = 90)
+grid::grid.text(sites_abb[sites], x = unit(rep(c(0.0265, 0.51), 2), "npc"), y = unit(rep(rev(cumsum(c(.95/(n_sites/2), rep(.95/(n_sites/2), n_sites/2-1)))-0.05), each = 2), "npc"), rot = 90)
 
-grid::grid.text(c("Precipiation group", "Temperature group"), x = unit(cumsum(c(.05 +.9/3/2, rep(.9/3, 1))), "npc"), y = unit(.99,  "npc"))
+grid::grid.text(c("Precipiation group", "Temperature group"), x = unit(cumsum(c(.05 +.9/3.9/2, rep(.9/3.9, 3))), "npc"), y = unit(.99,  "npc"))
 
 
 dev.off()
