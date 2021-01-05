@@ -35,7 +35,7 @@ save.result.table <- TRUE
 ## Define full.time.frame.end.years ####
 full.time.frame.end.years <- c(SCBI_litu = 2010,
                                Zofin_ABAL = 2010,
-                               CedarBreaks_PSME = 2007, #using SCBI's for now but need to be changed
+                               CedarBreaks_PSME = 2007,
                                ScottyCreek_PIMA = 2013)
 
 ## Define start and end year for analysis for each species ####
@@ -65,8 +65,10 @@ all_Clim$month <- as.numeric(format(as.Date(all_Clim$Date, format = "%d/%m/%Y"),
 
 # load species chronologies ####
 for(ssp in sites_species) {
+  print(ssp)
   x <- read.csv(paste0(path_to_sp_res_chrons,ssp, "_col.csv"), stringsAsFactors = F, row.names = 1)
   assign(ssp, x)
+  print(max(rownames(x)))
 }
 
 # load individual chronologies (same as rwl files but in different format) ####
