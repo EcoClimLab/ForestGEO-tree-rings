@@ -94,6 +94,21 @@ variables_units <- c(pre = "(mm mo-1)",
                      CO2 = "(ppm)",
                      SF = "(m3 s-1)",
                      Year = "")
+## sites abbrevation ####
+# give site abbrevationtion in paper
+sites_abb <- list(BCI  = "BCNM",
+                  HKK = "HKK",
+                  NewMexico = "LT",
+                  CedarBreaks = "CB",
+                  SCBI = "SCBI",
+                  LillyDickey = "LDW",
+                  HarvardForest = "HF",
+                  # Nebraska = "NE",
+                  Niobara = "NIO",
+                  Hansley = "NE",
+                  Zofin = "ZOF",
+                  ScottyCreek = "SC")
+
 # load data ####
 ## climate data ####
 
@@ -134,9 +149,35 @@ all_species_colors <- lapply(all_species_codes, function(x) {
   names(a) <- x
   a
 })
-sapply(all_species_colors, scales::show_col)
+# sapply(all_species_colors, scales::show_col)
 # names(species_colors) <- all_species_codes
 # species_colors["CAOVL"] <- species_colors["CAOV"] # make CAOV and CAOVL the smae color
+
+
+# create a plot with only legend by sites and species
+all_legends <- list()
+for(site in sites) {
+  x <- all_Biol[[site]]
+  x <- x[!is.na(x$dbh),]
+  x <- x[!duplicated(x$species_code),]
+  a.gplot <- ggplot(x, aes(x = Year, y = dbh)) + geom_line(aes(group = paste(genus, species), col = paste(genus, species))) +  geom_ribbon(aes(ymin=min(dbh), ymax=max(dbh), bg = paste(genus, species)), alpha=0.25) + labs(col = sites_abb[[site]], bg = sites_abb[[site]])+ theme(legend.background = element_blank(), legend.box.background =element_blank(),  legend.justification = "left", legend.margin=margin(0,0,0,0), legend.box.margin=margin(0,0,0,10)) #+ guides(col=guide_legend(ncol=2), bg=guide_legend(ncol=2))
+  
+  # a.gplot <- ggplot(x, aes(x = Year, y = dbh)) + geom_line(aes(group = paste0(genus, " ", species, " (", species_code, ")"), col = paste0(genus, " ", species, " (", species_code, ")"))) +  geom_ribbon(aes(ymin=min(dbh), ymax=max(dbh), bg = paste0(genus, " ", species, " (", species_code, ")")), alpha=0.25) + labs(col = sites_abb[[site]], bg = sites_abb[[site]])+ theme(legend.background = element_blank(), legend.box.background =element_blank()) #+ guides(col=guide_legend(ncol=2), bg=guide_legend(ncol=2))
+
+  all_legends[[site]] <- ggplot_gtable(ggplot_build(a.gplot))$grobs[[which(sapply( ggplot_gtable(ggplot_build(a.gplot))$grobs, function(x) x$name) == "guide-box")]]
+
+}
+
+# make all legend the same width
+maxwidth <- do.call(grid::unit.pmax, lapply(all_legends, function(x) x$widths[2:5]))
+for (i in 1:length(all_legends)){
+  all_legends[[i]]$widths[2:5] <- as.list(maxwidth)
+}
+
+
+
+save(all_legends, file = "results/all_legends.Rdata")
+
 
 ## climate data ####
 for(clim_v in climate_variables) {
