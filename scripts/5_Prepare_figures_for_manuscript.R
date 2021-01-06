@@ -393,75 +393,82 @@ dev.off()
 what_to_show <- c("log_core_measurement_dbh" = expression(RW~(mm)), "log_BAI_dbh" = expression(BAI~(cm^2)), "log_agb_inc_dbh" = expression(Delta*AGB~(kg)))
 
 sites_to_show_case <- c("SCBI", "NewMexico")
-show_case <- list()
-
-for(site in sites_with_dbh){
-  all_plots <- list()
-  for( what in names(what_to_show)) {
-  
-  temp_env <- new.env()
-  load(paste0('results/with_Year/', what, "/", site, "/env.RData"), envir = temp_env) 
-  
-  existing_plots <- ls(temp_env)[grepl("^p_", ls(temp_env))]
-  
-  # get variable in order or Precipitation, Temperature and cloud groups (but complicated because, pet is in both temp and dtr),....
-  clim_var_group <- get("clim_var_group"  , temp_env)
-  
-  existing_plots <- existing_plots[c(1, length(existing_plots), na.omit(match(c(1,2), sapply(gsub("p_", "", existing_plots), function(x) grep(x,  clim_var_group)[1]))))]
-  
-  # change ylim to scale across sites 
-  lapply(existing_plots, function(x) assign(x, get(x, temp_env) + ylim(range(get("ylim_p", temp_env))* ifelse(what == "log_agb_inc_dbh", 1000, 1)), envir = temp_env))
- 
-  # if p is AGB, convert to kg
-  if(what == "log_agb_inc_dbh")   lapply(existing_plots, function(x) {
-    p <- get(x, temp_env)
-    p$data[c("expfit", "lwr", "upr")] <-   p$data[c("expfit", "lwr", "upr")]*1000
-    assign(x, p, envir = temp_env)
-  })
-  
-  # standardize variable names
-  lapply(existing_plots[-2], function(x) { # -2 is to not do it for Year
-    p <- get(x, temp_env)
-    p$labels$x <- eval(parse(text = gsub(" |  ", "~", gsub("-1", "\\^-1", paste0(gsub(substr(p$labels$x, 1, 4), v_names[tolower(substr(p$labels$x, 1, 3))], p$labels$x), ")")))))
-    assign(x, p, temp_env)
-  })
-  
-  
-  # get the species colors
-  species_colors <- get("species_colors", temp_env)
-  
- # get the legend
-  
-  # assign("leg", g_legend(), envir = temp_env)
-  # existing_plots <- c(existing_plots, "leg")
-
-  
-  all_plots[[what]] <- grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  {if(is.na(x)) grid.rect(gp=gpar(col="white")) else get(x, temp_env)}), ncol = 4)))
-  
-  if (site %in% sites_to_show_case) show_case[[paste0(site, what)]] <-  all_plots[[what]]  #grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots[-4], function(x)  {if(is.na(x)) grid.rect(gp=gpar(col="white")) else get(x, temp_env)}), ncol = 3)))
-  }  
-
-png(paste0("results/composite_plots/", site, ".png"), width = 8, height = 10, res = 300, units = "in")
-
-grid.arrange(
-arrangeGrob(grobs = all_plots, ncol = 1), 
-arrangeGrob( all_legends[[site]]),
-ncol = 2,  widths = c(4,1))
-
-# grid.arrange(grobs = all_plots, vp= grid::viewport(width=0.95, height=0.95), ncol = 1)
-
-grid::grid.text(what_to_show,  x = unit(0.01, "npc"), y = unit(rev(cumsum(c(1/length(what_to_show)/2, rep(1/length(what_to_show), length(what_to_show)-1)))), "npc"), rot = 90)
-
-dev.off()
 
 
-# if(site %in% sites_to_show_case){
-#   # save the plot
-#   show_case[[paste0(site, "leg")]] <- get("leg", temp_env)
-# }
-}
+for(with_Year in c(FALSE, TRUE)) {
+  show_case <- list()
+  for(site in sites_with_dbh){
+    all_plots <- list()
 
-png(paste0("doc/manuscript/tables_figures/show_case_response_plots.png"), width = 10, height = 8, res = 300, units = "in")
+    for( what in names(what_to_show)) {
+      
+      temp_env <- new.env()
+      if(with_Year) load(paste0('results/with_Year/', what, "/", site, "/env.RData"), envir = temp_env) # to get the Year plot
+      if(!with_Year) load(paste0('results/', what, "/", site, "/env.RData"), envir = temp_env) # to get all other plots
+      
+      existing_plots <- ls(temp_env)[grepl("^p_", ls(temp_env))]
+      
+      # get variable in order or Precipitation, Temperature and cloud groups (but complicated because, pet is in both temp and dtr),....
+      clim_var_group <- get("clim_var_group"  , temp_env)
+      
+      if(with_Year) existing_plots <- existing_plots[c(1, length(existing_plots), na.omit(match(c(1,2), sapply(gsub("p_", "", existing_plots), function(x) grep(x,  clim_var_group)[1]))))]
+      if(!with_Year) existing_plots <- existing_plots[c(1, na.omit(match(c(1,2), sapply(gsub("p_", "", existing_plots), function(x) grep(x,  clim_var_group)[1]))))]
+      
+      # change ylim to scale across sites 
+      lapply(existing_plots, function(x) assign(x, get(x, temp_env) + ylim(range(get("ylim_p", temp_env))* ifelse(what == "log_agb_inc_dbh", 1000, 1)), envir = temp_env))
+      
+      # if p is AGB, convert to kg
+      if(what == "log_agb_inc_dbh")   lapply(existing_plots, function(x) {
+        p <- get(x, temp_env)
+        p$data[c("expfit", "lwr", "upr")] <-   p$data[c("expfit", "lwr", "upr")]*1000
+        assign(x, p, envir = temp_env)
+      })
+      
+      # standardize variable names
+      lapply(existing_plots[switch(as.character(with_Year), "TRUE" = -2, "FALSE" = c(1:length(existing_plots)))], function(x) { # -2 is to not do it for Year
+        p <- get(x, temp_env)
+        p$labels$x <- eval(parse(text = gsub(" |  ", "~", gsub("-1", "\\^-1", paste0(gsub(substr(p$labels$x, 1, 4), v_names[tolower(substr(p$labels$x, 1, 3))], p$labels$x), ")")))))
+        assign(x, p, temp_env)
+      })
+      
+      
+      # get the species colors
+      species_colors <- get("species_colors", temp_env)
+      
+      # get the legend
+      
+      # assign("leg", g_legend(), envir = temp_env)
+      # existing_plots <- c(existing_plots, "leg")
+      
+      
+      all_plots[[what]] <- grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  {if(is.na(x)) grid.rect(gp=gpar(col="white")) else get(x, temp_env)}), ncol = ifelse(with_Year, 4, 3))))
+      
+      if (site %in% sites_to_show_case) show_case[[paste0(site, what)]] <-  all_plots[[what]]  #grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots[-4], function(x)  {if(is.na(x)) grid.rect(gp=gpar(col="white")) else get(x, temp_env)}), ncol = 3)))
+    }  
+    
+    png(paste0("results/composite_plots/", site, ifelse(with_Year, "_with_Year", ""), ".png"), width = 10, height = 10, res = 300, units = "in")
+    
+    grid.arrange(
+      arrangeGrob(grobs = all_plots, ncol = 1), 
+      arrangeGrob( all_legends[[site]]),
+      ncol = 2,  widths = c(4,1))
+    
+    # grid.arrange(grobs = all_plots, vp= grid::viewport(width=0.95, height=0.95), ncol = 1)
+    
+    grid::grid.text(what_to_show,  x = unit(0.01, "npc"), y = unit(rev(cumsum(c(1/length(what_to_show)/2, rep(1/length(what_to_show), length(what_to_show)-1)))), "npc"), rot = 90)
+    
+    dev.off()
+    
+    
+    # if(site %in% sites_to_show_case){
+    #   # save the plot
+    #   show_case[[paste0(site, "leg")]] <- get("leg", temp_env)
+    # }
+  }
+
+
+
+png(paste0("doc/manuscript/tables_figures/show_case_response_plots", ifelse(with_Year, "_with_Year", ""), ".png"), width = 10, height = 8, res = 300, units = "in")
 
 grid.arrange(
   arrangeGrob(grobs = show_case, layout_matrix = matrix(c(1, 2, 3, 4, 5, 6), nrow = 3)), 
