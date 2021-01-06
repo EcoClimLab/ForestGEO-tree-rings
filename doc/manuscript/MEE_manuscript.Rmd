@@ -526,31 +526,31 @@ Temperature variable $\times DBH$ interactions were significant for `r round(n_D
 Directions of these interactions were mixed, with `r n_DBHxT_RW_sig_neg` of `r n_DBHxT_RW_sig` significant interactions negative with $RW$ as the growth metric and `r n_DBHxT_BAI_sig_neg` of `r n_DBHxT_BAI_sig` significant interactions negative when $BAI$ was the growth metric.
 For both $RW$ and $BAI$, the majority of significant negative interactions (*i.e.*, more negative/ less positive response of larger trees to higher temperatures) occurred in the more water-limited forests (HKK, LT, CB), whereas positive interactions were more common in mesic forests (SCBI, HF, ZOF).
 
-**figure or table on climate - DBH interactions?** (*See [ISSUE #107 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/107)*)
+[**(figure or table on climate - DBH interactions-- see ISSUE #107)**](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/107)
 
 ## Effects of year {-#Effects}
 
 ```{r , eval=TRUE, echo=FALSE}
-## Tallies for the  paragraph below (Dec.27)
-n_tested=40 #same for all metrics
-n_best_model_RW=32
-n_best_model_BAI=33
-n_best_model_AGB=36
-n_best_model_neg_RW=32-2 #(exceptions:  FASY at ZOF, PIPU at CB) (94%)
-n_best_model_neg_BAI=33-3 #(exceptions:  FASY at ZOF, PIPU and POTR at CB) (91%)
-n_best_model_neg_AGB=36-3 #(exceptions:  FASY at ZOF, PIPU and POTR at CB) (92%)
+## Tallies for the  paragraph below (Jan6)
+n_tested=37 #same for all metrics
+n_best_model_RW=30
+n_best_model_BAI=31
+n_best_model_AGB=30
+n_best_model_neg_RW=n_best_model_RW-3 #(exceptions:  FASY at ZOF, PIPU and PIFL at CB)  90%
+n_best_model_neg_BAI=n_best_model_BAI-3 #(exceptions:  FASY at ZOF, PIPU and PIFL at CB) 
+n_best_model_neg_AGB=n_best_model_AGB-3 #(exceptions:  FASY at ZOF, PIPU and PIFL at CB) 
+#species consistently independent of year: PIEN and PILO at CB, CHTA at HKK, PIST3 at NM, 
+
 ```
 
-*(tentative results.  We're not yet getting the constraints on scope right. It is messing up on POTR, for which only ~20 yrs of data get included.)*
-
-There was a significant effect of `year` in the GLS models for `r n_best_model_RW` - `r n_best_model_AGB` (depending on growth metric) of the `r n_tested` species- site combinations tested (Table `r interactions_and_year_summaries`), and these trends matched those observed in a separate analysis of $DBH$-growth relationships by year (Appendix `r decadal_analysis_appendix`; **ADD SI FIGS**).
-In the majority of cases (91-94%, depending on growth metric), the growth trend over time was negative.
-Declines were particularly dramatic (**give some criteria**) for *all four species at Harvard Forest, PIPO at Little Tesuque, **POTR at Cedar Breaks**, and PIMA at Scotty Creek* (Fig. `r year_fig`).
+There was a significant effect of `year` in the GLS models for `r n_best_model_RW` - `r n_best_model_AGB` (depending on growth metric) of the `r n_tested` species- site combinations tested (Fig. `r year_fig`), and these trends were consistent with those observed in a separate analysis of $DBH$-growth relationships by year (Appendix `r decadal_analysis_appendix`; **ADD SI FIGS**).
+In 90% of cases, the growth trend over time was negative.
+Declines were particularly dramatic for *Picea mariana* at SC, *Pinus ponderosa* at LT, all four species at HF, and several species at SCBI  (Fig. `r year_fig`).
 In these cases, models without `year` predicted declines in growth at large DBH that should more properly be attributed to the effect of year (Fig. `r year_fig`).
-Significant positive growth trends were observed for only three species, FASY at ZOF, PIPU and **POTR** at CB, and all were modest compared to the steep negative trends observed for some species.
-Growth rate was consistently independent of `year` for only four species: *Chukrasia tabularis* at HKK, *Fraxinus nigra* at SCBI, and *Picea engelmannii* and *Pinus flexilis* at CB.
+Significant positive growth trends were observed for only three species, *Fagus sylvatica* at ZOF, *Picea pungens* and *Pinus flexilis* at CB, and all were modest compared to the steep negative trends observed for some species.
+Growth rate was consistently independent of `year` for only four species: *Chukrasia tabularis* at HKK, *Pinus strobiformis* at LT, and *Picea engelmannii* and *Pinus longaeva* at CB.
 
-![**Figure 6 | (Responses to year, for species tested).  For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. For each relationship shown, other terms in the model are held constant at their median. ](tables_figures/Year_responses_BAI_only.png)
+![**Figure 6 | Effect of year, when included in the best model, on BAI. For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. Other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant.  Transparent ribbons indicate 95% confidence intervals. ](tables_figures/Year_responses_BAI_only.png)
 
 # Discussion {-#Discussion}
 
