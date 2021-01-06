@@ -12,6 +12,7 @@ library(tiff)
 
 # prepare site list and order by average temperature ####
 sites <- list.dirs("results/log_core_measurement", full.names = F, recursive = F)
+sites <- sites[!sites%in%"Hansley"]
 
 # give site abbrevationtion in paper
 sites_abb <- list(BCI  = "BCNM",
@@ -223,18 +224,19 @@ png("doc/manuscript/tables_figures/Year_responses_BAI_only.png", width = 8, heig
 
 grid.arrange(do.call(arrangeGrob, c(lapply(all_plots, function(x) if(!is.null(x$data)) x + xlim(range(xlim_p)) else x), ncol = 2)), vp= grid::viewport(width=0.95, height=0.95))
 
-grid::grid.text(sites_abb[sites_with_dbh], x = unit(c(0.025,0.51), "npc"), y = unit(rep(rev(cumsum(c(.95/(n_sites/2), rep(.95/(n_sites/2), (n_sites/2)-1)))),each = 2)-0.05, "npc"), rot = 90)
+grid::grid.text(sites_abb[sites_with_dbh], x = unit(c(0.3,0.8), "npc"), y = unit(rep(rev(cumsum(c(.95/(n_sites/2), rep(.95/(n_sites/2), (n_sites/2)-1)))),each = 2), "npc"))
 
-grid::grid.text(what_to_show, x = unit(0.5, "npc"), y = unit(.985,  "npc"))
 
-grid::grid.text("Year", x = unit(c(.25, .75), "npc"), y = unit(0.015,  "npc"))
+grid::grid.text(what_to_show, x = unit(0.025, "npc"), y = unit(rev(cumsum(c(.95/(n_sites/2), rep(.95/(n_sites/2), (n_sites/2)-1))))-0.05, "npc"), rot = 90)
+
+# grid::grid.text(what_to_show, x = unit(0.5, "npc"), y = unit(.985,  "npc"))
+
+grid::grid.text("Year", x = unit(c(0.3, .8), "npc"), y = unit(0.015,  "npc"))
 
 dev.off()
 
 # Pre and Temp groups ####
-
-
-what = "log_core_measurement"
+what = c("log_core_measurement" = expression(RW~(mm)))
 
 n_sites <- length(sites)
 
@@ -243,7 +245,7 @@ for(site in sites){
  
   
   temp_env <- new.env()
-  load(paste0('results/', what, "/", site, "/env.RData"), envir = temp_env) 
+  load(paste0('results/', names(what), "/", site, "/env.RData"), envir = temp_env) 
   
   existing_plots <- ls(temp_env)[grepl("^p_", ls(temp_env))]
   
@@ -278,7 +280,8 @@ png("doc/manuscript/tables_figures/pre_temp_groups.png", width = 8.2, height = 8
 grid.arrange(grobs = all_plots, vp= grid::viewport(width=0.95, height=0.95), ncol = 2)
 
 
-grid::grid.text(sites_abb[sites], x = unit(rep(c(0.0265, 0.51), 2), "npc"), y = unit(rep(rev(cumsum(c(.95/(n_sites/2), rep(.95/(n_sites/2), n_sites/2-1)))-0.05), each = 2), "npc"), rot = 90)
+grid::grid.text(sites_abb[sites], x = unit(rep(c(0.032, 0.515), 2), "npc"), y = unit(rep(rev(cumsum(c(.95/(n_sites/2), rep(.95/(n_sites/2), n_sites/2-1)))+0.02), each = 2), "npc"))
+grid::grid.text(what, x = unit(0.0265, "npc"), y = unit(rev(cumsum(c(.95/(n_sites/2), rep(.95/(n_sites/2), n_sites/2-1)))-0.05), "npc"), rot = 90)
 
 grid::grid.text(c("Precipiation group", "Temperature group"), x = unit(cumsum(c(.05 +.9/3.9/2, rep(.9/3.9, 3))), "npc"), y = unit(.99,  "npc"))
 
@@ -473,3 +476,4 @@ grid::grid.text(what_to_show,  x = unit(0.015, "npc"), y = unit((rev(cumsum(c(1.
 grid::grid.text(sites_abb[sites_to_show_case[order(match(sites_to_show_case, sites))]], x = unit(cumsum(c(.05 +.9/2/2, rep(.9/2, 1))), "npc"), y = unit(.99,  "npc"))
 dev.off()
 
+} # for(with_Year in c(FALSE, TRUE))
