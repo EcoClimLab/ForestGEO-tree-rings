@@ -247,7 +247,7 @@ for(site in sites){
   temp_env <- new.env()
   load(paste0('results/', names(what), "/", site, "/env.RData"), envir = temp_env) 
   
-  existing_plots <- ls(temp_env)[grepl("^p_", ls(temp_env))]
+  existing_plots <- ls(temp_env)[grepl("^p_[^in]", ls(temp_env))]
   
   # get variable in order or Precipitation, Temperature and cloud groups (but complicated because, pet is in both temp and dtr),....
   clim_var_group <- get("clim_var_group"  , temp_env)
@@ -287,6 +287,68 @@ grid::grid.text(c("Precipiation group", "Temperature group"), x = unit(cumsum(c(
 
 
 dev.off()
+
+# Pre and Temp groups with DBH interaction ####
+what_to_show = c("log_core_measurement_dbh" = expression(RW~(mm)),
+                 "log_BAI_dbh" = expression(BAI~(cm^2)), 
+                 "log_agb_inc_dbh" = expression(Delta*AGB~(kg)))
+
+n_sites <- length(sites)
+
+for(what in names(what_to_show)) {
+  
+  all_plots <- list()
+  for(site in sites){
+    
+    
+    temp_env <- new.env()
+    load(paste0('results/', what, "/", site, "/env.RData"), envir = temp_env) 
+    
+    existing_plots <- ls(temp_env)[grepl("^p_int_", ls(temp_env))]
+    
+    # get variable in order or Precipitation, Temperature and cloud groups (but complicated because, pet is in both temp and dtr),....
+    clim_var_group <- get("clim_var_group"  , temp_env)
+    
+    existing_plots <- existing_plots[match(c(1,2), sapply(gsub("p_int_", "", existing_plots), function(x) grep(x,  clim_var_group)[1]))]
+    
+    if(any(!is.na(existing_plots))) {
+      # sandardize variable names
+      lapply(existing_plots[!is.na(existing_plots)], function(x) {
+        p <- get(x, temp_env) 
+        # p$labels$x <- eval(parse(text = gsub(" |  ", "~", gsub("-1", "\\^-1", paste0(gsub(substr(p$labels$x, 1, 4), v_names[substr(p$labels$x, 1, 3)], p$labels$x), ")")))))
+        p$theme$plot.background <- element_blank()
+        p$theme$legend.position <- "none"
+        
+        assign(x, p, temp_env)
+      })
+    }
+    
+    # get the species colors
+    # species_colors <- get("species_colors", temp_env)
+    
+    # add legend
+    
+    # assign("leg", g_legend(), envir = temp_env)
+    # existing_plots <- c(existing_plots, "leg")
+    
+    all_plots[[paste0(site, what)]] <- grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  {if(is.na(x)) grid.rect(gp=gpar(col="white")) else get(x, temp_env)}), ncol = 2)))
+    
+  } # for(site in sites)
+  
+  png(paste0("doc/manuscript/tables_figures/pre_temp_groups_dbh_interactions", what, ".png"), width = 8.2, height = 8.2, res = 300, units = "in")
+  
+  grid.arrange(grobs = all_plots, vp= grid::viewport(width=0.95, height=0.95), ncol = 2)
+  
+  
+  grid::grid.text(sites_abb[sites], x = unit(rep(c(0.032, 0.515), 2), "npc"), y = unit(rep(rev(cumsum(c(.95/(n_sites/2), rep(.95/(n_sites/2), n_sites/2-1)))+0.02), each = 2), "npc"))
+  grid::grid.text(what_to_show[what], x = unit(0.0265, "npc"), y = unit(rev(cumsum(c(.95/(n_sites/2), rep(.95/(n_sites/2), n_sites/2-1)))-0.05), "npc"), rot = 90)
+  
+  grid::grid.text(c("Precipiation group", "Temperature group"), x = unit(cumsum(c(.05 +.9/3.9/2, rep(.9/3.9, 3))), "npc"), y = unit(.99,  "npc"))
+  
+  
+  dev.off()
+}
+
 
 # comparison with quilt ####
 site = "SCBI"
