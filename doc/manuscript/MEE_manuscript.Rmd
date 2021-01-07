@@ -218,7 +218,7 @@ sampling_details <- read.csv(paste0(path_to_repo, "/doc/manuscript/tables_figure
 Specifically, after identifying the most important climate drivers and theirtime window of influence, we use generalized least squares models to model growth while accounting for the temporal autocorrelation inherent to each individual tree's growth.
 We apply this method to tree-ring data from `r n_trees_all` trees representing `r n_species` species at ten globally distributed sites spanning a wide range of forest types. 
 
-3. Our analysis identified similar climate drivers operating over similar time windows to those obtained via traditional methods, but revealed that non-linear responses to climate variables were common. Growth rates--expressed as ring widths, basal area increments, or biomass increments--varied non-linearly with $DBH$. The relative importance of $DBH$ versus climate varied across sites, and interactions between $DBH$ and climate were prevalent (*~50%* of cases tested). After accounting for $DBH$, growth rate varied directionally over time in most species-- declining in most (#%).
+3. Our analysis identified similar climate drivers operating over similar time windows to those obtained via traditional methods, but revealed that non-linear responses to climate variables were common. Growth rates--expressed as ring widths, basal area increments, or biomass increments--varied non-linearly with $DBH$. The relative importance of $DBH$ versus climate varied across sites, and interactions between $DBH$ and climate were prevalent (*~50%* of cases tested). After accounting for $DBH$, growth rate varied directionally over time in most species-- declining in most (90%).
 
 4. Our method provides a rigorous analytical framework for statistically modeling tree growth responses to the most important climate drivers, $DBH$, and year in nonlinear models.
 The need for such an approach is highlighted by our findings that nonlinear growth responses to climate variables are common, that growth rates vary nonlinearly with $DBH$,  that significant $DBH$ - climate interactions are common, and that growth rates often change over time. 
@@ -280,12 +280,11 @@ To use tree-rings to predict tree growth, $ANPP_{woody}$, and forest dynamics, w
 - It is necessary to *simultaneously* account for the influences of changing tree size and environmental drivers.
 
 **Here, we develop a new method that allows simultaneous consideration of the effects of principle climate drivers (pre-selected in an objective manner), tree size and year on annual tree growth.** 
-This allows us to ask:
-*(1) What are the most important climate drivers of annual growth, and over which time windows?*
-(2) What is the shape of the relationship between annual growth and climate drivers?
-(3) How do $RW$, $BAI$, and aboveground biomass increments ($\Delta AGB$) vary with $DBH$?
-(4) How do climate drivers and $DBH$ additively and interactively shape growth? 
-(5) How have growth rates changed through time?
+This approach allows us to ask:
+(1) What are the most important climate drivers (and their time windows), and what is the shape of the relationship between annual growth and these drivers?
+(2) How do $RW$, $BAI$, and aboveground biomass increments ($\Delta AGB$) vary with $DBH$?
+(3) How do climate drivers and $DBH$ additively and interactively shape growth? 
+(4) How have growth rates changed through time?
 
 # Materials and Methods {-#Materials} 
 
@@ -537,8 +536,8 @@ n_best_model_RW=30
 n_best_model_BAI=31
 n_best_model_AGB=30
 n_best_model_neg_RW=n_best_model_RW-3 #(exceptions:  FASY at ZOF, PIPU and PIFL at CB)  90%
-n_best_model_neg_BAI=n_best_model_BAI-3 #(exceptions:  FASY at ZOF, PIPU and PIFL at CB) 
-n_best_model_neg_AGB=n_best_model_AGB-3 #(exceptions:  FASY at ZOF, PIPU and PIFL at CB) 
+n_best_model_neg_BAI=n_best_model_BAI-3 #(exceptions:  FASY at ZOF, PIPU and PIFL at CB) 90.3%
+n_best_model_neg_AGB=n_best_model_AGB-3 #(exceptions:  FASY at ZOF, PIPU and PIFL at CB) 90%
 #species consistently independent of year: PIEN and PILO at CB, CHTA at HKK, PIST3 at NM, 
 
 ```
@@ -554,41 +553,34 @@ Growth rate was consistently independent of `year` for only four species: *Chukr
 
 # Discussion {-#Discussion}
 
-**Our new tree-ring analysis method allows simultaneous consideration of the effects of dominant climate drivers, tree size, and slowly changing environmental drivers on annual growth (Fig. `r schematic`), yielding results that are consistent with those that would be obtained using conventional methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`;  Table `r qualitative_results_comparison`) and with our current understanding of forest dynamics.** 
-Across diverse climates and forest types (Table `r sites`), growth rates of `r n_species` tree species generally responded positively to water availability ($PPT$ or $PDF$)--at least up until the long-term mean--
-and negatively to temperature (usually $T_{max}$ or $PET$), with the exception of several positive responses at times and in places where temperature was limiting (Fig. `r clim_sens`).
-Additive effects of water and temperature variables, usually over different time windows, occurred for most species, and nonlinear responses were common.
-Interactions between climate variables and $DBH$ not unusual (Table `r interactions_and_year_summaries`, Fig. `r interactions_fig`), with larger trees tending to be more drought sensitive (REFS).
-Growth rate--whether measured as $RW$, $BAI$, or $\Delta AGB$-- varied nonlinearly with $DBH$ and was dependent upon species ecology in interaction with stand history and global change drivers (Figs. `r size`, `r year_fig`).
-It is notable that growth rates of most species declined...
-While none of these findings are biologically surprising, the simultaneous modeling of growth responses to climate, $DBH$, and year offers a fuller picture of the drivers of tree growth in an era of global change. 
+Our new tree-ring analysis method allows simultaneous consideration of the effects of dominant climate drivers, tree size, and slowly changing environmental conditions on annual growth (Fig. `r schematic`), yielding results that are consistent with those that would be obtained using conventional methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`;  Table `r qualitative_results_comparison`) while offering a fuller picture of the drivers of tree growth in an era of global change.
+Below, we summarize how our results on the effects of climate, tree size, and year corroborate current understanding of the drivers of tree growth while yielding new insights made possible by this approach.
+
 
 ## Climate sensitivity {-#Climate}
-*(corroboration of insight from conventional methods)*
 
-**Our results are broadly consistent with those obtained by traditional methods, revealing similar climate sensitivities (Figs. `r SCBI_example`, `r all_traditional_comparisons`;  Table `r qualitative_results_comparison`).**
-An advantage to our approach is that that the use of *climwin* allowed automated, objective selection of the strongest climate drivers and the time windows over which they were most influential.
-Note that the use of *climwin* itself is analytically convenient, but does not alter results relative to what would be obtained via a more conventional approach; numerous climate drivers and time windows can be compared without climwin (e.g., REFS), and *climwin* could also be used on residual chronologies (**AND WE DID THIS--  ADD SI FIGURE AS EXAMPLE?**). 
-Where our approach differs fundamentally from traditional methods is in analyzing climate sensitivity of the full sample of individual cores, as opposed to a residual chronology in which variance has been standardized and the individual cores have been averaged. 
-The result is that our approach yields climate correlations with greater variance but lower standard error of slope estimates (Figs. `r all_traditional_comparisons`).
-Differences in slope between the two approaches are expected giving the methodological differences (Appendix `r traditional_comparison`), and were rarely statistically significant. 
-(*add some discussion on why we expect different slopes?*)
-Another way in which the current analysis differed from conventional methods is that we pooled species when determining the top climate drivers (*climwin* step; Fig. `r schematic`). 
-This decision was motivated by the expectation that differences in optimal climate windows across species in one site (e.g., Fig. `r SCBI_example`) would be minimal compared to cross-site differences, and for the practical consideration that determining optimal climate windows for each species would be computationally intensive and challenging to present.
-However, species-specific climate sensitivity estimates could be optimized by fitting *climwin* individually be species.
-While our method sometimes may sometimes pick out different climate variables and time windows than would be identified via conventional methods, as a whole the identified drivers and directions of response are consistent with conventional methods (Table `r qualitative_results_comparison`).
+Across diverse climates and forest types (Table `r sites`), growth rates of `r n_species` tree species generally responded positively to water availability ($PPT$ or $PDF$)--at least up until the long-term mean--
+and negatively to temperature (usually $T_{max}$ or $PET$), with the exception of several positive responses at times and in places where temperature was limiting (Fig. `r clim_sens`).
+*(Discuss how this fits with regional to global-scale studies)*
 
-**While yielding broadly similar results to conventional analyses, our analysis yielded new insights that would not have been found with conventional methods.**
+While our approach identifies similar climate sensitivities to those that would be identified using conventional methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`;  Table `r qualitative_results_comparison`), the approach differs in some substantive ways.
+First, in determining the most important climate drivers (step 1; Fig. `r schematic`), we consider the full sample of individual cores, as opposed to a residual chronology in which variance has been standardized and the individual cores have been averaged. 
+Some differences in variables identified and the slope between growth and climate are to be expected giving the methodological differences (Appendix `r traditional_comparison`); however, as a whole the identified drivers and directions of response are consistent with conventional methods (`r SCBI_example`, `r all_traditional_comparisons`;  Table `r qualitative_results_comparison`). 
+Another way in which the current analysis differed from conventional methods is that we pooled species by site when determining the top climate drivers (step 1; Fig. `r schematic`). 
+This decision was motivated by the expectation that differences in optimal climate windows across species in one site would be minimal compared to cross-site differences (cf. Figs. `r SCBI_example`, `r clim_sens`); however, analyses focused on interspecific differences could optimize species-specific climate sensitivity estimates by fitting *climwin* individually be species.
 
-1. additive effects are prevalent, and time windows often differ (trees tend to be sensitive to water over longer time scales (makes sense-- lags caused by soil moisture storage)
+Another way in which our analysis differed fundamentally from most conventional approaches was in testing for non-linear responses of growth to climate, finding that nonlinear responses were *common/ prevalent*. 
+*(DISCUSS)*
 
-2. nonlinear effects are prevalent
+Finally, our analysis differed from conventional approaches in the use of GLS models to simultaneously quantify the effects of climate, $DBH$, and year, while accounting for idiosyncratic growth trends of individual trees through an autocorrelation structure [step 2; Fig. `r schematic`; see also @evans_fusing_2017; @rollinson_climate_nodate].
+This approach allowed the consideration of additive and interactive effects of climate with variables that change over longer time frames--here, $DBH$ and year, although other slowly-changing drivers could also be used.
+We found that interactions between climate variables and $DBH$ were common (`r round(n_DBHx_analyzed_sig/ n_DBHx_analyzed*100)`%; Table `r interactions_and_year_summaries`, Fig. `r interactions_fig`).
+The most coherent pattern observed in this analysis was a tendency for larger trees to be more sensitive to precipitation and high temperatures, consistent with widespread observations that larger trees are more sensitive to drought [REFS; @bennett_larger_2015; @gillerot_tree_2020; @mcgregor_tree_2020].
+An analytical structure that can account for this and other such DBH-climate interactions [e.g., @rossi_age-dependent_2007; @rollinson_climate_nodate] will be critical to using tree-ring records to understand and forecast the effects of climate on tree growth and forest productivity.
 
-3. DBH interactions --also potentially attributable to year-- are common
+## Variation with $DBH$  {-#Variation}
 
-## Size trends {-#Size}
-
-**The diversity of growth trends in relation to $DBH$ observed here (Fig. `r size`) is largely attributable to species ecology and stand history (Fig. 4).**
+**Growth rate--whether measured as $RW$, $BAI$, or $\Delta AGB$-- varied nonlinearly with $DBH$, with the observed diversity of growth trends in relation to $DBH$ (Fig. `r size`) largely attributable to species ecology and stand history.**
 On one end of the spectrum, species that would have established in fairly open conditions--*i.e.*, shade-intolerant species and those at sites with more open canopies (e.g., LT, SC)-- exhibited rapid initial growth followed by a roughly exponential decline. 
 The most pronounced example of this pattern was *Melia azedarach* --a highly shade-intolerant species that establishes in the open [@baker_suppression_2006] and was sampled opportunistically outside the ForestGEO plot at HKK [@vlam_temperature_2014], where it presumably established under open conditions (*Baker 2005, Ecological monographs*).
 Such patterns are consistent with dendrochronology's "textbook" patterns, which have been derived primarily from trees that established in high-light environments (*DENDRO_REFS: See refs in Biondi and Qeadan 2008. Tree-Ring Research 64:81-96.; There are several earlier references in B&B 2006 describing this pattern. *).
@@ -606,7 +598,7 @@ $\Delta AGB$ declines at high $DBH$ are presumably because trees are investing f
 
 ## Changing growth rates {-#Changing}
 
-Growth rates are changing directionally for most species/ sites.
+It is notable that growth rates are changing directionally for most species/ sites.
 
 Stand dynamics strongly affect stand structure and therefore tree diameter and growth trends.
 

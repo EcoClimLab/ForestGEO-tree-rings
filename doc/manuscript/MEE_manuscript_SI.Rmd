@@ -229,7 +229,8 @@ These species were selected for analysis because they have been well-studied in 
 For each species, we compared climate sensitivities for the top precipitation- and temperature- group variables, as identified in the main analysis. 
 
 Prior to analysis, data were prepared and cleaned as described in the Methods section, resulting in an identical set of records for input into each analysis.
-For the approach developed here, analysis was conducted as described in the Methods section, but with the *climwin* climate variable selection process limited to just the species of interest (as opposed to all species at the site), climate variables considered individually rather than additively, analysis of only first-order linear relationships, and with start date adjusted to match the conventional method (see below). 
+For the approach developed here, analysis was conducted as described in the Methods section, but with the *climwin* climate variable selection process limited to just the species of interest (as opposed to all species at the site), climate variables considered individually rather than additively, analysis of only first-order linear relationships, and with start date adjusted to match the conventional method (see below).
+*Climwin* is a useful analytical tool that automates the process of running and comparing numerous regressions, but its use does not alter results relative to what would be obtained via a more conventional approach; numerous climate drivers and time windows can be compared without climwin (e.g., REFS), and *climwin* could also be used on residual chronologies (**AND WE DID THIS--  ADD SI FIGURE AS EXAMPLE?**). 
 Following the *climwin* analysis step, we extracted *beta* coefficients describing the slope of the relationship between climate and $RW$.
 *Beta* coefficients, along with their standard error, were obtained for each month within the analysis time frame (Table `r site_details`) and for the time window identified as optimal by *climwin*.
 
@@ -247,6 +248,8 @@ End dates were defined as the last full year prior to sampling (Table `r samplin
 Pearson correlations between climate variables and tree-ring chronologies were converted to linear slopes using the method of @charney_observed_2016.
 
 Finally, we generated plots comparing month-by-month *beta* coefficients describing climate sensitivity, and also comparing *beta* coefficients for the window identified as optimal by *climwin* Figs. `r all_traditional_comparisons`). 
+
+*The result is that our approach yields climate correlations with greater variance but lower standard error of slope estimates (Figs. `r all_traditional_comparisons`).*
 
 We note that despite designing the analyses to be as comparable as possible, one-to-one correspondence of *beta* coefficients is not necessarily expected for several reasons.
 First, although the analysis time frame is standardized between the two approaches, the relative influence of each year will generally vary between the two approaches. 
