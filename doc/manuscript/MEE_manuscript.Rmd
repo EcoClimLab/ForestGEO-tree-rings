@@ -77,7 +77,7 @@ jm. Department of Geography, Indiana University, Bloomington, Indiana, USA
 
 
 ```{r eval=FALSE, echo=FALSE}
-## potential reviewers: Jane Foster, M. Evans,  van der Pol, DEN team, Klesse
+## potential reviewers: Jane Foster, M. Evans,  van der Pol, DEN team, Klesse, J Matthias
 
 ## Target journal: Global Change Biology
 ## Instructions for authors: https://onlinelibrary-wiley-com.smithsonian.idm.oclc.org/page/journal/13652486/homepage/forauthors.html
@@ -89,7 +89,6 @@ jm. Department of Geography, Indiana University, Bloomington, Indiana, USA
 ```{r eval = TRUE, echo=FALSE, warning=FALSE, results='hide'}
 #Tables
 sites = 1
-interactions_and_year_summaries = "S6"
 
 #Figures
 schematic=1
@@ -116,14 +115,12 @@ traditional_comparison_title <- "Appendix S4. Methods for comparing our approach
 changing_climate_title <- "Appendix S5. Dealing with rapidly changing climate and tree growth"
 decadal_analysis_appendix_title <- "Appendix S6. Analysis of DBH-growth relationships by decade"
 
-
 #SI table numbers
 site_details = "S1"
 species_table = "S2"
 sampling_details_table = "S3"
 bark_allometries = "S4"
 qualitative_results_comparison = "S5"
-
 
 #SI table captions
 site_details_legend <- "Table S1. Site Details."
@@ -144,17 +141,34 @@ climwin_sameV_sameW = "S5"
 climwin_sameV_diffW = "S6"
 climwin_diffV_diffW = "S8"
 
-all_GLS = "S9-S18"
+all_GLS = "S9-S28"
 GLS_BCNM = "S9"
-GLS_HKK = "S10"
-GLS_SCBI = "S11"
-GLS_LDW = "S12"
-GLS_HF = "S13"
-GLS_ZOF = "S14"
-GLS_NE = "S15"
-GLS_LT = "S16"
-GLS_CB = "S17"
-GLS_SC = "S18"
+GLS_BCNM_year = "S10"
+GLS_HKK = "S11"
+GLS_HKK_year = "S12"
+GLS_SCBI = "S13"
+GLS_SCBI_year = "S14"
+GLS_LDW = "S15"
+GLS_LDW_year = "S16"
+GLS_HF = "S17"
+GLS_HF_year = "S18"
+GLS_ZOF = "S19"
+GLS_ZOF_year = "S20"
+GLS_NIO = "S21"
+GLS_NIO_year = "S22"
+GLS_LT = "S23"
+GLS_LT_year = "S24"
+GLS_CB = "S25"
+GLS_CB_year = "S26"
+GLS_SC = "S27"
+GLS_SC_year = "S28"
+
+SC_1970break = "S29"
+
+RW_interactions_all= "S30"
+BAI_interactions_all= "S31"
+
+
 
 #SI figure captions
 SCBI_traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals: LITU at SCBI."
@@ -164,18 +178,35 @@ SC_traditional_comparison_legend <- "Figure S4. Comparison of our approach with 
 
 climwin_sameV_sameW_legend = "Figure S5. (PRE at SCBI)"
 climwin_sameV_diffW_legend = "Figure S6. (PET at SCBI)"
-climwin_diffV_diffW_legend = "Figure S7. (TMP/TMN at BCNM)"
+climwin_diffV_diffW_legend = "Figure S7. (TMX/TMP at HKK)"
 
-GLS_BCNM_legend = "Figure S9. Best GLS models for Barro Colorado Nature Monument (Panama)"
-GLS_HKK_legend = "Figure S10. Best GLS models for Huai Kha Khaeng (Thailand)"
-GLS_SCBI_legend = "Figure S11. Best GLS models for the Smithsonian Conservation Biology Institute (Virginia, USA)"
-GLS_LDW_legend = "Figure S12. Best GLS models for Lilley Dickey Woods (Indiana, USA)"
-GLS_HF_legend = "Figure S13. Best GLS models for Harvard Forest (Massachusetts, USA) "
-GLS_ZOF_legend = "Figure S14. Best GLS models for Zofin Forest (Czech Republic)"
-GLS_NE_legend = "Figure S15. Best GLS models for Niobrara/ Halsey (Nebraska, USA)"
-GLS_LT_legend = "Figure S16. Best GLS models for Little Tesuque (New Mexico, USA)"
-GLS_CB_legend = "Figure S17. Best GLS models for Cedar Breaks (Utah, USA)"
-GLS_SC_legend = "Figure S18. Best GLS models for Scotty Creek (Northwest Territory, Canada)"
+# without year
+GLS_BCNM_legend = "Figure S9. Best GLS models including climate and DBH for Barro Colorado Nature Monument (Panama)"
+GLS_BCNM_year_legend = "Figure S10. Best GLS models including climate, DBH, and year for Barro Colorado Nature Monument (Panama)"
+GLS_HKK_legend = "Figure S11. Best GLS models including climate and DBH for Huai Kha Khaeng (Thailand)"
+GLS_HKK_year_legend = "Figure S12. Best GLS models including climate, DBH, and year for Huai Kha Khaeng (Thailand)"
+GLS_SCBI_legend = "Figure S13. Best GLS models including climate and DBH for the Smithsonian Conservation Biology Institute (Virginia, USA)"
+GLS_SCBI_year_legend = "Figure S14. Best GLS models including climate, DBH, and year for the Smithsonian Conservation Biology Institute (Virginia, USA)"
+GLS_LDW_legend = "Figure S15. Best GLS models including climate and DBH for Lilley Dickey Woods (Indiana, USA)"
+GLS_LDW_year_legend = "Figure S16. Best GLS models including climate, DBH, and year for Lilley Dickey Woods (Indiana, USA)"
+GLS_HF_legend = "Figure S17. Best GLS models including climate and DBH for Harvard Forest (Massachusetts, USA) "
+GLS_HF_year_legend = "Figure S18. Best GLS models including climate, DBH, and year for Harvard Forest (Massachusetts, USA) "
+GLS_ZOF_legend = "Figure S19. Best GLS models including climate and DBH for Zofin Forest (Czech Republic)"
+GLS_ZOF_year_legend = "Figure S20. Best GLS models including climate, DBH, and year for Zofin Forest (Czech Republic)"
+GLS_NIO_legend = "Figure S21. Best GLS models including climate and DBH for Niobrara (Nebraska, USA)"
+GLS_NIO_year_legend = "Figure S22. Best GLS models including climate, DBH, and year for Niobrara (Nebraska, USA)"
+GLS_LT_legend = "Figure S23. Best GLS models including climate and DBH for Little Tesuque (New Mexico, USA)"
+GLS_LT_year_legend = "Figure S24. Best GLS models including climate, DBH, and year for Little Tesuque (New Mexico, USA)"
+GLS_CB_legend = "Figure S25. Best GLS models including climate and DBH for Cedar Breaks (Utah, USA)"
+GLS_CB_year_legend = "Figure S26. Best GLS models including climate, DBH, and year for Cedar Breaks (Utah, USA)"
+GLS_SC_legend = "Figure S27. Best GLS models including climate and DBH for Scotty Creek (Northwest Territory, Canada)"
+GLS_SC_year_legend = "Figure S28. Best GLS models including climate, DBH, and year for Scotty Creek (Northwest Territory, Canada)"
+
+SC_1970break_legend = "Figure 29. Climate responses at Scotty Creek (Northwest Territory, Canada) before and after 1970."
+
+RW_interactions_all_legend = "Figure S30. (RW_interactions_all)"
+BAI_interactions_all_legend ="Figure S31. (BAI_interactions_all)"
+
 ```
 
 ```{r eval = TRUE, echo=FALSE, warning=FALSE, results='hide'}
@@ -197,17 +228,7 @@ sampling_details <- read.csv(paste0(path_to_repo, "/doc/manuscript/tables_figure
 # Abstract  {-#Abstract} 
 
 ```{r eval=FALSE, echo=FALSE}
-## The Abstract must not exceed 350 words and should list the main results and conclusions, using simple, factual, numbered statements:
-
-#Point 1: set the context for and purpose of the work;
-
-#Point 2: indicate the approach and methods;
-
-#Point 3: outline the main results;
-
-#Point 4: identify the conclusions and the wider implications.
-
-# Key-words: A list in alphabetical order not exceeding eight words or short phrases. The most important key-words should appear in the title and the abstract as well as the key-word list. More advice on selecting good keywords can be found here.
+## Abstract: Limited to 300 words. 
 ```
 
 *(needs to be re-written)*
@@ -451,7 +472,7 @@ Optimal time windows most commonly occurred during the peak growing season of th
 Within the tropics, there was minimal effect of temperature at BCNM and a negative effect of wet season $T_{max}$ for three of four species at HKK.
 For temperate sites with optimal time windows covering the current and/or past growing season, responses were universally negative (*i.e.*, negative first-order linear or unimodal, peaking at temperatures lower than the long-term mean). 
 In contrast, there were positive effects of Jan-March $T_{max}$ for all three species at ZOF and of March $PET$ for *Tsuga Canadensis* at HF, the latter contrasting with a negative response of the other three species at HF (Fig. `r clim_sens`).
-At the highest-latitude site (SC), which has undergone rapid warming and permafrost melt, *Picea mariana* responded positively (but with wide 95% CI on the slope) to temperature over the full analysis period (1903-2013); however, responses were predominately positive prior to 1970 and predominantly negative afterwards (Fig. **CREATE AN SI FIGURE!**). 
+At the highest-latitude site (SC), which has undergone rapid warming and permafrost melt, *Picea mariana* responded positively (but with wide 95% CI on the slope) to temperature over the full analysis period (1903-2013); however, responses were predominately positive prior to 1970 and predominantly negative afterwards (Fig. `r SC_1970break`). 
 
 ## Influence of DBH {-#Influence}
 
@@ -517,11 +538,11 @@ n_DBHxT_BAI_sig_neg=8 #mostly drought signal, including 4 species at CB
 ```
 
 Interactive effects of climate and $DBH$ were found for `r n_DBHx_analyzed_sig` of the `r n_DBHx_analyzed` (`r round(n_DBHx_analyzed_sig/ n_DBHx_analyzed*100)`%) species-variable combinations for which they were tested. 
-For precipitation variables, interactions were significant for `r round(n_DBHxP_RW_sig/ n_DBHxP_RW_analyzed*100)`% of interactions with $RW$ as the growth metric and for `r round(n_DBHxP_BAI_sig/ n_DBHxP_BAI_analyzed*100)`% with $BAI$ as the growth metric (Table `r interactions_and_year_summaries`).
+For precipitation variables, interactions were significant for `r n_DBHxP_RW_sig` of the `r n_DBHxP_RW_analyzed` (`r round(n_DBHxP_RW_sig/ n_DBHxP_RW_analyzed*100)`%) interactions with $RW$ as the growth metric (Fig. `r RW_interactions_all`) and for `r n_DBHxP_BAI_sig` of the `r n_DBHxP_BAI_analyzed` (`r round(n_DBHxP_BAI_sig/ n_DBHxP_BAI_analyzed*100)`%) with $BAI$ as the growth metric (Fig. `r BAI_interactions_all`).
 The majority of these interactions were positive (`r round(n_DBHxP_RW_sig_pos/n_DBHxP_RW_sig*100)`% for $RW$; `r round(n_DBHxP_BAI_sig_pos/n_DBHxP_BAI_sig*100)`% for $BAI$), indicating that larger trees generally respond more positively (or less negatively) to precipitation or its frequency (Fig.  `r interactions_fig`).
 Among the exceptions to this pattern (n=`r n_DBHxP_RW_sig-n_DBHxP_RW_sig_pos` for $RW$, `r n_DBHxP_BAI_sig-n_DBHxP_BAI_sig_pos` for $BAI$), only a minority (n=1 for $RW$, 2 for $BAI$) occurred in species responding positively to precipitation in the current growing season. 
 
-Temperature variable $\times DBH$ interactions were significant for `r round(n_DBHxT_RW_sig/ n_DBHxT_RW_analyzed*100)`% of cases with $RW$ as the growth metric and for `r round(n_DBHxT_BAI_sig/ n_DBHxT_BAI_analyzed*100)`% with $BAI$ as the growth metric (Table `r interactions_and_year_summaries`).
+Temperature variable $\times DBH$ interactions were significant for `r round(n_DBHxT_RW_sig/ n_DBHxT_RW_analyzed*100)`% of cases with $RW$ as the growth metric (Fig. `r RW_interactions_all`) and for `r round(n_DBHxT_BAI_sig/ n_DBHxT_BAI_analyzed*100)`% with $BAI$ as the growth metric (Fig. `r BAI_interactions_all`).
 Directions of these interactions were mixed, with `r n_DBHxT_RW_sig_neg` of `r n_DBHxT_RW_sig` significant interactions negative with $RW$ as the growth metric and `r n_DBHxT_BAI_sig_neg` of `r n_DBHxT_BAI_sig` significant interactions negative when $BAI$ was the growth metric.
 For both $RW$ and $BAI$, the majority of significant negative interactions (*i.e.*, more negative/ less positive response of larger trees to higher temperatures) occurred in the more water-limited forests (HKK, LT, CB), whereas positive interactions were more common in mesic forests (SCBI, HF, ZOF).
 
@@ -542,7 +563,7 @@ n_best_model_neg_AGB=n_best_model_AGB-3 #(exceptions:  FASY at ZOF, PIPU and PIF
 
 ```
 
-There was a significant effect of `year` in the GLS models for `r n_best_model_RW` - `r n_best_model_AGB` (depending on growth metric) of the `r n_tested` species- site combinations tested (Fig. `r year_fig`), and these trends were consistent with those observed in a separate analysis of $DBH$-growth relationships by year (Appendix `r decadal_analysis_appendix`; **ADD SI FIGS**).
+There was a significant effect of `year` in the GLS models for `r n_best_model_RW` - `r n_best_model_BAI` (depending on growth metric) of the `r n_tested` species- site combinations tested (Figs. `r year_fig`, `r all_GLS`), and these trends were consistent with those observed in a separate analysis of $DBH$-growth relationships by year (Appendix `r decadal_analysis_appendix`; [**ADD SI FIGS--issue 104**](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/104)).
 In 90% of cases, the growth trend over time was negative.
 Declines were particularly dramatic for *Picea mariana* at SC, *Pinus ponderosa* at LT, all four species at HF, and several species at SCBI  (Fig. `r year_fig`).
 In these cases, models without `year` predicted declines in growth at large DBH that should more properly be attributed to the effect of year (Fig. `r year_fig`).
@@ -574,7 +595,7 @@ Another way in which our analysis differed fundamentally from most conventional 
 
 Finally, our analysis differed from conventional approaches in the use of GLS models to simultaneously quantify the effects of climate, $DBH$, and year, while accounting for idiosyncratic growth trends of individual trees through an autocorrelation structure [step 2; Fig. `r schematic`; see also @evans_fusing_2017; @rollinson_climate_nodate].
 This approach allowed the consideration of additive and interactive effects of climate with variables that change over longer time frames--here, $DBH$ and year, although other slowly-changing drivers could also be used.
-We found that interactions between climate variables and $DBH$ were common (`r round(n_DBHx_analyzed_sig/ n_DBHx_analyzed*100)`%; Table `r interactions_and_year_summaries`, Fig. `r interactions_fig`).
+We found that interactions between climate variables and $DBH$ were common (`r round(n_DBHx_analyzed_sig/ n_DBHx_analyzed*100)`%;  Figs. `r interactions_fig`, `r RW_interactions_all`, `r BAI_interactions_all`).
 The most coherent pattern observed in this analysis was a tendency for larger trees to be more sensitive to precipitation and high temperatures, consistent with widespread observations that larger trees are more sensitive to drought [REFS; @bennett_larger_2015; @gillerot_tree_2020; @mcgregor_tree_2020].
 An analytical structure that can account for this and other such DBH-climate interactions [e.g., @rossi_age-dependent_2007; @rollinson_climate_nodate] will be critical to using tree-ring records to understand and forecast the effects of climate on tree growth and forest productivity.
 
