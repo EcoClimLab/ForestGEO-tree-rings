@@ -88,17 +88,34 @@ climwin_sameV_sameW = "S5"
 climwin_sameV_diffW = "S6"
 climwin_diffV_diffW = "S8"
 
-all_GLS = "S9-S18"
+all_GLS = "S9-S28"
 GLS_BCNM = "S9"
-GLS_HKK = "S10"
-GLS_SCBI = "S11"
-GLS_LDW = "S12"
-GLS_HF = "S13"
-GLS_ZOF = "S14"
-GLS_NE = "S15"
-GLS_LT = "S16"
-GLS_CB = "S17"
-GLS_SC = "S18"
+GLS_BCNM_year = "S10"
+GLS_HKK = "S11"
+GLS_HKK_year = "S12"
+GLS_SCBI = "S13"
+GLS_SCBI_year = "S14"
+GLS_LDW = "S15"
+GLS_LDW_year = "S16"
+GLS_HF = "S17"
+GLS_HF_year = "S18"
+GLS_ZOF = "S19"
+GLS_ZOF_year = "S20"
+GLS_NIO = "S21"
+GLS_NIO_year = "S22"
+GLS_LT = "S23"
+GLS_LT_year = "S24"
+GLS_CB = "S25"
+GLS_CB_year = "S26"
+GLS_SC = "S27"
+GLS_SC_year = "S28"
+
+SC_1970break = "S29"
+
+RW_interactions_all= "S30"
+BAI_interactions_all= "S31"
+
+
 
 #SI figure captions
 SCBI_traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals: LITU at SCBI."
@@ -110,17 +127,33 @@ climwin_sameV_sameW_legend = "Figure S5. (PRE at SCBI)"
 climwin_sameV_diffW_legend = "Figure S6. (PET at SCBI)"
 climwin_diffV_diffW_legend = "Figure S7. (TMX/TMP at HKK)"
 
+# without year
+GLS_BCNM_legend = "Figure S9. Best GLS models including climate and DBH for Barro Colorado Nature Monument (Panama)"
+GLS_BCNM_year_legend = "Figure S10. Best GLS models including climate, DBH, and year for Barro Colorado Nature Monument (Panama)"
+GLS_HKK_legend = "Figure S11. Best GLS models including climate and DBH for Huai Kha Khaeng (Thailand)"
+GLS_HKK_year_legend = "Figure S12. Best GLS models including climate, DBH, and year for Huai Kha Khaeng (Thailand)"
+GLS_SCBI_legend = "Figure S13. Best GLS models including climate and DBH for the Smithsonian Conservation Biology Institute (Virginia, USA)"
+GLS_SCBI_year_legend = "Figure S14. Best GLS models including climate, DBH, and year for the Smithsonian Conservation Biology Institute (Virginia, USA)"
+GLS_LDW_legend = "Figure S15. Best GLS models including climate and DBH for Lilley Dickey Woods (Indiana, USA)"
+GLS_LDW_year_legend = "Figure S16. Best GLS models including climate, DBH, and year for Lilley Dickey Woods (Indiana, USA)"
+GLS_HF_legend = "Figure S17. Best GLS models including climate and DBH for Harvard Forest (Massachusetts, USA) "
+GLS_HF_year_legend = "Figure S18. Best GLS models including climate, DBH, and year for Harvard Forest (Massachusetts, USA) "
+GLS_ZOF_legend = "Figure S19. Best GLS models including climate and DBH for Zofin Forest (Czech Republic)"
+GLS_ZOF_year_legend = "Figure S20. Best GLS models including climate, DBH, and year for Zofin Forest (Czech Republic)"
+GLS_NIO_legend = "Figure S21. Best GLS models including climate and DBH for Niobrara (Nebraska, USA)"
+GLS_NIO_year_legend = "Figure S22. Best GLS models including climate, DBH, and year for Niobrara (Nebraska, USA)"
+GLS_LT_legend = "Figure S23. Best GLS models including climate and DBH for Little Tesuque (New Mexico, USA)"
+GLS_LT_year_legend = "Figure S24. Best GLS models including climate, DBH, and year for Little Tesuque (New Mexico, USA)"
+GLS_CB_legend = "Figure S25. Best GLS models including climate and DBH for Cedar Breaks (Utah, USA)"
+GLS_CB_year_legend = "Figure S26. Best GLS models including climate, DBH, and year for Cedar Breaks (Utah, USA)"
+GLS_SC_legend = "Figure S27. Best GLS models including climate and DBH for Scotty Creek (Northwest Territory, Canada)"
+GLS_SC_year_legend = "Figure S28. Best GLS models including climate, DBH, and year for Scotty Creek (Northwest Territory, Canada)"
 
-GLS_BCNM_legend = "Figure S9. Best GLS models for Barro Colorado Nature Monument (Panama)"
-GLS_HKK_legend = "Figure S10. Best GLS models for Huai Kha Khaeng (Thailand)"
-GLS_SCBI_legend = "Figure S11. Best GLS models for the Smithsonian Conservation Biology Institute (Virginia, USA)"
-GLS_LDW_legend = "Figure S12. Best GLS models for Lilley Dickey Woods (Indiana, USA)"
-GLS_HF_legend = "Figure S13. Best GLS models for Harvard Forest (Massachusetts, USA) "
-GLS_ZOF_legend = "Figure S14. Best GLS models for Zofin Forest (Czech Republic)"
-GLS_NE_legend = "Figure S15. Best GLS models for Niobrara/ Halsey (Nebraska, USA)"
-GLS_LT_legend = "Figure S16. Best GLS models for Little Tesuque (New Mexico, USA)"
-GLS_CB_legend = "Figure S17. Best GLS models for Cedar Breaks (Utah, USA)"
-GLS_SC_legend = "Figure S18. Best GLS models for Scotty Creek (Northwest Territory, Canada)"
+SC_1970break_legend = "Figure 29. Climate responses at Scotty Creek (Northwest Territory, Canada) before and after 1970."
+
+RW_interactions_all_legend = "Figure S30. (RW_interactions_all)"
+BAI_interactions_all_legend ="Figure S31. (BAI_interactions_all)"
+
 
 # ~~~~~~~~~~ (below here does not need to be copied to main doc) ~~~~~~~~~~
 # Generic legends
@@ -501,60 +534,141 @@ nocite: |
 \newpage
 ## `r GLS_BCNM_legend`
 
-![`r GLS_BCNM_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/BCI.png){ width=75% }
 
+![`r GLS_BCNM_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/BCI.png){ width=90% }
+
+\newpage
+## `r GLS_BCNM_year_legend`
+
+![`r GLS_BCNM_year_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/BCI_with_Year.png){ width=90% }
 
 
 \newpage
 ## `r GLS_HKK_legend`
 
-![`r GLS_HKK_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/HKK.png){ width=75% }
+![`r GLS_HKK_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/HKK.png){ width=90% }
+
+
+\newpage
+## `r GLS_HKK_year_legend`
+
+![`r GLS_HKK_year_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/HKK_with_Year.png){ width=90% }
+
 
 \newpage
 ## `r GLS_SCBI_legend`
 
-![`r GLS_SCBI_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/SCBI.png){ width=75% }
+![`r GLS_SCBI_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/SCBI.png){ width=90% }
+
+\newpage
+## `r GLS_SCBI_year_legend`
+
+![`r GLS_SCBI_year_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/SCBI_with_Year.png){ width=90% }
+
 
 \newpage
 ## `r GLS_LDW_legend`
 
-![`r GLS_LDW_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/LillyDickey.png){ width=75% }
+![`r GLS_LDW_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/LillyDickey.png){ width=90% }
+
+\newpage
+## `r GLS_LDW_year_legend`
+
+![`r GLS_LDW_year_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/LillyDickey_with_Year.png){ width=90% }
+
 
 \newpage
 ## `r GLS_HF_legend`
 
-![`r GLS_HF_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/HarvardForest.png){ width=75% }
+![`r GLS_HF_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/HarvardForest.png){ width=90% }
+
+\newpage
+## `r GLS_HF_year_legend`
+
+![`r GLS_HF_year_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/HarvardForest_with_Year.png){ width=90% }
+
 
 \newpage
 ## `r GLS_ZOF_legend`
 
-![`r GLS_ZOF_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/Zofin.png){ width=75% }
+![`r GLS_ZOF_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/Zofin.png){ width=90% }
 
 \newpage
-## `r GLS_NE_legend`
+## `r GLS_ZOF_year_legend`
+
+![`r GLS_ZOF_year_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/Zofin_with_Year.png){ width=90% }
 
 
-![`r GLS_NE_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/Nebraska.png){ width=75% }
+\newpage
+## `r GLS_NIO_legend`
 
+
+![`r GLS_NIO_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/Niobara.png){ width=90% }
+
+\newpage
+## `r GLS_NIO_year_legend`
+
+
+![`r GLS_NIO_year_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/Niobara_with_Year.png){ width=90% }
 
 
 \newpage
 ## `r GLS_LT_legend`
 
-![`r GLS_LT_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/NewMexico.png){ width=75% }
+![`r GLS_LT_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/NewMexico.png){ width=90% }
+
+
+\newpage
+## `r GLS_LT_year_legend`
+
+![`r GLS_LT_year_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/NewMexico_with_Year.png){ width=90% }
+
 
 \newpage
 ## `r GLS_CB_legend`
 
 
-![`r GLS_CB_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/CedarBreaks.png){ width=75% }
+![`r GLS_CB_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/CedarBreaks.png){ width=90% }
+
+\newpage
+## `r GLS_CB_year_legend`
+
+
+![`r GLS_CB_year_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/CedarBreaks_with_Year.png){ width=90% }
 
 
 \newpage
 ## `r GLS_SC_legend`
 
-![`r GLS_SC_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/ScottyCreek.png){ width=75% }
+![`r GLS_SC_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/ScottyCreek.png){ width=90% }
 
+\newpage
+## `r GLS_SC_year_legend`
+
+![`r GLS_SC_year_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/ScottyCreek_with_Year.png){ width=90% }
+
+\newpage
+
+## `r SC_1970break_legend`
+
+**(a) pre-1970**
+
+![](tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png){ width=70% }
+
+**(b) post-1970**
+
+![`r SC_1970break_legend`](tables_figures/SI_figures/GLS_post1970_ScottyCreek.png){ width=70% }
+
+
+\newpage
+## `r RW_interactions_all_legend`
+
+![`r RW_interactions_all_legend`](tables_figures/pre_temp_groups_dbh_interactions_log_core_measurement_dbh.png){ width=100% }
+
+\newpage
+## `r BAI_interactions_all_legend`
+
+![`r BAI_interactions_all_legend`](tables_figures/pre_temp_groups_dbh_interactions_log_BAI_dbh.png){ width=100% }
 
 
 \newpage
