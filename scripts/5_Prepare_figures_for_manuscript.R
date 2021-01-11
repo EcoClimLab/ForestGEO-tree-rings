@@ -359,6 +359,7 @@ sites_species_to_show = list(HKK = c("TOCI", "Tona ciliata"),
 what = "log_core_measurement_dbh"
 
 all_plots <- list()
+rm(leg)
 for(site in names(sites_species_to_show)){
   
   
@@ -384,25 +385,27 @@ for(site in names(sites_species_to_show)){
       
       # remove speices legend
       p <- p + guides(fill = FALSE, colour = FALSE)
+      
+      # remove title legend
+      p <- p + theme(legend.title = element_blank())
+      
+      # change legeng labels
+      p <- p + scale_linetype_manual(values = c("solid", "dotted"), labels=c("max DBH" ,"min DBH"))
+      
    
-      # s ave legend
-      leg <- ggplotGrob(p)$grobs[[15]]
+      
+      # save legend
+      leg <<- ggplotGrob(p)$grobs[[15]]
   
       #remove legend
       p$theme$legend.position <- "none"
+      
       #save
       assign(x, p, temp_env)
     })
   }
   
-  # get the species colors
-  # species_colors <- get("species_colors", temp_env)
-  
-  # add legend
-  
-  # assign("leg", g_legend(), envir = temp_env)
-  # existing_plots <- c(existing_plots, "leg")
-  
+
   all_plots[[paste0(site, what)]] <- grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  {if(is.na(x)) grid.rect(gp=gpar(col="white")) else get(x, temp_env)}), ncol = 2)))
   
 } # for(site in sites)
