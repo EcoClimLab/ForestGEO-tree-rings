@@ -335,7 +335,7 @@ for(what in names(what_to_show)) {
     
   } # for(site in sites)
   
-  png(paste0("doc/manuscript/tables_figures/pre_temp_groups_dbh_interactions", what, ".png"), width = 8.2, height = 8.2, res = 300, units = "in")
+  png(paste0("doc/manuscript/tables_figures/pre_temp_groups_dbh_interactions_", what, ".png"), width = 8.2, height = 8.2, res = 300, units = "in")
   
   grid.arrange(grobs = all_plots, vp= grid::viewport(width=0.95, height=0.95), ncol = 2)
   

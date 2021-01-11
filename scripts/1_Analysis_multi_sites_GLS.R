@@ -134,7 +134,7 @@ clim_gaps <- clim_gaps[clim_gaps$start_climvar.class %in% climate_variables, ]
 CO2 <- read.csv(path_to_CO2)
 
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIKCKSEVT3HX35QYWNK77WYUO")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCILFYYBQ32EGI3XSZUTAAIL56")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
@@ -1062,7 +1062,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
     
    
     # save environment ####
-    save.image(file = paste0("results/", ifelse(solution_to_global_trend %in% "none", paste0(with_Year_or_CO2, "/"), paste0(solution_to_global_trend, "/")), what, "/", site, "_all_env.RData"))
+    save.image(file = paste0("results/",  ifelse(with_Year_or_CO2 %in% "", "", paste0("with_", with_Year_or_CO2, "/")), ifelse(solution_to_global_trend %in% "none", "", paste0(solution_to_global_trend, "/")), what, "/", site, "_all_env.RData"))
     
     } # for(with_Year_or_CO2 in ...) 
      
