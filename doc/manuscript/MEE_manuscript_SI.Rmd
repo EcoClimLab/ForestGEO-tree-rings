@@ -175,6 +175,8 @@ GLS_generic_legend = " for all three growth metrics examined here. Precipitation
 
 ### Huai Kha Khaeng, Thailand
 
+*Melia azedarach* --a highly shade-intolerant species that establishes in the open [@baker_suppression_2006] and was sampled opportunistically outside the ForestGEO plot at HKK [@vlam_temperature_2014], where it presumably established under open conditions (*Baker 2005, Ecological monographs*).
+
 ### Smithsonian Conservation Biology Institute, Virginia, USA
 
 ### Lilly Dickey Woods, Indiana, USA
@@ -263,7 +265,7 @@ For each species, we compared climate sensitivities for the top precipitation- a
 
 Prior to analysis, data were prepared and cleaned as described in the Methods section, resulting in an identical set of records for input into each analysis.
 For the approach developed here, analysis was conducted as described in the Methods section, but with the *climwin* climate variable selection process limited to just the species of interest (as opposed to all species at the site), climate variables considered individually rather than additively, analysis of only first-order linear relationships, and with start date adjusted to match the conventional method (see below).
-*Climwin* is a useful analytical tool that automates the process of running and comparing numerous regressions, but its use does not alter results relative to what would be obtained via a more conventional approach; numerous climate drivers and time windows can be compared without climwin (e.g., REFS), and *climwin* could also be used on residual chronologies (**AND WE DID THIS--  ADD SI FIGURE AS EXAMPLE?**). 
+*Climwin* is a useful analytical tool that automates the process of running and comparing numerous regressions, but its use does not alter results relative to what would be obtained via a more conventional approach; numerous climate drivers and time windows can be compared without climwin (e.g., REFS), and *climwin* can also be used on residual chronologies. 
 Following the *climwin* analysis step, we extracted *beta* coefficients describing the slope of the relationship between climate and $RW$.
 *Beta* coefficients, along with their standard error, were obtained for each month within the analysis time frame (Table `r site_details`) and for the time window identified as optimal by *climwin*.
 
