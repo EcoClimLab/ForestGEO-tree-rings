@@ -352,9 +352,9 @@ for(what in names(what_to_show)) {
 
 # Pre and Temp groups with DBH interaction show case ####
 what_to_show = c("log_core_measurement_dbh" = expression(RW~(mm)))
-sites_species_to_show = c(HKK = "TOCI", 
-                          LillyDickey = "LITU",
-                          CedarBreaks = "PIPU")
+sites_species_to_show = list(HKK = c("TOCI", "Tona ciliata"), 
+                          LillyDickey = c("LITU", "Lirodendron tulipifera"),
+                          CedarBreaks = c("PIPU", "Picea pungens"))
 
 what = "log_core_measurement_dbh"
 
@@ -378,11 +378,19 @@ for(site in names(sites_species_to_show)){
       p <- get(x, temp_env) 
       p$labels$x <- eval(parse(text = gsub(" |  ", "~", gsub("-1", "\\^-1", paste0(gsub(substr(p$labels$x, 1, 4), v_names[substr(p$labels$x, 1, 3)], p$labels$x), ")")))))
       p$theme$plot.background <- element_blank()
-      p$theme$legend.position <- "none"
       
       # keep only species we want
-      p$data <- p$data[p$data$species_code %in% sites_species_to_show[site],]
-      p
+      p$data <- p$data[p$data$species_code %in% sites_species_to_show[[site]][1],]
+      
+      # remove speices legend
+      p <- p + guides(fill = FALSE, colour = FALSE)
+   
+      # s ave legend
+      leg <- ggplotGrob(p)$grobs[[15]]
+  
+      #remove legend
+      p$theme$legend.position <- "none"
+      #save
       assign(x, p, temp_env)
     })
   }
@@ -401,14 +409,16 @@ for(site in names(sites_species_to_show)){
 
 png(paste0("doc/manuscript/tables_figures/pre_temp_groups_dbh_interactions.png"), width = 8.2, height = 8.2, res = 300, units = "in")
 
-grid.arrange(arrangeGrob(grobs = all_plots, vp= grid::viewport(width=0.95, height=0.95), ncol = 1))
+grid.arrange(arrangeGrob(grobs = all_plots, vp= grid::viewport(width=0.95, height=0.95, y = 0.48), ncol = 1), arrangeGrob(leg), widths = c(8,1))
 
 
-grid::grid.text(sites_abb[ names(sites_species_to_show)], x = unit(0.032, "npc"), y = unit(c(0.98, 0.66, 0.35), "npc"))
+grid::grid.text(sites_abb[ names(sites_species_to_show)], x = unit(0.06, "npc"), y = unit(c(0.95, 0.63, 0.32), "npc"), just = "right")
 
-grid::grid.text(what_to_show[what], x = unit(0.0265, "npc"), y = unit(c(0.98, 0.66, 0.35)-0.12, "npc"), rot = 90)
+grid::grid.text(sapply(sites_species_to_show, "[[", 2), x = unit(0.085, "npc"), y =  unit(c(0.95, 0.63, 0.32), "npc"), gp = gpar(fontface = "italic"), just = "left")
 
-grid::grid.text(c("Precipiation group", "Temperature group"), x = unit(c(0.25,0.75), "npc"), y = unit(.99,  "npc"))
+grid::grid.text(what_to_show[what], x = unit(0.0265, "npc"), y = unit(c(0.95, 0.63, 0.32)-0.12, "npc"), rot = 90)
+
+grid::grid.text(c("Precipiation group", "Temperature group"), x = unit(c(0.25,0.65), "npc"), y = unit(.98,  "npc"))
 
 
 dev.off()
