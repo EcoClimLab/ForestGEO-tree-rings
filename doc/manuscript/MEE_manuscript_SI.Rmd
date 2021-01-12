@@ -149,7 +149,7 @@ GLS_CB_year_legend = "Figure S26. Best GLS models including climate, DBH, and ye
 GLS_SC_legend = "Figure S27. Best GLS models including climate and DBH for Scotty Creek (Northwest Territory, Canada)"
 GLS_SC_year_legend = "Figure S28. Best GLS models including climate, DBH, and year for Scotty Creek (Northwest Territory, Canada)"
 
-SC_1970break_legend = "Figure 29. Climate responses at Scotty Creek (Northwest Territory, Canada) before and after 1970."
+SC_1970break_legend = "Figure S29. Climate responses at Scotty Creek (Northwest Territory, Canada) before and after 1970."
 
 RW_interactions_all_legend = "Figure S30. (RW_interactions_all)"
 BAI_interactions_all_legend ="Figure S31. (BAI_interactions_all)"
@@ -655,14 +655,17 @@ nocite: |
 
 **(a) pre-1970**
 
-![](tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png){ width=70% }
+![ `r `](tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png){ width=57% }
 
 **(b) post-1970**
 
-![`r SC_1970break_legend`](tables_figures/SI_figures/GLS_post1970_ScottyCreek.png){ width=70% }
+![`r SC_1970break_legend`](tables_figures/SI_figures/GLS_post1970_ScottyCreek.png){ width=57% }
+
+
 
 
 \newpage
+
 ## `r RW_interactions_all_legend`
 
 ![`r RW_interactions_all_legend`](tables_figures/pre_temp_groups_dbh_interactions_log_core_measurement_dbh.png){ width=100% }

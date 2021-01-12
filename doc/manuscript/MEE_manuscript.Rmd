@@ -559,6 +559,7 @@ n_best_model_AGB=30
 n_best_model_neg_RW=n_best_model_RW-3 #(exceptions:  FASY at ZOF, PIPU and PIFL at CB)  90%
 n_best_model_neg_BAI=n_best_model_BAI-3 #(exceptions:  FASY at ZOF, PIPU and PIFL at CB) 90.3%
 n_best_model_neg_AGB=n_best_model_AGB-3 #(exceptions:  FASY at ZOF, PIPU and PIFL at CB) 90%
+percent_sig_neg_trend_of_analyzed = n_best_model_neg_RW=n_best_model_RW/ n_tested*100
 #species consistently independent of year: PIEN and PILO at CB, CHTA at HKK, PIST3 at NM, 
 
 ```
@@ -577,16 +578,16 @@ Effects of year and $DBH$ interacted such that inclusion of year in in models al
 # Discussion {-#Discussion}
 
 Our new tree-ring analysis method allows simultaneous consideration of the effects of dominant climate drivers, tree size, and slowly changing environmental conditions on annual growth (Fig. `r schematic`), yielding results that are consistent with those that would be obtained using conventional methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`;  Table `r qualitative_results_comparison`) while offering a fuller picture of the drivers of tree growth in an era of global change.
-Below, we summarize how our results on the effects of climate, tree size, and year corroborate current understanding of the drivers of tree growth while yielding new insights made possible by this approach.
+Below, we summarize how our results on the effects of climate, tree size, and year corroborate current understanding of the drivers of tree growth while yielding new insights made possible by the approach.
 
 
 ## Climate sensitivity {-#Climate}
 
-Across diverse climates and forest types (Table `r sites`), growth rates of `r n_species` tree species generally responded positively to water availability ($PPT$ or $PDF$)--at least up until the long-term mean--
+Across diverse climates and forest types (Tables `r sites`, `r species_table`), growth rates of `r n_species` tree species generally responded positively to water availability ($PPT$ or $PDF$)--at least up until the long-term mean--
 and negatively to temperature (usually $T_{max}$ or $PET$), with the exception of several positive responses at times and in places where temperature was limiting (Fig. `r clim_sens`).
 *(Discuss how this fits with regional to global-scale studies)*
 
-While our approach identifies similar climate sensitivities to those that would be identified using conventional methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`;  Table `r qualitative_results_comparison`), the approach differs in some substantive ways.
+While our approach identifies similar climate sensitivities to those that would be identified using conventional methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`;  Table `r qualitative_results_comparison`), it differs in some substantive ways.
 First, in determining the most important climate drivers (step 1; Fig. `r schematic`), we consider the full sample of individual cores, as opposed to a residual chronology in which variance has been standardized and the individual cores have been averaged. 
 Some differences in variables identified and the slope between growth and climate are to be expected giving the methodological differences (Appendix `r traditional_comparison`); however, as a whole the identified drivers and directions of response are consistent with conventional methods (`r SCBI_example`, `r all_traditional_comparisons`;  Table `r qualitative_results_comparison`). 
 Another way in which the current analysis differed from conventional methods is that we pooled species by site when determining the top climate drivers (step 1; Fig. `r schematic`). 
@@ -598,12 +599,12 @@ Another way in which our analysis differed fundamentally from most conventional 
 Finally, our analysis differed from conventional approaches in the use of GLS models to simultaneously quantify the effects of climate, $DBH$, and year, while accounting for idiosyncratic growth trends of individual trees through an autocorrelation structure [step 2; Fig. `r schematic`; see also @evans_fusing_2017; @rollinson_climate_nodate].
 This approach allowed the consideration of additive and interactive effects of climate with variables that change over longer time frames--here, $DBH$ and year, although other slowly-changing drivers could also be used.
 We found that interactions between climate variables and $DBH$ were common (`r round(n_DBHx_analyzed_sig/ n_DBHx_analyzed*100)`%;  Figs. `r interactions_fig`, `r RW_interactions_all`, `r BAI_interactions_all`).
-The most coherent pattern observed in this analysis was a tendency for larger trees to be more sensitive to precipitation and high temperatures, consistent with widespread observations that larger trees are more sensitive to drought [REFS; @bennett_larger_2015; @gillerot_tree_2020; @mcgregor_tree_2020].
+The most coherent pattern observed in this analysis was a tendency for larger trees to be more sensitive to precipitation and high temperatures (Fig. `r interactions_fig`), consistent with widespread observations that larger trees are more sensitive to drought [REFS; @bennett_larger_2015; @gillerot_tree_2020; @mcgregor_tree_2020].
 An analytical structure that can account for this and other such DBH-climate interactions [e.g., @rossi_age-dependent_2007; @rollinson_climate_nodate] will be critical to using tree-ring records to understand and forecast the effects of climate on tree growth and forest productivity.
 
 ## Variation with $DBH$  {-#Variation}
 
-**Growth rate--whether measured as $RW$, $BAI$, or $\Delta AGB$-- varied nonlinearly with $DBH$ for the vast majority of site-species combinations (`r round(n_spst_RW_DBH_sig/ n_spst_DBH_analyzed*100)`% - `r round(n_spst_dAGB_DBH_best_model/ n_spst_DBH_analyzed*100)`% depending on growth metric; Fig. `r size`).** 
+**Growth rate--whether measured as $RW$, $BAI$, or $\Delta AGB$-- varied nonlinearly with $DBH$ for the vast majority of site-species combinations (`r round(n_spst_RW_DBH_sig/ n_spst_DBH_analyzed*100)` - `r round(n_spst_dAGB_DBH_best_model/ n_spst_DBH_analyzed*100)`% depending on growth metric; Fig. `r size`).** 
 Variation in these patterns--particularly for $RW$, for which variation was most pronounced--was driven by two primary, interrelated factors: species ecology and stand history.
 Species that would have established in fairly open conditions--*i.e.*, shade-intolerant species (Table `r species_table`) and those at sites with more open canopies (e.g., LT, SC)-- exhibited rapid initial growth, measured as $RW$, followed by a roughly exponential decline.
 Such patterns are consistent with dendrochronology's "textbook" patterns, which have been derived primarily from trees that established in high-light environments (*DENDRO_REFS: See refs in Biondi and Qeadan 2008. Tree-Ring Research 64:81-96.; There are several earlier references in B&B 2006 describing this pattern. *).
@@ -615,14 +616,14 @@ Thus, patterns of decreasing $RW$ with $DBH$ are likely limited to open-grown tr
 --  (*cite Sheil et al. 2017 [Clark et al. 2007?](https://esajournals-onlinelibrary-wiley-com.smithsonian.idm.oclc.org/doi/epdf/10.1890/06-1039.1); [Schleip et al. 2015](https://onlinelibrary-wiley-com.smithsonian.idm.oclc.org/doi/abs/10.1002/env.2324)*).
 -- *from PB: I think the one thing that is very hard to take into account (and which you noted in bold at the start of the paragraph) is stand history. I worry about looking for/finding general patterns just on tree size, as that ignores the historical dynamics that might influence these patterns.*
 
-Contrary to the finding that $\Delta AGB$ increases continuously with $DBH$, which was derived from census data from globally distributed forests [@stephenson_rate_2014] and has also been observed in tree-rings [@foster_predicting_2016], we found evidence of saturation or decline in the majority **(`r round(20/26*100, digits=0)`%)** of species-site combinations analyzed.
+Contrary to the finding that $\Delta AGB$ increases continuously with $DBH$, which was derived from census data from globally distributed forests [@stephenson_rate_2014] and has also been observed in tree-rings [@foster_predicting_2016], we found evidence of saturation or decline in the majority (`r round(20/26*100, digits=0)`%) of species-site combinations analyzed.
 $\Delta AGB$ declines at high $DBH$ are presumably because trees are investing fixed C elsewhere--for example, reproduction.
 
 @forrester_does_2021 clarifies that $\Delta AGB$ increases with size across census data, but often declines with size over the course of a tree's life. 
 
 ## Changing growth rates {-#Changing}
 
-It is notable that growth rates are changing directionally for most species/ sites.
+It is notable that growth rates are changing directionally for the majority (`r percent_sig_neg_trend_of_analyzed`%) of site-species combinations that could be analyzed (Fig. `r year_fig`).
 
 Stand dynamics strongly affect stand structure and therefore tree diameter and growth trends.
 

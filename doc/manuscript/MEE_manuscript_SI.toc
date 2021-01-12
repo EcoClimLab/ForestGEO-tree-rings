@@ -46,7 +46,7 @@
 \contentsline {subsection}{Figure S26. Best GLS models including climate, DBH, and year for Cedar Breaks (Utah, USA)}{42}{section*.67}% 
 \contentsline {subsection}{Figure S27. Best GLS models including climate and DBH for Scotty Creek (Northwest Territory, Canada)}{43}{section*.69}% 
 \contentsline {subsection}{Figure S28. Best GLS models including climate, DBH, and year for Scotty Creek (Northwest Territory, Canada)}{44}{section*.71}% 
-\contentsline {subsection}{Figure 29. Climate responses at Scotty Creek (Northwest Territory, Canada) before and after 1970.}{45}{section*.73}% 
-\contentsline {subsection}{Figure S30. (RW\_interactions\_all)}{46}{section*.75}% 
-\contentsline {subsection}{Figure S31. (BAI\_interactions\_all)}{47}{section*.77}% 
-\contentsline {subsection}{SI References}{48}{section*.79}% 
+\contentsline {subsection}{Figure S29. Climate responses at Scotty Creek (Northwest Territory, Canada) before and after 1970.}{45}{section*.73}% 
+\contentsline {subsection}{Figure S30. (RW\_interactions\_all)}{46}{section*.76}% 
+\contentsline {subsection}{Figure S31. (BAI\_interactions\_all)}{47}{section*.78}% 
+\contentsline {subsection}{SI References}{48}{section*.80}% 
