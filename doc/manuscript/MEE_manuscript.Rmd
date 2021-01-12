@@ -436,7 +436,7 @@ Below, we summarize the precipitation and temperature variables included in thes
 
 ![**Figure 3 | Species-level responses of $RW$ to climwin-selected variables in precipitation and temperature variable groups.** *Climwin*-selected climate variables are coded on the x-axes as the climate variable name followed by the range of months (p=previous year, c=current year) over which it is most influential. For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. For each relationship shown, other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/pre_temp_groups.png)
 
-```{r , eval=FALSE, echo=FALSE}
+```{r , eval=TRUE, echo=FALSE}
 ## Tallies for the  paragraph below (Jan12)
 
 ###Variables selected: 
@@ -454,6 +454,12 @@ Below, we summarize the precipitation and temperature variables included in thes
 #LT: P pNov-cJul (9mo), TMX cMay-Jul (3mo)
 #CB: P pJune-cJul(14mo), TMXpAug-pAug(1mo)
 #SC: P pJun-pAug(3mo), TMXcJul (1mo)
+
+###other:
+n_pos_first_order_P_term=42 #(exceptions: BEPA & TSCA)
+n_pos_1st_P_term_and_neg_2nd = 32
+percent_temperature_responses_1st_order_negative=round(13/38*100)
+percent_temperature_responses_1st_order_pos_2nd_order_neg=19/38*100
 ```
 Responses to precipitation amount ($PPT$) and frequency ($PDF$) were included in the best model for all but one species, and were predominantly positive (Fig. `r clim_sens`).
 $PPT$ and $PDF$ were each identified as the top variable in four of the eight sites with both variables available, while $PPT$ was the only option at two (LT and CB).
@@ -462,10 +468,10 @@ In the tropics, the long time windows over which precipitation was influential (
 At two extratropical sites (LDW, NIO), the most influential windows were limited to the current spring and early summer, whereas optimal windows at three sites extended back to the previous fall (LT, CB) or summer (SCBI).
 Finally, at three sites (HF, ZOF, and SC), precipitation of the previous growing season was the most influential variable. 
 Responses to $PPT$ or $PDF$ were predominantly positive, with positive first-order linear terms for all but two species (*Tsuga canadensis* at HF and *Betula papyrifera* at NIO; Fig. `r clim_sens`).
-Negative second-order terms were commonly included in the best model (*# of #* with positive first-order terms), generally resulting in a deceleration or decline at the highest levels of precipitation, but occasionally producing a unimodal (e.g., several species at SCBI) or predominantly negative response (e.g., BEAL at HF; Fig. `r clim_sens`). 
+Negative second-order terms were commonly included in the best model (`r n_pos_1st_P_term_and_neg_2nd` of `r n_pos_first_order_P_term` with positive first-order terms), generally resulting in a deceleration or decline at the highest levels of precipitation, but occasionally producing a unimodal (e.g., several species at SCBI) or predominantly negative response (e.g., BEAL at HF; Fig. `r clim_sens`). 
 At the riparian site (NIO), for which streamflow was included as a candidate variable in the precipitation group, May $PDF$ was selected as the strongest driver but had a modest negative effect on growth, indicating that water availability was not a significant limitation for *Betula papyrifera* at this site.
 
-A temperature variable was included in the best model for all but eight site-species combinations, with predominantly negative responses (*#*% of species; Fig. `r clim_sens`).
+A temperature variable was included in the best model for all but eight site-species combinations, with predominantly negative responses, particularly at the higher end of the temperature range (`r percent_temperature_responses_1st_order_negative + percent_temperature_responses_1st_order_pos_2nd_order_neg`%; `r percent_temperature_responses_1st_order_negative`% with negative first-order term, `r percent_temperature_responses_1st_order_pos_2nd_order_neg`% with positive first-order term but negative second-order term; Fig. `r clim_sens`).
 The most commonly selected variables within the temperature group were $T_{max}$ and $PET$, which were identified by *climwin* as the top temperature-related driver at five and three of the ten sites, respectively, noting that $PET$ was not available for two sites. 
 $T_{mean}$ and $T_{min}$ were each identified as the top driver at only one site (NIO and BCNM, respectively), noting that the effects of $T_{min}$ at BCNM were only marginally significant (Fig. `r clim_sens`).
 Optimal time windows most commonly occurred during the peak growing season of the current year (n= 5 of 10 sites), but there were cases where optimal windows occurred during the preceding dry season (BCNM), late winter/early spring (HF, ZOF), or the previous growing season (NIO, CB).
