@@ -294,7 +294,7 @@ To use tree-rings to predict tree growth, $ANPP_{woody}$, and forest dynamics, w
 
 - a variety of methods are used to account for simultaneous changes in tree size, including... (DENDRO_REFS).
 
-- One commonly applied approach is to assume that $BAI$ is fundamentally independent of size (DENDRO_REFS).
+- One commonly applied approach is to assume that $BAI$ is fundamentally independent of size [@biondi_theory-driven_2008]--an assumption that was developed for open-grown trees [@biondi_theory-driven_2008] but that has subsequently been applied in other settings (DENDRO_REFS).
 
 - None of these methods is fully satisfactory, being subject to various sampling and analysis biases [@cherubini_potential_1998; @nehrbassahles_influence_2014], leaving great uncertainty as to what the tree-ring record can tell us about the impact of rising CO~2~ [@sullivan_effect_2016; @walker_integrating_2020]. 
 
@@ -580,7 +580,7 @@ Growth rate was consistently independent of `year` for only four species: *Chukr
 
 Effects of year and $DBH$ interacted such that inclusion of year in in models altered the shape of $DBH$ responses, typically resulting in less pronounced growth declines with increasing $DBH$ (Figs. `r all_GLS`).
 
-![**Figure 6 | Effect of year, when included in the best model, on BAI. For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. Other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant.  Transparent ribbons indicate 95% confidence intervals. ](tables_figures/Year_responses_BAI_only.png)
+![**Figure 6 | Effect of year, when included in the best model, on BAI.** For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. Other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant.  Transparent ribbons indicate 95% confidence intervals. ](tables_figures/Year_responses_BAI_only.png)
 
 # Discussion {-#Discussion}
 
@@ -611,22 +611,17 @@ An analytical structure that can account for this and other such DBH-climate int
 
 ## Variation with $DBH$  {-#Variation}
 
-**Growth rate--whether measured as $RW$, $BAI$, or $\Delta AGB$-- varied nonlinearly with $DBH$ for the vast majority of site-species combinations (`r round(n_spst_RW_DBH_sig/ n_spst_DBH_analyzed*100)` - `r round(n_spst_dAGB_DBH_best_model/ n_spst_DBH_analyzed*100)`% depending on growth metric; Fig. `r size`).** 
+Growth rate--whether measured as $RW$, $BAI$, or $\Delta AGB$-- varied nonlinearly with $DBH$ for the vast majority of site-species combinations (`r round(n_spst_RW_DBH_sig/ n_spst_DBH_analyzed*100)` - `r round(n_spst_dAGB_DBH_best_model/ n_spst_DBH_analyzed*100)`% depending on growth metric; Fig. `r size`). 
 Variation in these patterns--particularly for $RW$, for which variation was most pronounced--was driven by two primary, interrelated factors: species ecology and stand history.
 Species that would have established in fairly open conditions--*i.e.*, shade-intolerant species (Table `r species_table`) and those at sites with more open canopies (e.g., LT, SC)-- exhibited rapid initial growth, measured as $RW$, followed by a roughly exponential decline.
-Such patterns are consistent with dendrochronology's "textbook" patterns, which have been derived primarily from trees that established in high-light environments (*DENDRO_REFS: See refs in Biondi and Qeadan 2008. Tree-Ring Research 64:81-96.; There are several earlier references in B&B 2006 describing this pattern. *).
-However, within these forest settings, the majority of species exhibited initially low, but increasing, $RW$.
-This pattern is consistent with patterns observed in stand-level census data from closed-canopy forests, including three in this analysis (BCNM, HKK, SCBI), where $RW$ increases continuously with $DBH$ [@muller-landau_testing_2006; @anderson-teixeira_size-related_2015]. 
-While the low community mean $RW$ at small $DBH$ observed in closed-canopy forests is in large part driven by slow-growing small stems that will never enter the cohort of trees sampled by coring (e.g., $\ge$ 10cm DBH) (*see Cherubini et al. 1998*), increases in $RW$ with $DBH$ have also been observed for most species at SCBI using the same tree-ring data set analyzed here, but comparing across individuals using only contemporary data [@helcoski_growing_2019].
+Such patterns are consistent with dendrochronology's "textbook" patterns, which have been derived primarily from trees that established in high-light environments [@fritts_tree_1976; @biondi_theory-driven_2008].
+However, within the forest settings studied here, the majority of species exhibited initially low, but increasing, $RW$.
+This latter pattern is consistent with the observation that when contemporary growth rates are compared across individuals within a stand (*i.e.*, a "cross-sectional" analysis), $RW$ increases continuously with $DBH$ [e.g., @muller-landau_testing_2006; @anderson-teixeira_size-related_2015; @helcoski_growing_2019]. 
 
-Thus, patterns of decreasing $RW$ with $DBH$ are likely limited to open-grown trees or those establishing in gaps.  
---  (*cite Sheil et al. 2017 [Clark et al. 2007?](https://esajournals-onlinelibrary-wiley-com.smithsonian.idm.oclc.org/doi/epdf/10.1890/06-1039.1); [Schleip et al. 2015](https://onlinelibrary-wiley-com.smithsonian.idm.oclc.org/doi/abs/10.1002/env.2324)*).
--- *from PB: I think the one thing that is very hard to take into account (and which you noted in bold at the start of the paragraph) is stand history. I worry about looking for/finding general patterns just on tree size, as that ignores the historical dynamics that might influence these patterns.*
-
-Contrary to the finding that $\Delta AGB$ increases continuously with $DBH$, which was derived from census data from globally distributed forests [@stephenson_rate_2014] and has also been observed in tree-rings [@foster_predicting_2016], we found evidence of saturation or decline in the majority (`r round(20/26*100, digits=0)`%) of species-site combinations analyzed.
-$\Delta AGB$ declines at high $DBH$ are presumably because trees are investing fixed C elsewhere--for example, reproduction.
-
-@forrester_does_2021 clarifies that $\Delta AGB$ increases with size across census data, but often declines with size over the course of a tree's life. 
+We found evidence of saturation or decline in the majority (`r round(20/26*100, digits=0)`%) of species-site combinations analyzed (Fig. `r size`), contrasting with findings of cross-sectional analyses showing that $\Delta AGB$ increases continuously with $DBH$ [@stephenson_rate_2014; @meakem_role_2018], which has also been observed in tree-rings [@foster_predicting_2016].
+In large part, this discrepancy can be explained by differences between cross-sectional analyses and "longitudinal" patterns of individual trees through time [@sheil_does_2017; @forrester_does_2021].
+Declines in $BAI$ and $\Delta AGB$ at larger $DBH$ are probably in part attributable to increasing allocation to reproduction [@meinzer_age-related_2011], and are also linked to slowly changing environmental conditions (e.g., successional changes in stand structure, climate change; discussed below).
+Notably, inclusion of year in the GLS models tended to reduce the magnitude of $BAI$ and $\Delta AGB$ declines at larger $DBH$ (Figs. `r all_GLS`), suggesting that some of such declines in Figure `r size` are more properly attributed to the effect of year than that of $DBH$.
 
 ## Changing growth rates {-#Changing}
 
@@ -644,6 +639,7 @@ At HKK, @nock_longterm_2011 observed decreases in BAI (by standardized size clas
 Analyses of CO~2~ effects reach inconsistent conclusions because of stand dynamics, sampling bias, analysis methods...
 
 We believe our analysis methods to be robust,
+(noting that assumption of constant BAI, as per @biondi_theory-driven_2008, is not appropriate based on our DBH results)
 
 Our sampling varies by sites, and sites analyzed have decent year x DBH coverage, but biases could remain (need to do some research on this, believe it's mostly stand dynamics)
 
