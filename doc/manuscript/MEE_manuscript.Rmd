@@ -477,7 +477,7 @@ At the highest-latitude site (SC), which has undergone rapid warming and permafr
 ## Influence of DBH {-#Influence}
 
 ```{r , eval=TRUE, echo=FALSE}
-## Tallies for the  paragraph below (Jan6)
+## Tallies for the  paragraph below (Jan12)
 n_spst_DBH_analyzed= 43 # n species with DBH analyzed: 43 (45 - 2: 2 Hansley)
 n_spst_RW_DBH_sig=35 #  species with sig first-order linear DBH term
 n_spst_RW_DBH_2nd_order=26
@@ -554,18 +554,19 @@ For both $RW$ and $BAI$, the majority of significant negative interactions (*i.e
 ## Tallies for the  paragraph below (Jan6)
 n_tested=37 #same for all metrics
 n_best_model_RW=30
-n_best_model_BAI=31
+n_best_model_BAI=32
 n_best_model_AGB=30
 n_best_model_neg_RW=n_best_model_RW-3 #(exceptions:  FASY at ZOF, PIPU and PIFL at CB)  90%
-n_best_model_neg_BAI=n_best_model_BAI-3 #(exceptions:  FASY at ZOF, PIPU and PIFL at CB) 90.3%
+n_best_model_neg_BAI=n_best_model_BAI-3 #(exceptions:  FASY at ZOF, PIPU and PIFL at CB) 90.6%
 n_best_model_neg_AGB=n_best_model_AGB-3 #(exceptions:  FASY at ZOF, PIPU and PIFL at CB) 90%
-percent_sig_neg_trend_of_analyzed = n_best_model_neg_RW=n_best_model_RW/ n_tested*100
+percent_neg_of_sig_trends="90-91%"
+percent_sig_neg_trend_of_analyzed = "73-78%" 
 #species consistently independent of year: PIEN and PILO at CB, CHTA at HKK, PIST3 at NM, 
 
 ```
 
 There was a significant effect of `year` in the GLS models for `r n_best_model_RW` - `r n_best_model_BAI` (depending on growth metric) of the `r n_tested` species- site combinations tested (Figs. `r year_fig`, `r all_GLS`), and these trends were consistent with those observed in a separate analysis of $DBH$-growth relationships by year (Appendix `r decadal_analysis_appendix`; [**ADD SI FIGS--issue 104**](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/104)).
-In 90% of cases, the growth trend over time was negative.
+In `r percent_neg_of_sig_trends` of cases (depending on growth metric), the growth trend over time was negative.
 Declines were particularly dramatic for *Picea mariana* at SC, *Pinus ponderosa* at LT, all four species at HF, and several species at SCBI  (Fig. `r year_fig`).
 In these cases, models without `year` predicted declines in growth at large DBH that should more properly be attributed to the effect of year (Fig. `r year_fig`).
 Significant positive growth trends were observed for only three species, *Fagus sylvatica* at ZOF, *Picea pungens* and *Pinus flexilis* at CB, and all were modest compared to the steep negative trends observed for some species.
@@ -623,7 +624,7 @@ $\Delta AGB$ declines at high $DBH$ are presumably because trees are investing f
 
 ## Changing growth rates {-#Changing}
 
-It is notable that growth rates are changing directionally for the majority (`r percent_sig_neg_trend_of_analyzed`%) of site-species combinations that could be analyzed (Fig. `r year_fig`).
+It is notable that growth rates are changing directionally for the majority (`r percent_sig_neg_trend_of_analyzed`, depending on growth metric) of site-species combinations that could be analyzed (Fig. `r year_fig`).
 
 Stand dynamics strongly affect stand structure and therefore tree diameter and growth trends.
 
