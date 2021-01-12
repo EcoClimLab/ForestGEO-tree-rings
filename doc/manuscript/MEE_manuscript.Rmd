@@ -405,13 +405,13 @@ While one-to-one correspondence of estimated climate coefficients was neither ex
 
 ```{r , eval=FALSE, echo=FALSE}
 ## Tallies for the following paragraph (Jan 6)
-#sameV_sameW: LDWp, NMt, NIOt, NIOp, SCBIp, SCt, ZOFp, CBt, CBp
-#sameV_diffW: BCNMp, BCNMt, HFt, HKKp, LDWt, NMp, SCBIt, SCp, ZOFt
+#sameV_sameW: LDWp, NMt,NMp, NIOt, NIOp, SCBIp,  ZOFp,ZOFt,  (8)
+#sameV_diffW: BCNMp, BCNMt, HFt, HKKp, LDWt,  SCBIt, SCp,SCt,  CBp, CBt (10)
 #diffV_diffW: HFp, HKKt
 ```
 The three metrics of growth ($RW$, $BAI$, and $\Delta AGB$)  exhibited similar strength of correlation and direction of response to climate variables across the range of potential time windows, but the optimal time window or even the top climate variable sometimes differed (Figs. `r all_climwin`).
-In 9 of 20 cases, both the optimal climate variable and time window were identical across growth metrics (e.g., Fig. `r climwin_sameV_sameW`). 
-In 9 cases, *climwin* identified the same climate variable but different (often overlapping) time windows (e.g., Fig. `r climwin_sameV_diffW`). 
+In 8 of 20 cases, both the optimal climate variable and time window were identical across growth metrics (e.g., Fig. `r climwin_sameV_sameW`). 
+In 10 cases, *climwin* identified the same climate variable but different (often overlapping) time windows (e.g., Fig. `r climwin_sameV_diffW`). 
 Finally, in two cases of variables that had only weak effects and mixed responses among species in the final models (temperature variable group at HKK, precipitation variable group at HF; Figs. `r clim_sens`, `r GLS_HKK`, `r GLS_HF`), *climwin* identified different climate variables and different time windows (e.g., Fig. `r climwin_diffV_diffW`). 
 Henceforth, unless otherwise noted, we focus on the climate sensitivities identified with $RW$ as the growth metric and for the full set of cores (*i.e.*, including those for which $DBH$ could not be reconstructed).
 
