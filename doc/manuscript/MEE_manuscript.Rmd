@@ -480,10 +480,10 @@ At the highest-latitude site (SC), which has undergone rapid warming and permafr
 ## Tallies for the  paragraph below (Jan6)
 n_spst_DBH_analyzed= 43 # n species with DBH analyzed: 43 (45 - 2: 2 Hansley)
 n_spst_RW_DBH_sig=35 #  species with sig first-order linear DBH term
-n_spst_RW_DBH_2nd_order=27
-n_spst_RW_DBH_2nd_order_neg=22
-n_spst_BAI_DBH_best_model=42 #exception: ACRU at HF and 
-n_spst_BAI_DBH_best_model_neg=40 #exceptions: PIPO at LT (reconstructed DBH down to only 15cm) and PILO at CB (short DBH range on old trees), both neg but not significant
+n_spst_RW_DBH_2nd_order=26
+n_spst_RW_DBH_2nd_order_neg=21
+n_spst_BAI_DBH_best_model=42 #exception: ACRU at HF  
+n_spst_BAI_DBH_best_model_pos=40 #exceptions: PIPO at LT (reconstructed DBH down to only 15cm) and PILO at CB (short DBH range on old trees), both neg but not significant
 n_spst_BAI_DBH_best_model_2nd=41
 n_spst_BAI_DBH_best_model_2nd_neg=40 # exception: PILO at CB
 n_spst_dAGB_DBH_best_model=42 # exception: PILO at CB
@@ -498,7 +498,7 @@ At the other end of the spectrum, some species had low $RW$ at small $DBH$, incr
 These included, but were not limited to, shade-tolerant species at sites where they presumably established under closed-canopy conditions (e.g., *Trichilia tuberculata* and *Tetragastris panamensis* at BCNM; *Fagus* spp. at SCBI and Žofín, *Acer saccharum* at LDW, *Picea* spp. at Žofín and CB; Table `r species_table`).  
 
 **Trends in both $BAI$ and $\Delta AGB$ were far more consistent across sites and species, most commonly increasing to a peak at intermediate $DBH$ and then declining (Fig. `r size`).**
-Best models for $BAI$ included $DBH$ and $DBH^2$ for `r n_spst_BAI_DBH_best_model` of `r n_spst_DBH_analyzed` species (exception: *Acer rubrum* at HF), with a positive coefficient for $DBH$ in `r n_spst_BAI_DBH_best_model_neg` (exceptions: non-significant negative coefficients for *Pinus ponderosa* at LT and *Pinus longaeva* at CB, whose reconstructed $DBH$s did not extend down to 0cm within the time frame analyzed) and near-universally negative coefficients for $DBH^2$ (exception: *Pinus longaeva* at CB).
+Best models for $BAI$ included $DBH$ and $DBH^2$ for `r n_spst_BAI_DBH_best_model` of `r n_spst_DBH_analyzed` species (exception: *Acer rubrum* at HF), with a positive coefficient for $DBH$ in `r n_spst_BAI_DBH_best_model_pos` (exceptions: non-significant negative coefficients for *Pinus ponderosa* at LT and *Pinus longaeva* at CB, whose reconstructed $DBH$s did not extend down to 0cm within the time frame analyzed) and near-universally negative coefficients for $DBH^2$ (exception: *Pinus longaeva* at CB).
 For $\Delta AGB$, models were even more consistent, with the best models for `r round(n_spst_dAGB_DBH_best_model/ n_spst_DBH_analyzed*100)`% of species containing a positive coefficient for $DBH$ and a negative coefficient for $DBH^2$ (exception: *Pinus longaeva* at CB).
 
 
