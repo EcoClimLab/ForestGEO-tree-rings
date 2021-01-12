@@ -517,30 +517,30 @@ The relative importance of climate was modest (but still significant) at sites i
 
 ```{r , eval=TRUE, echo=FALSE}
 ## Tallies for the  paragraph below (Jan6)
-n_DBHx_analyzed=202 #n rows in climate_interactions_coefficients, excluding Hansley
-n_DBHx_analyzed_sig=84
+n_DBHx_analyzed=204 #n rows in climate_interactions_coefficients, excluding Hansley
+n_DBHx_analyzed_sig=88
 #precip:
-n_DBHxP_RW_analyzed= 35
+n_DBHxP_RW_analyzed= 36
 n_DBHxP_RW_sig=16
 n_DBHxP_RW_sig_pos=n_DBHxP_RW_sig-4 #(exceptions: BEAL, TSCA, ACRU at HF, AFXY at HKK*) *pos response to precip in current growing season
 
 n_DBHxP_BAI_analyzed= n_DBHxP_RW_analyzed
-n_DBHxP_BAI_sig=15
-n_DBHxP_BAI_sig_pos=10 #(exceptions: QURU & ACRU at HF, BEPA at NIO, QUVE at SCBI*,  AFXY at HKK*) *pos response to precip in current growing season
+n_DBHxP_BAI_sig=17
+n_DBHxP_BAI_sig_pos=n_DBHxP_BAI_sig-7 #(exceptions: QURU & ACRU at HF, BEPA at NIO, QUVE & JUNI & CACO at SCBI*,  AFXY at HKK*) *pos response to precip in current growing season
 #T:
 n_DBHxT_RW_analyzed= 32
-n_DBHxT_RW_sig=11
+n_DBHxT_RW_sig=12
 n_DBHxT_RW_sig_neg=5 #notable that it's minority for RW, contrasting with slight majority neg for BAI 
 
 n_DBHxT_BAI_analyzed= n_DBHxT_RW_analyzed
-n_DBHxT_BAI_sig=13
-n_DBHxT_BAI_sig_neg=8 #mostly drought signal, including 4 species at CB
+n_DBHxT_BAI_sig=15
+n_DBHxT_BAI_sig_neg=9 #mostly drought signal, including 4 species at CB
 ```
 
 Interactive effects of climate and $DBH$ were found for `r n_DBHx_analyzed_sig` of the `r n_DBHx_analyzed` (`r round(n_DBHx_analyzed_sig/ n_DBHx_analyzed*100)`%) species-variable combinations for which they were tested. 
 For precipitation variables, interactions were significant for `r n_DBHxP_RW_sig` of the `r n_DBHxP_RW_analyzed` (`r round(n_DBHxP_RW_sig/ n_DBHxP_RW_analyzed*100)`%) interactions with $RW$ as the growth metric (Fig. `r RW_interactions_all`) and for `r n_DBHxP_BAI_sig` of the `r n_DBHxP_BAI_analyzed` (`r round(n_DBHxP_BAI_sig/ n_DBHxP_BAI_analyzed*100)`%) with $BAI$ as the growth metric (Fig. `r BAI_interactions_all`).
 The majority of these interactions were positive (`r round(n_DBHxP_RW_sig_pos/n_DBHxP_RW_sig*100)`% for $RW$; `r round(n_DBHxP_BAI_sig_pos/n_DBHxP_BAI_sig*100)`% for $BAI$), indicating that larger trees generally respond more positively (or less negatively) to precipitation or its frequency (Fig.  `r interactions_fig`).
-Among the exceptions to this pattern (n=`r n_DBHxP_RW_sig-n_DBHxP_RW_sig_pos` for $RW$, `r n_DBHxP_BAI_sig-n_DBHxP_BAI_sig_pos` for $BAI$), only a minority (n=1 for $RW$, 2 for $BAI$) occurred in species responding positively to precipitation in the current growing season. 
+Among the exceptions to this pattern (n=`r n_DBHxP_RW_sig-n_DBHxP_RW_sig_pos` for $RW$, `r n_DBHxP_BAI_sig-n_DBHxP_BAI_sig_pos` for $BAI$), only a minority (n=1 for $RW$, 4 for $BAI$) occurred in species responding positively to precipitation in the current growing season. 
 
 Temperature variable $\times DBH$ interactions were significant for `r round(n_DBHxT_RW_sig/ n_DBHxT_RW_analyzed*100)`% of cases with $RW$ as the growth metric (Fig. `r RW_interactions_all`) and for `r round(n_DBHxT_BAI_sig/ n_DBHxT_BAI_analyzed*100)`% with $BAI$ as the growth metric (Fig. `r BAI_interactions_all`).
 Directions of these interactions were mixed, with `r n_DBHxT_RW_sig_neg` of `r n_DBHxT_RW_sig` significant interactions negative with $RW$ as the growth metric and `r n_DBHxT_BAI_sig_neg` of `r n_DBHxT_BAI_sig` significant interactions negative when $BAI$ was the growth metric.
@@ -551,7 +551,7 @@ For both $RW$ and $BAI$, the majority of significant negative interactions (*i.e
 ## Effects of year {-#Effects}
 
 ```{r , eval=TRUE, echo=FALSE}
-## Tallies for the  paragraph below (Jan6)
+## Tallies for the  paragraph below (Jan12)
 n_tested=37 #same for all metrics
 n_best_model_RW=30
 n_best_model_BAI=32
