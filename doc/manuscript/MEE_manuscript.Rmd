@@ -168,6 +168,8 @@ SC_1970break = "S29"
 RW_interactions_all= "S30"
 BAI_interactions_all= "S31"
 
+decadal_analysis_figs_all = "S32-SXX"
+
 
 
 #SI figure captions
@@ -606,7 +608,7 @@ Another way in which our analysis differed fundamentally from most conventional 
 Finally, our analysis differed from conventional approaches in the use of GLS models to simultaneously quantify the effects of climate, $DBH$, and year, while accounting for idiosyncratic growth trends of individual trees through an autocorrelation structure [step 2; Fig. `r schematic`; see also @evans_fusing_2017; @rollinson_climate_nodate].
 This approach allowed the consideration of additive and interactive effects of climate with variables that change over longer time frames--here, $DBH$ and year, although other slowly-changing drivers could also be used.
 We found that interactions between climate variables and $DBH$ were common (`r round(n_DBHx_analyzed_sig/ n_DBHx_analyzed*100)`%;  Figs. `r interactions_fig`, `r RW_interactions_all`, `r BAI_interactions_all`).
-The most coherent pattern observed in this analysis was a tendency for larger trees to be more sensitive to precipitation and high temperatures (Fig. `r interactions_fig`), consistent with widespread observations that larger trees are more sensitive to drought [REFS; @bennett_larger_2015; @gillerot_tree_2020; @mcgregor_tree_2020].
+The most coherent pattern observed in this analysis was a tendency for larger trees to be more sensitive to precipitation and high temperatures (Fig. `r interactions_fig`), consistent with widespread observations that larger trees are more sensitive to drought [REFS; @bennett_larger_2015; @hacket-pain_consistent_2016; @gillerot_tree_2020; @mcgregor_tree_2020].
 An analytical structure that can account for this and other such DBH-climate interactions [e.g., @rossi_age-dependent_2007; @rollinson_climate_nodate] will be critical to using tree-ring records to understand and forecast the effects of climate on tree growth and forest productivity.
 
 ## Variation with $DBH$  {-#Variation}
@@ -625,31 +627,32 @@ Notably, inclusion of year in the GLS models tended to reduce the magnitude of $
 
 ## Changing growth rates {-#Changing}
 
-It is notable that growth rates are changing directionally for the majority (`r percent_sig_neg_trend_of_analyzed`, depending on growth metric) of site-species combinations that could be analyzed (Fig. `r year_fig`).
-
-Stand dynamics strongly affect stand structure and therefore tree diameter and growth trends.
-
-*corroboration of existing evidence*
-
-
-At HKK, @nock_longterm_2011 observed decreases in BAI (by standardized size classes) over time
-
-*new insight*
-
-Analyses of CO~2~ effects reach inconsistent conclusions because of stand dynamics, sampling bias, analysis methods...
+Growth rates changed directionally for the majority (`r percent_sig_neg_trend_of_analyzed`, depending on growth metric) of site-species combinations that could be analyzed (Fig. `r year_fig`).
+This finding was consistent with an independent analysis (Appendix `r decadal_analysis_appendix`, Figs. `r decadal_analysis_figs_all`) and corroborates a previous analysis from HKK showing decreases in $BAI$ over time [@nock_longterm_2011].
+*(discuss why these results are reliable)*
 
 We believe our analysis methods to be robust,
 (noting that assumption of constant BAI, as per @biondi_theory-driven_2008, is not appropriate based on our DBH results)
 
 Our sampling varies by sites, and sites analyzed have decent year x DBH coverage, but biases could remain (need to do some research on this, believe it's mostly stand dynamics)
 
-Main bias would be stand dynamics. This is probably the case at secondary forests (HF, SCBI...). Even within mature forests, light-demanding species that establish in gaps (JACO at BCNM, MEAZ at HKK) would tend to experience an increasingly competitive environment. 
+*coauthors, I'd appreciate site-specific feedback on the two following paragraphs:*
 
+Changes over time in growth rate are attributable to directionally changing environmental conditions, consisting of some combination of changes in the biotic neighborhood (e.g., competition, crown position) and environmental drivers (e.g., climate drivers other than those selected by *climwin*; atmospheric CO~2~; deposition of sulfur dioxide, SO~2~, and nitrogen oxides, NO~x~).
+The majority of negative growth trends observed here are probably attributable to increasing competition as secondary stands age. 
+Several of our sites (HKK, SCBI, LDW, HF, ... *Coauthors, I need help here.*) are known to have suffered major disturbances within the past 1.5 centuries [Appendix `r site_details_appendix`; REFS: Baker,...; @bourg_initial_2013], and growth declines at these sites are consistent with increasing competition as young stands mature.
 In stands with no known stand-clearing disturbance within or shortly prior to the analysis time frame (ZOF?, NM?, CB, SC), trends would represent more gradual successional trends or responses to global change.
+Even within mature forests, light-demanding species that establish in gaps (e.g., *Jacaranda copaia* at BCNM, *Populus tremuloides* at CB) would tend to experience an increasingly competitive environment. 
+*Indeed, stand succession has been recognized as a driver of growth declines in tree ring records... (REFS).*
+At Cedar Breaks, which has tree-ring records dating back to 0 AD (Cooper & Lutz, unpublished data), mixed growth trends probably reflect later successional changes in a mixed-disturbance forest and/or shifting competitive advantages, perhaps in part driven by changing environmental conditions.
 
-At NM and SC, rapid declines in growth make sense in light of rapid climate change. They also correspond to observations of high tree mortality rates.
+In a few instances, directional changes in growth are likely attributable to abiotic drivers.
+In the Czech Republic (ZOF), acid deposition is known to have reduced growth in the *(DECADES)* (**REFS**), and *(this apparently influenced different species in different directions)*.
+In New Mexico (LT), *we suspect that a strong drying trend is not fully captured by the dominant climate drivers (?).*
+At Scotty Creek, rapid warming and melting permafrost are altering hydraulic conditions, resulting in growth declines, high mortality, and low recruitment of *Picea mariana* [@sniderhan_growth_2016; @dearborn_permafrost_2020]. 
 
-At ZOF and CB,  trends are more mixed...
+There is a notable lack of evidence that growth rates of any species are are benefiting substantially from increasing CO~2~.
+....
 
 
 (*conclusions*)
@@ -684,9 +687,9 @@ It is therefore not surprising that tree-ring studies examining the impact of ri
 
 **We show that DBH is a strong driver of growth (any metric) relative to climate and that climate sensitivity often varies with DBH-- findings that have important implications for understanding changes in forest productivity in response to climate change.**
 The observed importance of $DBH$ as a driver of tree growth reinforces the concept that changes in forest structure/ demography are critical to changes in forest productivity [REFS; @mcdowell_pervasive_2020].
-The prevalence of interactive $DBH$-climate effects reinforces the concepts that large trees tend to be disproportionately sensitive to drought  [@bennett_larger_2015; @mcgregor_tree_2020] ~~but less sensitive to high temperatures [@rollinson_climate_nodate]~~, implying that size should be considered in tree-ring analyses of climate sensitivity.
-(@hacket-pain_consistent_2016 show an interaction)
+
 However, the relatively strong importance of $DBH$ in no way negates the importance of climate, as its effect would dominate changes in productivity in stands with relatively constant size structure.
+
 Some studies have made a start at combining tree rings and forest census data to get at the climate sensitivity of whole-forest productivity [e.g., @helcoski_growing_2019], but have been limited in that they were not underlain by models of individual tree growth that simultaneously characterized the effects of tree size and climate, as we do here.
 Further work will be required to combine this model with forest census data in order to understand the climate sensitivity of whole-forest productivity.
 To accomplish this, more tree-ring studies including all range of sizes of the stands are required, i.e., exhaustive sampling of plots [e.g. @sanchez-salguero_disentangling_2015; Alfaro-Sanchez et al. 2020; *LOTS MORE*]. 
@@ -699,14 +702,8 @@ Also need to record canopy positions.
 
 Sampling small trees should be important for disentangling whether non-stationarity of climate signals is a size artifact or driven by something else, may also be better for resolving temperature signals. 
 
-*Conclusions* 
-
-Sets the foundation for considering other, slowly changing environmental drivers.
-
-Framework can be used with other variables.
 
 
-Scotty temperture responses are probably not physiological, but due to permafrost.
 
 # Acknowledgements {-#Acknowledgements}
 Thanks to Helene Muller-Landau and Pete Kerby-Miller for bark thickness data.

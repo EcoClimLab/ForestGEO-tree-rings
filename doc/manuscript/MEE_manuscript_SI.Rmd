@@ -115,7 +115,7 @@ SC_1970break = "S29"
 RW_interactions_all= "S30"
 BAI_interactions_all= "S31"
 
-
+decadal_analysis_figs_all = "S32-SXX"
 
 #SI figure captions
 SCBI_traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals: LITU at SCBI."
