@@ -404,7 +404,7 @@ While one-to-one correspondence of estimated climate coefficients was neither ex
 ![**Figure 2 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table `r species_table`) to potential evapotranspiration ($PET$). Panel (**a**) shows a matrix of Pearson correlations between ring-width index and monthly climate variables (using the chronologies of Helcoski et al. 2019). Black rectangle represents the period selected by *climwin* as the most influential window. Panels (**b-d**) give statistics for time windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diaganol indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each time window, and (**d**) gives the $\Delta AIC$ for each. The time window with the minimum $\Delta AIC$ (1-3 months prior to August, or May-July; black circles), was identified as the optimal window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows GLS model output, where $PET$ was a candidate driver variable (along with $PPT$; $DBH$ not included in this model). Plotted are responses of species for which $PET$ was included in the top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are significant, dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals.](tables_figures/quilt_comparison.png)
 
 ```{r , eval=FALSE, echo=FALSE}
-## Tallies for the following paragraph (Jan 6)
+## Tallies for the following paragraph (Jan 12)
 #sameV_sameW: LDWp, NMt,NMp, NIOt, NIOp, SCBIp,  ZOFp,ZOFt,  (8)
 #sameV_diffW: BCNMp, BCNMt, HFt, HKKp, LDWt,  SCBIt, SCp,SCt,  CBp, CBt (10)
 #diffV_diffW: HFp, HKKt
@@ -416,20 +416,20 @@ Finally, in two cases of variables that had only weak effects and mixed response
 Henceforth, unless otherwise noted, we focus on the climate sensitivities identified with $RW$ as the growth metric and for the full set of cores (*i.e.*, including those for which $DBH$ could not be reconstructed).
 
 ```{r , eval=FALSE, echo=FALSE}
-## Tallies for the paragraph below (as of Jan 6)
+## Tallies for the paragraph below (as of Jan 12)
 #BCNM: 1 species with both, 2 with just P
-#HKK: 3 species with both, 1 with just T
+#HKK: 3 species with both, 1 with just T (CHTA)
 #SCBI: 11 species with both, 3 with just P (FRNI, FAGR, PIST)
-#LDW:  4 species with both,  2  with just P
+#LDW:  4 species with both,  2  with just P (ACSA, CAOV)
 #HF:  4 species with both
 #ZOF:  3 species with both
 #NIO:  1 species with both
 #LT:  2 species with both
-#CB:  7 species with both,  1 with just P (PILO)
+#CB:  8 species with both
 #SC:  1 species with both
 ```
 Within the context of the GLS model, which tested for first- and negative second- order linear effects of both a precipitation and a temperature variable, both a precipitation and a temperature variable were included in the top model for 80% of site-species combinations (n=37 of 46; Fig. `r clim_sens`). 
-There were eight site-species combinations for which only a precipitation term was significant (2 at BCNM, 3 at SCBI, 2 at LDW, and 1 at CB), one for which only a temperature term was significant (CHTA at HKK), and none with no significant climate responses. 
+There were seven site-species combinations for which only a precipitation term was significant (2 at BCNM, 3 at SCBI, and 2 at LDW), one for which only a temperature term was significant (*Chukrasia tabularis* at HKK), and none with no significant climate responses. 
 Precipitation and temperature variables were rarely influential over the same time window (exception: LDW).
 Below, we summarize the precipitation and temperature variables included in these models and their direction of response. 
 
