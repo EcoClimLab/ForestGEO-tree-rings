@@ -437,7 +437,7 @@ Below, we summarize the precipitation and temperature variables included in thes
 ![**Figure 3 | Species-level responses of $RW$ to climwin-selected variables in precipitation and temperature variable groups.** *Climwin*-selected climate variables are coded on the x-axes as the climate variable name followed by the range of months (p=previous year, c=current year) over which it is most influential. For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. For each relationship shown, other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/pre_temp_groups.png)
 
 ```{r , eval=FALSE, echo=FALSE}
-## Tallies for the  paragraph below (Jan6)
+## Tallies for the  paragraph below (Jan12)
 
 ###Variables selected: 
 #PPT over PDF: 8 sites with both. PDF selected in HKK, HF, ZOF, Niobrara
