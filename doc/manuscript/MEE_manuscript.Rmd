@@ -77,7 +77,7 @@ jm. Department of Geography, Indiana University, Bloomington, Indiana, USA
 
 
 ```{r eval=FALSE, echo=FALSE}
-## potential reviewers: Jane Foster, M. Evans,  van der Pol, DEN team, Klesse, J Matthias
+## potential reviewers: Peters**, Klesse, van der Pol, Jane Foster, M. Evans, DEN team, J Matthias, 
 
 ## Target journal: Global Change Biology
 ## Instructions for authors: https://onlinelibrary-wiley-com.smithsonian.idm.oclc.org/page/journal/13652486/homepage/forauthors.html
@@ -169,6 +169,7 @@ RW_interactions_all= "S30"
 BAI_interactions_all= "S31"
 
 decadal_analysis_figs_all = "S32-SXX"
+decades_figure_ZOF= "SXX"
 
 
 
@@ -247,7 +248,7 @@ We apply this method to tree-ring data from `r n_trees_all` trees representing `
 The need for such an approach is highlighted by our findings that nonlinear growth responses to climate variables are common, that growth rates vary nonlinearly with $DBH$,  that significant $DBH$ - climate interactions are common, and that growth rates often change over time. 
 By providing a framework for such analyses, our approach opens the door for using tree-rings to improve our understanding of forest responses to climate change. 
 
-**Keywords**:  climate sensitivity;  diameter; environmental change; Forest Global Earth Observatory (ForestGEO); generalized least squares; nonlinear; tree-ring
+**Keywords**:  climate sensitivity;  diameter; environmental change; Forest Global Earth Observatory (ForestGEO); generalized least squares (GLS); nonlinear; tree-ring
 
 \newpage
 
@@ -282,25 +283,20 @@ Temperature and moisture are known to jointly shape tree growth [@beedlow_import
 **Tree diameter at breast height ($DBH$) is closely correlated with numerous variables affecting tree growth rate [e.g., height, crown size and position, root mass; REF] and therefore is one of the most important variables influencing growth [e.g., @muller-landau_testing_2006; @foster_predicting_2016] and its climate sensitivity [e.g., @bennett_larger_2015; @mcgregor_tree_2020].**
 However, for dendrochronological studies aimed at deciphering climate signals, $DBH$ is not typically a variable of interest, and its influence is removed through detrending [@cook_calculating_1997].
 Moreover, many studies constrain sampling to only larger size classes.
-While convenient for identifying climate signals [Fritz 1976?(DENDRO_REFS)], this approach is not optimal for subsequent inference of the climate sensitivity of forest productivity.
+While convenient for identifying climate signals [@fritts_tree_1976 ?], this approach is not optimal for subsequent inference of the climate sensitivity of forest productivity.
 Although climate correlations can be transformed to climate sensitivity [*i.e.*, magnitude of response, *sensu* @charney_observed_2016] and scaled to characterize the climate sensitivity of $ANPP_{woody}$ based on the scaling of $RW$ with $DBH$ [@helcoski_growing_2019], they cannot be used to characterize known interactive effects of $DBH$ and climate on tree growth.
 For example, larger trees tend to be relatively more sensitive to drought [@bennett_larger_2015; @gillerot_tree_2020; @mcgregor_tree_2020], and responses to temperature can also vary with tree size [@rossi_age-dependent_2007; @rollinson_climate_nodate].
 However, the removal of $DBH$ signals via detrending makes it impossible to account for such size differences in climate sensitivity in a systematic, integrative way.
 To use tree-rings to predict tree growth, $ANPP_{woody}$, and forest dynamics, we need models that include $DBH$ [e.g., @evans_fusing_2017; @klesse_amplifying_2020] and its potential climate interactions [e.g., @rollinson_climate_nodate].
 
 **Characterizing how tree growth and forest productivity are responding to global change (slowly-changing environmental drivers) is very challenging and uncertain.**
-
-- directional climate change (as opposed to variation), CO~2~, and atmospheric deposition are all potentially influencing tree growth.
-
-- at the same time, stand dynamics influence growth; many forests are secondary, and ANPP_woody may decline as stands age 
-
-- a variety of methods are used to account for simultaneous changes in tree size, including... (DENDRO_REFS).
-
-- One commonly applied approach is to assume that $BAI$ is fundamentally independent of size [@biondi_theory-driven_2008]--an assumption that was developed for open-grown trees [@biondi_theory-driven_2008] but that has subsequently been applied in other settings (DENDRO_REFS).
-
-- None of these methods is fully satisfactory, being subject to various sampling and analysis biases [@cherubini_potential_1998; @nehrbassahles_influence_2014], leaving great uncertainty as to what the tree-ring record can tell us about the impact of rising CO~2~ [@sullivan_effect_2016; @walker_integrating_2020]. 
-
-- It is necessary to *simultaneously* account for the influences of changing tree size and environmental drivers.
+Directional climate change (as opposed to interannual variation), rising atmospheric carbon dioxide (CO~2~), and atmospheric deposition  of sulfur dioxide (SO~2~) and nitrogen oxides (NO~x~) are all potentially influencing tree growth [REFS; @mathias_disentangling_2018; @walker_integrating_2020].
+At the same time, stand dynamics influence growth: tree growth rates are sensitive to competition (**REFS**), the intensity of which tends to increase as forests mature, and to canopy position, which can change directionally as trees overtop or are overtopped by their neighbors. 
+Moreover, carbon allocation to woody growth -- as opposed to leaf or root production, reproduction, defenses, etc. -- is known to decline as individual trees and forest stands stands age [**REFS**; @meinzer_age-related_2011]. 
+However, tree size and time are almost inextricably linked (because each individual core increases in $DBH$ through time) and therefore difficult to disentangle.  
+A variety of methods have been used to analyze directional changes in grwoth rate through time, including "conservative detrending", where a mathematical function () is fit to growth trends in each individual core and residuals analyzed for trends and "basal area correction", which assumes that the growth in a tree's basal area ($BAI$) is fundamentally independent of size [@peters_detecting_2015].
+None of these methods are fully satisfactory, being subject to various sampling and analysis biases [@cherubini_potential_1998; @nehrbassahles_influence_2014; @peters_detecting_2015], leaving great uncertainty as to what the tree-ring record can tell us about the impact of slowly changing environmental drivers such as rising CO~2~ [@sullivan_effect_2016; @walker_integrating_2020]. 
+To disentangle $DBH$ from time and detect directional grwoth trends, it is necessary to simultaneously account for the influences of changing tree size and environmental drivers, including climate.
 
 **Here, we develop a new method that allows simultaneous consideration of the effects of principle climate drivers (pre-selected in an objective manner), tree size and year on annual tree growth.** 
 This approach allows us to ask:
@@ -629,80 +625,42 @@ Notably, inclusion of year in the GLS models tended to reduce the magnitude of $
 
 Growth rates changed directionally for the majority (`r percent_sig_neg_trend_of_analyzed`, depending on growth metric) of site-species combinations that could be analyzed (Fig. `r year_fig`).
 This finding was consistent with an independent analysis (Appendix `r decadal_analysis_appendix`, Figs. `r decadal_analysis_figs_all`) and corroborates a previous analysis from HKK showing decreases in $BAI$ over time [@nock_longterm_2011].
-*(discuss why these results are reliable)*
-
-We believe our analysis methods to be robust,
-(noting that assumption of constant BAI, as per @biondi_theory-driven_2008, is not appropriate based on our DBH results)
-
-Our sampling varies by sites, and sites analyzed have decent year x DBH coverage, but biases could remain (need to do some research on this, believe it's mostly stand dynamics)
+*(have there been analyses of this at any other sites?)*
+Although $DBH$ and $year$ are difficult to disentangle [e.g., @peters_detecting_2015], decent coverage of $DBH$ x $year$ matrices for the species analyzed, together with general consistency across growth metrics and analysis methods (Appendix `r decadal_analysis_appendix`, Figs. `r year_fig`, `r decadal_analysis_figs_all`) suggest that our approach is generally reliable.
+At a minimum, it provides a more appropriate alternative to two of the most commonly used methods for analyzing growth trends, conservative detrending and basal area correction [see @peters_detecting_2015], which would fail to capture the observed trends in $RW$ and $BAI$ with $DBH$ (Fig. `r size`).
+For instance, based on our finding that $BAI$ tends to rise and fall with $DBH$, basal area correction would generally be biased towards finding positive trends for smaller trees and negative trends for larger trees.
+Indeed, in a comparative analysis of methods to detect growth trends, @peters_detecting_2015 found that approach similar to ours ("regional curve standardization") to be among the most robust and recommended that future analyses take an approach very similar to that used here. 
 
 *coauthors, I'd appreciate site-specific feedback on the two following paragraphs:*
 
 Changes over time in growth rate are attributable to directionally changing environmental conditions, consisting of some combination of changes in the biotic neighborhood (e.g., competition, crown position) and environmental drivers (e.g., climate drivers other than those selected by *climwin*; atmospheric CO~2~; deposition of sulfur dioxide, SO~2~, and nitrogen oxides, NO~x~).
 The majority of negative growth trends observed here are probably attributable to increasing competition as secondary stands age. 
-Several of our sites (HKK, SCBI, LDW, HF, ... *Coauthors, I need help here.*) are known to have suffered major disturbances within the past 1.5 centuries [Appendix `r site_details_appendix`; REFS: Baker,...; @bourg_initial_2013], and growth declines at these sites are consistent with increasing competition as young stands mature.
-In stands with no known stand-clearing disturbance within or shortly prior to the analysis time frame (ZOF?, NM?, CB, SC), trends would represent more gradual successional trends or responses to global change.
-Even within mature forests, light-demanding species that establish in gaps (e.g., *Jacaranda copaia* at BCNM, *Populus tremuloides* at CB) would tend to experience an increasingly competitive environment. 
+Several of our sites (**HKK, SCBI, LDW, HF, ...** *Coauthors, I need help here.*) are known to have suffered major disturbances within or shortly prior to the analysis time frame [Appendix `r site_details_appendix`; REFS: @baker_disturbance_2005; @bourg_initial_2013], and growth declines at these sites are consistent with increasing competition as young stands mature.
 *Indeed, stand succession has been recognized as a driver of growth declines in tree ring records... (REFS).*
+Even within mature forests, light-demanding species that establish in gaps (e.g., *Jacaranda copaia* at BCNM, *Populus tremuloides* at CB; Table `r species_table`) would tend to experience an increasingly competitive environment.
+For more shade-tolerant species in stands with no known disturbance within the past 1.5 centuries (**ZOF?, NM?, CB, SC**), trends would represent more gradual successional changes or responses to global change.
 At Cedar Breaks, which has tree-ring records dating back to 0 AD (Cooper & Lutz, unpublished data), mixed growth trends probably reflect later successional changes in a mixed-disturbance forest and/or shifting competitive advantages, perhaps in part driven by changing environmental conditions.
 
 In a few instances, directional changes in growth are likely attributable to abiotic drivers.
-In the Czech Republic (ZOF), acid deposition is known to have reduced growth in the *(DECADES)* (**REFS**), and *(this apparently influenced different species in different directions)*.
+In the Czech Republic (ZOF), acid deposition dramatically reduced growth in  *(DECADES)* [**REFS**], as captured in our records (Fig. `r decades_figure_ZOF`), and *this influenced linear growth trends of different species in differently within the GLS model*. 
+In cases such as this, a non-linear response function to $year$, or incorporation of data on pollution, would be needed to accurately characterize changing growth trends, but that is beyond the scope of the current anlaysis.
 In New Mexico (LT), *we suspect that a strong drying trend is not fully captured by the dominant climate drivers (?).*
 At Scotty Creek, rapid warming and melting permafrost are altering hydraulic conditions, resulting in growth declines, high mortality, and low recruitment of *Picea mariana* [@sniderhan_growth_2016; @dearborn_permafrost_2020]. 
 
-There is a notable lack of evidence that growth rates of any species are are benefiting substantially from increasing CO~2~.
-....
+There is a notable lack of evidence that growth rates of any species are are benefiting substantially from increasing CO~2~. 
+With a few potential exceptions (*Fagus sylvatica* at ZOF, *Picea pungens* and *Pinus flexilis* at CB; Fig. `r year_fig`), any growth benefit from elevated CO~2~ was generally outweighed by successional changes or chronic environmental shifts.
+A growth benefit of CO~2~ is potentially expected based on physiological mechanisms and has been observed in young forests in experimental settings [@walker_integrating_2020]; however, it does not appear to be substantial for the older trees in natural forest settings analyzed here. 
+*(DISCUSS)*....
 
+## Conclusions {-#Conclusions}
 
-(*conclusions*)
-Altogether, results obtained using our analysis method reveal a much richer picture of the factors influencing tree growth than has previously been possible. 
-We find that growth is generally simultaneously influenced by temperature and precipitation over different time windows, 
-that nonlinear climate responses and interactive effects of climate with $DBH$ are common,
-that growth--measured by any metric--almost universally varies with $DBH$, 
-and that growth of most species has been changing directionally in response to changing environment (stand successional status or global change).
-These findings go against many of the assumptions that traditional dendrochronology methods, which sample and analyze data in order to minimize such effects.
-However, from an ecological perspective, these effects are of great significance.  
-
-~~~~
-
-## Future challenges (?) {-#Future}
-*(still face a problem when future climate is outside of the range of values used to model the climate-growth relationship. )*
-
-*(growth rate should respond strongly to a tree's relative DBH within a site, which we don't have going back in time/ disentangling DBH and year is tough)*
-
-
-# Misc content/ notes to integrate {-#Misc}
-
-
-
-**These results have important implications for using tree-rings to infer growth responses to slowly-changing environmental drivers, including climate, atmospheric CO~2~, and deposition of sulfur dioxide (SO~2~) and nitrogen oxides (NO~x~) [e.g., @mathias_disentangling_2018].** 
-The observed trends in $RW$ and $BAI$ with $DBH$ (Fig. `r size`) imply that two of the most commonly used growth-trend detection methods (*clarify what this means*), conservative detrending and basal area correction [see @peters_detecting_2015], are inappropriate. 
-Specifically, conservative detrending, which applies stiff splines or mathematical functions (e.g., negative exponential) to remove trends in $RW$ before analyzing residuals, would not be reliable across the diversity of $RW$-$DBH$ relationships observed here.
-Basal area correction -- i.e., assuming that $BAI$ is fundamentally independent of tree size after the removal of the juvenile growth phase--is also problematic because $BAI$ shows a variety of trends with $DBH$ across large size classes. The most common pattern--an increase to a peak at intermediate sizes, followed by decrease--would imply that the basal area correction is most commonly biased towards finding positive trends for smaller trees and negative trends for larger trees.
-It is therefore not surprising that tree-ring studies examining the impact of rising CO~2~ on long-term growth growth trends reach inconsistent conclusions [@walker_integrating_2020].
-
-
-*Additive and interactive effects of climate and DBH*
-
-**We show that DBH is a strong driver of growth (any metric) relative to climate and that climate sensitivity often varies with DBH-- findings that have important implications for understanding changes in forest productivity in response to climate change.**
-The observed importance of $DBH$ as a driver of tree growth reinforces the concept that changes in forest structure/ demography are critical to changes in forest productivity [REFS; @mcdowell_pervasive_2020].
-
-However, the relatively strong importance of $DBH$ in no way negates the importance of climate, as its effect would dominate changes in productivity in stands with relatively constant size structure.
-
-Some studies have made a start at combining tree rings and forest census data to get at the climate sensitivity of whole-forest productivity [e.g., @helcoski_growing_2019], but have been limited in that they were not underlain by models of individual tree growth that simultaneously characterized the effects of tree size and climate, as we do here.
-Further work will be required to combine this model with forest census data in order to understand the climate sensitivity of whole-forest productivity.
-To accomplish this, more tree-ring studies including all range of sizes of the stands are required, i.e., exhaustive sampling of plots [e.g. @sanchez-salguero_disentangling_2015; Alfaro-Sanchez et al. 2020; *LOTS MORE*]. 
-
-*Recommendations*
-
-Need to record/ preserve DBH.  DBH is not always collected when cores are taken, and is not routinely preserved alongside tree-ring data. For example, the International Tree-Ring Data Bank (ITRDB) contains no structure for storing DBH records. DEN is new alternative [@rayback_dendroecological_2020]. 
-
-Also need to record canopy positions.
-
-Sampling small trees should be important for disentangling whether non-stationarity of climate signals is a size artifact or driven by something else, may also be better for resolving temperature signals. 
-
-
+Altogether, our analysis method reveals a much richer picture of the factors influencing tree growth than has previously been possible. 
+Specifically, it allows us to show that growth is generally simultaneously influenced by temperature and precipitation over different time windows, 
+that nonlinear climate responses and interactive effects of climate with $DBH$ are common (Figs. `r clim_sens` and `r interactions_fig`, respectively),
+that growth--measured by any metric--almost universally varies with $DBH$ (Fig. `r size`), 
+and that growth of most species has been declining in response to a changing environment (stand successional status or global change; Fig. `r year_fig`).
+While traditional dendrochronology methods, particularly those focused on climate reconstruction, generally sample and analyze data in order to minimize many of these effects, they of great interest and significance from an ecological perspective.
+As global change pressures intensify and the need to understand changing forest dynamics becomes increasingly urgent (REFS) [@mcdowell_pervasive_2020], we expect that this approach will prove valuable to understanding drivers of tree growth and forest change.
 
 
 # Acknowledgements {-#Acknowledgements}

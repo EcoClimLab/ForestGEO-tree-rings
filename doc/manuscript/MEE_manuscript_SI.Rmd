@@ -116,6 +116,7 @@ RW_interactions_all= "S30"
 BAI_interactions_all= "S31"
 
 decadal_analysis_figs_all = "S32-SXX"
+decades_figure_ZOF= "SXX"
 
 #SI figure captions
 SCBI_traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals: LITU at SCBI."
@@ -172,10 +173,13 @@ GLS_generic_legend = " for all three growth metrics examined here. Precipitation
 
 ### Barro Colorado Nature Monument, Panama
 
+We note that the secondary forest status of much of BCNM differs from ForestGEO's 50-ha plot on Barro Colorado Island (within BCNM), which is old-growth, and shows little directional trend in tree growth [@rutishauser_testing_2020].
 
 ### Huai Kha Khaeng, Thailand
 
-*Melia azedarach* --a highly shade-intolerant species that establishes in the open [@baker_suppression_2006] and was sampled opportunistically outside the ForestGEO plot at HKK [@vlam_temperature_2014], where it presumably established under open conditions (*Baker 2005, Ecological monographs*).
+*Melia azedarach* --a highly shade-intolerant species that establishes in the open [@baker_suppression_2006] and was sampled opportunistically outside the ForestGEO plot at HKK [@vlam_temperature_2014], where it presumably established under open conditions [@baker_disturbance_2005].
+
+The site underwent a widespread, catastrophic disturbance in the mid-1800s and several smaller, more localized disutrbances in the 1910s, 1940s, and 1960s [@baker_disturbance_2005]
 
 ### Smithsonian Conservation Biology Institute, Virginia, USA
 
