@@ -290,7 +290,7 @@ However, the removal of $DBH$ signals via detrending makes it impossible to acco
 To use tree-rings to predict tree growth, $ANPP_{woody}$, and forest dynamics, we need models that include $DBH$ [e.g., @evans_fusing_2017; @klesse_amplifying_2020] and its potential climate interactions [e.g., @rollinson_climate_nodate].
 
 **Characterizing how tree growth and forest productivity are responding to global change (slowly-changing environmental drivers) is very challenging and uncertain.**
-Directional climate change (as opposed to interannual variation), rising atmospheric carbon dioxide (CO~2~), and atmospheric deposition  of sulfur dioxide (SO~2~) and nitrogen oxides (NO~x~) are all potentially influencing tree growth [REFS; @mathias_disentangling_2018; @walker_integrating_2020].
+Directional climate change (as opposed to interannual variation), rising atmospheric carbon dioxide (CO~2~), and atmospheric deposition  of sulfur dioxide (SO~2~) and nitrogen oxides (NO~x~) are all potentially influencing tree growth [**REFS**; @mathias_disentangling_2018; @walker_integrating_2020].
 At the same time, stand dynamics influence growth: tree growth rates are sensitive to competition (**REFS**), the intensity of which tends to increase as forests mature, and to canopy position, which can change directionally as trees overtop or are overtopped by their neighbors. 
 Moreover, carbon allocation to woody growth -- as opposed to leaf or root production, reproduction, defenses, etc. -- is known to decline as individual trees and forest stands stands age [**REFS**; @meinzer_age-related_2011]. 
 However, tree size and time are almost inextricably linked (because each individual core increases in $DBH$ through time) and therefore difficult to disentangle.  
@@ -310,7 +310,7 @@ This approach allows us to ask:
 ## Data sources and preparation {-#Data}
 
 We analyzed previously collected tree-ring data from ten sites ranging from 9.15$^\circ$ to 61.30$^\circ$ N latitude and representing a wide range of forest and tree types: tropical broadleaf deciduous and evergreen, temperate broadleaf deciduous and needleleaf evergreen, and boreal needleleaf evergreen (Tables `r sites`, `r site_details`, `r species_table`).
-Nine of these sites (exception: LT) are large forest dynamics plots of the Forest Global Earth Observatory [ForestGEO; @anderson-teixeira_ctfs-forestgeo_2015].
+Nine of these sites (exception: LT) are large forest dynamics plots of the Forest Global Earth Observatory [ForestGEO; @anderson-teixeira_ctfs-forestgeo_2015; @davies_forestgeo_2021].
 Trees of species represented within the ForestGEO plots were cored within the plot (n=#) and/or within 10 km (n=#), following a variety of sampling protocols designed to meet the varied objectives of the original studies (Tables `r site_details`, `r sampling_details_table`). 
 In using this diversity of data sources, we ensured that our approach was able to handle challenges presented by varying methodologies and forest types.
 
@@ -604,8 +604,9 @@ Another way in which our analysis differed fundamentally from most conventional 
 Finally, our analysis differed from conventional approaches in the use of GLS models to simultaneously quantify the effects of climate, $DBH$, and year, while accounting for idiosyncratic growth trends of individual trees through an autocorrelation structure [step 2; Fig. `r schematic`; see also @evans_fusing_2017; @rollinson_climate_nodate].
 This approach allowed the consideration of additive and interactive effects of climate with variables that change over longer time frames--here, $DBH$ and year, although other slowly-changing drivers could also be used.
 We found that interactions between climate variables and $DBH$ were common (`r round(n_DBHx_analyzed_sig/ n_DBHx_analyzed*100)`%;  Figs. `r interactions_fig`, `r RW_interactions_all`, `r BAI_interactions_all`).
-The most coherent pattern observed in this analysis was a tendency for larger trees to be more sensitive to precipitation and high temperatures (Fig. `r interactions_fig`), consistent with widespread observations that larger trees are more sensitive to drought [REFS; @bennett_larger_2015; @hacket-pain_consistent_2016; @gillerot_tree_2020; @mcgregor_tree_2020].
+The most coherent pattern observed in this analysis was a tendency for larger trees to be more sensitive to precipitation and high temperatures (Fig. `r interactions_fig`), consistent with widespread observations that larger trees are more sensitive to drought [REFS; @bennett_larger_2015; @hacket-pain_consistent_2016; @pretzsch_drought_2018; @gillerot_tree_2020; @mcgregor_tree_2020].
 An analytical structure that can account for this and other such DBH-climate interactions [e.g., @rossi_age-dependent_2007; @rollinson_climate_nodate] will be critical to using tree-ring records to understand and forecast the effects of climate on tree growth and forest productivity.
+We note that a simple modification of our analysis method (modeling $year \times$ climate interactions instead of $climate \times$ climate interactions) could be used to account for directional changes in climate sensitivity, which have commonly been observed [REFS- Maxwell, Helcoski; @peltier_tree_2020; @zuidema_recent_2020].
 
 ## Variation with $DBH$  {-#Variation}
 
@@ -614,7 +615,7 @@ Variation in these patterns--particularly for $RW$, for which variation was most
 Species that would have established in fairly open conditions--*i.e.*, shade-intolerant species (Table `r species_table`) and those at sites with more open canopies (e.g., LT, SC)-- exhibited rapid initial growth, measured as $RW$, followed by a roughly exponential decline.
 Such patterns are consistent with dendrochronology's "textbook" patterns, which have been derived primarily from trees that established in high-light environments [@fritts_tree_1976; @biondi_theory-driven_2008].
 However, within the forest settings studied here, the majority of species exhibited initially low, but increasing, $RW$.
-This latter pattern is consistent with the observation that when contemporary growth rates are compared across individuals within a stand (*i.e.*, a "cross-sectional" analysis), $RW$ increases continuously with $DBH$ [e.g., @muller-landau_testing_2006; @anderson-teixeira_size-related_2015; @helcoski_growing_2019]. 
+This latter pattern is consistent with the observation that when contemporary growth rates are compared across individuals within a stand (*i.e.*, a "cross-sectional" analysis), $RW$ increases continuously with $DBH$ [e.g., @muller-landau_testing_2006; @anderson-teixeira_size-related_2015; @helcoski_growing_2019], or increases and subsequently decreases [@schelhaas_species-specific_2018]. 
 
 We found evidence of saturation or decline in the majority (`r round(20/26*100, digits=0)`%) of species-site combinations analyzed (Fig. `r size`), contrasting with findings of cross-sectional analyses showing that $\Delta AGB$ increases continuously with $DBH$ [@stephenson_rate_2014; @meakem_role_2018], which has also been observed in tree-rings [@foster_predicting_2016].
 In large part, this discrepancy can be explained by differences between cross-sectional analyses and "longitudinal" patterns of individual trees through time [@sheil_does_2017; @forrester_does_2021].
@@ -650,7 +651,7 @@ At Scotty Creek, rapid warming and melting permafrost are altering hydraulic con
 There is a notable lack of evidence that growth rates of any species are are benefiting substantially from increasing CO~2~. 
 With a few potential exceptions (*Fagus sylvatica* at ZOF, *Picea pungens* and *Pinus flexilis* at CB; Fig. `r year_fig`), any growth benefit from elevated CO~2~ was generally outweighed by successional changes or chronic environmental shifts.
 A growth benefit of CO~2~ is potentially expected based on physiological mechanisms and has been observed in young forests in experimental settings [@walker_integrating_2020]; however, it does not appear to be substantial for the older trees in natural forest settings analyzed here. 
-*(DISCUSS)*....
+Indeed, significant woody growth stimulation by elevated CO~2~ has not been observed in experimentally manipulated mature forests [@walker_integrating_2020], and previous tree-ring studies overall find little evidence of increasing tree growth rates [e.g., @hararuk_tree_2019; @walker_integrating_2020].
 
 ## Conclusions {-#Conclusions}
 
