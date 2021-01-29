@@ -220,18 +220,18 @@ for(site in sites_with_dbh){
 
 } # for site in sites
 
-png("doc/manuscript/tables_figures/Year_responses_BAI_only.png", width = 8, height = 8, res = 300, units = "in")
+png("doc/manuscript/tables_figures/Year_responses_BAI_only.png", width = 10, height = 10, res = 300, units = "in")
 
-grid.arrange(do.call(arrangeGrob, c(lapply(all_plots, function(x) if(!is.null(x$data)) x + xlim(range(xlim_p)) else x), ncol = 2)), vp= grid::viewport(width=0.95, height=0.95))
+grid.arrange(do.call(arrangeGrob, c(lapply(all_plots, function(x) if(!is.null(x$data)) x + xlim(range(xlim_p)) else x), ncol = 2)), vp= grid::viewport(width=0.98, height=0.98), 
+             arrangeGrob( grobs =all_legends_left, layout_matrix = layout_matrix_left, size="first"),
+             arrangeGrob( grobs =all_legends_right, layout_matrix = layout_matrix_right), ncol = 3,  widths = c(4,1.2,1))
 
-grid::grid.text(sites_abb[sites_with_dbh], x = unit(c(0.3,0.8), "npc"), y = unit(rep(rev(cumsum(c(.95/(n_sites/2), rep(.95/(n_sites/2), (n_sites/2)-1)))),each = 2), "npc"))
 
+grid::grid.text(sites_abb[sites_with_dbh], x = unit(c(0.2,0.5), "npc"), y = unit(rep(rev(cumsum(c(.95/(n_sites/2), rep(.95/(n_sites/2), (n_sites/2)-1)))),each = 2), "npc"))
 
 grid::grid.text(what_to_show, x = unit(0.025, "npc"), y = unit(rev(cumsum(c(.95/(n_sites/2), rep(.95/(n_sites/2), (n_sites/2)-1))))-0.05, "npc"), rot = 90)
 
-# grid::grid.text(what_to_show, x = unit(0.5, "npc"), y = unit(.985,  "npc"))
-
-grid::grid.text("Year", x = unit(c(0.3, .8), "npc"), y = unit(0.015,  "npc"))
+grid::grid.text("Year", x = unit(.35, "npc"), y = unit(0.015,  "npc"))
 
 dev.off()
 
