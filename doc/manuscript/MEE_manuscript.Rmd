@@ -100,21 +100,18 @@ year_fig = 6
 
 # SUPPLEMENTARY INFO (this chunk must be repeated in MEE_manuscript_SI.Rmd)
 
-
 #Appendices
 site_details_appendix <- "S1"
 DBH_reconstruction <- "S2"
 climate_correction <- "S3"
 traditional_comparison <- "S4"
 changing_climate <- "S5"
-decadal_analysis_appendix <- "S6"
 
 site_details_appendix_title<- "Appendix S1. Site Details"
 DBH_reconstruction_title <- "Appendix S2. Methods for reconstruction of $DBH$"
 climate_correction_title <- "Appendix S3. Methods for climate data evaluation and correction"
 traditional_comparison_title <- "Appendix S4. Methods for comparing our approach with traditional methods"
 changing_climate_title <- "Appendix S5. Dealing with rapidly changing climate and tree growth"
-decadal_analysis_appendix_title <- "Appendix S6. Analysis of DBH-growth relationships by decade"
 
 #SI table numbers
 site_details = "S1"
@@ -218,16 +215,16 @@ SC_1970break_legend = "Figure S29. Climate responses at Scotty Creek (Northwest 
 RW_interactions_all_legend = "Figure S30. (RW_interactions_all)"
 BAI_interactions_all_legend ="Figure S31. (BAI_interactions_all)"
 
-decadal_plot_BCNM_legend = "Figure. S32. (Decadal BCNM)"
-decadal_plot_HKK_legend = "Figure. S33. (Decadal HKK)"
-decadal_plot_SCBI_legend = "Figure. S34. (Decadal SCBI)"
-decadal_plot_LDW_legend = "Figure. S35. (Decadal LDW)"
-decadal_plot_HF_legend = "Figure. S36. (Decadal HF)"
-decadal_plot_ZOF_legend = "Figure. S37. (Decadal ZOF)"
-decadal_plot_NIO_legend = "Figure. S38. (Decadal NIO)"
-decadal_plot_LT_legend = "Figure. S39. (Decadal LT)"
-decadal_plot_CB_legend = "Figure. S40. (Decadal CB)"
-decadal_plot_SC_legend = "Figure. S41. (Decadal SC)"
+decadal_plot_BCNM_legend = "Figure S32. (Decadal BCNM)"
+decadal_plot_HKK_legend = "Figure S33. (Decadal HKK)"
+decadal_plot_SCBI_legend = "Figure S34. (Decadal SCBI)"
+decadal_plot_LDW_legend = "Figure S35. (Decadal LDW)"
+decadal_plot_HF_legend = "Figure S36. (Decadal HF)"
+decadal_plot_ZOF_legend = "Figure S37. (Decadal ZOF)"
+decadal_plot_NIO_legend = "Figure S38. (Decadal NIO)"
+decadal_plot_LT_legend = "Figure S39. (Decadal LT)"
+decadal_plot_CB_legend = "Figure S40. (Decadal CB)"
+decadal_plot_SC_legend = "Figure S41. (Decadal SC)"
 
 ```
 
@@ -312,9 +309,8 @@ To use tree-rings to predict tree growth, $ANPP_{woody}$, and forest dynamics, w
 Directional climate change (as opposed to interannual variation), rising atmospheric carbon dioxide (CO~2~), and atmospheric deposition  of sulfur dioxide (SO~2~) and nitrogen oxides (NO~x~) are all potentially influencing tree growth [**REFS**; @mathias_disentangling_2018; @walker_integrating_2020].
 At the same time, stand dynamics influence growth: tree growth rates are sensitive to competition (**REFS**), the intensity of which tends to increase as forests mature, and to canopy position, which can change directionally as trees overtop or are overtopped by their neighbors. 
 Moreover, carbon allocation to woody growth -- as opposed to leaf or root production, reproduction, defenses, etc. -- is known to decline as individual trees and forest stands stands age [**REFS**; @meinzer_age-related_2011]. 
-However, tree size and time are almost inextricably linked (because each individual core increases in $DBH$ through time) and therefore difficult to disentangle,   being subject to various sampling and analysis biases [REFS; @cherubini_potential_1998; @nehrbassahles_influence_2014; @peters_detecting_2015; @sullivan_effect_2016; @hember_tree_2019].  
-A variety of methods have been used to analyze directional changes in growth rate through time, including conservative detrending, where a mathematical function (e.g., negative exponential or stiff spline) is fit to growth trends in each individual core and residuals analyzed for trends and basal area correction, which assumes that the growth in a tree's basal area ($BAI$) is fundamentally independent of size [@peters_detecting_2015].
-A more reliable alternative is regional curve standardization, which uses an average age or size curve to describe ontogeny (*Esper et al. 2003*) and can be used in the context of multiple regressions or mixed-effects models [*REFS in @hember_tree_2019*].
+However, tree size and time are almost inextricably linked (because each individual core increases in $DBH$ through time) and therefore difficult to disentangle,   being subject to various sampling and analysis biases [@cherubini_potential_1998; @brienen_detecting_2012; @nehrbassahles_influence_2014; @peters_detecting_2015; @sullivan_effect_2016;  @brienen_tree_2017; @hember_tree_2019].  
+~~A variety of methods have been used to analyze directional changes in growth rate through time, including conservative detrending, where a mathematical function (e.g., negative exponential or stiff spline) is fit to growth trends in each individual core and residuals analyzed for trends and basal area correction, which assumes that the growth in a tree's basal area ($BAI$) is fundamentally independent of size [@peters_detecting_2015]. A more reliable alternative is regional curve standardization, which uses an average age or size curve to describe ontogeny (*Esper et al. 2003*) and can be used in the context of multiple regressions or mixed-effects models [*REFS in @hember_tree_2019*].~~
 Continued improvement of analytical methods, in combination with sampling approaches that minimize potential biases, will be important to disentangling $DBH$ from time and detecting directional growth trends.
 
 **Here, we develop a new method that allows simultaneous consideration of the effects of principle climate drivers (pre-selected in an objective manner), tree size and year on annual tree growth.** 
@@ -405,7 +401,7 @@ To test for $year$ effects, we limited the analysis to species with reasonable c
 Specifically, we required that the species be represented by cores from  $\ge$ 3 trees spanning  $\ge$ 40% the total $DBH$ range for $\ge 2/3$ of the total time range analyzed. 
 Species that failed to meet this criteria (n= **N**) were excluded from this analysis.
 We then ran models as described above, including a  first-order linear effect of $year$.
-To verify that GLS model trends for $year$ were real, as opposed to an artifact of inherent covariation between $DBH$ and $year$ within each core, we separately analyzed $DBH$-growth relationships by decade (Appendix `r decadal_analysis_appendix`). 
+To verify that GLS model trends for $year$ were real, as opposed to an artifact of inherent covariation between $DBH$ and $year$ within each core, we compared GLS results to an analysis of $DBH$-growth relationships by decade (Figs. `r decadal_analysis_figs_all`). 
 For simplicity and consistency with previous literature, we present only the models with $BAI$ as the growth metric, noting that responses were similar across metrics. 
 
 Within each of three categories of models run (climate only, climate + $DBH$, climate $\times DBH$, climate + $DBH$ + $year$), we selected as the top model that with the lowest AIC.  
@@ -588,7 +584,7 @@ percent_sig_neg_trend_of_analyzed = "73-78%"
 
 ```
 
-There was a significant effect of `year` in the GLS models for `r n_best_model_RW` - `r n_best_model_BAI` (depending on growth metric) of the `r n_tested` species- site combinations tested (Figs. `r year_fig`, `r all_GLS`), and these trends were consistent with those observed in a separate analysis of $DBH$-growth relationships by year (Appendix `r decadal_analysis_appendix`; [**ADD SI FIGS--issue 104**](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/104)).
+There was a significant effect of `year` in the GLS models for `r n_best_model_RW` - `r n_best_model_BAI` (depending on growth metric) of the `r n_tested` species- site combinations tested (Figs. `r year_fig`, `r all_GLS`), and these trends were consistent with those observed in a separate analysis of $DBH$-growth relationships by year (Figs. `r decadal_analysis_figs_all`).
 In `r percent_neg_of_sig_trends` of cases (depending on growth metric), the growth trend over time was negative.
 Declines were particularly dramatic for *Picea mariana* at SC, *Pinus ponderosa* at LT, all four species at HF, and several species at SCBI  (Fig. `r year_fig`).
 In these cases, models without `year` predicted declines in growth at large DBH that should more properly be attributed to the effect of year (Fig. `r year_fig`).
@@ -644,16 +640,18 @@ Notably, inclusion of year in the GLS models tended to reduce the magnitude of $
 ## Changing growth rates {-#Changing}
 
 Growth rates changed directionally for the majority (`r percent_sig_neg_trend_of_analyzed`, depending on growth metric) of site-species combinations selected for analysis based on the sampling representation of $DBH$ by $year$ (Fig. `r year_fig`).
-This finding was consistent with an independent analysis of growth-$DBH$ trends by decade (Appendix `r decadal_analysis_appendix`, Figs. `r decadal_analysis_figs_all`) and corroborates previous analyses from HKK showing growth decreases over time [@nock_longterm_2011; @van_der_sleen_no_2015; @groenendijk_no_2015, but see @brienen_tree_2017].
-Although $DBH$ and $year$ are difficult to disentangle [e.g., @peters_detecting_2015; @brienen_tree_2017], general consistency across growth metrics and analysis methods (Appendix `r decadal_analysis_appendix`, Figs. `r year_fig`, `r decadal_analysis_figs_all`) suggest that our approach is robust in its analytical structure, *albiet* still subject to the influence of some potential sampling and survivorship biases [@brienen_detecting_2012; @brienen_tree_2017; @nehrbassahles_influence_2014], evaluation of which is beyond the scope of the current analysis.
+This finding was consistent with an independent analysis of growth-$DBH$ trends by decade (Figs. `r year_fig`, `r decadal_analysis_figs_all`), and results were generally consistent regardless of the growth metric analyzed (Figs. `r all_GLS`), indicating that our approach is robust in its analytical structure.
+Our results are, however, still subject to the influence of some potential sampling and survivorship biases [Fig. `r year_fig`; @brienen_detecting_2012; @brienen_tree_2017; @nehrbassahles_influence_2014], evaluation of which is beyond the scope of the current analysis.
 At a minimum, our approach provides a more appropriate alternative to two of the most commonly used methods for analyzing growth trends, conservative detrending and basal area correction [see @peters_detecting_2015], both of which would fail to capture the observed trends in $RW$ and $BAI$ with $DBH$ (Fig. `r size`).
 For instance, based on our finding that $BAI$ tends to rise and fall with $DBH$, basal area correction would generally be biased towards finding positive trends for smaller trees and negative trends for larger trees.
 Indeed, in a comparative analysis of methods to detect growth trends, approaches similar to that employed here (regional curve standardization) performed best at growth trend detection [@peters_detecting_2015], supporting the approach used here as current best practice *[but check @hember_tree_2019].*
-Yet, the trends detected here remain potentially subject to a variety of sampling and survivorship biases that can influence overall trends in positive or negative directions (*REFS*).
+Yet, the trends detected here remain potentially subject to a variety of sampling and survivorship biases that can influence overall trends in positive or negative directions (*REFS*) [Fig. `r year_fig`; @brienen_detecting_2012; @brienen_tree_2017].
+
+...  corroborates previous analyses from HKK showing growth decreases over time [@nock_longterm_2011; @van_der_sleen_no_2015; @groenendijk_no_2015, but see @brienen_tree_2017].
 
 *coauthors, I'd appreciate site-specific feedback on the two following paragraphs:*
 
-Changes over time in growth rate are attributable to directionally changing environmental conditions, consisting of some combination of changes in the biotic neighborhood (e.g., competition, crown position) and environmental drivers (e.g., climate drivers other than those selected by *climwin*; atmospheric CO~2~; deposition of sulfur dioxide, SO~2~, and nitrogen oxides, NO~x~).
+Signals of changing growth rate over time are attributable to some combination of stand dynamics (e.g., recruitment and succession, changing stand structure) and environmental drivers (e.g., climate drivers other than those selected by *climwin*; atmospheric CO~2~; deposition of sulfur dioxide, SO~2~, and nitrogen oxides, NO~x~).
 The majority of negative growth trends observed here, *to the extent that they are robust to potential sampling and survivorship biases*, are probably attributable to increasing competition as secondary stands age. 
 Several of our sites (**HKK, SCBI, LDW, HF, ...** *Coauthors, I need help here.*) are known to have suffered major disturbances within or shortly prior to the analysis time frame [Appendix `r site_details_appendix`; REFS: @baker_disturbance_2005; @bourg_initial_2013], and growth declines at these sites are consistent with increasing competition as young stands mature.
 *Indeed, stand succession has been recognized as a driver of growth declines in tree ring records... (REFS).*
