@@ -166,16 +166,17 @@ for(site in sites_with_dbh){
   # all_plots[[paste0(site, "leg")]] <- all_legends[[site]]#g_legend()
 } # for site in sites
 
-png("doc/manuscript/tables_figures/Year_responses.png", width = 8, height = 10, res = 300, units = "in")
+png("doc/manuscript/tables_figures/Year_responses.png", width = 10, height = 10, res = 300, units = "in")
 
-grid.arrange(arrangeGrob(grobs = all_plots, ncol = 3, vp= grid::viewport(width=0.95, height=0.95)))
-
+grid.arrange(arrangeGrob(grobs = all_plots, ncol = 3, vp= grid::viewport(width=0.95, height=0.95)), 
+             arrangeGrob( grobs =all_legends_left, layout_matrix = layout_matrix_left, size="first"),
+             arrangeGrob( grobs =all_legends_right, layout_matrix = layout_matrix_right), ncol = 3,  widths = c(4,1,1))
 
 grid::grid.text(sites_abb[sites_with_dbh], x = unit(0.025, "npc"), y = unit(rev(cumsum(c(.95/n_sites/2, rep(.95/n_sites, n_sites-1)))) + .035, "npc"), rot = 90)
 
-grid::grid.text(what_to_show, x = unit(cumsum(c(.05 +.9/2.9/2, rep(.9/2.9, 2))), "npc"), y = unit(.99,  "npc"))
+grid::grid.text(what_to_show, x = unit(cumsum(c(.05 +.9/4.5/2, rep(.9/4.5, 2))), "npc"), y = unit(.99,  "npc"))
 
-grid::grid.text("Year", x = unit(.5, "npc"), y = unit(0.015,  "npc"))
+grid::grid.text("Year", x = unit(.35, "npc"), y = unit(0.015,  "npc"))
 
 dev.off()
 
