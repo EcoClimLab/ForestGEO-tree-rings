@@ -58,14 +58,12 @@ DBH_reconstruction <- "S2"
 climate_correction <- "S3"
 traditional_comparison <- "S4"
 changing_climate <- "S5"
-decadal_analysis_appendix <- "S6"
 
 site_details_appendix_title<- "Appendix S1. Site Details"
 DBH_reconstruction_title <- "Appendix S2. Methods for reconstruction of $DBH$"
 climate_correction_title <- "Appendix S3. Methods for climate data evaluation and correction"
 traditional_comparison_title <- "Appendix S4. Methods for comparing our approach with traditional methods"
 changing_climate_title <- "Appendix S5. Dealing with rapidly changing climate and tree growth"
-decadal_analysis_appendix_title <- "Appendix S6. Analysis of DBH-growth relationships by decade"
 
 #SI table numbers
 site_details = "S1"
@@ -169,16 +167,16 @@ SC_1970break_legend = "Figure S29. Climate responses at Scotty Creek (Northwest 
 RW_interactions_all_legend = "Figure S30. (RW_interactions_all)"
 BAI_interactions_all_legend ="Figure S31. (BAI_interactions_all)"
 
-decadal_plot_BCNM_legend = "Figure. S32. (Decadal BCNM)"
-decadal_plot_HKK_legend = "Figure. S33. (Decadal HKK)"
-decadal_plot_SCBI_legend = "Figure. S34. (Decadal SCBI)"
-decadal_plot_LDW_legend = "Figure. S35. (Decadal LDW)"
-decadal_plot_HF_legend = "Figure. S36. (Decadal HF)"
-decadal_plot_ZOF_legend = "Figure. S37. (Decadal ZOF)"
-decadal_plot_NIO_legend = "Figure. S38. (Decadal NIO)"
-decadal_plot_LT_legend = "Figure. S39. (Decadal LT)"
-decadal_plot_CB_legend = "Figure. S40. (Decadal CB)"
-decadal_plot_SC_legend = "Figure. S41. (Decadal SC)"
+decadal_plot_BCNM_legend = "Figure S32. (Decadal BCNM)"
+decadal_plot_HKK_legend = "Figure S33. (Decadal HKK)"
+decadal_plot_SCBI_legend = "Figure S34. (Decadal SCBI)"
+decadal_plot_LDW_legend = "Figure S35. (Decadal LDW)"
+decadal_plot_HF_legend = "Figure S36. (Decadal HF)"
+decadal_plot_ZOF_legend = "Figure S37. (Decadal ZOF)"
+decadal_plot_NIO_legend = "Figure S38. (Decadal NIO)"
+decadal_plot_LT_legend = "Figure S39. (Decadal LT)"
+decadal_plot_CB_legend = "Figure S40. (Decadal CB)"
+decadal_plot_SC_legend = "Figure S41. (Decadal SC)"
 
 # ~~~~~~~~~~ (below here does not need to be copied to main doc) ~~~~~~~~~~
 # Generic legends
@@ -343,12 +341,6 @@ At LT, increasingly warm drought has dramatically reduced growth [@williams_temp
 Problematically, correlating tree growth residuals from which climate-driven trends had been removed against the climate signal with a strong directional trend would not necessarily identify the most relevant climate drivers.
 
 For these sites, we experimented with three approaches to identifying the most important climate drivers (1) the method described above, (2) detrending the climate variables **(AT:prewhitening?)** prior to the climwin step, and (3) splitting analyses into decades before and after 1970 [*sensu*  @sniderhan_growth_2016].
-
-\newpage
-
-## `r decadal_analysis_appendix_title`
-
-**(CAMERON'S WORK [IN THIS REPO](https://github.com/EcoClimLab/tree-rings_global-change))**
 
 \newpage
 ## `r site_details_legend` 
