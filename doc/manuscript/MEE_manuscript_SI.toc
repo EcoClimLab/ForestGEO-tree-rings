@@ -49,4 +49,12 @@
 \contentsline {subsection}{Figure S29. Climate responses at Scotty Creek (Northwest Territory, Canada) before and after 1970.}{45}{section*.73}% 
 \contentsline {subsection}{Figure S30. (RW\_interactions\_all)}{46}{section*.76}% 
 \contentsline {subsection}{Figure S31. (BAI\_interactions\_all)}{47}{section*.78}% 
-\contentsline {subsection}{SI References}{48}{section*.80}% 
+\contentsline {subsection}{Figure. S32. (Decadal BCNM)}{48}{section*.80}% 
+\contentsline {subsection}{Figure. S33. (Decadal HKK)}{49}{section*.82}% 
+\contentsline {subsection}{Figure. S34. (Decadal SCBI)}{50}{section*.84}% 
+\contentsline {subsection}{Figure. S36. (Decadal HF)}{52}{section*.86}% 
+\contentsline {subsection}{Figure. S37. (Decadal ZOF)}{53}{section*.88}% 
+\contentsline {subsection}{Figure. S38. (Decadal NIO)}{54}{section*.90}% 
+\contentsline {subsection}{Figure. S39. (Decadal LT)}{55}{section*.91}% 
+\contentsline {subsection}{Figure. S40. (Decadal CB)}{56}{section*.93}% 
+\contentsline {subsection}{SI References}{58}{section*.95}% 

@@ -45,6 +45,11 @@ do.call(file.remove, list(list.files("/Users/kteixeira/Dropbox (Smithsonian)/Git
 flist <- list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/results/composite_plots/", full.names = TRUE)
 file.copy(flist, "/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/doc/manuscript/tables_figures/SI_figures/composite_plots/")
 
+#decadal plots
+do.call(file.remove, list(list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/doc/manuscript/tables_figures/SI_figures/decadal_plots/", full.names = TRUE))) # first remove old files
+flist <- list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/tree-rings_global-change/decadal_plots/", full.names = TRUE)
+file.copy(flist, "/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/doc/manuscript/tables_figures/SI_figures/decadal_plots/")
+
 # SUPPLEMENTARY INFO (this chunk must be repeated in MEE_manuscript_SI.Rmd)
 
 #Appendices
@@ -115,8 +120,17 @@ SC_1970break = "S29"
 RW_interactions_all= "S30"
 BAI_interactions_all= "S31"
 
-decadal_analysis_figs_all = "S32-SXX"
-decades_figure_ZOF= "SXX"
+decadal_analysis_figs_all = "S32-S41"
+decadal_plot_BCNM = "S32"
+decadal_plot_HKK = "S33"
+decadal_plot_SCBI = "S34"
+decadal_plot_LDW = "S35"
+decadal_plot_HF = "S36"
+decadal_plot_ZOF = "S37"
+decadal_plot_NIO = "S38"
+decadal_plot_LT = "S39"
+decadal_plot_CB = "S40"
+decadal_plot_SC = "S41"
 
 #SI figure captions
 SCBI_traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals: LITU at SCBI."
@@ -155,6 +169,16 @@ SC_1970break_legend = "Figure S29. Climate responses at Scotty Creek (Northwest 
 RW_interactions_all_legend = "Figure S30. (RW_interactions_all)"
 BAI_interactions_all_legend ="Figure S31. (BAI_interactions_all)"
 
+decadal_plot_BCNM_legend = "Figure. S32. (Decadal BCNM)"
+decadal_plot_HKK_legend = "Figure. S33. (Decadal HKK)"
+decadal_plot_SCBI_legend = "Figure. S34. (Decadal SCBI)"
+decadal_plot_LDW_legend = "Figure. S35. (Decadal LDW)"
+decadal_plot_HF_legend = "Figure. S36. (Decadal HF)"
+decadal_plot_ZOF_legend = "Figure. S37. (Decadal ZOF)"
+decadal_plot_NIO_legend = "Figure. S38. (Decadal NIO)"
+decadal_plot_LT_legend = "Figure. S39. (Decadal LT)"
+decadal_plot_CB_legend = "Figure. S40. (Decadal CB)"
+decadal_plot_SC_legend = "Figure. S41. (Decadal SC)"
 
 # ~~~~~~~~~~ (below here does not need to be copied to main doc) ~~~~~~~~~~
 # Generic legends
@@ -679,6 +703,55 @@ nocite: |
 
 ![`r BAI_interactions_all_legend`](tables_figures/pre_temp_groups_dbh_interactions_log_BAI_dbh.png){ width=100% }
 
+\newpage
+## `r decadal_plot_BCNM_legend`
+
+![`r decadal_plot_BCNM_legend`](tables_figures/SI_figures/decadal_plots/BCI.png){ width=100% }
+
+\newpage
+## `r decadal_plot_HKK_legend`
+
+![`r decadal_plot_HKK_legend`](tables_figures/SI_figures/decadal_plots/HKK.png){ width=100% }
+
+\newpage
+## `r decadal_plot_SCBI_legend`
+
+![`r decadal_plot_SCBI_legend`](tables_figures/SI_figures/decadal_plots/SCBI.png){ width=100% }
+\newpage
+## `r decadal_plot_LDW_legend`
+
+![`r decadal_plot_LDW_legend`](tables_figures/SI_figures/decadal_plots/LD.png){ width=100% }
+
+\newpage
+## `r decadal_plot_HF_legend`
+
+![`r decadal_plot_HF_legend`](tables_figures/SI_figures/decadal_plots/HF.png){ width=100% }
+
+\newpage
+## `r decadal_plot_ZOF_legend`
+
+![`r decadal_plot_ZOF_legend`](tables_figures/SI_figures/decadal_plots/ZN.png){ width=100% }
+
+\newpage
+## `r decadal_plot_NIO_legend`
+
+``` {r eval=FALSE}
+![`r decadal_plot_NIO_legend`](tables_figures/SI_figures/decadal_plots/NIO.png){ width=100% }
+``` 
+
+\newpage
+## `r decadal_plot_LT_legend`
+
+![`r decadal_plot_LT_legend`](tables_figures/SI_figures/decadal_plots/NM.png){ width=100% }
+
+\newpage
+## `r decadal_plot_CB_legend`
+
+![`r decadal_plot_CB_legend`](tables_figures/SI_figures/decadal_plots/CB.png){ width=100% }
+\newpage
+## `r decadal_plot_SC_legend`
+
+![`r decadal_plot_SC_legend`](tables_figures/SI_figures/decadal_plots/SC.png){ width=100% }
 
 \newpage
 ## SI References

@@ -100,6 +100,7 @@ year_fig = 6
 
 # SUPPLEMENTARY INFO (this chunk must be repeated in MEE_manuscript_SI.Rmd)
 
+
 #Appendices
 site_details_appendix <- "S1"
 DBH_reconstruction <- "S2"
@@ -168,10 +169,17 @@ SC_1970break = "S29"
 RW_interactions_all= "S30"
 BAI_interactions_all= "S31"
 
-decadal_analysis_figs_all = "S32-SXX"
-decades_figure_ZOF= "SXX"
-
-
+decadal_analysis_figs_all = "S32-S41"
+decadal_plot_BCNM = "S32"
+decadal_plot_HKK = "S33"
+decadal_plot_SCBI = "S34"
+decadal_plot_LDW = "S35"
+decadal_plot_HF = "S36"
+decadal_plot_ZOF = "S37"
+decadal_plot_NIO = "S38"
+decadal_plot_LT = "S39"
+decadal_plot_CB = "S40"
+decadal_plot_SC = "S41"
 
 #SI figure captions
 SCBI_traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals: LITU at SCBI."
@@ -205,10 +213,21 @@ GLS_CB_year_legend = "Figure S26. Best GLS models including climate, DBH, and ye
 GLS_SC_legend = "Figure S27. Best GLS models including climate and DBH for Scotty Creek (Northwest Territory, Canada)"
 GLS_SC_year_legend = "Figure S28. Best GLS models including climate, DBH, and year for Scotty Creek (Northwest Territory, Canada)"
 
-SC_1970break_legend = "Figure 29. Climate responses at Scotty Creek (Northwest Territory, Canada) before and after 1970."
+SC_1970break_legend = "Figure S29. Climate responses at Scotty Creek (Northwest Territory, Canada) before and after 1970."
 
 RW_interactions_all_legend = "Figure S30. (RW_interactions_all)"
 BAI_interactions_all_legend ="Figure S31. (BAI_interactions_all)"
+
+decadal_plot_BCNM_legend = "Figure. S32. (Decadal BCNM)"
+decadal_plot_HKK_legend = "Figure. S33. (Decadal HKK)"
+decadal_plot_SCBI_legend = "Figure. S34. (Decadal SCBI)"
+decadal_plot_LDW_legend = "Figure. S35. (Decadal LDW)"
+decadal_plot_HF_legend = "Figure. S36. (Decadal HF)"
+decadal_plot_ZOF_legend = "Figure. S37. (Decadal ZOF)"
+decadal_plot_NIO_legend = "Figure. S38. (Decadal NIO)"
+decadal_plot_LT_legend = "Figure. S39. (Decadal LT)"
+decadal_plot_CB_legend = "Figure. S40. (Decadal CB)"
+decadal_plot_SC_legend = "Figure. S41. (Decadal SC)"
 
 ```
 
@@ -643,7 +662,7 @@ For more shade-tolerant species in stands with no known disturbance within the p
 At Cedar Breaks, which has tree-ring records dating back to 0 AD (Cooper & Lutz, unpublished data), mixed growth trends probably reflect later successional changes in a mixed-disturbance forest and/or shifting competitive advantages, perhaps in part driven by changing environmental conditions.
 
 In a few instances, directional changes in growth are likely attributable to abiotic drivers.
-In the Czech Republic (ZOF), acid deposition dramatically reduced growth in  *(DECADES)* [**REFS**], as captured in our records (Fig. `r decades_figure_ZOF`), and *this influenced linear growth trends of different species in differently within the GLS model*. 
+In the Czech Republic (ZOF), acid deposition dramatically reduced growth in  *(DECADES)* [**REFS**], as captured in our records (Fig. `r decadal_plot_ZOF`), and *this influenced linear growth trends of different species in differently within the GLS model*. 
 In cases such as this, a non-linear response function to $year$, or incorporation of data on pollution, would be needed to accurately characterize changing growth trends, but that is beyond the scope of the current anlaysis.
 In New Mexico (LT), *we suspect that a strong drying trend is not fully captured by the dominant climate drivers (?).*
 At Scotty Creek, rapid warming and melting permafrost are altering hydraulic conditions, resulting in growth declines, high mortality, and low recruitment of *Picea mariana* [@sniderhan_growth_2016; @dearborn_permafrost_2020]. 
