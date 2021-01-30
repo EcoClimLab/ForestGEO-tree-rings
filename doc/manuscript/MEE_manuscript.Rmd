@@ -261,7 +261,7 @@ We apply this method to tree-ring data from `r n_trees_all` trees representing `
 3. Our analysis identified similar climate drivers operating over similar time windows to those obtained via traditional methods, but revealed that non-linear responses to climate variables were common. Growth rates--expressed as ring widths, basal area increments, or biomass increments--varied non-linearly with $DBH$. The relative importance of $DBH$ versus climate varied across sites, and interactions between $DBH$ and climate were prevalent (*~50%* of cases tested). After accounting for $DBH$, growth rate varied directionally over time in most species-- declining in most (90%).
 
 4. Our method provides a rigorous analytical framework for statistically modeling tree growth responses to the most important climate drivers, $DBH$, and year in nonlinear models.
-The need for such an approach is highlighted by our findings that nonlinear growth responses to climate variables are common, that growth rates vary nonlinearly with $DBH$,  that significant $DBH$ - climate interactions are common, and that growth rates often change over time. 
+The need for such an approach is highlighted by our findings that nonlinear growth responses to climate variables are common, that growth rates vary nonlinearly with $DBH$,  that significant $DBH$ - climate interactions are common, and that growth rates of species within stands commonly change over time. 
 By providing a framework for such analyses, our approach opens the door for using tree-rings to improve our understanding of forest responses to climate change. 
 
 **Keywords**:  climate sensitivity;  diameter; environmental change; Forest Global Earth Observatory (ForestGEO); generalized least squares (GLS); nonlinear; tree-ring
@@ -310,7 +310,6 @@ Directional climate change (as opposed to interannual variation), rising atmosph
 At the same time, stand dynamics influence growth: tree growth rates are sensitive to competition (**REFS**), the intensity of which tends to increase as forests mature, and to canopy position, which can change directionally as trees overtop or are overtopped by their neighbors. 
 Moreover, carbon allocation to woody growth -- as opposed to leaf or root production, reproduction, defenses, etc. -- is known to decline as individual trees and forest stands stands age [**REFS**; @meinzer_age-related_2011]. 
 However, tree size and time are almost inextricably linked (because each individual core increases in $DBH$ through time) and therefore difficult to disentangle,   being subject to various sampling and analysis biases [@cherubini_potential_1998; @brienen_detecting_2012; @nehrbassahles_influence_2014; @peters_detecting_2015; @sullivan_effect_2016;  @brienen_tree_2017; @hember_tree_2019].  
-~~A variety of methods have been used to analyze directional changes in growth rate through time, including conservative detrending, where a mathematical function (e.g., negative exponential or stiff spline) is fit to growth trends in each individual core and residuals analyzed for trends and basal area correction, which assumes that the growth in a tree's basal area ($BAI$) is fundamentally independent of size [@peters_detecting_2015]. A more reliable alternative is regional curve standardization, which uses an average age or size curve to describe ontogeny (*Esper et al. 2003*) and can be used in the context of multiple regressions or mixed-effects models [*REFS in @hember_tree_2019*].~~
 Continued improvement of analytical methods, in combination with sampling approaches that minimize potential biases, will be important to disentangling $DBH$ from time and detecting directional growth trends.
 
 **Here, we develop a new method that allows simultaneous consideration of the effects of principle climate drivers (pre-selected in an objective manner), tree size and year on annual tree growth.** 
@@ -643,33 +642,29 @@ Growth rates changed directionally for the majority (`r percent_sig_neg_trend_of
 These results were similar across growth metrics (Figs. `r all_GLS`), and consistent with an independent analysis of growth-$DBH$ trends by decade (Figs. `r year_fig`, `r decadal_analysis_figs_all`), indicating that our approach is robust in its analytical structure.
 Indeed, in a comparative analysis of several methods commonly used to detect growth trends, approaches similar to that employed here (regional curve standardization) performed better at growth trend detection [@peters_detecting_2015] than two of the most commonly used methods for analyzing growth trends, conservative detrending and basal area correction [see @peters_detecting_2015], both of which would fail to capture the observed trends in $RW$ and $BAI$ with $DBH$ (Fig. `r size`).
 For instance, based on our finding that $BAI$ tends to rise and fall with $DBH$, basal area correction would generally be biased towards finding positive trends for smaller trees and negative trends for larger trees.
-However, are results remain subject to the influence of some potential sampling and survivorship biases that can influence overall trends in positive or negative directions [Fig. `r year_fig`; @brienen_detecting_2012; @brienen_tree_2017; @nehrbassahles_influence_2014].
-While we have made efforts to control for the most severe potential biases (see Methods), and while the statistical model applied here in theory accounts for persistent growth differences among trees through a random effect of tree, some potential biases are difficult, if not impossible, to control for [@brienen_tree_2017].
-The observed trends must therefore be interpreted with caution, and in light of the fact that growth trends inferred from tree rings can be strongly shaped by tree demography [@brienen_tree_2017].
-
-*...  corroborates previous analyses from HKK showing growth decreases over time [@nock_longterm_2011; @van_der_sleen_no_2015; @groenendijk_no_2015, but see @brienen_tree_2017].*
-
-*coauthors, I'd appreciate site-specific feedback on the two following paragraphs:*
-
+However, our results remain subject to the influence of some potential sampling and survivorship biases that can influence overall trends in positive or negative directions [Fig. `r year_fig`; @brienen_detecting_2012; @brienen_tree_2017; @nehrbassahles_influence_2014].
+While we have made efforts to control for the most severe potential biases (see Methods), and while the statistical model applied here in theory accounts for persistent growth differences among trees through a random effect of tree, some potential biases are difficult, if not impossible, to control for [@brienen_detecting_2012; @brienen_tree_2017].
+The observed trends must therefore be interpreted with caution, and in light of the fact that growth trends inferred from tree rings are strongly tied to tree demography [@brienen_tree_2017].
 To the extent that sampling and survivorship biases are minimal, signals of changing growth rate over time are attributable to some combination of stand dynamics (e.g., recruitment and succession, changing stand structure) and environmental drivers (e.g., climate drivers other than those selected by *climwin*; atmospheric CO~2~; deposition of sulfur dioxide, SO~2~, and nitrogen oxides, NO~x~).
-The majority of negative growth trends observed here are probably attributable to successional stand dynamics as cohorts and stands age. 
-For species exhibiting a pulse of recruitment in the past and little subsequent recruitment (e.g., **SPECIES, FIGURES**), variation in growth rates among individuals would naturally lead to a trend of declining growth, as faster-growing individuals reach various size thresholds earlier [@brienen_tree_2017].
-Such a trend is not indicative of a directional response to changing environmental conditions that would be generalizable across stands (e.g., rising atmospheric CO~2~), but does indicate a decline of the species within the stand. 
-This can occur, for example, when a light-demanding species is no longer recruiting under a closed canopy, which is the likely explanation for declines in several species (e.g., **SPECIES, FIGURES/TABLES**).
-In secondary stands, particularly those where the majority of trees established at a similar time (**SCBI, HF,...**; Appendix `r site_details_appendix` **FIGURES**), growth declines are consistent with the tendency for faster tree growth during early succession (**REFS**), and with increasing competition as young stands mature (**REFS**).
-Even within mature forests, light-demanding species that establish in gaps (e.g., *Jacaranda copaia* at BCNM, *Populus tremuloides* at CB; Table `r species_table`) would tend to experience an increasingly competitive environment.
+
+The majority of negative growth trends observed here (Fig. `r year_fig`) are probably attributable to successional stand dynamics as cohorts and stands age. 
+For species exhibiting a pulse of recruitment in the past followed by little subsequent recruitment (e.g., **SPECIES, FIGURES**), persistent differences in growth rates among individuals would naturally lead to a trend of declining growth, as faster-growing individuals reach various size thresholds earlier [@brienen_tree_2017].
+Such a trend is not indicative of a directional response to changing environmental conditions that would be generalizable across stands (e.g., rising atmospheric CO~2~), but it does indicate declining growth of the species within the stand. 
+This can occur, for example, when a light-demanding species is no longer recruiting under a closed canopy (e.g., *Quercus* spp. at SCBI), such that fast-growing individuals disappear from progressively larger cohorts as time proceeds. 
+In secondary stands, particularly those where the majority of trees established at a similar time (**SCBI, HF,...**; Appendix `r site_details_appendix` **FIGURES**), growth declines are consistent with the tendency for faster tree growth during early succession (**REFS**), and with increasing competition and declining woody productivity as young stands mature [e.g., @pregitzer_carbon_2004; @goulden_patterns_2011].
+Even within mature forests, light-demanding species that establish in gaps (e.g., *Jacaranda copaia* at BCNM, *Populus tremuloides* at CB; Table `r species_table`) would tend to experience an increasingly competitive environment through time.
 For more shade-tolerant species in stands with no known disturbance within the past 1.5 centuries (**ZOF?, NM?, CB, SC**), trends would represent more gradual successional changes or responses to global change.
 At Cedar Breaks, which has tree-ring records dating back to 0 AD (Cooper & Lutz, unpublished data), mixed growth trends probably reflect later successional changes in a mixed-disturbance forest and/or shifting competitive advantages, perhaps in part driven by changing environmental conditions.
 
-In a few instances, directional changes in growth are likely attributable to abiotic drivers.
+In a few instances, directional changes in growth are probably attributable to abiotic drivers.
 In the Czech Republic (ZOF), acid deposition dramatically reduced growth in  *(DECADES)* [**REFS**], as captured in our records (Fig. `r decadal_plot_ZOF`), and *this influenced linear growth trends of different species in differently within the GLS model*. 
-In cases such as this, a non-linear response function to $year$, or incorporation of data on pollution, would be needed to accurately characterize changing growth trends, but that is beyond the scope of the current anlaysis.
-In New Mexico (LT), *we suspect that a strong drying trend is not fully captured by the dominant climate drivers (?).*
-At Scotty Creek, rapid warming and melting permafrost are altering hydraulic conditions, resulting in growth declines, high mortality, and low recruitment of *Picea mariana* [@sniderhan_growth_2016; @dearborn_permafrost_2020]. 
+In cases such as this, a non-linear response function to $year$, or incorporation of data on pollution, would be needed to accurately characterize changing growth trends, but that is beyond the scope of the current analysis.
+In New Mexico (LT), where growth rates of *Pinus Ponderosa* declined despite a big-tree sampling bias, *we suspect that a strong drying trend is not fully captured by the dominant climate drivers (?).*
+At Scotty Creek, where rapid warming and melting permafrost are altering hydraulic conditions, resulting in high mortality, growth declines, and low recruitment of *Picea mariana* [@sniderhan_growth_2016; @dearborn_permafrost_2020], we attribute pronounced negative growth trends to a combination of successional declines and climatic stress. 
 
-There is a notable lack of evidence that growth rates of any species are are benefiting substantially from increasing CO~2~. 
-With a few potential exceptions (*Fagus sylvatica* at ZOF, *Picea pungens* and *Pinus flexilis* at CB; Fig. `r year_fig`), any growth benefit from elevated CO~2~ was generally outweighed by successional changes or chronic environmental shifts.
-A growth benefit of CO~2~ is potentially expected based on physiological mechanisms and has been observed in young forests in experimental settings [@walker_integrating_2020]; however, it does not appear to be substantial for the older trees in natural forest settings analyzed here. 
+There is a notable lack of evidence that growth rates of any species benefited substantially from increasing CO~2~, corroborating previous analyses from HKK [@nock_longterm_2011; @van_der_sleen_no_2015; @groenendijk_no_2015, but see @brienen_tree_2017] and other sites around the world (**REFS**).
+With a few potential exceptions (*Fagus sylvatica* at ZOF, *Picea pungens* and *Pinus flexilis* at CB; Fig. `r year_fig`), any growth benefit from elevated CO~2~ was outweighed by some combination of demographic or successional changes and chronic environmental shifts.
+A growth benefit of CO~2~ is potentially expected based on physiological mechanisms and has been observed in young forests in experimental settings [@walker_integrating_2020]; however, it does not appear to be substantial for the trees in natural forest settings analyzed here. 
 Indeed, significant woody growth stimulation by elevated CO~2~ has not been observed in experimentally manipulated mature forests [@walker_integrating_2020], and previous tree-ring studies overall find little evidence of increasing tree growth rates [e.g., @hararuk_tree_2019; @walker_integrating_2020].
 
 ## Conclusions {-#Conclusions}
@@ -704,7 +699,7 @@ All authors contributed critically to the drafts and gave final approval for pub
 *To enable readers to locate archived data from papers, we require that authors list the database and the respective accession numbers or DOIs for all data from the manuscript that has been made publicly available.*
 
 Code and full results are available via the project repository in GitHub (github.com/EcoClimLab/ForestGEO-climate-sensitivity) and archived in Zenodo (DOI: TBD) .
-Data for # of the sites are archived in the The DendroEcological Network (DEN) database [@rayback_dendroecological_2020]. 
+Data for [# TBD] of the sites are archived in the The DendroEcological Network (DEN) database [SCBI, ... ; @rayback_dendroecological_2020] and or the International Tree-Ring Data Bank, ITRDB (CB; ...). 
 
 # Supplementary files {-#Supplementary}
 
