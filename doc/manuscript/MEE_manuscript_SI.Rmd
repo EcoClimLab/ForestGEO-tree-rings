@@ -138,16 +138,16 @@ decadal_plot_CB = "S49"
 decadal_plot_SC = "S50"
 
 #SI figure captions
-recruitment_plot_BCNM_legend = "Figure S1. (recruitment BCNM)"
-recruitment_plot_HKK_legend = "Figure S2. (recruitment HKK)"
-recruitment_plot_SCBI_legend = "Figure S3. (recruitment SCBI)"
-recruitment_plot_LDW_legend = "Figure S4. (recruitment LDW)"
-recruitment_plot_HF_legend = "Figure S5. (recruitment HF)"
-recruitment_plot_ZOF_legend = "Figure S6. (recruitment ZOF)"
-recruitment_plot_NIO_legend = "Figure S7. (recruitment NIO)"
-recruitment_plot_LT_legend = "Figure S8. (recruitment LT)"
-recruitment_plot_CB_legend = "Figure S9. (recruitment CB)"
-recruitment_plot_SC_legend = "Figure S10. (recruitment SC)"
+recruitment_plot_BCNM_legend = "Figure S1. Density plot of core record start years by species for Barro Colorado Nature Monument (Panama)."
+recruitment_plot_HKK_legend = "Figure S2. Density plot of core record start years by species for Huai Kha Khaeng (Thailand)."
+recruitment_plot_SCBI_legend = "Figure S3. Density plot of core record start years by species for the Smithsonian Conservation Biology Institute (Virginia, USA)."
+recruitment_plot_LDW_legend = "Figure S4. Density plot of core record start years by species for Lilley Dickey Woods (Indiana, USA)."
+recruitment_plot_HF_legend = "Figure S5. Density plot of core record start years by species for Harvard Forest (Massachusetts, USA)."
+recruitment_plot_ZOF_legend = "Figure S6. Density plot of core record start years by species for Zofin Forest (Czech Republic)."
+recruitment_plot_NIO_legend = "Figure S7. Density plot of core record start years by species for Niobrara (Nebraska, USA)."
+recruitment_plot_LT_legend = "Figure S8. Density plot of core record start years by species for Little Tesuque (New Mexico, USA)."
+recruitment_plot_CB_legend = "Figure S9. Density plot of core record start years by species for Cedar Breaks (Utah, USA)."
+recruitment_plot_SC_legend = "Figure S10. Density plot of core record start years by species for Scotty Creek (Northwest Territory, Canada)."
 
 SCBI_traditional_comparison_legend <- "Figure S11. Comparison of our approach with traditional methods of identifying climate signals: LITU at SCBI."
 Zofin_traditional_comparison_legend <- "Figure S12. Comparison of our approach with traditional methods of identifying climate signals: ABAL at Zofin."
@@ -166,7 +166,7 @@ GLS_SCBI_legend = "Figure S22. Best GLS models including climate and DBH for the
 GLS_SCBI_year_legend = "Figure S23. Best GLS models including climate, DBH, and year for the Smithsonian Conservation Biology Institute (Virginia, USA)"
 GLS_LDW_legend = "Figure S24. Best GLS models including climate and DBH for Lilley Dickey Woods (Indiana, USA)"
 GLS_LDW_year_legend = "Figure S25. Best GLS models including climate, DBH, and year for Lilley Dickey Woods (Indiana, USA)"
-GLS_HF_legend = "Figure S26. Best GLS models including climate and DBH for Harvard Forest (Massachusetts, USA) "
+GLS_HF_legend = "Figure S26. Best GLS models including climate and DBH for Harvard Forest (Massachusetts, USA)"
 GLS_HF_year_legend = "Figure S27. Best GLS models including climate, DBH, and year for Harvard Forest (Massachusetts, USA) "
 GLS_ZOF_legend = "Figure S28. Best GLS models including climate and DBH for Zofin Forest (Czech Republic)"
 GLS_ZOF_year_legend = "Figure S29. Best GLS models including climate, DBH, and year for Zofin Forest (Czech Republic)"
@@ -198,10 +198,14 @@ decadal_plot_SC_legend = "Figure S50. (Decadal SC)"
 
 # ~~~~~~~~~~ (below here does not need to be copied to main doc) ~~~~~~~~~~
 # Generic legends
+
+recruitment_generic_legend = "This distribution approximates--but does not entirely match--the age distribution of trees cored. The core record start year can occur after a tree's recruitment year (i.e., year when the tree reached coring height) if the core fails to hit center or if the tree's center is lost to heartrot."
+
 traditional_comparison_generic_legend = "Shown are repsonses to the precipitation- and temperature-group variables selected as most influential by the *climwin* analysis. Left panels show a month-by-month comparison of *beta* (slope) coefficients for the relationship between tree growth and the monthly climate variable from species-level residual chronologies (traditional approach) and from individual-level analysis in *climwin* (approach presented here). Center panels compare the monthly *beta* coefficient estimates, with the dotted line indicating 1:1 correspondence. Finally, the right panels compare *beta* coefficients for the optimal window selected by *climwin*. Error bars indicate standard error of slope estimates. Note that 1:1 correspondence is not necessarily expected. See Appendix 5 for analysis methods and discussion of expected correspondence."
 
 GLS_generic_legend = " for all three growth metrics examined here. Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD."
 
+decadal_generic_legend = " **(generic legend)**"
 ```
 
 
@@ -354,7 +358,7 @@ We note, however, that there are no statistically significant differences in the
 
 Our analysis included two sites where climate change has had pronounced effects on tree growth: Scotty Creek, NW Territories, Canada (SC) and Little Tesuque, New Mexico, USA (LT).
 At SC, rapidly rising temperatures are causing melting permafrost, summer moisture stress, resulting in negative growth trends in basal area index ($BAI$) starting around 1950 and significant growth declines since 1970 in `r round(249/(249+69+127)*100, digits=0)`% of trees [@sniderhan_growth_2016].
-At LT, increasingly warm drought has dramatically reduced growth [@williams_temperature_2012], resulting in many missing rings in recent years.
+At LT, increasingly warm drought has dramatically reduced growth [@williams_temperature_2013], resulting in many missing rings in recent years.
 
 Problematically, correlating tree growth residuals from which climate-driven trends had been removed against the climate signal with a strong directional trend would not necessarily identify the most relevant climate drivers.
 
@@ -423,7 +427,10 @@ kable(allometries_table, format = "latex", booktabs = TRUE,   escape = F, linese
 ```
 For assignments of species as proxies for those with out available bark allometries, see Table `r species_table`.
 
-**NEED TO ADD REFERENCES FOR THE BARK ALLOMETRIES!!!**
+---
+nocite: | 
+ @miles_specific_2009; @anderson-teixeira_size-related_2015; @zeibig-kichas_bark_2016
+---
 
 \newpage
 ## `r qualitative_results_comparison_legend`
@@ -503,53 +510,53 @@ nocite: |
 
 ## `r recruitment_plot_BCNM_legend`
 
-![`r recruitment_plot_BCNM_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_BCI.png){ width=50% }
+![`r recruitment_plot_BCNM_legend` `r recruitment_generic_legend` "Heartrot was common at this site, implying that recruitment years are overestimated for some trees."](tables_figures/SI_figures/recruitment_years/Recrutement_years_BCI.png){ width=47% }
 
 \newpage
 ## `r recruitment_plot_HKK_legend`
 
-![`r recruitment_plot_HKK_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_HKK.png){ width=50% }
+![`r recruitment_plot_HKK_legend` `r recruitment_generic_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_HKK.png){ width=47% }
 
 \newpage
 ## `r recruitment_plot_SCBI_legend`
 
-![`r recruitment_plot_SCBI_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_SCBI.png){ width=50% }
+![`r recruitment_plot_SCBI_legend` `r recruitment_generic_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_SCBI.png){ width=47% }
 \newpage
 
 ## `r recruitment_plot_LDW_legend`
 
-![`r recruitment_plot_LDW_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_LillyDickey.png){ width=50% }
+![`r recruitment_plot_LDW_legend` `r recruitment_generic_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_LillyDickey.png){ width=47% }
 
 \newpage
 ## `r recruitment_plot_HF_legend`
 
-![`r recruitment_plot_HF_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_HarvardForest.png){ width=50% }
+![`r recruitment_plot_HF_legend` `r recruitment_generic_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_HarvardForest.png){ width=47% }
 
 \newpage
 ## `r recruitment_plot_ZOF_legend`
 
-![`r recruitment_plot_ZOF_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_Zofin.png){ width=50% }
+![`r recruitment_plot_ZOF_legend` `r recruitment_generic_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_Zofin.png){ width=47% }
 
 \newpage
 ## `r recruitment_plot_NIO_legend`
 
-![`r recruitment_plot_NIO_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_Niobara.png){ width=50% }
+![`r recruitment_plot_NIO_legend` `r recruitment_generic_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_Niobara.png){ width=47% }
 
 
 \newpage
 ## `r recruitment_plot_LT_legend`
 
-![`r recruitment_plot_LT_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_NewMexico.png){ width=50% }
+![`r recruitment_plot_LT_legend` `r recruitment_generic_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_NewMexico.png){ width=47% }
 
 \newpage
 ## `r recruitment_plot_CB_legend`
 
-![`r recruitment_plot_CB_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_CedarBreaks.png){ width=50% }
+![`r recruitment_plot_CB_legend` `r recruitment_generic_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_CedarBreaks.png){ width=47% }
 
 \newpage
 ## `r recruitment_plot_SC_legend`
 
-![`r recruitment_plot_SC_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_ScottyCreek.png){ width=50% }
+![`r recruitment_plot_SC_legend` `r recruitment_generic_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_ScottyCreek.png){ width=47% }
 
 \newpage 
 ## `r SCBI_traditional_comparison_legend`
@@ -769,53 +776,53 @@ nocite: |
 \newpage
 ## `r decadal_plot_BCNM_legend`
 
-![`r decadal_plot_BCNM_legend`](tables_figures/SI_figures/decadal_plots/BCI.png){ width=100% }
+![`r decadal_plot_BCNM_legend` `r decadal_generic_legend`](tables_figures/SI_figures/decadal_plots/BCI.png){ width=100% }
 
 \newpage
 ## `r decadal_plot_HKK_legend`
 
-![`r decadal_plot_HKK_legend`](tables_figures/SI_figures/decadal_plots/HKK.png){ width=100% }
+![`r decadal_plot_HKK_legend` `r decadal_generic_legend`](tables_figures/SI_figures/decadal_plots/HKK.png){ width=100% }
 
 \newpage
 ## `r decadal_plot_SCBI_legend`
 
-![`r decadal_plot_SCBI_legend`](tables_figures/SI_figures/decadal_plots/SCBI.png){ width=100% }
+![`r decadal_plot_SCBI_legend` `r decadal_generic_legend`](tables_figures/SI_figures/decadal_plots/SCBI.png){ width=100% }
 \newpage
 ## `r decadal_plot_LDW_legend`
 
-![`r decadal_plot_LDW_legend`](tables_figures/SI_figures/decadal_plots/LD.png){ width=100% }
+![`r decadal_plot_LDW_legend` `r decadal_generic_legend`](tables_figures/SI_figures/decadal_plots/LD.png){ width=100% }
 
 \newpage
 ## `r decadal_plot_HF_legend`
 
-![`r decadal_plot_HF_legend`](tables_figures/SI_figures/decadal_plots/HF.png){ width=100% }
+![`r decadal_plot_HF_legend` `r decadal_generic_legend`](tables_figures/SI_figures/decadal_plots/HF.png){ width=100% }
 
 \newpage
 ## `r decadal_plot_ZOF_legend`
 
-![`r decadal_plot_ZOF_legend`](tables_figures/SI_figures/decadal_plots/ZN.png){ width=100% }
+![`r decadal_plot_ZOF_legend` `r decadal_generic_legend`](tables_figures/SI_figures/decadal_plots/ZN.png){ width=100% }
 
 \newpage
 ## `r decadal_plot_NIO_legend`
 
 ``` {r eval=FALSE}
-![`r decadal_plot_NIO_legend`](tables_figures/SI_figures/decadal_plots/NIO.png){ width=100% }
+![`r decadal_plot_NIO_legend` `r decadal_generic_legend`](tables_figures/SI_figures/decadal_plots/NIO.png){ width=100% }
 ``` 
 
 \newpage
 ## `r decadal_plot_LT_legend`
 
-![`r decadal_plot_LT_legend`](tables_figures/SI_figures/decadal_plots/NM.png){ width=100% }
+![`r decadal_plot_LT_legend` `r decadal_generic_legend`](tables_figures/SI_figures/decadal_plots/NM.png){ width=100% }
 
 \newpage
 ## `r decadal_plot_CB_legend`
 
-![`r decadal_plot_CB_legend`](tables_figures/SI_figures/decadal_plots/CB.png){ width=100% }
+![`r decadal_plot_CB_legend` `r decadal_generic_legend`](tables_figures/SI_figures/decadal_plots/CB.png){ width=100% }
 
 \newpage
 ## `r decadal_plot_SC_legend`
 
-![`r decadal_plot_SC_legend`](tables_figures/SI_figures/decadal_plots/SC.png){ width=100% }
+![`r decadal_plot_SC_legend` `r decadal_generic_legend`](tables_figures/SI_figures/decadal_plots/SC.png){ width=100% }
 
 
 

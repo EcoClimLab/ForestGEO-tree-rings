@@ -18,16 +18,16 @@
 \contentsline {subsection}{Table S3. Sampling details for species by site.}{11}{section*.21}% 
 \contentsline {subsection}{Table S4. Allometric equations for bark thickness.}{13}{section*.22}% 
 \contentsline {subsection}{Table S5. Qualtiative comparison of results from this study with previous studies employing conventional methods.}{14}{section*.24}% 
-\contentsline {subsection}{Figure S1. (recruitment BCNM)}{17}{section*.25}% 
-\contentsline {subsection}{Figure S2. (recruitment HKK)}{18}{section*.27}% 
-\contentsline {subsection}{Figure S3. (recruitment SCBI)}{19}{section*.29}% 
-\contentsline {subsection}{Figure S4. (recruitment LDW)}{20}{section*.30}% 
-\contentsline {subsection}{Figure S5. (recruitment HF)}{21}{section*.32}% 
-\contentsline {subsection}{Figure S6. (recruitment ZOF)}{22}{section*.34}% 
-\contentsline {subsection}{Figure S7. (recruitment NIO)}{23}{section*.36}% 
-\contentsline {subsection}{Figure S8. (recruitment LT)}{24}{section*.38}% 
-\contentsline {subsection}{Figure S9. (recruitment CB)}{25}{section*.40}% 
-\contentsline {subsection}{Figure S10. (recruitment SC)}{26}{section*.42}% 
+\contentsline {subsection}{Figure S1. Density plot of core record start years by species for Barro Colorado Nature Monument (Panama).}{17}{section*.25}% 
+\contentsline {subsection}{Figure S2. Density plot of core record start years by species for Huai Kha Khaeng (Thailand).}{18}{section*.27}% 
+\contentsline {subsection}{Figure S3. Density plot of core record start years by species for the Smithsonian Conservation Biology Institute (Virginia, USA).}{19}{section*.29}% 
+\contentsline {subsection}{Figure S4. Density plot of core record start years by species for Lilley Dickey Woods (Indiana, USA).}{20}{section*.30}% 
+\contentsline {subsection}{Figure S5. Density plot of core record start years by species for Harvard Forest (Massachusetts, USA).}{21}{section*.32}% 
+\contentsline {subsection}{Figure S6. Density plot of core record start years by species for Zofin Forest (Czech Republic).}{22}{section*.34}% 
+\contentsline {subsection}{Figure S7. Density plot of core record start years by species for Niobrara (Nebraska, USA).}{23}{section*.36}% 
+\contentsline {subsection}{Figure S8. Density plot of core record start years by species for Little Tesuque (New Mexico, USA).}{24}{section*.38}% 
+\contentsline {subsection}{Figure S9. Density plot of core record start years by species for Cedar Breaks (Utah, USA).}{25}{section*.40}% 
+\contentsline {subsection}{Figure S10. Density plot of core record start years by species for Scotty Creek (Northwest Territory, Canada).}{26}{section*.42}% 
 \contentsline {subsection}{Figure S11. Comparison of our approach with traditional methods of identifying climate signals: LITU at SCBI.}{27}{section*.44}% 
 \contentsline {subsection}{Figure S12. Comparison of our approach with traditional methods of identifying climate signals: ABAL at Zofin.}{28}{section*.45}% 
 \contentsline {subsection}{Figure S13. Comparison of our approach with traditional methods of identifying climate signals: PSME at Cedar Breaks.}{29}{section*.46}% 
