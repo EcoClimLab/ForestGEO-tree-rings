@@ -50,6 +50,11 @@ do.call(file.remove, list(list.files("/Users/kteixeira/Dropbox (Smithsonian)/Git
 flist <- list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/tree-rings_global-change/decadal_plots/", full.names = TRUE)
 file.copy(flist, "/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/doc/manuscript/tables_figures/SI_figures/decadal_plots/")
 
+#recruitment plots
+do.call(file.remove, list(list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/doc/manuscript/tables_figures/SI_figures/recruitment_years/", full.names = TRUE))) # first remove old files
+flist <- list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO_dendro/data_processed/", "^Recrutement_years_.+[.]png$",  full.names = TRUE)
+file.copy(flist, "/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/doc/manuscript/tables_figures/SI_figures/recruitment_years/")
+
 # SUPPLEMENTARY INFO (this chunk must be repeated in MEE_manuscript_SI.Rmd)
 
 #Appendices
@@ -80,103 +85,116 @@ bark_allometries_legend <- "Table S4. Allometric equations for bark thickness."
 qualitative_results_comparison_legend <- "Table S5. Qualtiative comparison of results from this study with previous studies employing conventional methods."
 
 #SI figure numbers
-all_traditional_comparisons = "S1-S4"
-SCBI_traditional_comparison = "S1"
-Zofin_traditional_comparison = "S2"
-CB_traditional_comparison = "S3"
-SC_traditional_comparison = "S4"
+all_recruitment_plots="S1-S10"
 
-all_climwin = "S5-S7"
-climwin_sameV_sameW = "S5"
-climwin_sameV_diffW = "S6"
-climwin_diffV_diffW = "S8"
+all_traditional_comparisons = "S11-S14"
+SCBI_traditional_comparison = "S11"
+Zofin_traditional_comparison = "S12"
+CB_traditional_comparison = "S13"
+SC_traditional_comparison = "S14"
 
-all_GLS = "S9-S28"
-GLS_BCNM = "S9"
-GLS_BCNM_year = "S10"
-GLS_HKK = "S11"
-GLS_HKK_year = "S12"
-GLS_SCBI = "S13"
-GLS_SCBI_year = "S14"
-GLS_LDW = "S15"
-GLS_LDW_year = "S16"
-GLS_HF = "S17"
-GLS_HF_year = "S18"
-GLS_ZOF = "S19"
-GLS_ZOF_year = "S20"
-GLS_NIO = "S21"
-GLS_NIO_year = "S22"
-GLS_LT = "S23"
-GLS_LT_year = "S24"
-GLS_CB = "S25"
-GLS_CB_year = "S26"
-GLS_SC = "S27"
-GLS_SC_year = "S28"
+all_climwin = "S15-S17"
+climwin_sameV_sameW = "S15"
+climwin_sameV_diffW = "S16"
+climwin_diffV_diffW = "S17"
 
-SC_1970break = "S29"
+all_GLS = "S18-S37"
+GLS_BCNM = "S18"
+GLS_BCNM_year = "S19"
+GLS_HKK = "S20"
+GLS_HKK_year = "S21"
+GLS_SCBI = "S22"
+GLS_SCBI_year = "S23"
+GLS_LDW = "S24"
+GLS_LDW_year = "S25"
+GLS_HF = "S36"
+GLS_HF_year = "S27"
+GLS_ZOF = "S28"
+GLS_ZOF_year = "S29"
+GLS_NIO = "S30"
+GLS_NIO_year = "S31"
+GLS_LT = "S32"
+GLS_LT_year = "S33"
+GLS_CB = "S34"
+GLS_CB_year = "S35"
+GLS_SC = "S36"
+GLS_SC_year = "S37"
 
-RW_interactions_all= "S30"
-BAI_interactions_all= "S31"
+SC_1970break = "S38"
 
-decadal_analysis_figs_all = "S32-S41"
-decadal_plot_BCNM = "S32"
-decadal_plot_HKK = "S33"
-decadal_plot_SCBI = "S34"
-decadal_plot_LDW = "S35"
-decadal_plot_HF = "S36"
-decadal_plot_ZOF = "S37"
-decadal_plot_NIO = "S38"
-decadal_plot_LT = "S39"
-decadal_plot_CB = "S40"
-decadal_plot_SC = "S41"
+RW_interactions_all= "S39"
+BAI_interactions_all= "S40"
+
+decadal_analysis_figs_all = "S41-S50"
+decadal_plot_BCNM = "S41"
+decadal_plot_HKK = "S42"
+decadal_plot_SCBI = "S43"
+decadal_plot_LDW = "S44"
+decadal_plot_HF = "S45"
+decadal_plot_ZOF = "S46"
+decadal_plot_NIO = "S47"
+decadal_plot_LT = "S48"
+decadal_plot_CB = "S49"
+decadal_plot_SC = "S50"
 
 #SI figure captions
-SCBI_traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals: LITU at SCBI."
-Zofin_traditional_comparison_legend <- "Figure S2. Comparison of our approach with traditional methods of identifying climate signals: ABAL at Zofin."
-CB_traditional_comparison_legend <- "Figure S3. Comparison of our approach with traditional methods of identifying climate signals: PSME at Cedar Breaks."
-SC_traditional_comparison_legend <- "Figure S4. Comparison of our approach with traditional methods of identifying climate signals: PIMA at Scotty Creek."
+recruitment_plot_BCNM_legend = "Figure S1. (recruitment BCNM)"
+recruitment_plot_HKK_legend = "Figure S2. (recruitment HKK)"
+recruitment_plot_SCBI_legend = "Figure S3. (recruitment SCBI)"
+recruitment_plot_LDW_legend = "Figure S4. (recruitment LDW)"
+recruitment_plot_HF_legend = "Figure S5. (recruitment HF)"
+recruitment_plot_ZOF_legend = "Figure S6. (recruitment ZOF)"
+recruitment_plot_NIO_legend = "Figure S7. (recruitment NIO)"
+recruitment_plot_LT_legend = "Figure S8. (recruitment LT)"
+recruitment_plot_CB_legend = "Figure S9. (recruitment CB)"
+recruitment_plot_SC_legend = "Figure S10. (recruitment SC)"
 
-climwin_sameV_sameW_legend = "Figure S5. (PRE at SCBI)"
-climwin_sameV_diffW_legend = "Figure S6. (PET at SCBI)"
-climwin_diffV_diffW_legend = "Figure S7. (TMX/TMP at HKK)"
+SCBI_traditional_comparison_legend <- "Figure S11. Comparison of our approach with traditional methods of identifying climate signals: LITU at SCBI."
+Zofin_traditional_comparison_legend <- "Figure S12. Comparison of our approach with traditional methods of identifying climate signals: ABAL at Zofin."
+CB_traditional_comparison_legend <- "Figure S13. Comparison of our approach with traditional methods of identifying climate signals: PSME at Cedar Breaks."
+SC_traditional_comparison_legend <- "Figure S14. Comparison of our approach with traditional methods of identifying climate signals: PIMA at Scotty Creek."
 
-# without year
-GLS_BCNM_legend = "Figure S9. Best GLS models including climate and DBH for Barro Colorado Nature Monument (Panama)"
-GLS_BCNM_year_legend = "Figure S10. Best GLS models including climate, DBH, and year for Barro Colorado Nature Monument (Panama)"
-GLS_HKK_legend = "Figure S11. Best GLS models including climate and DBH for Huai Kha Khaeng (Thailand)"
-GLS_HKK_year_legend = "Figure S12. Best GLS models including climate, DBH, and year for Huai Kha Khaeng (Thailand)"
-GLS_SCBI_legend = "Figure S13. Best GLS models including climate and DBH for the Smithsonian Conservation Biology Institute (Virginia, USA)"
-GLS_SCBI_year_legend = "Figure S14. Best GLS models including climate, DBH, and year for the Smithsonian Conservation Biology Institute (Virginia, USA)"
-GLS_LDW_legend = "Figure S15. Best GLS models including climate and DBH for Lilley Dickey Woods (Indiana, USA)"
-GLS_LDW_year_legend = "Figure S16. Best GLS models including climate, DBH, and year for Lilley Dickey Woods (Indiana, USA)"
-GLS_HF_legend = "Figure S17. Best GLS models including climate and DBH for Harvard Forest (Massachusetts, USA) "
-GLS_HF_year_legend = "Figure S18. Best GLS models including climate, DBH, and year for Harvard Forest (Massachusetts, USA) "
-GLS_ZOF_legend = "Figure S19. Best GLS models including climate and DBH for Zofin Forest (Czech Republic)"
-GLS_ZOF_year_legend = "Figure S20. Best GLS models including climate, DBH, and year for Zofin Forest (Czech Republic)"
-GLS_NIO_legend = "Figure S21. Best GLS models including climate and DBH for Niobrara (Nebraska, USA)"
-GLS_NIO_year_legend = "Figure S22. Best GLS models including climate, DBH, and year for Niobrara (Nebraska, USA)"
-GLS_LT_legend = "Figure S23. Best GLS models including climate and DBH for Little Tesuque (New Mexico, USA)"
-GLS_LT_year_legend = "Figure S24. Best GLS models including climate, DBH, and year for Little Tesuque (New Mexico, USA)"
-GLS_CB_legend = "Figure S25. Best GLS models including climate and DBH for Cedar Breaks (Utah, USA)"
-GLS_CB_year_legend = "Figure S26. Best GLS models including climate, DBH, and year for Cedar Breaks (Utah, USA)"
-GLS_SC_legend = "Figure S27. Best GLS models including climate and DBH for Scotty Creek (Northwest Territory, Canada)"
-GLS_SC_year_legend = "Figure S28. Best GLS models including climate, DBH, and year for Scotty Creek (Northwest Territory, Canada)"
+climwin_sameV_sameW_legend = "Figure S15. (PRE at SCBI)"
+climwin_sameV_diffW_legend = "Figure S16. (PET at SCBI)"
+climwin_diffV_diffW_legend = "Figure S17. (TMX/TMP at HKK)"
 
-SC_1970break_legend = "Figure S29. Climate responses at Scotty Creek (Northwest Territory, Canada) before and after 1970."
+GLS_BCNM_legend = "Figure S18. Best GLS models including climate and DBH for Barro Colorado Nature Monument (Panama)"
+GLS_BCNM_year_legend = "Figure S19. Best GLS models including climate, DBH, and year for Barro Colorado Nature Monument (Panama)"
+GLS_HKK_legend = "Figure S20. Best GLS models including climate and DBH for Huai Kha Khaeng (Thailand)"
+GLS_HKK_year_legend = "Figure S21. Best GLS models including climate, DBH, and year for Huai Kha Khaeng (Thailand)"
+GLS_SCBI_legend = "Figure S22. Best GLS models including climate and DBH for the Smithsonian Conservation Biology Institute (Virginia, USA)"
+GLS_SCBI_year_legend = "Figure S23. Best GLS models including climate, DBH, and year for the Smithsonian Conservation Biology Institute (Virginia, USA)"
+GLS_LDW_legend = "Figure S24. Best GLS models including climate and DBH for Lilley Dickey Woods (Indiana, USA)"
+GLS_LDW_year_legend = "Figure S25. Best GLS models including climate, DBH, and year for Lilley Dickey Woods (Indiana, USA)"
+GLS_HF_legend = "Figure S26. Best GLS models including climate and DBH for Harvard Forest (Massachusetts, USA) "
+GLS_HF_year_legend = "Figure S27. Best GLS models including climate, DBH, and year for Harvard Forest (Massachusetts, USA) "
+GLS_ZOF_legend = "Figure S28. Best GLS models including climate and DBH for Zofin Forest (Czech Republic)"
+GLS_ZOF_year_legend = "Figure S29. Best GLS models including climate, DBH, and year for Zofin Forest (Czech Republic)"
+GLS_NIO_legend = "Figure S30. Best GLS models including climate and DBH for Niobrara (Nebraska, USA)"
+GLS_NIO_year_legend = "Figure S31. Best GLS models including climate, DBH, and year for Niobrara (Nebraska, USA)"
+GLS_LT_legend = "Figure S32. Best GLS models including climate and DBH for Little Tesuque (New Mexico, USA)"
+GLS_LT_year_legend = "Figure S33. Best GLS models including climate, DBH, and year for Little Tesuque (New Mexico, USA)"
+GLS_CB_legend = "Figure S34. Best GLS models including climate and DBH for Cedar Breaks (Utah, USA)"
+GLS_CB_year_legend = "Figure S35. Best GLS models including climate, DBH, and year for Cedar Breaks (Utah, USA)"
+GLS_SC_legend = "Figure S36. Best GLS models including climate and DBH for Scotty Creek (Northwest Territory, Canada)"
+GLS_SC_year_legend = "Figure S37. Best GLS models including climate, DBH, and year for Scotty Creek (Northwest Territory, Canada)"
 
-RW_interactions_all_legend = "Figure S30. (RW_interactions_all)"
-BAI_interactions_all_legend ="Figure S31. (BAI_interactions_all)"
+SC_1970break_legend = "Figure S38. Climate responses at Scotty Creek (Northwest Territory, Canada) before and after 1970."
 
-decadal_plot_BCNM_legend = "Figure S32. (Decadal BCNM)"
-decadal_plot_HKK_legend = "Figure S33. (Decadal HKK)"
-decadal_plot_SCBI_legend = "Figure S34. (Decadal SCBI)"
-decadal_plot_LDW_legend = "Figure S35. (Decadal LDW)"
-decadal_plot_HF_legend = "Figure S36. (Decadal HF)"
-decadal_plot_ZOF_legend = "Figure S37. (Decadal ZOF)"
-decadal_plot_NIO_legend = "Figure S38. (Decadal NIO)"
-decadal_plot_LT_legend = "Figure S39. (Decadal LT)"
-decadal_plot_CB_legend = "Figure S40. (Decadal CB)"
-decadal_plot_SC_legend = "Figure S41. (Decadal SC)"
+RW_interactions_all_legend = "Figure S39. (RW_interactions_all)"
+BAI_interactions_all_legend ="Figure S40. (BAI_interactions_all)"
+
+decadal_plot_BCNM_legend = "Figure S41. (Decadal BCNM)"
+decadal_plot_HKK_legend = "Figure S42. (Decadal HKK)"
+decadal_plot_SCBI_legend = "Figure S43. (Decadal SCBI)"
+decadal_plot_LDW_legend = "Figure S44. (Decadal LDW)"
+decadal_plot_HF_legend = "Figure S45. (Decadal HF)"
+decadal_plot_ZOF_legend = "Figure S46. (Decadal ZOF)"
+decadal_plot_NIO_legend = "Figure S47. (Decadal NIO)"
+decadal_plot_LT_legend = "Figure S48. (Decadal LT)"
+decadal_plot_CB_legend = "Figure S49. (Decadal CB)"
+decadal_plot_SC_legend = "Figure S50. (Decadal SC)"
+
 
 # ~~~~~~~~~~ (below here does not need to be copied to main doc) ~~~~~~~~~~
 # Generic legends
@@ -480,6 +498,59 @@ nocite: |
 
 **Indicates results from a regional study not including the focal site, but believed to be representative.
 
+
+\newpage
+
+## `r recruitment_plot_BCNM_legend`
+
+![`r recruitment_plot_BCNM_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_BCI.png){ width=50% }
+
+\newpage
+## `r recruitment_plot_HKK_legend`
+
+![`r recruitment_plot_HKK_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_HKK.png){ width=50% }
+
+\newpage
+## `r recruitment_plot_SCBI_legend`
+
+![`r recruitment_plot_SCBI_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_SCBI.png){ width=50% }
+\newpage
+
+## `r recruitment_plot_LDW_legend`
+
+![`r recruitment_plot_LDW_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_LillyDickey.png){ width=50% }
+
+\newpage
+## `r recruitment_plot_HF_legend`
+
+![`r recruitment_plot_HF_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_HarvardForest.png){ width=50% }
+
+\newpage
+## `r recruitment_plot_ZOF_legend`
+
+![`r recruitment_plot_ZOF_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_Zofin.png){ width=50% }
+
+\newpage
+## `r recruitment_plot_NIO_legend`
+
+![`r recruitment_plot_NIO_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_Niobara.png){ width=50% }
+
+
+\newpage
+## `r recruitment_plot_LT_legend`
+
+![`r recruitment_plot_LT_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_NewMexico.png){ width=50% }
+
+\newpage
+## `r recruitment_plot_CB_legend`
+
+![`r recruitment_plot_CB_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_CedarBreaks.png){ width=50% }
+
+\newpage
+## `r recruitment_plot_SC_legend`
+
+![`r recruitment_plot_SC_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_ScottyCreek.png){ width=50% }
+
 \newpage 
 ## `r SCBI_traditional_comparison_legend`
 **Precipitation**
@@ -740,10 +811,13 @@ nocite: |
 ## `r decadal_plot_CB_legend`
 
 ![`r decadal_plot_CB_legend`](tables_figures/SI_figures/decadal_plots/CB.png){ width=100% }
+
 \newpage
 ## `r decadal_plot_SC_legend`
 
 ![`r decadal_plot_SC_legend`](tables_figures/SI_figures/decadal_plots/SC.png){ width=100% }
+
+
 
 \newpage
 ## SI References
