@@ -617,6 +617,7 @@ Across diverse climates and forest types (Tables `r sites`, `r species_table`), 
 and negatively to temperature (usually $T_{max}$ or $PET$), with the exception of several positive responses at times and in places where temperature was limiting (Fig. `r clim_sens`).
 *(Discuss how this fits with regional to global-scale studies)*
 [@martinbenito_convergence_2015] 
+[@babst_twentieth_2019]
 
 While our approach identifies similar climate sensitivities to those that would be identified using conventional methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`;  Table `r qualitative_results_comparison`), it differs in some substantive ways.
 First, in determining the most important climate drivers (step 1; Fig. `r schematic`), we consider the full sample of individual cores, as opposed to a residual chronology in which variance has been standardized and the individual cores have been averaged. 
