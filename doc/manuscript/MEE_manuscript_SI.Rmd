@@ -520,7 +520,8 @@ nocite: |
 \newpage
 ## `r recruitment_plot_SCBI_legend`
 
-![`r recruitment_plot_SCBI_legend` `r recruitment_generic_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_SCBI.png){ width=47% }
+![`r recruitment_plot_SCBI_legend` `r recruitment_generic_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_SCBI.png){ width=90% }
+
 \newpage
 
 ## `r recruitment_plot_LDW_legend`
