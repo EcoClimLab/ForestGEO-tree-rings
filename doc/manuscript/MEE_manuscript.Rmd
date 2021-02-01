@@ -617,7 +617,9 @@ Across diverse climates and forest types (Tables `r sites`, `r species_table`), 
 and negatively to temperature (usually $T_{max}$ or $PET$), with the exception of several positive responses at times and in places where temperature was limiting (Fig. `r clim_sens`).
 *(Discuss how this fits with regional to global-scale studies)*
 [@martinbenito_convergence_2015] 
-[@babst_twentieth_2019]
+Our findings are consistent with the global-scale analysis of [@babst_twentieth_2019], which shows that the majority of forests globally are moisture limited and respond negatively to temperature, with a shrinking area of temperature-limited forests in cold, humid regions (with SC falling near the transition zone). 
+Within warmer regions, forests in humid climates can benefit from warm winter or spring temperatures, as we show for all three species at ZOF and one of our species at HF.
+*However, the observed interactions between tree size and climate sensitivity, with larger trees tending to be more sensitive (), implies that this and other analyses based on the ITRDB likely exaggerate the climate sensitivity of whole-forest  woody productivity.* 
 
 While our approach identifies similar climate sensitivities to those that would be identified using conventional methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`;  Table `r qualitative_results_comparison`), it differs in some substantive ways.
 First, in determining the most important climate drivers (step 1; Fig. `r schematic`), we consider the full sample of individual cores, as opposed to a residual chronology in which variance has been standardized and the individual cores have been averaged. 
