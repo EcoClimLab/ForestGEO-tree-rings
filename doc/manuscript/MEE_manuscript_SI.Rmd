@@ -232,15 +232,19 @@ The site underwent a widespread, catastrophic disturbance in the mid-1800s and s
 ### Harvard Forest, USA
 
 ### $\v{Z}$of$\'{i}$n Forest Dynamics Plot, Czech Republic
-
+The Zofin forest is not fully without past human direct interventions, a limited historical land use effect is also possible [see @kozakova_contrasting_2011].
+Acid deposition dramatically reduced growth in the late 20th century, with peak influence between the 1970s and the early 1990s [@elling_dendroecological_2009; @samonil_long-term_2008].
 
 ### Niobrara, Nebraska, USA
 Riparian site
 BEPA are growing on N facing slopes near stream
 
 ### Little Tesuque, New Mexico, USA
+[@williams_temperature_2013]
 
 ### Cedar Breaks, Utah, USA
+
+has tree-ring records dating back to 0 AD (Cooper & Lutz, unpublished data)
 
 ### Scotty Creek, Northwest Territories, Canada
 melting permafrost
