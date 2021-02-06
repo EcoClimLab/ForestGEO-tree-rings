@@ -24,16 +24,17 @@ options(knitr.table.format = "latex")
 library(knitr)
 library(kableExtra)
 sites <- read.csv("sites.csv", stringsAsFactors = FALSE, check.names = FALSE)
-sites_table <- subset(sites, select = -c(MAT) ) #drop MAT column
+sites_table <- subset(sites, select = -c(MAT, JulyTsd, JanTsd, MAPsd) ) #drop MAT column, plus columns with sd
 kable(sites_table, format = "latex", booktabs = TRUE,  escape = F)%>%
   add_header_above(c(" ", " "," ", "1950 - 2019 climate" = 3, " " , " "," "," ")) %>%
   column_spec(1, width = "1cm") %>%
   column_spec(2, width = "3cm") %>%
   column_spec(3, width = "3cm") %>%
+  column_spec(4:6, width = "1cm") %>%
   #column_spec(6, width = ".5cm") %>%
   column_spec(7, width = "1.4cm") %>%
   column_spec(8, width = "1cm") %>%
   #column_spec(9, width = "2cm") %>%
-  column_spec(10, width = "3cm") %>%
+  column_spec(10, width = "4cm") %>%
   kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
 ```

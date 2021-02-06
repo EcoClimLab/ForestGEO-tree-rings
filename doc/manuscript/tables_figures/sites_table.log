@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  6 FEB 2021 10:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  6 FEB 2021 11:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -858,24 +858,23 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 110.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 110.
  ) 
 Here is how much of TeX's memory you used:
- 15346 strings out of 492616
- 226434 string characters out of 6129482
- 365697 words of memory out of 5000000
+ 15344 strings out of 492616
+ 226410 string characters out of 6129482
+ 368697 words of memory out of 5000000
  19016 multiletter control sequences out of 15000+600000
- 20252 words of font info for 39 fonts, out of 8000000 for 9000
+ 20169 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,13n,38p,810b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,14n,38p,810b,336s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/
-texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/20
-19/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2019/texmf-d
-ist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2019/texmf-dist/fonts/type
-1/public/lm/lmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/l
-m/lmmi7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmr10.pfb
-></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
-Output written on sites_table.pdf (1 page, 48657 bytes).
+texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/20
+19/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2019/texmf-dist/
+fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type
+1/public/lm/lmmi7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm
+/lmr10.pfb>
+Output written on sites_table.pdf (1 page, 45378 bytes).
 PDF statistics:
- 36 PDF objects out of 1000 (max. 8388607)
- 28 compressed objects within 1 object stream
+ 31 PDF objects out of 1000 (max. 8388607)
+ 24 compressed objects within 1 object stream
  3 named destinations out of 1000 (max. 500000)
  4097 words of extra memory for PDF output out of 10000 (max. 10000000)
 
