@@ -25,7 +25,6 @@ Christy Rollinson^3^,
 Bianca Gonzalez^1^,
 Erika B. Gonzalez-Akre^1^,
 Neil Pederson^4^,
-Camille Piponiot^1,2^,
 Ross Alexander,
 Craig D. Allen,
 Raquel Alfaro-Sánchez^wl^,
@@ -43,6 +42,7 @@ James Lutz,
 Ellis Q. Margolis,
 Justin Maxwell^jm^,
 Sean McMahon^2^,
+Camille Piponiot^1,2^,
 Sabrina Russo,
 [Pavel Šamonil^cz^](0000-0002-7722-8797),
 Anastasia Sniderhan^wl^,
@@ -345,7 +345,7 @@ In using this diversity of data sources, we ensured that our approach was able t
 ```
 ---
 nocite: | 
-  @vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @alfaro-sanchez_growth_2017; @helcoski_growing_2019 @gonzalez-akre_scbi-forestgeoscbi-forestgeo-data_2020-1; @bumann_assessing_2019; @samonil_individual-based_2013; @kaspar_species-specific_nodate; @alexander_potential_2019; @finzi_carbon_2020
+  @vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @alfaro-sanchez_growth_2017; @helcoski_growing_2019 @gonzalez-akre_scbi-forestgeoscbi-forestgeo-data_2020-1; @bumann_assessing_2019; @samonil_individual-based_2013; @kaspar_species-specific_nodate; @alexander_potential_2019; @finzi_carbon_2020; @birch_birch_2020; @birch_birch_2020-2; @birch_birch_2020-3; @birch_birch_2020-4
 ---
 
 All tree cores were cross-dated and measured by the original researchers using standard dendrochronological practices [@stokes_introduction_1968]. 
