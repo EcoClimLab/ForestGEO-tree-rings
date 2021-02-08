@@ -508,7 +508,7 @@ At the highest-latitude site (SC), which has undergone rapid warming and permafr
 ```{r , eval=TRUE, echo=FALSE}
 ## Tallies for the  paragraph below (Feb 8)
 n_spst_DBH_analyzed= 43 # n species with DBH analyzed: 43 (45 - 2: 2 Hansley)
-n_spst_RW_DBH_sig=35 #  species with sig first-order linear DBH term
+n_spst_RW_DBH_bm=35 #  species with first-order linear DBH term in best model
 n_spst_RW_DBH_2nd_order=26
 n_spst_RW_DBH_2nd_order_neg=21
 n_spst_BAI_DBH_best_model=42 #exception: ACRU at HF  
@@ -519,7 +519,7 @@ n_spst_dAGB_DBH_best_model=42 # exception: PILO at CB
 ```
 
 **All three growth metrics, $RW$, $BAI$, and $\Delta AGB$, varied with $DBH$ for most species at all sites (Fig. `r size`).** 
-$RW$ varied significantly with $DBH$ for `r round(n_spst_RW_DBH_sig/ n_spst_DBH_analyzed*100)`% of species-site combinations (n= `r n_spst_RW_DBH_sig` of `r n_spst_DBH_analyzed`), and the majority of best models included a significant second-order linear $DBH$ term (n= `r n_spst_RW_DBH_2nd_order`, `r n_spst_RW_DBH_2nd_order_neg` of which were negative). 
+For $RW$, $DBH$ was included in the best model for `r round(n_spst_RW_DBH_bm/ n_spst_DBH_analyzed*100)`% of species-site combinations (n= `r n_spst_RW_DBH_bm` of `r n_spst_DBH_analyzed`), and the majority of best models also included a significant second-order linear $DBH$ term (n= `r n_spst_RW_DBH_2nd_order`, `r n_spst_RW_DBH_2nd_order_neg` of which were negative). 
 There was substantial variation in these trends, with patterns mixed across both forests and species within a single stand (Fig. `r size`).
 On one end of the spectrum, some species exhibited maximum $RW$ at low $DBH$, followed by fairly rapid declines in $RW$ with increasing $DBH$. 
 Species following this pattern either had low to at most intermediate shade tolerance (e.g., *Melia azedarach* at HKK, *Juglans nigra* at SCBI, *Acer rubrum* at HF, *Betula papyrifera* at NIO; *Populous tremuloides* at CB; Table `r species_table`) and/or grew in relatively open stands (e.g., both species at LT, *Picea mariana* at SC; Fig. `r size`).
@@ -641,7 +641,7 @@ In fact, a recent literature survey revealed that such non-stationarity in the c
 
 ## Variation with $DBH$  {-#Variation}
 
-Growth rate--whether measured as $RW$, $BAI$, or $\Delta AGB$-- varied nonlinearly with $DBH$ for the vast majority of site-species combinations (`r round(n_spst_RW_DBH_sig/ n_spst_DBH_analyzed*100)` - `r round(n_spst_dAGB_DBH_best_model/ n_spst_DBH_analyzed*100)`% depending on growth metric; Fig. `r size`). 
+Growth rate--whether measured as $RW$, $BAI$, or $\Delta AGB$-- varied nonlinearly with $DBH$ for the vast majority of site-species combinations (`r round(n_spst_RW_DBH_bm/ n_spst_DBH_analyzed*100)` - `r round(n_spst_dAGB_DBH_best_model/ n_spst_DBH_analyzed*100)`% depending on growth metric; Fig. `r size`). 
 Variation in these patterns--particularly for $RW$, for which variation was most pronounced--was driven by two primary, interrelated factors: species ecology and stand history.
 Species that would have established in fairly open conditions--*i.e.*, shade-intolerant species (Table `r species_table`) and those at sites with more open canopies (e.g., LT, SC)-- exhibited rapid initial growth, measured as $RW$, followed by a roughly exponential decline.
 Such patterns are consistent with dendrochronology's "textbook" patterns of studies primarily based on trees that established in high-light environments [@fritts_tree_1976; @biondi_theory-driven_2008].
