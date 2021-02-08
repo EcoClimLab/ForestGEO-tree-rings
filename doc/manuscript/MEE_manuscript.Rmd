@@ -427,7 +427,7 @@ While one-to-one correspondence of estimated climate coefficients was neither ex
 ![**Figure 2 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table `r species_table`) to potential evapotranspiration ($PET$). Panel (**a**) shows a matrix of Pearson correlations between ring-width index and monthly climate variables [produced using the bootRes package in R; @zang_dendroclimatic_2013]. Black rectangle represents the period selected by *climwin* as the most influential window. Panels (**b-d**) give statistics for time windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diagonal indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each time window, and (**d**) gives the $\Delta AIC$ for each. The time window with the minimum $\Delta AIC$ (1-3 months prior to August, or May-July; black circles), was identified as the optimal window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows GLS model output, where $PET$ was a candidate driver variable (along with $PPT$; $DBH$ not included in this model). Plotted are responses of species for which $PET$ was included in the top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are significant, dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals.](tables_figures/quilt_comparison.png)
 
 ```{r , eval=FALSE, echo=FALSE}
-## Tallies for the following paragraph (Jan 12)
+## Tallies for the following paragraph (Feb 8)
 #sameV_sameW: LDWp, NMt,NMp, NIOt, NIOp, SCBIp,  ZOFp,ZOFt,  (8)
 #sameV_diffW: BCNMp, BCNMt, HFt, HKKp, LDWt,  SCBIt, SCp,SCt,  CBp, CBt (10)
 #diffV_diffW: HFp, HKKt
@@ -439,7 +439,7 @@ Finally, in two cases of variables that had only weak effects and mixed response
 Henceforth, unless otherwise noted, we focus on the climate sensitivities identified with $RW$ as the growth metric and for the full set of cores (*i.e.*, including those for which $DBH$ could not be reconstructed).
 
 ```{r , eval=FALSE, echo=FALSE}
-## Tallies for the paragraph below (as of Jan 12)
+## Tallies for the paragraph below (Feb 8)
 #BCNM: 1 species with both, 2 with just P
 #HKK: 3 species with both, 1 with just T (CHTA)
 #SCBI: 11 species with both, 3 with just P (FRNI, FAGR, PIST)
@@ -460,7 +460,7 @@ Below, we summarize the precipitation and temperature variables included in thes
 ![**Figure 3 | Species-level responses of $RW$ to climwin-selected variables in precipitation and temperature variable groups.** *Climwin*-selected climate variables are coded on the x-axes as the climate variable name followed by the range of months (p=previous year, c=current year) over which it is most influential. For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. For each relationship shown, other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/pre_temp_groups.png)
 
 ```{r , eval=TRUE, echo=FALSE}
-## Tallies for the  paragraph below (Jan12)
+## Tallies for the  paragraph below (Feb 8)
 
 ###Variables selected: 
 #PPT over PDF: 8 sites with both. PDF selected in HKK, HF, ZOF, Niobrara
@@ -506,7 +506,7 @@ At the highest-latitude site (SC), which has undergone rapid warming and permafr
 ## Influence of DBH {-#Influence}
 
 ```{r , eval=TRUE, echo=FALSE}
-## Tallies for the  paragraph below (Jan12)
+## Tallies for the  paragraph below (Feb 8)
 n_spst_DBH_analyzed= 43 # n species with DBH analyzed: 43 (45 - 2: 2 Hansley)
 n_spst_RW_DBH_sig=35 #  species with sig first-order linear DBH term
 n_spst_RW_DBH_2nd_order=26
@@ -545,7 +545,7 @@ However, there were exceptions, particularly when $RW$ decreased steeply with $D
 
 
 ```{r , eval=TRUE, echo=FALSE}
-## Tallies for the  paragraph below (Jan6)
+## Tallies for the  paragraph below (Feb8)
 n_DBHx_analyzed=204 #n rows in climate_interactions_coefficients, excluding Hansley
 n_DBHx_analyzed_sig=88
 #precip:
@@ -580,7 +580,7 @@ For both $RW$ and $BAI$, the majority of significant negative interactions (*i.e
 ## Effects of year {-#Effects}
 
 ```{r , eval=TRUE, echo=FALSE}
-## Tallies for the  paragraph below (Jan12)
+## Tallies for the  paragraph below (Feb8)
 n_tested=37 #same for all metrics
 n_best_model_RW=30
 n_best_model_BAI=32
