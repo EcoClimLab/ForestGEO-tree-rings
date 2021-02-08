@@ -26,30 +26,30 @@ Bianca Gonzalez^1^,
 Erika B. Gonzalez-Akre^1^,
 Neil Pederson^4^,
 Ross Alexander^5^,
-Craig D. Allen,
-Raquel Alfaro-Sánchez^wl^,
-Tala Awada,
-Jennifer L. Baltzer^wl^,
-Patrick J. Baker,
-Sarayudh Bunyavejchewin,
-Paolo Cherubini,
-Justin Cooper,
+Craig D. Allen^6^,
+Raquel Alfaro-Sánchez^7^,
+Tala Awada^8^,
+Jennifer L. Baltzer^7^,
+Patrick J. Baker^9^,
+Sarayudh Bunyavejchewin^10^,
+Paolo Cherubini^11^,
+Justin Cooper^12^,
 Stuart J. Davies^2^,
-Cameron Dow^1^,
+Cameron Dow^1,13^,
 Ryan Helcoski^1^,
-[Jakub Kašpar^cz^](0000-0003-1780-6310),
-James Lutz,
-Ellis Q. Margolis,
-Justin Maxwell^jm^,
-Sean McMahon^2^,
-Camille Piponiot^1,2^,
-Sabrina Russo,
-[Pavel Šamonil^cz^](0000-0002-7722-8797),
-Anastasia Sniderhan^wl^,
-Alan J. Tepley^1,at^,
-[Ivana Vašíčková^cz^](0000-0002-6070-5956), 
-Mart Vlam,
-Peter Zuidema
+[Jakub Kašpar](0000-0003-1780-6310)^14^,
+[James Lutz]( 0000-0002-2560-0710)^12^,
+Ellis Q. Margolis^6^,
+Justin Maxwell^15^,
+Sean McMahon^2,16^,
+Camille Piponiot^1,2, 17^,
+Sabrina Russo^8^,
+[Pavel Šamonil](0000-0002-7722-8797)^14^,
+Anastasia Sniderhan^7^,
+Alan J. Tepley^1,18^,
+[Ivana Vašíčková](0000-0002-6070-5956)^14^, 
+Mart Vlam^19^,
+Peter Zuidema^19^
 
 
 **Author Affiliations:**
@@ -64,13 +64,35 @@ Peter Zuidema
 
 5. Midwest Dendro LLC, Naperville, Illinois 60565 USA
 
-wl. Biology Department, Wilfrid Laurier University, 75 University Ave W, Waterloo, ON, N2L 3C5
+6. U.S. Geological Survey, Fort Collins Science Center, Jemez Mountains Field Station, Los Alamos, NM 87544, USA
 
-at. Canadian Forest Service, Northern Forestry Centre, Edmonton, Alberta, Canada
+7. Biology Department, Wilfrid Laurier University, 75 University Ave W, Waterloo, ON, N2L 3C5
 
-cz. Department of Forest Ecology, The Silva Tarouca Research Institute for Landscape and Ornamental Gardening, Lidická 25/27, 602 00 Brno, Czech Republic
+8. School of Natural Resources, University of Nebraska-Lincoln, Lincoln, NE 68583, USA
 
-jm. Department of Geography, Indiana University, Bloomington, Indiana, USA
+9. School of Biological Sciences, Monash University, Clayton, Victoria 3800, Australia
+
+10. National Parks Wildlife and Plant Conservation Department, Chatuchak, Bangkok 10900, Thailand
+
+11. Swiss Federal Institute for Forest, Snow and Landscape Research, CH-8903 Birmensdorf, Switzerland
+
+12. S. J. & Jessie E. Quinney College of Natural Resources and the Ecology Center, Utah State University, Logan, UT 84322, USA
+
+13. Department of Forestry, Purdue University, West Lafayette, IN 47907, USA
+
+14. Department of Forest Ecology, The Silva Tarouca Research Institute for Landscape and Ornamental Gardening, Lidická 25/27, 602 00 Brno, Czech Republic
+
+15. Department of Geography, Indiana University, Bloomington, Indiana, USA
+
+16. Smithsonian Environmental Research Center, Edgewater, MD, USA
+
+17. CIRAD, Montpellier, France
+
+18. Canadian Forest Service, Northern Forestry Centre, Edmonton, Alberta, Canada
+
+19. Forest Ecology and Forest Management Group, Wageningen; Wageningen, The Netherlands
+
+
 
 *corresponding author: teixeirak@si.edu; +1 540 635 6546
 
