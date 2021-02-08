@@ -374,7 +374,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
   reference_date <- reference_dates[[site]]
   window_range <-  window_ranges[[site]]
   
-  # if(!detrend_climate & !old_records_only & !young_records_only) file.remove(list.files("results/residuals_by_tag_examples/", pattern = site, full.names = T))
+  if(!detrend_climate & !old_records_only & !young_records_only) file.remove(list.files("results/residuals_by_tag_examples/", pattern = site, full.names = T))
   
   variables_dropped[[site]] <- list()
   
@@ -436,7 +436,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
       test <- gam(Y~ s(Year), data = x)
       
       
-      if(!detrend_climate & !old_records_only & !young_records_only & FALSE) { # rbinom(1, 1, 0.05)==1) {
+      if(!detrend_climate & !old_records_only & !young_records_only & rbinom(1, 1, 0.05)==1) {
         png(paste0('results/residuals_by_tag_examples/', paste(x$species_code[1], x$tree_status[1], t, sep = "_" ), "_", gsub("log_", "", what), "_Year_GAM", "_", site, '.png'),
             width = 8,
             height =8,
@@ -445,11 +445,14 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
 
 
         par(mfrow = c(3,2))
-        plot(test)
+        # plot(test)
         gam.check(test,pch=19,cex=.3)
 
         plot(Y~ Year, data = x, main = "Raw data")
-        points(test$fitted.values ~ x$Year, type = "l")
+        
+        plot(Y~ Year, data = x, main = "Raw data")
+        lines(test$fitted.values ~ x$Year)
+        segments(x0 = x$Year, y0 = x$Y, x1 = x$Year, y1 = test$fitted.values)
 
         title(paste(x$species_code[1], x$tree_status[1], t, sep = " - " ), outer = T, line = -2)
 
