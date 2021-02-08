@@ -334,7 +334,7 @@ This approach allows us to ask:
 
 We analyzed tree-ring data, most previously collected, from ten sites ranging from 9.15$^\circ$ to 61.30$^\circ$ N latitude and representing a wide range of forest and tree types: tropical broadleaf deciduous and evergreen, temperate broadleaf deciduous and needleleaf evergreen, and boreal needleleaf evergreen (Tables `r sites`, `r site_details`, `r species_table`).
 Nine of these sites (exception: LT) are large forest dynamics plots of the Forest Global Earth Observatory [ForestGEO; @anderson-teixeira_ctfs-forestgeo_2015; @davies_forestgeo_2021].
-Trees of species represented within the ForestGEO plots were cored within the plot (n=#) and/or within 10 km (n=#), following a variety of sampling protocols designed to meet the varied objectives of the original studies (Tables `r site_details`, `r sampling_details_table`). 
+Trees of species represented within the ForestGEO plots were cored within the plot (n=5) and/or within 10 km (n=6), following a variety of sampling protocols designed to meet the varied objectives of the original studies (Tables `r site_details`, `r sampling_details_table`). 
 There was wide variation in the distribution of record start years, which reflect--with some error--the age distribution of trees cored (Figs. `r all_recruitment_plots`).
 In using this diversity of data sources, we ensured that our approach was able to handle challenges presented by varying methodologies and forest types.
 
