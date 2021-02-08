@@ -20,7 +20,7 @@
 "JUNI","Juglandaceae","Juglans nigra","SCBI","broadleaf","deciduous (cold)","light-demanding","12"
 "LITU","Magnoliaceae","Liriodendron tulipifera","LDW, SCBI","broadleaf","deciduous (cold)","light-demanding","13"
 "MEAZ","Meliaceae","Melia azedarach ","HKK","broadleaf","deciduous (drought)","light-demanding","neglected"
-"PIAB","Pinaceae","Picea abies","HF","needleleaf","evergreen","shade-tolerant","14"
+"PIAB","Pinaceae","Picea abies","HF, ZOF","needleleaf","evergreen","shade-tolerant","14"
 "PIEN","Pinaceae","Picea engelmannii","CB","needleleaf","evergreen","shade-tolerant","14"
 "PIFL","Pinaceae","Pinus flexilis","CB","needleleaf","evergreen","light-demanding","17"
 "PILO","Pinaceae","Pinus longaeva","CB","needleleaf","evergreen","light-demanding","neglected"

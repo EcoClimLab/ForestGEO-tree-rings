@@ -21,7 +21,7 @@ sites_abb <- list(BCI  = "BCNM",
                   Zofin = "ZOF",
                   ScottyCreek = "SC")
 # load data ####
-species_list <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data/species%20list/sitespecies.csv?token=AEWDCIIINNRMGNBGXZZ55OTAAIMD2")
+species_list <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data/species%20list/sitespecies.csv?token=AEWDCIMXNGUER5NHFFPP2BTAFKEME")
 
 load("results/log_core_measurement/BCI_all_env.RData")
 

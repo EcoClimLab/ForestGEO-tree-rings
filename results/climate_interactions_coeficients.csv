@@ -7,6 +7,10 @@
 "log_BAI_dbh","BCI","TEPA","water","log_BAI ~ dbh + pre + I(pre^2) + dbh:pre","pre",3.99543788763479e-06,0.766828307446116
 "log_BAI_dbh","BCI","TRTU","water","log_BAI ~ dbh + pre + I(pre^2) + tmn + dbh:pre","pre",-2.47369746307905e-05,0.107336446166546
 "log_BAI_dbh","BCI","TRTU","temperature","log_BAI ~ dbh + pre + I(pre^2) + tmn + dbh:tmn","tmn",-0.00296608488199903,0.0354098067527467
+"log_core_measurement_dbh","CedarBreaks","PSME","water","log_core_measurement ~ dbh + pre + I(pre^2) + tmx + dbh:pre","pre",4.18091441785266e-05,0.104241828094143
+"log_core_measurement_dbh","CedarBreaks","PSME","temperature","log_core_measurement ~ dbh + pre + I(pre^2) + tmx + dbh:tmx","tmx",-0.000490569058565857,0.161954563078215
+"log_core_measurement_dbh","CedarBreaks","POTR","water","log_core_measurement ~ dbh + pre + tmx + I(tmx^2) + dbh:pre","pre",0.000112305027239896,0.0171678822927816
+"log_core_measurement_dbh","CedarBreaks","POTR","temperature","log_core_measurement ~ dbh + pre + tmx + I(tmx^2) + dbh:tmx","tmx",-0.00213004585611616,0.000458164195490121
 "log_core_measurement_dbh","CedarBreaks","ABBI","water","log_core_measurement ~ dbh + pre + I(pre^2) + tmx + dbh:pre","pre",4.36447424908976e-05,0.00202206367318577
 "log_core_measurement_dbh","CedarBreaks","ABBI","temperature","log_core_measurement ~ dbh + pre + I(pre^2) + tmx + dbh:tmx","tmx",0.000295919180851226,0.126782250495049
 "log_core_measurement_dbh","CedarBreaks","PIEN","water","log_core_measurement ~ dbh + pre + I(pre^2) + tmx + dbh:pre","pre",5.68572439482956e-06,0.840575580569545
@@ -16,10 +20,8 @@
 "log_core_measurement_dbh","CedarBreaks","PILO","water","log_core_measurement ~ dbh + pre + I(pre^2) + dbh:pre","pre",-0.000143232902474035,0.479190151266523
 "log_core_measurement_dbh","CedarBreaks","PIPU","water","log_core_measurement ~ dbh + pre + I(pre^2) + tmx + I(tmx^2) + dbh:pre","pre",3.94436536209768e-05,0.0292596656046687
 "log_core_measurement_dbh","CedarBreaks","PIPU","temperature","log_core_measurement ~ dbh + pre + I(pre^2) + tmx + I(tmx^2) + dbh:tmx","tmx",-0.000666444982345254,0.00578317714669886
-"log_core_measurement_dbh","CedarBreaks","POTR","water","log_core_measurement ~ dbh + pre + tmx + I(tmx^2) + dbh:pre","pre",0.000112305027239896,0.0171678822927816
-"log_core_measurement_dbh","CedarBreaks","POTR","temperature","log_core_measurement ~ dbh + pre + tmx + I(tmx^2) + dbh:tmx","tmx",-0.00213004585611616,0.000458164195490121
-"log_core_measurement_dbh","CedarBreaks","PSME","water","log_core_measurement ~ dbh + pre + I(pre^2) + tmx + dbh:pre","pre",4.18091441785266e-05,0.104241828094143
-"log_core_measurement_dbh","CedarBreaks","PSME","temperature","log_core_measurement ~ dbh + pre + I(pre^2) + tmx + dbh:tmx","tmx",-0.000490569058565857,0.161954563078215
+"log_agb_inc_dbh","CedarBreaks","PSME","water","log_agb_inc ~ dbh + pre + tmx + I(tmx^2) + dbh:pre","pre",4.32654505583431e-06,0.822139217437347
+"log_agb_inc_dbh","CedarBreaks","PSME","temperature","log_agb_inc ~ dbh + pre + tmx + I(tmx^2) + dbh:tmx","tmx",-0.00036288104884865,0.412528243957569
 "log_agb_inc_dbh","CedarBreaks","ABBI","water","log_agb_inc ~ dbh + pre + I(pre^2) + tmx + I(tmx^2) + dbh:pre","pre",4.21425166440871e-05,0.000255139275709675
 "log_agb_inc_dbh","CedarBreaks","ABBI","temperature","log_agb_inc ~ dbh + pre + I(pre^2) + tmx + I(tmx^2) + dbh:tmx","tmx",0.000455782653261708,0.105367273364699
 "log_agb_inc_dbh","CedarBreaks","PIEN","water","log_agb_inc ~ dbh + pre + tmx + I(tmx^2) + dbh:pre","pre",2.95937375958452e-06,0.905062841665277
@@ -30,8 +32,10 @@
 "log_agb_inc_dbh","CedarBreaks","PILO","temperature","log_agb_inc ~ pre + tmx + I(tmx^2) + tmx:dbh","tmx",-9.81313972824305e-06,0.984295371656162
 "log_agb_inc_dbh","CedarBreaks","PIPU","water","log_agb_inc ~ dbh + pre + tmx + I(tmx^2) + dbh:pre","pre",8.65284361247745e-05,1.10261560800024e-08
 "log_agb_inc_dbh","CedarBreaks","PIPU","temperature","log_agb_inc ~ dbh + pre + tmx + I(tmx^2) + dbh:tmx","tmx",-0.00123640752531143,0.000569897529321888
-"log_agb_inc_dbh","CedarBreaks","PSME","water","log_agb_inc ~ dbh + pre + tmx + I(tmx^2) + dbh:pre","pre",4.32654505583431e-06,0.822139217437347
-"log_agb_inc_dbh","CedarBreaks","PSME","temperature","log_agb_inc ~ dbh + pre + tmx + I(tmx^2) + dbh:tmx","tmx",-0.00036288104884865,0.412528243957569
+"log_BAI_dbh","CedarBreaks","PSME","water","log_BAI ~ dbh + pre + I(pre^2) + tmx + dbh:pre","pre",2.92010194793166e-05,0.141596034231645
+"log_BAI_dbh","CedarBreaks","PSME","temperature","log_BAI ~ dbh + pre + I(pre^2) + tmx + dbh:tmx","tmx",-0.000244156520806945,0.368604204037958
+"log_BAI_dbh","CedarBreaks","POTR","water","log_BAI ~ dbh + pre + tmx + dbh:pre","pre",0.000106258579184841,0.018532247462347
+"log_BAI_dbh","CedarBreaks","POTR","temperature","log_BAI ~ dbh + pre + tmx + dbh:tmx","tmx",-0.00214253625070681,0.00021695007922309
 "log_BAI_dbh","CedarBreaks","ABBI","water","log_BAI ~ dbh + pre + I(pre^2) + tmx + dbh:pre","pre",3.18982012167532e-05,0.00731034865279276
 "log_BAI_dbh","CedarBreaks","ABBI","temperature","log_BAI ~ dbh + pre + I(pre^2) + tmx + dbh:tmx","tmx",0.000119324032076372,0.465607269499766
 "log_BAI_dbh","CedarBreaks","PIEN","water","log_BAI ~ dbh + pre + I(pre^2) + tmx + dbh:pre","pre",-4.44376315913271e-06,0.861589914238434
@@ -41,30 +45,26 @@
 "log_BAI_dbh","CedarBreaks","PILO","water","log_BAI ~ dbh + pre + I(pre^2) + dbh:pre","pre",-1.79206339172027e-05,0.914014559646245
 "log_BAI_dbh","CedarBreaks","PIPU","water","log_BAI ~ dbh + pre + I(pre^2) + tmx + I(tmx^2) + dbh:pre","pre",3.93359765122128e-05,0.0133898192107374
 "log_BAI_dbh","CedarBreaks","PIPU","temperature","log_BAI ~ dbh + pre + I(pre^2) + tmx + I(tmx^2) + dbh:tmx","tmx",-0.000661559243582587,0.00183579780589949
-"log_BAI_dbh","CedarBreaks","POTR","water","log_BAI ~ dbh + pre + tmx + dbh:pre","pre",0.000106258579184841,0.018532247462347
-"log_BAI_dbh","CedarBreaks","POTR","temperature","log_BAI ~ dbh + pre + tmx + dbh:tmx","tmx",-0.00214253625070681,0.00021695007922309
-"log_BAI_dbh","CedarBreaks","PSME","water","log_BAI ~ dbh + pre + I(pre^2) + tmx + dbh:pre","pre",2.92010194793166e-05,0.141596034231645
-"log_BAI_dbh","CedarBreaks","PSME","temperature","log_BAI ~ dbh + pre + I(pre^2) + tmx + dbh:tmx","tmx",-0.000244156520806945,0.368604204037958
-"log_core_measurement_dbh","HarvardForest","ACRU","water","log_core_measurement ~ dbh + pet + wet + I(wet^2) + dbh:wet","wet",-0.00248194064139102,0.0467325610130895
-"log_core_measurement_dbh","HarvardForest","ACRU","temperature","log_core_measurement ~ dbh + pet + wet + I(wet^2) + dbh:pet","pet",0.00901572206642062,0.386308439849558
 "log_core_measurement_dbh","HarvardForest","BEAL","water","log_core_measurement ~ dbh + pet + I(pet^2) + wet + I(wet^2) + dbh:wet","wet",-0.00739770084106217,3.58869089794289e-06
 "log_core_measurement_dbh","HarvardForest","BEAL","temperature","log_core_measurement ~ dbh + pet + I(pet^2) + wet + I(wet^2) + dbh:pet","pet",0.0229255099260942,0.0992720600184381
-"log_core_measurement_dbh","HarvardForest","QURU","water","log_core_measurement ~ dbh + pet + I(pet^2) + wet + I(wet^2) + dbh:wet","wet",0.000413733850021085,4.43086753260494e-09
-"log_core_measurement_dbh","HarvardForest","QURU","temperature","log_core_measurement ~ dbh + pet + I(pet^2) + wet + I(wet^2) + dbh:pet","pet",0.00620901668447524,6.46255924112491e-26
 "log_core_measurement_dbh","HarvardForest","TSCA","water","log_core_measurement ~ dbh + pet + wet + dbh:wet","wet",-0.00133181944759175,8.70448564130781e-05
 "log_core_measurement_dbh","HarvardForest","TSCA","temperature","log_core_measurement ~ dbh + pet + wet + dbh:pet","pet",0.0124269742136345,7.74656674948743e-05
-"log_agb_inc_dbh","HarvardForest","ACRU","water","log_agb_inc ~ dbh + pre + I(pre^2) + dbh:pre","pre",-0.000161153038585052,8.68927934881188e-05
+"log_core_measurement_dbh","HarvardForest","ACRU","water","log_core_measurement ~ dbh + pet + wet + I(wet^2) + dbh:wet","wet",-0.00248194064139102,0.0467325610130895
+"log_core_measurement_dbh","HarvardForest","ACRU","temperature","log_core_measurement ~ dbh + pet + wet + I(wet^2) + dbh:pet","pet",0.00901572206642062,0.386308439849558
+"log_core_measurement_dbh","HarvardForest","QURU","water","log_core_measurement ~ dbh + pet + I(pet^2) + wet + I(wet^2) + dbh:wet","wet",0.000413733850021085,4.43086753260494e-09
+"log_core_measurement_dbh","HarvardForest","QURU","temperature","log_core_measurement ~ dbh + pet + I(pet^2) + wet + I(wet^2) + dbh:pet","pet",0.00620901668447524,6.46255924112491e-26
 "log_agb_inc_dbh","HarvardForest","BEAL","temperature","log_agb_inc ~ dbh + pet + dbh:pet","pet",0.00786578457341156,0.471573277007388
-"log_agb_inc_dbh","HarvardForest","QURU","water","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-3.66403834175457e-05,4.88689841165981e-27
-"log_agb_inc_dbh","HarvardForest","QURU","temperature","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",-0.00287392183111229,4.52219563990766e-06
 "log_agb_inc_dbh","HarvardForest","TSCA","water","log_agb_inc ~ dbh + pet + pre + dbh:pre","pre",7.95791589125763e-05,1.53810111197363e-05
 "log_agb_inc_dbh","HarvardForest","TSCA","temperature","log_agb_inc ~ dbh + pet + pre + dbh:pet","pet",0.00495047443519709,0.149793455231613
-"log_BAI_dbh","HarvardForest","ACRU","water","log_BAI ~ pre + I(pre^2) + pre:dbh","pre",-0.000146974773356156,0.0001767114218346
+"log_agb_inc_dbh","HarvardForest","ACRU","water","log_agb_inc ~ dbh + pre + I(pre^2) + dbh:pre","pre",-0.000161153038585052,8.68927934881188e-05
+"log_agb_inc_dbh","HarvardForest","QURU","water","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-3.66403834175457e-05,4.88689841165981e-27
+"log_agb_inc_dbh","HarvardForest","QURU","temperature","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",-0.00287392183111229,4.52219563990766e-06
 "log_BAI_dbh","HarvardForest","BEAL","temperature","log_BAI ~ dbh + pet + dbh:pet","pet",0.00691608387583258,0.525909078481134
-"log_BAI_dbh","HarvardForest","QURU","water","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-3.68003276748847e-05,4.03781739254244e-27
-"log_BAI_dbh","HarvardForest","QURU","temperature","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",-0.00283356384972992,6.59232080241246e-06
 "log_BAI_dbh","HarvardForest","TSCA","water","log_BAI ~ dbh + pet + pre + dbh:pre","pre",7.34277894886072e-05,9.42326399034349e-06
 "log_BAI_dbh","HarvardForest","TSCA","temperature","log_BAI ~ dbh + pet + pre + dbh:pet","pet",0.00409421950624003,0.186090373773578
+"log_BAI_dbh","HarvardForest","ACRU","water","log_BAI ~ pre + I(pre^2) + pre:dbh","pre",-0.000146974773356156,0.0001767114218346
+"log_BAI_dbh","HarvardForest","QURU","water","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-3.68003276748847e-05,4.03781739254244e-27
+"log_BAI_dbh","HarvardForest","QURU","temperature","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",-0.00283356384972992,6.59232080241246e-06
 "log_core_measurement_dbh","HKK","AFXY","water","log_core_measurement ~ dbh + tmx + wet + dbh:wet","wet",-0.00119203259066727,0.000868606941627504
 "log_core_measurement_dbh","HKK","AFXY","temperature","log_core_measurement ~ dbh + tmx + wet + dbh:tmx","tmx",0.00353529201182057,5.27104206393895e-05
 "log_core_measurement_dbh","HKK","CHTA","temperature","log_core_measurement ~ dbh + tmx + dbh:tmx","tmx",-0.00443098752117132,0.0293859359884267
@@ -108,98 +108,98 @@
 "log_BAI_dbh","Niobara","BEPA","temperature","log_BAI ~ dbh + tmp + I(tmp^2) + wet + dbh:tmp","tmp",-0.000827865275267125,0.0635992367998569
 "log_core_measurement_dbh","SCBI","CACO","water","log_core_measurement ~ pet + pre + I(pre^2) + pre:dbh","pre",-6.61123805889815e-05,0.385526416738603
 "log_core_measurement_dbh","SCBI","CACO","temperature","log_core_measurement ~ pet + pre + I(pre^2) + pet:dbh","pet",0.00355841063807659,0.0530523172132343
-"log_core_measurement_dbh","SCBI","CAGL","water","log_core_measurement ~ pet + pre + I(pre^2) + pre:dbh","pre",9.43518259323569e-06,0.805680237100665
-"log_core_measurement_dbh","SCBI","CAGL","temperature","log_core_measurement ~ pet + pre + I(pre^2) + pet:dbh","pet",-0.000327257545488046,0.75331656185497
-"log_core_measurement_dbh","SCBI","CAOVL","water","log_core_measurement ~ pet + I(pet^2) + pre + I(pre^2) + pre:dbh","pre",-1.77243613391227e-05,0.658886793210522
-"log_core_measurement_dbh","SCBI","CAOVL","temperature","log_core_measurement ~ pet + I(pet^2) + pre + I(pre^2) + pet:dbh","pet",-0.00110069209462373,0.334483855838661
-"log_core_measurement_dbh","SCBI","CATO","water","log_core_measurement ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",0.00037054283021146,0.029637518029554
-"log_core_measurement_dbh","SCBI","CATO","temperature","log_core_measurement ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",-0.00475679833483847,0.492147179864533
-"log_core_measurement_dbh","SCBI","FRAM","water","log_core_measurement ~ pet + I(pet^2) + pre + I(pre^2) + pre:dbh","pre",-3.89604695106762e-06,0.807934803486782
-"log_core_measurement_dbh","SCBI","FRAM","temperature","log_core_measurement ~ pet + I(pet^2) + pre + I(pre^2) + pet:dbh","pet",0.000141403673961586,0.768322308007757
-"log_core_measurement_dbh","SCBI","FRNI","water","log_core_measurement ~ pre + I(pre^2) + pre:dbh","pre",9.78694821310602e-05,0.31690567979167
-"log_core_measurement_dbh","SCBI","JUNI","water","log_core_measurement ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pre","pre",-6.02901098818648e-05,0.265062607868432
-"log_core_measurement_dbh","SCBI","JUNI","temperature","log_core_measurement ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pet","pet",0.0032484488452572,0.180557020051951
 "log_core_measurement_dbh","SCBI","LITU","water","log_core_measurement ~ pet + I(pet^2) + pre + I(pre^2) + pre:dbh","pre",2.59718714242685e-05,0.118877120074049
 "log_core_measurement_dbh","SCBI","LITU","temperature","log_core_measurement ~ pet + I(pet^2) + pre + I(pre^2) + pet:dbh","pet",-0.000787920518385082,0.135323720102011
-"log_core_measurement_dbh","SCBI","QUAL","water","log_core_measurement ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pre","pre",-5.82342627928959e-06,0.749300162480617
-"log_core_measurement_dbh","SCBI","QUAL","temperature","log_core_measurement ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pet","pet",0.00275524991659035,0.000688067245610608
-"log_core_measurement_dbh","SCBI","QUMO","water","log_core_measurement ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pre","pre",7.09394693600696e-06,0.715024776889267
-"log_core_measurement_dbh","SCBI","QUMO","temperature","log_core_measurement ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pet","pet",-5.09653976617292e-06,0.995493452848706
+"log_core_measurement_dbh","SCBI","FRAM","water","log_core_measurement ~ pet + I(pet^2) + pre + I(pre^2) + pre:dbh","pre",-3.89604695106762e-06,0.807934803486782
+"log_core_measurement_dbh","SCBI","FRAM","temperature","log_core_measurement ~ pet + I(pet^2) + pre + I(pre^2) + pet:dbh","pet",0.000141403673961586,0.768322308007757
+"log_core_measurement_dbh","SCBI","CATO","water","log_core_measurement ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",0.00037054283021146,0.029637518029554
+"log_core_measurement_dbh","SCBI","CATO","temperature","log_core_measurement ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",-0.00475679833483847,0.492147179864533
+"log_core_measurement_dbh","SCBI","JUNI","water","log_core_measurement ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pre","pre",-6.02901098818648e-05,0.265062607868432
+"log_core_measurement_dbh","SCBI","JUNI","temperature","log_core_measurement ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pet","pet",0.0032484488452572,0.180557020051951
 "log_core_measurement_dbh","SCBI","QURU","water","log_core_measurement ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pre","pre",3.88991323081161e-05,0.00264971573671647
 "log_core_measurement_dbh","SCBI","QURU","temperature","log_core_measurement ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pet","pet",-0.000857579564942728,0.176733704313146
 "log_core_measurement_dbh","SCBI","QUVE","water","log_core_measurement ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pre","pre",6.76923603177215e-06,0.587070367391485
 "log_core_measurement_dbh","SCBI","QUVE","temperature","log_core_measurement ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pet","pet",-0.000956625765728204,0.106018928265498
+"log_core_measurement_dbh","SCBI","CAGL","water","log_core_measurement ~ pet + pre + I(pre^2) + pre:dbh","pre",9.43518259323569e-06,0.805680237100665
+"log_core_measurement_dbh","SCBI","CAGL","temperature","log_core_measurement ~ pet + pre + I(pre^2) + pet:dbh","pet",-0.000327257545488046,0.75331656185497
+"log_core_measurement_dbh","SCBI","QUMO","water","log_core_measurement ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pre","pre",7.09394693600696e-06,0.715024776889267
+"log_core_measurement_dbh","SCBI","QUMO","temperature","log_core_measurement ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pet","pet",-5.09653976617292e-06,0.995493452848706
 "log_core_measurement_dbh","SCBI","FAGR","water","log_core_measurement ~ dbh + pre + I(pre^2) + dbh:pre","pre",1.97848529211358e-05,0.717047862602637
+"log_core_measurement_dbh","SCBI","CAOVL","water","log_core_measurement ~ pet + I(pet^2) + pre + I(pre^2) + pre:dbh","pre",-1.77243613391227e-05,0.658886793210522
+"log_core_measurement_dbh","SCBI","CAOVL","temperature","log_core_measurement ~ pet + I(pet^2) + pre + I(pre^2) + pet:dbh","pet",-0.00110069209462373,0.334483855838661
+"log_core_measurement_dbh","SCBI","QUAL","water","log_core_measurement ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pre","pre",-5.82342627928959e-06,0.749300162480617
+"log_core_measurement_dbh","SCBI","QUAL","temperature","log_core_measurement ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pet","pet",0.00275524991659035,0.000688067245610608
+"log_core_measurement_dbh","SCBI","FRNI","water","log_core_measurement ~ pre + I(pre^2) + pre:dbh","pre",9.78694821310602e-05,0.31690567979167
 "log_agb_inc_dbh","SCBI","CACO","water","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-0.000373551233641566,0.0065083388948419
 "log_agb_inc_dbh","SCBI","CACO","temperature","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",0.0333219197153744,0.0120241434236595
-"log_agb_inc_dbh","SCBI","CAGL","water","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-2.86716861777271e-05,0.650055938282456
-"log_agb_inc_dbh","SCBI","CAGL","temperature","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",-0.000543695736397637,0.932078072233807
-"log_agb_inc_dbh","SCBI","CAOVL","water","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-7.25674129632283e-05,0.149601593907518
-"log_agb_inc_dbh","SCBI","CAOVL","temperature","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",-0.00297512147293933,0.539423492688513
-"log_agb_inc_dbh","SCBI","CATO","water","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",0.000290570740050847,0.0807056105628808
-"log_agb_inc_dbh","SCBI","CATO","temperature","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",0.00306208850973941,0.838647199478933
-"log_agb_inc_dbh","SCBI","FRAM","water","log_agb_inc ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pre","pre",4.66384465174044e-06,0.844951857635653
-"log_agb_inc_dbh","SCBI","FRAM","temperature","log_agb_inc ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pet","pet",0.00477522202817159,0.0431578107949963
-"log_agb_inc_dbh","SCBI","FRNI","water","log_agb_inc ~ dbh + pre + dbh:pre","pre",0.000248346706947597,0.0842620039118687
-"log_agb_inc_dbh","SCBI","JUNI","water","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-0.000109330675518865,0.0415733447934243
-"log_agb_inc_dbh","SCBI","JUNI","temperature","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",0.0100490134705979,0.0508894360378519
 "log_agb_inc_dbh","SCBI","LITU","water","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",8.67704268082118e-06,0.65628889999383
 "log_agb_inc_dbh","SCBI","LITU","temperature","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",-0.00412355340296709,0.0416762730476096
-"log_agb_inc_dbh","SCBI","QUAL","water","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-3.29474046972756e-05,0.0632332355485791
-"log_agb_inc_dbh","SCBI","QUAL","temperature","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",0.00235079181300163,0.169578882555835
-"log_agb_inc_dbh","SCBI","QUMO","water","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-5.5637032638723e-06,0.786818383124759
-"log_agb_inc_dbh","SCBI","QUMO","temperature","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",-0.0040102711440546,0.0522777800766034
+"log_agb_inc_dbh","SCBI","FRAM","water","log_agb_inc ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pre","pre",4.66384465174044e-06,0.844951857635653
+"log_agb_inc_dbh","SCBI","FRAM","temperature","log_agb_inc ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pet","pet",0.00477522202817159,0.0431578107949963
+"log_agb_inc_dbh","SCBI","CATO","water","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",0.000290570740050847,0.0807056105628808
+"log_agb_inc_dbh","SCBI","CATO","temperature","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",0.00306208850973941,0.838647199478933
+"log_agb_inc_dbh","SCBI","JUNI","water","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-0.000109330675518865,0.0415733447934243
+"log_agb_inc_dbh","SCBI","JUNI","temperature","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",0.0100490134705979,0.0508894360378519
 "log_agb_inc_dbh","SCBI","QURU","water","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",8.82697791306087e-06,0.480038401749885
 "log_agb_inc_dbh","SCBI","QURU","temperature","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",-0.000545730525289179,0.674519223884074
 "log_agb_inc_dbh","SCBI","QUVE","water","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-3.05850426268232e-05,0.00964355770145312
 "log_agb_inc_dbh","SCBI","QUVE","temperature","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",4.29936031395497e-05,0.970759970208815
+"log_agb_inc_dbh","SCBI","CAGL","water","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-2.86716861777271e-05,0.650055938282456
+"log_agb_inc_dbh","SCBI","CAGL","temperature","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",-0.000543695736397637,0.932078072233807
+"log_agb_inc_dbh","SCBI","QUMO","water","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-5.5637032638723e-06,0.786818383124759
+"log_agb_inc_dbh","SCBI","QUMO","temperature","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",-0.0040102711440546,0.0522777800766034
 "log_agb_inc_dbh","SCBI","FAGR","water","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",4.69220964045861e-05,0.379952770169612
 "log_agb_inc_dbh","SCBI","FAGR","temperature","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",0.0031386023098863,0.571021526102909
+"log_agb_inc_dbh","SCBI","CAOVL","water","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-7.25674129632283e-05,0.149601593907518
+"log_agb_inc_dbh","SCBI","CAOVL","temperature","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",-0.00297512147293933,0.539423492688513
+"log_agb_inc_dbh","SCBI","QUAL","water","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-3.29474046972756e-05,0.0632332355485791
+"log_agb_inc_dbh","SCBI","QUAL","temperature","log_agb_inc ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",0.00235079181300163,0.169578882555835
+"log_agb_inc_dbh","SCBI","FRNI","water","log_agb_inc ~ dbh + pre + dbh:pre","pre",0.000248346706947597,0.0842620039118687
 "log_BAI_dbh","SCBI","CACO","water","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-0.000346381693794848,0.0085605989300691
 "log_BAI_dbh","SCBI","CACO","temperature","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",0.0317207543961511,0.0152852771613803
-"log_BAI_dbh","SCBI","CAGL","water","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-2.17684836860345e-05,0.711623724708109
-"log_BAI_dbh","SCBI","CAGL","temperature","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",-0.00290689436583342,0.628744630412621
-"log_BAI_dbh","SCBI","CAOVL","water","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-7.37729731453278e-05,0.144719353923718
-"log_BAI_dbh","SCBI","CAOVL","temperature","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",-0.00265451363472357,0.588742614375575
-"log_BAI_dbh","SCBI","CATO","water","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",0.000302607798263598,0.0702237050127253
-"log_BAI_dbh","SCBI","CATO","temperature","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",0.00158179441720516,0.918957517514394
-"log_BAI_dbh","SCBI","FRAM","water","log_BAI ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pre","pre",4.60221730133109e-06,0.830681019798309
-"log_BAI_dbh","SCBI","FRAM","temperature","log_BAI ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pet","pet",0.00553470299369899,0.0113665072371269
-"log_BAI_dbh","SCBI","FRNI","water","log_BAI ~ dbh + pre + dbh:pre","pre",0.000253747946646919,0.0787285450026922
-"log_BAI_dbh","SCBI","JUNI","water","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-0.000112929774503197,0.0351829157150089
-"log_BAI_dbh","SCBI","JUNI","temperature","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",0.0104765166058084,0.0432895847349711
 "log_BAI_dbh","SCBI","LITU","water","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",8.37655158610983e-06,0.668784418703199
 "log_BAI_dbh","SCBI","LITU","temperature","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",-0.00201928814821341,0.318292627644279
-"log_BAI_dbh","SCBI","QUAL","water","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-3.41179593979122e-05,0.0544564952602083
-"log_BAI_dbh","SCBI","QUAL","temperature","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",0.00335323372922105,0.0515478499114911
-"log_BAI_dbh","SCBI","QUMO","water","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-4.99307630131259e-06,0.800867740686447
-"log_BAI_dbh","SCBI","QUMO","temperature","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",-0.00191304323467266,0.34111960440555
+"log_BAI_dbh","SCBI","FRAM","water","log_BAI ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pre","pre",4.60221730133109e-06,0.830681019798309
+"log_BAI_dbh","SCBI","FRAM","temperature","log_BAI ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pet","pet",0.00553470299369899,0.0113665072371269
+"log_BAI_dbh","SCBI","CATO","water","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",0.000302607798263598,0.0702237050127253
+"log_BAI_dbh","SCBI","CATO","temperature","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",0.00158179441720516,0.918957517514394
+"log_BAI_dbh","SCBI","JUNI","water","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-0.000112929774503197,0.0351829157150089
+"log_BAI_dbh","SCBI","JUNI","temperature","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",0.0104765166058084,0.0432895847349711
 "log_BAI_dbh","SCBI","QURU","water","log_BAI ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pre","pre",1.14556539781018e-05,0.368041800045127
 "log_BAI_dbh","SCBI","QURU","temperature","log_BAI ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pet","pet",-0.000502939742795221,0.706425956379192
 "log_BAI_dbh","SCBI","QUVE","water","log_BAI ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pre","pre",-2.64356795720455e-05,0.0278419168226553
 "log_BAI_dbh","SCBI","QUVE","temperature","log_BAI ~ dbh + pet + I(pet^2) + pre + I(pre^2) + dbh:pet","pet",0.000759399713583675,0.533771099876131
+"log_BAI_dbh","SCBI","CAGL","water","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-2.17684836860345e-05,0.711623724708109
+"log_BAI_dbh","SCBI","CAGL","temperature","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",-0.00290689436583342,0.628744630412621
+"log_BAI_dbh","SCBI","QUMO","water","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-4.99307630131259e-06,0.800867740686447
+"log_BAI_dbh","SCBI","QUMO","temperature","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",-0.00191304323467266,0.34111960440555
 "log_BAI_dbh","SCBI","FAGR","water","log_BAI ~ dbh + pre + I(pre^2) + dbh:pre","pre",3.86543421219242e-05,0.470647985480509
+"log_BAI_dbh","SCBI","CAOVL","water","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-7.37729731453278e-05,0.144719353923718
+"log_BAI_dbh","SCBI","CAOVL","temperature","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",-0.00265451363472357,0.588742614375575
+"log_BAI_dbh","SCBI","QUAL","water","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pre","pre",-3.41179593979122e-05,0.0544564952602083
+"log_BAI_dbh","SCBI","QUAL","temperature","log_BAI ~ dbh + pet + pre + I(pre^2) + dbh:pet","pet",0.00335323372922105,0.0515478499114911
+"log_BAI_dbh","SCBI","FRNI","water","log_BAI ~ dbh + pre + dbh:pre","pre",0.000253747946646919,0.0787285450026922
 "log_core_measurement_dbh","ScottyCreek","PIMA","water","log_core_measurement ~ dbh + pre + I(pre^2) + tmx + dbh:pre","pre",0.000310506195173621,9.7044437976128e-15
 "log_core_measurement_dbh","ScottyCreek","PIMA","temperature","log_core_measurement ~ dbh + pre + I(pre^2) + tmx + dbh:tmx","tmx",0.00140358798829817,0.000379325854848904
 "log_agb_inc_dbh","ScottyCreek","PIMA","water","log_agb_inc ~ dbh + pre + I(pre^2) + tmx + I(tmx^2) + dbh:pre","pre",0.000455747826340849,2.05462851968629e-19
 "log_agb_inc_dbh","ScottyCreek","PIMA","temperature","log_agb_inc ~ dbh + pre + I(pre^2) + tmx + I(tmx^2) + dbh:tmx","tmx",0.0020064992375979,2.50414008602856e-07
 "log_BAI_dbh","ScottyCreek","PIMA","water","log_BAI ~ dbh + pre + I(pre^2) + tmx + I(tmx^2) + dbh:pre","pre",0.000460626595219759,4.36291950599018e-20
 "log_BAI_dbh","ScottyCreek","PIMA","temperature","log_BAI ~ dbh + pre + I(pre^2) + tmx + I(tmx^2) + dbh:tmx","tmx",0.00197631779906904,3.05064494624705e-07
-"log_core_measurement_dbh","Zofin","ABAL","water","log_core_measurement ~ tmx + I(tmx^2) + wet + wet:dbh","wet",-5.70977356769823e-05,0.514654791768263
-"log_core_measurement_dbh","Zofin","ABAL","temperature","log_core_measurement ~ tmx + I(tmx^2) + wet + tmx:dbh","tmx",0.000122168950213158,0.335946254155591
 "log_core_measurement_dbh","Zofin","FASY","water","log_core_measurement ~ dbh + tmx + I(tmx^2) + wet + dbh:wet","wet",0.000100961386446621,4.76311896566007e-05
 "log_core_measurement_dbh","Zofin","FASY","temperature","log_core_measurement ~ dbh + tmx + I(tmx^2) + wet + dbh:tmx","tmx",0.000350555805203554,1.37316292472609e-33
-"log_core_measurement_dbh","Zofin","PCAB","water","log_core_measurement ~ dbh + tmx + I(tmx^2) + wet + I(wet^2) + dbh:wet","wet",0.000159445306481308,4.57437768669176e-08
-"log_core_measurement_dbh","Zofin","PCAB","temperature","log_core_measurement ~ dbh + tmx + I(tmx^2) + wet + I(wet^2) + dbh:tmx","tmx",-1.46625372156732e-05,0.671209414325143
-"log_agb_inc_dbh","Zofin","ABAL","water","log_agb_inc ~ dbh + tmx + I(tmx^2) + wet + dbh:wet","wet",-0.000149903691636108,0.171017402879081
-"log_agb_inc_dbh","Zofin","ABAL","temperature","log_agb_inc ~ dbh + tmx + I(tmx^2) + wet + dbh:tmx","tmx",0.000102437871816866,0.431957175939238
+"log_core_measurement_dbh","Zofin","PIAB","water","log_core_measurement ~ dbh + tmx + I(tmx^2) + wet + I(wet^2) + dbh:wet","wet",0.00016038005897112,4.57220071590109e-08
+"log_core_measurement_dbh","Zofin","PIAB","temperature","log_core_measurement ~ dbh + tmx + I(tmx^2) + wet + I(wet^2) + dbh:tmx","tmx",-1.55849225977355e-05,0.653841273949554
+"log_core_measurement_dbh","Zofin","ABAL","water","log_core_measurement ~ tmx + I(tmx^2) + wet + wet:dbh","wet",-5.70977356769823e-05,0.514654791768263
+"log_core_measurement_dbh","Zofin","ABAL","temperature","log_core_measurement ~ tmx + I(tmx^2) + wet + tmx:dbh","tmx",0.000122168950213158,0.335946254155591
 "log_agb_inc_dbh","Zofin","FASY","water","log_agb_inc ~ dbh + tmx + I(tmx^2) + wet + dbh:wet","wet",8.68285884813914e-05,0.00363281282343951
 "log_agb_inc_dbh","Zofin","FASY","temperature","log_agb_inc ~ dbh + tmx + I(tmx^2) + wet + dbh:tmx","tmx",0.000277927417970103,1.75708639866653e-15
-"log_agb_inc_dbh","Zofin","PCAB","water","log_agb_inc ~ dbh + tmx + I(tmx^2) + wet + I(wet^2) + dbh:wet","wet",0.000221950744459786,9.07378181693937e-09
-"log_agb_inc_dbh","Zofin","PCAB","temperature","log_agb_inc ~ dbh + tmx + I(tmx^2) + wet + I(wet^2) + dbh:tmx","tmx",-0.000150890315764791,0.000926160063324995
-"log_BAI_dbh","Zofin","ABAL","water","log_BAI ~ dbh + tmx + I(tmx^2) + wet + dbh:wet","wet",-0.000150335490778937,0.168968436478821
-"log_BAI_dbh","Zofin","ABAL","temperature","log_BAI ~ dbh + tmx + I(tmx^2) + wet + dbh:tmx","tmx",0.000103289625555806,0.427237919809074
+"log_agb_inc_dbh","Zofin","PIAB","water","log_agb_inc ~ dbh + tmx + I(tmx^2) + wet + I(wet^2) + dbh:wet","wet",0.000223398272652659,8.91957988607408e-09
+"log_agb_inc_dbh","Zofin","PIAB","temperature","log_agb_inc ~ dbh + tmx + I(tmx^2) + wet + I(wet^2) + dbh:tmx","tmx",-0.000153375249654138,0.000822360053079963
+"log_agb_inc_dbh","Zofin","ABAL","water","log_agb_inc ~ dbh + tmx + I(tmx^2) + wet + dbh:wet","wet",-0.000149903691636108,0.171017402879081
+"log_agb_inc_dbh","Zofin","ABAL","temperature","log_agb_inc ~ dbh + tmx + I(tmx^2) + wet + dbh:tmx","tmx",0.000102437871816866,0.431957175939238
 "log_BAI_dbh","Zofin","FASY","water","log_BAI ~ dbh + tmx + I(tmx^2) + wet + dbh:wet","wet",9.12771750430981e-05,0.000634823214696821
 "log_BAI_dbh","Zofin","FASY","temperature","log_BAI ~ dbh + tmx + I(tmx^2) + wet + dbh:tmx","tmx",0.000302921495916812,3.38080981251111e-22
-"log_BAI_dbh","Zofin","PCAB","water","log_BAI ~ dbh + tmx + I(tmx^2) + wet + I(wet^2) + dbh:wet","wet",0.000199360181037343,8.64861005695637e-09
-"log_BAI_dbh","Zofin","PCAB","temperature","log_BAI ~ dbh + tmx + I(tmx^2) + wet + I(wet^2) + dbh:tmx","tmx",-0.00010036454365423,0.0142030091704274
+"log_BAI_dbh","Zofin","PIAB","water","log_BAI ~ dbh + tmx + I(tmx^2) + wet + I(wet^2) + dbh:wet","wet",0.000200633486926871,8.55080728412551e-09
+"log_BAI_dbh","Zofin","PIAB","temperature","log_BAI ~ dbh + tmx + I(tmx^2) + wet + I(wet^2) + dbh:tmx","tmx",-0.000102451337762372,0.0128775000699699
+"log_BAI_dbh","Zofin","ABAL","water","log_BAI ~ dbh + tmx + I(tmx^2) + wet + dbh:wet","wet",-0.000150335490778937,0.168968436478821
+"log_BAI_dbh","Zofin","ABAL","temperature","log_BAI ~ dbh + tmx + I(tmx^2) + wet + dbh:tmx","tmx",0.000103289625555806,0.427237919809074
