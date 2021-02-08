@@ -495,15 +495,15 @@ kable(table_pt3, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = 
   column_spec(6, width = "2cm") %>%
   pack_rows("Žofín Forest Dynamics Plot, Czech Republic", 1, 4, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
   pack_rows("Niobrara, Nebraska, USA", 5, 5, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
-  pack_rows("Little Tesuque, New Mexico, USA", 6, 7, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
-  pack_rows("Cedar Breaks, Utah, USA", 8, 8, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
-  pack_rows("Scotty Creek, NW Territories, Canada", 9, 9, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Little Tesuque, New Mexico, USA", 6, 8, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Cedar Breaks, Utah, USA", 9, 9, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
+  pack_rows("Scotty Creek, NW Territories, Canada", 10, 10, latex_gap_space = "1em", colnum = 4, hline_before = FALSE) %>%
   kable_styling(latex_options = c( "hold_position", "repeat header"), protect_latex = T, font_size = 7) 
 # refs in this table need to go in the nocite field below
 ```
 ---
 nocite: | 
-  @alfaro-sanchez_growth_2017; @vlam_temperature_2014; @helcoski_growing_2019; @maxwell_declining_2016; @bumann_assessing_2019; @tumajer_increasing_2017; @sniderhan_growth_2016; @kaspar_species-specific_nodate
+  @alfaro-sanchez_growth_2017; @vlam_temperature_2014; @helcoski_growing_2019; @maxwell_declining_2016; @bumann_assessing_2019; @tumajer_increasing_2017; @sniderhan_growth_2016; @kaspar_species-specific_nodate; @touchan_millennial_2011; @williams_temperature_2013; @alexander_potential_2019
 ---
 *Indicates results from a regional study including but not limited to cores from the focal site.
 
