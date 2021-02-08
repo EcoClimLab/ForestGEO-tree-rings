@@ -25,16 +25,16 @@ LDW,LITU,pos. correlations with Jun-Aug PDSI ,pos. response to June $PPT$ ,neg. 
 ,QUMO,pos. correlations with Jun-Aug PDSI ,pos. response to June $PPT$ ,neg. response to Jun-Aug $T_{max}$ ,neg. response to June $PET$ ,"Maxwell, Harley, and Robeson 2016"
 ,QUVE,pos. correlations with Jun-Aug PDSI ,pos. response to June $PPT$ ,neg. response to Jun-Aug $T_{max}$ ,neg. response to June $PET$ ,"Maxwell, Harley, and Robeson 2016"
 HF,ACRU,NA,,no response to Jan- April $T{min}$*,neg. correlation to Mar $PET$,Alexander et al. 2019
-,BEAL,NA,,no response to Jan- April $T{min}$*,ns neg correlation with Mar $PET$,Alexander et al. 2019
-,QURU,NA,,no response to Jan- April $T{min}$*,slight concave-down decreasing response to Mar $PET$,Alexander et al. 2019
-,TSCA,NA,,pos. response to Jan- April $T{min}$*,pos. response to March $PET$,Alexander et al. 2019
-ZOF,ABAL,no sig. correlations with June-July $PPT$,slight concave-down response to p.Jun-p.July $PPT$ frequency,sig. pos. correlation to April T (strongest T correlation),pos. response to Jan-March $T_{max}$,"Ka$\v{s}$par, Tumajer, Va$\v{s}\'{i}\v{c}$kov$\'{a}$, and $\v{S}$amonil, in review "
-,FASY,no sig. correlations with June-July $PPT$,pos. response to p.Jun-p.July $PPT$ frequency,sig. pos. correlation to Jan T (strongest T correlation),pos. response to Jan-March $T_{max}$,"Ka$\v{s}$par, Tumajer, Va$\v{s}\'{i}\v{c}$kov$\'{a}$, and $\v{S}$amonil, in review "
-,PIAB,modest pos. correlations (n.s) with June-July $PPT$,pos. response to p.Jun-p.July $PPT$ frequency,sig. pos. correlation to March T (strongest current-year T correlation),pos. response to Jan-March $T_{max}$,"Ka$\v{s}$par, Tumajer, Va$\v{s}\'{i}\v{c}$kov$\'{a}$, and $\v{S}$amonil, in review "
+,BEAL,NA,,no response to Jan- April $T{min}$*,neg. correlation to Mar $PET$,Alexander et al. 2019
+,QURU,NA,,no response to Jan- April $T{min}$*,neg. correlation to Mar $PET$,Alexander et al. 2019
+,TSCA,NA,,pos. response to Jan- April $T{min}$*,pos. correlation to March $PET$,Alexander et al. 2019
+ZOF,ABAL,no sig. correlations with June-July $PPT$,pos. correlation to p.Jun-p.July $PPT$ frequency,sig. pos. correlation to April T (strongest T correlation),pos. correlation to Jan-March $T_{max}$,"Ka$\v{s}$par, Tumajer, Va$\v{s}\'{i}\v{c}$kov$\'{a}$, and $\v{S}$amonil, in review "
+,FASY,no sig. correlations with June-July $PPT$,pos. correlation to p.Jun-p.July $PPT$ frequency,sig. pos. correlation to Jan T (strongest T correlation),pos. correlation to Jan-March $T_{max}$,"Ka$\v{s}$par, Tumajer, Va$\v{s}\'{i}\v{c}$kov$\'{a}$, and $\v{S}$amonil, in review "
+,PIAB,modest pos. correlations (n.s) with June-July $PPT$,non-sig. pos. correlation to p.Jun-p.July $PPT$ frequency,sig. pos. correlation to March T (strongest current-year T correlation),pos. correlation to Jan-March $T_{max}$,"Ka$\v{s}$par, Tumajer, Va$\v{s}\'{i}\v{c}$kov$\'{a}$, and $\v{S}$amonil, in review "
 ,,>700m elev. sites moisture limited June-Aug,,>700m elev. sites temperature limited except June-Aug,,Tumajer et al. 2017
-NE,BEPA,little relationship to ppt within analysis timeframe (exception: pos. correlation with pAug pre); stronger relationship to streamflow and PDSI,,little relationship to $T_{mean}$ within analysis timeframe (exception: neg. correlation with pJune and cJan $T_{mean}$),,Bumann et al. 2019
-LT,PIPO,increases with pOct-June PPT**,,NA,,"Touchan et al., 2011  "
-,,increase with cold-season PPT**,,decrease with vapor pressure deficit of pAug-pOct and May-July**,,"Williams et al., 2013"
-,PIST3,increases with pOct-June PPT**,,NA,,"Touchan et al., 2011 "
+NE,BEPA,"little relationship to $PPT$ within analysis timeframe (exception: pos. correlation with pAug $PPT$); positive correlation to streamflow in some months (pJune, pAug, pNov, cJune);  stronger relationship to PDSI",neg. correlation to May $PDF$,little relationship to $T_{mean}$ within analysis timeframe (exception: neg. correlation with pJune and cJan $T_{mean}$),neg. concave-down correlation to pJune $T_{mean}$,Bumann et al. 2019
+LT,PIPO,increases with pOct-June PPT**,pos. concave-down correlation to pNov-cJuly $PPT$,NA,,"Touchan et al., 2011  "
+,,increase with cold-season PPT**,,decrease with vapor pressure deficit of pAug-pOct and May-July**,neg. concave-down correlation to May-July $T_{max}$,"Williams et al., 2013"
+,PIST3,increases with pOct-June PPT**,pos. concave-down correlation to pNov-cJuly $PPT$,NA,,"Touchan et al., 2011 "
 CB,,NA,,NA,,-
-SC,PIMA,predominantly pos. responses to annual PPT,,"predominanly positive responses to mean annual $T_{mean}$ prior to 1970, shifting to predominantly negative responses after 1970 ",,Sniderhan and Baltzer 2016
+SC,PIMA,predominantly pos. responses to annual PPT,pos. concave-down dorrelation to pJune-pAug $PPT$,"predominanly positive responses to mean annual $T_{mean}$ prior to 1970, shifting to predominantly negative responses after 1970 ","pos. correlation to July $T_{max}$. Temperature correlations predominantly pos. prior to 1970 (to pAug $T_{min}$), neg. after 1970 (to pJune $T_{min}$)",Sniderhan and Baltzer 2016
