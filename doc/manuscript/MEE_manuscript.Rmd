@@ -378,7 +378,7 @@ Our analysis consisted of two main steps: (1) identification of the most importa
 The analysis was run separately for each site (step 1), site-species combination (step 2), and each response variable ($RW$, $BAI$, or $\Delta AGB$). 
 We note that step 1 could be performed separately for each site-species combination, but for purposes of this analysis we sought to identify site-level climate drivers.
 
-![**Figure 1 | DRAFT Schematic illustrating our analysis process.** This analysis was conducted separately for each site (step 1) and species (step 2).](tables_figures/schematic_figure.png)
+![**Figure 1 | Schematic illustrating our analysis process.** In step 1,the R package *climwin* [@van_de_pol_identifying_2016] is used to identify the most important climate drivers in water and temperature variable groups for each site. In step 2, a GLS model is used to produce a combined model with drivers, reconstructed DBH, and year.  (STILL NEED TO FIX THE PLOTS ON THIS.)](tables_figures/schematic_figure.png)
 
 ### Climate variable selection {-#Climate}
 
