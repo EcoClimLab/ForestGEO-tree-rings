@@ -421,7 +421,7 @@ We ultimately determined that the method described above was adequate for the pu
 ### Combining drivers in GLS model {-#Combining}
 
 Having identified candidate climate drivers in temperature and precipitation variable groups, we next combined climate variables (all models) and $DBH$ (models with $DBH$ and its climate interactions) in a generalized least squares (GLS) model (Fig. `r schematic`). 
-Before running the models, we checked for collinearity among the candidate variables using the *vifstep* function (**REF**) and removed any variable with a variance inflation factor > 3 (none required removal).
+Before running the models, we checked for collinearity among the candidate variables using the *vifstep* function [@naimi_where_2014] and removed any variable with a variance inflation factor > 3 (none required removal).
 Within the GLS models, our response variables were $log[\Delta r]$, $log[BAI]$, or $log[\Delta AGB]$. 
 Rather than detrending these variables to produce residuals, the temporal autocorrelation of individual tree's growth was accounted for by the specifying an autocorrelation structure of order 1, with $year$ as a continuous time covariate and $coreID$ as a grouping factor, in the GLS's model specification.
 *(include model formula)*
@@ -432,7 +432,7 @@ For models including interactive effects of climate and $DBH$, we tested for int
 To test for $year$ effects, we limited the analysis to species with reasonable coverage of an $DBH$ x `year` matrix.
 Specifically, we required that the species be represented by cores from  $\ge$ 3 trees spanning  $\ge$ 40% the total $DBH$ range for $\ge 2/3$ of the total time range analyzed. 
 To avoid severe big-tree selection biases [@brienen_detecting_2012], we also required that the minimum $DBH$ sampled be $\le$ 25 cm, if present.  
-Species that failed to meet these criteria (n= **N**) were excluded from the analysis of temporal trends.
+Species that failed to meet these criteria (n= 8) were excluded from the analysis of temporal trends.
 We then ran models as described above, including a  first-order linear effect of $year$.
 We note that the random effect of tree should in theory avoid analytical biases arising from persistent growth differences among individuals [@brienen_detecting_2012; @brienen_tree_2017]. 
 To verify that GLS model trends for $year$ were real, as opposed to an artifact of inherent covariation between $DBH$ and $year$ within each core, we compared GLS results to an analysis of $DBH$-growth relationships by decade (Figs. `r decadal_analysis_figs_all`). 
