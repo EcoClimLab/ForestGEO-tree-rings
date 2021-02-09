@@ -213,8 +213,6 @@ decadal_generic_legend = " **(generic legend)**"
 
 ## `r site_details_appendix_title`
 
-*(include descriptions of stand history, global change dynamics)*
-
 ### Barro Colorado Nature Monument, Panama
 
 Cores were collected within the Barro Colorado Nature Monument (BCNM), a 5600-ha reserve established in 1923 that includes Barro Colorado Island (BCI) and the surrounding mainland peninsulas [@alfaro-sanchez_growth_2017]. 
@@ -282,11 +280,23 @@ The growth of trees in the region, including at this site, are being severely af
 In 2020, live canopy and sub-canopy trees, all >20 cm DBH, were sampled within a 1 ha plot (Little Tesuque plot 3; *lts3*). 
 
 ### Cedar Breaks, Utah, USA
+Cores were collected within the Utah Forest Dynamics Plot ForestGEO plot on the Colorado Plateau in Cedar Breaks National Monument [CB; @furniss_reconciling_2017]. 
+The plot sits on the edge of cliff, which descends ~750 m to a valley below.
+The mature spruce-fir forest is dominated by the species analyzed here (*Abies bifolia*, *Populus tremuloides*, *Picea engelmannii*, *Pinus flexilis*, *Pinus longaeva*, *Picea pungens*, and *Pseudotsuga menziesii*).
+The site is largely undisturbed. 
+The most recent fire occurred in 1802, and many currently living trees established before then. Living *Pinus longaeva* at the site date back ~1600 years, and deadwood at the site dates back to 0 AD (Cooper & Lutz, unpublished data).
 
-has tree-ring records dating back to 0 AD (Cooper & Lutz, unpublished data)
+In 2019, living individuals of each dominant species were cored.  
+Chronologies are published on ITRDB [@birch_birch_2020; @birch_birch_2020-2; @birch_birch_2020-3; @birch_birch_2020-4].
 
 ### Scotty Creek, Northwest Territories, Canada
-melting permafrost
+The Scotty Creek site is a black spruce (*Picea mariana*) forest on rapidly thawing discontinuous permafrost [@sniderhan_growth_2016; @dearborn_permafrost_2020].
+Vertical permafrost thaw has been causing drought stress in the shallow-rooted trees, resulting in growth declines [@sniderhan_growth_2016] and high mortality [@dearborn_permafrost_2020].
+
+In the summers of 2012 and 2013, seven forest stands within a 2 km^2^ area were sampled.
+In five stands with clearly defined boundaries at edges of permafrost plateaus, all living and dead trees $\ge$ 7 cm DBH were cored. 
+In two stands without well-defined edges, cores were taken from a >7 cm DBH tree nearest to every 20 m interval in a 100 × 100 m grid, totaling 36 trees per stand.
+Sampling details are given in @sniderhan_growth_2016.
 
 \newpage
 

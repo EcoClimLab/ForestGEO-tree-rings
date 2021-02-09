@@ -38,18 +38,18 @@ Stuart J. Davies^2^,
 Cameron Dow^1,13^,
 Ryan Helcoski^1^,
 [Jakub Kašpar](0000-0003-1780-6310)^14^,
-[James Lutz]( 0000-0002-2560-0710)^12^,
+[James Lutz]( 0000-0002-2560-0710)^15^,
 Ellis Q. Margolis^6^,
-Justin Maxwell^15^,
-Sean McMahon^2,16^,
-Camille Piponiot^1,2, 17^,
+Justin Maxwell^16^,
+Sean McMahon^2,17^,
+Camille Piponiot^1,2, 18^,
 Sabrina Russo^8^,
 [Pavel Šamonil](0000-0002-7722-8797)^14^,
 Anastasia Sniderhan^7^,
-Alan J. Tepley^1,18^,
+Alan J. Tepley^1,19^,
 [Ivana Vašíčková](0000-0002-6070-5956)^14^, 
-Mart Vlam^19^,
-Peter Zuidema^19^
+Mart Vlam^20^,
+Peter Zuidema^20^
 
 
 **Author Affiliations:**
@@ -76,21 +76,23 @@ Peter Zuidema^19^
 
 11. Swiss Federal Institute for Forest, Snow and Landscape Research, CH-8903 Birmensdorf, Switzerland
 
-12. S. J. & Jessie E. Quinney College of Natural Resources and the Ecology Center, Utah State University, Logan, UT 84322, USA
+12. University of Alberta; Edmonton, Alberta, Canada
 
 13. Department of Forestry, Purdue University, West Lafayette, IN 47907, USA
 
 14. Department of Forest Ecology, The Silva Tarouca Research Institute for Landscape and Ornamental Gardening, Lidická 25/27, 602 00 Brno, Czech Republic
 
-15. Department of Geography, Indiana University, Bloomington, Indiana, USA
+15. S. J. & Jessie E. Quinney College of Natural Resources and the Ecology Center, Utah State University, Logan, UT 84322, USA
 
-16. Smithsonian Environmental Research Center, Edgewater, MD, USA
+16. Department of Geography, Indiana University, Bloomington, Indiana, USA
 
-17. CIRAD, Montpellier, France
+17. Smithsonian Environmental Research Center, Edgewater, MD, USA
 
-18. Canadian Forest Service, Northern Forestry Centre, Edmonton, Alberta, Canada
+18. CIRAD, Montpellier, France
 
-19. Forest Ecology and Forest Management Group, Wageningen; Wageningen, The Netherlands
+19. Canadian Forest Service, Northern Forestry Centre, Edmonton, Alberta, Canada
+
+20. Forest Ecology and Forest Management Group, Wageningen; Wageningen, The Netherlands
 
 
 

@@ -4,7 +4,7 @@
 \contentsline {subsubsection}{Smithsonian Conservation Biology Institute, Virginia, USA}{3}{section*.5}% 
 \contentsline {subsubsection}{Lilly Dickey Woods, Indiana, USA}{3}{section*.6}% 
 \contentsline {subsubsection}{Harvard Forest, USA}{3}{section*.7}% 
-\contentsline {subsubsection}{\(\v {Z}\)of\(\'{i}\)n Forest Dynamics Plot, Czech Republic}{4}{section*.8}% 
+\contentsline {subsubsection}{\(\v {Z}\)of\(\'{i}\)n Forest Dynamics Plot, Czech Republic}{3}{section*.8}% 
 \contentsline {subsubsection}{Niobrara, Nebraska, USA}{4}{section*.9}% 
 \contentsline {subsubsection}{Little Tesuque, New Mexico, USA}{4}{section*.10}% 
 \contentsline {subsubsection}{Cedar Breaks, Utah, USA}{4}{section*.11}% 
