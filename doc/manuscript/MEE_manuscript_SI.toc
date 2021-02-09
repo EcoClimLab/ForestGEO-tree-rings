@@ -4,67 +4,67 @@
 \contentsline {subsubsection}{Smithsonian Conservation Biology Institute, Virginia, USA}{3}{section*.5}% 
 \contentsline {subsubsection}{Lilly Dickey Woods, Indiana, USA}{3}{section*.6}% 
 \contentsline {subsubsection}{Harvard Forest, USA}{3}{section*.7}% 
-\contentsline {subsubsection}{\(\v {Z}\)of\(\'{i}\)n Forest Dynamics Plot, Czech Republic}{3}{section*.8}% 
-\contentsline {subsubsection}{Niobrara, Nebraska, USA}{3}{section*.9}% 
-\contentsline {subsubsection}{Little Tesuque, New Mexico, USA}{3}{section*.10}% 
-\contentsline {subsubsection}{Cedar Breaks, Utah, USA}{3}{section*.11}% 
-\contentsline {subsubsection}{Scotty Creek, Northwest Territories, Canada}{3}{section*.12}% 
-\contentsline {subsection}{Appendix S2. Methods for reconstruction of \(DBH\)}{4}{section*.13}% 
-\contentsline {subsection}{Appendix S3. Methods for climate data evaluation and correction}{5}{section*.14}% 
-\contentsline {subsection}{Appendix S4. Methods for comparing our approach with traditional methods}{6}{section*.15}% 
-\contentsline {subsection}{Appendix S5. Dealing with rapidly changing climate and tree growth}{8}{section*.16}% 
-\contentsline {subsection}{Table S1. Site Details.}{9}{section*.17}% 
-\contentsline {subsection}{Table S2. Species analyzed, their characteristics, and bark allometries applied.}{10}{section*.19}% 
-\contentsline {subsection}{Table S3. Sampling details for species by site.}{11}{section*.21}% 
-\contentsline {subsection}{Table S4. Allometric equations for bark thickness.}{13}{section*.22}% 
-\contentsline {subsection}{Table S5. Qualtiative comparison of results from this study with previous studies employing conventional methods.}{14}{section*.24}% 
-\contentsline {subsection}{Figure S1. Density plot of core record start years by species for Barro Colorado Nature Monument (Panama).}{17}{section*.25}% 
-\contentsline {subsection}{Figure S2. Density plot of core record start years by species for Huai Kha Khaeng (Thailand).}{18}{section*.27}% 
-\contentsline {subsection}{Figure S3. Density plot of core record start years by species for the Smithsonian Conservation Biology Institute (Virginia, USA).}{19}{section*.29}% 
-\contentsline {subsection}{Figure S4. Density plot of core record start years by species for Lilley Dickey Woods (Indiana, USA).}{20}{section*.31}% 
-\contentsline {subsection}{Figure S5. Density plot of core record start years by species for Harvard Forest (Massachusetts, USA).}{21}{section*.33}% 
-\contentsline {subsection}{Figure S6. Density plot of core record start years by species for Zofin Forest (Czech Republic).}{22}{section*.35}% 
-\contentsline {subsection}{Figure S7. Density plot of core record start years by species for Niobrara (Nebraska, USA).}{23}{section*.37}% 
-\contentsline {subsection}{Figure S8. Density plot of core record start years by species for Little Tesuque (New Mexico, USA).}{24}{section*.39}% 
-\contentsline {subsection}{Figure S9. Density plot of core record start years by species for Cedar Breaks (Utah, USA).}{25}{section*.41}% 
-\contentsline {subsection}{Figure S10. Density plot of core record start years by species for Scotty Creek (Northwest Territory, Canada).}{26}{section*.43}% 
-\contentsline {subsection}{Figure S11. Comparison of our approach with traditional methods of identifying climate signals: LITU at SCBI.}{27}{section*.45}% 
-\contentsline {subsection}{Figure S12. Comparison of our approach with traditional methods of identifying climate signals: ABAL at Zofin.}{28}{section*.46}% 
-\contentsline {subsection}{Figure S13. Comparison of our approach with traditional methods of identifying climate signals: PSME at Cedar Breaks.}{29}{section*.47}% 
-\contentsline {subsection}{Figure S14. Comparison of our approach with traditional methods of identifying climate signals: PIMA at Scotty Creek.}{30}{section*.48}% 
-\contentsline {subsection}{Figure S15. (PRE at SCBI)}{31}{section*.49}% 
-\contentsline {subsection}{Figure S16. (PET at SCBI)}{32}{section*.50}% 
-\contentsline {subsection}{Figure S17. (TMX/TMP at HKK)}{33}{section*.51}% 
-\contentsline {subsection}{Figure S18. Best GLS models including climate and DBH for Barro Colorado Nature Monument (Panama)}{34}{section*.52}% 
-\contentsline {subsection}{Figure S19. Best GLS models including climate, DBH, and year for Barro Colorado Nature Monument (Panama)}{35}{section*.54}% 
-\contentsline {subsection}{Figure S20. Best GLS models including climate and DBH for Huai Kha Khaeng (Thailand)}{36}{section*.56}% 
-\contentsline {subsection}{Figure S21. Best GLS models including climate, DBH, and year for Huai Kha Khaeng (Thailand)}{37}{section*.58}% 
-\contentsline {subsection}{Figure S22. Best GLS models including climate and DBH for the Smithsonian Conservation Biology Institute (Virginia, USA)}{38}{section*.60}% 
-\contentsline {subsection}{Figure S23. Best GLS models including climate, DBH, and year for the Smithsonian Conservation Biology Institute (Virginia, USA)}{39}{section*.62}% 
-\contentsline {subsection}{Figure S24. Best GLS models including climate and DBH for Lilley Dickey Woods (Indiana, USA)}{40}{section*.64}% 
-\contentsline {subsection}{Figure S25. Best GLS models including climate, DBH, and year for Lilley Dickey Woods (Indiana, USA)}{41}{section*.66}% 
-\contentsline {subsection}{Figure S26. Best GLS models including climate and DBH for Harvard Forest (Massachusetts, USA)}{42}{section*.68}% 
-\contentsline {subsection}{Figure S27. Best GLS models including climate, DBH, and year for Harvard Forest (Massachusetts, USA)}{43}{section*.70}% 
-\contentsline {subsection}{Figure S28. Best GLS models including climate and DBH for Zofin Forest (Czech Republic)}{44}{section*.72}% 
-\contentsline {subsection}{Figure S29. Best GLS models including climate, DBH, and year for Zofin Forest (Czech Republic)}{45}{section*.74}% 
-\contentsline {subsection}{Figure S30. Best GLS models including climate and DBH for Niobrara (Nebraska, USA)}{46}{section*.76}% 
-\contentsline {subsection}{Figure S31. Best GLS models including climate, DBH, and year for Niobrara (Nebraska, USA)}{47}{section*.78}% 
-\contentsline {subsection}{Figure S32. Best GLS models including climate and DBH for Little Tesuque (New Mexico, USA)}{48}{section*.80}% 
-\contentsline {subsection}{Figure S33. Best GLS models including climate, DBH, and year for Little Tesuque (New Mexico, USA)}{49}{section*.82}% 
-\contentsline {subsection}{Figure S34. Best GLS models including climate and DBH for Cedar Breaks (Utah, USA)}{50}{section*.84}% 
-\contentsline {subsection}{Figure S35. Best GLS models including climate, DBH, and year for Cedar Breaks (Utah, USA)}{51}{section*.86}% 
-\contentsline {subsection}{Figure S36. Best GLS models including climate and DBH for Scotty Creek (Northwest Territory, Canada)}{52}{section*.88}% 
-\contentsline {subsection}{Figure S37. Best GLS models including climate, DBH, and year for Scotty Creek (Northwest Territory, Canada)}{53}{section*.90}% 
-\contentsline {subsection}{Figure S38. Climate responses at Scotty Creek (Northwest Territory, Canada) before and after 1970.}{54}{section*.92}% 
-\contentsline {subsection}{Figure S39. (RW\_interactions\_all)}{55}{section*.95}% 
-\contentsline {subsection}{Figure S40. (BAI\_interactions\_all)}{56}{section*.97}% 
-\contentsline {subsection}{Figure S41. (Decadal BCNM)}{57}{section*.99}% 
-\contentsline {subsection}{Figure S42. (Decadal HKK)}{58}{section*.101}% 
-\contentsline {subsection}{Figure S43. (Decadal SCBI)}{59}{section*.103}% 
-\contentsline {subsection}{Figure S45. (Decadal HF)}{61}{section*.105}% 
-\contentsline {subsection}{Figure S46. (Decadal ZOF)}{62}{section*.107}% 
-\contentsline {subsection}{Figure S47. (Decadal NIO)}{63}{section*.109}% 
-\contentsline {subsection}{Figure S48. (Decadal LT)}{64}{section*.110}% 
-\contentsline {subsection}{Figure S49. (Decadal CB)}{65}{section*.112}% 
-\contentsline {subsection}{Figure S50. (Decadal SC)}{66}{section*.114}% 
-\contentsline {subsection}{SI References}{67}{section*.116}% 
+\contentsline {subsubsection}{\(\v {Z}\)of\(\'{i}\)n Forest Dynamics Plot, Czech Republic}{4}{section*.8}% 
+\contentsline {subsubsection}{Niobrara, Nebraska, USA}{4}{section*.9}% 
+\contentsline {subsubsection}{Little Tesuque, New Mexico, USA}{4}{section*.10}% 
+\contentsline {subsubsection}{Cedar Breaks, Utah, USA}{4}{section*.11}% 
+\contentsline {subsubsection}{Scotty Creek, Northwest Territories, Canada}{4}{section*.12}% 
+\contentsline {subsection}{Appendix S2. Methods for reconstruction of \(DBH\)}{5}{section*.13}% 
+\contentsline {subsection}{Appendix S3. Methods for climate data evaluation and correction}{6}{section*.14}% 
+\contentsline {subsection}{Appendix S4. Methods for comparing our approach with traditional methods}{7}{section*.15}% 
+\contentsline {subsection}{Appendix S5. Dealing with rapidly changing climate and tree growth}{9}{section*.16}% 
+\contentsline {subsection}{Table S1. Site Details.}{10}{section*.17}% 
+\contentsline {subsection}{Table S2. Species analyzed, their characteristics, and bark allometries applied.}{11}{section*.19}% 
+\contentsline {subsection}{Table S3. Sampling details for species by site.}{12}{section*.21}% 
+\contentsline {subsection}{Table S4. Allometric equations for bark thickness.}{14}{section*.22}% 
+\contentsline {subsection}{Table S5. Qualtiative comparison of results from this study with previous studies employing conventional methods.}{15}{section*.24}% 
+\contentsline {subsection}{Figure S1. Density plot of core record start years by species for Barro Colorado Nature Monument (Panama).}{18}{section*.25}% 
+\contentsline {subsection}{Figure S2. Density plot of core record start years by species for Huai Kha Khaeng (Thailand).}{19}{section*.27}% 
+\contentsline {subsection}{Figure S3. Density plot of core record start years by species for the Smithsonian Conservation Biology Institute (Virginia, USA).}{20}{section*.29}% 
+\contentsline {subsection}{Figure S4. Density plot of core record start years by species for Lilley Dickey Woods (Indiana, USA).}{21}{section*.31}% 
+\contentsline {subsection}{Figure S5. Density plot of core record start years by species for Harvard Forest (Massachusetts, USA).}{22}{section*.33}% 
+\contentsline {subsection}{Figure S6. Density plot of core record start years by species for Zofin Forest (Czech Republic).}{23}{section*.35}% 
+\contentsline {subsection}{Figure S7. Density plot of core record start years by species for Niobrara (Nebraska, USA).}{24}{section*.37}% 
+\contentsline {subsection}{Figure S8. Density plot of core record start years by species for Little Tesuque (New Mexico, USA).}{25}{section*.39}% 
+\contentsline {subsection}{Figure S9. Density plot of core record start years by species for Cedar Breaks (Utah, USA).}{26}{section*.41}% 
+\contentsline {subsection}{Figure S10. Density plot of core record start years by species for Scotty Creek (Northwest Territory, Canada).}{27}{section*.43}% 
+\contentsline {subsection}{Figure S11. Comparison of our approach with traditional methods of identifying climate signals: LITU at SCBI.}{28}{section*.45}% 
+\contentsline {subsection}{Figure S12. Comparison of our approach with traditional methods of identifying climate signals: ABAL at Zofin.}{29}{section*.46}% 
+\contentsline {subsection}{Figure S13. Comparison of our approach with traditional methods of identifying climate signals: PSME at Cedar Breaks.}{30}{section*.47}% 
+\contentsline {subsection}{Figure S14. Comparison of our approach with traditional methods of identifying climate signals: PIMA at Scotty Creek.}{31}{section*.48}% 
+\contentsline {subsection}{Figure S15. (PRE at SCBI)}{32}{section*.49}% 
+\contentsline {subsection}{Figure S16. (PET at SCBI)}{33}{section*.50}% 
+\contentsline {subsection}{Figure S17. (TMX/TMP at HKK)}{34}{section*.51}% 
+\contentsline {subsection}{Figure S18. Best GLS models including climate and DBH for Barro Colorado Nature Monument (Panama)}{35}{section*.52}% 
+\contentsline {subsection}{Figure S19. Best GLS models including climate, DBH, and year for Barro Colorado Nature Monument (Panama)}{36}{section*.54}% 
+\contentsline {subsection}{Figure S20. Best GLS models including climate and DBH for Huai Kha Khaeng (Thailand)}{37}{section*.56}% 
+\contentsline {subsection}{Figure S21. Best GLS models including climate, DBH, and year for Huai Kha Khaeng (Thailand)}{38}{section*.58}% 
+\contentsline {subsection}{Figure S22. Best GLS models including climate and DBH for the Smithsonian Conservation Biology Institute (Virginia, USA)}{39}{section*.60}% 
+\contentsline {subsection}{Figure S23. Best GLS models including climate, DBH, and year for the Smithsonian Conservation Biology Institute (Virginia, USA)}{40}{section*.62}% 
+\contentsline {subsection}{Figure S24. Best GLS models including climate and DBH for Lilley Dickey Woods (Indiana, USA)}{41}{section*.64}% 
+\contentsline {subsection}{Figure S25. Best GLS models including climate, DBH, and year for Lilley Dickey Woods (Indiana, USA)}{42}{section*.66}% 
+\contentsline {subsection}{Figure S26. Best GLS models including climate and DBH for Harvard Forest (Massachusetts, USA)}{43}{section*.68}% 
+\contentsline {subsection}{Figure S27. Best GLS models including climate, DBH, and year for Harvard Forest (Massachusetts, USA)}{44}{section*.70}% 
+\contentsline {subsection}{Figure S28. Best GLS models including climate and DBH for Zofin Forest (Czech Republic)}{45}{section*.72}% 
+\contentsline {subsection}{Figure S29. Best GLS models including climate, DBH, and year for Zofin Forest (Czech Republic)}{46}{section*.74}% 
+\contentsline {subsection}{Figure S30. Best GLS models including climate and DBH for Niobrara (Nebraska, USA)}{47}{section*.76}% 
+\contentsline {subsection}{Figure S31. Best GLS models including climate, DBH, and year for Niobrara (Nebraska, USA)}{48}{section*.78}% 
+\contentsline {subsection}{Figure S32. Best GLS models including climate and DBH for Little Tesuque (New Mexico, USA)}{49}{section*.80}% 
+\contentsline {subsection}{Figure S33. Best GLS models including climate, DBH, and year for Little Tesuque (New Mexico, USA)}{50}{section*.82}% 
+\contentsline {subsection}{Figure S34. Best GLS models including climate and DBH for Cedar Breaks (Utah, USA)}{51}{section*.84}% 
+\contentsline {subsection}{Figure S35. Best GLS models including climate, DBH, and year for Cedar Breaks (Utah, USA)}{52}{section*.86}% 
+\contentsline {subsection}{Figure S36. Best GLS models including climate and DBH for Scotty Creek (Northwest Territory, Canada)}{53}{section*.88}% 
+\contentsline {subsection}{Figure S37. Best GLS models including climate, DBH, and year for Scotty Creek (Northwest Territory, Canada)}{54}{section*.90}% 
+\contentsline {subsection}{Figure S38. Climate responses at Scotty Creek (Northwest Territory, Canada) before and after 1970.}{55}{section*.92}% 
+\contentsline {subsection}{Figure S39. (RW\_interactions\_all)}{56}{section*.95}% 
+\contentsline {subsection}{Figure S40. (BAI\_interactions\_all)}{57}{section*.97}% 
+\contentsline {subsection}{Figure S41. (Decadal BCNM)}{58}{section*.99}% 
+\contentsline {subsection}{Figure S42. (Decadal HKK)}{59}{section*.101}% 
+\contentsline {subsection}{Figure S43. (Decadal SCBI)}{60}{section*.103}% 
+\contentsline {subsection}{Figure S45. (Decadal HF)}{62}{section*.105}% 
+\contentsline {subsection}{Figure S46. (Decadal ZOF)}{63}{section*.107}% 
+\contentsline {subsection}{Figure S47. (Decadal NIO)}{64}{section*.109}% 
+\contentsline {subsection}{Figure S48. (Decadal LT)}{65}{section*.110}% 
+\contentsline {subsection}{Figure S49. (Decadal CB)}{66}{section*.112}% 
+\contentsline {subsection}{Figure S50. (Decadal SC)}{67}{section*.114}% 
+\contentsline {subsection}{SI References}{68}{section*.116}% 

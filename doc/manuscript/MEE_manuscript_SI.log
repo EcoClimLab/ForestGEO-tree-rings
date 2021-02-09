@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  8 FEB 2021 13:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  9 FEB 2021 11:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -833,672 +833,678 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 [2]
 
-LaTeX Warning: Command \v invalid in math mode on input line 181.
+LaTeX Warning: Command \v invalid in math mode on input line 222.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 181.
+LaTeX Warning: Command \' invalid in math mode on input line 222.
 
-[3]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 263.
+
+LaTeX Warning: Command \v invalid in math mode on input line 224.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 224.
+
+[3] [4]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 330.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [4] [5]
+) [5] [6]
 
-LaTeX Warning: Command \v invalid in math mode on input line 317.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 317.
-
-[6] [7] [8]
-
-LaTeX Warning: Command \v invalid in math mode on input line 492.
+LaTeX Warning: Command \v invalid in math mode on input line 384.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 492.
+LaTeX Warning: Command \' invalid in math mode on input line 384.
 
-[9] [10]
-Overfull \hbox (1.46829pt too wide) in alignment at lines 612--618
+[7] [8] [9]
+
+LaTeX Warning: Command \v invalid in math mode on input line 559.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 559.
+
+[10] [11]
+Overfull \hbox (1.46829pt too wide) in alignment at lines 682--688
  [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (1.46829pt too wide) in alignment at lines 618--625
+Overfull \hbox (1.46829pt too wide) in alignment at lines 688--695
  [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (1.46829pt too wide) in alignment at lines 625--627
+Overfull \hbox (1.46829pt too wide) in alignment at lines 695--697
  [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (1.46829pt too wide) in alignment at lines 627--629
+Overfull \hbox (1.46829pt too wide) in alignment at lines 697--699
  [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (1.46829pt too wide) in alignment at lines 629--669
+Overfull \hbox (1.46829pt too wide) in alignment at lines 699--739
  [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (1.46829pt too wide) in alignment at lines 669--709
+Overfull \hbox (1.46829pt too wide) in alignment at lines 739--779
  [] [] [] [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (1.46829pt too wide) in alignment at lines 709--719
+Overfull \hbox (1.46829pt too wide) in alignment at lines 779--789
  [] [] [] [] [] [] [] [] [] 
  []
 
-[11] [12] [13]
+[12] [13] [14]
 
-LaTeX Warning: Command \' invalid in math mode on input line 813.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 814.
+LaTeX Warning: Command \' invalid in math mode on input line 883.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 815.
+LaTeX Warning: Command \' invalid in math mode on input line 884.
 
 
-Underfull \vbox (badness 10000) detected at line 832
- []
+LaTeX Warning: Command \' invalid in math mode on input line 885.
 
-[14]
-Underfull \vbox (badness 10000) detected at line 867
+
+Underfull \vbox (badness 10000) detected at line 902
  []
 
 [15]
-
-LaTeX Warning: Command \v invalid in math mode on input line 882.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 882.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 882.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 882.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 882.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 882.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 883.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 883.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 883.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 883.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 883.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 883.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 884.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 884.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 884.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 884.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 884.
-
-
-LaTeX Warning: Command \v invalid in math mode on input line 884.
-
-
-Underfull \vbox (badness 10000) detected at line 901
+Underfull \vbox (badness 10000) detected at line 937
  []
 
 [16]
-<tables_figures/SI_figures/recruitment_years/Recrutement_years_BCI.png, id=266,
+
+LaTeX Warning: Command \v invalid in math mode on input line 952.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 952.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 952.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 952.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 952.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 952.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 953.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 953.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 953.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 953.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 953.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 953.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 954.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 954.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 954.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 954.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 954.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 954.
+
+
+Underfull \vbox (badness 10000) detected at line 971
+ []
+
+[17]
+<tables_figures/SI_figures/recruitment_years/Recrutement_years_BCI.png, id=270,
  289.08pt x 578.16pt>
 File: tables_figures/SI_figures/recruitment_years/Recrutement_years_BCI.png Gra
 phic file (type png)
 <use tables_figures/SI_figures/recruitment_years/Recrutement_years_BCI.png>
 Package pdftex.def Info: tables_figures/SI_figures/recruitment_years/Recrutemen
-t_years_BCI.png  used on input line 919.
+t_years_BCI.png  used on input line 989.
 (pdftex.def)             Requested size: 220.78377pt x 441.56755pt.
-[17 <./tables_figures/SI_figures/recruitment_years/Recrutement_years_BCI.png>]
-<tables_figures/SI_figures/recruitment_years/Recrutement_years_HKK.png, id=275,
+[18 <./tables_figures/SI_figures/recruitment_years/Recrutement_years_BCI.png>]
+<tables_figures/SI_figures/recruitment_years/Recrutement_years_HKK.png, id=279,
  289.08pt x 578.16pt>
 File: tables_figures/SI_figures/recruitment_years/Recrutement_years_HKK.png Gra
 phic file (type png)
 <use tables_figures/SI_figures/recruitment_years/Recrutement_years_HKK.png>
 Package pdftex.def Info: tables_figures/SI_figures/recruitment_years/Recrutemen
-t_years_HKK.png  used on input line 939.
+t_years_HKK.png  used on input line 1009.
 (pdftex.def)             Requested size: 220.78377pt x 441.56755pt.
-[18 <./tables_figures/SI_figures/recruitment_years/Recrutement_years_HKK.png>]
-<tables_figures/SI_figures/recruitment_years/Recrutement_years_SCBI.png, id=283
+[19 <./tables_figures/SI_figures/recruitment_years/Recrutement_years_HKK.png>]
+<tables_figures/SI_figures/recruitment_years/Recrutement_years_SCBI.png, id=288
 , 578.16pt x 578.16pt>
 File: tables_figures/SI_figures/recruitment_years/Recrutement_years_SCBI.png Gr
 aphic file (type png)
 <use tables_figures/SI_figures/recruitment_years/Recrutement_years_SCBI.png>
 Package pdftex.def Info: tables_figures/SI_figures/recruitment_years/Recrutemen
-t_years_SCBI.png  used on input line 957.
+t_years_SCBI.png  used on input line 1027.
 (pdftex.def)             Requested size: 422.77669pt x 422.77669pt.
-[19 <./tables_figures/SI_figures/recruitment_years/Recrutement_years_SCBI.png>]
+[20 <./tables_figures/SI_figures/recruitment_years/Recrutement_years_SCBI.png>]
 <tables_figures/SI_figures/recruitment_years/Recrutement_years_LillyDickey.png,
- id=292, 289.08pt x 578.16pt>
+ id=296, 289.08pt x 578.16pt>
 File: tables_figures/SI_figures/recruitment_years/Recrutement_years_LillyDickey
 .png Graphic file (type png)
 <use tables_figures/SI_figures/recruitment_years/Recrutement_years_LillyDickey.
 png>
 Package pdftex.def Info: tables_figures/SI_figures/recruitment_years/Recrutemen
-t_years_LillyDickey.png  used on input line 976.
+t_years_LillyDickey.png  used on input line 1046.
 (pdftex.def)             Requested size: 220.78377pt x 441.56755pt.
-[20 <./tables_figures/SI_figures/recruitment_years/Recrutement_years_LillyDicke
+[21 <./tables_figures/SI_figures/recruitment_years/Recrutement_years_LillyDicke
 y.png>]
 <tables_figures/SI_figures/recruitment_years/Recrutement_years_HarvardForest.pn
-g, id=301, 289.08pt x 578.16pt>
+g, id=305, 289.08pt x 578.16pt>
 File: tables_figures/SI_figures/recruitment_years/Recrutement_years_HarvardFore
 st.png Graphic file (type png)
 <use tables_figures/SI_figures/recruitment_years/Recrutement_years_HarvardFores
 t.png>
 Package pdftex.def Info: tables_figures/SI_figures/recruitment_years/Recrutemen
-t_years_HarvardForest.png  used on input line 994.
+t_years_HarvardForest.png  used on input line 1064.
 (pdftex.def)             Requested size: 220.78377pt x 441.56755pt.
-[21 <./tables_figures/SI_figures/recruitment_years/Recrutement_years_HarvardFor
+[22 <./tables_figures/SI_figures/recruitment_years/Recrutement_years_HarvardFor
 est.png>]
-<tables_figures/SI_figures/recruitment_years/Recrutement_years_Zofin.png, id=30
-9, 289.08pt x 578.16pt>
+<tables_figures/SI_figures/recruitment_years/Recrutement_years_Zofin.png, id=31
+3, 289.08pt x 578.16pt>
 File: tables_figures/SI_figures/recruitment_years/Recrutement_years_Zofin.png G
 raphic file (type png)
 <use tables_figures/SI_figures/recruitment_years/Recrutement_years_Zofin.png>
 Package pdftex.def Info: tables_figures/SI_figures/recruitment_years/Recrutemen
-t_years_Zofin.png  used on input line 1012.
+t_years_Zofin.png  used on input line 1082.
 (pdftex.def)             Requested size: 220.78377pt x 441.56755pt.
-[22 <./tables_figures/SI_figures/recruitment_years/Recrutement_years_Zofin.png>
+[23 <./tables_figures/SI_figures/recruitment_years/Recrutement_years_Zofin.png>
 ]
 <tables_figures/SI_figures/recruitment_years/Recrutement_years_Niobara.png, id=
-317, 289.08pt x 578.16pt>
+321, 289.08pt x 578.16pt>
 File: tables_figures/SI_figures/recruitment_years/Recrutement_years_Niobara.png
  Graphic file (type png)
 <use tables_figures/SI_figures/recruitment_years/Recrutement_years_Niobara.png>
 
 Package pdftex.def Info: tables_figures/SI_figures/recruitment_years/Recrutemen
-t_years_Niobara.png  used on input line 1030.
+t_years_Niobara.png  used on input line 1100.
 (pdftex.def)             Requested size: 220.78377pt x 441.56755pt.
-[23 <./tables_figures/SI_figures/recruitment_years/Recrutement_years_Niobara.pn
+[24 <./tables_figures/SI_figures/recruitment_years/Recrutement_years_Niobara.pn
 g>]
 <tables_figures/SI_figures/recruitment_years/Recrutement_years_NewMexico.png, i
-d=325, 289.08pt x 578.16pt>
+d=329, 289.08pt x 578.16pt>
 File: tables_figures/SI_figures/recruitment_years/Recrutement_years_NewMexico.p
 ng Graphic file (type png)
 <use tables_figures/SI_figures/recruitment_years/Recrutement_years_NewMexico.pn
 g>
 Package pdftex.def Info: tables_figures/SI_figures/recruitment_years/Recrutemen
-t_years_NewMexico.png  used on input line 1048.
+t_years_NewMexico.png  used on input line 1118.
 (pdftex.def)             Requested size: 220.78377pt x 441.56755pt.
-[24 <./tables_figures/SI_figures/recruitment_years/Recrutement_years_NewMexico.
+[25 <./tables_figures/SI_figures/recruitment_years/Recrutement_years_NewMexico.
 png>]
 <tables_figures/SI_figures/recruitment_years/Recrutement_years_CedarBreaks.png,
- id=333, 289.08pt x 578.16pt>
+ id=338, 289.08pt x 578.16pt>
 File: tables_figures/SI_figures/recruitment_years/Recrutement_years_CedarBreaks
 .png Graphic file (type png)
 <use tables_figures/SI_figures/recruitment_years/Recrutement_years_CedarBreaks.
 png>
 Package pdftex.def Info: tables_figures/SI_figures/recruitment_years/Recrutemen
-t_years_CedarBreaks.png  used on input line 1066.
+t_years_CedarBreaks.png  used on input line 1136.
 (pdftex.def)             Requested size: 220.78377pt x 441.56755pt.
-[25 <./tables_figures/SI_figures/recruitment_years/Recrutement_years_CedarBreak
+[26 <./tables_figures/SI_figures/recruitment_years/Recrutement_years_CedarBreak
 s.png (PNG copy)>]
 <tables_figures/SI_figures/recruitment_years/Recrutement_years_ScottyCreek.png,
- id=341, 289.08pt x 578.16pt>
+ id=345, 289.08pt x 578.16pt>
 File: tables_figures/SI_figures/recruitment_years/Recrutement_years_ScottyCreek
 .png Graphic file (type png)
 <use tables_figures/SI_figures/recruitment_years/Recrutement_years_ScottyCreek.
 png>
 Package pdftex.def Info: tables_figures/SI_figures/recruitment_years/Recrutemen
-t_years_ScottyCreek.png  used on input line 1084.
+t_years_ScottyCreek.png  used on input line 1154.
 (pdftex.def)             Requested size: 220.78377pt x 441.56755pt.
-[26 <./tables_figures/SI_figures/recruitment_years/Recrutement_years_ScottyCree
+[27 <./tables_figures/SI_figures/recruitment_years/Recrutement_years_ScottyCree
 k.png>]
 <tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_SCBI_LITU_pre.
-png, id=349, 578.16pt x 289.08pt>
+png, id=353, 578.16pt x 289.08pt>
 File: tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_SCBI_LITU
 _pre.png Graphic file (type png)
 <use tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_SCBI_LITU_
 pre.png>
 Package pdftex.def Info: tables_figures/SI_figures/traditional_comparison/climw
-in_vs_dcc_SCBI_LITU_pre.png  used on input line 1102.
+in_vs_dcc_SCBI_LITU_pre.png  used on input line 1172.
 (pdftex.def)             Requested size: 446.26086pt x 223.13042pt.
 <tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_SCBI_LITU_pet.
-png, id=350, 578.16pt x 289.08pt>
+png, id=354, 578.16pt x 289.08pt>
 File: tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_SCBI_LITU
 _pet.png Graphic file (type png)
 <use tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_SCBI_LITU_
 pet.png>
 Package pdftex.def Info: tables_figures/SI_figures/traditional_comparison/climw
-in_vs_dcc_SCBI_LITU_pet.png  used on input line 1106.
+in_vs_dcc_SCBI_LITU_pet.png  used on input line 1176.
 (pdftex.def)             Requested size: 446.26086pt x 223.13042pt.
-[27 <./tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_SCBI_LIT
+[28 <./tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_SCBI_LIT
 U_pre.png> <./tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_S
 CBI_LITU_pet.png>]
 <tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_ABAL_wet
-.png, id=358, 578.16pt x 289.08pt>
+.png, id=362, 578.16pt x 289.08pt>
 File: tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_ABA
 L_wet.png Graphic file (type png)
 <use tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_ABAL
 _wet.png>
 Package pdftex.def Info: tables_figures/SI_figures/traditional_comparison/climw
-in_vs_dcc_Zofin_ABAL_wet.png  used on input line 1133.
+in_vs_dcc_Zofin_ABAL_wet.png  used on input line 1203.
 (pdftex.def)             Requested size: 446.26086pt x 223.13042pt.
 <tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_ABAL_tmx
-.png, id=359, 578.16pt x 289.08pt>
+.png, id=363, 578.16pt x 289.08pt>
 File: tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_ABA
 L_tmx.png Graphic file (type png)
 <use tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_ABAL
 _tmx.png>
 Package pdftex.def Info: tables_figures/SI_figures/traditional_comparison/climw
-in_vs_dcc_Zofin_ABAL_tmx.png  used on input line 1137.
+in_vs_dcc_Zofin_ABAL_tmx.png  used on input line 1207.
 (pdftex.def)             Requested size: 446.26086pt x 223.13042pt.
-[28 <./tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_AB
+[29 <./tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_AB
 AL_wet.png> <./tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_
 Zofin_ABAL_tmx.png>]
 <tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBreaks_PS
-ME_pre.png, id=367, 578.16pt x 289.08pt>
+ME_pre.png, id=371, 578.16pt x 289.08pt>
 File: tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBrea
 ks_PSME_pre.png Graphic file (type png)
 <use tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBreak
 s_PSME_pre.png>
 Package pdftex.def Info: tables_figures/SI_figures/traditional_comparison/climw
-in_vs_dcc_CedarBreaks_PSME_pre.png  used on input line 1164.
+in_vs_dcc_CedarBreaks_PSME_pre.png  used on input line 1234.
 (pdftex.def)             Requested size: 446.26086pt x 223.13042pt.
 <tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBreaks_PS
-ME_tmx.png, id=368, 578.16pt x 289.08pt>
+ME_tmx.png, id=372, 578.16pt x 289.08pt>
 File: tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBrea
 ks_PSME_tmx.png Graphic file (type png)
 <use tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBreak
 s_PSME_tmx.png>
 Package pdftex.def Info: tables_figures/SI_figures/traditional_comparison/climw
-in_vs_dcc_CedarBreaks_PSME_tmx.png  used on input line 1168.
+in_vs_dcc_CedarBreaks_PSME_tmx.png  used on input line 1238.
 (pdftex.def)             Requested size: 446.26086pt x 223.13042pt.
-[29 <./tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBre
+[30 <./tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBre
 aks_PSME_pre.png> <./tables_figures/SI_figures/traditional_comparison/climwin_v
 s_dcc_CedarBreaks_PSME_tmx.png>]
 <tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCreek_PI
-MA_pre.png, id=376, 578.16pt x 289.08pt>
+MA_pre.png, id=380, 578.16pt x 289.08pt>
 File: tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCre
 ek_PIMA_pre.png Graphic file (type png)
 <use tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCree
 k_PIMA_pre.png>
 Package pdftex.def Info: tables_figures/SI_figures/traditional_comparison/climw
-in_vs_dcc_ScottyCreek_PIMA_pre.png  used on input line 1195.
+in_vs_dcc_ScottyCreek_PIMA_pre.png  used on input line 1265.
 (pdftex.def)             Requested size: 446.26086pt x 223.13042pt.
 <tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCreek_PI
-MA_tmx.png, id=377, 578.16pt x 289.08pt>
+MA_tmx.png, id=381, 578.16pt x 289.08pt>
 File: tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCre
 ek_PIMA_tmx.png Graphic file (type png)
 <use tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCree
 k_PIMA_tmx.png>
 Package pdftex.def Info: tables_figures/SI_figures/traditional_comparison/climw
-in_vs_dcc_ScottyCreek_PIMA_tmx.png  used on input line 1199.
+in_vs_dcc_ScottyCreek_PIMA_tmx.png  used on input line 1269.
 (pdftex.def)             Requested size: 446.26086pt x 223.13042pt.
-[30 <./tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCr
+[31 <./tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCr
 eek_PIMA_pre.png> <./tables_figures/SI_figures/traditional_comparison/climwin_v
 s_dcc_ScottyCreek_PIMA_tmx.png>]
-<tables_figures/SI_figures/climwin_plots_combined/SCBI_pre.png, id=385, 722.7pt
+<tables_figures/SI_figures/climwin_plots_combined/SCBI_pre.png, id=390, 722.7pt
  x 578.16pt>
 File: tables_figures/SI_figures/climwin_plots_combined/SCBI_pre.png Graphic fil
 e (type png)
 <use tables_figures/SI_figures/climwin_plots_combined/SCBI_pre.png>
 Package pdftex.def Info: tables_figures/SI_figures/climwin_plots_combined/SCBI_
-pre.png  used on input line 1222.
+pre.png  used on input line 1292.
 (pdftex.def)             Requested size: 469.76045pt x 375.80836pt.
-[31 <./tables_figures/SI_figures/climwin_plots_combined/SCBI_pre.png (PNG copy)
+[32 <./tables_figures/SI_figures/climwin_plots_combined/SCBI_pre.png (PNG copy)
 >]
-<tables_figures/SI_figures/climwin_plots_combined/SCBI_pet.png, id=392, 722.7pt
+<tables_figures/SI_figures/climwin_plots_combined/SCBI_pet.png, id=396, 722.7pt
  x 578.16pt>
 File: tables_figures/SI_figures/climwin_plots_combined/SCBI_pet.png Graphic fil
 e (type png)
 <use tables_figures/SI_figures/climwin_plots_combined/SCBI_pet.png>
 Package pdftex.def Info: tables_figures/SI_figures/climwin_plots_combined/SCBI_
-pet.png  used on input line 1234.
+pet.png  used on input line 1304.
 (pdftex.def)             Requested size: 469.76045pt x 375.80836pt.
-[32 <./tables_figures/SI_figures/climwin_plots_combined/SCBI_pet.png (PNG copy)
+[33 <./tables_figures/SI_figures/climwin_plots_combined/SCBI_pet.png (PNG copy)
 >]
-<tables_figures/SI_figures/climwin_plots_combined/HKK_tmp_tmx.png, id=398, 722.
+<tables_figures/SI_figures/climwin_plots_combined/HKK_tmp_tmx.png, id=402, 722.
 7pt x 578.16pt>
 File: tables_figures/SI_figures/climwin_plots_combined/HKK_tmp_tmx.png Graphic 
 file (type png)
 <use tables_figures/SI_figures/climwin_plots_combined/HKK_tmp_tmx.png>
 Package pdftex.def Info: tables_figures/SI_figures/climwin_plots_combined/HKK_t
-mp_tmx.png  used on input line 1249.
+mp_tmx.png  used on input line 1319.
 (pdftex.def)             Requested size: 469.76045pt x 375.80836pt.
-[33 <./tables_figures/SI_figures/climwin_plots_combined/HKK_tmp_tmx.png (PNG co
+[34 <./tables_figures/SI_figures/climwin_plots_combined/HKK_tmp_tmx.png (PNG co
 py)>]
-<tables_figures/SI_figures/composite_plots/BCI.png, id=404, 722.7pt x 722.7pt>
+<tables_figures/SI_figures/composite_plots/BCI.png, id=408, 722.7pt x 722.7pt>
 File: tables_figures/SI_figures/composite_plots/BCI.png Graphic file (type png)
 
 <use tables_figures/SI_figures/composite_plots/BCI.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/BCI.png  use
-d on input line 1262.
+d on input line 1332.
 (pdftex.def)             Requested size: 422.77228pt x 422.77228pt.
-[34 <./tables_figures/SI_figures/composite_plots/BCI.png>]
-<tables_figures/SI_figures/composite_plots/BCI_with_Year.png, id=413, 722.7pt x
+[35 <./tables_figures/SI_figures/composite_plots/BCI.png>]
+<tables_figures/SI_figures/composite_plots/BCI_with_Year.png, id=417, 722.7pt x
  722.7pt>
 File: tables_figures/SI_figures/composite_plots/BCI_with_Year.png Graphic file 
 (type png)
 <use tables_figures/SI_figures/composite_plots/BCI_with_Year.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/BCI_with_Yea
-r.png  used on input line 1284.
+r.png  used on input line 1354.
 (pdftex.def)             Requested size: 422.77228pt x 422.77228pt.
-[35 <./tables_figures/SI_figures/composite_plots/BCI_with_Year.png>]
-<tables_figures/SI_figures/composite_plots/HKK.png, id=421, 722.7pt x 722.7pt>
+[36 <./tables_figures/SI_figures/composite_plots/BCI_with_Year.png>]
+<tables_figures/SI_figures/composite_plots/HKK.png, id=425, 722.7pt x 722.7pt>
 File: tables_figures/SI_figures/composite_plots/HKK.png Graphic file (type png)
 
 <use tables_figures/SI_figures/composite_plots/HKK.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/HKK.png  use
-d on input line 1306.
+d on input line 1376.
 (pdftex.def)             Requested size: 422.77228pt x 422.77228pt.
-[36 <./tables_figures/SI_figures/composite_plots/HKK.png>]
-<tables_figures/SI_figures/composite_plots/HKK_with_Year.png, id=429, 722.7pt x
+[37 <./tables_figures/SI_figures/composite_plots/HKK.png>]
+<tables_figures/SI_figures/composite_plots/HKK_with_Year.png, id=434, 722.7pt x
  722.7pt>
 File: tables_figures/SI_figures/composite_plots/HKK_with_Year.png Graphic file 
 (type png)
 <use tables_figures/SI_figures/composite_plots/HKK_with_Year.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/HKK_with_Yea
-r.png  used on input line 1328.
+r.png  used on input line 1398.
 (pdftex.def)             Requested size: 422.77228pt x 422.77228pt.
-[37 <./tables_figures/SI_figures/composite_plots/HKK_with_Year.png>]
-<tables_figures/SI_figures/composite_plots/SCBI.png, id=438, 722.7pt x 722.7pt>
+[38 <./tables_figures/SI_figures/composite_plots/HKK_with_Year.png>]
+<tables_figures/SI_figures/composite_plots/SCBI.png, id=442, 722.7pt x 722.7pt>
 
 File: tables_figures/SI_figures/composite_plots/SCBI.png Graphic file (type png
 )
 <use tables_figures/SI_figures/composite_plots/SCBI.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/SCBI.png  us
-ed on input line 1350.
+ed on input line 1420.
 (pdftex.def)             Requested size: 422.77228pt x 422.77228pt.
-[38 <./tables_figures/SI_figures/composite_plots/SCBI.png (PNG copy)>]
-<tables_figures/SI_figures/composite_plots/SCBI_with_Year.png, id=446, 722.7pt 
+[39 <./tables_figures/SI_figures/composite_plots/SCBI.png (PNG copy)>]
+<tables_figures/SI_figures/composite_plots/SCBI_with_Year.png, id=450, 722.7pt 
 x 722.7pt>
 File: tables_figures/SI_figures/composite_plots/SCBI_with_Year.png Graphic file
  (type png)
 <use tables_figures/SI_figures/composite_plots/SCBI_with_Year.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/SCBI_with_Ye
-ar.png  used on input line 1373.
+ar.png  used on input line 1443.
 (pdftex.def)             Requested size: 422.77228pt x 422.77228pt.
-[39 <./tables_figures/SI_figures/composite_plots/SCBI_with_Year.png (PNG copy)>
+[40 <./tables_figures/SI_figures/composite_plots/SCBI_with_Year.png (PNG copy)>
 ]
-<tables_figures/SI_figures/composite_plots/LillyDickey.png, id=453, 722.7pt x 7
+<tables_figures/SI_figures/composite_plots/LillyDickey.png, id=457, 722.7pt x 7
 22.7pt>
 File: tables_figures/SI_figures/composite_plots/LillyDickey.png Graphic file (t
 ype png)
 <use tables_figures/SI_figures/composite_plots/LillyDickey.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/LillyDickey.
-png  used on input line 1396.
+png  used on input line 1466.
 (pdftex.def)             Requested size: 422.77228pt x 422.77228pt.
-[40 <./tables_figures/SI_figures/composite_plots/LillyDickey.png>]
-<tables_figures/SI_figures/composite_plots/LillyDickey_with_Year.png, id=461, 7
+[41 <./tables_figures/SI_figures/composite_plots/LillyDickey.png>]
+<tables_figures/SI_figures/composite_plots/LillyDickey_with_Year.png, id=465, 7
 22.7pt x 722.7pt>
 File: tables_figures/SI_figures/composite_plots/LillyDickey_with_Year.png Graph
 ic file (type png)
 <use tables_figures/SI_figures/composite_plots/LillyDickey_with_Year.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/LillyDickey_
-with_Year.png  used on input line 1418.
+with_Year.png  used on input line 1488.
 (pdftex.def)             Requested size: 422.77228pt x 422.77228pt.
-[41 <./tables_figures/SI_figures/composite_plots/LillyDickey_with_Year.png>]
-<tables_figures/SI_figures/composite_plots/HarvardForest.png, id=469, 722.7pt x
+[42 <./tables_figures/SI_figures/composite_plots/LillyDickey_with_Year.png>]
+<tables_figures/SI_figures/composite_plots/HarvardForest.png, id=473, 722.7pt x
  722.7pt>
 File: tables_figures/SI_figures/composite_plots/HarvardForest.png Graphic file 
 (type png)
 <use tables_figures/SI_figures/composite_plots/HarvardForest.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/HarvardFores
-t.png  used on input line 1440.
+t.png  used on input line 1510.
 (pdftex.def)             Requested size: 422.77228pt x 422.77228pt.
-[42 <./tables_figures/SI_figures/composite_plots/HarvardForest.png>]
-<tables_figures/SI_figures/composite_plots/HarvardForest_with_Year.png, id=477,
+[43 <./tables_figures/SI_figures/composite_plots/HarvardForest.png>]
+<tables_figures/SI_figures/composite_plots/HarvardForest_with_Year.png, id=482,
  722.7pt x 722.7pt>
 File: tables_figures/SI_figures/composite_plots/HarvardForest_with_Year.png Gra
 phic file (type png)
 <use tables_figures/SI_figures/composite_plots/HarvardForest_with_Year.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/HarvardFores
-t_with_Year.png  used on input line 1462.
+t_with_Year.png  used on input line 1532.
 (pdftex.def)             Requested size: 422.77228pt x 422.77228pt.
-[43 <./tables_figures/SI_figures/composite_plots/HarvardForest_with_Year.png>]
-<tables_figures/SI_figures/composite_plots/Zofin.png, id=486, 722.7pt x 722.7pt
+[44 <./tables_figures/SI_figures/composite_plots/HarvardForest_with_Year.png>]
+<tables_figures/SI_figures/composite_plots/Zofin.png, id=490, 722.7pt x 722.7pt
 >
 File: tables_figures/SI_figures/composite_plots/Zofin.png Graphic file (type pn
 g)
 <use tables_figures/SI_figures/composite_plots/Zofin.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/Zofin.png  u
-sed on input line 1484.
+sed on input line 1554.
 (pdftex.def)             Requested size: 422.77228pt x 422.77228pt.
-[44 <./tables_figures/SI_figures/composite_plots/Zofin.png>]
-<tables_figures/SI_figures/composite_plots/Zofin_with_Year.png, id=494, 722.7pt
+[45 <./tables_figures/SI_figures/composite_plots/Zofin.png>]
+<tables_figures/SI_figures/composite_plots/Zofin_with_Year.png, id=498, 722.7pt
  x 722.7pt>
 File: tables_figures/SI_figures/composite_plots/Zofin_with_Year.png Graphic fil
 e (type png)
 <use tables_figures/SI_figures/composite_plots/Zofin_with_Year.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/Zofin_with_Y
-ear.png  used on input line 1506.
+ear.png  used on input line 1576.
 (pdftex.def)             Requested size: 422.77228pt x 422.77228pt.
-[45 <./tables_figures/SI_figures/composite_plots/Zofin_with_Year.png>]
-<tables_figures/SI_figures/composite_plots/Niobara.png, id=502, 722.7pt x 722.7
+[46 <./tables_figures/SI_figures/composite_plots/Zofin_with_Year.png>]
+<tables_figures/SI_figures/composite_plots/Niobara.png, id=506, 722.7pt x 722.7
 pt>
 File: tables_figures/SI_figures/composite_plots/Niobara.png Graphic file (type 
 png)
 <use tables_figures/SI_figures/composite_plots/Niobara.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/Niobara.png 
- used on input line 1528.
+ used on input line 1598.
 (pdftex.def)             Requested size: 422.77228pt x 422.77228pt.
-[46 <./tables_figures/SI_figures/composite_plots/Niobara.png>]
-<tables_figures/SI_figures/composite_plots/Niobara_with_Year.png, id=510, 722.7
+[47 <./tables_figures/SI_figures/composite_plots/Niobara.png>]
+<tables_figures/SI_figures/composite_plots/Niobara_with_Year.png, id=514, 722.7
 pt x 722.7pt>
 File: tables_figures/SI_figures/composite_plots/Niobara_with_Year.png Graphic f
 ile (type png)
 <use tables_figures/SI_figures/composite_plots/Niobara_with_Year.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/Niobara_with
-_Year.png  used on input line 1550.
+_Year.png  used on input line 1620.
 (pdftex.def)             Requested size: 422.77228pt x 422.77228pt.
-[47 <./tables_figures/SI_figures/composite_plots/Niobara_with_Year.png>]
-<tables_figures/SI_figures/composite_plots/NewMexico.png, id=518, 722.7pt x 722
+[48 <./tables_figures/SI_figures/composite_plots/Niobara_with_Year.png>]
+<tables_figures/SI_figures/composite_plots/NewMexico.png, id=522, 722.7pt x 722
 .7pt>
 File: tables_figures/SI_figures/composite_plots/NewMexico.png Graphic file (typ
 e png)
 <use tables_figures/SI_figures/composite_plots/NewMexico.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/NewMexico.pn
-g  used on input line 1572.
+g  used on input line 1642.
 (pdftex.def)             Requested size: 422.77228pt x 422.77228pt.
-[48 <./tables_figures/SI_figures/composite_plots/NewMexico.png>]
-<tables_figures/SI_figures/composite_plots/NewMexico_with_Year.png, id=526, 722
+[49 <./tables_figures/SI_figures/composite_plots/NewMexico.png>]
+<tables_figures/SI_figures/composite_plots/NewMexico_with_Year.png, id=531, 722
 .7pt x 722.7pt>
 File: tables_figures/SI_figures/composite_plots/NewMexico_with_Year.png Graphic
  file (type png)
 <use tables_figures/SI_figures/composite_plots/NewMexico_with_Year.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/NewMexico_wi
-th_Year.png  used on input line 1594.
+th_Year.png  used on input line 1664.
 (pdftex.def)             Requested size: 422.77228pt x 422.77228pt.
-[49 <./tables_figures/SI_figures/composite_plots/NewMexico_with_Year.png>]
-<tables_figures/SI_figures/composite_plots/CedarBreaks.png, id=535, 722.7pt x 7
+[50 <./tables_figures/SI_figures/composite_plots/NewMexico_with_Year.png>]
+<tables_figures/SI_figures/composite_plots/CedarBreaks.png, id=539, 722.7pt x 7
 22.7pt>
 File: tables_figures/SI_figures/composite_plots/CedarBreaks.png Graphic file (t
 ype png)
 <use tables_figures/SI_figures/composite_plots/CedarBreaks.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/CedarBreaks.
-png  used on input line 1616.
+png  used on input line 1686.
 (pdftex.def)             Requested size: 422.77228pt x 422.77228pt.
-[50 <./tables_figures/SI_figures/composite_plots/CedarBreaks.png (PNG copy)>]
-<tables_figures/SI_figures/composite_plots/CedarBreaks_with_Year.png, id=542, 7
+[51 <./tables_figures/SI_figures/composite_plots/CedarBreaks.png (PNG copy)>]
+<tables_figures/SI_figures/composite_plots/CedarBreaks_with_Year.png, id=546, 7
 22.7pt x 722.7pt>
 File: tables_figures/SI_figures/composite_plots/CedarBreaks_with_Year.png Graph
 ic file (type png)
 <use tables_figures/SI_figures/composite_plots/CedarBreaks_with_Year.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/CedarBreaks_
-with_Year.png  used on input line 1638.
+with_Year.png  used on input line 1708.
 (pdftex.def)             Requested size: 422.77228pt x 422.77228pt.
-[51 <./tables_figures/SI_figures/composite_plots/CedarBreaks_with_Year.png (PNG
+[52 <./tables_figures/SI_figures/composite_plots/CedarBreaks_with_Year.png (PNG
  copy)>]
-<tables_figures/SI_figures/composite_plots/ScottyCreek.png, id=549, 722.7pt x 7
+<tables_figures/SI_figures/composite_plots/ScottyCreek.png, id=553, 722.7pt x 7
 22.7pt>
 File: tables_figures/SI_figures/composite_plots/ScottyCreek.png Graphic file (t
 ype png)
 <use tables_figures/SI_figures/composite_plots/ScottyCreek.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/ScottyCreek.
-png  used on input line 1660.
+png  used on input line 1730.
 (pdftex.def)             Requested size: 422.77228pt x 422.77228pt.
-[52 <./tables_figures/SI_figures/composite_plots/ScottyCreek.png>]
-<tables_figures/SI_figures/composite_plots/ScottyCreek_with_Year.png, id=557, 7
+[53 <./tables_figures/SI_figures/composite_plots/ScottyCreek.png>]
+<tables_figures/SI_figures/composite_plots/ScottyCreek_with_Year.png, id=561, 7
 22.7pt x 722.7pt>
 File: tables_figures/SI_figures/composite_plots/ScottyCreek_with_Year.png Graph
 ic file (type png)
 <use tables_figures/SI_figures/composite_plots/ScottyCreek_with_Year.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/ScottyCreek_
-with_Year.png  used on input line 1682.
+with_Year.png  used on input line 1752.
 (pdftex.def)             Requested size: 422.77228pt x 422.77228pt.
-[53 <./tables_figures/SI_figures/composite_plots/ScottyCreek_with_Year.png>]
-<tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png, id=565, 722.7pt x 578.1
+[54 <./tables_figures/SI_figures/composite_plots/ScottyCreek_with_Year.png>]
+<tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png, id=569, 722.7pt x 578.1
 6pt>
 File: tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png Graphic file (type 
 png)
 <use tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png>
 Package pdftex.def Info: tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png 
- used on input line 1706.
+ used on input line 1776.
 (pdftex.def)             Requested size: 267.75871pt x 214.20697pt.
-<tables_figures/SI_figures/GLS_post1970_ScottyCreek.png, id=566, 722.7pt x 578.
+<tables_figures/SI_figures/GLS_post1970_ScottyCreek.png, id=570, 722.7pt x 578.
 16pt>
 File: tables_figures/SI_figures/GLS_post1970_ScottyCreek.png Graphic file (type
  png)
 <use tables_figures/SI_figures/GLS_post1970_ScottyCreek.png>
 Package pdftex.def Info: tables_figures/SI_figures/GLS_post1970_ScottyCreek.png
-  used on input line 1714.
+  used on input line 1784.
 (pdftex.def)             Requested size: 267.75871pt x 214.20697pt.
-[54 <./tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png> <./tables_figures
+[55 <./tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png> <./tables_figures
 /SI_figures/GLS_post1970_ScottyCreek.png>]
 <tables_figures/pre_temp_groups_dbh_interactions_log_core_measurement_dbh.png, 
-id=577, 592.614pt x 592.614pt>
+id=583, 592.614pt x 592.614pt>
 File: tables_figures/pre_temp_groups_dbh_interactions_log_core_measurement_dbh.
 png Graphic file (type png)
 <use tables_figures/pre_temp_groups_dbh_interactions_log_core_measurement_dbh.p
 ng>
 Package pdftex.def Info: tables_figures/pre_temp_groups_dbh_interactions_log_co
-re_measurement_dbh.png  used on input line 1727.
+re_measurement_dbh.png  used on input line 1797.
 (pdftex.def)             Requested size: 469.7695pt x 469.7695pt.
-[55 <./tables_figures/pre_temp_groups_dbh_interactions_log_core_measurement_dbh
+[56 <./tables_figures/pre_temp_groups_dbh_interactions_log_core_measurement_dbh
 .png (PNG copy)>]
-<tables_figures/pre_temp_groups_dbh_interactions_log_BAI_dbh.png, id=586, 592.6
+<tables_figures/pre_temp_groups_dbh_interactions_log_BAI_dbh.png, id=590, 592.6
 14pt x 592.614pt>
 File: tables_figures/pre_temp_groups_dbh_interactions_log_BAI_dbh.png Graphic f
 ile (type png)
 <use tables_figures/pre_temp_groups_dbh_interactions_log_BAI_dbh.png>
 Package pdftex.def Info: tables_figures/pre_temp_groups_dbh_interactions_log_BA
-I_dbh.png  used on input line 1739.
+I_dbh.png  used on input line 1809.
 (pdftex.def)             Requested size: 469.7695pt x 469.7695pt.
-[56 <./tables_figures/pre_temp_groups_dbh_interactions_log_BAI_dbh.png (PNG cop
+[57 <./tables_figures/pre_temp_groups_dbh_interactions_log_BAI_dbh.png (PNG cop
 y)>]
-<tables_figures/SI_figures/decadal_plots/BCI.png, id=593, 1084.05pt x 404.712pt
+<tables_figures/SI_figures/decadal_plots/BCI.png, id=597, 1084.05pt x 404.712pt
 >
 File: tables_figures/SI_figures/decadal_plots/BCI.png Graphic file (type png)
 <use tables_figures/SI_figures/decadal_plots/BCI.png>
 Package pdftex.def Info: tables_figures/SI_figures/decadal_plots/BCI.png  used 
-on input line 1750.
+on input line 1820.
 (pdftex.def)             Requested size: 469.75496pt x 175.37518pt.
-[57 <./tables_figures/SI_figures/decadal_plots/BCI.png>]
-<tables_figures/SI_figures/decadal_plots/HKK.png, id=602, 1084.05pt x 404.712pt
+[58 <./tables_figures/SI_figures/decadal_plots/BCI.png>]
+<tables_figures/SI_figures/decadal_plots/HKK.png, id=606, 1084.05pt x 404.712pt
 >
 File: tables_figures/SI_figures/decadal_plots/HKK.png Graphic file (type png)
 <use tables_figures/SI_figures/decadal_plots/HKK.png>
 Package pdftex.def Info: tables_figures/SI_figures/decadal_plots/HKK.png  used 
-on input line 1761.
+on input line 1831.
 (pdftex.def)             Requested size: 469.75496pt x 175.37518pt.
-[58 <./tables_figures/SI_figures/decadal_plots/HKK.png>]
-<tables_figures/SI_figures/decadal_plots/SCBI.png, id=610, 1084.05pt x 1084.05p
+[59 <./tables_figures/SI_figures/decadal_plots/HKK.png>]
+<tables_figures/SI_figures/decadal_plots/SCBI.png, id=614, 1084.05pt x 1084.05p
 t>
 File: tables_figures/SI_figures/decadal_plots/SCBI.png Graphic file (type png)
 <use tables_figures/SI_figures/decadal_plots/SCBI.png>
 Package pdftex.def Info: tables_figures/SI_figures/decadal_plots/SCBI.png  used
- on input line 1770.
+ on input line 1840.
 (pdftex.def)             Requested size: 469.75496pt x 469.75496pt.
-[59 <./tables_figures/SI_figures/decadal_plots/SCBI.png>]
-<tables_figures/SI_figures/decadal_plots/LD.png, id=617, 1084.05pt x 404.712pt>
+[60 <./tables_figures/SI_figures/decadal_plots/SCBI.png>]
+<tables_figures/SI_figures/decadal_plots/LD.png, id=621, 1084.05pt x 404.712pt>
 
 File: tables_figures/SI_figures/decadal_plots/LD.png Graphic file (type png)
 <use tables_figures/SI_figures/decadal_plots/LD.png>
 Package pdftex.def Info: tables_figures/SI_figures/decadal_plots/LD.png  used o
-n input line 1775.
+n input line 1845.
 (pdftex.def)             Requested size: 469.75496pt x 175.37518pt.
-[60 <./tables_figures/SI_figures/decadal_plots/LD.png>]
-<tables_figures/SI_figures/decadal_plots/HF.png, id=624, 1084.05pt x 404.712pt>
+[61 <./tables_figures/SI_figures/decadal_plots/LD.png>]
+<tables_figures/SI_figures/decadal_plots/HF.png, id=629, 1084.05pt x 404.712pt>
 
 File: tables_figures/SI_figures/decadal_plots/HF.png Graphic file (type png)
 <use tables_figures/SI_figures/decadal_plots/HF.png>
 Package pdftex.def Info: tables_figures/SI_figures/decadal_plots/HF.png  used o
-n input line 1786.
+n input line 1856.
 (pdftex.def)             Requested size: 469.75496pt x 175.37518pt.
-[61 <./tables_figures/SI_figures/decadal_plots/HF.png>]
-<tables_figures/SI_figures/decadal_plots/ZN.png, id=633, 1084.05pt x 404.712pt>
+[62 <./tables_figures/SI_figures/decadal_plots/HF.png>]
+<tables_figures/SI_figures/decadal_plots/ZN.png, id=637, 1084.05pt x 404.712pt>
 
 File: tables_figures/SI_figures/decadal_plots/ZN.png Graphic file (type png)
 <use tables_figures/SI_figures/decadal_plots/ZN.png>
 Package pdftex.def Info: tables_figures/SI_figures/decadal_plots/ZN.png  used o
-n input line 1797.
+n input line 1867.
 (pdftex.def)             Requested size: 469.75496pt x 175.37518pt.
-[62 <./tables_figures/SI_figures/decadal_plots/ZN.png>]
+[63 <./tables_figures/SI_figures/decadal_plots/ZN.png>]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1808.
-LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 180
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1878.
+LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 187
 8.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [63]
-<tables_figures/SI_figures/decadal_plots/NM.png, id=648, 1084.05pt x 404.712pt>
+) [64]
+<tables_figures/SI_figures/decadal_plots/NM.png, id=652, 1084.05pt x 404.712pt>
 
 File: tables_figures/SI_figures/decadal_plots/NM.png Graphic file (type png)
 <use tables_figures/SI_figures/decadal_plots/NM.png>
 Package pdftex.def Info: tables_figures/SI_figures/decadal_plots/NM.png  used o
-n input line 1819.
+n input line 1889.
 (pdftex.def)             Requested size: 469.75496pt x 175.37518pt.
-[64 <./tables_figures/SI_figures/decadal_plots/NM.png>]
-<tables_figures/SI_figures/decadal_plots/CB.png, id=656, 1084.05pt x 794.97pt>
+[65 <./tables_figures/SI_figures/decadal_plots/NM.png>]
+<tables_figures/SI_figures/decadal_plots/CB.png, id=660, 1084.05pt x 794.97pt>
 File: tables_figures/SI_figures/decadal_plots/CB.png Graphic file (type png)
 <use tables_figures/SI_figures/decadal_plots/CB.png>
 Package pdftex.def Info: tables_figures/SI_figures/decadal_plots/CB.png  used o
-n input line 1830.
+n input line 1900.
 (pdftex.def)             Requested size: 469.75496pt x 344.48697pt.
-[65 <./tables_figures/SI_figures/decadal_plots/CB.png>]
-<tables_figures/SI_figures/decadal_plots/SC.png, id=664, 1084.05pt x 404.712pt>
+[66 <./tables_figures/SI_figures/decadal_plots/CB.png>]
+<tables_figures/SI_figures/decadal_plots/SC.png, id=668, 1084.05pt x 404.712pt>
 
 File: tables_figures/SI_figures/decadal_plots/SC.png Graphic file (type png)
 <use tables_figures/SI_figures/decadal_plots/SC.png>
 Package pdftex.def Info: tables_figures/SI_figures/decadal_plots/SC.png  used o
-n input line 1841.
+n input line 1911.
 (pdftex.def)             Requested size: 469.75496pt x 175.37518pt.
-[66 <./tables_figures/SI_figures/decadal_plots/SC.png>] [67]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2015.
-[68]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2015.
+[67 <./tables_figures/SI_figures/decadal_plots/SC.png>] [68] [69]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2150.
+[70]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2150.
 (./MEE_manuscript_SI.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2015.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 2015.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2150.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 2150.
  ) 
 Here is how much of TeX's memory you used:
- 16847 strings out of 492616
- 266714 string characters out of 6129482
- 396848 words of memory out of 5000000
+ 16858 strings out of 492616
+ 266967 string characters out of 6129482
+ 396849 words of memory out of 5000000
  19953 multiletter control sequences out of 15000+600000
  80927 words of font info for 161 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,15n,44p,1546b,464s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 40i,15n,44p,1547b,464s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local
 /texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2019/
 texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2019/texmf-dist
@@ -1521,10 +1527,10 @@ i8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></u
 sr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/t
 exlive/2019/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/201
 9/texmf-dist/fonts/type1/public/lm/lmtt8.pfb>
-Output written on MEE_manuscript_SI.pdf (68 pages, 9112229 bytes).
+Output written on MEE_manuscript_SI.pdf (70 pages, 9121174 bytes).
 PDF statistics:
- 1051 PDF objects out of 1200 (max. 8388607)
- 855 compressed objects within 9 object streams
- 286 named destinations out of 1000 (max. 500000)
+ 1081 PDF objects out of 1200 (max. 8388607)
+ 883 compressed objects within 9 object streams
+ 297 named destinations out of 1000 (max. 500000)
  17135 words of extra memory for PDF output out of 17280 (max. 10000000)
 

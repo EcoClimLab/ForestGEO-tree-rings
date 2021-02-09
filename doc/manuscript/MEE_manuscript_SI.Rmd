@@ -217,30 +217,69 @@ decadal_generic_legend = " **(generic legend)**"
 
 ### Barro Colorado Nature Monument, Panama
 
-We note that the secondary forest status of much of BCNM differs from ForestGEO's 50-ha plot on Barro Colorado Island (within BCNM), which is old-growth, and shows little directional trend in tree growth [@rutishauser_testing_2020].
+Cores were collected within the Barro Colorado Nature Monument (BCNM), a 5600-ha reserve established in 1923 that includes Barro Colorado Island (BCI) and the surrounding mainland peninsulas [@alfaro-sanchez_growth_2017]. 
+BCNM contains a mix of old-growth and mature secondary tropical moist forest. 
+Live canopy trees on the peninsulas were cored between January 2015 and April 2015. 
+In addition, several fallen dead trees on BCI were sampled by taking discs with chain saws. 
+
+We note that the secondary forest status of much of BCNM differs from ForestGEO's 50-ha plot on BCI, which is old-growth, and shows little directional trend in woody productivity [@rutishauser_testing_2020].
 
 ### Huai Kha Khaeng, Thailand
 
-*Melia azedarach* --a highly shade-intolerant species that establishes in the open [@baker_suppression_2006] and was sampled opportunistically outside the ForestGEO plot at HKK [@vlam_temperature_2014], where it presumably established under open conditions [@baker_disturbance_2005].
+Cores were collected within a ~300 ha acre area of seasonal dry evergreen and mixed deciduous forest in the Huai Kha Khaeng Wildlife Sanctuary (HKK).
+The site underwent a widespread, catastrophic disturbance in the mid-1800s and several smaller, more localized disturbances in the 1910s, 1940s, and 1960s [@baker_disturbance_2005].
 
-The site underwent a widespread, catastrophic disturbance in the mid-1800s and several smaller, more localized disutrbances in the 1910s, 1940s, and 1960s [@baker_disturbance_2005]
+Cores were collected between December 2010 and December 2011, sampling trees >5 cm DBH with the goal or representing a random subset of the local population of the target species. 
+Details are given in @vlam_temperature_2014.
 
 ### Smithsonian Conservation Biology Institute, Virginia, USA
 
+Cores were collected within the ForestGEO plot at the Smithsonian Conservation Biology Institute (SCBI). 
+The forest is a secondary temperate broadleaf deciduous forest, which developed following agricultural abandonment in the mid 19th-century, dominated by the species included in our analysis [@bourg_initial_2013]. 
+Specifically, the 14 species sampled together account for 97% of woody productivity at the site [@helcoski_growing_2019].
+
+In 2010-2011, cores were collected from a random subset of live trees $\ge$ 10 cm DBH.
+In 2016 and 2017, cores were extracted from trees found newly dead during an annual tree mortality census [@gonzalez-akre_patterns_2016].
+Details are given in @helcoski_growing_2019.
+
 ### Lilly Dickey Woods, Indiana, USA
+
+Lilly Dickey Woods (LDW) is a secondary temperate broadleaf deciduous forest dominated by oaks (*Quercus* spp.) and hickories (*Carya* spp.).
+
+Cores were collected outside the ForestGEO plot, but within a contiguous patch of forest.
+In 2012 - 2014, cores were collected from live or dead dominant canopy trees with morphological characteristics typical of older trees [@maxwell_declining_2016].
+In 2020, additional cores were collected following an ecological study design, wherein all live trees $\ge$ **##** cm within a **(SIZE)** plot were sampled.
 
 ### Harvard Forest, USA
 
+Harvard Forest (HF) is a secondary temperate mixed forest dominated by *Tsuga canadensis* and northern hardwood species including *Quercus rubra*, *Acer rubrum*, and *Betula alleghaniensis*.
+Cores were collected within the ForestGEO megaplot, and in the footprint of the original HF eddy-flux tower [@finzi_carbon_2020]. 
+Samples were collected following an ecological study design [@dye_comparing_2016], wherein all living or dead trees $\ge$ 10 cm DBH within a **(SIZE)** plot were cored.
+
 ### $\v{Z}$of$\'{i}$n Forest Dynamics Plot, Czech Republic
-The Zofin forest is not fully without past human direct interventions, a limited historical land use effect is also possible [see @kozakova_contrasting_2011].
+
+The $\v{Z}$of$\'{i}$n forest (ZOF) is a well-preserved natural forest remnant dominated by *Fagus sylvatica* L., *Picea abies* L. and *Abies alba* Mill.
+The forest is not fully without past human direct interventions, and a limited historical land use effect is also possible [see @kozakova_contrasting_2011].
 Acid deposition dramatically reduced growth in the late 20th century, with peak influence between the 1970s and the early 1990s [@elling_dendroecological_2009; @samonil_long-term_2008].
 
+In total, 2210 individuals were cored either within the 25 ha ForestGEO plot or a larger, 74 ha plot in which it is embedded. 
+The tree-ring data were collected for several studies around 2010 [@samonil_individual-based_2013; @samonil_disturbances_2014; @samonil_uncertainty_2015; @samonil_uncertainty_2016; @vasickova_true_2016; @vasickova_driving_2019; @kaspar_species-specific_nodate]. 
+The sampling strategy was mainly connected with the disturbance history of the forest and evaluation of growth of juvenile trees in gaps. 
+Therefore, these data consist mainly of dominant and codominant tree species and relatively low number of young trees. 
+
 ### Niobrara, Nebraska, USA
-Riparian site
-BEPA are growing on N facing slopes near stream
+
+The Niobrara site sits at the prairie-forest ecotone of the North American Great Plains. 
+There, forests occur in cool, moist canyons formed by spring-fed tributaries along the Niobrara River. 
+Cores were taken from seven north-facing *Betula papyrifera* stands along a 27 km section of the Niobrara River, as detailed in @bumann_assessing_2019.
+The largest healthy trees within each stand were selected for coring.
 
 ### Little Tesuque, New Mexico, USA
-[@williams_temperature_2013]
+The Little Tesuque (LT) site is in a mature dry mixed conifer forest outside of Santa Fe, NM, in the foothills of the Sangre de Cristo Mountains.
+The site had not undergone stand-clearing disturbance (e.g., fire) in more than one hundred years.
+The growth of trees in the region, including at this site, are being severely affected by a strong drying trend under climate change [@touchan_millennial_2011; @williams_temperature_2013], with many missing growth rings in recent years.
+
+In 2020, live canopy and sub-canopy trees, all >20 cm DBH, were sampled within a 1 ha plot (Little Tesuque plot 3; *lts3*). 
 
 ### Cedar Breaks, Utah, USA
 
@@ -381,7 +420,8 @@ kable(S1, format = "latex", booktabs = TRUE,   escape = F)%>%
   column_spec(7, width = "1.5cm") %>%
   kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
 ```
-*Refers to approximate period during which woody growth ceases (dry season in the tropics, winter for temperate and boreal sites).
+*Refers to ForestGEO plot (exception: LT) and is not necessarily the most accurate value for exact locations at which cores were taken. Geographic coordinates were used to extract climate data from CRU. 
+**Refers to approximate period during which woody growth ceases (dry season in the tropics, winter for temperate and boreal sites).
 
 \newpage
 ## `r species_table_legend` 

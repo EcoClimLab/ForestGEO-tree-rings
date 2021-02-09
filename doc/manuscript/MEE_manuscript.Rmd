@@ -358,7 +358,7 @@ This approach allows us to ask:
 
 We analyzed tree-ring data, most previously collected, from ten sites ranging from 9.15$^\circ$ to 61.30$^\circ$ N latitude and representing a wide range of forest and tree types: tropical broadleaf deciduous and evergreen, temperate broadleaf deciduous and needleleaf evergreen, and boreal needleleaf evergreen (Tables `r sites`, `r site_details`, `r species_table`).
 Nine of these sites (exception: LT) are large forest dynamics plots of the Forest Global Earth Observatory [ForestGEO; @anderson-teixeira_ctfs-forestgeo_2015; @davies_forestgeo_2021].
-Trees of species represented within the ForestGEO plots were cored within the plot (n=5) and/or within 10 km (n=6), following a variety of sampling protocols designed to meet the varied objectives of the original studies (Tables `r site_details`, `r sampling_details_table`). 
+Trees of species represented within the ForestGEO plots were cored within the plot (n=5) and/or nearby within similar forest types (n=5), following a variety of sampling protocols designed to meet the varied objectives of the original studies (Tables `r site_details`, `r sampling_details_table`). 
 There was wide variation in the distribution of record start years, which reflect--with some error--the age distribution of trees cored (Figs. `r all_recruitment_plots`).
 In using this diversity of data sources, we ensured that our approach was able to handle challenges presented by varying methodologies and forest types.
 
@@ -702,10 +702,11 @@ In cases such as this, a non-linear response function to $year$, or incorporatio
 In New Mexico (LT), where growth rates of *Pinus Ponderosa* declined, we suspect that the dominant climate drivers identified here might not fully capture a strong regional drying trend [@touchan_millennial_2011; @williams_temperature_2013], although sampling biases remain possible.
 At Scotty Creek, where rapid warming and melting permafrost are altering hydraulic conditions, resulting in high mortality, growth declines, and low recruitment of *Picea mariana* [@sniderhan_growth_2016; @dearborn_permafrost_2020], we attribute pronounced negative growth trends to a combination of successional declines and climatic stress. 
 
-There is a notable lack of evidence that growth rates of any species benefited substantially from increasing CO~2~, corroborating previous analyses from HKK [@nock_longterm_2011; @van_der_sleen_no_2015; @groenendijk_no_2015; but see @brienen_tree_2017] and numerous other studies [e.g., @girardin_no_2016; @groenendijk_no_2015; @hararuk_tree_2019], albeit contrasting with some others [e.g., @voelker_historical_2006; @hember_tree_2019].
+There is a notable lack of evidence that growth rates of any species benefited substantially from increasing CO~2~, corroborating previous analyses from HKK [@nock_longterm_2011; @van_der_sleen_no_2015; @groenendijk_no_2015; but see @brienen_tree_2017] 
 With a few potential exceptions (*Fagus sylvatica* at ZOF, *Picea pungens* and *Pinus flexilis* at CB; Fig. `r year_fig`), any growth benefit from elevated CO~2~ was outweighed by some combination of demographic or successional changes and chronic environmental shifts.
-A growth benefit of CO~2~ is potentially expected based on physiological mechanisms and has been observed in young forests in experimental settings [@walker_integrating_2020]; however, it does not appear to be a dominant driver for the trees in natural forest settings analyzed here. 
-Indeed, significant woody growth stimulation by elevated CO~2~ has not been observed in experimentally manipulated mature forests [@walker_integrating_2020], and the preponderance of tree-ring evidence points to little CO~2~ simulation of tree growth rates [@walker_integrating_2020].
+This aligns with the preponderance of studies using tree-rings to infer growth responses to rising CO~2~ [e.g., @girardin_no_2016; @groenendijk_no_2015; @hararuk_tree_2019; @walker_integrating_2020], albeit contrasting with some [e.g., @voelker_historical_2006; @hember_tree_2019].
+A growth benefit of CO~2~ is potentially expected based on physiological mechanisms and has been observed in young forests in experimental settings [@walker_integrating_2020]. 
+However, significant woody growth stimulation by elevated CO~2~ has not been observed in experimentally manipulated mature forests [@walker_integrating_2020], and increasing CO~2~ does not appear to be a dominant growth driver for the trees in natural forest settings analyzed here.
 
 ## Conclusions {-#Conclusions}
 
