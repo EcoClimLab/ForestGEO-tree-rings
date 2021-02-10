@@ -302,8 +302,6 @@ Sampling details are given in @sniderhan_growth_2016.
 
 ## `r DBH_reconstruction_title`
 
-*(documented in [GitHub issue #19 in ForestGEO_dendro](https://github.com/EcoClimLab/ForestGEO_dendro/issues/19))*
-
 Tree diameter at breast height (or height of coring), $DBH$, was reconstructed over the time span for which a core record existed.
 $DBH$ was reconstructed either from the outside in or from the inside out.
 We gave precedence to the outside-in approach; that is, when a recent $DBH$ measurement was available, $DBH$ was reconstructed from the outside in. 
@@ -315,7 +313,7 @@ $DBH$ for each year ($y$) of interest, $Y$, was  then estimated using the follow
 $$DBH_Y  = DBH_{m} - 2*\left[r_{bark,m} - r_{bark,Y} + \sum_{y=Y}^{m} RW_{y} \right]$$
 Here, $r_{bark}$ denotes bark thickness, which was estimated on a species-specific basis from allometries (Tables `r species_table`, `r bark_allometries`).
 If $DBH_m$ was taken before coring, $RW$ values between $y=m$ and $y=Y$ were added instead of subtracted.
-**If after...**
+If $DBH_m$ was taken after coring, ***...(check code)**
 
 In some cases, negative values of $DBH_Y$ were predicted for the earliest years in the core record; that is, the sum of $RW$ from the earliest year in the core record to year $m$, plus the predicted change in $r_{bark}$, was greater than half of $DBH_m$. 
 Such cases could occur due to a measurement or data error, or if the tree's growth was asymmetrical around the pith, as commonly occurs [@speer_fundamentals_2010]. 
@@ -344,7 +342,17 @@ When raw bark thickness data were not available, we applied published bark allom
 \newpage
 ## `r climate_correction_title`
 
-*For BCNM, we calculated monthly $PPT$ and $PDF$ from daily precipitation readings made on BCNM starting in 1929 [@paton_barro_2019].*
+Monthly climate data for 1901-2019 were obtained from CRU v.4.04 [@harris_updated_2014; @harris_version_2020], and in a few cases corrected based on more local records. 
+For BCNM, we calculated monthly $PPT$ and $PDF$ from daily precipitation readings made on Barro Colorado Island starting in 1929 [@paton_barro_2019] and used these to replace the corresponding CRU records.
+
+Additionally, we used 800 m resolution PRISM records [@daly_mapping_2015; @daly_physiographically_2008-1] from 1930 to 2015 to test and correct for cases where the coarser-resolution CRU values were not locally representative. 
+Variables in the PRISM data set included $T_{max}$, $T_{mean}$, $T_{min}$, and $PPT$.
+To test for substantial differences between CRU and PRISM records, each variable was compared on a monthly basis using linear regression. We considered CRU records to be inappropriate if (1) a paired t-test revealed a significant difference between CRU and PRISM records, and (2) the absolute value of the mean monthly difference between CRU and PRISM exceeded 2.5°C (temperature variables) or 10 mm per month (precipitation).
+Two sites met these criteria: LT and CB, both located in mountainous terrain in the western United States. 
+For these sites, we used linear regression to characterize the relationship between the CRU and PRISM, and then used this relationship to correct CRU data outside the time frame of PRISM (i.e., pre-1930 and post-2015). 
+CRU records were replaced with PRISM records over the time frame for which they were available.
+For these sites, CRU records for variables not included in the PRISM data set ($PDF$, $PET$) were considered unreliable and excluded from the analysis.
+
 
 \newpage
 

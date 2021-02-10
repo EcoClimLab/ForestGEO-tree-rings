@@ -396,6 +396,7 @@ Biomass allometries for temperate and tropical species were calculated using the
 
 Monthly climate data for 1901-2019 were obtained from CRU v.4.04 [@harris_updated_2014; @harris_version_2020], and in a few cases corrected based on more local records (Appendix `r climate_correction`). 
 Variables considered here included average daily minimum, maximum, and mean temperatures ($T_{min}$, $T_{max}$, $T_{mean}$, respectively); precipitation ($PPT$); and, when deemed reliable (Appendix `r climate_correction`), potential evapotranspiration ($PET$) and precipitation day frequency ($PDF$).
+For the one riparian site, NIO, we tested for an effect of stream flow ($SF$), for which we obtained data for the Sparks, Nebraska station (station code: 06461500; 42°54'14"N, 100°26'13"W) from the U.S. Geological Survey (USGS) National Water Information System (https://waterdata.usgs.gov/nwis/uv/?site_no=06461500&agency_cd=USGS&referred_module=sw). 
 All ForestGEO climate records used here are archived in the ForestGEO Climate Data Portal, v1.0 [@anderson-teixeira_forestgeoclimate_2020].
 
 ## Analysis methods {-#Analysis}
@@ -647,6 +648,8 @@ Our findings are consistent with the global-scale analysis of [@babst_twentieth_
 Within warmer regions, forests in humid climates can benefit from warm winter or spring temperatures, as we show for all three species at ZOF and one of our species at HF.
 *However, the observed interactions between tree size and climate sensitivity, with larger trees tending to be more sensitive (), implies that this and other analyses based on the ITRDB likely exaggerate the climate sensitivity of whole-forest  woody productivity.* 
 
+*(predominantly negative temperature responses imply likely growth reductions under warming)*
+
 While our approach identifies similar climate sensitivities to those that would be identified using conventional methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`;  Table `r qualitative_results_comparison`), it differs in some substantive ways.
 First, in determining the most important climate drivers (step 1; Fig. `r schematic`), we consider the full sample of individual cores, as opposed to a residual chronology in which variance has been standardized and the individual cores have been averaged. 
 Some differences in variables identified and the slope between growth and climate are to be expected giving the methodological differences (Appendix `r traditional_comparison`); however, as a whole the identified drivers and directions of response are consistent with conventional methods (`r SCBI_example`, `r all_traditional_comparisons`;  Table `r qualitative_results_comparison`). 
@@ -725,7 +728,8 @@ As global change pressures intensify and the need to understand changing forest 
 Thanks to Helene Muller-Landau and Pete Kerby-Miller for bark thickness data.
 Helpful feedback was provided by Helene Muller-Landau, Albert Kim...
 This analysis was funded by a Smithsonian Scholarly Studies grant to KAT, SM, HCM, and CP.
-The participation of PS, JK, and IV from the Czech Republic was supported by the Czech Science Foundation, project No. 19-09427S
+The participation of PS, JK, and IV from the Czech Republic was supported by the Czech Science Foundation, project No. 19-09427S.
+PRISM climate data were purchased under an NSF grant to KAT (#DEB-1353301).
 
 # Authors' contributions {-#Authors}
 KAT, VH, CR, RA, CP conceived the ideas and designed methodology; 
