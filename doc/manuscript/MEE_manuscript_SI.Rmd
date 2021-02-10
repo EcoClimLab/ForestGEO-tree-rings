@@ -55,6 +55,18 @@ do.call(file.remove, list(list.files("/Users/kteixeira/Dropbox (Smithsonian)/Git
 flist <- list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO_dendro/data_processed/", "^Recrutement_years_.+[.]png$",  full.names = TRUE)
 file.copy(flist, "/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-climate-sensitivity/doc/manuscript/tables_figures/SI_figures/recruitment_years/")
 
+# MAIN ARTICLE DISPLAY ITEMS
+#Tables
+sites = 1
+
+#Figures
+schematic=1
+SCBI_example=2
+clim_sens=3
+size=4
+interactions_fig = 5 #DBH/climate interactions
+year_fig = 6
+
 # SUPPLEMENTARY INFO (this chunk must be repeated in MEE_manuscript_SI.Rmd)
 
 #Appendices
@@ -430,13 +442,37 @@ We note, however, that there were no statistically significant differences in th
 
 [ISSUE #25 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/25)
 
-Our analysis included two sites where climate change has had pronounced effects on tree growth: Scotty Creek, NW Territories, Canada (SC) and Little Tesuque, New Mexico, USA (LT).
+Our analysis included two sites where climate change has had pronounced effects on tree growth: Little Tesuque, New Mexico, USA (LT) and Scotty Creek, NW Territories, Canada (SC).
+At LT, increasingly warm drought has dramatically reduced growth [@touchan_millennial_2011; @williams_temperature_2013], resulting in many missing rings in recent years.
 At SC, rapidly rising temperatures are causing melting permafrost, summer moisture stress, resulting in negative growth trends in basal area index ($BAI$) starting around 1950 and significant growth declines since 1970 in `r round(249/(249+69+127)*100, digits=0)`% of trees [@sniderhan_growth_2016].
-At LT, increasingly warm drought has dramatically reduced growth [@williams_temperature_2013], resulting in many missing rings in recent years.
 
-Problematically, correlating tree growth residuals from which climate-driven trends had been removed against the climate signal with a strong directional trend would not necessarily identify the most relevant climate drivers.
+Problematically, correlating tree growth residuals from which climate-driven trends had been removed against a climate signal with a strong directional trend would not necessarily identify the most relevant climate drivers (step 1 in Fig. `r schematic`).
+To explore whether selection of climate driver variables was strongly affected by directional trends in climate, we experimented with three different approaches to identifying the most important climate drivers at three sites: LT, SC, and SCBI (where the climate has not changed strongly). 
+The first approach was the baseline method described in the Methods and presented in throughout the manuscript, where detrended growth residuals were correlated with raw climate data (step 1 in Fig. `r schematic`).
 
-For these sites, we experimented with three approaches to identifying the most important climate drivers (1) the method described above, (2) detrending the climate variables **(AT:prewhitening?)** prior to the climwin step, and (3) splitting analyses into decades before and after 1970 [*sensu*  @sniderhan_growth_2016].
+The second approach involved detrending the climate variables using a GAM with automated selection of the number of knots prior to the *climwin* step.
+Thus, this approach correlates growth anomalies to climate anomalies around a more slowly changing mean, and using it to select climate driver variables inherently assumes that the most important climate drivers of high-frequency (annual) growth variation are also the most important drivers of longer-term growth changes in response to changing climate.
+For $PPT$ at LT, this approach and our baseline method identified identical time windows for all growth metrics. 
+For the temperature variable at LT, this approach and our baseline method consistently identified $T_{max}$ as the most important variable, but selected slightly different time windows with $RW$ the response metric (May-July for baseline method, April-July when $T_{max}$ was detrended). 
+For the water variable at SC, the two methods identified identical climate drivers (previous May or June - previous August $PPT$, depending on growth metric but not the analysis method).
+For the temperature variable at SC, the methods identified different variables and windows, with the baseline method selecting July $T_{max}$ and the detrending method selecting previous December $T_{mean}$ (which makes little sense biologically). 
+For the water variable at SCBI, this approach and our baseline method consistently identified previous June- current August $PPT$ as the strongest climate driver, with the exception that current May-August came out as the strongest driver in the detrended analysis for $\Delta AGB$. 
+For the temperature variable at SCBI, results were somewhat different, with this approach identifying $T_{max}$ as the most important variable, and the baseline approach identifying $PET$. Both identified time windows within the current growing season when $RW$ was the metric, but time windows were not similar when $BAI$ or $AGB$ was the metric.
+Given little meaningful difference between these approaches, and no clear advantage of detrending the climate variable, we preferred the baseline method.
+
+The third approach involved splitting analyses into decades before and after 1970 [*sensu*  @sniderhan_growth_2016] -- an approach that has also been applied in other studies in rapidly warming climates [e.g., @lloyd_no_2002; @driscoll_divergent_2005;@wilmking_recent_2004].
+This approach should accurately capture the most important climatic drivers of growth variation prior to the acceleration of climate change in recent decades, and should also identify the drivers of recent high-frequency growth variation.
+For $PPT$ at LT, optimal time windows pre-1970 and post-1970 were similar to those for the entire time period.
+For the temperature variable at LT, $T_{max}$ was consistently identified as the most important variable, but it's optimal time window extended back to the previous growing season pre-1970, but was limited to the current growing season post-1970 and for the analysis as a whole.
+For the water variable at SC, $PPT$ was consistently selected as a better predictor than $PDF$, and responses pre- and post-1970 were generally similar to those over the full time period.
+For the temperature variable at SC, the pre- and post- 1970 time periods both identified $T_{min}$ temperatures during a single month in the previous summer as the optimal climate driver for $RW$, whereas the analysis for the full time period identified $T_{max}$ of current July (Fig. `r SC_1970break`).
+For the water variable at SCBI, $PPT$ was consistently selected as a better predictor than $PDF$, with similar time windows pre-1970 and for the full analysis period, compared to only a weak effect over a different time period (current May) post-1970 (Fig. `r SC_1970break`).
+For the temperature variable at SCBI, selected variables ($PET$, $T_{max}$, or $T_{mean}$) and time windows were variable across the three analysis periods, with only weak relationships in the post-1970 analysis period.
+These results indicate potentially shifting climate sensitivities, particularly at SC (Fig. `r SC_1970break`), which may not be adequately captured by our baseline method.
+Further analysis into how climate sensitivities may be shifting would be valuable, but is beyond the scope of this analysis. 
+
+While we determined that our baseline method was suitable for the current analysis, we note that it remains problematic in that detrending of growth sequences ahead of identification of climate drivers precludes the possibility of the analysis capturing the climatic drivers of low-frequency growth changes. 
+The ideal solution would likely be to avoid any type of detrending of growth sequences, but rather to use full GLS models (as in step 2 in Fig. `r schematic`) to assess the explanatory power of potential climate variables, but this would be computationally time-consuming and is beyond the scope of the current analysis. 
 
 \newpage
 ## `r site_details_legend` 

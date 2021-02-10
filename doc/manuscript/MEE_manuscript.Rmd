@@ -418,7 +418,7 @@ Here, for each permutation, `climate` specifies one of the climate drivers in th
 For each group of candidate climate variables, we moved forward with the best variable over the time window identified by *climwin* as a candidate climate variable for the multivariate models. 
 
 We tested whether this process identified similar climate variable-month combinations as what would be identified using traditional methods for individual species, as detailed in Appendix `r traditional_comparison`. 
-Furthermore, we explored alternate methods of climate variable selection for the two sites that have undergone the most rapid changes in climate and tree growth: SC, where rapidly rising temperatures are causing melting permafrost, summer moisture stress, and growth declines [@sniderhan_growth_2016], and LT, where increasingly warm drought has dramatically reduced growth [@williams_temperature_2013]. 
+Furthermore, we explored alternate methods of climate variable selection for the two sites that have undergone the most rapid changes in climate and tree growth: LT, where increasingly warm drought has dramatically reduced growth [@touchan_millennial_2011; @williams_temperature_2013], and SC, where rapidly rising temperatures are causing melting permafrost, summer moisture stress, and growth declines [@sniderhan_growth_2016]. 
 We ultimately determined that the method described above was adequate for the purposes of this analysis (Appendix `r changing_climate`).
 
 ### Combining drivers in GLS model {-#Combining}
