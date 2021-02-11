@@ -454,7 +454,7 @@ While one-to-one correspondence of estimated climate coefficients was neither ex
 ![**Figure 2 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table `r species_table`) to potential evapotranspiration ($PET$). Panel (**a**) shows a matrix of Pearson correlations between ring-width index and monthly climate variables [produced using the bootRes package in R; @zang_dendroclimatic_2013]. Black rectangle represents the period selected by *climwin* as the most influential window. Panels (**b-d**) give statistics for time windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diagonal indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each time window, and (**d**) gives the $\Delta AIC$ for each. The time window with the minimum $\Delta AIC$ (1-3 months prior to August, or May-July; black circles), was identified as the optimal window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows GLS model output, where $PET$ was a candidate driver variable (along with $PPT$; $DBH$ not included in this model). Plotted are responses of species for which $PET$ was included in the top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are significant, dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals.](tables_figures/quilt_comparison.png)
 
 ```{r , eval=FALSE, echo=FALSE}
-## Tallies for the following paragraph (Feb 8)
+## Tallies for the following paragraph (Feb 11)
 #sameV_sameW: LDWp, NMt,NMp, NIOt, NIOp, SCBIp,  ZOFp,ZOFt,  (8)
 #sameV_diffW: BCNMp, BCNMt, HFt, HKKp, LDWt,  SCBIt, SCp,SCt,  CBp, CBt (10)
 #diffV_diffW: HFp, HKKt
@@ -466,20 +466,20 @@ Finally, in two cases of variables that had only weak effects and mixed response
 Henceforth, unless otherwise noted, we focus on the climate sensitivities identified with $RW$ as the growth metric and for the full set of cores (*i.e.*, including those for which $DBH$ could not be reconstructed).
 
 ```{r , eval=FALSE, echo=FALSE}
-## Tallies for the paragraph below (Feb 8)
+## Tallies for the paragraph below (Feb 11)
 #BCNM: 1 species with both, 2 with just P
 #HKK: 3 species with both, 1 with just T (CHTA)
 #SCBI: 11 species with both, 3 with just P (FRNI, FAGR, PIST)
 #LDW:  4 species with both,  2  with just P (ACSA, CAOV)
 #HF:  4 species with both
 #ZOF:  3 species with both
-#NIO:  1 species with both
+#NIO:  1 species just T 
 #LT:  2 species with both
 #CB:  8 species with both
 #SC:  1 species with both
 ```
-Within the context of the GLS model, which tested for first- and negative second- order linear effects of both a precipitation and a temperature variable, both a precipitation and a temperature variable were included in the top model for 80% of site-species combinations (n=37 of 46; Fig. `r clim_sens`). 
-There were seven site-species combinations for which only a precipitation term was significant (2 at BCNM, 3 at SCBI, and 2 at LDW), one for which only a temperature term was significant (*Chukrasia tabularis* at HKK), and none with no significant climate responses. 
+Within the context of the GLS model, which tested for first- and negative second- order linear effects of both a precipitation and a temperature variable, both a precipitation and a temperature variable were included in the top model for 78% of site-species combinations (n=36 of 46; Fig. `r clim_sens`). 
+There were seven site-species combinations for which only a precipitation term was significant (2 at BCNM, 3 at SCBI, and 2 at LDW), two for which only a temperature term was significant (*Chukrasia tabularis* at HKK and *Betula papyrifera* at NIO), and none with no significant climate responses. 
 Precipitation and temperature variables were rarely influential over the same time window (exception: LDW).
 Below, we summarize the precipitation and temperature variables included in these models and their direction of response. 
 
@@ -487,10 +487,10 @@ Below, we summarize the precipitation and temperature variables included in thes
 ![**Figure 3 | Species-level responses of $RW$ to climwin-selected variables in precipitation and temperature variable groups.** *Climwin*-selected climate variables are coded on the x-axes as the climate variable name followed by the range of months (p=previous year, c=current year) over which it is most influential. For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. For each relationship shown, other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/pre_temp_groups.png)
 
 ```{r , eval=TRUE, echo=FALSE}
-## Tallies for the  paragraph below (Feb 8)
+## Tallies for the  paragraph below (Feb 11)
 
 ###Variables selected: 
-#PPT over PDF: 8 sites with both. PDF selected in HKK, HF, ZOF, Niobrara
+#PPT over PDF: 9 sites with both. PDF selected in HKK, HF, ZOF
 #T group:Tmax at 5, PET at 3, Tmin at 1, Tmp at 1
 
 ###Windows selected: 
@@ -500,26 +500,25 @@ Below, we summarize the precipitation and temperature variables included in thes
 #LDW: precip c June (1 mo), PET current June (1mo)
 #HF: PDF pMay (1mo), PET cMar (1mo)
 #ZOF: pre pJune-pJul (2mo), TMX Jan-Mar (3mo)
-#NIO: wet cMay (1mo), TMP pJune (1mo)
+#NIO: ppt pOct-pDec (3mo), TMP pJune (1mo)
 #LT: P pNov-cJul (9mo), TMX cMay-Jul (3mo)
 #CB: P pJune-cJul(14mo), TMXpAug-pAug(1mo)
 #SC: P pJun-pAug(3mo), TMXcJul (1mo)
 
 ###other:
-n_pos_first_order_P_term=42 #(exceptions: BEPA & TSCA)
+n_pos_first_order_P_term=42 #(exception: TSCA)
 n_pos_1st_P_term_and_neg_2nd = 32
 percent_temperature_responses_1st_order_negative=round(13/38*100)
-percent_temperature_responses_1st_order_pos_2nd_order_neg=19/38*100
+percent_temperature_responses_1st_order_pos_2nd_order_neg=18/38*100
 ```
 Responses to precipitation amount ($PPT$) and frequency ($PDF$) were included in the best model for all but one species, and were predominantly positive (Fig. `r clim_sens`).
-$PPT$ and $PDF$ were each identified as the top variable in four of the eight sites with both variables available, while $PPT$ was the only option at two (LT and CB).
+$PPT$ was selected over $PDF$ as the top variable in five of the eight sites with both variables available (but had no significant main effect at one of these, NIO), and was the only option at two sites (LT and CB).
 Optimal time windows most commonly coincided at least partially with the months of most active growth in the current year (Fig. `r clim_sens`; Table `r site_details`):  wet seasons in the tropics (BCNM and HKK) or late spring/ early summer in the extratropics (n= 5 of 8).
 In the tropics, the long time windows over which precipitation was influential (12 mo at BCNM, 9 mo at HKK) also included the majority (BCNM) or all (HKK) of the dry season.
-At two extratropical sites (LDW, NIO), the most influential windows were limited to the current spring and early summer, whereas optimal windows at three sites extended back to the previous fall (LT, CB) or summer (SCBI).
+At LDW, the most influential windows were limited to the current spring and early summer, whereas optimal windows at three sites extended back to the previous fall (LT, CB) or summer (SCBI).
 Finally, at three sites (HF, ZOF, and SC), precipitation of the previous growing season was the most influential variable. 
-Responses to $PPT$ or $PDF$ were predominantly positive, with positive first-order linear terms for all but two species (*Tsuga canadensis* at HF and *Betula papyrifera* at NIO; Fig. `r clim_sens`).
+Responses to $PPT$ or $PDF$ were predominantly positive, with positive first-order linear terms for all but one species (*Tsuga canadensis* at HF; Fig. `r clim_sens`).
 Negative second-order terms were commonly included in the best model (`r n_pos_1st_P_term_and_neg_2nd` of `r n_pos_first_order_P_term` with positive first-order terms), generally resulting in a deceleration or decline at the highest levels of precipitation, but occasionally producing a unimodal (e.g., several species at SCBI) or predominantly negative response (e.g., BEAL at HF; Fig. `r clim_sens`). 
-At the riparian site (NIO), for which streamflow was included as a candidate variable in the precipitation group, May $PDF$ was selected as the strongest driver but had a modest negative effect on growth, indicating that water availability was not a significant limitation for *Betula papyrifera* at this site.
 
 A temperature variable was included in the best model for all but eight site-species combinations, with predominantly negative responses, particularly at the higher end of the temperature range (`r percent_temperature_responses_1st_order_negative + percent_temperature_responses_1st_order_pos_2nd_order_neg`%; `r percent_temperature_responses_1st_order_negative`% with negative first-order term, `r percent_temperature_responses_1st_order_pos_2nd_order_neg`% with positive first-order term but negative second-order term; Fig. `r clim_sens`).
 The most commonly selected variables within the temperature group were $T_{max}$ and $PET$, which were identified by *climwin* as the top temperature-related driver at five and three of the ten sites, respectively, noting that $PET$ was not available for two sites. 
@@ -533,7 +532,7 @@ At the highest-latitude site (SC), which has undergone rapid warming and permafr
 ## Influence of DBH {-#Influence}
 
 ```{r , eval=TRUE, echo=FALSE}
-## Tallies for the  paragraph below (Feb 8)
+## Tallies for the  paragraph below (Feb 11)
 n_spst_DBH_analyzed= 43 # n species with DBH analyzed: 43 (45 - 2: 2 Hansley)
 n_spst_RW_DBH_bm=35 #  species with first-order linear DBH term in best model
 n_spst_RW_DBH_2nd_order=26
@@ -572,9 +571,9 @@ However, there were exceptions, particularly when $RW$ decreased steeply with $D
 
 
 ```{r , eval=TRUE, echo=FALSE}
-## Tallies for the  paragraph below (Feb8)
-n_DBHx_analyzed=204 #n rows in climate_interactions_coefficients, excluding Hansley
-n_DBHx_analyzed_sig=88
+## Tallies for the  paragraph below (Feb11)
+n_DBHx_analyzed=203 #n rows in climate_interactions_coefficients, excluding Hansley
+n_DBHx_analyzed_sig=90  #NIO water is included here
 #precip:
 n_DBHxP_RW_analyzed= 36
 n_DBHxP_RW_sig=16
@@ -582,15 +581,15 @@ n_DBHxP_RW_sig_pos=n_DBHxP_RW_sig-4 #(exceptions: BEAL, TSCA, ACRU at HF, AFXY a
 
 n_DBHxP_BAI_analyzed= n_DBHxP_RW_analyzed
 n_DBHxP_BAI_sig=17
-n_DBHxP_BAI_sig_pos=n_DBHxP_BAI_sig-7 #(exceptions: QURU & ACRU at HF, BEPA at NIO, QUVE & JUNI & CACO at SCBI*,  AFXY at HKK*) *pos response to precip in current growing season
+n_DBHxP_BAI_sig_pos=n_DBHxP_BAI_sig-6 #(exceptions: QURU & ACRU at HF, QUVE & JUNI & CACO at SCBI*,  AFXY at HKK*) *pos response to precip in current growing season
 #T:
 n_DBHxT_RW_analyzed= 32
 n_DBHxT_RW_sig=12
 n_DBHxT_RW_sig_neg=5 #notable that it's minority for RW, contrasting with slight majority neg for BAI 
 
 n_DBHxT_BAI_analyzed= n_DBHxT_RW_analyzed
-n_DBHxT_BAI_sig=15
-n_DBHxT_BAI_sig_neg=9 #mostly drought signal, including 4 species at CB
+n_DBHxT_BAI_sig=16
+n_DBHxT_BAI_sig_neg=10 #mostly drought signal, including 4 species at CB
 ```
 
 Interactive effects of climate and $DBH$ were found for `r n_DBHx_analyzed_sig` of the `r n_DBHx_analyzed` (`r round(n_DBHx_analyzed_sig/ n_DBHx_analyzed*100)`%) species-variable combinations for which they were tested. 
@@ -607,9 +606,9 @@ For both $RW$ and $BAI$, the majority of significant negative interactions (*i.e
 ## Effects of year {-#Effects}
 
 ```{r , eval=TRUE, echo=FALSE}
-## Tallies for the  paragraph below (Feb8)
+## Tallies for the  paragraph below (Feb11)
 n_tested=37 #same for all metrics
-n_best_model_RW=30
+n_best_model_RW=31
 n_best_model_BAI=32
 n_best_model_AGB=30
 n_best_model_neg_RW=n_best_model_RW-3 #(exceptions:  FASY at ZOF, PIPU and PIFL at CB)  90%
