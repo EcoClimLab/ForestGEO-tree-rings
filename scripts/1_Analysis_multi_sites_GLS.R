@@ -433,7 +433,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
       first_year_removed <- any(is.na(x$Y))
       x <- x[!is.na(x$Y),] #remove NA (only first year of measurement for agb_inc)
       
-      test <- gam(Y~ s(Year), data = x)
+      test <- gam(Y~ s(Year), data = x) # see https://stats.stackexchange.com/questions/359568/choosing-k-in-mgcvs-gam
       
       
       if(!detrend_climate & !old_records_only & !young_records_only & rbinom(1, 1, 0.05)==1) {
