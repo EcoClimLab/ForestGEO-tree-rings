@@ -97,10 +97,10 @@
 "NewMexico","log_agb_inc_dbh","PIST3",7,14,25.7,39.8,4.2,34.4,1903,2018
 "NewMexico","log_BAI_dbh","PIPO",10,20,23.2,52.8,14.6,48.4,1903,2018
 "NewMexico","log_BAI_dbh","PIST3",7,14,25.7,39.8,4.2,34.4,1903,2018
-"Niobara","log_core_measurement","BEPA",28,84,NA,NA,0.4,30.5,1948,1995
-"Niobara","log_core_measurement_dbh","BEPA",28,84,NA,NA,0.4,30.5,1948,1995
-"Niobara","log_agb_inc_dbh","BEPA",28,84,NA,NA,0.8,30.5,1948,1995
-"Niobara","log_BAI_dbh","BEPA",28,84,NA,NA,0.8,30.5,1948,1995
+"Niobara","log_core_measurement","BEPA",42,138,NA,NA,0.4,33.5,1948,2015
+"Niobara","log_core_measurement_dbh","BEPA",42,138,NA,NA,0.4,33.5,1948,2015
+"Niobara","log_agb_inc_dbh","BEPA",42,138,NA,NA,0.8,33.5,1948,2015
+"Niobara","log_BAI_dbh","BEPA",42,138,NA,NA,0.8,33.5,1948,2015
 "SCBI","log_core_measurement","CACO",15,15,10.62,38.52,1.6,32.2,1903,2015
 "SCBI","log_core_measurement","CAGL",39,39,10.28,52.31,NA,NA,1903,2015
 "SCBI","log_core_measurement","CAOVL",25,25,15.11,60.32,NA,NA,1903,2015

@@ -17,7 +17,6 @@
 "log_core_measurement_dbh","NewMexico","water",1,2,50
 "log_agb_inc_dbh","NewMexico","water",1,2,50
 "log_BAI_dbh","NewMexico","water",1,2,50
-"log_core_measurement_dbh","Niobara","water",0,1,0
 "log_agb_inc_dbh","Niobara","water",1,1,100
 "log_BAI_dbh","Niobara","water",1,1,100
 "log_core_measurement_dbh","SCBI","water",2,13,15.38
@@ -47,8 +46,8 @@
 "log_agb_inc_dbh","NewMexico","temperature",0,2,0
 "log_BAI_dbh","NewMexico","temperature",1,2,50
 "log_core_measurement_dbh","Niobara","temperature",0,1,0
-"log_agb_inc_dbh","Niobara","temperature",0,1,0
-"log_BAI_dbh","Niobara","temperature",0,1,0
+"log_agb_inc_dbh","Niobara","temperature",1,1,100
+"log_BAI_dbh","Niobara","temperature",1,1,100
 "log_core_measurement_dbh","SCBI","temperature",1,11,9.09
 "log_agb_inc_dbh","SCBI","temperature",3,12,25
 "log_BAI_dbh","SCBI","temperature",3,11,27.27

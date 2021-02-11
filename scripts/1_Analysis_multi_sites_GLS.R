@@ -134,7 +134,7 @@ clim_gaps <- clim_gaps[clim_gaps$start_climvar.class %in% climate_variables, ]
 CO2 <- read.csv(path_to_CO2)
 
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIOW5VFI7Q25LALFBWLAEQFCK")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIN34VFKZLMYRXHWHA3AFPWCY")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
@@ -448,9 +448,9 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
         # plot(test)
         gam.check(test,pch=19,cex=.3)
 
-        plot(Y~ Year, data = x, main = "Raw data")
+        plot(Y~ Year, data = x, main = "Raw data", las = 1)
         
-        plot(Y~ Year, data = x, main = "Raw data")
+        plot(Y~ Year, data = x, main = "Raw data", las = 1)
         lines(test$fitted.values ~ x$Year)
         segments(x0 = x$Year, y0 = x$Y, x1 = x$Year, y1 = test$fitted.values)
 

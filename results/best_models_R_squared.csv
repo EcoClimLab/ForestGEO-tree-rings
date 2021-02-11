@@ -211,16 +211,16 @@
 "Year","log_BAI_dbh","NewMexico","PIST3","log_BAI ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + 1",0.344306500047761,0.448904387743608
 "CO2","log_BAI_dbh","NewMexico","PIPO","log_BAI ~ CO2 + dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.364365039049121,0.58565949930855
 "CO2","log_BAI_dbh","NewMexico","PIST3","log_BAI ~ CO2 + dbh + I(dbh^2) + pre + I(pre^2) + tmx + 1",0.394309082740257,0.641347131908638
-"","log_core_measurement","Niobara","BEPA","log_core_measurement ~ tmp + I(tmp^2) + wet + 1",0.00460800027254884,0.36208891084967
-"","log_core_measurement_dbh","Niobara","BEPA","log_core_measurement ~ dbh + I(dbh^2) + tmp + I(tmp^2) + wet + 1",0.0499954255590997,0.426114713780493
-"Year","log_core_measurement_dbh","Niobara","BEPA","log_core_measurement ~ dbh + I(dbh^2) + tmp + I(tmp^2) + wet + 1",0.0499954255590997,0.426114713780493
-"CO2","log_core_measurement_dbh","Niobara","BEPA","log_core_measurement ~ dbh + I(dbh^2) + tmp + I(tmp^2) + wet + 1",0.0499954255590997,0.426114713780493
-"","log_agb_inc_dbh","Niobara","BEPA","log_agb_inc ~ dbh + I(dbh^2) + tmp + I(tmp^2) + wet + 1",0.442896297530577,0.722486953789107
-"Year","log_agb_inc_dbh","Niobara","BEPA","log_agb_inc ~ dbh + I(dbh^2) + tmp + I(tmp^2) + wet + Year + 1",0.497312585339513,0.753027172622588
-"CO2","log_agb_inc_dbh","Niobara","BEPA","log_agb_inc ~ CO2 + dbh + I(dbh^2) + tmp + I(tmp^2) + wet + 1",0.486537548276282,0.743783904089001
-"","log_BAI_dbh","Niobara","BEPA","log_BAI ~ dbh + I(dbh^2) + tmp + I(tmp^2) + wet + 1",0.30965853678049,0.660924924602103
-"Year","log_BAI_dbh","Niobara","BEPA","log_BAI ~ dbh + I(dbh^2) + tmp + I(tmp^2) + wet + Year + 1",0.372300393220646,0.695248788734352
-"CO2","log_BAI_dbh","Niobara","BEPA","log_BAI ~ CO2 + dbh + I(dbh^2) + tmp + I(tmp^2) + wet + 1",0.358804615791563,0.68425015411832
+"","log_core_measurement","Niobara","BEPA","log_core_measurement ~ tmx + 1",0.00162506712929018,0.172525762613709
+"","log_core_measurement_dbh","Niobara","BEPA","log_core_measurement ~ dbh + I(dbh^2) + tmx + 1",0.19472267768599,0.429755161428905
+"Year","log_core_measurement_dbh","Niobara","BEPA","log_core_measurement ~ dbh + I(dbh^2) + pre + tmx + Year + 1",0.139069972715578,0.390905288279474
+"CO2","log_core_measurement_dbh","Niobara","BEPA","log_core_measurement ~ CO2 + dbh + I(dbh^2) + pre + tmx + 1",0.141611478701778,0.3982319603444
+"","log_agb_inc_dbh","Niobara","BEPA","log_agb_inc ~ dbh + I(dbh^2) + pre + tmx + 1",0.322451409986977,0.573370717598537
+"Year","log_agb_inc_dbh","Niobara","BEPA","log_agb_inc ~ dbh + I(dbh^2) + pre + tmx + Year + 1",0.466875566884157,0.700096146504167
+"CO2","log_agb_inc_dbh","Niobara","BEPA","log_agb_inc ~ CO2 + dbh + I(dbh^2) + pre + tmx + 1",0.48357188081182,0.71757056261049
+"","log_BAI_dbh","Niobara","BEPA","log_BAI ~ dbh + I(dbh^2) + pre + tmx + 1",0.195012852341736,0.495344619758667
+"Year","log_BAI_dbh","Niobara","BEPA","log_BAI ~ dbh + I(dbh^2) + pre + tmx + Year + 1",0.351846573213424,0.635122005395844
+"CO2","log_BAI_dbh","Niobara","BEPA","log_BAI ~ CO2 + dbh + I(dbh^2) + pre + tmx + 1",0.373070976243393,0.657453209265771
 "","log_core_measurement","SCBI","CACO","log_core_measurement ~ pet + pre + I(pre^2) + 1",0.0193117744460081,0.255159986831143
 "","log_core_measurement","SCBI","LITU","log_core_measurement ~ pet + I(pet^2) + pre + I(pre^2) + 1",0.00329413952720974,0.418496213015879
 "","log_core_measurement","SCBI","FRAM","log_core_measurement ~ pet + I(pet^2) + pre + I(pre^2) + 1",0.00332643213705837,0.491031816617344
