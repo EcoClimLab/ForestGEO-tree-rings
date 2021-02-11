@@ -771,6 +771,8 @@ Data for [# TBD] of the sites are archived in the The DendroEcological Network (
 
 # Supplementary files {-#Supplementary}
 
+`r site_details_appendix_title`
+
 `r DBH_reconstruction_title`
 
 `r climate_correction_title`
@@ -788,6 +790,22 @@ Data for [# TBD] of the sites are archived in the The DendroEcological Network (
 `r bark_allometries_legend` 
 
 `r qualitative_results_comparison_legend`
+
+Figures `r all_recruitment_plots`. Density plots of core record start years by species for all sites.
+
+Figures `r all_traditional_comparisons`. Comparison of our approach with traditional methods of identifying climate signals for four species.
+
+Figures `r all_climwin`. Climwin output for water and temperature variable groups at all sites.
+
+Figures `r all_GLS`. Best GLS models models excluding and including year for all sites.
+
+`r SC_1970break_legend`
+
+`r RW_interactions_all_legend ` 
+
+`r BAI_interactions_all_legend`
+
+Figures `r decadal_analysis_figs_all`. Relationships between $DBH$ and $BAI$ by decade for all sites. 
 
 
 # References {-#References}
