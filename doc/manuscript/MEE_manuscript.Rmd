@@ -410,7 +410,7 @@ We note that step 1 could be performed separately for each site-species combinat
 ### Climate variable selection {-#Climate}
 
 We used the *climwin* package in R [@van_de_pol_identifying_2016] to identify the most important climate driver and the time window over which its effect was strongest for each of two categories of variables: a temperature group ($T_{min}$, $T_{max}$, $T_{mean}$, and $PET$) and a precipitation group ($PPT$, $PDF$).
-To remove low-frequency variation that most likely represents responses to non-climatic drivers (*e.g.*, growth and aging of the tree, change in competitive dynamics, atmospheric pollution), we detrended the response variables by using a generalized additive model (GAM) to fit a spline to individual growth records ($RW$, $BAI$, or $\Delta AGB$) from each core, thereby producing residuals. (*How did you decide how flexible to make the spline?*)
+To remove low-frequency variation that most likely represents responses to non-climatic drivers (*e.g.*, growth and aging of the tree, change in competitive dynamics, atmospheric pollution), we detrended the response variables by fiting penalized thin plate regression splines in generalized additive models (GAM, function *gam* and *s* in R Package *mgcv*, [@wood_fast_2011]) to individual growth records ($RW$, $BAI$, or $\Delta AGB$) from each core, thereby producing residuals. The smoothing parameters were automaticaaly selected by the *gam* function by generalised cross-validation (GCV).
 We then used *climwin* to identify the climate variables most strongly correlated to the residuals of $RW$, $BAI$, or $\Delta AGB$, specifying quadratic fits to allow for potential nonlinearities in the climate response.
 Within *climwin*, we specified a mixed effects model using species (when $n \ge 3$) and core identity as random effects (noting that these effects should be minimal given that residuals are centered around zero): `residual growth index ~ [climate] + (1 | sp) + (1 | treeID)`.
 Here, for each permutation, `climate` specifies one of the climate drivers in the climate variable group, analyzed over one of all possible combinations of consecutive months over a 15 month period ending near the time of cessation of formation of each annual ring (Table `r site_details`). 
@@ -423,13 +423,18 @@ We ultimately determined that the method described above was adequate for the pu
 
 ### Combining drivers in GLS model {-#Combining}
 
-Having identified candidate climate drivers in temperature and precipitation variable groups, we next combined climate variables (all models) and $DBH$ (models with $DBH$ and its climate interactions) in a generalized least squares (GLS) model (Fig. `r schematic`). 
+Having identified candidate climate drivers in temperature and precipitation variable groups, we next combined climate variables (all models) and $DBH$ (models with $DBH$ and its climate interactions) in a linear mixed-effects models (function *lme* in R package *nlme*), with core identity as random intercept and $year$ as continuous time covariate for the within-group correlation structure (function *corCAR1*). We will reffer to this model as a generalized least squares (GLS) model (Fig. `r schematic`).
+
 Before running the models, we checked for collinearity among the candidate variables using the *vifstep* function [@naimi_where_2014] and removed any variable with a variance inflation factor > 3 (none required removal).
 Within the GLS models, our response variables were $log[\Delta r]$, $log[BAI]$, or $log[\Delta AGB]$. 
-Rather than detrending these variables to produce residuals, the temporal autocorrelation of individual tree's growth was accounted for by the specifying an autocorrelation structure of order 1, with $year$ as a continuous time covariate and $coreID$ as a grouping factor, in the GLS's model specification.
-*(include model formula)*
+
 For each species independently, we ran every combination of the candidate climate variables and $DBH$, including both first- and second-order terms of polynomial for each.
 For climate responses, we allowed concave-down fits, but ignored any concave-up fits on the basis that these are not expected biologically and, when identified in initial analyses, often appeared to be cases of over-fitting.
+
+As an example of a full model for $log[\Delta r]$ would look like this in *R*:
+ *lme($log[\Delta r]$ ~ $PET$ + I($PET$^2) + $T_{min}$ + I($T_{min}$^2) + $DBH$ + I($DBH$^2)",  random = ~1|$coreID$, correlation = corCAR1(form=~$Year$|$coreID$), data = $x$, na.action = "na.fail", method = "ML")* 
+where $x$ is a complete data set (with no missing value) for one species at one site. The method is set to maximum likelihood (*ML*) during the model selection phase, but to restricted maximizing likelihood (*REML*) once the best model is identified.
+
 For models including interactive effects of climate and $DBH$, we tested for interactions between first-order linear terms for climate variables and $DBH$.
 
 To test for $year$ effects, we limited the analysis to species with reasonable coverage of an $DBH$ x `year` matrix.
