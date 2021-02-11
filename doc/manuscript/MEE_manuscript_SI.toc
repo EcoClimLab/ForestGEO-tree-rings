@@ -32,39 +32,56 @@
 \contentsline {subsection}{Figure S12. Comparison of our approach with traditional methods of identifying climate signals: ABAL at Zofin.}{30}{section*.46}% 
 \contentsline {subsection}{Figure S13. Comparison of our approach with traditional methods of identifying climate signals: PSME at Cedar Breaks.}{31}{section*.47}% 
 \contentsline {subsection}{Figure S14. Comparison of our approach with traditional methods of identifying climate signals: PIMA at Scotty Creek.}{32}{section*.48}% 
-\contentsline {subsection}{Figure S15. (PRE at SCBI)}{33}{section*.49}% 
-\contentsline {subsection}{Figure S16. (PET at SCBI)}{34}{section*.50}% 
-\contentsline {subsection}{Figure S17. (TMX/TMP at HKK)}{35}{section*.51}% 
-\contentsline {subsection}{Figure S18. Best GLS models including climate and DBH for Barro Colorado Nature Monument (Panama)}{36}{section*.52}% 
-\contentsline {subsection}{Figure S19. Best GLS models including climate, DBH, and year for Barro Colorado Nature Monument (Panama)}{37}{section*.54}% 
-\contentsline {subsection}{Figure S20. Best GLS models including climate and DBH for Huai Kha Khaeng (Thailand)}{38}{section*.56}% 
-\contentsline {subsection}{Figure S21. Best GLS models including climate, DBH, and year for Huai Kha Khaeng (Thailand)}{39}{section*.58}% 
-\contentsline {subsection}{Figure S22. Best GLS models including climate and DBH for the Smithsonian Conservation Biology Institute (Virginia, USA)}{40}{section*.60}% 
-\contentsline {subsection}{Figure S23. Best GLS models including climate, DBH, and year for the Smithsonian Conservation Biology Institute (Virginia, USA)}{41}{section*.62}% 
-\contentsline {subsection}{Figure S24. Best GLS models including climate and DBH for Lilley Dickey Woods (Indiana, USA)}{42}{section*.64}% 
-\contentsline {subsection}{Figure S25. Best GLS models including climate, DBH, and year for Lilley Dickey Woods (Indiana, USA)}{43}{section*.66}% 
-\contentsline {subsection}{Figure S26. Best GLS models including climate and DBH for Harvard Forest (Massachusetts, USA)}{44}{section*.68}% 
-\contentsline {subsection}{Figure S27. Best GLS models including climate, DBH, and year for Harvard Forest (Massachusetts, USA)}{45}{section*.70}% 
-\contentsline {subsection}{Figure S28. Best GLS models including climate and DBH for Zofin Forest (Czech Republic)}{46}{section*.72}% 
-\contentsline {subsection}{Figure S29. Best GLS models including climate, DBH, and year for Zofin Forest (Czech Republic)}{47}{section*.74}% 
-\contentsline {subsection}{Figure S30. Best GLS models including climate and DBH for Niobrara (Nebraska, USA)}{48}{section*.76}% 
-\contentsline {subsection}{Figure S31. Best GLS models including climate, DBH, and year for Niobrara (Nebraska, USA)}{49}{section*.78}% 
-\contentsline {subsection}{Figure S32. Best GLS models including climate and DBH for Little Tesuque (New Mexico, USA)}{50}{section*.80}% 
-\contentsline {subsection}{Figure S33. Best GLS models including climate, DBH, and year for Little Tesuque (New Mexico, USA)}{51}{section*.82}% 
-\contentsline {subsection}{Figure S34. Best GLS models including climate and DBH for Cedar Breaks (Utah, USA)}{52}{section*.84}% 
-\contentsline {subsection}{Figure S35. Best GLS models including climate, DBH, and year for Cedar Breaks (Utah, USA)}{53}{section*.86}% 
-\contentsline {subsection}{Figure S36. Best GLS models including climate and DBH for Scotty Creek (Northwest Territory, Canada)}{54}{section*.88}% 
-\contentsline {subsection}{Figure S37. Best GLS models including climate, DBH, and year for Scotty Creek (Northwest Territory, Canada)}{55}{section*.90}% 
-\contentsline {subsection}{Figure S38. Climate responses at Scotty Creek (Northwest Territory, Canada) before and after 1970.}{56}{section*.92}% 
-\contentsline {subsection}{Figure S39. (RW\_interactions\_all)}{57}{section*.95}% 
-\contentsline {subsection}{Figure S40. (BAI\_interactions\_all)}{58}{section*.97}% 
-\contentsline {subsection}{Figure S41. (Decadal BCNM)}{59}{section*.99}% 
-\contentsline {subsection}{Figure S42. (Decadal HKK)}{60}{section*.101}% 
-\contentsline {subsection}{Figure S43. (Decadal SCBI)}{61}{section*.103}% 
-\contentsline {subsection}{Figure S45. (Decadal HF)}{63}{section*.105}% 
-\contentsline {subsection}{Figure S46. (Decadal ZOF)}{64}{section*.107}% 
-\contentsline {subsection}{Figure S47. (Decadal NIO)}{65}{section*.109}% 
-\contentsline {subsection}{Figure S48. (Decadal LT)}{66}{section*.110}% 
-\contentsline {subsection}{Figure S49. (Decadal CB)}{67}{section*.112}% 
-\contentsline {subsection}{Figure S50. (Decadal SC)}{68}{section*.114}% 
-\contentsline {subsection}{SI References}{69}{section*.116}% 
+\contentsline {subsection}{Figure S15. Climwin output for water variable group at BCNM.}{33}{section*.49}% 
+\contentsline {subsection}{Figure S16. Climwin output for temperature variable group at BCNM.}{34}{section*.50}% 
+\contentsline {subsection}{Figure S17. Climwin output for water variable group at HKK.}{35}{section*.51}% 
+\contentsline {subsection}{Figure S18. Climwin output for temperature variable group at HKK.}{36}{section*.52}% 
+\contentsline {subsection}{Figure S19. Climwin output for water variable group at SCBI.}{37}{section*.53}% 
+\contentsline {subsection}{Figure S20. Climwin output for temperature variable group at SCBI.}{38}{section*.54}% 
+\contentsline {subsection}{Figure S21. Climwin output for water variable group at LDW.}{39}{section*.55}% 
+\contentsline {subsection}{Figure S22. Climwin output for temperature variable group at LDW.}{40}{section*.56}% 
+\contentsline {subsection}{Figure S23. Climwin output for water variable group at HF.}{41}{section*.57}% 
+\contentsline {subsection}{Figure S23. Climwin output for temperature variable group at HF.}{42}{section*.58}% 
+\contentsline {subsection}{Figure S25. Climwin output for water variable group at ZOF.}{43}{section*.59}% 
+\contentsline {subsection}{Figure S26. Climwin output for temperature variable group at ZOF.}{44}{section*.60}% 
+\contentsline {subsection}{Figure S27. Climwin output for water variable group at NIO.}{45}{section*.61}% 
+\contentsline {subsection}{Figure S28. Climwin output for temperature variable group at NIO.}{46}{section*.62}% 
+\contentsline {subsection}{Figure S29. Climwin output for water variable group at LT.}{47}{section*.63}% 
+\contentsline {subsection}{Figure S30. Climwin output for temperature variable group at LT.}{48}{section*.64}% 
+\contentsline {subsection}{Figure S31. Climwin output for water variable group at CB.}{49}{section*.65}% 
+\contentsline {subsection}{Figure S32. Climwin output for temperature variable group at CB.}{50}{section*.66}% 
+\contentsline {subsection}{Figure S33. Climwin output for water variable group at SC.}{51}{section*.67}% 
+\contentsline {subsection}{Figure S34. Climwin output for temperature variable group at SC.}{52}{section*.68}% 
+\contentsline {subsection}{Figure S35. Best GLS models including climate and DBH for Barro Colorado Nature Monument (Panama)}{53}{section*.69}% 
+\contentsline {subsection}{Figure S36. Best GLS models including climate, DBH, and year for Barro Colorado Nature Monument (Panama)}{54}{section*.71}% 
+\contentsline {subsection}{Figure S37. Best GLS models including climate and DBH for Huai Kha Khaeng (Thailand)}{55}{section*.73}% 
+\contentsline {subsection}{Figure S38. Best GLS models including climate, DBH, and year for Huai Kha Khaeng (Thailand)}{56}{section*.75}% 
+\contentsline {subsection}{Figure S39. Best GLS models including climate and DBH for the Smithsonian Conservation Biology Institute (Virginia, USA)}{57}{section*.77}% 
+\contentsline {subsection}{Figure S40. Best GLS models including climate, DBH, and year for the Smithsonian Conservation Biology Institute (Virginia, USA)}{58}{section*.79}% 
+\contentsline {subsection}{Figure S41. Best GLS models including climate and DBH for Lilley Dickey Woods (Indiana, USA)}{59}{section*.81}% 
+\contentsline {subsection}{Figure S42. Best GLS models including climate, DBH, and year for Lilley Dickey Woods (Indiana, USA)}{60}{section*.83}% 
+\contentsline {subsection}{Figure S43. Best GLS models including climate and DBH for Harvard Forest (Massachusetts, USA)}{61}{section*.85}% 
+\contentsline {subsection}{Figure S44. Best GLS models including climate, DBH, and year for Harvard Forest (Massachusetts, USA)}{62}{section*.87}% 
+\contentsline {subsection}{Figure S45. Best GLS models including climate and DBH for Zofin Forest (Czech Republic)}{63}{section*.89}% 
+\contentsline {subsection}{Figure S46. Best GLS models including climate, DBH, and year for Zofin Forest (Czech Republic)}{64}{section*.91}% 
+\contentsline {subsection}{Figure S47. Best GLS models including climate and DBH for Niobrara (Nebraska, USA)}{65}{section*.93}% 
+\contentsline {subsection}{Figure S48. Best GLS models including climate, DBH, and year for Niobrara (Nebraska, USA)}{66}{section*.95}% 
+\contentsline {subsection}{Figure S49. Best GLS models including climate and DBH for Little Tesuque (New Mexico, USA)}{67}{section*.97}% 
+\contentsline {subsection}{Figure S50. Best GLS models including climate, DBH, and year for Little Tesuque (New Mexico, USA)}{68}{section*.99}% 
+\contentsline {subsection}{Figure S51. Best GLS models including climate and DBH for Cedar Breaks (Utah, USA)}{69}{section*.101}% 
+\contentsline {subsection}{Figure S52. Best GLS models including climate, DBH, and year for Cedar Breaks (Utah, USA)}{70}{section*.103}% 
+\contentsline {subsection}{Figure S53. Best GLS models including climate and DBH for Scotty Creek (Northwest Territory, Canada)}{71}{section*.105}% 
+\contentsline {subsection}{Figure S54. Best GLS models including climate, DBH, and year for Scotty Creek (Northwest Territory, Canada)}{72}{section*.107}% 
+\contentsline {subsection}{Figure S55. Climate responses at Scotty Creek (Northwest Territory, Canada) before and after 1970.}{73}{section*.109}% 
+\contentsline {subsection}{Figure S56. (RW\_interactions\_all)}{74}{section*.112}% 
+\contentsline {subsection}{Figure S57. (BAI\_interactions\_all)}{75}{section*.114}% 
+\contentsline {subsection}{Figure S58. (Decadal BCNM)}{76}{section*.116}% 
+\contentsline {subsection}{Figure S59. (Decadal HKK)}{77}{section*.118}% 
+\contentsline {subsection}{Figure S60. (Decadal SCBI)}{78}{section*.120}% 
+\contentsline {subsection}{Figure S62. (Decadal HF)}{80}{section*.122}% 
+\contentsline {subsection}{Figure S63. (Decadal ZOF)}{81}{section*.124}% 
+\contentsline {subsection}{Figure S64. (Decadal NIO)}{82}{section*.126}% 
+\contentsline {subsection}{Figure S65. (Decadal LT)}{83}{section*.127}% 
+\contentsline {subsection}{Figure S66. (Decadal CB)}{84}{section*.129}% 
+\contentsline {subsection}{Figure S67. (Decadal SC)}{85}{section*.131}% 
+\contentsline {subsection}{SI References}{86}{section*.133}% 
