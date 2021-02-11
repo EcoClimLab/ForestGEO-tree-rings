@@ -217,16 +217,16 @@ SC_1970break_legend = "Figure S55. Climate responses at Scotty Creek (Northwest 
 RW_interactions_all_legend = "Figure S56. (RW_interactions_all)"
 BAI_interactions_all_legend ="Figure S57. (BAI_interactions_all)"
 
-decadal_plot_BCNM_legend = "Figure S58. (Decadal BCNM)"
-decadal_plot_HKK_legend = "Figure S59. (Decadal HKK)"
-decadal_plot_SCBI_legend = "Figure S60. (Decadal SCBI)"
-decadal_plot_LDW_legend = "Figure S61. (Decadal LDW)"
-decadal_plot_HF_legend = "Figure S62. (Decadal HF)"
-decadal_plot_ZOF_legend = "Figure S63. (Decadal ZOF)"
-decadal_plot_NIO_legend = "Figure S64. (Decadal NIO)"
-decadal_plot_LT_legend = "Figure S65. (Decadal LT)"
-decadal_plot_CB_legend = "Figure S66. (Decadal CB)"
-decadal_plot_SC_legend = "Figure S67. (Decadal SC)"
+decadal_plot_BCNM_legend = "Figure S58. Relationships between $DBH$ and $BAI$ by decade for BCNM."
+decadal_plot_HKK_legend = "Figure S59. Relationships between $DBH$ and $BAI$ by decade for HKK."
+decadal_plot_SCBI_legend = "Figure S60. Relationships between $DBH$ and $BAI$ by decade for SCBI."
+decadal_plot_LDW_legend = "Figure S61. Relationships between $DBH$ and $BAI$ by decade for LDW."
+decadal_plot_HF_legend = "Figure S62. Relationships between $DBH$ and $BAI$ by decade for HF."
+decadal_plot_ZOF_legend = "Figure S63. Relationships between $DBH$ and $BAI$ by decade for ZOF."
+decadal_plot_NIO_legend = "Figure S64. Relationships between $DBH$ and $BAI$ by decade for NIO."
+decadal_plot_LT_legend = "Figure S65. Relationships between $DBH$ and $BAI$ by decade for LT."
+decadal_plot_CB_legend = "Figure S66. Relationships between $DBH$ and $BAI$ by decade for CB."
+decadal_plot_SC_legend = "Figure S67. Relationships between $DBH$ and $BAI$ by decade for SC."
 
 
 # ~~~~~~~~~~ (below here does not need to be copied to main doc) ~~~~~~~~~~
