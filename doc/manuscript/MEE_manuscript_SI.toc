@@ -41,7 +41,7 @@
 \contentsline {subsection}{Figure S21. Climwin output for water variable group at LDW.}{39}{section*.55}% 
 \contentsline {subsection}{Figure S22. Climwin output for temperature variable group at LDW.}{40}{section*.56}% 
 \contentsline {subsection}{Figure S23. Climwin output for water variable group at HF.}{41}{section*.57}% 
-\contentsline {subsection}{Figure S23. Climwin output for temperature variable group at HF.}{42}{section*.58}% 
+\contentsline {subsection}{Figure S24. Climwin output for temperature variable group at HF.}{42}{section*.58}% 
 \contentsline {subsection}{Figure S25. Climwin output for water variable group at ZOF.}{43}{section*.59}% 
 \contentsline {subsection}{Figure S26. Climwin output for temperature variable group at ZOF.}{44}{section*.60}% 
 \contentsline {subsection}{Figure S27. Climwin output for water variable group at NIO.}{45}{section*.61}% 
