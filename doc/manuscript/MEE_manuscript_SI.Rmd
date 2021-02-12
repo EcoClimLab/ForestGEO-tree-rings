@@ -154,21 +154,21 @@ decadal_plot_CB = "S66"
 decadal_plot_SC = "S67"
 
 #SI figure captions
-recruitment_plot_BCNM_legend = "Figure S1. Density plot of core record start years by species for Barro Colorado Nature Monument (Panama)."
-recruitment_plot_HKK_legend = "Figure S2. Density plot of core record start years by species for Huai Kha Khaeng (Thailand)."
-recruitment_plot_SCBI_legend = "Figure S3. Density plot of core record start years by species for the Smithsonian Conservation Biology Institute (Virginia, USA)."
-recruitment_plot_LDW_legend = "Figure S4. Density plot of core record start years by species for Lilley Dickey Woods (Indiana, USA)."
-recruitment_plot_HF_legend = "Figure S5. Density plot of core record start years by species for Harvard Forest (Massachusetts, USA)."
-recruitment_plot_ZOF_legend = "Figure S6. Density plot of core record start years by species for Zofin Forest (Czech Republic)."
-recruitment_plot_NIO_legend = "Figure S7. Density plot of core record start years by species for Niobrara (Nebraska, USA)."
-recruitment_plot_LT_legend = "Figure S8. Density plot of core record start years by species for Little Tesuque (New Mexico, USA)."
-recruitment_plot_CB_legend = "Figure S9. Density plot of core record start years by species for Cedar Breaks (Utah, USA)."
-recruitment_plot_SC_legend = "Figure S10. Density plot of core record start years by species for Scotty Creek (Northwest Territory, Canada)."
+recruitment_plot_BCNM_legend = "Figure S1. Density plot of core record start years by species for BCNM."
+recruitment_plot_HKK_legend = "Figure S2. Density plot of core record start years by species for HKK."
+recruitment_plot_SCBI_legend = "Figure S3. Density plot of core record start years by species for SCBI."
+recruitment_plot_LDW_legend = "Figure S4. Density plot of core record start years by species for LDW."
+recruitment_plot_HF_legend = "Figure S5. Density plot of core record start years by species for HF."
+recruitment_plot_ZOF_legend = "Figure S6. Density plot of core record start years by species for ZOF."
+recruitment_plot_NIO_legend = "Figure S7. Density plot of core record start years by species for NIO."
+recruitment_plot_LT_legend = "Figure S8. Density plot of core record start years by species for LT."
+recruitment_plot_CB_legend = "Figure S9. Density plot of core record start years by species for CB."
+recruitment_plot_SC_legend = "Figure S10. Density plot of core record start years by species for SC."
 
-SCBI_traditional_comparison_legend <- "Figure S11. Comparison of our approach with traditional methods of identifying climate signals: LITU at SCBI."
-Zofin_traditional_comparison_legend <- "Figure S12. Comparison of our approach with traditional methods of identifying climate signals: ABAL at Zofin."
-CB_traditional_comparison_legend <- "Figure S13. Comparison of our approach with traditional methods of identifying climate signals: PSME at Cedar Breaks."
-SC_traditional_comparison_legend <- "Figure S14. Comparison of our approach with traditional methods of identifying climate signals: PIMA at Scotty Creek."
+SCBI_traditional_comparison_legend <- "Figure S11. Comparison of our approach with traditional methods of identifying climate signals: *Liriodendron tulipifera* at SCBI."
+Zofin_traditional_comparison_legend <- "Figure S12. Comparison of our approach with traditional methods of identifying climate signals: *Abies alba* at Zofin."
+CB_traditional_comparison_legend <- "Figure S13. Comparison of our approach with traditional methods of identifying climate signals: *Pseudotsuga menziesii* at Cedar Breaks."
+SC_traditional_comparison_legend <- "Figure S14. Comparison of our approach with traditional methods of identifying climate signals: *Picea mariana* at Scotty Creek."
 
 climwin_BCNM_W_legend = "Figure S15. Climwin output for water variable group at BCNM."
 climwin_BCNM_T_legend = "Figure S16. Climwin output for temperature variable group at BCNM."
@@ -191,31 +191,31 @@ climwin_CB_T_legend = "Figure S32. Climwin output for temperature variable group
 climwin_SC_W_legend  = "Figure S33. Climwin output for water variable group at SC."
 climwin_SC_T_legend = "Figure S34. Climwin output for temperature variable group at SC."
 
-GLS_BCNM_legend = "Figure S35. Best GLS models including climate and DBH for Barro Colorado Nature Monument (Panama)"
-GLS_BCNM_year_legend = "Figure S36. Best GLS models including climate, DBH, and year for Barro Colorado Nature Monument (Panama)"
-GLS_HKK_legend = "Figure S37. Best GLS models including climate and DBH for Huai Kha Khaeng (Thailand)"
-GLS_HKK_year_legend = "Figure S38. Best GLS models including climate, DBH, and year for Huai Kha Khaeng (Thailand)"
-GLS_SCBI_legend = "Figure S39. Best GLS models including climate and DBH for the Smithsonian Conservation Biology Institute (Virginia, USA)"
-GLS_SCBI_year_legend = "Figure S40. Best GLS models including climate, DBH, and year for the Smithsonian Conservation Biology Institute (Virginia, USA)"
-GLS_LDW_legend = "Figure S41. Best GLS models including climate and DBH for Lilley Dickey Woods (Indiana, USA)"
-GLS_LDW_year_legend = "Figure S42. Best GLS models including climate, DBH, and year for Lilley Dickey Woods (Indiana, USA)"
-GLS_HF_legend = "Figure S43. Best GLS models including climate and DBH for Harvard Forest (Massachusetts, USA)"
-GLS_HF_year_legend = "Figure S44. Best GLS models including climate, DBH, and year for Harvard Forest (Massachusetts, USA) "
-GLS_ZOF_legend = "Figure S45. Best GLS models including climate and DBH for Zofin Forest (Czech Republic)"
-GLS_ZOF_year_legend = "Figure S46. Best GLS models including climate, DBH, and year for Zofin Forest (Czech Republic)"
-GLS_NIO_legend = "Figure S47. Best GLS models including climate and DBH for Niobrara (Nebraska, USA)"
-GLS_NIO_year_legend = "Figure S48. Best GLS models including climate, DBH, and year for Niobrara (Nebraska, USA)"
-GLS_LT_legend = "Figure S49. Best GLS models including climate and DBH for Little Tesuque (New Mexico, USA)"
-GLS_LT_year_legend = "Figure S50. Best GLS models including climate, DBH, and year for Little Tesuque (New Mexico, USA)"
-GLS_CB_legend = "Figure S51. Best GLS models including climate and DBH for Cedar Breaks (Utah, USA)"
-GLS_CB_year_legend = "Figure S52. Best GLS models including climate, DBH, and year for Cedar Breaks (Utah, USA)"
-GLS_SC_legend = "Figure S53. Best GLS models including climate and DBH for Scotty Creek (Northwest Territory, Canada)"
-GLS_SC_year_legend = "Figure S54. Best GLS models including climate, DBH, and year for Scotty Creek (Northwest Territory, Canada)"
+GLS_BCNM_legend = "Figure S35. Best GLS models including climate and $DBH$ for BCNM"
+GLS_BCNM_year_legend = "Figure S36. Best GLS models including climate, $DBH$, and year for BCNM"
+GLS_HKK_legend = "Figure S37. Best GLS models including climate and $DBH$ for HKK"
+GLS_HKK_year_legend = "Figure S38. Best GLS models including climate, $DBH$, and year for HKK"
+GLS_SCBI_legend = "Figure S39. Best GLS models including climate and $DBH$ for SCBI"
+GLS_SCBI_year_legend = "Figure S40. Best GLS models including climate, $DBH$, and year for SCBI"
+GLS_LDW_legend = "Figure S41. Best GLS models including climate and $DBH$ for LDW"
+GLS_LDW_year_legend = "Figure S42. Best GLS models including climate, $DBH$, and year for LDW"
+GLS_HF_legend = "Figure S43. Best GLS models including climate and $DBH$ for HF"
+GLS_HF_year_legend = "Figure S44. Best GLS models including climate, $DBH$, and year for HF "
+GLS_ZOF_legend = "Figure S45. Best GLS models including climate and $DBH$ for ZOF"
+GLS_ZOF_year_legend = "Figure S46. Best GLS models including climate, $DBH$, and year for ZOF"
+GLS_NIO_legend = "Figure S47. Best GLS models including climate and $DBH$ for NIO"
+GLS_NIO_year_legend = "Figure S48. Best GLS models including climate, $DBH$, and year for NIO"
+GLS_LT_legend = "Figure S49. Best GLS models including climate and $DBH$ for LT"
+GLS_LT_year_legend = "Figure S50. Best GLS models including climate, $DBH$, and year for LT"
+GLS_CB_legend = "Figure S51. Best GLS models including climate and $DBH$ for CB"
+GLS_CB_year_legend = "Figure S52. Best GLS models including climate, $DBH$, and year for CB"
+GLS_SC_legend = "Figure S53. Best GLS models including climate and $DBH$ for SC"
+GLS_SC_year_legend = "Figure S54. Best GLS models including climate, $DBH$, and year for SC"
 
-SC_1970break_legend = "Figure S55. Climate responses at Scotty Creek (Northwest Territory, Canada) before and after 1970."
+SC_1970break_legend = "Figure S55. Climate responses at SC before and after 1970."
 
-RW_interactions_all_legend = "Figure S56. (RW_interactions_all)"
-BAI_interactions_all_legend ="Figure S57. (BAI_interactions_all)"
+RW_interactions_all_legend = "Figure S56. All signficant climate - $DBH$ interactions with $RW$ as the response metric."
+BAI_interactions_all_legend ="Figure S57. All signficant climate - $DBH$ interactions with $RW$ as the response metric."
 
 decadal_plot_BCNM_legend = "Figure S58. Relationships between $DBH$ and $BAI$ by decade for BCNM."
 decadal_plot_HKK_legend = "Figure S59. Relationships between $DBH$ and $BAI$ by decade for HKK."
@@ -236,11 +236,11 @@ recruitment_generic_legend = "This distribution approximates--but does not entir
 
 traditional_comparison_generic_legend = "Shown are repsonses to the precipitation- and temperature-group variables selected as most influential by the *climwin* analysis. Left panels show a month-by-month comparison of *beta* (slope) coefficients for the relationship between tree growth and the monthly climate variable from species-level residual chronologies (traditional approach) and from individual-level analysis in *climwin* (approach presented here). Center panels compare the monthly *beta* coefficient estimates, with the dotted line indicating 1:1 correspondence. Finally, the right panels compare *beta* coefficients for the optimal window selected by *climwin*. Error bars indicate standard error of slope estimates. Note that 1:1 correspondence is not necessarily expected. See Appendix 5 for analysis methods and discussion of expected correspondence."
 
-climwin_generic = " **(generic legend)**"
+climwin_generic = "Rows correspond to the four different models run: (1) all $RW$ data, (2) $RW$ for the subset of cores for which $DBH could be reconstructed, (3) $BAI$, and (4)  $AGB$ growth. The first four columns give statistics for time windows tested in *climwin*, where window open and close indicate months prior to current August. Difference in $AIC$ relative to a model with no climate term (first column) is used to select the optimal time window (second column). The third and fourth columns give values of linear and quadratic terms for each time window. The final column shows the correlation of individual-level residuals to the selected climate variable, with the function fit in *climwin* (not the final fit)."
 
-GLS_generic_legend = " for all three growth metrics examined here. Precipitation and temperature group variables are as selected by *climwin* (p=previous year, c=current year). For each species, relationships are plotted if included in top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are signficant, dashed lines when only one term is signficant, and dotted lines when neither is signficant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD."
+GLS_generic_legend = " for all three growth metrics examined here. For each species that met the criteria for inclusion in the analysis, relationships are plotted if included in top model. For each relationship shown, other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. *Climwin*-selected climate variables are coded on the x-axes as the climate variable name followed by the range of months (p=previous year, c=current year) over which it is most influential. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD."
 
-decadal_generic_legend = " **(generic legend)**"
+decadal_generic_legend = "Plot visualizes the data included in the GLS model, separated by decade, using a probability density function. Transparent ribbons indicate 95% confidence intervals."
 ```
 
 
@@ -330,7 +330,7 @@ Vertical permafrost thaw has been causing drought stress in the shallow-rooted t
 
 In the summers of 2012 and 2013, seven forest stands within a 2 km^2^ area were sampled.
 In five stands with clearly defined boundaries at edges of permafrost plateaus, all living and dead trees $\ge$ 7 cm DBH were cored. 
-In two stands without well-defined edges, cores were taken from a >7 cm DBH tree nearest to every 20 m interval in a 100 × 100 m grid, totaling 36 trees per stand.
+In two stands without well-defined edges, cores were taken from a $\ge$ 7 cm DBH tree nearest to every 20 m interval in a 100 × 100 m grid, totaling 36 trees per stand.
 Sampling details are given in @sniderhan_growth_2016.
 
 \newpage
@@ -511,6 +511,7 @@ kable(S1, format = "latex", booktabs = TRUE,   escape = F)%>%
   kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
 ```
 *Refers to ForestGEO plot (exception: LT) and is not necessarily the most accurate value for exact locations at which cores were taken. Geographic coordinates were used to extract climate data from CRU. 
+
 **Refers to approximate period during which woody growth ceases (dry season in the tropics, winter for temperate and boreal sites).
 
 \newpage
@@ -703,7 +704,7 @@ nocite: |
 
 ![](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_SCBI_LITU_pet.png){ width=95%}
 
-**`r SCBI_traditional_comparison_legend`**  `r traditional_comparison_generic_legend`
+`r SCBI_traditional_comparison_legend`  `r traditional_comparison_generic_legend`
 
 \newpage 
 
@@ -717,7 +718,7 @@ nocite: |
 
 ![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_ABAL_tmx.png){ width=95% }
 
-**`r Zofin_traditional_comparison_legend`**  `r traditional_comparison_generic_legend`
+`r Zofin_traditional_comparison_legend`  `r traditional_comparison_generic_legend`
 
 \newpage 
 ## `r CB_traditional_comparison_legend`
@@ -730,7 +731,7 @@ nocite: |
 
 ![](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBreaks_PSME_tmx.png){ width=95% }
 
-**`r CB_traditional_comparison_legend`**  `r traditional_comparison_generic_legend`
+`r CB_traditional_comparison_legend`  `r traditional_comparison_generic_legend`
 
 \newpage 
 ## `r SC_traditional_comparison_legend`
@@ -743,62 +744,62 @@ nocite: |
 
 ![](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCreek_PIMA_tmx.png){ width=95% }
 
-**`r SC_traditional_comparison_legend`**  `r traditional_comparison_generic_legend`
+`r SC_traditional_comparison_legend`  `r traditional_comparison_generic_legend`
 
 \newpage
 ## `r climwin_BCNM_W_legend`
 ![](tables_figures/SI_figures/climwin_plots_combined/BCI_pre.png)
 
-**`r climwin_BCNM_W_legend`** `r climwin_generic`
+`r climwin_BCNM_W_legend` `r climwin_generic`
 
 \newpage
 ## `r climwin_BCNM_T_legend`
 ![](tables_figures/SI_figures/climwin_plots_combined/BCI_tmn.png)
 
-**`r climwin_BCNM_T_legend`** `r climwin_generic`
+`r climwin_BCNM_T_legend` `r climwin_generic`
 
 \newpage
 ## `r climwin_HKK_W_legend`
 ![](tables_figures/SI_figures/climwin_plots_combined/HKK_wet.png)
 
-**`r climwin_HKK_W_legend`** `r climwin_generic`
+`r climwin_HKK_W_legend` `r climwin_generic`
 
 \newpage
 ## `r climwin_HKK_T_legend`
 ![](tables_figures/SI_figures/climwin_plots_combined/HKK_tmp_tmx.png)
 
-**`r climwin_HKK_T_legend`** `r climwin_generic`
+`r climwin_HKK_T_legend` `r climwin_generic`
 
 \newpage
 ## `r climwin_SCBI_W_legend`
 ![](tables_figures/SI_figures/climwin_plots_combined/SCBI_pre.png)
 
-**`r climwin_SCBI_W_legend`** `r climwin_generic`
+`r climwin_SCBI_W_legend` `r climwin_generic`
 
 \newpage
 ## `r climwin_SCBI_T_legend`
 ![](tables_figures/SI_figures/climwin_plots_combined/SCBI_pet.png)
 
-**`r climwin_SCBI_T_legend`** `r climwin_generic`
+`r climwin_SCBI_T_legend` `r climwin_generic`
 
 
 \newpage
 ## `r climwin_LDW_W_legend`
 ![](tables_figures/SI_figures/climwin_plots_combined/LillyDickey_pre.png)
 
-**`r climwin_LDW_W_legend`** `r climwin_generic`
+`r climwin_LDW_W_legend` `r climwin_generic`
 
 \newpage
 ## `r climwin_LDW_T_legend`
 ![](tables_figures/SI_figures/climwin_plots_combined/LillyDickey_pet.png)
 
-**`r climwin_LDW_T_legend`** `r climwin_generic`
+`r climwin_LDW_T_legend` `r climwin_generic`
 
 \newpage
 ## `r climwin_HF_W_legend`
 ![](tables_figures/SI_figures/climwin_plots_combined/HarvardForest_pre_wet.png)
 
-**`r climwin_HF_W_legend`** `r climwin_generic`
+`r climwin_HF_W_legend` `r climwin_generic`
 
 
 
@@ -806,13 +807,13 @@ nocite: |
 ## `r climwin_HF_T_legend`
 ![](tables_figures/SI_figures/climwin_plots_combined/HarvardForest_pet.png)
 
-**`r climwin_HF_T_legend`** `r climwin_generic`
+`r climwin_HF_T_legend` `r climwin_generic`
 
 \newpage
 ## `r climwin_ZOF_W_legend`
 ![](tables_figures/SI_figures/climwin_plots_combined/Zofin_wet.png)
 
-**`r climwin_ZOF_W_legend`** `r climwin_generic`
+`r climwin_ZOF_W_legend` `r climwin_generic`
 
 
 
@@ -820,13 +821,13 @@ nocite: |
 ## `r climwin_ZOF_T_legend`
 ![](tables_figures/SI_figures/climwin_plots_combined/Zofin_tmx.png)
 
-**`r climwin_ZOF_T_legend`** `r climwin_generic`
+`r climwin_ZOF_T_legend` `r climwin_generic`
 
 \newpage
 ## `r climwin_NIO_W_legend`
 ![](tables_figures/SI_figures/climwin_plots_combined/Niobara_pre.png)
 
-**`r climwin_NIO_W_legend`** `r climwin_generic`
+`r climwin_NIO_W_legend` `r climwin_generic`
 
 
 
@@ -834,25 +835,25 @@ nocite: |
 ## `r climwin_NIO_T_legend`
 ![](tables_figures/SI_figures/climwin_plots_combined/Niobara_tmx.png)
 
-**`r climwin_NIO_T_legend`** `r climwin_generic`
+`r climwin_NIO_T_legend` `r climwin_generic`
 
 \newpage
 ## `r climwin_LT_W_legend`
 ![](tables_figures/SI_figures/climwin_plots_combined/NewMexico_pre.png)
 
-**`r climwin_LT_W_legend`** `r climwin_generic`
+`r climwin_LT_W_legend` `r climwin_generic`
 
 \newpage
 ## `r climwin_LT_T_legend`
 ![](tables_figures/SI_figures/climwin_plots_combined/NewMexico_tmx.png)
 
-**`r climwin_LT_T_legend`** `r climwin_generic`
+`r climwin_LT_T_legend` `r climwin_generic`
 
 \newpage
 ## `r climwin_CB_W_legend`
 ![](tables_figures/SI_figures/climwin_plots_combined/CedarBreaks_pre.png)
 
-**`r climwin_CB_W_legend`** `r climwin_generic`
+`r climwin_CB_W_legend` `r climwin_generic`
 
 
 
@@ -860,13 +861,13 @@ nocite: |
 ## `r climwin_CB_T_legend`
 ![](tables_figures/SI_figures/climwin_plots_combined/CedarBreaks_tmx.png)
 
-**`r climwin_CB_T_legend`** `r climwin_generic`
+`r climwin_CB_T_legend` `r climwin_generic`
 
 \newpage
 ## `r climwin_SC_W_legend`
 ![](tables_figures/SI_figures/climwin_plots_combined/ScottyCreek_pre.png)
 
-**`r climwin_SC_W_legend`** `r climwin_generic`
+`r climwin_SC_W_legend` `r climwin_generic`
 
 
 
@@ -874,7 +875,7 @@ nocite: |
 ## `r climwin_SC_T_legend`
 ![](tables_figures/SI_figures/climwin_plots_combined/ScottyCreek_tmx.png)
 
-**`r climwin_SC_T_legend`** `r climwin_generic`
+`r climwin_SC_T_legend` `r climwin_generic`
 
 
 \newpage
@@ -1003,7 +1004,7 @@ nocite: |
 
 **(b) post-1970**
 
-![`r SC_1970break_legend`](tables_figures/SI_figures/GLS_post1970_ScottyCreek.png){ width=57% }
+![`r SC_1970break_legend` *Climwin*-selected climate variables are coded on the x-axes as the climate variable name followed by the range of months (p=previous year, c=current year) over which it is most influential. For each relationship shown, other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/SI_figures/GLS_post1970_ScottyCreek.png){ width=57% }
 
 
 
@@ -1012,12 +1013,12 @@ nocite: |
 
 ## `r RW_interactions_all_legend`
 
-![`r RW_interactions_all_legend`](tables_figures/pre_temp_groups_dbh_interactions_log_core_measurement_dbh.png){ width=100% }
+![`r RW_interactions_all_legend` Shown are modeled response functions at the minimum and maximum and maximum ends of the $DBH$ range. Other terms in the model are held constant at their median. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/pre_temp_groups_dbh_interactions_log_core_measurement_dbh.png){ width=90% }
 
 \newpage
 ## `r BAI_interactions_all_legend`
 
-![`r BAI_interactions_all_legend`](tables_figures/pre_temp_groups_dbh_interactions_log_BAI_dbh.png){ width=100% }
+![`r BAI_interactions_all_legend` Shown are modeled response functions at the minimum and maximum and maximum ends of the $DBH$ range. Other terms in the model are held constant at their median. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/pre_temp_groups_dbh_interactions_log_BAI_dbh.png){ width=90% }
 
 \newpage
 ## `r decadal_plot_BCNM_legend`
@@ -1033,6 +1034,7 @@ nocite: |
 ## `r decadal_plot_SCBI_legend`
 
 ![`r decadal_plot_SCBI_legend` `r decadal_generic_legend`](tables_figures/SI_figures/decadal_plots/SCBI.png){ width=100% }
+
 \newpage
 ## `r decadal_plot_LDW_legend`
 

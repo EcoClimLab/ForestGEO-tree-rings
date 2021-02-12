@@ -18,20 +18,20 @@
 \contentsline {subsection}{Table S3. Sampling details for species by site.}{13}{section*.21}% 
 \contentsline {subsection}{Table S4. Allometric equations for bark thickness.}{15}{section*.22}% 
 \contentsline {subsection}{Table S5. Qualtiative comparison of results from this study with previous studies employing conventional methods.}{16}{section*.24}% 
-\contentsline {subsection}{Figure S1. Density plot of core record start years by species for Barro Colorado Nature Monument (Panama).}{19}{section*.25}% 
-\contentsline {subsection}{Figure S2. Density plot of core record start years by species for Huai Kha Khaeng (Thailand).}{20}{section*.27}% 
-\contentsline {subsection}{Figure S3. Density plot of core record start years by species for the Smithsonian Conservation Biology Institute (Virginia, USA).}{21}{section*.29}% 
-\contentsline {subsection}{Figure S4. Density plot of core record start years by species for Lilley Dickey Woods (Indiana, USA).}{22}{section*.31}% 
-\contentsline {subsection}{Figure S5. Density plot of core record start years by species for Harvard Forest (Massachusetts, USA).}{23}{section*.33}% 
-\contentsline {subsection}{Figure S6. Density plot of core record start years by species for Zofin Forest (Czech Republic).}{24}{section*.35}% 
-\contentsline {subsection}{Figure S7. Density plot of core record start years by species for Niobrara (Nebraska, USA).}{25}{section*.37}% 
-\contentsline {subsection}{Figure S8. Density plot of core record start years by species for Little Tesuque (New Mexico, USA).}{26}{section*.39}% 
-\contentsline {subsection}{Figure S9. Density plot of core record start years by species for Cedar Breaks (Utah, USA).}{27}{section*.41}% 
-\contentsline {subsection}{Figure S10. Density plot of core record start years by species for Scotty Creek (Northwest Territory, Canada).}{28}{section*.43}% 
-\contentsline {subsection}{Figure S11. Comparison of our approach with traditional methods of identifying climate signals: LITU at SCBI.}{29}{section*.45}% 
-\contentsline {subsection}{Figure S12. Comparison of our approach with traditional methods of identifying climate signals: ABAL at Zofin.}{30}{section*.46}% 
-\contentsline {subsection}{Figure S13. Comparison of our approach with traditional methods of identifying climate signals: PSME at Cedar Breaks.}{31}{section*.47}% 
-\contentsline {subsection}{Figure S14. Comparison of our approach with traditional methods of identifying climate signals: PIMA at Scotty Creek.}{32}{section*.48}% 
+\contentsline {subsection}{Figure S1. Density plot of core record start years by species for BCNM.}{19}{section*.25}% 
+\contentsline {subsection}{Figure S2. Density plot of core record start years by species for HKK.}{20}{section*.27}% 
+\contentsline {subsection}{Figure S3. Density plot of core record start years by species for SCBI.}{21}{section*.29}% 
+\contentsline {subsection}{Figure S4. Density plot of core record start years by species for LDW.}{22}{section*.31}% 
+\contentsline {subsection}{Figure S5. Density plot of core record start years by species for HF.}{23}{section*.33}% 
+\contentsline {subsection}{Figure S6. Density plot of core record start years by species for ZOF.}{24}{section*.35}% 
+\contentsline {subsection}{Figure S7. Density plot of core record start years by species for NIO.}{25}{section*.37}% 
+\contentsline {subsection}{Figure S8. Density plot of core record start years by species for LT.}{26}{section*.39}% 
+\contentsline {subsection}{Figure S9. Density plot of core record start years by species for CB.}{27}{section*.41}% 
+\contentsline {subsection}{Figure S10. Density plot of core record start years by species for SC.}{28}{section*.43}% 
+\contentsline {subsection}{Figure S11. Comparison of our approach with traditional methods of identifying climate signals: \emph {Liriodendron tulipifera} at SCBI.}{29}{section*.45}% 
+\contentsline {subsection}{Figure S12. Comparison of our approach with traditional methods of identifying climate signals: \emph {Abies alba} at Zofin.}{30}{section*.46}% 
+\contentsline {subsection}{Figure S13. Comparison of our approach with traditional methods of identifying climate signals: \emph {Pseudotsuga menziesii} at Cedar Breaks.}{31}{section*.47}% 
+\contentsline {subsection}{Figure S14. Comparison of our approach with traditional methods of identifying climate signals: \emph {Picea mariana} at Scotty Creek.}{32}{section*.48}% 
 \contentsline {subsection}{Figure S15. Climwin output for water variable group at BCNM.}{33}{section*.49}% 
 \contentsline {subsection}{Figure S16. Climwin output for temperature variable group at BCNM.}{34}{section*.50}% 
 \contentsline {subsection}{Figure S17. Climwin output for water variable group at HKK.}{35}{section*.51}% 
@@ -52,36 +52,37 @@
 \contentsline {subsection}{Figure S32. Climwin output for temperature variable group at CB.}{50}{section*.66}% 
 \contentsline {subsection}{Figure S33. Climwin output for water variable group at SC.}{51}{section*.67}% 
 \contentsline {subsection}{Figure S34. Climwin output for temperature variable group at SC.}{52}{section*.68}% 
-\contentsline {subsection}{Figure S35. Best GLS models including climate and DBH for Barro Colorado Nature Monument (Panama)}{53}{section*.69}% 
-\contentsline {subsection}{Figure S36. Best GLS models including climate, DBH, and year for Barro Colorado Nature Monument (Panama)}{54}{section*.71}% 
-\contentsline {subsection}{Figure S37. Best GLS models including climate and DBH for Huai Kha Khaeng (Thailand)}{55}{section*.73}% 
-\contentsline {subsection}{Figure S38. Best GLS models including climate, DBH, and year for Huai Kha Khaeng (Thailand)}{56}{section*.75}% 
-\contentsline {subsection}{Figure S39. Best GLS models including climate and DBH for the Smithsonian Conservation Biology Institute (Virginia, USA)}{57}{section*.77}% 
-\contentsline {subsection}{Figure S40. Best GLS models including climate, DBH, and year for the Smithsonian Conservation Biology Institute (Virginia, USA)}{58}{section*.79}% 
-\contentsline {subsection}{Figure S41. Best GLS models including climate and DBH for Lilley Dickey Woods (Indiana, USA)}{59}{section*.81}% 
-\contentsline {subsection}{Figure S42. Best GLS models including climate, DBH, and year for Lilley Dickey Woods (Indiana, USA)}{60}{section*.83}% 
-\contentsline {subsection}{Figure S43. Best GLS models including climate and DBH for Harvard Forest (Massachusetts, USA)}{61}{section*.85}% 
-\contentsline {subsection}{Figure S44. Best GLS models including climate, DBH, and year for Harvard Forest (Massachusetts, USA)}{62}{section*.87}% 
-\contentsline {subsection}{Figure S45. Best GLS models including climate and DBH for Zofin Forest (Czech Republic)}{63}{section*.89}% 
-\contentsline {subsection}{Figure S46. Best GLS models including climate, DBH, and year for Zofin Forest (Czech Republic)}{64}{section*.91}% 
-\contentsline {subsection}{Figure S47. Best GLS models including climate and DBH for Niobrara (Nebraska, USA)}{65}{section*.93}% 
-\contentsline {subsection}{Figure S48. Best GLS models including climate, DBH, and year for Niobrara (Nebraska, USA)}{66}{section*.95}% 
-\contentsline {subsection}{Figure S49. Best GLS models including climate and DBH for Little Tesuque (New Mexico, USA)}{67}{section*.97}% 
-\contentsline {subsection}{Figure S50. Best GLS models including climate, DBH, and year for Little Tesuque (New Mexico, USA)}{68}{section*.99}% 
-\contentsline {subsection}{Figure S51. Best GLS models including climate and DBH for Cedar Breaks (Utah, USA)}{69}{section*.101}% 
-\contentsline {subsection}{Figure S52. Best GLS models including climate, DBH, and year for Cedar Breaks (Utah, USA)}{70}{section*.103}% 
-\contentsline {subsection}{Figure S53. Best GLS models including climate and DBH for Scotty Creek (Northwest Territory, Canada)}{71}{section*.105}% 
-\contentsline {subsection}{Figure S54. Best GLS models including climate, DBH, and year for Scotty Creek (Northwest Territory, Canada)}{72}{section*.107}% 
-\contentsline {subsection}{Figure S55. Climate responses at Scotty Creek (Northwest Territory, Canada) before and after 1970.}{73}{section*.109}% 
-\contentsline {subsection}{Figure S56. (RW\_interactions\_all)}{74}{section*.112}% 
-\contentsline {subsection}{Figure S57. (BAI\_interactions\_all)}{75}{section*.114}% 
-\contentsline {subsection}{Figure S58. (Decadal BCNM)}{76}{section*.116}% 
-\contentsline {subsection}{Figure S59. (Decadal HKK)}{77}{section*.118}% 
-\contentsline {subsection}{Figure S60. (Decadal SCBI)}{78}{section*.120}% 
-\contentsline {subsection}{Figure S62. (Decadal HF)}{80}{section*.122}% 
-\contentsline {subsection}{Figure S63. (Decadal ZOF)}{81}{section*.124}% 
-\contentsline {subsection}{Figure S64. (Decadal NIO)}{82}{section*.126}% 
-\contentsline {subsection}{Figure S65. (Decadal LT)}{83}{section*.127}% 
-\contentsline {subsection}{Figure S66. (Decadal CB)}{84}{section*.129}% 
-\contentsline {subsection}{Figure S67. (Decadal SC)}{85}{section*.131}% 
-\contentsline {subsection}{SI References}{86}{section*.133}% 
+\contentsline {subsection}{Figure S35. Best GLS models including climate and \(DBH\) for BCNM}{53}{section*.69}% 
+\contentsline {subsection}{Figure S36. Best GLS models including climate, \(DBH\), and year for BCNM}{54}{section*.71}% 
+\contentsline {subsection}{Figure S37. Best GLS models including climate and \(DBH\) for HKK}{55}{section*.73}% 
+\contentsline {subsection}{Figure S38. Best GLS models including climate, \(DBH\), and year for HKK}{56}{section*.75}% 
+\contentsline {subsection}{Figure S39. Best GLS models including climate and \(DBH\) for SCBI}{57}{section*.77}% 
+\contentsline {subsection}{Figure S40. Best GLS models including climate, \(DBH\), and year for SCBI}{58}{section*.79}% 
+\contentsline {subsection}{Figure S41. Best GLS models including climate and \(DBH\) for LDW}{59}{section*.81}% 
+\contentsline {subsection}{Figure S42. Best GLS models including climate, \(DBH\), and year for LDW}{60}{section*.83}% 
+\contentsline {subsection}{Figure S43. Best GLS models including climate and \(DBH\) for HF}{61}{section*.85}% 
+\contentsline {subsection}{Figure S44. Best GLS models including climate, \(DBH\), and year for HF}{62}{section*.87}% 
+\contentsline {subsection}{Figure S45. Best GLS models including climate and \(DBH\) for ZOF}{63}{section*.89}% 
+\contentsline {subsection}{Figure S46. Best GLS models including climate, \(DBH\), and year for ZOF}{64}{section*.91}% 
+\contentsline {subsection}{Figure S47. Best GLS models including climate and \(DBH\) for NIO}{65}{section*.93}% 
+\contentsline {subsection}{Figure S48. Best GLS models including climate, \(DBH\), and year for NIO}{66}{section*.95}% 
+\contentsline {subsection}{Figure S49. Best GLS models including climate and \(DBH\) for LT}{67}{section*.97}% 
+\contentsline {subsection}{Figure S50. Best GLS models including climate, \(DBH\), and year for LT}{68}{section*.99}% 
+\contentsline {subsection}{Figure S51. Best GLS models including climate and \(DBH\) for CB}{69}{section*.101}% 
+\contentsline {subsection}{Figure S52. Best GLS models including climate, \(DBH\), and year for CB}{70}{section*.103}% 
+\contentsline {subsection}{Figure S53. Best GLS models including climate and \(DBH\) for SC}{71}{section*.105}% 
+\contentsline {subsection}{Figure S54. Best GLS models including climate, \(DBH\), and year for SC}{72}{section*.107}% 
+\contentsline {subsection}{Figure S55. Climate responses at SC before and after 1970.}{73}{section*.109}% 
+\contentsline {subsection}{Figure S56. All signficant climate - \(DBH\) interactions with \(RW\) as the response metric.}{74}{section*.112}% 
+\contentsline {subsection}{Figure S57. All signficant climate - \(DBH\) interactions with \(RW\) as the response metric.}{76}{section*.114}% 
+\contentsline {subsection}{Figure S58. Relationships between \(DBH\) and \(BAI\) by decade for BCNM.}{77}{section*.116}% 
+\contentsline {subsection}{Figure S59. Relationships between \(DBH\) and \(BAI\) by decade for HKK.}{78}{section*.118}% 
+\contentsline {subsection}{Figure S60. Relationships between \(DBH\) and \(BAI\) by decade for SCBI.}{79}{section*.120}% 
+\contentsline {subsection}{Figure S61. Relationships between \(DBH\) and \(BAI\) by decade for LDW.}{80}{section*.122}% 
+\contentsline {subsection}{Figure S62. Relationships between \(DBH\) and \(BAI\) by decade for HF.}{81}{section*.124}% 
+\contentsline {subsection}{Figure S63. Relationships between \(DBH\) and \(BAI\) by decade for ZOF.}{82}{section*.126}% 
+\contentsline {subsection}{Figure S64. Relationships between \(DBH\) and \(BAI\) by decade for NIO.}{83}{section*.128}% 
+\contentsline {subsection}{Figure S65. Relationships between \(DBH\) and \(BAI\) by decade for LT.}{84}{section*.129}% 
+\contentsline {subsection}{Figure S66. Relationships between \(DBH\) and \(BAI\) by decade for CB.}{85}{section*.131}% 
+\contentsline {subsection}{Figure S67. Relationships between \(DBH\) and \(BAI\) by decade for SC.}{86}{section*.133}% 
+\contentsline {subsection}{SI References}{87}{section*.135}% 
