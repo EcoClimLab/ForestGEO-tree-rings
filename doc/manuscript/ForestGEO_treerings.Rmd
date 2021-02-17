@@ -31,9 +31,9 @@ Raquel Alfaro-Sánchez^7^,
 Tala Awada^8^,
 Jennifer L. Baltzer^7^,
 Patrick J. Baker^9^,
-Sarayudh Bunyavejchewin^10^,
-Paolo Cherubini^11^,
-Justin Cooper^12^,
+Joseph D. Birch^10^,
+Sarayudh Bunyavejchewin^11^,
+Paolo Cherubini^12^,
 Stuart J. Davies^2^,
 Cameron Dow^1,13^,
 Ryan Helcoski^1^,
@@ -72,11 +72,11 @@ Peter Zuidema^21^
 
 9. School of Biological Sciences, Monash University, Clayton, Victoria 3800, Australia
 
-10. National Parks Wildlife and Plant Conservation Department, Chatuchak, Bangkok 10900, Thailand
+10. University of Alberta; Edmonton, Alberta, Canada
 
-11. Swiss Federal Institute for Forest, Snow and Landscape Research, CH-8903 Birmensdorf, Switzerland
+11. National Parks Wildlife and Plant Conservation Department, Chatuchak, Bangkok 10900, Thailand
 
-12. University of Alberta; Edmonton, Alberta, Canada
+12. Swiss Federal Institute for Forest, Snow and Landscape Research, CH-8903 Birmensdorf, Switzerland
 
 13. Department of Forestry, Purdue University, West Lafayette, IN 47907, USA
 
