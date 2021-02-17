@@ -319,7 +319,7 @@ Cores were collected within the Utah Forest Dynamics Plot ForestGEO plot on the 
 The plot sits on the edge of cliff, which descends ~750 m to a valley below.
 The mature spruce-fir forest is dominated by the species analyzed here (*Abies bifolia*, *Populus tremuloides*, *Picea engelmannii*, *Pinus flexilis*, *Pinus longaeva*, *Picea pungens*, and *Pseudotsuga menziesii*).
 The site is largely undisturbed. 
-The most recent fire occurred in 1802, and many currently living trees established before then. Living *Pinus longaeva* at the site date back ~1600 years, and deadwood at the site dates back to 0 AD (Cooper & Lutz, unpublished data).
+The most recent fire occurred in 1802, and many currently living trees established before then. Living *Pinus longaeva* at the site date back ~1600 years, and deadwood at the site dates back to 0 AD [@lutz_large-diameter_2021].
 
 In 2019, living individuals of each dominant species were cored.  
 Chronologies are published on ITRDB [@birch_birch_2020; @birch_birch_2020-2; @birch_birch_2020-3; @birch_birch_2020-4].
