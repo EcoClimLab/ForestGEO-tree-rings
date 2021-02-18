@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **Authors:** 
 
-[Kristina J. Anderson-Teixeira^1,2^*](0000-0001-8461-9713),
+[Kristina J. Anderson-Teixeira](0000-0001-8461-9713)^1,2^*,
 Valentine Herrmann^1^,
 Christy Rollinson^3^,
 Bianca Gonzalez^1^,
@@ -31,7 +31,7 @@ Raquel Alfaro-Sánchez^7^,
 Tala Awada^8^,
 Jennifer L. Baltzer^7^,
 Patrick J. Baker^9^,
-Joseph D. Birch^10^,
+[Joseph D. Birch](0000-0001-8644-7345)^10^,
 Sarayudh Bunyavejchewin^11^,
 Paolo Cherubini^12^,
 Stuart J. Davies^2^,
