@@ -463,8 +463,6 @@ We note, however, that there were no statistically significant differences in th
 
 ## `r changing_climate_title`
 
-[ISSUE #25 in ForestGEO-climate-sensitivity ](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/25)
-
 Our analysis included two sites where climate change has had pronounced effects on tree growth: Little Tesuque, New Mexico, USA (LT) and Scotty Creek, NW Territories, Canada (SC).
 At LT, increasingly warm drought has dramatically reduced growth [@touchan_millennial_2011; @williams_temperature_2013], resulting in many missing rings in recent years.
 At SC, rapidly rising temperatures are causing melting permafrost, summer moisture stress, resulting in negative growth trends in basal area index ($BAI$) starting around 1950 and significant growth declines since 1970 in `r round(249/(249+69+127)*100, digits=0)`% of trees [@sniderhan_growth_2016].
