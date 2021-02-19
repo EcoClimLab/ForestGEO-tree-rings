@@ -348,7 +348,7 @@ $DBH$ for each year ($y$) of interest, $Y$, was  then estimated using the follow
 $$DBH_Y  = DBH_{m} - 2*\left[r_{bark,m} - r_{bark,Y} + \sum_{y=Y}^{m} RW_{y} \right]$$
 Here, $r_{bark}$ denotes bark thickness, which was estimated on a species-specific basis from allometries (Tables `r species_table`, `r bark_allometries`).
 If $DBH_m$ was taken before coring, $RW$ values between $y=m$ and $y=Y$ were added instead of subtracted.
-If $DBH_m$ was taken after coring, ***...(check code)**
+If $DBH_m$ was taken $\le$ 10 years after the last year of measurement in the core, we used the equation above, assuming that the $n$ missing measurements between the year of the last $RW$ record in the core and year $m$ were equal to the last $n$ records in the core. 
 
 In some cases, negative values of $DBH_Y$ were predicted for the earliest years in the core record; that is, the sum of $RW$ from the earliest year in the core record to year $m$, plus the predicted change in $r_{bark}$, was greater than half of $DBH_m$. 
 Such cases could occur due to a measurement or data error, or if the tree's growth was asymmetrical around the pith, as commonly occurs [@speer_fundamentals_2010]. 
@@ -368,6 +368,9 @@ When the start or end dates of the records from the cores differed, we extrapola
 Specifically, to fill in years at the more recent end, we assumed that the average growth rate of the ten years prior to the missing records applied to the missing years. 
 To fill in years at the beginning of the tree's lifespan, we likewise assumed that the ten years adjacent to the missing record applied to the missing years; however, if this yielded a negative $DBH$ estimate for the earliest year in the reconstruction, we divided the existing minimum $DBH$ by number of years missing and applied that value to each year.
 We note again that these reconstructed growth records were used only for the reconstruction of $DBH$ and were not included as response variables in any of our analyses.
+
+For trees on which a measurement of $DBH_m$ was not available and the distance to pith could be reliably estimated for any cores, $DBH$ could not be reconstructed.
+These trees were excluded from all analyses including $DBH$ as an independent variable.
 
 Regardless of the $DBH$ reconstruction approach (outside-in or inside-out), accurate reconstructions require accounting for $r_{bark}$, particularly for species that can attain very thick bark (e.g., *Pseudotsuga menziesii*, *Pinus ponderosa*).
 For the majority of species, including all thick-barked species, we assigned allometries relating $r_{bark}$ to $DBH$, which were constructed for the species of interest or a related species (Tables `r species_table`, `r bark_allometries`).
