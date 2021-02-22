@@ -1,0 +1,49 @@
+---
+title: "coauthor_comments"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## BlueCats
+
+Here are some minor points to discuss from Pavel Šamonil, Ivana Vašíčková and myself:
+
+(1) The influence of tree height on changing the climate-growth relationship was really good point of discussion part of your presentation. Height is very important, because it defines the size of conduit elements (tracheids or vessels – you may see e.g.: von Arx an Carrer 2014 - 10.1016/j.dendro.2013.12.001; Anfodillo et al. 2013 - 10.1163/22941932-00000030; Olsson et al. 2014 - 10.1111/ele.12302 ; Fajardo et al. 2020 – doi.org/10.1111/nph.16287 or Kašpar et al. 2019 - 10.1007/s00468-019-01887-6). If there is no water added into elements (in drought period), it may cause a cavitation and consequent destruction of affected conduits. Unfortunately, basically nobody has a reliable height growth curves of most of the trees (especially if you are working in natural forests). However, we can make simple correlation of recently measured tree heights and DBH to show, that those two metrics are closely correlated and therefore using of DBH (that is easy to reconstruct from tree-ring width) is appropriate metric to capture this relationship.
+
+(2) I think it is important to quantify or capture the change in the strength of climate signal in time. If climate change shifts the start of the growing season to the earlier date and changes the regime of precipitation, it is necessary to capture it. Also I believe, this will be one comments of reviewers. First way, how to do it is including calendar year into interactions or include it as a random variable? Surely, it will be correlated with DBH. Second and a less laborious way would be to evaluate the correlations of the studied parameter (TRW, AGB, BAI) with selected climate metrics in a moving (e.g. 31 year long window).
+
+(3) Citation of CRU database on page 8 (I. Harris et al., 2014; Ian Harris et al., 2020) seems to be inconsistent. The same is also in Appendix
+
+(4) Just a very minor thing on Figure 1 – x-axis alignment, the x axes are not on the same line. Since you are using R for most of the analyses that are excellent, it looks a bit strangely, that some axes are not aligned :), especially when all the others are.
+
+(5) Paragraph with note (should I remove it..) – I think it can be removed. Most of the discussed things have been already pointed elsewhere.
+
+(6) The paper concerning Zofin cited here has been accepted and current reference is: Kašpar, K., Tumajer, J., Vašíčková, I., & Šamonil, P. (in review). Species-specific climate-growth interactions determine the future tree species dynamics of the mixed Central European mountain forests. - doi is: 10.1088/1748-9326/abd8fb
+
+(7) We would would recommend to remove the citation Šamonil and Vrška (2008) in the body of the MS as well as in SI. It concerns the general effect of air pollution within Central Europe in the late 20th century, not specifically related to Zofin forest.
+
+(8) a few comments had been added into appendix file. In case you haven't noticed them, please let us know.
+
+Only the best regards,
+Ivana, Pavel and Jakub
+
+
+## Jim Lutz
+
+“(Should I remove this paragraph?): No.
+
+"perhaps in part driven by changing environmental conditions (Vrška et al., 2009) or the lack of intermediate disturbances giving rise to increasing crowding (e.g., Lutz et al. 2009).”
+Lutz, J. A., J. W. van Wagtendonk, and J. F. Franklin. 2009. Twentieth-century decline of large-diameter trees in Yosemite National Park, California, USA. Forest Ecology and Management 257(11): 2296-2307.
+
+"most climate growth responses implies that as the climate changes, non-stationary climate responses, already common (Wilmking et al., 2020), are likely to become more prevalent (Germain and Lutz 2020). "   
+Germain, S. J., and J. A. Lutz. 2020. Climate extremes may be more important than climate means when predicting species range shifts. Climatic Change 163: 579-598.
+In addition to being a good citation for non-linear climate effects, you might find Sara’s paper interesting, at least for a glance. 
+ 
+“Tree-ring analysis at Cedar Breaks was supported by the Utah Agricultural Extension Station.”
+
+Don’t forget line numbers and page numbers. 
+
+“Joseph D. Birch”. 
