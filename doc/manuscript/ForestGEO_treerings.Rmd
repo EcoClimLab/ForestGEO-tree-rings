@@ -49,7 +49,7 @@ Anastasia Sniderhan^7^,
 Alan J. Tepley^1,20^,
 [Ivana Vašíčková](0000-0002-6070-5956)^14^, 
 Mart Vlam^21^,
-Peter Zuidema^21^
+Pieter Zuidema^21^
 
 
 **Author Affiliations:**
