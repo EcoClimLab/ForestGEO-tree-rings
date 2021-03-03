@@ -47,3 +47,17 @@ In addition to being a good citation for non-linear climate effects, you might f
 Don’t forget line numbers and page numbers. 
 
 “Joseph D. Birch”. 
+
+
+include site pubs in Table 1? (From Jim Lutz: "In Table 1, please list Furniss et al. 2017 as well as the Birch et al. 2020a-d.
+Furniss†, T. J., A. J. Larson, and J. A. Lutz. 2017. Reconciling niches and neutrality in a subalpine temperate forest. Ecosphere 8(6): Article01847. https://doi.org/10.1002/ecs2.1847")
+
+## Alan T
+
+One part that might need a little bit more explanation is the evaluation of changes in raw ring width with DBH. There could be several reasons why trees might put on more or less growth per year as they grow larger, but tree rings are also generally likely to become narrower as they form around a larger stem. It didn't seem like the geometry reasons for changes in raw ring width with tree size were distinguished from the non-geometric reasons. This seems like less of an issue with the other growth metrics. Otherwise, it looks like it is in very good shape. 
+
+## Erika
+I think there is very valuable information in the SI (Appendix 2 to 5). For example, there are some details in S4 that would be good to bring to the main text. 
+
+## Jenn B
+The SI description of the site looks good. Though you could pop in Baltzer et al. 2014 (https://onlinelibrary.wiley.com/doi/abs/10.1111/gcb.12349) in the citations for the first sentence of the Scotty appendix, if you are so inclined. 

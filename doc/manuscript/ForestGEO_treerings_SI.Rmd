@@ -232,7 +232,7 @@ decadal_plot_SC_legend = "Figure S67. Relationships between $DBH$ and $BAI$ by d
 # ~~~~~~~~~~ (below here does not need to be copied to main doc) ~~~~~~~~~~
 # Generic legends
 
-recruitment_generic_legend = "This distribution approximates--but does not entirely match--the age distribution of trees cored. The core record start year can occur after a tree's recruitment year (i.e., year when the tree reached coring height) if the core fails to hit center or if the tree's center is lost to heartrot."
+recruitment_generic_legend = "This distribution approximates -- but does not entirely match -- the age distribution of trees cored. The core record start year can occur after a tree's recruitment year (i.e., year when the tree reached coring height) if the core fails to hit center or if the tree's center is lost to heartrot."
 
 traditional_comparison_generic_legend = "Shown are repsonses to the precipitation- and temperature-group variables selected as most influential by the *climwin* analysis. Left panels show a month-by-month comparison of *beta* (slope) coefficients for the relationship between tree growth and the monthly climate variable from species-level residual chronologies (traditional approach) and from individual-level analysis in *climwin* (approach presented here). Center panels compare the monthly *beta* coefficient estimates, with the dotted line indicating 1:1 correspondence. Finally, the right panels compare *beta* coefficients for the optimal window selected by *climwin*. Error bars indicate standard error of slope estimates. Note that 1:1 correspondence is not necessarily expected. See Appendix 5 for analysis methods and discussion of expected correspondence."
 
