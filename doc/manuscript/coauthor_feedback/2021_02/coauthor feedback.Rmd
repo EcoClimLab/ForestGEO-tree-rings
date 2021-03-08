@@ -61,3 +61,21 @@ I think there is very valuable information in the SI (Appendix 2 to 5). For exam
 
 ## Jenn B
 The SI description of the site looks good. Though you could pop in Baltzer et al. 2014 (https://onlinelibrary.wiley.com/doi/abs/10.1111/gcb.12349) in the citations for the first sentence of the Scotty appendix, if you are so inclined. 
+
+## Bianca
+
+(Bianca's comments are in the file she sent, but alongside her own highlights. She reccommends just looking at the summary here.)
+
+Comments
+1. So testing for 1. Pollution influence/climate change 2. Inter-stand dynamics --- this is a lot to test for with the novel method, not including all of the sites -- if you are trying to break into two papers perhaps using one or two sites. This will simplify the results and allow for further questions to develop -- followed by a subsequent paper with all analysis that would solidify findings. 
+
+2. Perhaps mentioning the type of model used to obtain residuals (even if just a spline) so people can understand the process from start to finish. (in figure one of the schematic) 
+
+3. I think you should keep the "should I remove this paragraph" in the discussion. I like this paragraph because the more clarity for the reader, the better, this breaks it down in layman's terms. If you need to remove some you can remove the second half of the paragraph, as I think the general assumption that taking climate drivers from both species in one site makes sense to compare across site results --- that part of the paragraph is "Another way in which the current analysis differed from conventional methods is that we pooled species by site when determining the top climate drivers (step 1; Fig. 1). This decision was motivated by the expectation that differences in optimal climate windows across species in one site would be minimal compared to cross-site differences (cf. Figs. 2, 3); however, analyses focused on interspecific differences could optimize species-specific climate sensitivity estimates by fitting climwin individually be species.[GB1] " 
+
+## Justin M
+
+One possible bigger one would be to play up the window analysis in the manuscript and connect it to recent work about the timing of climate extremes impact on tree growth. In response to the suggestion of making this two papers, I also think it will be better as one but perhaps you could bring out the ecological findings a bit more, which is what I was hoping the suggestion of putting more focus on the window analysis would do. But perhaps I'm wrong there. 
+
+For the supplement for LDW, I used the following nested plot approach for the plot we put in:
+Nest subplots were used in each large plot to increase sample depth across age classes of the forest. The first subplot was 5.0 m in radius and all trees larger than 5 cm diameter at breast height (DBH) were cored. In the next subplot, 5-20 m from plot center, all trees >15 cm DBH were cored. In the final subplot, 20-30 m from plot center, all trees >40 cm DBH were cored. 
