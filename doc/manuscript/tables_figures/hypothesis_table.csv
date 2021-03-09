@@ -1,0 +1,14 @@
+﻿category,hypothesis,percent.sites,percent.species.site.combinations,supported
+Climate drivers,"Water and temperature additively influence annual growth,",-,78,36 / 46 species-site combinations
+,...typically over different time windows.,90%,-,9 / 10 sites
+water,The time window over which water influences growth is often $\ge$ 9 months. ,,,5 / 10 sites
+,"Growth respones to precipitation are predominantly positive, ",-,?,34 / ?? Species-site combinations
+,...but positive responses decelerate or decline at high precipitation.,-,?,32 / 34 species-site combinations with positive first-order terms
+temp,The time window over which $T$ influences growth rarely exceeds 3 months. ,,,9 / 10 sites
+,Annual growth responds more strongly to $T_{max}$ or $PET$ than to  $T_{min}$.,80%,,8 / 10 sites
+,"Growth respones to $T$ are predominantly negative, particularly at higher $T$.",,81%,
+,"However, there are cases where growth increases under warmer $T$.",,,
+Size,"Ring width increment ($RW$) declines with $DBH$ for trees established in the open,",,,
+,...but increases with $DBH$ for trees established in the understory.,,,
+,Basal area increment ($BAI$) increases to a peak at intermediate DBH and then declines.,,,
+,Biomass increment ($\Delta AGB$) increases to a peak at intermediate DBH and then declines.,,,98 percent of species-site
