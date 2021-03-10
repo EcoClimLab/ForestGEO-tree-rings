@@ -17,6 +17,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **Title:** Using tree-ring records to simultaneously characterize the influence of climate, tree size, and slowly changing environmental drivers on annual tree growth
 
+*Using tree-ring records to simultaneously characterize the influence of climate, tree size, and time on annual tree growth*
+
 **Authors:** 
 
 [Kristina J. Anderson-Teixeira](0000-0001-8461-9713)^1,2^*,
@@ -316,7 +318,7 @@ sampling_details <- read.csv(paste0(path_to_repo, "/doc/manuscript/tables_figure
 ```
 
 Tree rings provide a uniquely valuable long-term record for understanding how climate and other environmental drivers shape forest productivity.
-However, traditional dendrochronology methods aggregate growth records of multiple trees -- often limited to dominant canopy individuals -- into standardised or residual chronologies, and therefore cannot simultaneously account for the effects of climate, slowly changing environmental drivers, age and tree size.
+However, conventional dendrochronology methods aggregate growth records of multiple trees -- often limited to dominant canopy individuals -- into standardised or residual chronologies, and therefore cannot simultaneously account for the effects of climate, slowly changing environmental drivers, age and tree size.
 This has limited the potential to use tree rings to understand forest productivity, its climate sensitivity, and its global change responses.
 Here, we develop and apply a new method to simultaneously model non-linear effects of objectively determined principal climate drivers, reconstructed tree diameter ($DBH$), and year in generalized least squares models that account for the temporal autocorrelation inherent to each individual tree's growth.
 We apply this method to tree-ring data from `r n_trees_all` trees representing `r n_species` species at ten globally distributed sites.
@@ -529,16 +531,16 @@ Below, we summarize the precipitation and temperature variables included in thes
 #T group:Tmax at 5, PET at 3, Tmin at 1, Tmp at 1
 
 ###Windows selected: 
-# BCNM: precip dry season (12mo), T dry season (2 mo) 
-#HKK: PDF dry season + edges (9mo), T wet season (8 mo)
-#SCBI: precip p June - cAug (15 mo), PET current gs (3 mo)
-#LDW: precip c June (1 mo), PET current June (1mo)
-#HF: PDF pMay (1mo), PET cMar (1mo)
-#ZOF: pre pJune-pJul (2mo), TMX Jan-Mar (3mo)
-#NIO: ppt pOct-pDec (3mo), TMP pJune (1mo)
-#LT: P pNov-cJul (9mo), TMX cMay-Jul (3mo)
-#CB: P pJune-cJul(14mo), TMXpAug-pAug(1mo)
-#SC: P pJun-pAug(3mo), TMXcJul (1mo)
+# BCNM: precip dry season (12mo), T dry season (2 mo)   W>T
+#HKK: PDF dry season + edges (9mo), T wet season (8 mo)  W>T
+#SCBI: precip p June - cAug (15 mo), PET current gs (3 mo) W>T
+#LDW: precip c June (1 mo), PET current June (1mo) W=T
+#HF: PDF pMay (1mo), PET cMar (1mo) W=T
+#ZOF: pre pJune-pJul (2mo), TMX Jan-Mar (3mo) W<T
+#NIO: ppt pOct-pDec (3mo), TMP pJune (1mo) W>T
+#LT: P pNov-cJul (9mo), TMX cMay-Jul (3mo) W>T
+#CB: P pJune-cJul(14mo), TMXpAug-pAug(1mo) W>T
+#SC: P pJun-pAug(3mo), TMXcJul (1mo) W>T
 
 ###other:
 n_pos_first_order_P_term=42 #(exception: TSCA)
@@ -708,7 +710,7 @@ Such patterns are consistent with dendrochronology's "textbook" patterns of stud
 However, within the forest settings studied here, the majority of species exhibited initially low, but increasing, $RW$.
 This latter pattern is consistent with the observation that when contemporary growth rates are compared across individuals within a stand (*i.e.*, a "cross-sectional" analysis), $RW$ increases continuously with $DBH$ [e.g., @anderson-teixeira_size-related_2015; @muller-landau_testing_2006; @helcoski_growing_2019], or increases and subsequently decreases [@schelhaas_species-specific_2018]. 
 
-We found evidence of saturation or decline in the majority (`r round(20/26*100, digits=0)`%) of species-site combinations analyzed (Fig. `r size`), contrasting with findings of cross-sectional analyses showing that $\Delta AGB$ increases continuously with $DBH$ [@stephenson_rate_2014; @meakem_role_2018], which has also been observed in tree-rings [@foster_predicting_2016].
+We found evidence of saturation or decline in $BAI$ and $\Delta AGB$ for the majority (`r round(20/26*100, digits=0)`%) of species-site combinations analyzed (Fig. `r size`), contrasting with findings of cross-sectional analyses showing that $\Delta AGB$ increases continuously with $DBH$ [@stephenson_rate_2014; @meakem_role_2018], which has also been observed in tree-rings [@foster_predicting_2016].
 In large part, this discrepancy can be explained by differences between cross-sectional analyses and "longitudinal" patterns of individual trees through time [@sheil_does_2017; @forrester_does_2021].
 Declines in $BAI$ and $\Delta AGB$ at larger $DBH$ are probably in part attributable to increasing allocation to reproduction [@meinzer_age-related_2011], and are also linked to slowly changing environmental conditions (e.g., successional changes in stand structure, climate change).
 Notably, inclusion of year in the GLS models tended to reduce the magnitude of $BAI$ and $\Delta AGB$ declines at larger $DBH$ (Figs. `r all_GLS`), suggesting that some of such declines in Figure `r size` are more properly attributed to the effect of year than that of $DBH$.
@@ -730,12 +732,12 @@ Such a trend is not indicative of a directional response to changing environment
 This can occur, for example, when a species undergoes a dramatic decline in recruitment within a stand (e.g., *Quercus* spp. at SCBI; *Abies alba* at ZOF), such that fast-growing individuals disappear from progressively larger $DBH$ classes as time proceeds. 
 In secondary stands, particularly those where many of the sampled species recruited in pulses that were followed by low recruitment (e.g., SCBI, HF; Appendix `r site_details_appendix`, Figs. `r all_recruitment_plots`), growth declines are consistent with the tendency for faster tree growth during early succession (**REFS**), and with increasing competition and declining woody productivity as young stands mature [e.g., @goulden_patterns_2011; @pregitzer_carbon_2004].
 Even within older forests, light-demanding species that establish in gaps (e.g., *Jacaranda copaia* at BCNM, *Populus tremuloides* at CB; Table `r species_table`) would tend to experience an increasingly competitive environment through time.
-For more shade-tolerant species in stands with no known major disturbance within the past 1.5 centuries (ZOF, CB),  mixed growth trends probably reflect some combination of successional changes and shifting competitive advantages, perhaps in part driven by changing environmental conditions [@furniss_reconciling_2017; @vrska_european_2009].
+For more shade-tolerant species in stands with no known major disturbance within the past 150 years (ZOF, CB),  mixed growth trends probably reflect some combination of successional changes and shifting competitive advantages, perhaps in part driven by changing environmental conditions [@furniss_reconciling_2017; @vrska_european_2009].
 
 In a few instances, directional changes in growth are likely attributable to abiotic drivers.
 In the Czech Republic (ZOF), acid deposition dramatically reduced growth in the late 20th century, with peak influence between the 1970s and the early 1990s [@elling_dendroecological_2009; @samonil_long-term_2008], as captured in our records (Fig. `r decadal_plot_ZOF`), and this influenced linear growth trends of different species in differently within the GLS model.
 In cases such as this, a non-linear response function to $year$, or incorporation of data on pollution, would be needed to accurately capture changing growth trends, but that is beyond the scope of the current analysis.
-In New Mexico (LT), where growth rates of *Pinus Ponderosa* declined, we suspect that the dominant climate drivers identified here might not fully capture a strong regional drying trend [@touchan_millennial_2011; @williams_temperature_2013], although sampling biases remain possible.
+In New Mexico (LT), where growth rates of *Pinus ponderosa* declined, it is possible that the dominant climate drivers identified here do not capture all aspects of a strong regional warming and drying trend [@touchan_millennial_2011; @williams_temperature_2013].
 At Scotty Creek, where rapid warming and melting permafrost are altering hydraulic conditions, resulting in high mortality, growth declines, and low recruitment of *Picea mariana* [@sniderhan_growth_2016; @dearborn_permafrost_2020], we attribute pronounced negative growth trends to a combination of successional declines and climatic stress. 
 
 There is a notable lack of evidence that growth rates of any species benefited substantially from increasing CO~2~, corroborating previous analyses from HKK [@nock_longterm_2011; @van_der_sleen_no_2015; @groenendijk_no_2015, but see @brienen_tree_2017] 
@@ -757,10 +759,11 @@ As global change pressures intensify and the need to understand changing forest 
 
 # Acknowledgements {-#Acknowledgements}
 Thanks to Helene Muller-Landau and Pete Kerby-Miller for bark thickness data.
-Helpful feedback was provided by Helene Muller-Landau, Albert Kim...
+Helpful feedback was provided by Helene Muller-Landau, Albert Kim, Nadja Rüger...
 This analysis was funded by a Smithsonian Scholarly Studies grant to KAT, SM, HCM, and CP.
 The participation of PS, JK, and IV from the Czech Republic was supported by the Czech Science Foundation, project No. 19-09427S.
 PRISM climate data were purchased under an NSF grant to KAT (#DEB-1353301).
+Any use of trade, firm, or product names is for descriptive purposes only and does not imply endorsement by the U.S. Government.
 
 # Authors' contributions {-#Authors}
 KAT, VH, CR, RA, CP conceived the ideas and designed methodology; 
