@@ -52,10 +52,10 @@ kable(hypotheses_table, format = "latex", booktabs = TRUE,  escape = F)%>%
   column_spec(1, width = "12cm") %>%
   column_spec(2, width = "5cm") %>%
 
-  pack_rows("Annual growth is jointly influenced by water, temperature, DBH, and time. ", 1, 2, latex_gap_space = "1em", colnum = 1, hline_before = FALSE) %>%
-  pack_rows("Drought limits tree growth, but the response to water is nonlinear.", 3, 5, latex_gap_space = "1em", colnum = 1, hline_before = FALSE) %>%
-  pack_rows("Temperature has predominantly negative, nonlinear effects on growth.", 6, 9, latex_gap_space = "1em", colnum = 1, hline_before = FALSE) %>%
-  pack_rows("DBH", 10, 13, latex_gap_space = "1em", colnum = 1, hline_before = FALSE) %>%
+  pack_rows("Annual growth is jointly influenced by water, temperature, DBH, and time. ", 1, 5, latex_gap_space = "1em", colnum = 1, hline_before = FALSE) %>%
+  pack_rows("Drought limits tree growth, but the response to water is nonlinear.", 6, 8, latex_gap_space = "1em", colnum = 1, hline_before = FALSE) %>%
+  pack_rows("Temperature has predominantly negative, nonlinear effects on growth.", 9, 12, latex_gap_space = "1em", colnum = 1, hline_before = FALSE) %>%
+  pack_rows("Growth rate, by any metric, varies nonlinearly with DBH.", 13, 16, latex_gap_space = "1em", colnum = 1, hline_before = FALSE) %>%
  
   kable_styling(latex_options = c( "hold_position", "repeat header"), protect_latex = T, font_size = 7) 
 

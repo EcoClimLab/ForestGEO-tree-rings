@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  9 MAR 2021 17:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  9 MAR 2021 17:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -684,7 +684,7 @@ LaTeX Warning: Command \v invalid in math mode on input line 107.
 [1
 
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (37.94182pt too wide) in paragraph at lines 115--143
+Overfull \hbox (37.94182pt too wide) in paragraph at lines 115--146
  [][] 
  []
 
@@ -692,12 +692,12 @@ Overfull \hbox (37.94182pt too wide) in paragraph at lines 115--143
 Package caption Warning: Unused \captionsetup[figure] on input line 60.
 See the caption package documentation for explanation.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 145.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 148.
 [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 145.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 148.
 (./tables.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 145.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 145.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 148.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 148.
  ) 
 Here is how much of TeX's memory you used:
  15336 strings out of 480608
@@ -717,7 +717,7 @@ ist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2020/texmf-dist/fonts/type
 l/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2
 020/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2020/texmf-di
 st/fonts/type1/public/lm/lmsy7.pfb>
-Output written on tables.pdf (2 pages, 113335 bytes).
+Output written on tables.pdf (2 pages, 113614 bytes).
 PDF statistics:
  55 PDF objects out of 1000 (max. 8388607)
  43 compressed objects within 1 object stream

@@ -1,6 +1,9 @@
 ﻿category,hypothesis,percent.sites,percent.species.site.combinations,supported
 Climate drivers,"Water and temperature additively influence annual growth,",-,78,36 / 46 species-site combinations
 ,...typically over different time windows.,90%,-,9 / 10 sites
+,…,,,
+,…,,,
+,…,,,
 water,The time window over which water influences growth is often $\ge$ 9 months. ,,,5 / 10 sites
 ,"Growth respones to precipitation are predominantly positive, ",-,?,34 / ?? Species-site combinations
 ,...but positive responses decelerate or decline at high precipitation.,-,?,32 / 34 species-site combinations with positive first-order terms
