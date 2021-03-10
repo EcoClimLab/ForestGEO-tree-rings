@@ -385,7 +385,7 @@ Moreover, carbon allocation to woody growth -- as opposed to leaf or root produc
 However, tree size and time are almost inextricably linked (because each individual core increases in $DBH$ through time) and therefore difficult to disentangle,   being subject to various sampling and analysis biases [@cherubini_potential_1998; @brienen_detecting_2012; @nehrbassahles_influence_2014; @peters_detecting_2015; @sullivan_effect_2016; @bowman_detecting_2013; @brienen_tree_2017; @hember_tree_2019].
 Continued improvement of analytical methods, in combination with sampling approaches that minimize potential biases, will be important to disentangling $DBH$ from time and detecting directional growth trends.
 
-Here, we develop and apply a new method that allows simultaneous consideration of the effects of principal climate drivers (pre-selected in an objective manner), tree size, and year on annual tree growth.
+Here, we develop and apply a new method that allows simultaneous consideration of the effects of principal climate drivers (pre-selected in an objective manner), tree size, and time on annual tree growth.
 *This approach allows us to address hypotheses* (Table `r hypotheses`). 
 
 **Table 1 | (hypothesis table)**. .... 
@@ -415,7 +415,7 @@ nocite: |
 
 All tree cores were cross-dated and measured by the original researchers using standard dendrochronological practices [@stokes_introduction_1968]. 
 From among the full set of original $RW$ measurements, we excluded cores for which we detected errors (e.g., labeling inconsistencies, obvious dating errors) that could not be resolved before finalizing the analysis. 
-We also excluded records that had to be excluded due to insufficient sample size or anomalous growth patterns, including
+We also excluded records due to insufficient sample size or anomalous growth patterns, including
 (1) species with < 7 cores,
 (2) cores with < 30 years of record,
 (3) contiguous portions of cores containing large outliers ($RW$ > mean plus 5 x SD of $RW$ for the entire core),
@@ -705,7 +705,7 @@ However, the predominantly negative temperature responses (Fig. `r clim_sens`) i
 
 **(should I remove this paragraph?)**
 While our approach identifies similar climate sensitivities to those that would be identified using conventional methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`;  Table `r qualitative_results_comparison`), it differs in some substantive ways.
-First, in determining the most important climate drivers (step 1; Fig. `r schematic`), we consider the full sample of individual cores, as opposed to a residual chronology in which variance has been standardized and the individual cores have been averaged. 
+First, in determining the most important climate drivers (step 1; Fig. `r schematic`), we consider the full sample of individual cores, as opposed to a chronology in which variance has been standardized and the individual cores have been averaged. 
 Some differences in variables identified and the slope between growth and climate are to be expected giving the methodological differences (Appendix `r traditional_comparison`); however, as a whole the identified drivers and directions of response are consistent with conventional methods (`r SCBI_example`, `r all_traditional_comparisons`;  Table `r qualitative_results_comparison`). 
 Another way in which the current analysis differed from conventional methods is that we pooled species by site when determining the top climate drivers (step 1; Fig. `r schematic`). 
 This decision was motivated by the expectation that differences in optimal climate windows across species in one site would be minimal compared to cross-site differences (cf. Figs. `r SCBI_example`, `r clim_sens`); however, analyses focused on interspecific differences could optimize species-specific climate sensitivity estimates by fitting *climwin* individually be species.
