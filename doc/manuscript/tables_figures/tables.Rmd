@@ -46,16 +46,20 @@ kable(sites_table, format = "latex", booktabs = TRUE,  escape = F)%>%
 library(knitr)
 library(kableExtra)
 hypotheses <- read.csv("hypothesis_table.csv", stringsAsFactors = FALSE, check.names = FALSE)
-hypotheses_table <- subset(hypotheses, select = -c(category, percent.sites, percent.species.site.combinations) ) #drop MAT column, plus columns with sd
+hypotheses_table <- subset(hypotheses, select = -c(category, percent.sites, percent.species.site.combinations) ) #drop columns that won't go in table
+colnames(hypotheses_table) = c("hypotheses and specific predictions","frequency observed")
+
 kable(hypotheses_table, format = "latex", booktabs = TRUE,  escape = F)%>%
   
   column_spec(1, width = "12cm") %>%
   column_spec(2, width = "5cm") %>%
 
-  pack_rows("Annual growth is jointly influenced by water, temperature, DBH, and time. ", 1, 5, latex_gap_space = "1em", colnum = 1, hline_before = FALSE) %>%
+  pack_rows("Annual growth is simultaneously influenced by water, temperature, DBH, and time. ", 1, 5, latex_gap_space = "1em", colnum = 1, hline_before = FALSE) %>%
   pack_rows("Drought limits tree growth, but the response to water is nonlinear.", 6, 8, latex_gap_space = "1em", colnum = 1, hline_before = FALSE) %>%
   pack_rows("Temperature has predominantly negative, nonlinear effects on growth.", 9, 12, latex_gap_space = "1em", colnum = 1, hline_before = FALSE) %>%
-  pack_rows("Growth rate, by any metric, varies nonlinearly with DBH.", 13, 16, latex_gap_space = "1em", colnum = 1, hline_before = FALSE) %>%
+  pack_rows("Climate sensitivity varies with DBH.", 13, 14, latex_gap_space = "1em", colnum = 1, hline_before = FALSE) %>%
+  pack_rows("Growth rate, by any metric, varies nonlinearly with DBH.", 15, 18, latex_gap_space = "1em", colnum = 1, hline_before = FALSE) %>%
+  pack_rows("Climate- and DBH-corrected growth rates of most populations have changed over time.", 19, 20, latex_gap_space = "1em", colnum = 1, hline_before = FALSE) %>%
  
   kable_styling(latex_options = c( "hold_position", "repeat header"), protect_latex = T, font_size = 7) 
 
