@@ -23,6 +23,8 @@ Here are some minor points to discuss from Pavel Šamonil, Ivana Vašíčková a
 
 (6) The paper concerning Zofin cited here has been accepted and current reference is: Kašpar, K., Tumajer, J., Vašíčková, I., & Šamonil, P. (in review). Species-specific climate-growth interactions determine the future tree species dynamics of the mixed Central European mountain forests. - doi is: 10.1088/1748-9326/abd8fb
 
+**updated in main manuscript and sites table (needs to be re-knit)**
+
 (7) We would would recommend to remove the citation Šamonil and Vrška (2008) in the body of the MS as well as in SI. It concerns the general effect of air pollution within Central Europe in the late 20th century, not specifically related to Zofin forest.
 
 (8) a few comments had been added into appendix file. In case you haven't noticed them, please let us know.
