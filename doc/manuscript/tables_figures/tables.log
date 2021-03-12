@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  10 MAR 2021 07:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  12 MAR 2021 13:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -684,7 +684,7 @@ LaTeX Warning: Command \v invalid in math mode on input line 107.
 [1
 
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (45.29456pt too wide) in paragraph at lines 115--154
+Overfull \hbox (37.94182pt too wide) in paragraph at lines 115--149
  [][] 
  []
 
@@ -692,35 +692,36 @@ Overfull \hbox (45.29456pt too wide) in paragraph at lines 115--154
 Package caption Warning: Unused \captionsetup[figure] on input line 60.
 See the caption package documentation for explanation.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 156.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 151.
 [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 156.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 151.
 (./tables.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 156.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 156.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 151.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 151.
  ) 
 Here is how much of TeX's memory you used:
- 15336 strings out of 480608
- 228072 string characters out of 5903631
- 545528 words of memory out of 5000000
- 30946 multiletter control sequences out of 15000+600000
- 554090 words of font info for 49 fonts, out of 8000000 for 9000
+ 15342 strings out of 480608
+ 228162 string characters out of 5903631
+ 544528 words of memory out of 5000000
+ 30950 multiletter control sequences out of 15000+600000
+ 562629 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,14n,42p,805b,334s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,14n,42p,805b,360s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/
 texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/20
 20/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2020/texmf-d
 ist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2020/texmf-dist/fonts/type
 1/public/lm/lmbx7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm
-/lmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi5.pfb
-></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/loca
-l/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2
-020/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2020/texmf-di
-st/fonts/type1/public/lm/lmsy7.pfb>
-Output written on tables.pdf (2 pages, 114481 bytes).
+/lmbxi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi10.p
+fb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/lo
+cal/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive
+/2020/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2020/texmf
+-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2020/texmf-dist/fonts/
+type1/public/lm/lmsy7.pfb>
+Output written on tables.pdf (2 pages, 131301 bytes).
 PDF statistics:
- 55 PDF objects out of 1000 (max. 8388607)
- 43 compressed objects within 1 object stream
+ 59 PDF objects out of 1000 (max. 8388607)
+ 46 compressed objects within 1 object stream
  5 named destinations out of 1000 (max. 500000)
  4097 words of extra memory for PDF output out of 10000 (max. 10000000)
 

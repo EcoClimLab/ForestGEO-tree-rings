@@ -1,21 +1,27 @@
-﻿category,hypothesis,percent.sites,percent.species.site.combinations,supported
-additive model,"Water and temperature additively influence annual growth,",-,78,36 / 46 species-site combinations
-,...typically over different time windows.,90%,-,9 / 10 sites
-,"Climate and DBH have additive effects on growth,",,,
-,…and interactive effects are also common,,,44 percent of models
-,There is an additive effect of year. ,,,
-water,The time window over which water influences growth is often $\ge$ 9 months. ,,,5 / 10 sites
-,"Growth respones to precipitation are predominantly positive, ",-,?,34 / ?? Species-site combinations
-,...but positive responses decelerate or decline at high precipitation.,-,?,32 / 34 species-site combinations with positive first-order terms
-temp,The time window over which $T$ influences growth rarely exceeds 3 months. ,,,9 / 10 sites
-,Annual growth responds more strongly to $T_{max}$ or $PET$ than to  $T_{min}$.,80%,,8 / 10 sites
-,"Growth respones to $T$ are predominantly negative, particularly at higher $T$.",,81%,
-,"However, there are cases where growth increases under warmer $T$.",,,
-climate x DBH,Growth sensitivity to water varies with DBH,,,
-,Growth sensitivity to temperature varies with DBH,,,
-Size,"Ring width increment ($RW$) declines with $DBH$ for trees established in the open,",,,
-,...but increases with $DBH$ for trees established in the understory.,,,
-,Basal area increment ($BAI$) increases to a peak at intermediate DBH and then declines.,,,
-,Biomass increment ($\Delta AGB$) increases to a peak at intermediate DBH and then declines.,,,98 percent of species-site
-year,…,,,
-,…,,,
+﻿table_row,category,hypothesis,percent.sites,percent.species.site.combinations,supported
+0,additive model,"Water and temperature additively influence annual growth,",-,78,36 / 46 species-site combinations
+0,,...typically over different time windows.,90%,-,9 / 10 sites
+0,,"Climate and DBH have additive effects on growth,",,,
+0,,…and interactive effects are also common,,,44 percent of models
+0,,There is an additive effect of year. ,,,
+1,water,"Drought limits tree growth, but the response to water is nonlinear",,,
+2,,The time window over which water influences growth is often $\ge$ 9 months. ,,,5 / 10 sites
+3,,"Growth respones to precipitation are predominantly positive, ",-,?,34 / ?? Species-site combinations
+4,,...but positive responses decelerate or decline at high precipitation.,-,?,32 / 34 species-site combinations with positive first-order terms
+5,temp,"Temperature has predominantly negative, nonlinear effects on growth.",,,
+6,,The time window over which $T$ influences growth rarely exceeds 3 months. ,,,9 / 10 sites
+7,,Annual growth responds more strongly to $T_{max}$ or $PET$ than to  $T_{min}$.,80%,,8 / 10 sites
+8,,"Growth respones to $T$ are predominantly negative, particularly at higher $T$.",,81%,
+9,,"However, there are cases where growth increases under warmer $T$.",,,
+10,climate x DBH,Climate sensitivity varies with DBH.,,,44 percent of models
+11,,Water and DBH have an interactive effect on growth.,,,X percent of models
+12,,Temperature and DBH have an interactive effect on growth.,,,X percent of models
+13,Size,"Growth rate, by any metric, varies nonlinearly with DBH.",,,X percent of models
+14,,"Ring width increment ($RW$) declines with $DBH$ for trees established in the open,",,,
+15,,...but increases with $DBH$ for trees established in the understory.,,,
+16,,Basal area increment ($BAI$) increases to a peak at intermediate DBH and then declines.,,,
+17,,Biomass increment ($\Delta AGB$) increases to a peak at intermediate DBH and then declines.,,,98 percent of species-site combinnations
+18,year,Growth rates of most forest tree populations have declined through time due to demographic and successional changes.,,,90 percent of species-site combinnations
+19,,"In secondary or disturbed forests, growth rates of most species have declined. ",,,XX / XX  species at 7 sites
+20,,"In old-growth forests, growth  rates of some species has declined,",,,XX / XX species at 3 sites
+21,,….whereas others have increased.,,,3 / XX species at 3 sites
