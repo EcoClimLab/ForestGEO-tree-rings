@@ -17,9 +17,15 @@ Here are some minor points to discuss from Pavel Šamonil, Ivana Vašíčková a
 
 (3) Citation of CRU database on page 8 (I. Harris et al., 2014; Ian Harris et al., 2020) seems to be inconsistent. The same is also in Appendix
 
+**Should be fixed now.**
+
 (4) Just a very minor thing on Figure 1 – x-axis alignment, the x axes are not on the same line. Since you are using R for most of the analyses that are excellent, it looks a bit strangely, that some axes are not aligned :), especially when all the others are.
 
+**Noted. Will fix.**
+
 (5) Paragraph with note (should I remove it..) – I think it can be removed. Most of the discussed things have been already pointed elsewhere.
+
+**noted (but not yet sure what I'll end up doing).**
 
 (6) The paper concerning Zofin cited here has been accepted and current reference is: Kašpar, K., Tumajer, J., Vašíčková, I., & Šamonil, P. (in review). Species-specific climate-growth interactions determine the future tree species dynamics of the mixed Central European mountain forests. - doi is: 10.1088/1748-9326/abd8fb
 
@@ -33,26 +39,39 @@ Only the best regards,
 Ivana, Pavel and Jakub
 
 
-## Jim Lutz
+## Jim Lutz (DONE)
 
 “(Should I remove this paragraph?): No.
+
+**noted (but not yet sure what I'll end up doing).**
 
 "perhaps in part driven by changing environmental conditions (Vrška et al., 2009) or the lack of intermediate disturbances giving rise to increasing crowding (e.g., Lutz et al. 2009).”
 Lutz, J. A., J. W. van Wagtendonk, and J. F. Franklin. 2009. Twentieth-century decline of large-diameter trees in Yosemite National Park, California, USA. Forest Ecology and Management 257(11): 2296-2307.
 
+**got it.**
+
 "most climate growth responses implies that as the climate changes, non-stationary climate responses, already common (Wilmking et al., 2020), are likely to become more prevalent (Germain and Lutz 2020). "   
 Germain, S. J., and J. A. Lutz. 2020. Climate extremes may be more important than climate means when predicting species range shifts. Climatic Change 163: 579-598.
 In addition to being a good citation for non-linear climate effects, you might find Sara’s paper interesting, at least for a glance. 
+
+**Got it.**
  
 “Tree-ring analysis at Cedar Breaks was supported by the Utah Agricultural Extension Station.”
 
+**Got it.**
+
 Don’t forget line numbers and page numbers. 
+
+**Got it.**
 
 “Joseph D. Birch”. 
 
+**Done.**
 
 include site pubs in Table 1? (From Jim Lutz: "In Table 1, please list Furniss et al. 2017 as well as the Birch et al. 2020a-d.
 Furniss†, T. J., A. J. Larson, and J. A. Lutz. 2017. Reconciling niches and neutrality in a subalpine temperate forest. Ecosphere 8(6): Article01847. https://doi.org/10.1002/ecs2.1847")
+
+**Done.**
 
 ## Alan T
 
@@ -64,7 +83,7 @@ I think there is very valuable information in the SI (Appendix 2 to 5). For exam
 ## Jenn B
 The SI description of the site looks good. Though you could pop in Baltzer et al. 2014 (https://onlinelibrary.wiley.com/doi/abs/10.1111/gcb.12349) in the citations for the first sentence of the Scotty appendix, if you are so inclined. 
 
-## Bianca
+## Bianca (DONE)
 
 (Bianca's comments are in the file she sent, but alongside her own highlights. She recommends just looking at the summary here.)
 

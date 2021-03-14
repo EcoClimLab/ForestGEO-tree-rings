@@ -7,6 +7,8 @@ output:
 bibliography: references.bib
 csl: global-change-biology.csl
 
+
+
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -15,7 +17,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 \raggedright
 
-**Title:** Joint effects of climate, tree size, and year on annual tree growth derived using tree-ring records from 10 globally distributed forests
+**Title:** Joint effects of climate, tree size, and year on annual tree growth derived using tree-ring records from ten globally distributed forests
 
 
 **Authors:** 
@@ -708,7 +710,7 @@ Some differences in variables identified and the slope between growth and climat
 
 Another way in which our analysis differed fundamentally from most conventional approaches was in testing for non-linear responses of growth to climate, finding that nonlinear responses were prevalent Fig. `r clim_sens`). 
 This result, which is consistent with physiological expectations [REFS, @wilmking_global_2020], indicates that the majority of tree-ring records examined here cover climate variation beyond the range over which the response is linear. 
-The nonlinear form of most climate growth responses implies that as the climate changes, non-stationary climate responses, already common [@wilmking_global_2020], are likely to become more prevalent. 
+The nonlinear form of most climate growth responses implies that as the climate changes, non-stationary climate responses, already common [@wilmking_global_2020], are likely to become more prevalent [@germain_climate_2020]. 
 
 ~~Finally, our analysis differed from conventional approaches in the use of GLS models to simultaneously quantify the effects of climate, $DBH$, and year, while accounting for idiosyncratic growth trends of individual trees through an autocorrelation structure [step 2, Fig. `r schematic`; see also @evans_fusing_2017; @rollinson_climate_2021].~~
 ~~This approach allowed the consideration of additive and interactive effects of climate with variables that change over longer time frames -- here, $DBH$ and year, although other slowly-changing drivers could also be used.~~
@@ -749,7 +751,7 @@ Such a trend is not indicative of a directional response to changing environment
 This can occur, for example, when a species undergoes a dramatic decline in recruitment within a stand (e.g., *Quercus* spp. at SCBI; *Abies alba* at ZOF), such that fast-growing individuals disappear from progressively larger $DBH$ classes as time proceeds. 
 In secondary stands, particularly those where many of the sampled species recruited in pulses that were followed by low recruitment (e.g., SCBI, HF; Appendix `r site_details_appendix`, Figs. `r all_recruitment_plots`), growth declines are consistent with the tendency for faster tree growth during early stand development [@lorimer_estimating_1988; @lorimer_methodology_1989; @oliver_forest_1990], and with increasing competition and declining woody productivity as young stands mature [e.g., @goulden_patterns_2011; @pregitzer_carbon_2004].
 Even within older forests, light-demanding species that establish in gaps (e.g., *Jacaranda copaia* at BCNM, *Populus tremuloides* at CB; Table `r species_table`) would tend to experience an increasingly competitive environment through time.
-For more shade-tolerant species in stands with no known major disturbance within the past 150 years (ZOF, CB),  mixed growth trends probably reflect some combination of successional changes and shifting competitive advantages, perhaps in part driven by changing environmental conditions [@furniss_reconciling_2017; @vrska_european_2009].
+For more shade-tolerant species in stands with no known major disturbance within the past 150 years (ZOF, CB),  mixed growth trends probably reflect some combination of successional changes and shifting competitive advantages, perhaps in part driven by changing environmental conditions [@furniss_reconciling_2017; @vrska_european_2009] or the lack of intermediate disturbances giving rise to increasing crowding [e.g., @lutz_twentiethcentury_2009].
 
 In a few instances, directional changes in growth are likely attributable to abiotic drivers.
 In the Czech Republic (ZOF), acid deposition dramatically reduced growth in the late 20th century, with peak influence between the 1970s and the early 1990s [@elling_dendroecological_2009; @samonil_longterm_2008], as captured in our records (Fig. `r decadal_plot_ZOF`), and this influenced linear growth trends of various species differently within the GLS model.
@@ -778,6 +780,7 @@ As global change pressures intensify and the need to understand changing forest 
 Thanks to Helene Muller-Landau and Pete Kerby-Miller for bark thickness data.
 Helpful feedback was provided by Helene Muller-Landau, Albert Kim, Nadja Rüger...
 This analysis was funded by a Smithsonian Scholarly Studies grant to KAT, SM, HCM, and CP.
+Tree-ring analysis at Cedar Breaks was supported by the Utah Agricultural Extension Station.
 The participation of PS, JK, and IV from the Czech Republic was supported by the Czech Science Foundation, project No. 19-09427S.
 PRISM climate data were purchased under an NSF grant to KAT (#DEB-1353301).
 Any use of trade, firm, or product names is for descriptive purposes only and does not imply endorsement by the U.S. Government.
