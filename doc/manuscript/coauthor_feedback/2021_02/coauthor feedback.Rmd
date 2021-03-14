@@ -66,14 +66,20 @@ The SI description of the site looks good. Though you could pop in Baltzer et al
 
 ## Bianca
 
-(Bianca's comments are in the file she sent, but alongside her own highlights. She reccommends just looking at the summary here.)
+(Bianca's comments are in the file she sent, but alongside her own highlights. She recommends just looking at the summary here.)
 
 Comments
 1. So testing for 1. Pollution influence/climate change 2. Inter-stand dynamics --- this is a lot to test for with the novel method, not including all of the sites -- if you are trying to break into two papers perhaps using one or two sites. This will simplify the results and allow for further questions to develop -- followed by a subsequent paper with all analysis that would solidify findings. 
 
+**This is one of three suggestions to split, which we're not doing, but hopefully the changes will make the message cleaarer.**
+
 2. Perhaps mentioning the type of model used to obtain residuals (even if just a spline) so people can understand the process from start to finish. (in figure one of the schematic) 
 
+**noted (but not yet sure what I'll end up doing).**
+
 3. I think you should keep the "should I remove this paragraph" in the discussion. I like this paragraph because the more clarity for the reader, the better, this breaks it down in layman's terms. If you need to remove some you can remove the second half of the paragraph, as I think the general assumption that taking climate drivers from both species in one site makes sense to compare across site results --- that part of the paragraph is "Another way in which the current analysis differed from conventional methods is that we pooled species by site when determining the top climate drivers (step 1; Fig. 1). This decision was motivated by the expectation that differences in optimal climate windows across species in one site would be minimal compared to cross-site differences (cf. Figs. 2, 3); however, analyses focused on interspecific differences could optimize species-specific climate sensitivity estimates by fitting climwin individually be species.[GB1] " 
+
+**Removed the part suggested.**
 
 ## Justin M
 
