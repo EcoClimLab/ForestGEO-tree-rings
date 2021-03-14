@@ -63,8 +63,8 @@ sites = 1
 schematic=1
 SCBI_example=2
 clim_sens=3
-size=4
-interactions_fig = 5 #DBH/climate interactions
+interactions_fig = 4 #DBH/climate interactions
+size=5
 year_fig = 6
 
 # SUPPLEMENTARY INFO (this chunk must be repeated in MEE_manuscript_SI.Rmd)
