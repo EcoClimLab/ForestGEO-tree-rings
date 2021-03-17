@@ -46,7 +46,7 @@ Ellis Q. Margolis^17^,
 Justin Maxwell^18^,
 Sean McMahon^2,19^,
 Camille Piponiot^1,2,20^,
-Sabrina E. Russo^8,21^,
+Sabrina E. Russo^21,22^,
 [Pavel Šamonil](0000-0002-7722-8797)^15^,
 Anastasia E. Sniderhan^7^,
 [Alan J. Tepley](0000-0002-5701-9613)^1,22^,
@@ -97,11 +97,13 @@ Pieter A. Zuidema^23^
 
 20. CIRAD, Montpellier, France
 
-21. Center for Plant Science Innovation, University of Nebraska – Lincoln, USA 68588-0660
+21. School of Biological Sciences, University of Nebraska-Lincoln, USA 68588
 
-22. Canadian Forest Service, Northern Forestry Centre, Edmonton, Alberta, Canada
+22. Center for Plant Science Innovation, University of Nebraska – Lincoln, USA 68588
 
-23. Forest Ecology and Forest Management Group, Wageningen; Wageningen, The Netherlands
+23. Canadian Forest Service, Northern Forestry Centre, Edmonton, Alberta, Canada
+
+24. Forest Ecology and Forest Management Group, Wageningen; Wageningen, The Netherlands
 
 
 
