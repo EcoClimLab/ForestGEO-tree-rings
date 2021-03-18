@@ -325,7 +325,7 @@ Tree rings provide a uniquely valuable long-term record for understanding how cl
 However, conventional tree-ring analysis approaches cannot simultaneously account for the effects of climate, tree size, and time on individual tree growth, which has limited the potential to use tree rings to understand forest productivity, its climate sensitivity, and its global change responses.
 Here, we develop and apply a new method to simultaneously model non-linear effects of objectively determined primary climate drivers, reconstructed tree diameter (DBH), and year in generalized least squares models that account for the temporal autocorrelation inherent to each individual tree's growth.
 We analyze tree-ring data from `r n_trees_all` trees representing `r n_species` species at 10 globally distributed sites, showing that water, temperature, DBH, and time have additively, and often interactively, influenced annual growth over the past 120 years.
-Growth responses were predominantly positive to precipitation and negative to temperature, with both included in 78% of top models, and with non-linear responses prevalent (*##%* of relationships).
+Growth responses were predominantly positive to precipitation and negative to temperature (*except in a few cases where temperature was limiting*), with both included in 78% of top models, and with non-linear responses prevalent (*##%* of relationships).
 Interactions between DBH and climate were common (44% of cases tested). 
 Growth rates -- indicated by ring widths, basal area increments, or biomass increments -- varied non-linearly with DBH.
 Accounting for DBH, growth rate varied directionally over time in most species, declining in 90% of species-site combinations.
@@ -367,7 +367,7 @@ Climate signals are then identified by examining month-by-month or seasonal corr
 Following identification of the top climate driver(s), statistical models describing their relationships to tree growth can be used for applications such as climate reconstruction [e.g., @buntgen_2500_2011] or projection of tree growth responses to climate change [e.g., @charney_observed_2016].
 An important caveat for the latter, however, is that the slopes of correlations between climate variables and ring-width index chronologies are not identical to the mean slope of the relationship among individuals within the population, as the process of building species chronologies obfuscates individual-level responses [@pederson_framework_2020].
 Although population-level climate responses have been approximated based on climate sensitives derived from species chronologies [e.g., @charney_observed_2016; @helcoski_growing_2019], the removal of individual-level variation prior to analysis of climate sensitivity limits potential for using species chronologies to characterize the climate sensitivity of $ANPP_{woody}$.
-In particular, analysis of species-level chronologies does not allow direct characterization of known variation in climate sensitivity in relation to tree height, canopy position, or microhabitat characteristics such as topographic wetness index [e.g., @bennett_larger_2015; @mcgregor_tree_2020; @rollinson_climate_2021].
+In particular, analysis of species-level chronologies does not allow the direct characterization of known variation in climate sensitivity in relation to tree height, canopy position, or microhabitat characteristics such as topographic wetness index [e.g., @bennett_larger_2015; @mcgregor_tree_2020; @rollinson_climate_2021].
 
 *(reword to ecology focus):*
 Dendrochronological studies most commonly focus on linear climate responses to individual climate drivers, thereby missing  nonlinearities and additive or interactive climate effects known to be widespread within forest settings [@wilmking_global_2020]. 
@@ -380,12 +380,12 @@ Dendrochronological studies allowing for nonlinear or threshold responses of tre
 Furthermore, temperature and moisture are known to jointly shape tree growth [@beedlow_importance_2013; @foster_predicting_2016] and forest productivity [e.g., @alexander_relative_2018; @banburymorgan_global_2021], yet growth sensitivity to their additive or interactive effects, potentially operating over different time windows, is not commonly considered [but see @foster_predicting_2016; @meko_seascorr_2011;  @sanchez-salguero_disentangling_2015], **largely because dendroclimate studies sample in such a way as to isolate one or other of moisture or temperature limitation.** 
 
 *(keep mostly the same):*
-Tree diameter at breast height (DBH) scales predictably with numerous variables affecting tree growth rate (e.g., height, crown size and position, root mass @enquist_global_2002; @niklas_plant_2004] and therefore is itself linked to growth [e.g., @foster_predicting_2016;  @muller-landau_testing_2006] and its climate sensitivity [e.g., @bennett_larger_2015; @mcgregor_tree_2020].
+Tree diameter at breast height (DBH) scales predictably with numerous traits affecting tree growth rate (e.g., height, crown size and position, root mass @enquist_global_2002; @niklas_plant_2004] and therefore is itself linked to growth [e.g., @foster_predicting_2016;  @muller-landau_testing_2006] and its climate sensitivity [e.g., @bennett_larger_2015; @mcgregor_tree_2020].
 However, for dendrochronological studies aimed at deciphering climate signals, DBH is not typically a variable of interest, and its influence is removed through detrending [@cook_calculating_1997].
 Moreover, many studies constrain sampling to only larger size classes.
 While convenient for developing long chronologies and identifying climate signals [@fritts_tree_1976], this approach is not optimal for subsequent inference of the climate sensitivity of forest productivity [@babst_when_2018].
 Although climate correlations can be transformed to climate sensitivity [i.e., magnitude of response, *sensu* @charney_observed_2016] and scaled to characterize the climate sensitivity of $ANPP_{woody}$ based on the scaling of ring width (RW) with DBH [@helcoski_growing_2019], they cannot be used to directly model known interactive effects of DBH and climate on tree growth [@trouillier_size_2019].
-For example, larger trees tend to be relatively more sensitive to drought [@bennett_larger_2015; @gillerot_tree_2020; @mcgregor_tree_2020], and responses to temperature can also vary with tree size [@rossi_agedependent_2007; @rollinson_climate_2021].
+For example, drought sensitivity tends to increase with tree size [@bennett_larger_2015; @gillerot_tree_2020; @mcgregor_tree_2020], and responses to temperature can also vary with tree size [@rossi_agedependent_2007; @rollinson_climate_2021].
 However, the removal of DBH signals via detrending makes it impossible to account for such size differences in climate sensitivity in a systematic, integrative way.
 To use tree rings to predict tree growth, $ANPP_{woody}$, and forest dynamics, we need models that include DBH [e.g., @evans_fusing_2017; @klesse_amplifying_2020] and its potential climate interactions [e.g., @rollinson_climate_2021].
 
@@ -400,7 +400,7 @@ Continued improvement of analytical methods, in combination with sampling approa
 Here, we develop and apply a new method that allows simultaneous consideration of the effects of primary climate drivers (i.e., the most influential climate variables and the time window over which they operate), tree size, and year on annual tree growth.
 *This approach allows us to address hypotheses* (Table `r hypotheses`). 
 
-**Table 1 | (hypothesis table)**. .... 
+**Table 1 | (DRAFT hypothesis table-- needs to be filled in and condensed/ cleaned up)**. .... 
 ![ ](tables_figures/hypothesis_table.png)
 
 # Materials and Methods {-#Materials} 
@@ -409,7 +409,7 @@ Here, we develop and apply a new method that allows simultaneous consideration o
 
 ## Data sources and preparation {-#Data}
 
-We analyzed tree-ring data, most previously collected, from 10 sites ranging from 9.15$^\circ$ to 61.30$^\circ$ N latitude and representing a wide range of forest and tree types: tropical broadleaf deciduous and evergreen, temperate broadleaf deciduous and needleleaf evergreen (conifer), and boreal needleleaf evergreen (Tables `r sites`, `r site_details`, `r species_table`).
+We analyzed tree-ring data, most previously collected, from 10 sites ranging from 9.15$^\circ$ to 61.30$^\circ$ N latitude and representing a wide range of forest and tree types: tropical broadleaf deciduous and evergreen, temperate broadleaf deciduous and conifer, and boreal conifer (Tables `r sites`, `r site_details`, `r species_table`).
 Nine of these sites (exception: LT) are large forest dynamics plots of the Forest Global Earth Observatory [ForestGEO, @anderson-teixeira_ctfsforestgeo_2015; @davies_forestgeo_2021].
 Trees of species represented within the ForestGEO plots were cored within the plot (n=5 sites) and/or nearby within similar forest types (n=5 sites), following a variety of sampling protocols designed to meet the varied objectives of the original studies (Tables `r site_details`, `r sampling_details_table`). 
 There was wide variation in the distribution of record start years, which approximate the age distribution of trees cored (Figs. `r all_recruitment_plots`).
@@ -451,13 +451,13 @@ Variables considered here included average daily minimum, maximum, and mean temp
 For the one riparian site, NIO, we tested for an effect of stream flow (SF), for which we obtained data for the Sparks, Nebraska station (station code: 06461500; 42°54'14"N, 100°26'13"W) from the U.S. Geological Survey (USGS) National Water Information System (https://waterdata.usgs.gov/nwis/uv/?site_no=06461500&agency_cd=USGS&referred_module=sw). 
 All ForestGEO climate records used here are archived in the ForestGEO Climate Data Portal, v1.0 [@anderson-teixeira_forestgeo_2020].
 
-## Analysis methods {-#Analysis}
+## Data Analysis {-#Data}
 
-Our analysis consisted of two main steps: (1) identification of the primary climate drivers , and (2) combining these climate drivers, DBH, and year into a multivariate model (Fig. `r schematic`). 
+Data analysis consisted of two main steps: (1) identifying the primary climate drivers , and (2) combining these climate drivers, DBH, and year into a multivariate model (Fig. `r schematic`). 
 The analysis was run separately for each site (step 1), site-species combination (step 2), and each response variable (RW, BAI, or $\Delta$AGB). 
 We note that the decision to identify primary climate drivers at the level of site, as opposed to species, was motivated by the expectation that differences in optimal climate windows across species in one site would be minimal compared to cross-site differences (Fig. `r SCBI_example`); however, analyses focused on interspecific differences could optimize species-specific climate sensitivity estimates by fitting *climwin* individually by species.
 
-![**Figure 1 | Schematic illustration of our analysis process.** In step 1, the R package *climwin* [@vandepol_identifying_2016] is used to identify the primary climate drivers in water and temperature variable groups for each site, defined as the variable-time window combination that are most strongly correlated to the residual variation around splines fit to trends in growth (here, ring width, RW) for all cores sampled at the site. In step 2, a GLS model is used to produce a combined model with the previously identified drivers, reconstructed DBH, and year.](tables_figures/schematic_figure.png)
+![**Figure 1 | Schematic illustration of the analysis process.** In step 1, the R package *climwin* [@vandepol_identifying_2016] is used to identify the primary climate drivers in water and temperature variable groups for each site, defined as the variable-time window combination that are most strongly correlated to the residual variation around splines fit to trends in growth (here, ring width, RW) for all cores sampled at the site. In step 2, a GLS model is used to produce a combined model with the previously identified drivers, reconstructed DBH, and year.](tables_figures/schematic_figure.png)
 
 ### Identifying primary climate drivers (step 1) {-#Climate}
 
@@ -478,7 +478,7 @@ We ultimately determined that the method described above was adequate for the pu
 
 Having identified the primary climate drivers in temperature and precipitation variable groups, we next combined climate variables (all models) and DBH (models with DBH and its climate interactions) into linear mixed-effects models (function *lme* in R package *nlme*), with core identity as a random intercept and yeaar as a continuous time covariate for the within-group correlation structure (function *corCAR1*). We will refer to this model as a generalized least squares (GLS) model (Fig. `r schematic`).
 
-Before running the models, we checked for collinearity among the candidate variables using the *vifstep* function [@naimi_where_2014] and removed any variable with a variance inflation factor > 3 (none required removal).
+Prior to running the models, we checked for collinearity among the candidate variables using the *vifstep* function [@naimi_where_2014] and removed any variable with a variance inflation factor > 3 (none required removal).
 Within the GLS models, our response variables were log[RW], log[BAI], or log[$\Delta$ AGB]. 
 
 For each species independently, we ran every combination of the candidate climate variables and DBH, including both first- and second-order terms of polynomial for each.
@@ -494,7 +494,7 @@ For models including interactive effects of climate and DBH, we tested for inter
 
 To test for yeaar effects, we limited the analysis to species with reasonable coverage of the DBH x `year` matrix.
 Specifically, we required that the species be represented by cores from  $\ge$ 3 trees spanning  $\ge$ 40% the total DBH range for $\ge$ 2/3 of the total time range analyzed. 
-To avoid severe big-tree selection biases [@brienen_detecting_2012], we also required that the minimum DBH sampled be $\le$ 25 cm, if present.
+To avoid severe big-tree selection bias [@brienen_detecting_2012], we also required that the minimum DBH sampled be $\le$ 25 cm, if present.
 Species that failed to meet these criteria (n= 8) were excluded from the analysis of temporal trends.
 We then ran models as described above, including a  first-order linear effect of year.
 We note that the random effect of tree should in theory avoid analytical biases arising from persistent growth differences among individuals [@brienen_detecting_2012; @brienen_tree_2017]. 
