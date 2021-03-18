@@ -699,7 +699,7 @@ Effects of year and DBH interacted such that inclusion of year in in models alte
 
 # Discussion {-#Discussion}
 
-Our new tree-ring analysis method allows simultaneous consideration of the effects of primary climate drivers, tree size, and slowly changing environmental conditions on annual growth (Fig. `r schematic`), yielding results that are consistent with those that would be obtained using conventional methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`;  Table `r qualitative_results_comparison`) while offering a more complete picture of how climate, tree size, and year have shaped tree growth at 10 globally distributed forest over the past 120 years. 
+The tree-ring analysis approach developed here allowed simultaneous consideration of the effects of primary climate drivers, tree size, and slowly changing environmental conditions on annual growth across multiple forest types and species (Fig. `r schematic`), yielding results that are consistent with those that would be obtained using established methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`;  Table `r qualitative_results_comparison`) while offering a more complete picture of how climate, tree size, and year have shaped tree growth at 10 globally distributed forest over the past 120 years. 
 
 ## Climate sensitivity {-#Climate}
 
@@ -775,12 +775,13 @@ However, significant woody growth stimulation by elevated CO~2~ has not been obs
 
 ## Conclusions {-#Conclusions}
 
-Altogether, our analysis method reveals a much richer picture of the factors influencing tree growth than has previously been possible (Table `r hypotheses`). 
-Specifically, it allows us to show that growth is generally simultaneously influenced by temperature and precipitation over different time windows, 
-that nonlinear climate responses and interactive effects of climate with DBH are common (Figs. `r clim_sens` and `r interactions_fig`, respectively),
-that growth -- expressed in any metric -- almost universally varies with DBH (Fig. `r size`), 
-and that current or recently living trees commonly show growth declines in response to some combination of stand dynamics and environmental change (Fig. `r year_fig`).
-While traditional dendrochronology methods, particularly those focused on climate reconstruction, generally sample and analyze data in order to minimize many of these effects, they are critical for understanding forest productivity in an era of global change.
+In this study, we present a novel robust approach that allows integrative analysis of factors that jointly influence tree growth (Table `r hypotheses`). 
+Specifically, it allows us to demonstrate that 
+(1) growth is generally simultaneously influenced by temperature and precipitation over different time windows, 
+(2) nonlinear climate responses and interactive effects of climate with DBH are common (Figs. `r clim_sens` and `r interactions_fig`, respectively),
+(3) growth -- expressed in any metric -- almost universally varies with DBH (Fig. `r size`), 
+and (4) current or recently living trees commonly show growth declines in response to some combination of stand dynamics and environmental change (Fig. `r year_fig`).
+While traditional dendrochronology methods, particularly those focused on climate reconstruction, generally sample and analyze data to minimize many of these effects, they are critical for understanding forest productivity in an era of global change.
 As global change pressures intensify and the need to understand changing forest dynamics becomes increasingly urgent [REFS, @mcdowell_pervasive_2020], we expect that this approach will prove valuable to understanding drivers of tree growth and forest change.
 
 
