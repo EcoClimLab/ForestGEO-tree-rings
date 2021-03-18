@@ -321,14 +321,14 @@ sampling_details <- read.csv(paste0(path_to_repo, "/doc/manuscript/tables_figure
 ## Abstract: Limited to 300 words. 
 ```
 
-Tree rings provide a uniquely valuable long-term record for understanding how climate and other environmental drivers shape forest productivity.
-However, conventional tree-ring analysis approaches cannot simultaneously account for the effects of climate, tree size, and time on individual tree growth, which has limited the potential to use tree rings to understand forest productivity, its climate sensitivity, and its global change responses.
-Here, we develop and apply a new method to simultaneously model non-linear effects of objectively determined primary climate drivers, reconstructed tree diameter (DBH), and year in generalized least squares models that account for the temporal autocorrelation inherent to each individual tree's growth.
+Tree rings provide a uniquely valuable long-term record for understanding how climate and other environmental drivers shape individual tree growth and forest productivity.
+However, conventional tree-ring analysis approaches cannot simultaneously account for the effects of climate, tree size, and other environmental drivers on individual tree growth, which has limited the potential to use tree rings to understand forest productivity, its climate sensitivity, and its global change responses.
+Here, we develop and apply a new method to simultaneously model non-linear effects of primary climate drivers, reconstructed tree diameter (DBH), and year in generalized least squares models that account for the temporal autocorrelation inherent to each individual tree's growth.
 We analyze tree-ring data from `r n_trees_all` trees representing `r n_species` species at 10 globally distributed sites, showing that water, temperature, DBH, and time have additively, and often interactively, influenced annual growth over the past 120 years.
 Growth responses were predominantly positive to precipitation and negative to temperature (*except in a few cases where temperature was limiting*), with both included in 78% of top models, and with non-linear responses prevalent (*##%* of relationships).
 Interactions between DBH and climate were common (44% of cases tested). 
 Growth rates -- indicated by ring widths, basal area increments, or biomass increments -- varied non-linearly with DBH.
-Accounting for DBH, growth rate varied directionally over time in most species, declining in 90% of species-site combinations.
+Accounting for DBH, growth rate declined over time for 90% of species-site combinations.
 These trends were largely attributable to stand dynamics as cohorts and stands age, which remain challenging to disentangle from global change drivers.
 By providing a parsimonious approach for characterizing multiple interacting drivers of tree growth, our method reveals a more complete picture of the factors influencing tree growth than has previously been possible. 
 *As global change pressures intensify and the need to understand changing forest dynamics becomes increasingly urgent, we expect that this approach will prove valuable to understanding drivers of tree growth and forest change.*
@@ -348,10 +348,10 @@ By providing a parsimonious approach for characterizing multiple interacting dri
 
 *(keep this paragraph mostly as is):*
 Tree rings provide a long-term record of annual growth increments that is invaluable for understanding forests in an era of global change [@amoroso_dendroecology_2017; @fritts_dendroecology_1989]. 
-Spanning time scales of decades to centuries or even millennia, they provide by far the most robust method for characterizing the interannual climate sensitivity of tree growth [@fritts_tree_1976; @braker_measuring_2002] and how it is changing [@sniderhan_growth_2016; @maxwell_declining_2016; @babst_twentieth_2019; @wilmking_global_2020]. 
+Spanning time scales of decades to centuries or even millennia, they provide by far the most robust method for characterizing the interannual climate sensitivity of tree growth [@fritts_tree_1976; @braker_measuring_2002] and how it has changed through time [@sniderhan_growth_2016; @maxwell_declining_2016; @babst_twentieth_2019; @wilmking_global_2020].
 Combined with forest censuses, they can be used to estimate forest woody productivity, $ANPP_{woody}$ [@graumlich_longterm_1989; @davis_forest_2009; @dye_comparing_2016; @teets_linking_2018] and its climate sensitivity [@klesse_sampling_2018; @teets_quantifying_2018; @helcoski_growing_2019]. 
-They also provide the long-term perspective critical to understanding how slowly changing environmental drivers including rising atmospheric carbon dioxide (CO~2~) and directional climate change are influencing tree growth and forest productivity [e.g., @levesque_water_2017; @mathias_disentangling_2018; @walker_integrating_2020].
-This information is critical to predicting forest responses to climate change, and thereby reducing the enormous uncertainty surrounding future contributions of Earth's forests to the global carbon cycle [@friedlingstein_climate_2006].
+Tree rings also provide the long-term perspective critical to understanding how slowly changing environmental drivers including rising atmospheric carbon dioxide (CO~2~), changing climate, and other anthropogenic and natural changes are influencing tree growth and forest productivity [e.g., @levesque_water_2017; @mathias_disentangling_2018; @walker_integrating_2020].
+This information is critical to predicting forest responses to anthropogenic changes, particularly climate change, and thereby reducing the enormous uncertainty surrounding future contributions of Earth's forests to the global carbon cycle [@friedlingstein_climate_2006].
 Yet, collection and analysis of dendrochronological records has traditionally been optimized to detect climate signals rather than to predict forest productivity, its climate sensitivity, and how it may be changing [@cherubini_potential_1998; @nehrbass-ahles_influence_2014; @klesse_sampling_2018;@babst_when_2018; @wilmking_global_2020].
 As a result, prevailing approaches hold a number of limitations for using tree rings to address pressing questions concerning forest productivity in the current era of rapid environmental change.
 
