@@ -786,8 +786,8 @@ As global change pressures intensify and the need to understand changing forest 
 
 # Acknowledgements {-#Acknowledgements}
 Thanks to Helene Muller-Landau and Pete Kerby-Miller for bark thickness data.
-Helpful feedback was provided by Helene Muller-Landau, Albert Kim, Nadja Rüger...
-This analysis was funded by a Smithsonian Scholarly Studies grant to KAT, SM, HCM, and CP.
+Helpful feedback was provided by Helene Muller-Landau, Albert Kim, and Nadja Rüger.
+This analysis was funded by a Smithsonian Scholarly Studies grant to KAT, SM, Helene Muller-Landau, and CP.
 Tree-ring analysis at Cedar Breaks was supported by the Utah Agricultural Extension Station.
 The participation of PS, JK, and IV from the Czech Republic was supported by the Czech Science Foundation, project No. 19-09427S.
 PRISM climate data were purchased under an NSF grant to KAT (#DEB-1353301).
@@ -795,15 +795,15 @@ Any use of trade, firm, or product names is for descriptive purposes only and do
 
 # Authors' contributions {-#Authors}
 KAT, VH, CR, RA, CP conceived the ideas and designed methodology; 
-[most authors] collected the data; 
-VH, BG, EGA, and NP organized and analysed the data; 
+NP, CDA, RAS, TA, JLB, JDB, SB, PC, RH, JK, JL, EQM, JM, PS, AES, AJT, IV, MV, and PAZ collected the data; 
+VH, BG, EGA, CD, and NP organized and analysed the data; 
 KAT led the writing of the manuscript. 
 All authors contributed critically to the drafts and gave final approval for publication.
 
 # Data availability {-#Data}
 
 Code and full results are available via the project repository in GitHub (github.com/EcoClimLab/ForestGEO-climate-sensitivity) and archived in Zenodo (DOI: TBD) .
-Data for [# TBD] of the sites are archived in the The DendroEcological Network (DEN) database [SCBI, ... ; @rayback_dendroecological_2020] and or the International Tree-Ring Data Bank, ITRDB (CB; ...). 
+Data for [# TBD] of the sites are archived in the The DendroEcological Network (DEN) database [SCBI, ... ; @rayback_dendroecological_2020] and/or the International Tree-Ring Data Bank, ITRDB (CB; ...). 
 
 # Supplementary files {-#Supplementary}
 
