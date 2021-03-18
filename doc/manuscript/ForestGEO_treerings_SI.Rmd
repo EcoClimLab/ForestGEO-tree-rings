@@ -77,7 +77,7 @@ traditional_comparison <- "S4"
 changing_climate <- "S5"
 
 site_details_appendix_title<- "Appendix S1. Site Details"
-DBH_reconstruction_title <- "Appendix S2. Methods for reconstruction of $DBH$"
+DBH_reconstruction_title <- "Appendix S2. Methods for reconstruction of DBH"
 climate_correction_title <- "Appendix S3. Methods for climate data evaluation and correction"
 traditional_comparison_title <- "Appendix S4. Methods for comparing our approach with traditional methods"
 changing_climate_title <- "Appendix S5. Dealing with rapidly changing climate and tree growth"
@@ -191,42 +191,42 @@ climwin_CB_T_legend = "Figure S32. Climwin output for temperature variable group
 climwin_SC_W_legend  = "Figure S33. Climwin output for water variable group at SC."
 climwin_SC_T_legend = "Figure S34. Climwin output for temperature variable group at SC."
 
-GLS_BCNM_legend = "Figure S35. Best GLS models including climate and $DBH$ for BCNM"
-GLS_BCNM_year_legend = "Figure S36. Best GLS models including climate, $DBH$, and year for BCNM"
-GLS_HKK_legend = "Figure S37. Best GLS models including climate and $DBH$ for HKK"
-GLS_HKK_year_legend = "Figure S38. Best GLS models including climate, $DBH$, and year for HKK"
-GLS_SCBI_legend = "Figure S39. Best GLS models including climate and $DBH$ for SCBI"
-GLS_SCBI_year_legend = "Figure S40. Best GLS models including climate, $DBH$, and year for SCBI"
-GLS_LDW_legend = "Figure S41. Best GLS models including climate and $DBH$ for LDW"
-GLS_LDW_year_legend = "Figure S42. Best GLS models including climate, $DBH$, and year for LDW"
-GLS_HF_legend = "Figure S43. Best GLS models including climate and $DBH$ for HF"
-GLS_HF_year_legend = "Figure S44. Best GLS models including climate, $DBH$, and year for HF "
-GLS_ZOF_legend = "Figure S45. Best GLS models including climate and $DBH$ for ZOF"
-GLS_ZOF_year_legend = "Figure S46. Best GLS models including climate, $DBH$, and year for ZOF"
-GLS_NIO_legend = "Figure S47. Best GLS models including climate and $DBH$ for NIO"
-GLS_NIO_year_legend = "Figure S48. Best GLS models including climate, $DBH$, and year for NIO"
-GLS_LT_legend = "Figure S49. Best GLS models including climate and $DBH$ for LT"
-GLS_LT_year_legend = "Figure S50. Best GLS models including climate, $DBH$, and year for LT"
-GLS_CB_legend = "Figure S51. Best GLS models including climate and $DBH$ for CB"
-GLS_CB_year_legend = "Figure S52. Best GLS models including climate, $DBH$, and year for CB"
-GLS_SC_legend = "Figure S53. Best GLS models including climate and $DBH$ for SC"
-GLS_SC_year_legend = "Figure S54. Best GLS models including climate, $DBH$, and year for SC"
+GLS_BCNM_legend = "Figure S35. Best GLS models including climate and DBH for BCNM"
+GLS_BCNM_year_legend = "Figure S36. Best GLS models including climate, DBH, and year for BCNM"
+GLS_HKK_legend = "Figure S37. Best GLS models including climate and DBH for HKK"
+GLS_HKK_year_legend = "Figure S38. Best GLS models including climate, DBH, and year for HKK"
+GLS_SCBI_legend = "Figure S39. Best GLS models including climate and DBH for SCBI"
+GLS_SCBI_year_legend = "Figure S40. Best GLS models including climate, DBH, and year for SCBI"
+GLS_LDW_legend = "Figure S41. Best GLS models including climate and DBH for LDW"
+GLS_LDW_year_legend = "Figure S42. Best GLS models including climate, DBH, and year for LDW"
+GLS_HF_legend = "Figure S43. Best GLS models including climate and DBH for HF"
+GLS_HF_year_legend = "Figure S44. Best GLS models including climate, DBH, and year for HF "
+GLS_ZOF_legend = "Figure S45. Best GLS models including climate and DBH for ZOF"
+GLS_ZOF_year_legend = "Figure S46. Best GLS models including climate, DBH, and year for ZOF"
+GLS_NIO_legend = "Figure S47. Best GLS models including climate and DBH for NIO"
+GLS_NIO_year_legend = "Figure S48. Best GLS models including climate, DBH, and year for NIO"
+GLS_LT_legend = "Figure S49. Best GLS models including climate and DBH for LT"
+GLS_LT_year_legend = "Figure S50. Best GLS models including climate, DBH, and year for LT"
+GLS_CB_legend = "Figure S51. Best GLS models including climate and DBH for CB"
+GLS_CB_year_legend = "Figure S52. Best GLS models including climate, DBH, and year for CB"
+GLS_SC_legend = "Figure S53. Best GLS models including climate and DBH for SC"
+GLS_SC_year_legend = "Figure S54. Best GLS models including climate, DBH, and year for SC"
 
 SC_1970break_legend = "Figure S55. Climate responses at SC before and after 1970."
 
-RW_interactions_all_legend = "Figure S56. All signficant climate - $DBH$ interactions with $RW$ as the response metric."
-BAI_interactions_all_legend ="Figure S57. All signficant climate - $DBH$ interactions with $RW$ as the response metric."
+RW_interactions_all_legend = "Figure S56. All signficant climate - DBH interactions with $RW$ as the response metric."
+BAI_interactions_all_legend ="Figure S57. All signficant climate - DBH interactions with $RW$ as the response metric."
 
-decadal_plot_BCNM_legend = "Figure S58. Relationships between $DBH$ and $BAI$ by decade for BCNM."
-decadal_plot_HKK_legend = "Figure S59. Relationships between $DBH$ and $BAI$ by decade for HKK."
-decadal_plot_SCBI_legend = "Figure S60. Relationships between $DBH$ and $BAI$ by decade for SCBI."
-decadal_plot_LDW_legend = "Figure S61. Relationships between $DBH$ and $BAI$ by decade for LDW."
-decadal_plot_HF_legend = "Figure S62. Relationships between $DBH$ and $BAI$ by decade for HF."
-decadal_plot_ZOF_legend = "Figure S63. Relationships between $DBH$ and $BAI$ by decade for ZOF."
-decadal_plot_NIO_legend = "Figure S64. Relationships between $DBH$ and $BAI$ by decade for NIO."
-decadal_plot_LT_legend = "Figure S65. Relationships between $DBH$ and $BAI$ by decade for LT."
-decadal_plot_CB_legend = "Figure S66. Relationships between $DBH$ and $BAI$ by decade for CB."
-decadal_plot_SC_legend = "Figure S67. Relationships between $DBH$ and $BAI$ by decade for SC."
+decadal_plot_BCNM_legend = "Figure S58. Relationships between DBH and $BAI$ by decade for BCNM."
+decadal_plot_HKK_legend = "Figure S59. Relationships between DBH and $BAI$ by decade for HKK."
+decadal_plot_SCBI_legend = "Figure S60. Relationships between DBH and $BAI$ by decade for SCBI."
+decadal_plot_LDW_legend = "Figure S61. Relationships between DBH and $BAI$ by decade for LDW."
+decadal_plot_HF_legend = "Figure S62. Relationships between DBH and $BAI$ by decade for HF."
+decadal_plot_ZOF_legend = "Figure S63. Relationships between DBH and $BAI$ by decade for ZOF."
+decadal_plot_NIO_legend = "Figure S64. Relationships between DBH and $BAI$ by decade for NIO."
+decadal_plot_LT_legend = "Figure S65. Relationships between DBH and $BAI$ by decade for LT."
+decadal_plot_CB_legend = "Figure S66. Relationships between DBH and $BAI$ by decade for CB."
+decadal_plot_SC_legend = "Figure S67. Relationships between DBH and $BAI$ by decade for SC."
 
 
 # ~~~~~~~~~~ (below here does not need to be copied to main doc) ~~~~~~~~~~
@@ -236,7 +236,7 @@ recruitment_generic_legend = "This distribution approximates -- but does not ent
 
 traditional_comparison_generic_legend = "Shown are repsonses to the precipitation- and temperature-group variables selected as most influential by the *climwin* analysis. Left panels show a month-by-month comparison of *beta* (slope) coefficients for the relationship between tree growth and the monthly climate variable from species-level residual chronologies (traditional approach) and from individual-level analysis in *climwin* (approach presented here). Center panels compare the monthly *beta* coefficient estimates, with the dotted line indicating 1:1 correspondence. Finally, the right panels compare *beta* coefficients for the optimal window selected by *climwin*. Error bars indicate standard error of slope estimates. Note that 1:1 correspondence is not necessarily expected. See Appendix 5 for analysis methods and discussion of expected correspondence."
 
-climwin_generic = "Rows correspond to the four different models run: (1) all $RW$ data, (2) $RW$ for the subset of cores for which $DBH could be reconstructed, (3) $BAI$, and (4)  $AGB$ growth. The first four columns give statistics for time windows tested in *climwin*, where window open and close indicate months prior to the last month in the climwin analysis window for the site (Table S1). Difference in $AIC$ relative to a model with no climate term (first column) is used to select the optimal time window (second column). The third and fourth columns give values of linear and quadratic terms for each time window. The final column shows the correlation of individual-level residuals to the selected climate variable, with the function fit in *climwin* (not the final fit)."
+climwin_generic = "Rows correspond to the four different models run: (1) all $RW$ data, (2) $RW$ for the subset of cores for which $DBH could be reconstructed, (3) $BAI$, and (4)  AGB growth. The first four columns give statistics for time windows tested in *climwin*, where window open and close indicate months prior to the last month in the climwin analysis window for the site (Table S1). Difference in $AIC$ relative to a model with no climate term (first column) is used to select the optimal time window (second column). The third and fourth columns give values of linear and quadratic terms for each time window. The final column shows the correlation of individual-level residuals to the selected climate variable, with the function fit in *climwin* (not the final fit)."
 
 GLS_generic_legend = " for all three growth metrics examined here. For each species that met the criteria for inclusion in the analysis, relationships are plotted if included in top model. For each relationship shown, other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. *Climwin*-selected climate variables are coded on the x-axes as the climate variable name followed by the range of months (p=previous year, c=current year) over which it is most influential. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD."
 
@@ -337,13 +337,13 @@ Sampling details are given in @sniderhan_growth_2016.
 
 ## `r DBH_reconstruction_title`
 
-Tree diameter at breast height (or height of coring), $DBH$, was reconstructed over the time span for which a core record existed.
-$DBH$ was reconstructed either from the outside in or from the inside out.
-We gave precedence to the outside-in approach; that is, when a recent $DBH$ measurement was available, $DBH$ was reconstructed from the outside in. 
-In cases where $DBH$ was not available, but when we knew that the core hit pith or could reasonably estimate how far off it was based on the curvature of the rings [@applequist_simple_1958; @duncan_evaluation_1989], $DBH$ was reconstructed from the inside out. 
+Tree diameter at breast height (or height of coring), DBH, was reconstructed over the time span for which a core record existed.
+DBH was reconstructed either from the outside in or from the inside out.
+We gave precedence to the outside-in approach; that is, when a recent DBH measurement was available, DBH was reconstructed from the outside in. 
+In cases where DBH was not available, but when we knew that the core hit pith or could reasonably estimate how far off it was based on the curvature of the rings [@applequist_simple_1958; @duncan_evaluation_1989], DBH was reconstructed from the inside out. 
 
-The outside-in approach to $DBH$ reconstruction started with a recent $DBH$ measurement, $DBH_m$, where reference measurement year $m$ is often but not necessarily at the time or coring.
-$DBH$ for each year ($y$) of interest, $Y$, was  then estimated using the following equation:
+The outside-in approach to DBH reconstruction started with a recent DBH measurement, $DBH_m$, where reference measurement year $m$ is often but not necessarily at the time or coring.
+DBH for each year ($y$) of interest, $Y$, was  then estimated using the following equation:
 
 $$DBH_Y  = DBH_{m} - 2*\left[r_{bark,m} - r_{bark,Y} + \sum_{y=Y}^{m} RW_{y} \right]$$
 Here, $r_{bark}$ denotes bark thickness, which was estimated on a species-specific basis from allometries (Tables `r species_table`, `r bark_allometries`).
@@ -356,24 +356,24 @@ In cases where the error was egregious -- i.e., where predicted $DBH_Y$ of the e
 We assumed that smaller errors were attributable to asymmetrical growth, and re-distributed the error evenly across years so that $DBH_Y$ prior to the first year in the core was zero. 
 This correction was applied only to $DBH_Y$, and not to any $RW$ records.
 
-When a measurement of $DBH_m$ was not available, and when the core hit pith or the distance to pith could be reliably estimated, $DBH$ was reconstructed from the inside-out. 
+When a measurement of $DBH_m$ was not available, and when the core hit pith or the distance to pith could be reliably estimated, DBH was reconstructed from the inside-out. 
 Specifically, 
-$DBH$ for each year ($y$) of interest, $Y$, was estimated using the following equation:
+DBH for each year ($y$) of interest, $Y$, was estimated using the following equation:
 
 $$DBH_Y  = 2*\left[r_{bark,Y} + \sum_{y=0}^{Y} RW_{y} \right]$$
 Again, $r_{bark}$ was estimated on a species-specific basis from allometries (Tables `r species_table`, `r bark_allometries`).
 
-When there was more than one core for a tree, the $DBH$ reconstructions from each core were averaged to produce a single estimate of the tree's $DBH$ through time. 
+When there was more than one core for a tree, the DBH reconstructions from each core were averaged to produce a single estimate of the tree's DBH through time. 
 When the start or end dates of the records from the cores differed, we extrapolated growth of the shorter core to match the years covered by the longer core. 
 Specifically, to fill in years at the more recent end, we assumed that the average growth rate of the ten years prior to the missing records applied to the missing years. 
-To fill in years at the beginning of the tree's lifespan, we likewise assumed that the ten years adjacent to the missing record applied to the missing years; however, if this yielded a negative $DBH$ estimate for the earliest year in the reconstruction, we divided the existing minimum $DBH$ by number of years missing and applied that value to each year.
-We note again that these reconstructed growth records were used only for the reconstruction of $DBH$ and were not included as response variables in any of our analyses.
+To fill in years at the beginning of the tree's lifespan, we likewise assumed that the ten years adjacent to the missing record applied to the missing years; however, if this yielded a negative DBH estimate for the earliest year in the reconstruction, we divided the existing minimum DBH by number of years missing and applied that value to each year.
+We note again that these reconstructed growth records were used only for the reconstruction of DBH and were not included as response variables in any of our analyses.
 
-For trees on which a measurement of $DBH_m$ was not available and the distance to pith could be reliably estimated for any cores, $DBH$ could not be reconstructed.
-These trees were excluded from all analyses including $DBH$ as an independent variable.
+For trees on which a measurement of $DBH_m$ was not available and the distance to pith could be reliably estimated for any cores, DBH could not be reconstructed.
+These trees were excluded from all analyses including DBH as an independent variable.
 
-Regardless of the $DBH$ reconstruction approach (outside-in or inside-out), accurate reconstructions require accounting for $r_{bark}$, particularly for species that can attain very thick bark (e.g., *Pseudotsuga menziesii*, *Pinus ponderosa*).
-For the majority of species, including all thick-barked species, we assigned allometries relating $r_{bark}$ to $DBH$, which were constructed for the species of interest or a related species (Tables `r species_table`, `r bark_allometries`).
+Regardless of the DBH reconstruction approach (outside-in or inside-out), accurate reconstructions require accounting for $r_{bark}$, particularly for species that can attain very thick bark (e.g., *Pseudotsuga menziesii*, *Pinus ponderosa*).
+For the majority of species, including all thick-barked species, we assigned allometries relating $r_{bark}$ to DBH, which were constructed for the species of interest or a related species (Tables `r species_table`, `r bark_allometries`).
 When raw data on bark thickness data were available, we generated species-specific lognormal scaling relationships with the intercept forced to zero (Table `r bark_allometries`). 
 When raw bark thickness data were not available, we applied published bark allometries from other sources (Table `r bark_allometries`).
 
@@ -381,15 +381,15 @@ When raw bark thickness data were not available, we applied published bark allom
 ## `r climate_correction_title`
 
 Monthly climate data for 1901-2019 were obtained from CRU v.4.04 [@harris_updated_2014; @harris_version_2020], and in a few cases corrected based on more local records. 
-For BCNM, we calculated monthly $PPT$ and $PDF$ from daily precipitation readings made on Barro Colorado Island starting in 1929 [@paton_barro_2019] and used these to replace the corresponding CRU records.
+For BCNM, we calculated monthly PPT and PDF from daily precipitation readings made on Barro Colorado Island starting in 1929 [@paton_barro_2019] and used these to replace the corresponding CRU records.
 
 Additionally, we used 800 m resolution PRISM records [@daly_mapping_2015; @daly_physiographically_2008-1] from 1930 to 2015 to test and correct for cases where the coarser-resolution CRU values were not locally representative. 
-Variables in the PRISM data set included $T_{max}$, $T_{mean}$, $T_{min}$, and $PPT$.
+Variables in the PRISM data set included $T_{max}$, $T_{mean}$, $T_{min}$, and PPT.
 To test for substantial differences between CRU and PRISM records, each variable was compared on a monthly basis using linear regression. We considered CRU records to be inappropriate if (1) a paired t-test revealed a significant difference between CRU and PRISM records, and (2) the absolute value of the mean monthly difference between CRU and PRISM exceeded 2.5°C (temperature variables) or 10 mm per month (precipitation).
 Two sites met these criteria: LT and CB, both located in mountainous terrain in the western United States. 
 For these sites, we used linear regression to characterize the relationship between the CRU and PRISM, and then used this relationship to correct CRU data outside the time frame of PRISM (i.e., pre-1930 and post-2015). 
 CRU records were replaced with PRISM records over the time frame for which they were available.
-For these sites, CRU records for variables not included in the PRISM data set ($PDF$, $PET$) were considered unreliable and excluded from the analysis.
+For these sites, CRU records for variables not included in the PRISM data set (PDF, PET) were considered unreliable and excluded from the analysis.
 
 
 \newpage
@@ -476,22 +476,22 @@ The first approach was the baseline method described in the Methods and presente
 
 The second approach involved detrending the climate variables using a GAM with automated selection of the number of knots prior to the *climwin* step.
 Thus, this approach correlates growth anomalies to climate anomalies around a more slowly changing mean, and using it to select climate driver variables inherently assumes that the most important climate drivers of high-frequency (annual) growth variation are also the most important drivers of longer-term growth changes in response to changing climate.
-For $PPT$ at LT, this approach and our baseline method identified identical time windows for all growth metrics. 
+For PPT at LT, this approach and our baseline method identified identical time windows for all growth metrics. 
 For the temperature variable at LT, this approach and our baseline method consistently identified $T_{max}$ as the most important variable, but selected slightly different time windows with $RW$ the response metric (May-July for baseline method, April-July when $T_{max}$ was detrended). 
-For the water variable at SC, the two methods identified identical climate drivers (previous May or June - previous August $PPT$, depending on growth metric but not the analysis method).
+For the water variable at SC, the two methods identified identical climate drivers (previous May or June - previous August PPT, depending on growth metric but not the analysis method).
 For the temperature variable at SC, the methods identified different variables and windows, with the baseline method selecting July $T_{max}$ and the detrending method selecting previous December $T_{mean}$ (which makes little sense biologically). 
-For the water variable at SCBI, this approach and our baseline method consistently identified previous June- current August $PPT$ as the strongest climate driver, with the exception that current May-August came out as the strongest driver in the detrended analysis for $\Delta AGB$. 
-For the temperature variable at SCBI, results were somewhat different, with this approach identifying $T_{max}$ as the most important variable, and the baseline approach identifying $PET$. Both identified time windows within the current growing season when $RW$ was the metric, but time windows were not similar when $BAI$ or $AGB$ was the metric.
+For the water variable at SCBI, this approach and our baseline method consistently identified previous June- current August PPT as the strongest climate driver, with the exception that current May-August came out as the strongest driver in the detrended analysis for $\Delta AGB$. 
+For the temperature variable at SCBI, results were somewhat different, with this approach identifying $T_{max}$ as the most important variable, and the baseline approach identifying PET. Both identified time windows within the current growing season when $RW$ was the metric, but time windows were not similar when $BAI$ or AGB was the metric.
 Given little meaningful difference between these approaches, and no clear advantage of detrending the climate variable, we preferred the baseline method.
 
 The third approach involved splitting analyses into decades before and after 1970 [*sensu*  @sniderhan_growth_2016] -- an approach that has also been applied in other studies in rapidly warming climates [e.g., @lloyd_no_2002; @driscoll_divergent_2005;@wilmking_recent_2004].
 This approach should accurately capture the most important climatic drivers of growth variation prior to the acceleration of climate change in recent decades, and should also identify the drivers of recent high-frequency growth variation.
-For $PPT$ at LT, optimal time windows pre-1970 and post-1970 were similar to those for the entire time period.
+For PPT at LT, optimal time windows pre-1970 and post-1970 were similar to those for the entire time period.
 For the temperature variable at LT, $T_{max}$ was consistently identified as the most important variable, but it's optimal time window extended back to the previous growing season pre-1970, but was limited to the current growing season post-1970 and for the analysis as a whole.
-For the water variable at SC, $PPT$ was consistently selected as a better predictor than $PDF$, and responses pre- and post-1970 were generally similar to those over the full time period.
+For the water variable at SC, PPT was consistently selected as a better predictor than PDF, and responses pre- and post-1970 were generally similar to those over the full time period.
 For the temperature variable at SC, the pre- and post- 1970 time periods both identified $T_{min}$ temperatures during a single month in the previous summer as the optimal climate driver for $RW$, whereas the analysis for the full time period identified $T_{max}$ of current July (Fig. `r SC_1970break`).
-For the water variable at SCBI, $PPT$ was consistently selected as a better predictor than $PDF$, with similar time windows pre-1970 and for the full analysis period, compared to only a weak effect over a different time period (current May) post-1970 (Fig. `r SC_1970break`).
-For the temperature variable at SCBI, selected variables ($PET$, $T_{max}$, or $T_{mean}$) and time windows were variable across the three analysis periods, with only weak relationships in the post-1970 analysis period.
+For the water variable at SCBI, PPT was consistently selected as a better predictor than PDF, with similar time windows pre-1970 and for the full analysis period, compared to only a weak effect over a different time period (current May) post-1970 (Fig. `r SC_1970break`).
+For the temperature variable at SCBI, selected variables (PET, $T_{max}$, or $T_{mean}$) and time windows were variable across the three analysis periods, with only weak relationships in the post-1970 analysis period.
 These results indicate potentially shifting climate sensitivities, particularly at SC (Fig. `r SC_1970break`), which may not be adequately captured by our baseline method.
 Further analysis into how climate sensitivities may be shifting would be valuable, but is beyond the scope of this analysis. 
 
@@ -544,7 +544,7 @@ kable(ss_table, format = "latex", booktabs = TRUE,   escape = F, linesep = c('\\
   add_header_above(c(" ", " ", "all"=2, "with DBH"=2, "DBH range" = 2, " ")) %>%
   kable_styling(latex_options = c("scale_down", "hold_position","repeat_header"), protect_latex = T) 
 ```
-*Maximum reconstructed $DBH$'s analyzed are less than maximum sampled $DBH$'s because we discard size ranges with < 3 conspecific trees.
+*Maximum reconstructed DBH's analyzed are less than maximum sampled DBH's because we discard size ranges with < 3 conspecific trees.
 
 \newpage
 
@@ -1014,12 +1014,12 @@ nocite: |
 
 ## `r RW_interactions_all_legend`
 
-![`r RW_interactions_all_legend` Shown are modeled response functions at the minimum and maximum and maximum ends of the $DBH$ range. Other terms in the model are held constant at their median. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/pre_temp_groups_dbh_interactions_log_core_measurement_dbh.png){ width=90% }
+![`r RW_interactions_all_legend` Shown are modeled response functions at the minimum and maximum and maximum ends of the DBH range. Other terms in the model are held constant at their median. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/pre_temp_groups_dbh_interactions_log_core_measurement_dbh.png){ width=90% }
 
 \newpage
 ## `r BAI_interactions_all_legend`
 
-![`r BAI_interactions_all_legend` Shown are modeled response functions at the minimum and maximum and maximum ends of the $DBH$ range. Other terms in the model are held constant at their median. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/pre_temp_groups_dbh_interactions_log_BAI_dbh.png){ width=90% }
+![`r BAI_interactions_all_legend` Shown are modeled response functions at the minimum and maximum and maximum ends of the DBH range. Other terms in the model are held constant at their median. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/pre_temp_groups_dbh_interactions_log_BAI_dbh.png){ width=90% }
 
 \newpage
 ## `r decadal_plot_BCNM_legend`
