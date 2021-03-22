@@ -106,3 +106,19 @@ One possible bigger one would be to play up the window analysis in the manuscrip
 
 For the supplement for LDW, I used the following nested plot approach for the plot we put in:
 Nest subplots were used in each large plot to increase sample depth across age classes of the forest. The first subplot was 5.0 m in radius and all trees larger than 5 cm diameter at breast height (DBH) were cored. In the next subplot, 5-20 m from plot center, all trees >15 cm DBH were cored. In the final subplot, 20-30 m from plot center, all trees >40 cm DBH were cored. 
+
+## Camille
+
+- I'm not sure how useful it is to have ANPPwoody as an abbreviation of woody productivity: I've only seen it mentioned in the introduction (no equation etc) and it wouldn't take that much more space to have it spelled entirely. However, it's common enough that either way could work. 
+- Table 1: I recommend the package "flextable" that is easy to use and super flexible (as expected from its name) when creating tables in Rmd, especially when compiling in word for which the package kableExtra doesn't work. 
+- Table 2: perhaps indicate the share of plot biomass made up by the species included in the article to get an idea of their representativeness (although this is primarily a methodological article, representativeness of plot dynamics is not the main issue).
+- L 602  I don't remember seeing individual growth rates in Meakem et al 2018 , but you know it better than me
+-L314-316: if convex curves are likely overfitted, some concave ones could potentially be overfitted too?
+- Discussion - Changing growth rates: perhaps I missed it, but one mechanism that could explain decreases in growth rates with time is the fact that the oldest trees, which are the only records available for the farthest years, are clear 'survivors/winners' and are thus likely to show higher than average growth rates: survival and growth are strongly linked (eg Aubry-Kientz et al 2015, https://doi.org/10.1002/ece3.1532). This is probably what you meant by 'survivorship biases' but I think this deserves an explanation 
+
+## Alan (re RCS)
+I am familiar with RCS, but I don't have much experience using it. One of the main similarities to your method is that it requires sampling across the full age distribution of a species. However, it develops a regional curve of ring width by age, and then this curve is typically used in place of the more common curves (exponential curve or spline) in detrending ring width across the population. Deviations from the regional curve are assumed to represent influences of climate in a particular year or that growing conditions were different than the average for this species (i.e., narrower than average growth up to age 30 could indicate that a tree established under a denser canopy than typical for this species). Your use of DBH and year has some similarities to the use of age in RCS, but DBH is not necessarily strongly correlated with age, and growth trends with calendar year are not necessarily the same as growth trends with age. 
+
+I agree that there are some similarities, but I wouldn't want to overstate the similarities because that might downplay the novelty of your approach. 
+
+If other co-authors who have more experience with RCS didn't comment about this, then it's probably not necessary to change it. 
