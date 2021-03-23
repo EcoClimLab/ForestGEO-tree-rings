@@ -28,7 +28,7 @@ Christy Rollinson^3^,
 Bianca Gonzalez^1^,
 Erika B. Gonzalez-Akre^1^,
 Neil Pederson^4^,
-[M. Ross Alexander](0000-0003-1106-1100)^5^,
+[M. Ross Alexander](0000-0003-1106-1100)^5^**,
 Craig D. Allen^6^,
 Raquel Alfaro-Sánchez^7^,
 Tala Awada^8^,
@@ -65,7 +65,9 @@ Pieter A. Zuidema^23^
 
 4. Harvard University, Petersham, Massachusetts 01366 USA
 
-5. Midwest Dendro LLC, Naperville, Illinois 60565 USA
+5. Midwest Dendro LLC, Naperville, Illinois 60565 USA; 
+
+** Current address: Decision and Infrastructure Sciences, Argonne National Laboratory; Lamont, IL.
 
 6. Department of Geography & Environmental Studies, University of New Mexico; Albuquerque, NM  87131  USA
 
