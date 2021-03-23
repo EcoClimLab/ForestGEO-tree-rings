@@ -391,9 +391,9 @@ To use tree rings to predict tree growth, $ANPP_{woody}$, and forest dynamics, w
 
 *(keep mostly the same, but shift emphasis more towards ecology):*
 Characterizing how tree growth and forest productivity are responding to slowly changing environmental drivers is challenging and uncertain.
-Directional climate change (as opposed to interannual variation), rising atmospheric CO~2~, and changes in atmospheric deposition of sulfur dioxide (SO~2~) and nitrogen oxides (NO~x~) are all potentially influencing tree growth [e.g., @levesque_water_2017; @mathias_disentangling_2018; @walker_integrating_2020; @takahashi_air_2020].
+Directional climate change (as opposed to interannual variation), rising atmospheric CO~2~, and changes in atmospheric deposition of sulfur dioxide (SO~2~) and nitrogen oxides (NO~x~) are all potentially influencing tree growth [@levesque_water_2017; @mathias_disentangling_2018; @maxwell_higher_2019; @walker_integrating_2020; @takahashi_air_2020; @belmecheri_precipitation_2021].
 At the same time, stand dynamics influence growth: tree growth rates are sensitive to competition, the intensity of which tends to increase as forests mature, and to canopy position, which can change directionally as trees overtop or are overtopped by their neighbors. 
-Moreover, carbon allocation to woody growth -- as opposed to leaf or fine root production, reproduction, defenses, etc. -- is known to decline as individual trees and forest stands age [@goulden_patterns_2011; @pregitzer_carbon_2004; @meinzer_agerelated_2011]. 
+Moreover, carbon allocation to woody growth -- as opposed to leaf or fine root production, reproduction, defenses, etc. -- is known to decline as individual trees and forest stands age [@goulden_patterns_2011; @pregitzer_carbon_2004; @thomas_agerelated_2011]. 
 However, tree size and time are almost inextricably linked (because each cored individual increases in DBH through time) and difficult to disentangle due to various sampling and analysis biases [@cherubini_potential_1998; @brienen_detecting_2012; @nehrbass-ahles_influence_2014; @peters_detecting_2015; @sullivan_effect_2016; @bowman_detecting_2013; @brienen_tree_2017; @hember_tree_2019].
 Continued improvement of analytical methods, in combination with sampling approaches that minimize potential biases, will be important to disentangling DBH from time and detecting directional growth trends.
 
@@ -411,7 +411,7 @@ Here, we develop and apply a new method that allows simultaneous consideration o
 
 We analyzed tree-ring data, most previously collected, from 10 sites ranging from 9.15$^\circ$ to 61.30$^\circ$ N latitude and representing a wide range of forest and tree types: tropical broadleaf deciduous and evergreen, temperate broadleaf deciduous and conifer, and boreal conifer (Tables `r sites`, `r site_details`, `r species_table`).
 Nine of these sites (exception: LT) are large forest dynamics plots of the Forest Global Earth Observatory [ForestGEO, @anderson-teixeira_ctfsforestgeo_2015; @davies_forestgeo_2021].
-Trees of species represented within the ForestGEO plots were cored within the plot (n=5 sites) and/or nearby within similar forest types (n=5 sites), following a variety of sampling protocols designed to meet the varied objectives of the original studies (Tables `r site_details`, `r sampling_details_table`). 
+Trees were cored within the ForestGEO plots (n=5 sites) and/or nearby within similar forest types (n=5 sites), following a variety of sampling protocols designed to meet the varied objectives of the original studies (Tables `r site_details`, `r sampling_details_table`). 
 There was wide variation in the distribution of record start years, which approximate the age distribution of trees cored (Figs. `r all_recruitment_plots`).
 In using this diversity of data sources, we ensured that our approach was able to handle challenges presented by varying methodologies and forest types.
 
@@ -427,7 +427,7 @@ nocite: |
 
 All tree cores **(n = XXXX)** were cross-dated and measured by the original researchers using standard dendrochronological practices [@stokes_introduction_1968]. 
 From among the full set of original RW measurements, we excluded cores for which we detected errors (e.g., labeling inconsistencies, obvious dating errors) that could not be resolved before finalizing the analysis. 
-We also excluded records with insufficient sample size or anomalous growth patterns, including
+We also excluded records with small sample size or highly anomalous growth patterns, including
 (1) species with < 7 cores,
 (2) cores with < 30 years of record,
 (3) contiguous portions of cores containing large outliers (RW > mean plus 5 x SD of RW for the entire core),
@@ -782,7 +782,7 @@ Specifically, it allows us to demonstrate that
 (3) growth -- expressed in any metric -- almost universally varies with DBH (Fig. `r size`), 
 and (4) current or recently living trees commonly show growth declines in response to some combination of stand dynamics and environmental change (Fig. `r year_fig`).
 While traditional dendrochronology methods, particularly those focused on climate reconstruction, generally sample and analyze data to minimize many of these effects, they are critical for understanding forest productivity in an era of global change.
-As global change pressures intensify and the need to understand changing forest dynamics becomes increasingly urgent [REFS, @mcdowell_pervasive_2020], we expect that this approach will prove valuable to understanding drivers of tree growth and forest change.
+As global change pressures intensify and forest dynamics shift [@au_demographic_2020; @mcdowell_pervasive_2020], we expect that this approach will prove valuable to understanding drivers of tree growth and forest change.
 
 
 # Acknowledgements {-#Acknowledgements}
