@@ -182,6 +182,7 @@ climwin_HKK_W = "S17"
 climwin_HKK_T = "S18"
 climwin_SCBI_W = "S19"
 climwin_SCBI_T = "S20"
+climwin_HF_W = "S23"
 climwin_HF_T = "S24"
 
 
@@ -526,13 +527,16 @@ While one-to-one correspondence of estimated climate coefficients was neither ex
 ```{r , eval=FALSE, echo=FALSE}
 ## Tallies for the following paragraph (Feb 11)
 #sameV_sameW: LDWp, NMt,NMp, NIOt, NIOp, SCBIp,  ZOFp,ZOFt,  (8)
-#sameV_diffW: BCNMp, BCNMt, HFt, HKKp, LDWt,  SCBIt, SCp,SCt,  CBp, CBt (10)
-#diffV_diffW: HFp, HKKt
+#sameV_diffW:      (10)
+  # overlapping: BCNMp, BCNMt, HKKp, SCBIt, LDWt, CBp,CBt , SCp, SCt, (9)
+  # non-overlapping: HFt, (1)
+#diffV_diffW: HFp (non-overlapping), HKKt (overlapping)
 ```
 The three metrics of growth (RW, BAI, and $\Delta$AGB)  exhibited similar strength of correlation and direction of response to climate variables across the range of potential time windows, but the optimal time window or even the top climate variable sometimes differed (Figs. `r all_climwin`).
-In 8 of 20 cases, both the optimal climate variable and time window were identical across growth metrics (e.g., Fig. `r climwin_SCBI_W`). 
-In 10 cases, *climwin* identified the same climate variable but different (often overlapping) time windows (e.g., Fig. `r climwin_SCBI_T`). 
-Finally, in two cases of variables that had only weak effects and mixed responses among species in the final models (temperature variable group at HKK, precipitation variable group at HF), *climwin* identified different climate variables and different time windows (Figs. `r climwin_HKK_T`, `r climwin_HF_T`). 
+In eight of 20 cases, both the optimal climate variable and time window were identical across growth metrics (e.g., Fig. `r climwin_SCBI_W`). 
+In nine cases, *climwin* identified the same climate variable and overlapping time windows (e.g., Fig. `r climwin_SCBI_T`), 
+and in one case (at HKK) different variables ($T_{max}$ and $T_{mean}$) were selected with overlapping time windows (Fig. `r climwin_HKK_T`). 
+In just two cases (both variable groups at HF, where climate had only weak effects and mixed responses among species in the final models), *climwin* identified completely different time windows and, for precipitation, different variables (PPT and PDF; Figs. `r climwin_HF_W`- `r climwin_HF_T`).
 Henceforth, unless otherwise noted, we focus on the climate sensitivities identified with RW as the growth metric and for the full set of cores (i.e., including those for which DBH could not be reconstructed).
 
 ```{r , eval=FALSE, echo=FALSE}
@@ -560,7 +564,7 @@ Below, we summarize the precipitation and temperature variables included in thes
 
 ###Variables selected: 
 #PPT over PDF: 9 sites with both. PDF selected in HKK, HF, ZOF
-#T group:Tmax at 5, PET at 3, Tmin at 1, Tmp at 1
+#T group:Tmax at 6, PET at 3, Tmin at 1
 
 ###Windows selected: 
 # BCNM: precip dry season (12mo), T dry season (2 mo)   W>T
@@ -590,8 +594,8 @@ Responses to PPT or PDF were predominantly positive, with positive first-order l
 Negative second-order terms were commonly included in the best model (`r n_pos_1st_P_term_and_neg_2nd` of `r n_pos_first_order_P_term` with positive first-order terms), generally resulting in a deceleration or decline at the highest levels of precipitation, but occasionally producing a unimodal (e.g., several species at SCBI) or predominantly negative response (e.g., *Betula alleghaniensis* at HF; Fig. `r clim_sens`). 
 
 A temperature variable was included in the best model for all but eight site-species combinations, with predominantly negative responses, particularly at the higher end of the temperature range (`r round(percent_temperature_responses_1st_order_negative + percent_temperature_responses_1st_order_pos_2nd_order_neg)`%; `r round(percent_temperature_responses_1st_order_negative)`% with negative first-order term, `r round(percent_temperature_responses_1st_order_pos_2nd_order_neg)`% with positive first-order term but negative second-order term; Fig. `r clim_sens`).
-The most commonly selected variables within the temperature group were $T_{max}$ and PET, which were identified by *climwin* as the top temperature-related driver at five and three of the 10 sites, respectively, noting that PET was not available for two sites. 
-$T_{mean}$ and $T_{min}$ were each identified as the top driver at only one site (NIO and BCNM, respectively), noting that the effects of $T_{min}$ at BCNM were only marginally significant (Fig. `r clim_sens`).
+The most commonly selected variables within the temperature group were $T_{max}$ and PET, which were identified by *climwin* as the top temperature-related driver at six and three of the 10 sites, respectively, noting that PET was not available for two sites. 
+$T_{min}$ was identified as the top driver at BCNM, where it's effects were only marginally significant for one species (Fig. `r clim_sens`), and $T_{mean}$ was never selected as the top driver.
 Optimal time windows most commonly occurred during the current growing season (n= 5 of 10 sites), but there were cases where optimal windows occurred during the preceding dry season (BCNM), late winter/early spring (HF, ZOF), or the previous growing season (NIO, CB).
 Within the tropics, there was minimal effect of temperature at BCNM and a negative effect of wet season $T_{max}$ for three of four species at HKK.
 For temperate sites with optimal time windows covering the current and/or past growing season, responses were universally negative (i.e., negative first-order linear or unimodal, peaking at temperatures lower than the long-term mean). 
