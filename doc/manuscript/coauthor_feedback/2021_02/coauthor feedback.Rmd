@@ -80,8 +80,10 @@ One part that might need a little bit more explanation is the evaluation of chan
 ## Erika
 I think there is very valuable information in the SI (Appendix 2 to 5). For example, there are some details in S4 that would be good to bring to the main text. 
 
-## Jenn B
+## Jenn B (DONE)
 The SI description of the site looks good. Though you could pop in Baltzer et al. 2014 (https://onlinelibrary.wiley.com/doi/abs/10.1111/gcb.12349) in the citations for the first sentence of the Scotty appendix, if you are so inclined. 
+
+**Done.**
 
 ## Bianca (DONE)
 
@@ -110,10 +112,27 @@ Nest subplots were used in each large plot to increase sample depth across age c
 ## Camille
 
 - I'm not sure how useful it is to have ANPPwoody as an abbreviation of woody productivity: I've only seen it mentioned in the introduction (no equation etc) and it wouldn't take that much more space to have it spelled entirely. However, it's common enough that either way could work. 
+
+**Removed abbreviation.**
+
 - Table 1: I recommend the package "flextable" that is easy to use and super flexible (as expected from its name) when creating tables in Rmd, especially when compiling in word for which the package kableExtra doesn't work. 
+
+*https://ardata-fr.github.io/flextable-book/*
+
+**Sounds great, and I want to use this alter, but for this paper I can't get it working quickly enough to be worth the time.**
+
 - Table 2: perhaps indicate the share of plot biomass made up by the species included in the article to get an idea of their representativeness (although this is primarily a methodological article, representativeness of plot dynamics is not the main issue).
+
+**I like the idea, but don't have that info readily available.**
+
 - L 602  I don't remember seeing individual growth rates in Meakem et al 2018 , but you know it better than me
+
+**in SI**
+
 -L314-316: if convex curves are likely overfitted, some concave ones could potentially be overfitted too?
+
+**removed the overfitting comment**
+
 - Discussion - Changing growth rates: perhaps I missed it, but one mechanism that could explain decreases in growth rates with time is the fact that the oldest trees, which are the only records available for the farthest years, are clear 'survivors/winners' and are thus likely to show higher than average growth rates: survival and growth are strongly linked (eg Aubry-Kientz et al 2015, https://doi.org/10.1002/ece3.1532). This is probably what you meant by 'survivorship biases' but I think this deserves an explanation 
 
 ## Alan (re RCS)

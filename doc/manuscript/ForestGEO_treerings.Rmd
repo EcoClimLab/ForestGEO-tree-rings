@@ -352,7 +352,7 @@ By providing a parsimonious approach for characterizing multiple interacting dri
 *(keep this paragraph mostly as is):*
 Tree rings provide a long-term record of annual growth increments that is invaluable for understanding forests in an era of global change [@amoroso_dendroecology_2017; @fritts_dendroecology_1989]. 
 Spanning time scales of decades to centuries or even millennia, they provide by far the most robust method for characterizing the interannual climate sensitivity of tree growth [@fritts_tree_1976; @braker_measuring_2002] and how it has changed through time [@sniderhan_growth_2016; @maxwell_declining_2016; @babst_twentieth_2019; @wilmking_global_2020; @au_demographic_2020].
-Combined with forest censuses, they can be used to estimate forest woody productivity, $ANPP_{woody}$ [@graumlich_longterm_1989; @davis_forest_2009; @dye_comparing_2016; @teets_linking_2018] and its climate sensitivity [@klesse_sampling_2018; @teets_quantifying_2018; @helcoski_growing_2019]. 
+Combined with forest censuses, they can be used to estimate forest woody productivity [@graumlich_longterm_1989; @davis_forest_2009; @dye_comparing_2016; @teets_linking_2018] and its climate sensitivity [@klesse_sampling_2018; @teets_quantifying_2018; @helcoski_growing_2019]. 
 Tree rings also provide the long-term perspective critical to understanding how slowly changing environmental drivers including rising atmospheric carbon dioxide (CO~2~) concentrations, changing climate, and other anthropogenic and natural changes are influencing tree growth and forest productivity [e.g., @levesque_water_2017; @mathias_disentangling_2018; @walker_integrating_2020].
 This information is critical to predicting forest responses to anthropogenic changes, particularly climate change, and thereby reducing the enormous uncertainty surrounding future contributions of Earth's forests to the global carbon cycle [@arora_carbon_2020].
 Yet, collection and analysis of dendrochronological records has traditionally been optimized to detect climate signals rather than to predict forest productivity, its climate sensitivity, and how it may be changing [@cherubini_potential_1998; @nehrbass-ahles_influence_2014; @klesse_sampling_2018;@babst_when_2018; @wilmking_global_2020].
@@ -364,12 +364,12 @@ As a result, prevailing approaches hold a number of limitations for using tree r
 ```
 
 *(cut most of this paragraph? but JB really liked it):*
-Dendrochronological methods to characterize the climate sensitivity of tree growth have been optimized to obtain the strongest possible climate signal for climate reconstructions, but face limitations when it comes to characterizing the long-term climate sensitivity of individual trees or $ANPP_{woody}$.
+Dendrochronological methods to characterize the climate sensitivity of tree growth have been optimized to obtain the strongest possible climate signal for climate reconstructions, but face limitations when it comes to characterizing the long-term climate sensitivity of individual tree growth or stand productivity.
 Traditional methods begin by fitting a function (commonly an exponential curve or a spline) to the growth record captured by each core, extracting residuals around the long-term trends, and then standardizing and averaging the residuals across cores to form a species-level ring-width index chronology [@fritts_tree_1976; @speer_fundamentals_2010].
 Climate signals are then identified by examining month-by-month or seasonal correlations of the ring-width index chronology to one or more climate variables over the current year and, typically, previous growing season [e.g., @fritts_tree_1976; @meko_seascorr_2011; @zang_treeclim_2015].
 Following identification of the top climate driver(s), statistical models describing their relationships to tree growth can be used for applications such as climate reconstruction [e.g., @buntgen_2500_2011] or projection of tree growth responses to climate change [e.g., @charney_observed_2016].
 An important caveat for the latter, however, is that the slopes of correlations between climate variables and ring-width index chronologies are not identical to the mean slope of the relationship among individuals within the population, as the process of building species chronologies obfuscates individual-level responses [@carrer_individualistic_2011; @pederson_framework_2020].
-Although population-level climate responses have been approximated based on climate sensitives derived from species chronologies [e.g., @charney_observed_2016; @helcoski_growing_2019], the removal of individual-level variation prior to analysis of climate sensitivity limits potential for using species chronologies to characterize the climate sensitivity of $ANPP_{woody}$.
+Although population-level climate responses have been approximated based on climate sensitives derived from species chronologies [e.g., @charney_observed_2016; @helcoski_growing_2019], the removal of individual-level variation prior to analysis of climate sensitivity limits potential for using species chronologies to characterize the climate sensitivity of stand productivity.
 In particular, analysis of species-level chronologies does not allow the direct characterization of known variation in climate sensitivity in relation to tree height, canopy position, or microhabitat characteristics such as topographic wetness index [e.g., @bennett_larger_2015; @mcgregor_tree_2020; @rollinson_climate_2021].
 
 *(reword to ecology focus):*
@@ -389,10 +389,10 @@ Tree diameter at breast height (DBH) scales predictably with numerous traits aff
 However, for dendrochronological studies aimed at deciphering climate signals, DBH is not typically a variable of interest, and its influence, *along with the influence of stand dynamics in closed-canopy forests *, is removed through detrending [@cook_calculating_1997].
 Moreover, many studies constrain sampling to only trees in canopy positions or those that appear to be old [@fritts_tree_1976; @huckaby_identification_2003; @pederson_external_2010].
 While convenient for developing long chronologies and identifying climate signals [@fritts_tree_1976], this approach is not optimal for subsequent inference of the climate sensitivity of forest productivity [@babst_when_2018].
-Although climate correlations can be transformed to climate sensitivity [i.e., magnitude of response, *sensu* @charney_observed_2016] and scaled to characterize the climate sensitivity of $ANPP_{woody}$ based on the scaling of ring width (RW) with DBH [@helcoski_growing_2019], they cannot be used to directly model known interactive effects of DBH and climate on tree growth [@trouillier_size_2019].
+Although climate correlations can be transformed to climate sensitivity [i.e., magnitude of response, *sensu* @charney_observed_2016] and scaled to characterize the climate sensitivity of stand productivity based on the scaling of ring width (RW) with DBH [@helcoski_growing_2019], they cannot be used to directly model known interactive effects of DBH and climate on tree growth [@trouillier_size_2019].
 For example, drought sensitivity tends to increase with tree size [@bennett_larger_2015; @gillerot_tree_2020; @mcgregor_tree_2020], and responses to temperature can also vary with tree size or canopy position [@rossi_agedependent_2007; @rollinson_climate_2021].
 However, the removal of DBH signals via detrending makes it impossible to account for such size differences in climate sensitivity in a systematic, integrative way.
-To use tree rings to predict tree growth, $ANPP_{woody}$, and forest dynamics, we need models that include DBH [e.g., @evans_fusing_2017; @klesse_amplifying_2020] and its potential climate interactions [e.g., @rollinson_climate_2021].
+To use tree rings to predict tree growth, ecosystem productivity, and forest dynamics, we need models that include DBH [e.g., @evans_fusing_2017; @klesse_amplifying_2020] and its potential climate interactions [e.g., @rollinson_climate_2021].
 
 *(keep mostly the same, but shift emphasis more towards ecology):*
 Characterizing how tree growth and forest productivity are responding to slowly changing environmental drivers is challenging and uncertain.
@@ -487,7 +487,7 @@ Prior to running the models, we checked for collinearity among the candidate var
 Within the GLS models, our response variables were log[RW], log[BAI], or log[$\Delta$ AGB]. 
 
 For each species independently, we ran every combination of the candidate climate variables and DBH, including both first- and second-order terms of polynomial for each.
-For climate response, we allowed concave-down fits, but ignored any concave-up fits on the basis that these are not expected biologically and, when identified in initial analyses, often appeared to be cases of over-fitting.
+For climate response, we allowed concave-down fits, but ignored any concave-up fits on the basis that these are not expected biologically.
 
 As an example, a full model for log[RW] would look like this in *R*: 
 
@@ -503,7 +503,7 @@ To avoid severe big-tree selection bias [@brienen_detecting_2012], we also requi
 Species that failed to meet these criteria (n= 8) were excluded from the analysis of temporal trends.
 We then ran models as described above, including a  first-order linear effect of year.
 We note that the random effect of tree should, in theory, avoid analytical biases arising from persistent growth differences among individuals [@brienen_detecting_2012; @brienen_tree_2017]. 
-To verify that GLS model trends for yeaar were real, as opposed to an artifact of inherent covariation between DBH and yeaar within each core, we compared GLS results to an analysis of DBH-growth relationships by decade (Figs. `r decadal_analysis_figs_all`). 
+To verify that GLS model trends for year were real, as opposed to an artifact of inherent covariation between DBH and year within each core, we compared GLS results to an analysis of DBH-growth relationships by decade (Figs. `r decadal_analysis_figs_all`). 
 For simplicity and consistency with previous literature, we present only the models with BAI as the growth metric, noting that responses were similar across growth metrics. 
 
 Within each of three categories of models run (climate only, climate + DBH, climate $\times$ DBH, climate + DBH + year), we selected as the top model that with the lowest AIC.  
@@ -759,6 +759,7 @@ For instance, based on our finding that BAI tends to rise and fall with DBH, bas
 However, our results remain subject to some potential sampling and survivorship biases that can influence overall trends in positive or negative directions [Fig. `r year_fig`, @brienen_detecting_2012; @groenendijk_no_2015; @brienen_tree_2017; @nehrbass-ahles_influence_2014].
 While our analysis was designed to avoid some of the most severe potential biases [@brienen_detecting_2012], it is difficult, if not impossible, to control for all potential demography and survivorship biases, or to design sampling in a way that ensures unbiased representation of a species' growth rate at all points in the history of a stand [@brienen_detecting_2012; @brienen_tree_2017; @bowman_detecting_2013].
 The observed trends should therefore be interpreted as representative of only the sampled trees, as opposed to all individuals of the species that existed throughout the time frame analyzed.
+For instance, ... *give an example/more clear explanation here? (see Camille's feedback)*
 Within this context, signals of changing growth rate over time are attributable to some combination of stand dynamics (e.g., recruitment and succession, changing stand structure) and environmental drivers (e.g., climate drivers other than the primary drivers, indirect effects of climate change, rising atmospheric CO~2~, deposition of SO~2~ and NO~x~).
 
 The majority of negative growth trends observed here (Fig. `r year_fig`) are probably attributable to stand dynamics as cohorts and stands develop oer time, and are pretty typical of mixed-species stands that experience vertical stratification [@oliver_forest_1990]. 

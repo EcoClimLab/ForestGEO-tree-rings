@@ -325,7 +325,7 @@ In 2019, living individuals of each dominant species were cored.
 Chronologies are published on ITRDB [@birch_birch_2020; @birch_birch_2020-2; @birch_birch_2020-3; @birch_birch_2020-4].
 
 ### Scotty Creek, Northwest Territories, Canada
-The Scotty Creek site is a black spruce (*Picea mariana*) forest on rapidly thawing discontinuous permafrost [@sniderhan_growth_2016; @dearborn_permafrost_2020].
+The Scotty Creek site is a black spruce (*Picea mariana*) forest on rapidly thawing discontinuous permafrost [@baltzer_forests_2014; @sniderhan_growth_2016; @dearborn_permafrost_2020].
 Vertical permafrost thaw has been causing drought stress in the shallow-rooted trees, resulting in growth declines [@sniderhan_growth_2016] and high mortality [@dearborn_permafrost_2020].
 
 In the summers of 2012 and 2013, seven forest stands within a 2 km^2^ area were sampled.
