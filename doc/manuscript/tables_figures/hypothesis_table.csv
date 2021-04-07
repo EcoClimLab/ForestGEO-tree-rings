@@ -4,21 +4,21 @@
 0,,"Climate and DBH have additive effects on growth,",,,
 0,,…and interactive effects are also common,44 percent of models,,
 0,,There is an additive effect of year. ,,,
-1,water,"Drought limits tree growth, but the response to water is nonlinear",,,
-2,,The time window over which water influences growth is often $\ge$ 9 months. ,5 / 10 sites,,
-3,,"Growth respones to precipitation are predominantly positive, ",34 / ?? Species-site combinations,-,?
-4,,...but positive responses decelerate or decline at high precipitation.,32 / 34 species-site combinations with positive first-order terms,-,?
-5,temp,"Temperature has predominantly negative, nonlinear effects on growth.",,,
+1,water,"Multi-month drought limits growth, but $P$ responses are nonlinear.",,,
+2,,The time window over which $P$ influences growth is usually $\ge$ 3 months. ,7 / 10 sites,,
+3,,"Growth respones to $P$ are predominantly positive, ",34 / ?? Species-site combinations,-,?
+4,,...but positive responses decelerate or decline at high $P$.,32 / 34 species-site combinations with positive first-order terms,-,?
+5,temp,"Growth responses to $T$ are predominantly negative, particularly at high $T$.",,,
 6,,The time window over which $T$ influences growth rarely exceeds 3 months. ,9 / 10 sites,,
 7,,Annual growth responds more strongly to $T_{max}$ or $PET$ than to  $T_{min}$.,8 / 10 sites,80%,
-8,,"Growth respones to $T$ are predominantly negative, particularly at higher $T$.",,,81%
+8,,"**Growth respones to $T$ are predominantly negative, particularly at higher $T$.**",,,81%
 9,,"However, there are cases where growth increases under warmer $T$.",,,
 10,climate x DBH,Climate sensitivity varies with DBH.,44 percent of models,,
 11,,Water and DBH have an interactive effect on growth.,X percent of models,,
 12,,Temperature and DBH have an interactive effect on growth.,X percent of models,,
 13,Size,"Growth rate, by any metric, varies nonlinearly with DBH.",X percent of models,,
-14,,"Ring width increment ($RW$) declines with $DBH$ for trees established in the open,",,,
-15,,...but increases with $DBH$ for trees established in the understory.,,,
+14,,"Ring width increment ($RW$) declines with DBH for trees established in the open,",,,
+15,,...but increases with DBH for trees established in the understory.,,,
 16,,Basal area increment ($BAI$) increases to a peak at intermediate DBH and then declines.,,,
 17,,Biomass increment ($\Delta AGB$) increases to a peak at intermediate DBH and then declines.,98 percent of species-site combinnations,,
 18,year,Growth rates of most forest tree populations have declined through time due to demographic and successional changes.,90 percent of species-site combinnations,,

@@ -34,10 +34,10 @@ kable(hypotheses_table, format = "latex", booktabs = TRUE,  escape = F)%>%
   column_spec(2, width = "5cm") %>%
 
   #pack_rows("Annual growth is simultaneously influenced by water, temperature, DBH, and time. ", 1, 5, latex_gap_space = "1em", colnum = 1, hline_before = FALSE) %>%
-  pack_rows("How does climate shape tree growth? ", 1,12, latex_gap_space = "1em", italic= TRUE)%>%
+  pack_rows("How do precipitation (P) and temperature (T) jointly shape tree growth? ", 1,12, latex_gap_space = "1em", italic= TRUE)%>%
   row_spec(c(1,5,10), bold = T) %>%
   add_indent(c(2:4, 6:9,11:12)) %>%
-  pack_rows("How does growth rate vary as trees grow?", 13,17,italic= TRUE, latex_gap_space = "1em", hline_before = FALSE)%>%
+  pack_rows("How does growth rate vary with stem diameter (DBH)?", 13,17,italic= TRUE, latex_gap_space = "1em", hline_before = FALSE)%>%
   row_spec(c(13), bold = T) %>%
   add_indent(c(14:17)) %>%
   pack_rows("How have growth rates changed through time?", 18,21,italic= TRUE, latex_gap_space = "1em", hline_before = FALSE)%>%
