@@ -4,6 +4,7 @@ output:
     #pdf_document: 
     bookdown::word_document2: 
       reference_docx: word-styles-reference.docx #make sure this line is indented! see this guide for formatting: https://rmarkdown.rstudio.com/articles_docx.html
+  #officedown::rdocx_document
 bibliography: references.bib
 csl: global-change-biology.csl
 
@@ -415,9 +416,7 @@ hypotheses_table <- subset(hypotheses_table, select = -c(table_row, category, no
 ft <- flextable(hypotheses_table)
 ft <- autofit(ft)
 ft <- footnote( ft, i = 1, j = 2,
-                value = as_paragraph(
-                  c("SSC= species-site combinations; SSCV=species-site-variable combination")
-                ),
+                value = as_paragraph(c("SSC= species-site combinations; SSCV=species-site-variable combination")),
                 ref_symbols = c("*"),
                 part = "header",inline=T)
 ft  
@@ -441,6 +440,30 @@ In using this diversity of data sources, we ensured that our approach could hand
 
 **Table 2 | Sites included in this analysis**. Here and throughout, sites are ordered by descending mean annual temperature. Additional site information is provided in Appendix `r site_details_appendix` and Table `r site_details`, and tree species and sampling details are detailed in Tables `r species_table`-`r sampling_details_table`. 
 ![ ](tables_figures/sites_table.png)
+
+```{r eval = TRUE, echo=FALSE, warning=FALSE}
+library(flextable)
+set_flextable_defaults(font.family = "Arial", font.size = 8)
+sites_table<- read.csv("tables_figures/sites.csv", stringsAsFactors = FALSE, check.names = FALSE)
+sites_table <- subset(sites_table, select = -c(MAT, JulyTsd, JanTsd, MAPsd)) #drop MAT column, plus columns with sd
+ft <- flextable(sites_table)
+ft <- autofit(ft)
+ft <- width(ft, 1, width = .5)
+ft <- width(ft, 2:3, width = 1)
+ft <- width(ft, 4:6, width = .45)
+ft <- width(ft, 7, width = .66)
+ft <- width(ft, 8, width = .52)
+ft <- width(ft, 9, width = .5)
+ft <- width(ft, 10, width = 1.5)
+ft <- footnote( ft, i = 1, j = 4:6,
+                value = as_paragraph(c("Refers to 1950-2019 mean climate.")),
+                ref_symbols = c("*"),
+                part = "header",inline=T)
+ft  
+
+```
+
+
 ```{r eval=FALSE, echo=FALSE}
 # refs in this table need to go in the nocite field below
 ```

@@ -1,10 +1,10 @@
-site code,site name,location,MAT,JulyTsd,JanTsd,MAPsd,July $T_{mean}$ ,Jan $T_{mean}$,$MAP$ ,vegetation type(s),n species,n cores,original publication(s)
-BCNM,Barro Colorado Nature Monument,Panama,26.2,26.6 $\pm$ 0.5,25.5 $\pm$ 0.5,2627 $\pm$ 504,26.6,25.5,2627,"BD, BE",3,84,"Alfaro-S$\'{a}$nchez, Muller-Landau, Wright, and Camarero 2017"
+﻿site code,site name,location,MAT,JulyTsd,JanTsd,MAPsd,July T (°C),Jan T (°C),MAP (mm),vegetation type(s),n species,n cores,original publication(s)
+BCNM,Barro Colorado Nature Monument,Panama,26.2,26.6 $\pm$ 0.5,25.5 $\pm$ 0.5,2627 $\pm$ 504,26.6,25.5,2627,"BD, BE",3,84,"Alfaro-Sánchez, Muller-Landau, Wright, and Camarero 2017"
 HKK,Huai Kha Khaeng,Thailand,25.1,25.7  $\pm$ 0.5,22.4 $\pm$ 1.1,1428 $\pm$ 197,25.7,22.4,1428,"BD, BE",4,470,"Vlam, Baker, Bunyavejchewin, and Zuidema 2014"
 SCBI,Smithsonian Conservation Biology Institute,"Virginia, USA",12.9,24.3 $\pm$ 1.0,0.9 $\pm$ 2.4,1018 $\pm$ 163,24.3,0.9,1018,"BD, NE",14,704,Helcoski et al. 2019; Gonzalez-Akre et al. 2020
 LDW,Lilly Dickey Woods,"Indiana, USA",11.7,24.0 $\pm$ 1.2,-2.2 $\pm$ 2.9,1099 $\pm$ 163,24,-2.2,1099,BD,6,170,"Maxwell, Harley, and Robeson 2016"
 HF,Harvard Forest,"Massachusetts, USA",8.64,21.6 $\pm$ 1.1,-5.1 $\pm$ 2.5,1104 $\pm$ 160,21.6,-5.1,1104,"BD, NE",4,366,Alexander et al. 2019; Finzi et al. 2020
-ZOF,$\v{Z}$of$\'{i}$n Forest Dynamics Plot,Czech Republic,8.32,18.1 $\pm$ 1.5,-2.0 $\pm$ 2.3,731 $\pm$ 84,18.1,-2,731,"NE, BD",4,2059,"$\v{S}$amonil et al. 2013; Ka$\v{s}$par, Tumajer, Va$\v{s}\'{i}\v{c}$kov$\'{a}$, and $\v{S}$amonil, 2021"
+ZOF,Žofín Forest Dynamics Plot,Czech Republic,8.32,18.1 $\pm$ 1.5,-2.0 $\pm$ 2.3,731 $\pm$ 84,18.1,-2,731,"NE, BD",4,2059,"Šamonil et al. 2013; Kašpar, Tumajer, Vašíčková, and Šamonil, 2021"
 NIO,Niobrara,"Nebraska, USA",8.3,23.4 $\pm$ 1.4,-6.5 $\pm$ 2.7,520 $\pm$ 84,23.4,-6.5,520,BD,1,84,Bumann et al. 2019
 LT,Little Tesuque,"New Mexico, USA",6.1,16.2 $\pm$ 0.9,-3.1 $\pm$ 1.9,608 $\pm$ 119,16.2,-3.1,608,NE,2,34,
 CB,Cedar Breaks,"Utah, USA",2.5,13.8 $\pm$ 1.2,-6.2 $\pm$ 2.0,842 $\pm$ 211,13.8,-6.2,842,"NE, BD",7,187,Birch et al. 2020a-d
