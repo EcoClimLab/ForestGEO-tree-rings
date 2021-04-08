@@ -405,7 +405,26 @@ Continued improvement of analytical methods, in combination with sampling approa
 Here, we develop, and apply to ten forested sites spanning 52 degrees latitude, a new method that allows simultaneous consideration of the effects of primary climate drivers (i.e., the most influential climate variables and the time window over which they operate), tree size, and year on annual tree growth.
 *This approach allows us to address hypotheses* (Table `r hypotheses`). 
 
+\newpage
 **Table 1 | (DRAFT hypothesis table-- needs to be filled in and condensed/ cleaned up)**. .... 
+```{r eval = TRUE, echo=FALSE, warning=FALSE}
+library(flextable)
+set_flextable_defaults(font.family = "Arial", font.size = 9)
+hypotheses_table <- read.csv("tables_figures/hypothesis_table.csv", stringsAsFactors = FALSE, check.names = FALSE)
+hypotheses_table <- subset(hypotheses_table, select = -c(table_row, category, notes) )#remove columns that shouldn't be included
+ft <- flextable(hypotheses_table)
+ft <- autofit(ft)
+ft <- footnote( ft, i = 1, j = 2,
+                value = as_paragraph(
+                  c("SSC= species-site combinations; SSCV=species-site-variable combination")
+                ),
+                ref_symbols = c("*"),
+                part = "header",inline=T)
+ft  
+
+```
+
+
 ![ ](tables_figures/hypothesis_table.png)
 
 # Materials and Methods {-#Materials} 
@@ -579,6 +598,7 @@ Below, we summarize the precipitation and temperature variables included in thes
 #SC: P pJun-pAug(3mo), TMXcJul (1mo) W>T
 
 ###other:
+n_ssc= 45 #number species-site combinations
 n_pos_first_order_P_term=42 #(exception: TSCA)
 n_pos_1st_P_term_and_neg_2nd = 32
 percent_temperature_responses_1st_order_negative=round(13/38*100)
