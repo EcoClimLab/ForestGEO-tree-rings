@@ -412,8 +412,10 @@ Here, we develop, and apply to ten forested sites spanning 52 degrees latitude, 
 library(flextable)
 set_flextable_defaults(font.family = "Arial", font.size = 9)
 hypotheses_table <- read.csv("tables_figures/hypothesis_table.csv", stringsAsFactors = FALSE, check.names = FALSE)
-hypotheses_table <- subset(hypotheses_table, select = -c(table_row, category, notes) )#remove columns that shouldn't be included
+hypotheses_table <- subset(hypotheses_table, select = -c(table_row, Q, H, category, notes) )#remove columns that shouldn't be included
 ft <- flextable(hypotheses_table)
+ft <- italic(ft, i=c(1,15,21), j=1)
+ft <- bold(ft, i=c(1,15,21, 2,6,12,16,22))
 ft <- autofit(ft)
 ft <- footnote( ft, i = 1, j = 2,
                 value = as_paragraph(c("SSC= species-site combinations; SSCV=species-site-variable combination")),
@@ -423,12 +425,7 @@ ft
 
 ```
 
-
-![ ](tables_figures/hypothesis_table.png)
-
 # Materials and Methods {-#Materials} 
-
-(*I believe methods can stay mostly the same.*)
 
 ## Data sources and preparation {-#Data}
 
@@ -438,9 +435,8 @@ Trees were cored within the ForestGEO plots (n=5 sites) and/or nearby within sim
 There was wide variation in the distribution of record start years, which approximate the age distribution of sampled trees (Figs. `r all_recruitment_plots`).
 In using this diversity of data sources, we ensured that our approach could handle challenges presented by varying methodologies and forest types.
 
+\newpage
 **Table 2 | Sites included in this analysis**. Here and throughout, sites are ordered by descending mean annual temperature. Additional site information is provided in Appendix `r site_details_appendix` and Table `r site_details`, and tree species and sampling details are detailed in Tables `r species_table`-`r sampling_details_table`. 
-![ ](tables_figures/sites_table.png)
-
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(flextable)
 set_flextable_defaults(font.family = "Arial", font.size = 8)
