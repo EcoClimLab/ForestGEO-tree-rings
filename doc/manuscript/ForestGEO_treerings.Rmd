@@ -416,6 +416,7 @@ hypotheses_table <- subset(hypotheses_table, select = -c(table_row, Q, H, catego
 ft <- flextable(hypotheses_table)
 ft <- italic(ft, i=c(1,15,21), j=1)
 ft <- bold(ft, i=c(1,15,21, 2,6,12,16,22))
+ft <- line_spacing(ft, space = 1, part = "all")
 ft <- autofit(ft)
 ft <- footnote( ft, i = 1, j = 2,
                 value = as_paragraph(c("SSC= species-site combinations; SSCV=species-site-variable combination")),
@@ -783,7 +784,7 @@ In fact, a recent literature survey revealed that such non-stationarity in the c
 Growth rate -- whether measured as RW, BAI, or $\Delta$AGB -- varied nonlinearly with DBH for the majority of site-species combinations (`r round(n_spst_RW_DBH_bm/ n_spst_DBH_analyzed*100)` - `r round(n_spst_dAGB_DBH_best_model/ n_spst_DBH_analyzed*100)`% depending on growth metric; Fig. `r size`). 
 Variation in these patterns -- particularly for RW, for which variation was most pronounced -- was driven by two primary, interrelated factors: species ecology and stand history.
 Species that would have established in fairly open conditions -- i.e., shade-intolerant species (Table `r species_table`) and those at sites with more open canopies (e.g., LT, SC) -- exhibited rapid initial growth, measured as RW, followed by a roughly exponential decline.
-Such patterns are consistent with dendrochronology's "textbook" patterns of studies primarily based on trees that established in high-light environments [@fritts_tree_1976; @biondi_theorydriven_2008].
+Such patterns are consistent with dendrochronology's "textbook" patterns of studies primarily based on trees that established in high-light environments, where declining RW is in part attributable to the geometric constraint that new growth is spread around an ever-growing circumference [@fritts_tree_1976; @biondi_theorydriven_2008].
 However, within the forest settings studied here, the majority of species exhibited initially low, but increasing, RW.
 This latter pattern is consistent with the observation that when contemporary growth rates are compared across individuals within a closed-canopy stand (i.e., a "cross-sectional" analysis), RW increases continuously with DBH [e.g., @anderson-teixeira_sizerelated_2015; @muller-landau_testing_2006; @helcoski_growing_2019], or increases and subsequently decreases [@schelhaas_speciesspecific_2018]. 
 
@@ -796,12 +797,12 @@ Notably, inclusion of year in the GLS models tended to reduce the magnitude of B
 
 *Growth rates changed directionally for the majority (`r percent_sig_neg_trend_of_analyzed`, depending on growth metric) of site-species combinations selected for analysis based on the sampling representation of DBH by yeaar (Fig. `r year_fig`).*
 *These results were similar across growth metrics (Figs. `r all_GLS`), and consistent with an independent analysis of growth-DBH trends by decade (Figs. `r year_fig`, `r decadal_analysis_figs_all`), indicating that our approach is robust in its analytical structure.* (**EG: THESE SENTENCES (and the following) SOUND MORE LIKE RESULTS/ METHODS**)
-Indeed, in a comparative analysis of several methods commonly used to detect growth trends, an approach **conceptually?** parallel (**AT comments that it doesn't seem parallel**) to that employed here (regional curve standardization) performed better at growth trend detection [@peters_detecting_2015] than two of the most commonly used methods for analyzing growth trends, conservative detrending and basal area correction [see @peters_detecting_2015], both of which would fail to capture the observed trends in RW and BAI with DBH (Fig. `r size`).
+Indeed, in a comparative analysis of several methods commonly used to detect growth trends, a conceptually parallel approach to that employed here (regional curve standardization) performed better at growth trend detection [@peters_detecting_2015] than two of the most commonly used methods for analyzing growth trends, conservative detrending and basal area correction [see @peters_detecting_2015], both of which would fail to capture the observed trends in RW and BAI with DBH (Fig. `r size`).
 For instance, based on our finding that BAI tends to rise and fall with DBH, basal area correction would generally be biased towards finding positive trends for smaller trees and negative trends for larger trees.
 However, our results remain subject to some potential sampling and survivorship biases that can influence overall trends in positive or negative directions [Fig. `r year_fig`, @brienen_detecting_2012; @groenendijk_no_2015; @brienen_tree_2017; @nehrbass-ahles_influence_2014].
 While our analysis was designed to avoid some of the most severe potential biases [@brienen_detecting_2012], it is difficult, if not impossible, to control for all potential demography and survivorship biases, or to design sampling in a way that ensures unbiased representation of a species' growth rate at all points in the history of a stand [@brienen_detecting_2012; @brienen_tree_2017; @bowman_detecting_2013].
 The observed trends should therefore be interpreted as representative of only the sampled trees, as opposed to all individuals of the species that existed throughout the time frame analyzed.
-For instance, ... *give an example/more clear explanation here? (see Camille's feedback)*
+For instance, the oldest trees, which are the only records available for the earliest decades, were the competitive winners, most likely with above-average growth rates [@aubry-kientz_joint_2015], thereby upwardly biasing growth rates in early decades [@groenendijk_no_2015].
 Within this context, signals of changing growth rate over time are attributable to some combination of stand dynamics (e.g., recruitment and succession, changing stand structure) and environmental drivers (e.g., climate drivers other than the primary drivers, indirect effects of climate change, rising atmospheric CO~2~, deposition of SO~2~ and NO~x~).
 
 The majority of negative growth trends observed here (Fig. `r year_fig`) are probably attributable to stand dynamics as cohorts and stands develop oer time, and are pretty typical of mixed-species stands that experience vertical stratification [@oliver_forest_1990]. 
@@ -813,8 +814,8 @@ Even within older forests, light-demanding species that establish in gaps (e.g.,
 For more shade-tolerant species in stands with no known major disturbance within the past 150 years (ZOF, CB),  mixed growth trends probably reflect some combination of successional changes and shifting competitive advantages, perhaps in part driven by changing environmental conditions [@furniss_reconciling_2017; @vrska_european_2009] or the lack of intermediate disturbances giving rise to increasing crowding [e.g., @lutz_twentiethcentury_2009].
 
 In a few instances, directional changes in growth are likely attributable to abiotic drivers.
-In the Czech Republic (ZOF), acid deposition dramatically reduced growth in the late 20th century, with peak influence between the 1970s and the early 1990s [@elling_dendroecological_2009; @samonil_longterm_2008], as captured in our records (Fig. `r decadal_plot_ZOF`), and this influenced linear growth trends of various species differently within the GLS model.
-In cases such as this, a non-linear response function to year, or incorporation of data on pollution, would be needed to accurately capture changing growth trends, but that is beyond the scope of the current analysis.
+At Zofin, size-corrected growth rates were lowest in the 1970s and 1980s (Fig. `r decadal_plot_ZOF`), consistent with other studies from central Europe showing dramatic growth reductions due to acid deposition during this period [@elling_dendroecological_2009; @samonil_longterm_2008]. 
+Non-linear trends such as this would be more accurately described by a non-linear response function to year, or incorporation of data on pollution, but that is beyond the scope of the current analysis.
 In New Mexico (LT), where growth rates of *Pinus ponderosa* declined, it is possible that the primary climate drivers identified here do not capture all aspects of a strong regional warming and drying trend [@touchan_millennial_2011; @williams_temperature_2013].
 At Scotty Creek, in northern Canada, rapid warming is thawing permafrost and altering hydrologic conditions [@baltzer_forests_2014], resulting in high mortality, growth declines, and low recruitment of *Picea mariana* [@sniderhan_growth_2016; @dearborn_permafrost_2020]; we attribute pronounced negative growth trends to a combination of successional declines and indirect climatic stress.
 

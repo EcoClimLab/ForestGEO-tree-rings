@@ -7,13 +7,17 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## BlueCats
+## BlueCats (DONE)
 
 Here are some minor points to discuss from Pavel Šamonil, Ivana Vašíčková and myself:
 
 (1) The influence of tree height on changing the climate-growth relationship was really good point of discussion part of your presentation. Height is very important, because it defines the size of conduit elements (tracheids or vessels – you may see e.g.: von Arx an Carrer 2014 - 10.1016/j.dendro.2013.12.001; Anfodillo et al. 2013 - 10.1163/22941932-00000030; Olsson et al. 2014 - 10.1111/ele.12302 ; Fajardo et al. 2020 – doi.org/10.1111/nph.16287 or Kašpar et al. 2019 - 10.1007/s00468-019-01887-6). If there is no water added into elements (in drought period), it may cause a cavitation and consequent destruction of affected conduits. Unfortunately, basically nobody has a reliable height growth curves of most of the trees (especially if you are working in natural forests). However, we can make simple correlation of recently measured tree heights and DBH to show, that those two metrics are closely correlated and therefore using of DBH (that is easy to reconstruct from tree-ring width) is appropriate metric to capture this relationship.
 
+**Thank you!**
+
 (2) I think it is important to quantify or capture the change in the strength of climate signal in time. If climate change shifts the start of the growing season to the earlier date and changes the regime of precipitation, it is necessary to capture it. Also I believe, this will be one comments of reviewers. First way, how to do it is including calendar year into interactions or include it as a random variable? Surely, it will be correlated with DBH. Second and a less laborious way would be to evaluate the correlations of the studied parameter (TRW, AGB, BAI) with selected climate metrics in a moving (e.g. 31 year long window).
+
+**This would be very interesting, and I'd like to do it, but too much to add to this paper.**
 
 (3) Citation of CRU database on page 8 (I. Harris et al., 2014; Ian Harris et al., 2020) seems to be inconsistent. The same is also in Appendix
 
@@ -33,7 +37,11 @@ Here are some minor points to discuss from Pavel Šamonil, Ivana Vašíčková a
 
 (7) We would would recommend to remove the citation Šamonil and Vrška (2008) in the body of the MS as well as in SI. It concerns the general effect of air pollution within Central Europe in the late 20th century, not specifically related to Zofin forest.
 
+**removed from SI, reworded in main manuscript.**
+
 (8) a few comments had been added into appendix file. In case you haven't noticed them, please let us know.
+
+**[Issue #123](https://github.com/EcoClimLab/ForestGEO-climate-sensitivity/issues/123).**
 
 Only the best regards,
 Ivana, Pavel and Jakub
@@ -73,12 +81,16 @@ Furniss†, T. J., A. J. Larson, and J. A. Lutz. 2017. Reconciling niches and ne
 
 **Done.**
 
-## Alan T
+## Alan T (DONE)
 
 One part that might need a little bit more explanation is the evaluation of changes in raw ring width with DBH. There could be several reasons why trees might put on more or less growth per year as they grow larger, but tree rings are also generally likely to become narrower as they form around a larger stem. It didn't seem like the geometry reasons for changes in raw ring width with tree size were distinguished from the non-geometric reasons. This seems like less of an issue with the other growth metrics. Otherwise, it looks like it is in very good shape. 
 
-## Erika
+**Added mention of this.**
+
+## Erika (DONE)
 I think there is very valuable information in the SI (Appendix 2 to 5). For example, there are some details in S4 that would be good to bring to the main text. 
+
+**Yes... this feeds into  considerations of how we balance ecology and methods focus. I agree thaat it's valuable info, but unfortunately think it will have to remain a bit buried.**
 
 ## Jenn B (DONE)
 The SI description of the site looks good. Though you could pop in Baltzer et al. 2014 (https://onlinelibrary.wiley.com/doi/abs/10.1111/gcb.12349) in the citations for the first sentence of the Scotty appendix, if you are so inclined. 
@@ -102,14 +114,18 @@ Comments
 
 **Removed the part suggested.**
 
-## Justin M
+## Justin M (DONE)
 
 One possible bigger one would be to play up the window analysis in the manuscript and connect it to recent work about the timing of climate extremes impact on tree growth. In response to the suggestion of making this two papers, I also think it will be better as one but perhaps you could bring out the ecological findings a bit more, which is what I was hoping the suggestion of putting more focus on the window analysis would do. But perhaps I'm wrong there. 
+
+**I'm not completely sure what you mean by connecting to the timing of climate extremes, but at this point would rather just get this done. I am working on bringing out more ecological focus, though.**
 
 For the supplement for LDW, I used the following nested plot approach for the plot we put in:
 Nest subplots were used in each large plot to increase sample depth across age classes of the forest. The first subplot was 5.0 m in radius and all trees larger than 5 cm diameter at breast height (DBH) were cored. In the next subplot, 5-20 m from plot center, all trees >15 cm DBH were cored. In the final subplot, 20-30 m from plot center, all trees >40 cm DBH were cored. 
 
-## Camille
+**Got it.**
+
+## Camille (DONE)
 
 - I'm not sure how useful it is to have ANPPwoody as an abbreviation of woody productivity: I've only seen it mentioned in the introduction (no equation etc) and it wouldn't take that much more space to have it spelled entirely. However, it's common enough that either way could work. 
 
@@ -135,9 +151,13 @@ Nest subplots were used in each large plot to increase sample depth across age c
 
 - Discussion - Changing growth rates: perhaps I missed it, but one mechanism that could explain decreases in growth rates with time is the fact that the oldest trees, which are the only records available for the farthest years, are clear 'survivors/winners' and are thus likely to show higher than average growth rates: survival and growth are strongly linked (eg Aubry-Kientz et al 2015, https://doi.org/10.1002/ece3.1532). This is probably what you meant by 'survivorship biases' but I think this deserves an explanation 
 
-## Alan (re RCS)
+**added**
+
+## Alan (re RCS; DONE)
 I am familiar with RCS, but I don't have much experience using it. One of the main similarities to your method is that it requires sampling across the full age distribution of a species. However, it develops a regional curve of ring width by age, and then this curve is typically used in place of the more common curves (exponential curve or spline) in detrending ring width across the population. Deviations from the regional curve are assumed to represent influences of climate in a particular year or that growing conditions were different than the average for this species (i.e., narrower than average growth up to age 30 could indicate that a tree established under a denser canopy than typical for this species). Your use of DBH and year has some similarities to the use of age in RCS, but DBH is not necessarily strongly correlated with age, and growth trends with calendar year are not necessarily the same as growth trends with age. 
 
 I agree that there are some similarities, but I wouldn't want to overstate the similarities because that might downplay the novelty of your approach. 
 
 If other co-authors who have more experience with RCS didn't comment about this, then it's probably not necessary to change it. 
+
+**reworded a bit**
