@@ -539,9 +539,12 @@ kable(S2, format = "latex", booktabs = TRUE,  escape = F, linesep = c('\\addline
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
 library(kableExtra)
-ss_table <- read.csv("tables_figures/sampling_details.csv", col.names = c("site", "species code", "n trees", "n cores", "n trees", "n cores", "sampled", "reconstructed*", "date range"), stringsAsFactors = FALSE, check.names = FALSE)
+ss_table <- read.csv("tables_figures/sampling_details.csv", col.names = c("site", "species code", "n trees", "n cores", "n trees", "n cores", "sampled", "reconstructed*", "date range", "year effect analyzed"), stringsAsFactors = FALSE, check.names = FALSE)
 kable(ss_table, format = "latex", booktabs = TRUE,   escape = F, linesep = c('\\addlinespace'), longtable = T)%>%
   add_header_above(c(" ", " ", "all"=2, "with DBH"=2, "DBH range" = 2, " ")) %>%
+  column_spec(2, width = "1cm") %>%
+  column_spec(3:6, width = "1cm") %>%
+  column_spec(10, width = "1.5cm") %>%
   kable_styling(latex_options = c("scale_down", "hold_position","repeat_header"), protect_latex = T) 
 ```
 *Maximum reconstructed DBH's analyzed are less than maximum sampled DBH's because we discard size ranges with < 3 conspecific trees.
