@@ -769,7 +769,11 @@ Effects of year and DBH interacted such that inclusion of year in models altered
 
 # Discussion {-#Discussion}
 
-The tree-ring analysis approach developed here allowed simultaneous consideration of the effects of primary climate drivers, tree size, and slowly changing environmental conditions on annual tree growth across multiple forest types and species (Fig. `r schematic`), yielding results that are consistent with those that would be obtained using established methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`;  Table `r qualitative_results_comparison`) but offering a more complete picture of how climate, tree size, and year have shaped tree growth at 10 globally distributed forest over the past 120 years. 
+The long-term growth records contained in tree rings provide an exceptional tool for understanding past drivers of growth and anticipating future forest changes, yet traditional analysis methods were not designed to address questions that are critical to understanding whole-forest productivity (Table `r hypotheses`).
+Our novel method provides a powerful approach to simultaneously consider the effects of climate, tree size, slowly changing environmental conditions, and their interactions on annual tree growth (Fig. `r schematic`).
+For each of these drivers individually, the method yields results that are consistent with those that would be obtained using established methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`;  Table `r qualitative_results_comparison`). 
+By allowing these factors to be considered simultaneously, our approach opens the door to robust analyses of the joint and interactive effects of climate, tree size, and other drivers. 
+Applied across multiple forest types and species distributed globally across 10 sites, this method yields a more complete understanding of the drivers of variability and directional changes in tree growth over the past century (Tables `r hypotheses`-`r sites`). 
 
 ## Climate sensitivity {-#Climate}
 
