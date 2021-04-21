@@ -351,18 +351,26 @@ By providing a parsimonious approach for characterizing multiple interacting dri
 *(should probably be shorter)*
 
 *(keep this paragraph mostly as is):*
-Tree rings provide a long-term record of annual growth increments that is invaluable for understanding forests in an era of global change [@amoroso_dendroecology_2017; @fritts_dendroecology_1989]. 
+Tree rings provide a long-term record of annual growth increments that is invaluable for understanding forests in an era of global change [@amoroso_dendroecology_2017; @fritts_dendroecology_1989; @zuidema_tropical_2013]. 
 Spanning time scales of decades to centuries or even millennia, they provide by far the most robust method for characterizing the interannual climate sensitivity of tree growth [@fritts_tree_1976; @braker_measuring_2002] and how it has changed through time [@sniderhan_growth_2016; @maxwell_declining_2016; @babst_twentieth_2019; @wilmking_global_2020; @au_demographic_2020].
 Combined with forest censuses, they can be used to estimate forest woody productivity [@graumlich_longterm_1989; @davis_forest_2009; @dye_comparing_2016; @teets_linking_2018] and its climate sensitivity [@klesse_sampling_2018; @teets_quantifying_2018; @helcoski_growing_2019]. 
 Tree rings also provide the long-term perspective critical to understanding how slowly changing environmental drivers including rising atmospheric carbon dioxide (CO~2~) concentrations, changing climate, and other anthropogenic and natural changes are influencing tree growth and forest productivity [e.g., @levesque_water_2017; @mathias_disentangling_2018; @walker_integrating_2020].
 This information is critical to predicting forest responses to anthropogenic changes, particularly climate change, and thereby reducing the enormous uncertainty surrounding future contributions of Earth's forests to the global carbon cycle [@arora_carbon_2020].
-Yet, collection and analysis of dendrochronological records has traditionally been optimized to detect climate signals rather than to predict forest productivity, its climate sensitivity, and how it may be changing [@cherubini_potential_1998; @nehrbass-ahles_influence_2014; @klesse_sampling_2018;@babst_when_2018; @wilmking_global_2020].
+Yet, collection and analysis of dendrochronological records has traditionally been optimized to detect climate signals rather than to understand variation among trees (e.g., as a function of size) and predict forest productivity, its climate sensitivity, and how it may be changing [@cherubini_potential_1998; @nehrbass-ahles_influence_2014; @klesse_sampling_2018;@babst_when_2018; @wilmking_global_2020].
 As a result, prevailing approaches hold a number of limitations for using tree rings to address pressing questions concerning forest productivity in the current era of rapid environmental change.
 
 ```{r eval=FALSE, echo=FALSE}
 ## pn the paragrph below, if kept:
 # BP:Traditional dendro methods to characterize climate sensitivity begin with sampling. That is a major part of the issue with inference to ecological questions – the historic samples aren’t suited to the questions we are asking because they are the oldest trees on the most extreme sites, which have been selected to isolate either a temperature or moisture signal.
 ```
+
+## Climate sensitivity
+- responses to water and T should be considered simultaneosulsy
+- water and T may operate over different time frames
+- responses may be non-linear
+- responses may interact with tree size
+
+
 
 *(cut most of this paragraph? but JB really liked it):*
 Dendrochronological methods to characterize the climate sensitivity of tree growth have been optimized to obtain the strongest possible climate signal for climate reconstructions, but face limitations when it comes to characterizing the long-term climate sensitivity of individual tree growth or stand productivity.
@@ -385,7 +393,8 @@ Importantly, traditional analysis methods are designed around first-order linear
 *Dendrochronological studies allowing for nonlinear or threshold responses of tree growth to climate are less common [@cook_climate_1989; @woodhouse_artificial_1999; @tolwinski-ward_bayesian_2013; @tumajer_increasing_2017; @cavin_highest_2017; @ljungqvist_assessing_2020; @rollinson_climate_2021] **one could say these were a lot of citation for it to be uncommon. Perhaps make it more clear what aspects are less common?**, and we therefore know little about the nonlinearities in tree growth responses to interannual variation in climate that occur for trees within forest settings.*
 Furthermore, temperature and moisture are known to jointly shape tree growth [@beedlow_importance_2013; @foster_predicting_2016] and forest productivity [e.g., @alexander_relative_2018; @banburymorgan_global_2021], yet growth sensitivity to their additive or interactive effects, potentially operating over different time windows, is not commonly considered [but see @foster_predicting_2016; @meko_seascorr_2011;  @sanchez-salguero_disentangling_2015], **largely because dendroclimate studies sample in such a way as to isolate one or other of moisture or temperature limitation.** 
 
-*(keep mostly the same):*
+
+*(most of this is climate sensitivity changing with DBH):*
 Tree diameter at breast height (DBH) scales predictably with numerous traits affecting tree growth rate (e.g., height, crown size and position, root mass @enquist_global_2002; @niklas_plant_2004] and therefore is itself linked to growth [e.g., @foster_predicting_2016;  @muller-landau_testing_2006] and its climate sensitivity [e.g., @bennett_larger_2015; @mcgregor_tree_2020].
 However, for dendrochronological studies aimed at deciphering climate signals, DBH is not typically a variable of interest, and its influence, *along with the influence of stand dynamics in closed-canopy forests *, is removed through detrending [@cook_calculating_1997].
 Moreover, many studies constrain sampling to only trees in canopy positions or those that appear to be old [@fritts_tree_1976; @huckaby_identification_2003; @pederson_external_2010].
@@ -395,6 +404,9 @@ For example, drought sensitivity tends to increase with tree size [@bennett_larg
 However, the removal of DBH signals via detrending makes it impossible to account for such size differences in climate sensitivity in a systematic, integrative way.
 To use tree rings to predict tree growth, ecosystem productivity, and forest dynamics, we need models that include DBH [e.g., @evans_fusing_2017; @klesse_amplifying_2020] and its potential climate interactions [e.g., @rollinson_climate_2021].
 
+## DBH
+
+## Changing growth rates
 *(keep mostly the same, but shift emphasis more towards ecology):*
 Characterizing how tree growth and forest productivity are responding to slowly changing environmental drivers is challenging and uncertain.
 Directional climate change (as opposed to interannual variation), rising atmospheric CO~2~ concentrations, and changes in atmospheric deposition of sulfur dioxide (SO~2~) and nitrogen oxides (NO~x~) are all potentially influencing tree growth [@levesque_water_2017; @mathias_disentangling_2018; @maxwell_higher_2019; @walker_integrating_2020; @takahashi_air_2020; @belmecheri_precipitation_2021].
@@ -485,10 +497,9 @@ In total, this resulted in inclusion of `r n_cores_all` cores from `r n_trees_al
 
 For each year in the tree-ring records, we reconstructed DBH, as detailed in Appendix `r DBH_reconstruction`. 
 We applied allometric equations for bark thickness to account for changes in bark thickness as the tree grew (Appendix `r DBH_reconstruction`; Tables `r species_table`, `r bark_allometries`).
-
 Once DBH had been reconstructed, we estimated basal area ($BA=\pi r^2$, where $r$ is radius) and aboveground biomass (AGB). 
 Biomass allometries for temperate and tropical species were calculated using the R packages *allodb* (Gonzalez-Akre et al. in revision) and *BIOMASS* [@rejou-mechain_biomass_2017], respectively.
-We then calculated basal area increment ($BAI= BA_{y+1}-BA_y$, where $y$ is year) and aboveground biomass growth increments ($\Delta AGB=AGB_{y+1}-AGB_y$].
+We then calculated basal area increment ($BAI= BA_{y+1}-BA_y$, where $y$ is year) and aboveground biomass growth increments ($\Delta AGB=AGB_{y+1}-AGB_y$).
 
 Monthly climate data for 1901-2019 were obtained from CRU v.4.04 [@harris_updated_2014; @harris_version_2020], and in a few cases corrected based on higher-resolution or local records (Appendix `r climate_correction`). 
 Variables considered here included average daily minimum, maximum, and mean temperatures ($T_{min}$, $T_{max}$, $T_{mean}$, respectively); precipitation (PPT); and, when deemed reliable (Appendix `r climate_correction`), potential evapotranspiration (PET) and precipitation day frequency (PDF).
@@ -497,28 +508,28 @@ All ForestGEO climate records used here are archived in the ForestGEO Climate Da
 
 ## Data Analysis {-#Data}
 
-Data analysis consisted of two main steps: (1) identifying the primary climate drivers , and (2) combining these climate drivers, DBH, and year into a multivariate model (Fig. `r schematic`). 
-The analysis was run separately for each site (step 1), site-species combination (step 2), and each response variable (RW, BAI, or $\Delta$AGB). 
+Data analysis consisted of two main steps: (1) identifying the primary climate drivers (i.e., variables and time windows over which they are most influential on tree growth), and (2) combining these climate drivers, DBH, and year into a multivariate model (Fig. `r schematic`). 
+The analysis was run separately for each site (step 1), site-species combination (step 2), and each response variable estimating different measures of tree growth (RW, BAI, or $\Delta$AGB). 
 We note that the decision to identify primary climate drivers at the level of site, as opposed to species, was motivated by the expectation that differences in optimal climate windows across species in one site would be minimal compared to cross-site differences (Fig. `r SCBI_example`); however, analyses focused on interspecific differences could optimize species-specific climate sensitivity estimates by fitting *climwin* individually by species.
 
 ![**Figure 1 | Schematic illustration of the analysis process.** In step 1, the R package *climwin* [@vandepol_identifying_2016] is used to identify the primary climate drivers in water and temperature variable groups for each site, defined as the variable-time window combination that are most strongly correlated to the residual variation around splines fit to trends in growth (here, ring width, RW) for all cores sampled at the site. In step 2, a GLS model is used to produce a combined model with the previously identified drivers, reconstructed DBH, and year.](tables_figures/schematic_figure.png)
 
-### Identifying primary climate drivers (step 1) {-#Climate}
+### Step 1: Identifying primary climate drivers {-#Climate}
 
 We used the *climwin* package in R [@vandepol_identifying_2016] to identify the most important climate variable and the time window over which its effect was strongest for each of two categories of variables: a temperature group ($T_{min}$, $T_{max}$, $T_{mean}$, and PET) and a precipitation group (PPT, PDF).
-To remove low-frequency variation that most likely represents responses to non-climatic drivers (*e.g.*, growth and aging of the tree, change in competitive dynamics, atmospheric pollution), we detrended the response variables by fitting penalized thin-plate regression splines in generalized additive models [GAM, functions *gam* and *s* in the R package *mgcv*, @wood_fast_2011] to individual growth records (RW, BAI, or $\Delta$AGB) from each core, thereby producing residuals. 
+To remove low-frequency variation that most likely represents responses to non-climatic drivers (*e.g.*, growth and aging of the tree, change in competitive dynamics, atmospheric pollution), we detrended the response variables by fitting penalized thin-plate regression splines in generalized additive models [GAM, functions *gam* and *s* in the R package *mgcv*, @wood_fast_2011] to individual growth records (RW, BAI, or $\Delta$AGB) from each core, and extracted the residual variation for each observation. 
 The smoothing parameters were automatically selected by the *gam* function with generalized cross-validation (GCV).
-We then used *climwin* to identify the climate variables that most strongly correlated to the residuals of RW, BAI, or $\Delta$AGB, specifying quadratic fits to allow for potential nonlinearities in the climate response.
-Within *climwin*, we specified a mixed effects model using species (when $n \ge 3$) and core identity as random effects (noting that these effects should be minimal given that residuals are centered around zero): *residual growth index ~ [climate] + (1 | sp) + (1 | treeID)*.
-Here, for each permutation, *climate* specifies one of climate variables within each group (water or temperature), analyzed over one of all possible combinations of consecutive months within a 15-month period ending near the time of cessation of formation of each annual ring (Table `r site_details`). 
+We then used *climwin* to identify the climate variables that most strongly correlated with the individual tree-level residuals of the growth variables, RW, BAI, or $\Delta$AGB, specifying quadratic fits to allow for potential nonlinearities in the climate response.
+Within *climwin*, we specified a mixed-effects model in which the fixed effects were the climate variables and the random intercepts were species (when n $\ge$ 3) and core identity (noting that these effects should be minimal given that residuals are centered around zero).
+For each climate variable, we ran permutations for all possible combinations of consecutive months within a 15-month period ending near the time of cessation of formation of each annual ring (Table `r site_details`). 
 *Climwin* runs all potential models to select the best fit (lowest AIC), and does k-fold cross-validation in its computation of AIC to guard against over-fitting [@vandepol_identifying_2016]. 
-For each group of candidate climate variables, we selected the best variable over the time window identified by *climwin* as a candidate climate variable for the multivariate models. 
+For each group of candidate climate variables (water and temperature; Fig. `r schematic`), we selected the variable - time window combination identified by *climwin* as having the lowest AIC as a candidate climate variable for the multivariate models. 
 
 We tested whether this process identified similar climate variable-month combinations to what would be identified using traditional methods for four species (detailed in Appendix `r traditional_comparison`). 
 Furthermore, we explored alternate methods of climate variable selection for the two sites that have undergone the most rapid changes in climate and tree growth: LT, where increasingly warm drought has dramatically reduced growth [@touchan_millennial_2011; @williams_temperature_2013], and SC, where rapidly rising temperatures are causing permafrost thaw, which limits access to soil moisture during summer months and drives growth declines [@sniderhan_growth_2016]. 
-We ultimately determined that the method described above was adequate for the purposes of this analysis (Appendix `r changing_climate`).
+We ultimately determined that the method described above captured these sources of variation (Appendix `r changing_climate`).
 
-### Combining drivers in GLS model (step 2) {-#Combining}
+### Step 2: Combining drivers in GLS model {-#Combining}
 
 Having identified the primary climate drivers in temperature and precipitation variable groups, we next combined climate variables (all models) and DBH (models with DBH and its climate interactions) into linear mixed-effects models [function *lme* in the R package *nlme*, @pinheiro_nlme_2021], with core identity as a random intercept and yeaar as a continuous time covariate for the within-group correlation structure (function *corCAR1*). We will refer to this model as a generalized least squares (GLS) model (Fig. `r schematic`).
 
