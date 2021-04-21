@@ -303,7 +303,8 @@ Therefore, these data consist mainly of dominant and codominant tree species and
 
 The Niobrara site sits at the prairie-forest ecotone of the North American Great Plains. 
 There, forests occur in cool, moist canyons formed by spring-fed tributaries along the Niobrara River. 
-Cores were taken from seven north-facing *Betula papyrifera* stands along a 27 km section of the Niobrara River, as detailed in @bumann_assessing_2019.
+Cores were taken from seven north-facing *Betula papyrifera* stands along a 27 km section of the Niobrara River, as detailed in @bumann_assessing_2019. 
+Niobrara is near the southern limit of *Betula papyrifera*'s distribution, and the population at this site are small and highly disjunct.
 The largest healthy trees within each stand were selected for coring.
 
 ### Little Tesuque, New Mexico, USA

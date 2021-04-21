@@ -415,8 +415,11 @@ Moreover, carbon allocation to woody growth -- as opposed to leaf or fine root p
 However, tree size and time are almost inextricably linked (because each cored individual increases in DBH through time) and difficult to disentangle due to various sampling and analysis biases [@cherubini_potential_1998; @brienen_detecting_2012; @nehrbass-ahles_influence_2014; @peters_detecting_2015; @sullivan_effect_2016; @bowman_detecting_2013; @brienen_tree_2017; @hember_tree_2019].
 Continued improvement of analytical methods, in combination with sampling approaches that minimize potential biases, will be important to disentangling DBH from time and detecting directional growth trends.
 
-Here, we develop, and apply to ten forested sites spanning 52 degrees latitude, a new method that allows simultaneous consideration of the effects of primary climate drivers (i.e., the most influential climate variables and the time window over which they operate), tree size, and year on annual tree growth.
-*This approach allows us to address hypotheses* (Table `r hypotheses`). 
+Here, we develop, and apply to ten forested sites spanning 52 degrees latitude, a new method that allows simultaneous consideration of the effects of primary climate drivers (i.e., the most influential climate variables and the time window over which they operate), tree size, and calendar year on annual tree growth.
+This approach allows us to address the following questions and associated hypotheses (Table `r hypotheses`) for a globally distributed tree-ring dataset:
+(1) How does interannual climate variation shape annual tree growth (ring width, RW)?
+(2) How does growth rate vary with DBH?
+(3) How have growth rates changed through time? 
 
 \newpage
 **Table 1 | (DRAFT hypothesis table-- needs to be filled in and condensed/ cleaned up)**. .... 
@@ -443,7 +446,7 @@ ft
 ## Data sources and preparation {-#Data}
 
 We analyzed tree-ring data, most most of which was collected for earlier studies (see references in Table `r sites`), from 10 sites ranging from 9.15$^\circ$ to 61.30$^\circ$ N latitude and representing a wide range of forest and tree types: tropical broadleaf deciduous and evergreen, temperate broadleaf deciduous and conifer, and boreal conifer (Tables `r sites`, `r site_details`, `r species_table`).
-Nine of these sites (exception: LT) are large forest dynamics plots of the Forest Global Earth Observatory [ForestGEO, @anderson-teixeira_ctfsforestgeo_2015; @davies_forestgeo_2021].
+Nine of these sites (exception: LT) were co-located with large forest dynamics plots of the Forest Global Earth Observatory [ForestGEO, @anderson-teixeira_ctfsforestgeo_2015; @davies_forestgeo_2021].
 Trees were cored within the ForestGEO plots (n=5 sites) and/or nearby within similar forest types (n=5 sites), following a variety of sampling protocols designed to meet the varied objectives of the original studies (Tables `r site_details`, `r sampling_details_table`). 
 There was wide variation in the distribution of record start years, which approximate the age distribution of sampled trees (Figs. `r all_recruitment_plots`).
 In using this diversity of data sources, we ensured that our approach could handle challenges presented by varying methodologies and forest types.
@@ -531,30 +534,29 @@ We ultimately determined that the method described above captured these sources 
 
 ### Step 2: Combining drivers in GLS model {-#Combining}
 
-Having identified the primary climate drivers in temperature and precipitation variable groups, we next combined climate variables (all models) and DBH (models with DBH and its climate interactions) into linear mixed-effects models [function *lme* in the R package *nlme*, @pinheiro_nlme_2021], with core identity as a random intercept and yeaar as a continuous time covariate for the within-group correlation structure (function *corCAR1*). We will refer to this model as a generalized least squares (GLS) model (Fig. `r schematic`).
+Having identified the primary climate drivers in temperature and precipitation variable groups, we next combined climate variables (included in all models) and DBH (included in models with DBH and its climate interactions) into linear mixed-effects models [function *lme* in the R package *nlme*, @pinheiro_nlme_2021], with core identity as a random intercept and yeaar as a continuous time covariate for the within-group correlation structure (function *corCAR1*). We will refer to this model as a generalized least squares (GLS) model (Fig. `r schematic`).
 
 Prior to running the models, we checked for collinearity among the candidate variables using the *vifstep* function [@naimi_where_2014] and removed any variable with a variance inflation factor > 3 (none required removal).
 Within the GLS models, our response variables were log[RW], log[BAI], or log[$\Delta$ AGB]. 
 
-For each species independently, we ran every combination of the candidate climate variables and DBH, including both first- and second-order terms of polynomial for each.
+For each species independently, we ran every combination of the candidate climate variables and DBH, including both first- and second-order terms for each.
 For climate response, we allowed concave-down fits, but ignored any concave-up fits on the basis that these are not expected biologically.
 
 As an example, a full model for log[RW] would look like this in *R*: 
 
 *lme(log[RW] ~ PET + I(PET^2) + $T_{min}$ + I($T_{min}$^2) + DBH + I(DBH^2)",  random = ~1|coreID, correlation = corCAR1(form=~yeaar|coreID), data = x, na.action = "na.fail", method = "ML")* 
 
-where *x* is a complete data set (with no missing values) for one species at one site. The method is set to maximum likelihood (*ML*) during the model selection phase, but to restricted maximizing likelihood (*REML*) once the best model is identified.
+where *x* is a complete data set (with no missing values) for one species at one site. The method is set to maximum likelihood (*ML*) during the fixed effect model selection phase, but to restricted maximizing likelihood (*REML*) for parameter estimation with the best model.
 
 For models including interactive effects of climate and DBH, we tested for interactions between first-order linear terms for climate variables and DBH.
 
-To test for yeaar effects, we limited the analysis to species with reasonable coverage of the DBH x `year` matrix.
-Specifically, we required that the species be represented by cores from  $\ge$ 3 trees spanning  $\ge$ 40% the total DBH range for $\ge$ 2/3 of the total time range analyzed. 
-To avoid severe big-tree selection bias [@brienen_detecting_2012], we also required that the minimum DBH sampled be $\le$ 25 cm, if present.
-Species that failed to meet these criteria (n= 8) were excluded from the analysis of temporal trends.
+To test for year effects, we limited the analysis to species with reasonable coverage of the DBH x `year` matrix.
+Specifically, we required that the species be represented by cores from  $\ge$ 3 trees and that the core record spanned $\ge$ 40% the total DBH range for $\ge$ 2/3 of the total time range analyzed. 
+To avoid severe big-tree selection bias [@brienen_detecting_2012], we also required that the minimum DBH sampled be $\le$ 25 cm (exception: *Abies alba* at ZOF, where mature trees < 50 cm DBH are extremely rare).
+Species that failed to meet these criteria (n= 8; Table `r sampling_details_table`) were excluded from the analysis of temporal trends, but were included in analyses of climate and DBH and their interactions.
 We then ran models as described above, including a  first-order linear effect of year.
-We note that the random effect of tree should, in theory, avoid analytical biases arising from persistent growth differences among individuals [@brienen_detecting_2012; @brienen_tree_2017]. 
-To verify that GLS model trends for year were real, as opposed to an artifact of inherent covariation between DBH and year within each core, we compared GLS results to an analysis of DBH-growth relationships by decade (Figs. `r decadal_analysis_figs_all`). 
-For simplicity and consistency with previous literature, we present only the models with BAI as the growth metric, noting that responses were similar across growth metrics. 
+We note that the random effect of tree should, in theory, avoid analytical biases arising from persistent growth differences among individuals that are not accounted for by DBH or year [@brienen_detecting_2012; @brienen_tree_2017]. 
+To verify that GLS model trends for year were not an artifact of inherent covariation between DBH and year within each core, we compared GLS results to an analysis of DBH-growth relationships by decade (Figs. `r decadal_analysis_figs_all`). 
 
 Within each of three categories of models run (climate only, climate + DBH, climate $\times$ DBH, climate + DBH + year), we selected as the top model that with the lowest AIC.  
 
@@ -564,7 +566,7 @@ Within each of three categories of models run (climate only, climate + DBH, clim
 ## Validation of the method {-#Validation}
 
 Our process identified similar primary climate drivers to those identified via established dendrochronological analysis methods for identifying climate signals (Figs. `r SCBI_example`, `r all_traditional_comparisons`; Table `r qualitative_results_comparison`; Appendix `r traditional_comparison`).
-While one-to-one correspondence of estimated climate coefficients was neither expected nor observed, estimates were correlated and rarely differed significantly (Appendix `r traditional_comparison`; `r all_traditional_comparisons`).
+While one-to-one correspondence of estimated slope coefficients describing the response of tree growth to interannual climatic variation was neither expected nor observed, estimates were correlated and rarely differed significantly (Appendix `r traditional_comparison`; `r all_traditional_comparisons`).
 
 
 ![**Figure 2 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table `r species_table`) to potential evapotranspiration (PET). Panel (**a**) shows a matrix of Pearson correlations between ring-width index and monthly climate variables [produced using the bootRes package in R, @zang_dendroclimatic_2013]. Black rectangle represents the period selected by *climwin* as the most influential window. Panels (**b-d**) give statistics for time windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diagonal indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each time window, and (**d**) gives the $\Delta$AIC for each. The time window with the minimum $\Delta$AIC (1-3 months prior to August, or May-July; black circles), was identified as the optimal window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows the GLS model output, where PET was a candidate driver variable (along with PPT; DBH not included in this model). Plotted are responses of species for which PET was included in the top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are significant, dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Species names corresponding to the codes are given in Table `r species_table`.](tables_figures/quilt_comparison.png)
@@ -574,6 +576,7 @@ While one-to-one correspondence of estimated climate coefficients was neither ex
 
 ## Climate sensitivity {-#Climate}
 
+### Most influencial climate drivers {-#Most}
 ```{r , eval=FALSE, echo=FALSE}
 ## Tallies for the following paragraph (Feb 11)
 #sameV_sameW: LDWp, NMt,NMp, NIOt, NIOp, SCBIp,  ZOFp,ZOFt,  (8)
@@ -582,32 +585,13 @@ While one-to-one correspondence of estimated climate coefficients was neither ex
   # non-overlapping: HFt, (1)
 #diffV_diffW: HFp (non-overlapping), HKKt (overlapping)
 ```
-The three metrics of growth (RW, BAI, and $\Delta$AGB)  exhibited similar strength of correlation and direction of response to climate variables across the range of potential time windows, but the optimal time window or even the top climate variable sometimes differed (Figs. `r all_climwin`).
-In eight of 20 cases, both the optimal climate variable and time window were identical across growth metrics (e.g., Fig. `r climwin_SCBI_W`). 
-In nine cases, *climwin* identified the same climate variable and overlapping time windows (e.g., Fig. `r climwin_SCBI_T`), 
+At each site, the three metrics of growth (RW, BAI, and $\Delta$AGB) exhibited similar patterns in the direction of response and relative strength of correlation to climate variables across the range of potential time windows. 
+However, the time window exhibiting the strongest climatic effect on growth and even the most influential climate variable sometimes differed among the growth metrics (Figs. `r all_climwin`).
+For eight of 20 site-variable group (i.e., water and temperature) combinations, both both the most influential climate variable and time window were identical across growth metrics (e.g., Fig. `r climwin_SCBI_W`). 
+For nine site-variable group combinations, *climwin* identified the same climate variable and overlapping time windows  (e.g., Fig. `r climwin_SCBI_T`), 
 and in one case (at HKK) different variables ($T_{max}$ and $T_{mean}$) were selected with overlapping time windows (Fig. `r climwin_HKK_T`). 
-In just two cases (both variable groups at HF, where climate had only weak effects and mixed responses among species in the final models), *climwin* identified completely different time windows and, for precipitation, different variables (PPT and PDF; Figs. `r climwin_HF_W`- `r climwin_HF_T`).
-Henceforth, unless otherwise noted, we focus on the climate sensitivities identified with RW as the growth metric and for the full set of cores (i.e., including those for which DBH could not be reconstructed).
-
-```{r , eval=FALSE, echo=FALSE}
-## Tallies for the paragraph below (Feb 11)
-#BCNM: 1 species with both, 2 with just P
-#HKK: 3 species with both, 1 with just T (CHTA)
-#SCBI: 11 species with both, 3 with just P (FRNI, FAGR, PIST)
-#LDW:  4 species with both,  2  with just P (ACSA, CAOV)
-#HF:  4 species with both
-#ZOF:  3 species with both
-#NIO:  1 species just T 
-#LT:  2 species with both
-#CB:  8 species with both
-#SC:  1 species with both
-```
-Within the context of the GLS model, which tested for first- and negative second- order linear effects of both a precipitation and a temperature variable, both a precipitation and a temperature variable were included in the top model for 78% of site-species combinations (n=36 of 46; Fig. `r clim_sens`). 
-There were seven site-species combinations for which only a precipitation term was significant (2 at BCNM, 3 at SCBI, and 2 at LDW), two for which only a temperature term was significant (*Chukrasia tabularis* at HKK and *Betula papyrifera* at NIO), and none with no significant climate responses. 
-Precipitation and temperature variables were rarely influential over the same time window (exception: LDW).
-Below, we summarize the precipitation and temperature variables included in these models and their direction of response. 
-
-![**Figure 3 | Species-level responses of RW to climwin-selected variables in precipitation and temperature variable groups.** Primary climate drivers are coded on the x-axes as the climate variable abbreviation followed by the range of months (p=previous year, c=current year) over which it is most influential. For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. For each relationship shown, other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/pre_temp_groups.png)
+For just two site-variable group combinations (both variable groups at HF, where climate had only weak effects and mixed responses among species in the final models), *climwin* identified completely different time windows and, for precipitation, different variables (PPT and PDF; Figs. `r climwin_HF_W`- `r climwin_HF_T`).
+Henceforth, unless otherwise noted, we focus on the climate sensitivities identified using RW as the growth metric and for the full set of cores (i.e., including those for which DBH could not be reconstructed).
 
 ```{r , eval=TRUE, echo=FALSE}
 ## Tallies for the  paragraph below (Feb 11)
@@ -627,7 +611,42 @@ Below, we summarize the precipitation and temperature variables included in thes
 #LT: P pNov-cJul (9mo), TMX cMay-Jul (3mo) W>T
 #CB: P pJune-cJul(14mo), TMXpAug-pAug(1mo) W>T
 #SC: P pJun-pAug(3mo), TMXcJul (1mo) W>T
+```
+Precipitation amount (PPT) was selected over precipitation frequency (PDF) as the top variable in five of the eight sites with both variables available (but had no significant main effect at one site, NIO), and was the only option at two sites (LT and CB).
+Optimal time windows most commonly coincided at least partially with months of active growth in the current year (Fig. `r clim_sens`; Table `r site_details`):  year-round in the tropics (BCNM and HKK) or late spring/ summer in the extratropics (n= 5 of 8).
+In the tropics, the long time-windows over which precipitation was influential (12 mo at BCNM, 9 mo at HKK) also included the majority (BCNM) or all (HKK) of the dry season.
+In the extratropics, optimal windows at three sites included the current growing season and extended back to the previous fall (LT, CB) or summer (SCBI), whereas they were limited to the current spring and early summer at LDW.
+At three sites (HF, ZOF, and SC), precipitation of the previous growing season was the most influential variable. 
 
+The most commonly selected variables within the temperature group were $T_{max}$ and PET, which were identified by *climwin* as the top temperature-related driver at six and three of the 10 sites, respectively, noting that PET was not available for two sites. 
+$T_{min}$ was identified as the top driver at BCNM, where it's effects were only marginally significant for one species (Fig. `r clim_sens`), and $T_{mean}$ was never selected as the top driver.
+Optimal time windows for temperature tended to be shorter than those of precipitation (Table `r hypotheses`).
+They most commonly occurred during the current growing season (n= 5 of 10 sites), but there were cases where optimal windows occurred during the preceding dry season (BCNM), late winter/early spring (HF, ZOF), or the previous growing season (NIO, CB).
+Temperature and precipitation variables were rarely influential over the same time window (exception: LDW).
+
+```{r , eval=FALSE, echo=FALSE}
+## Tallies for the paragraph below (Feb 11)
+#BCNM: 1 species with both, 2 with just P
+#HKK: 3 species with both, 1 with just T (CHTA)
+#SCBI: 11 species with both, 3 with just P (FRNI, FAGR, PIST)
+#LDW:  4 species with both,  2  with just P (ACSA, CAOV)
+#HF:  4 species with both
+#ZOF:  3 species with both
+#NIO:  1 species just T 
+#LT:  2 species with both
+#CB:  8 species with both
+#SC:  1 species with both
+```
+### Climate responses {-#Climate}
+Analyses of species-specific responses at each site used the GLS model to test for first- and negative second- order linear effects of both a precipitation and a temperature variable. 
+Both a precipitation and a temperature variable were included in the top model for 78% (n=36 of 46) of site-species combinations (Fig. `r clim_sens`). 
+There were seven site-species combinations for which only a precipitation term was significant (two at BCNM, three at SCBI, and two at LDW), two for which only a temperature term was significant (*Chukrasia tabularis* at HKK and *Betula papyrifera* at NIO), and none with no significant climatic effects on RW. 
+Below, we summarize the precipitation and temperature variables included in these models and their direction of response. 
+
+![**Figure 3 | Species-level responses of RW to climwin-selected variables in precipitation and temperature variable groups.** Primary climate drivers are coded on the x-axes as the climate variable abbreviation followed by the range of months (p=previous year, c=current year) over which it is most influential. For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. For each relationship shown, other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/pre_temp_groups.png)
+
+
+```{r , eval=TRUE, echo=FALSE}
 ###other:
 n_ssc= 45 #number species-site combinations
 n_pos_first_order_P_term=42 #(exception: TSCA)
@@ -636,18 +655,10 @@ percent_temperature_responses_1st_order_negative=round(13/38*100)
 percent_temperature_responses_1st_order_pos_2nd_order_neg=18/38*100
 ```
 Responses to precipitation amount (PPT) and frequency (PDF) were included in the best model for all but two species, and were predominantly positive (Fig. `r clim_sens`).
-PPT was selected over PDF as the top variable in five of the eight sites with both variables available (but had no significant main effect at one site, NIO), and was the only option at two sites (LT and CB).
-Optimal time windows most commonly coincided at least partially with months of active growth in the current year (Fig. `r clim_sens`; Table `r site_details`):  year-round in the tropics (BCNM and HKK) or late spring/ summer in the extratropics (n= 5 of 8).
-In the tropics, the long time-windows over which precipitation was influential (12 mo at BCNM, 9 mo at HKK) also included the majority (BCNM) or all (HKK) of the dry season.
-In the extratropics, optimal windows at three sites included the current growing season and extended back to the previous fall (LT, CB) or summer (SCBI), whereas they were limited to the current spring and early summer at LDW.
-At three sites (HF, ZOF, and SC), precipitation of the previous growing season was the most influential variable. 
-Responses to PPT or PDF were predominantly positive, with positive first-order linear terms for all but one species (*Tsuga canadensis* at HF; Fig. `r clim_sens`).
+Specifically, there were positive first-order linear terms for precipitation all but one species (*Tsuga canadensis* at HF; Fig. `r clim_sens`).
 Negative second-order terms were commonly included in the best model (`r n_pos_1st_P_term_and_neg_2nd` of `r n_pos_first_order_P_term` with positive first-order terms), generally resulting in a deceleration or decline at the highest levels of precipitation, but occasionally producing a unimodal (e.g., several species at SCBI) or predominantly negative response (e.g., *Betula alleghaniensis* at HF; Fig. `r clim_sens`). 
 
 A temperature variable was included in the best model for all but eight site-species combinations, with predominantly negative responses, particularly at the higher end of the temperature range (`r round(percent_temperature_responses_1st_order_negative + percent_temperature_responses_1st_order_pos_2nd_order_neg)`%; `r round(percent_temperature_responses_1st_order_negative)`% with negative first-order term, `r round(percent_temperature_responses_1st_order_pos_2nd_order_neg)`% with positive first-order term but negative second-order term; Fig. `r clim_sens`).
-The most commonly selected variables within the temperature group were $T_{max}$ and PET, which were identified by *climwin* as the top temperature-related driver at six and three of the 10 sites, respectively, noting that PET was not available for two sites. 
-$T_{min}$ was identified as the top driver at BCNM, where it's effects were only marginally significant for one species (Fig. `r clim_sens`), and $T_{mean}$ was never selected as the top driver.
-Optimal time windows most commonly occurred during the current growing season (n= 5 of 10 sites), but there were cases where optimal windows occurred during the preceding dry season (BCNM), late winter/early spring (HF, ZOF), or the previous growing season (NIO, CB).
 Within the tropics, there was minimal effect of temperature at BCNM and a negative effect of wet season $T_{max}$ for three of four species at HKK.
 For temperate sites with optimal time windows covering the current and/or past growing season, responses were universally negative (i.e., negative first-order linear or unimodal, peaking at temperatures lower than the long-term mean). 
 In contrast, there were positive effects of Jan-March $T_{max}$ for all three species at ZOF and of March PET for *Tsuga canadensis* at HF, the latter contrasting with a negative response of the three deciduous species analyzed at HF (Fig. `r clim_sens`).
@@ -749,7 +760,7 @@ There was a significant effect of `year` in the GLS models for `r n_best_model_R
 In `r percent_neg_of_sig_trends` of cases (depending on growth metric), the growth trend over time was negative.
 Declines were particularly dramatic for *Picea mariana* at SC, *Pinus ponderosa* at LT, all four species at HF, and several species at SCBI  (Fig. `r year_fig`).
 In such cases, models without `year` predicted declines in growth at large DBH that should more properly be attributed to the effect of year (Figs. `r all_GLS`).
-Significant positive growth trends were observed for only three species, *Fagus sylvatica* at ZOF, *Picea pungens* and *Pinus flexilis* at CB, and all were modest compared to the steep negative trends observed for some species.
+Significant positive growth trends were observed for only three species (consistently across all three growth metrics), *Fagus sylvatica* at ZOF, *Picea pungens* and *Pinus flexilis* at CB, and all were modest compared to the steep negative trends observed for some species.
 Growth rate was consistently independent of `year` for only four species: *Chukrasia tabularis* at HKK, *Pinus strobiformis* at LT, and *Picea engelmannii* and *Pinus longaeva* at CB.
 
 Effects of year and DBH interacted such that inclusion of year in models altered the shape of DBH responses, typically resulting in less pronounced growth declines with increasing DBH (Figs. `r all_GLS`).
