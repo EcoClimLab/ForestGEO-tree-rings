@@ -95,14 +95,25 @@ B <- summary_cores[idx, ] %>%
             dbh.range.reconstructed = unique(paste(min_DBH_cores_reconstructed , max_DBH_cores_reconstructed , sep = "-"))[1] # taking first value of unique because this is from the log_core_measuremnt_dbh and that has one mode value as the rest (since others are NA for the first value in the data)
             )
 
-# get date range
+## get date range
 C <- summary_cores %>%
   group_by(site, species_code) %>%
   summarize(date.range = unique(paste(start_year , end_year , sep = "-") )[1]) # taking first value of unique because this is from the log_core_measuremnt_dbh and that has one mode value as the rest (since others are NA for the first value in the data)
 
 
+## get if Year was tested (looking at BAI only)
+sp_analyzed_year <- list.files("results/with_Year/log_BAI_dbh/", recursive = T, pattern = "_model_comparisons.csv")
+
+summary_cores$year_analyzed <- paste0(summary_cores$site, "/", summary_cores$species_code, sep = "_model_comparisons.csv") %in% sp_analyzed_year
+
+idx = summary_cores$what %in% "log_BAI_dbh"
+
+D <- summary_cores[idx,] %>%
+  group_by(site, species_code) %>%
+  summarize(year_analyzed = year_analyzed)
+
 ## put everything together
-summary_samples <- left_join(left_join(A, B), C)
+summary_samples <- left_join(left_join(left_join(A, B), C), D)
 
 ## replace n_trees_dbh by 0 if NA
 summary_samples$n.trees.dbh[is.na(summary_samples$n.trees.dbh)] <- 0
