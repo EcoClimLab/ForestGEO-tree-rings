@@ -1,26 +1,26 @@
 ﻿table_row,Q,H,category,"Focal questions, hypotheses, and specific predictions",frequency observed,notes
-1,1,,,"How does interannual climate variation shape annual tree growth (ring width, RW)?",,
+1,1,,,How does interannual climate variation shape annual tree growth?,,
 2,,1.1,water,"  Multi-month drought limits growth, but water responses are nonlinear.",,
-3,,,,    Water influences growth over relatively long time windows (≥3 months). ,7 / 10 sites,issue 122
-4,,,,"    Growth respones to water are predominantly positive, ",42 / 43 SSC ,"45 SSC considered, P effect in 43; issue 122"
-5,,,,    ...but these positive responses decelerate or decline at high precipitation.,32 / 42 SSC ,
+3,,,,    Water influences growth over relatively long seasonal windows (≥3 months). ,7 / 10 sites,issue 122
+4,,,,"    Growth respones to water are predominantly positive, ",98% (42/43) SSC ,"45 SSC considered, P effect in 43; issue 122"
+5,,,,    ...but these positive responses decelerate or decline at high precipitation.,76% (32/42) SSC ,
 6,,1.2,temp,"  Over shorter time scales, high temperature (T) limits growth, often nonlinearly.",,
-7,,,,    The time window over which T influences RW rarely exceeds 3 months. ,9 / 10 sites,issue 122
-8,,,,    RW responds more strongly to maximum T or PET than to  minimum T.,8 / 10 sites,issue 122
-9,,,,    RW respones to T are predominantly either negative…,13 / 38 SSC,"45 SSC considered, T effect in 38; issue 122"
+7,,,,    Growth is most sensitive to T over relatively short seasonal windows (≤3 months). ,9 / 10 sites,issue 122
+8,,,,    Growth responds more strongly to maximum T or PET than to  minimum T.,8 / 10 sites,issue 122
+9,,,,    Growth respones to T are predominantly either negative…,13 / 38 SSC,"45 SSC considered, T effect in 38; issue 122"
 10,,,,    …or non-linear concave down.,18 / 38 SSC,"45 SSC considered, T effect in 38; issue 122"
-11,,,,"    However, there are cases where RW increases with T.",7 / 38 SSC,"45 SSC considered, T effect in 38; issue 122"
+11,,,,"    However, there are cases where growth increases with T.",7 / 38 SSC,"45 SSC considered, T effect in 38; issue 122"
 12,,1.3,climate x DBH,  Climate sensitivity varies with tree diameter (DBH).,49% of SSVC,RW; issue 122
 13,,,,    Water and DBH have an interactive effect on RW.,16 / 36 SSC,RW; issue 122
 14,,,,    Temperature and DBH have an interactive effect on RW.,12 / 32 SSC,RW; issue 122
 15,2,,,How does growth rate vary with DBH?,,
 16,,2.1,Size,"  Growth rate, by any metric, varies nonlinearly with DBH.",X% of SSVC,
-17,,,,"    RW declines with DBH for trees established in the open,",,
-18,,,,    ...but increases with DBH for trees established in the understory.,,
-19,,,,    Basal area increment (BAI) peaks at intermediate DBH.,41 / 43 SSC,
-20,,,,    Biomass increment (∆AGB) peaks at intermediate DBH.,42 / 43 SSC,
+17,,,,"    RW declines with DBH for light-demanding species,",46% (6/13) SSC,
+18,,,,    ...but increases with DBH for trees established in the understory.,73% (8/11) SSC,
+19,,,,    Basal area increment (BAI) peaks at intermediate DBH.,95% (41/43) SSC,
+20,,,,    Biomass increment (∆AGB) peaks at intermediate DBH.,98% (42/43) SSC,
 21,3,,,How have growth rates changed through time? ,,
 22,,3.1,year,  Growth rates of most forest tree populations have declined through time.,90% of SSC,
 23,,,,"    In secondary or disturbed forests, growth rates of most species have declined. ",XX / XX  sp. at 7 sites,
-24,,,,"    In old-growth forests, growth  rates of some species has declined,",XX / XX sp. at 3 sites,
+24,,,,"    In relatively undisturbed old-growth forests, growth rates of some species has declined,",XX / XX sp. at 3 sites,
 25,,,,    ….whereas others have increased.,3 / XX sp. at 3 sites,

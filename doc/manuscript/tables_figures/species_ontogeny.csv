@@ -1,0 +1,44 @@
+species code,latin name,sites sampled,leaf type,leaf phenology,light requirements,dbh,I(dbh^2)
+JACO,Jacaranada copaia,BCNM,broadleaf,deciduous (drought),light-demanding,+,-
+TEPA,Tetragastris panamensis,BCNM,broadleaf,evergreen,shade-tolerant,+,-
+TRTU,Trichilia tuberculata,BCNM,broadleaf,evergreen,shade-tolerant,+,-
+ABBI,Abies bifolia,CB,needleleaf,evergreen,shade-tolerant,+,-
+PIEN,Picea engelmannii,CB,needleleaf,evergreen,shade-tolerant,+,-
+PIFL,Pinus flexilis,CB,needleleaf,evergreen,light-demanding,NA,NA
+PILO,Pinus longaeva,CB,needleleaf,evergreen,light-demanding,-,+
+PIPU,Picea pungens,CB,needleleaf,evergreen,intermediate,+,NA
+POTR,Populus tremuloides,CB,broadleaf,deciduous (cold),light-demanding,-,+
+PSME,Pseudotsuga menziesii,CB,needleleaf,evergreen,intermediate,+,-
+ACRU,Acer rubrum,HF,broadleaf,deciduous (cold),intermediate,-,+
+BEAL,Betula alleghaniensis,HF,broadleaf,deciduous (cold),intermediate,+,-
+QURU,Quercus rubra,HF,broadleaf,deciduous (cold),intermediate,-,NA
+TSCA,Tsuga canadensis,HF,needleleaf,evergreen,shade-tolerant,-,NA
+AFXY,Afzelia xylocarpa ,HKK,broadleaf,deciduous (drought),light-demanding,+,-
+CHTA,Chukrasia tabularis ,HKK,broadleaf,brevi-deciduous (drought),intermediate,+,-
+MEAZ,Melia azedarach ,HKK,broadleaf,deciduous (drought),light-demanding,-,-
+TOCI,Toona ciliata ,HKK,broadleaf,deciduous (drought),intermediate,+,-
+ACSA,Acer saccharum,LDW,broadleaf,deciduous (cold),shade-tolerant,+,-
+CAOV,Carya ovata,LDW,broadleaf,deciduous (cold),intermediate,+,NA
+LITU,Liriodendron tulipifera,LDW,broadleaf,deciduous (cold),light-demanding,+,-
+QUMO,Quercus montana,LDW,broadleaf,deciduous (cold),intermediate,-,+
+PIPO,Pinus ponderosa,LT,needleleaf,evergreen,light-demanding,-,NA
+PIST3,Pinus strobiformis,LT,needleleaf,evergreen,light-demanding,-,NA
+BEPA,Betula papyrifera,NIO,broadleaf,deciduous (cold),light-demanding,+,-
+PIMA,Picea mariana,SC,needleleaf,evergreen,shade-tolerant,-,NA
+CACO,Carya cordiformis,SCBI,broadleaf,deciduous (cold),light-demanding,NA,NA
+CAGL,Carya glabra,SCBI,broadleaf,deciduous (cold),intermediate,NA,NA
+CAOVL,Carya ovalis,SCBI,broadleaf,deciduous (cold),intermediate,NA,NA
+CATO,Carya tomentosa,SCBI,broadleaf,deciduous (cold),light-demanding,+,-
+FAGR,Fagus grandifolia,SCBI,broadleaf,deciduous (cold),shade-tolerant,+,-
+FRAM,Fraxinus americana,SCBI,broadleaf,deciduous (cold),intermediate,NA,NA
+FRNI,Fraxinus nigra,SCBI,broadleaf,deciduous (cold),intermediate,NA,NA
+JUNI,Juglans nigra,SCBI,broadleaf,deciduous (cold),light-demanding,-,NA
+LITU,Liriodendron tulipifera,SCBI,broadleaf,deciduous (cold),light-demanding,NA,NA
+PIST,Pinus strobus,SCBI,needleleaf,evergreen,intermediate,-,+
+QUAL,Quercus alba,SCBI,broadleaf,deciduous (cold),intermediate,+,-
+QUMO,Quercus montana,SCBI,broadleaf,deciduous (cold),intermediate,+,NA
+QURU,Quercus rubra,SCBI,broadleaf,deciduous (cold),intermediate,+,-
+QUVE,Quercus velutina,SCBI,broadleaf,deciduous (cold),intermediate,+,-
+ABAL,Abies alba,ZOF,needleleaf,evergreen,shade-tolerant,NA,NA
+FASY,Fagus sylvatica,ZOF,broadleaf,deciduous (cold),shade-tolerant,+,-
+PIAB,Picea abies,ZOF,needleleaf,evergreen,shade-tolerant,+,-
