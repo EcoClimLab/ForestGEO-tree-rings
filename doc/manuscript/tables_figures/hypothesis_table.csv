@@ -11,16 +11,18 @@
 10,,,,    …or non-linear concave down.,18 / 38 SSC,"45 SSC considered, T effect in 38; issue 122"
 11,,,,"    However, there are cases where growth increases with T.",7 / 38 SSC,"45 SSC considered, T effect in 38; issue 122"
 12,,1.3,climate x DBH,  Climate sensitivity often varies with tree diameter (DBH).,49% of SSVC,RW; issue 122
-13,,,,    Water and DBH have an interactive effect on RW.,16 / 36 SSC,RW; issue 122
-14,,,,    Temperature and DBH have an interactive effect on RW.,12 / 32 SSC,RW; issue 122
+13,,,,    Water and DBH have an interactive effect on growth.,16 / 36 SSC,RW; issue 122
+14,,,,    Temperature and DBH have an interactive effect on growth.,12 / 32 SSC,RW; issue 122
 15,2,,,How does growth rate vary with DBH?,,
-16,,2.1,Size,"  Growth rate, by any metric, varies nonlinearly with DBH.",X% of SSVC,
+16,,2.1,RW,  Ontogenetic patterns in ring width (RW) depend upon  light environment.,,
 17,,,,"    RW declines with DBH for light-demanding species,",46% (6/13) SSC,
 18,,,,    ...but increases with DBH for shade-tolerant species.,73% (8/11) SSC,
-19,,,,    Basal area increment (BAI) peaks at intermediate DBH.,95% (41/43) SSC,
-20,,,,    Biomass increment (∆AGB) peaks at intermediate DBH.,98% (42/43) SSC,
-21,3,,,How have growth rates changed through time? ,,
-22,,3.1,year,  Growth rates of most forest tree populations have declined through time.,90% of SSC,
-23,,,,"    In secondary or disturbed forests, growth rates of most species have declined. ",XX / XX  sp. at 7 sites,
-24,,,,"    In relatively undisturbed old-growth forests, growth rates of some species has declined,",XX / XX sp. at 3 sites,
-25,,,,    ….whereas others have increased.,3 / XX sp. at 3 sites,
+19,,2.2,BAI & AGB,  Basal area or biomass increments peak at intermediate DBH.,,
+20,,,,    Basal area increment (BAI) peaks at intermediate DBH.,95% (41/43) SSC,
+21,,,,    Biomass increment (∆AGB) peaks at intermediate DBH.,98% (42/43) SSC,
+22,3,,,How have growth rates changed through time? ,,
+23,,3.1,disturbed,  Size-corrected growth rates decline with time since disturbance.,,
+24,,,,"    In secondary or disturbed forests, growth rates of most species have declined. ",XX / XX  sp. at 7 sites,
+25,,3.2,old-growth,"  In old-growth forests, growth trends are mixed and more dependant on external drivers.",,
+26,,,,"    In relatively undisturbed old-growth forests, growth rates of some species have declined,",XX / XX sp. at 3 sites,
+27,,,,    ….whereas others have increased.,3 / XX sp. at 3 sites,

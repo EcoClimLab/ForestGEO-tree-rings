@@ -457,7 +457,7 @@ In cases where climate-sensitivity differs between old and young trees, or where
 
 Second, traditional analysis methods (using ARSTAN) were primarily designed to distill population-level variation to obtain the strongest possible climate signal for the reconstruction of past climate [@cook_methods_1990], not to characterize climate responses on the individual level, where variation is inherently higher. 
 While conversion of Pearson correlations to linear slopes *sensu* @charney_observed_2016 approximates climate responses, it does not provide an exact slope describing the relationship between individual-level or population mean growth and climate. 
-This is because standardization of variance and averaging of individual-level residuals prior to the climate analysis fundamentally alters and obfuscates individual-level responses. 
+This is because standardization of variance and averaging of individual-level residuals prior to the climate analysis fundamentally alters and obfuscates individual-level responses [@carrer_individualistic_2011; @pederson_framework_2020].
 
 We suspect that both of these factors may underlie the tendency for the traditional method to estimate stronger climate sensitivity than the approach developed here for Scotty Creek (Fig. `r SC_traditional_comparison`), a comprehensively sampled black spruce forest (i.e., including young trees) on thawing permafrost. 
 We note, however, that there were no statistically significant differences in the *beta* coefficients of the two approaches at this site.
