@@ -769,6 +769,8 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
         for(g in names(clim_var_group)) {
           v_int <- names(which(sapply(clim_var_group[[g]], grepl, as.character(best_model$call[2]))))
         
+          rm(list = paste0(sp, "_best_model_int_", g))
+          
           if(length(v_int) > 0 ) {
             bm_clim_int <- update(best_model, fixe = as.formula(paste0("~ . - I(dbh^2) + dbh:", v_int)))
             climate_interactions <- 
