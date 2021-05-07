@@ -357,7 +357,8 @@ As a result, prevailing approaches hold a number of limitations for using tree r
 
 To realistically estimate forest woody productivity, it is necessary to measure or model the growth rate of the individual trees within the stand based on the primary biotic and environmental drivers.
 Needed is an analysis framework that can capture the additive and interactive effects of climate, tree size (most commonly diameter breast height, DBH), and other environmental drivers [e.g., @evans_fusing_2017; @klesse_amplifying_2020; @rollinson_climate_2021], which may often be best described by nonlinear functions [REFS, @rollinson_climate_2021].
-While multifactorial and sometimes non-linear individual-based analysis frameworks have been applied [e.g., @evans_fusing_2017; @zuidema_recent_2020; @rollinson_climate_2021], their use has been relatively limited, and none simultaneously address all the questions posed here (Table `r hypotheses`).
+While multifactorial and sometimes non-linear individual-based analysis frameworks have been applied in tree ring analysis [e.g., @evans_fusing_2017; @zuidema_recent_2020; @rollinson_climate_2021], their use has been relatively limited, and none simultaneously account for climate, DBH, and year.
+In the following paragraphs, we outline major questions regarding the influence of these factors on tree growth that can best be address using a multifactorial, non-linear approach to tree ring analysis (Table `r hypotheses`).
 
 Understanding the climate sensitivity of tree growth is critical to predicting forest dynamics and productivity as the climate changes. 
 Over the vast majority of Earth's forested regions, water is the primary climatic factor limiting tree growth, whereas low temperatures are the strongest limitation in some high latitude or high elevation sites [@babst_twentieth_2019]. 
