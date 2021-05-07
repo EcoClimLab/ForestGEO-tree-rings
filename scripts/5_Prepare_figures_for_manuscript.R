@@ -561,6 +561,9 @@ for(with_Year in c(FALSE, TRUE)) {
       if(what == "log_agb_inc_dbh")   lapply(existing_plots, function(x) {
         p <- get(x, temp_env)
         p$data[c("expfit", "lwr", "upr")] <-   p$data[c("expfit", "lwr", "upr")]*1000
+        p$layers[[1]]$aes_params$ymin  <- p$layers[[1]]$aes_params$ymin * 1000
+        p$layers[[1]]$aes_params$ymax  <- p$layers[[1]]$aes_params$ymax * 1000
+       
         assign(x, p, envir = temp_env)
       })
       
