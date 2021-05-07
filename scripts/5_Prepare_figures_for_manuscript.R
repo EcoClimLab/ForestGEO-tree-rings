@@ -604,8 +604,8 @@ for(with_Year in c(FALSE, TRUE)) {
       # existing_plots <- c(existing_plots, "leg")
       
       
-      all_plots[[what]] <- grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  {if(is.na(x)) grid.text(label = "no significant\nmain effect") else get(x, temp_env)}), ncol = ifelse(with_Year, 4, 3))))
-      
+      all_plots[[what]] <- do.call(cowplot::plot_grid, c(lapply(existing_plots, function(x)  {if(is.na(x)) grid.text(label = "no significant\nmain effect") else get(x, temp_env)}), ncol = ifelse(with_Year, 4, 3), list(align = "hv")))
+
       if (site %in% sites_to_show_case) show_case[[paste0(site, what)]] <-  all_plots[[what]]  #grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots[-4], function(x)  {if(is.na(x)) grid.rect(gp=gpar(col="white")) else get(x, temp_env)}), ncol = 3)))
     }  
     
