@@ -629,7 +629,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
     if(solution_to_global_trend %in% "none") all_Species_Year_to_keep <- unique(rbind(all_Species_Year_to_keep,                             data.frame(site,                                                 Species_Year_to_keep)))
     
     ## then run GLS ####
-   for(with_Year_or_CO2 in switch(as.character(solution_to_global_trend == "none" & grepl("dbh", what) & nrow(Species_Year_to_keep)>0), "TRUE" = c("", "Year", "CO2")[], "FALSE" = "")) {
+   for(with_Year_or_CO2 in switch(as.character(solution_to_global_trend == "none" & grepl("dbh", what) & nrow(Species_Year_to_keep)>0), "TRUE" = c("", "Year", "CO2")[-3], "FALSE" = "")) {
       
       ## look at collinearity between climate variables ( and CO2 and Year and dbh when relevant) and remove any variable with vif > 10 ####
     if(grepl("dbh", what) & !with_Year_or_CO2 %in% "") X <- Biol[, c(as.character(best_results_combos$climate), with_Year_or_CO2, "dbh")]
