@@ -257,6 +257,12 @@ for(site in sites){
   # sandardize variable names
   lapply(existing_plots[!is.na(existing_plots)], function(x) {
     p <- get(x, temp_env)
+    
+    ylim_p <- get("ylim_p", temp_env)
+    ylim_p <- ylim_p[!names(ylim_p) %in% "dbh"]
+    
+    p <- p + ylim(range(ylim_p))
+    
     p$labels$x <- eval(parse(text = gsub(" |  ", "~", gsub("-1", "\\^-1", paste0(gsub(substr(p$labels$x, 1, 4), v_names[substr(p$labels$x, 1, 3)], p$labels$x), ")")))))
     p$theme$plot.background <-element_blank()
     assign(x, p, temp_env)
