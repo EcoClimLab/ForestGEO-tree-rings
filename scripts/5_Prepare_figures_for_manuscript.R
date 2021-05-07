@@ -32,7 +32,7 @@ sites_abb <- list(BCI  = "BCNM",
 # order sites by average temperature
 MAT_order <- read.csv("doc/manuscript/tables_figures/sites.csv")
 
-sites <- names(sites_abb[match(MAT_order$site.code, sites_abb)])
+sites <- names(sites_abb[match(MAT_order[,1], sites_abb)])
 
 # load all legends ####
 load("results/all_legends.Rdata")
@@ -283,7 +283,7 @@ grid.arrange(grobs = all_plots, vp= grid::viewport(width=0.95, height=0.95), nco
 grid::grid.text(sites_abb[sites], x = unit(rep(c(0.032, 0.515), 2), "npc"), y = unit(rep(rev(cumsum(c(.95/(n_sites/2), rep(.95/(n_sites/2), n_sites/2-1)))+0.02), each = 2), "npc"))
 grid::grid.text(what, x = unit(0.0265, "npc"), y = unit(rev(cumsum(c(.95/(n_sites/2), rep(.95/(n_sites/2), n_sites/2-1)))-0.05), "npc"), rot = 90)
 
-grid::grid.text(c("Precipiation group", "Temperature group"), x = unit(cumsum(c(.05 +.9/3.9/2, rep(.9/3.9, 3))), "npc"), y = unit(.99,  "npc"))
+grid::grid.text(c("Precipitation group", "Temperature group"), x = unit(cumsum(c(.05 +.9/3.9/2, rep(.9/3.9, 3))), "npc"), y = unit(.99,  "npc"))
 
 
 dev.off()
@@ -343,7 +343,7 @@ for(what in names(what_to_show)) {
   grid::grid.text(sites_abb[sites], x = unit(rep(c(0.032, 0.515), 2), "npc"), y = unit(rep(rev(cumsum(c(.95/(n_sites/2), rep(.95/(n_sites/2), n_sites/2-1)))+0.02), each = 2), "npc"))
   grid::grid.text(what_to_show[what], x = unit(0.0265, "npc"), y = unit(rev(cumsum(c(.95/(n_sites/2), rep(.95/(n_sites/2), n_sites/2-1)))-0.05), "npc"), rot = 90)
   
-  grid::grid.text(c("Precipiation group", "Temperature group"), x = unit(cumsum(c(.05 +.9/3.9/2, rep(.9/3.9, 3))), "npc"), y = unit(.99,  "npc"))
+  grid::grid.text(c("Precipitation group", "Temperature group"), x = unit(cumsum(c(.05 +.9/3.9/2, rep(.9/3.9, 3))), "npc"), y = unit(.99,  "npc"))
   
   
   dev.off()
@@ -421,7 +421,7 @@ grid::grid.text(sapply(sites_species_to_show, "[[", 2), x = unit(0.085, "npc"), 
 
 grid::grid.text(what_to_show[what], x = unit(0.0265, "npc"), y = unit(c(0.95, 0.63, 0.32)-0.12, "npc"), rot = 90)
 
-grid::grid.text(c("Precipiation group", "Temperature group"), x = unit(c(0.25,0.65), "npc"), y = unit(.98,  "npc"))
+grid::grid.text(c("Precipitation group", "Temperature group"), x = unit(c(0.25,0.65), "npc"), y = unit(.98,  "npc"))
 
 
 dev.off()
