@@ -352,7 +352,7 @@ for(what in names(what_to_show)) {
 
 # Pre and Temp groups with DBH interaction show case ####
 what_to_show = c("log_core_measurement_dbh" = expression(RW~(mm)))
-sites_species_to_show = list(HKK = c("TOCI", "Tona ciliata"), 
+sites_species_to_show = list(HKK = c("TOCI", "Toona ciliata"), 
                           LillyDickey = c("LITU", "Lirodendron tulipifera"),
                           CedarBreaks = c("PIPU", "Picea pungens"))
 
@@ -513,8 +513,8 @@ p <- get(paste0("p_", v), temp_env)
 p <- p + labs(y = expression(RW~(mm)))
 p <- p + theme(legend.position="right", legend.text = element_text(size = 8)) # add legend
 p$layers[c(1,2)] <- NULL # remove vertical line and shading
-p$labels$x <- eval(parse(text = gsub(" |  ", "~", gsub("-1", "\\^-1", paste0(gsub(substr(p$labels$x, 1, 4), v_names[substr(p$labels$x, 1, 3)], p$labels$x), ")"))))) # change varaible label
-  
+p$labels$x <- eval(parse(text = gsub(" |  ", "~", gsub("-1", "\\^-1", paste0(gsub(substr(p$labels$x, 1, 4), v_names[substr(p$labels$x, 1, 3)], p$labels$x), ")"))))) # change variable label
+p <- p + scale_fill_discrete(labels = gsub(" \\(\\d*\\)", "", levels(p$data$species))) + scale_colour_discrete(labels = gsub(" \\(\\d*\\)", "", levels(p$data$species)))
 plot.new()              ## suggested by @Josh
 vps <- gridBase::baseViewports()
 pushViewport(vps$figure) ##   I am in the space of the autocorrelation plot
