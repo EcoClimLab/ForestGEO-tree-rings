@@ -516,9 +516,11 @@ p$layers[c(1,2)] <- NULL # remove vertical line and shading
 p$labels$x <- eval(parse(text = gsub(" |  ", "~", gsub("-1", "\\^-1", paste0(gsub(substr(p$labels$x, 1, 4), v_names[substr(p$labels$x, 1, 3)], p$labels$x), ")"))))) # change variable label
 p <- p + scale_fill_discrete(labels = gsub(" \\(\\d*\\)", "", levels(p$data$species))) + scale_colour_discrete(labels = gsub(" \\(\\d*\\)", "", levels(p$data$species)))
 plot.new()              ## suggested by @Josh
+
 vps <- gridBase::baseViewports()
 pushViewport(vps$figure) ##   I am in the space of the autocorrelation plot
-vp1 <- plotViewport(c(2,0,2,0)) ## create new vp with margins, you play with this values 
+vp1 <- plotViewport(c(2,0,2,0)) ## create new vp with margins, you play with this values
+
 
 print(p, vp = vp1)
 # windowsFonts(Times=windowsFont("TT Times New Roman"))
