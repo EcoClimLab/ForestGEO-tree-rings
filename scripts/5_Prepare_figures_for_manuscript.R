@@ -52,15 +52,15 @@ v_names <- list(tmn = "expression(T[min]~",
 
 # prepare function ####
 
-g_legend <- function(x = "pt"){
-  p <- get(x, temp_env)
-  a.gplot <- ggplot(data = p, aes(x = varying_x, y = expfit)) + geom_line(aes(group = species, col = species)) +  geom_ribbon(aes(ymin=lwr, ymax=upr, col = NULL, bg = species), alpha=0.25)+
-    scale_color_manual(values = species_colors) + scale_fill_manual(values = species_colors) + theme(legend.title=element_blank(),  legend.background = element_blank(), legend.box.background =element_blank())+ guides(col=guide_legend(ncol=2), bg=guide_legend(ncol=2))
-  tmp <- ggplot_gtable(ggplot_build(a.gplot))
-  leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
-  legend <- tmp$grobs[[leg]]
-  return(legend)
-}
+# g_legend <- function(x = "pt"){
+#   p <- get(x, temp_env)
+#   a.gplot <- ggplot(data = p, aes(x = varying_x, y = expfit)) + geom_line(aes(group = species, col = species)) +  geom_ribbon(aes(ymin=lwr, ymax=upr, col = NULL, bg = species), alpha=0.25)+
+#     scale_color_manual(values = species_colors) + scale_fill_manual(values = species_colors) + theme(legend.title=element_blank(),  legend.background = element_blank(), legend.box.background =element_blank())+ guides(col=guide_legend(ncol=2), bg=guide_legend(ncol=2))
+#   tmp <- ggplot_gtable(ggplot_build(a.gplot))
+#   leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
+#   legend <- tmp$grobs[[leg]]
+#   return(legend)
+# }
 
 
 # DBH response at each sites and for each response ####
