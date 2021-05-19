@@ -399,10 +399,11 @@ This approach allows us to address the following broad questions concerning and 
 library(flextable)
 set_flextable_defaults(font.family = "Arial", font.size = 9)
 hypotheses_table <- read.csv("tables_figures/hypothesis_table.csv", stringsAsFactors = FALSE, check.names = FALSE)
+hypotheses_table <- hypotheses_table[which(hypotheses_table$include==1),c(2:7)]
 question_rows<- which(!is.na(hypotheses_table$Q) )
 hypothesis_rows<-which(!is.na(hypotheses_table$H) )
 
-hypotheses_table <- subset(hypotheses_table, select = -c(Q, H, category, notes) )#remove columns that shouldn't be included
+hypotheses_table <- subset(hypotheses_table, select = -c(Q, H, category,notes) )#remove columns that shouldn't be included
 ft <- flextable(hypotheses_table)
 ft <- italic(ft, i=question_rows, j=1)
 ft <- bold(ft, i=c(question_rows, hypothesis_rows))
