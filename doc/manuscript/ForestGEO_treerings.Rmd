@@ -369,21 +369,21 @@ Finally, while the influence of DBH is typically removed through detrending [@co
 
 Tree diameter, DBH, scales predictably with numerous traits affecting tree physiology and growth [e.g., height, crown size and position, root mass, hydraulic architecture, @couvreur_water_2018; @enquist_global_2002; @niklas_plant_2004] and therefore is itself linked to growth [e.g., @muller-landau_testing_2006; @foster_predicting_2016] and its climate sensitivity [e.g., @bennett_larger_2015; @mcgregor_tree_2020].
 Yet, there remain inconsistencies as to what is considered a typical growth pattern. 
-Tree ring records commonly show a pattern in which radial stem growth increments (ring width, RW) are initially large and decline with DBH [@fritts_tree_1976], whereas forest census data reveals a typical pattern of increasing RW with DBH across globally distributed forests [@muller-landau_testing_2006; @anderson-teixeira_sizerelated_2015].
+Tree ring records commonly show a pattern in which radial stem growth increments (ring width, RW) are initially large and decline with DBH [@fritts_tree_1976], whereas censuses of globally distributed forests indicate that diameter increments most commonly increases with DBH [@muller-landau_testing_2006; @anderson-teixeira_sizerelated_2015].
 We hypothesize that this discrepancy is primarily a distinction between trees that established in the open, as opposed to in the understory (Table `r hypotheses`).
 Building upon observed ontogenetic patterns in RW, dendrochonology studies often observe or assume that basal area increment (BAI) is constant with DBH after a juvenile growth phase [@fritts_tree_1976; @biondi_theorydriven_2008] -- a pattern that we would not expect to hold in understory-established trees (Table `r hypotheses`).
-Finally, there is debate as to whether biomass increment $\Delta$AGB increases continuously with DBH [@stephenson_rate_2014; @meakem_role_2018; @foster_predicting_2016] or peaks and declines as trees divert carbon to other functions such as respiration [**REFS**] and reproduction [@thomas_agerelated_2011]. 
+Finally, there is debate as to whether biomass increment ($\Delta$AGB) increases continuously with DBH [@stephenson_rate_2014; @meakem_role_2018; @foster_predicting_2016] or peaks and declines as trees divert carbon to other functions such as respiration [**REFS**] and reproduction [@thomas_agerelated_2011]. 
 Following the finding that the latter pattern is common for individual trees whereas the former emerges in "cross-sectional" analyses of forest stands [@forrester_does_2021], we hypothesize that $\Delta$AGB -- and also BAI -- peaks and declines as DBH increases (Table `r hypotheses`).
-Solid understanding of the ontogeny of tree growth is essential not only for predicting the growth rate of any given tree, but also for standardizing for DBH to deduce the influence of slowly changing environmental drivers [see next paragraph, @peters_detecting_2015], with the reliability of such analyses contingent upon accurate assumptions of ontogenetic growth patterns.
+Solid understanding of these ontogenetic growth trends is essential not only for predicting the growth rate of any given tree, but also for standardizing for DBH to deduce the influence of slowly changing environmental drivers [see next paragraph, @peters_detecting_2015], with the reliability of such analyses contingent upon accurate assumptions of ontogenetic growth patterns.
 
-Beyond the direct effects of climate, rising atmospheric CO~2~ concentrations, and changes in atmospheric deposition of sulfur dioxide (SO~2~) and nitrogen oxides (NO~x~), and indirect effects of climate change are all potentially influencing tree growth [@levesque_water_2017; @mathias_disentangling_2018; @maxwell_higher_2019; @walker_integrating_2020; @takahashi_air_2020; @belmecheri_precipitation_2021], and understanding these effects is central to predicting the future of the terrestrial carbon sink [@walker_integrating_2020].
+Beyond the direct effects of climate, rising atmospheric CO~2~ concentrations, changes in atmospheric deposition of sulfur dioxide (SO~2~) and nitrogen oxides (NO~x~), and indirect effects of climate change are all potentially influencing tree growth [@levesque_water_2017; @mathias_disentangling_2018; @maxwell_higher_2019; @walker_integrating_2020; @takahashi_air_2020; @belmecheri_precipitation_2021], and understanding these effects is central to predicting the future of the terrestrial carbon sink [@walker_integrating_2020].
 Yet, characterizing how tree growth and forest productivity are responding to slowly changing environmental drivers is challenging and uncertain.
-Ontogenetic patterns in tree growth must be accounted for, yet two of the most commonly used methods of standardizing for tree size, conservative detrending and basal area correction [@peters_detecting_2015], assume certain growth patterns that may not be universal in forest settings. 
+Ontogenetic patterns in tree growth must be accounted for, yet two of the most commonly used methods of standardizing for tree size, conservative detrending and basal area correction [@peters_detecting_2015], assume certain growth patterns that may not be universal in forest settings, as discussed above. 
 Approaches that combine cross-sectional with temporal analyses to correct for growth ontogeny, such as regional curve standardization, perform better at growth trend detection [@peters_detecting_2015].
 Yet, even after correcting for ontogenetic growth trends, growth trend detection remains subject to various potential sampling and analysis biases [@cherubini_potential_1998; @brienen_detecting_2012; @nehrbass-ahles_influence_2014; @sullivan_effect_2016; @bowman_detecting_2013; @brienen_tree_2017; @hember_tree_2019], fundamentally driven by the limitation that it is not possible to use a contemporary set of tree cores to obtain a representative sample of a species's population at all points throughout the history of a dynamically changing stand.
 Stand dynamics strongly influence growth: tree growth rates are sensitive to competition, the intensity of which tends to increase as forests mature, affecting ecosystem level patterns of C allocation. 
 Ecosystem-level carbon allocation to woody growth -- as opposed to leaf or fine root production, reproduction, defenses, etc. -- is known to decline as forest stands age [@goulden_patterns_2011; @pregitzer_carbon_2004; @delucia_forest_2007; @collalti_forest_2020]. 
-Thus, we hypothesize that size-corrected growth rates of tree populations sampled from within secondary or severely disturbed stands (i.e., those with large recruitment pulses within the past couple centuries) will generally decline, whereas populations sampled from old-growth stands will display mixed growth trends that are more dependent on external environmental drivers (Table `r hypotheses`).
+Thus, we hypothesize that size-corrected growth rates of tree populations sampled from within secondary or severely disturbed stands (i.e., those with large recruitment pulses within the past couple centuries) will generally decline, whereas populations sampled from largely undisturbed stands will display mixed growth trends that are more dependent on external environmental drivers (Table `r hypotheses`).
 
 Here, we develop, and apply to ten forested sites spanning 52 degrees latitude, a new method that allows simultaneous consideration of the effects of primary climate drivers (i.e., the most influential climate variables and the seasonal window over which they operate), tree size, and calendar year on annual tree growth.
 This approach allows us to address the following broad questions concerning and associated hypotheses concerning the primary drivers of individual tree growth (Table `r hypotheses`) for a globally distributed tree-ring dataset:
@@ -416,6 +416,18 @@ ft <- footnote( ft, i = 1, j = 2,
                 value = as_paragraph(c("SSC= species-site combinations; SSCV=species-site-variable combination")),
                 ref_symbols = c("*"),
                 part = "header",inline=T)
+ft <- footnote( ft, i = 1, j = 1,
+                value = as_paragraph(c("Results summarized here are for climate-only models with RW as response variable.")),
+                ref_symbols = c("**"),
+                part = "body",inline=T)
+ft <- footnote( ft, i = c(10,11), j = 2,
+                value = as_paragraph(c("Refers to SSC with significant (p<0.05) main effect of climate on RW.")),
+                ref_symbols = c("#"),
+                part = "body",inline=T)
+ft <- footnote( ft, i = 19, j = 1,
+                value = as_paragraph(c("Results summarized here are for models with BAI as response variable.")),
+                ref_symbols = c("##"),
+                part = "body",inline=T)
 ft  
 
 ```
@@ -450,6 +462,10 @@ ft <- footnote( ft, i = 1, j = 4:6,
                 value = as_paragraph(c("Refers to 1950-2019 mean climate.")),
                 ref_symbols = c("*"),
                 part = "header",inline=T)
+ft <- footnote( ft, i = c(6,8,9), j = 2,
+                value = as_paragraph(c("Older forest, with majority of sampled trees established before 1900.")),
+                ref_symbols = c("**"),
+                part = "body",inline=T)
 ft  
 
 ```
@@ -723,6 +739,7 @@ For $\Delta$AGB, models were even more consistent, with the best models for `r r
 ```{r , eval=TRUE, echo=FALSE}
 ## Tallies for the  paragraph below (Feb11)
 n_tested=37 #same for all metrics
+
 n_best_model_RW=31
 n_best_model_BAI=32
 n_best_model_AGB=30
@@ -732,6 +749,16 @@ n_best_model_neg_AGB=n_best_model_AGB-3 #(exceptions:  FASY at ZOF, PIPU and PIF
 percent_neg_of_sig_trends="90-91%"
 percent_sig_neg_trend_of_analyzed = "73-78%" 
 #species consistently independent of year: PIEN and PILO at CB, CHTA at HKK, PIST3 at NM, 
+
+# breaking up by forest age (counting CB, ZOF, and LT as old)
+n_tested_old_forest=12
+n_tested_young_forest=n_tested-n_tested_old_forest
+n_best_model_BAI_old=9
+n_best_model_BAI_young= n_best_model_BAI - n_best_model_BAI_old #23
+n_neg_BAI_old= 6
+n_pos_BAI_old= 3
+n_neg_BAI_young= n_best_model_neg_BAI - n_neg_BAI_old #23
+n_pos_BAI_young= 0
 
 ```
 
