@@ -310,7 +310,8 @@ The largest healthy trees within each stand were selected for coring.
 
 ### Little Tesuque, New Mexico, USA
 The Little Tesuque (LT) site is in a mature dry mixed conifer forest outside of Santa Fe, NM, in the foothills of the Sangre de Cristo Mountains.
-The site had not undergone stand-clearing disturbance (e.g., fire) in more than one hundred years.
+The site had not undergone stand-clearing disturbance (e.g., fire) in more than one hundred years. Tree ring records suggest that there has been no stand-clearing fire for at least 500 years. 
+Low-severity fires burned the site regularly since at least 1542, with the last one in 1880.  
 The growth of trees in the region, including at this site, are being severely affected by a strong drying trend under climate change [@touchan_millennial_2011; @williams_temperature_2013], with many missing growth rings in recent years.
 
 In 2020, live canopy and sub-canopy trees, all >20 cm DBH, were sampled within a 1 ha plot (Little Tesuque plot 3; *lts3*). 
