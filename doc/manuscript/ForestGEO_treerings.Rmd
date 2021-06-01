@@ -696,8 +696,8 @@ For both RW and BAI, the majority of significant negative interactions (i.e., mo
 ## Variation with DBH {-#Variation}
 
 When a precipitation variable, a temperature variable, and DBH were all included as candidate variables in the GLS models, typically all three were included in the top model, regardless of the growth metric used.
-Climate responses were generally similar to those described above for models without a DBH term, although some of the weaker climate responses were not consistently included in top models (e.g., $T_{min}$ responses at BCNM; Figs. `r clim_sens`, `r all_GLS`).
-In general, DBH explained more variation in growth rates than did climate, but its relative importance varied across growth metrics and sites (Figs. `r all_GLS`).
+Climate responses were generally similar to those described above for models without a DBH term, although some of the weaker climate responses were not consistently included in top models (e.g., $T_{min}$ responses at BCNM; Figs. `r clim_sens`, `r GLS_BCNM`).
+In general, DBH explained more variation in growth rates than did climate, but its relative importance varied across growth metrics and sites (Figs. `r clim_sens`, `r size`).
 The relative importance of DBH tended to be least for RW, intermediate for BAI, and highest for $\Delta$AGB (e.g., at SCBI; Fig. `r GLS_SCBI`), but exceptions occurred when RW decreased steeply with DBH (e.g., at LT, Fig. `r GLS_LT`).
 
 ```{r , eval=TRUE, echo=FALSE}
@@ -760,14 +760,14 @@ n_pos_BAI_young= 0
 
 ```
 
-There was a significant effect of `year` in the GLS models for `r n_best_model_RW` - `r n_best_model_BAI` (depending on growth metric) of the `r n_tested` species-site combinations tested (Figs. `r year_fig`, `r all_GLS`).
+There was a significant effect of `year` in the GLS models for `r n_best_model_RW` - `r n_best_model_BAI` (depending on growth metric) of the `r n_tested` species-site combinations tested (Figs. `r year_fig`).
 In `r percent_neg_of_sig_trends` of cases (depending on growth metric), the growth trend over time was negative.
 Declines were particularly prevalent in secondary or disturbed forests, occurring in `r round(n_best_model_BAI_young/n_tested_young_forest*100)`% of species-site combinations (`r round(n_neg_BAI_young/n_best_model_BAI_young*100)`% of all species with significant year effects) at the seven disturbed sites (Table `r hypotheses`, Fig. `r year_fig`).
 In older forests (ZOF, LT, CB), growth trends were mixed (Table `r hypotheses`, Fig. `r year_fig`).
 Significant positive growth trends were observed for only three species (consistently across all three growth metrics), *Fagus sylvatica* at ZOF, *Picea pungens* and *Pinus flexilis* at CB, and all were modest compared to the steep negative trends observed for some species.
 Growth rate was consistently independent of `year` for only four species: *Chukrasia tabularis* at HKK, *Pinus strobiformis* at LT, and *Picea engelmannii* and *Pinus longaeva* at CB.
 
-Effects of year and DBH interacted such that inclusion of year in models altered the shape of DBH responses, typically resulting in less pronounced growth declines with increasing DBH (Figs. `r all_GLS`).
+Effects of year and DBH interacted such that inclusion of year in models altered the shape of DBH responses, typically resulting in less pronounced growth declines with increasing DBH (Figs. `r GLS_SCBI`, `r GLS_SCBI_year`).
 
 ![**Figure 6 | Effect of year, when included in the best model, on BAI.** For each species (all listed), relationships are plotted if the year effect could be analyzed and was included in top model. Other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant.  Transparent ribbons indicate 95% confidence intervals. ](tables_figures/Year_responses_BAI_only.png)
 
@@ -812,7 +812,7 @@ This latter pattern is consistent with the observation that when contemporary gr
 Our finding that BAI and $\Delta$AGB generally saturate or decline with increasing DBH (Table `r hypotheses`, Fig. `r size`), contrasts with findings of cross-sectional analyses of forest census data showing that $\Delta$AGB increases continuously with DBH [@stephenson_rate_2014; @meakem_role_2018].
 In large part, this discrepancy can be explained by differences between cross-sectional analyses and "longitudinal" patterns of individual trees through time [@sheil_does_2017; @forrester_does_2021].
 Declines in BAI and $\Delta$AGB at larger DBH are probably in part attributable to increasing allocation to reproduction [@thomas_agerelated_2011], and are also linked to slowly changing environmental conditions (e.g., successional changes in stand structure, climate change).
-Notably, inclusion of year in the GLS models tended to reduce the magnitude of BAI and $\Delta$AGB declines at larger DBH (Figs. `r all_GLS`), suggesting that some of the declines at large DBH (Fig. `r size`) are more properly attributed to recent environmental changes than to large DBH.
+Notably, inclusion of year in the GLS models tended to reduce the magnitude of BAI and $\Delta$AGB declines at larger DBH (Figs. `r GLS_SCBI`, `r GLS_SCBI_year`), suggesting that some of the declines at large DBH (Fig. `r size`) are more properly attributed to recent environmental changes than to large DBH.
 
 ## Changing growth rates {-#Changing}
 
@@ -901,15 +901,21 @@ Data for [# TBD] of the sites are archived in the The DendroEcological Network (
 
 Figures `r all_traditional_comparisons`. Comparison of our approach with traditional methods of identifying climate signals for four species.
 
-Figure `r climwin_HKK_T_legend`
+`r climwin_HKK_T_legend`
 
-Figure `r climwin_SCBI_W_legend` 
+`r climwin_SCBI_W_legend` 
 
-Figure `r climwin_SCBI_T_legend`
+`r climwin_SCBI_T_legend`
 
-Figure `r climwin_HF_W_legend`
+`r climwin_HF_W_legend`
 
-Figures `r all_GLS`. Best GLS models models excluding and including year for all sites.
+`r GLS_BCNM_legend`
+
+`r GLS_SCBI_legend`
+
+`r GLS_SCBI_year_legend`
+
+`r GLS_LT_legend`
 
 `r SC_1970break_legend`
 
