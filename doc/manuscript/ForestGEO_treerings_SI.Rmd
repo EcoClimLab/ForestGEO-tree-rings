@@ -214,8 +214,8 @@ GLS_SC_year_legend = "Figure S54. Best GLS models including climate, DBH, and ye
 
 SC_1970break_legend = "Figure S55. Climate responses at SC before and after 1970."
 
-RW_interactions_all_legend = "Figure S56. All signficant climate - DBH interactions with RW as the response metric."
-BAI_interactions_all_legend ="Figure S57. All signficant climate - DBH interactions with RW as the response metric."
+RW_interactions_all_legend = "Figure S56. All significant climate - DBH interactions with RW as the response metric."
+BAI_interactions_all_legend ="Figure S57. All significant climate - DBH interactions with BAI as the response metric."
 
 decadal_plot_BCNM_legend = "Figure S58. Relationships between DBH and BAI by decade for BCNM."
 decadal_plot_HKK_legend = "Figure S59. Relationships between DBH and BAI by decade for HKK."
