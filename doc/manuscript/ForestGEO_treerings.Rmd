@@ -435,24 +435,25 @@ We note that the decision to identify primary climate drivers at the level of si
 We used the *climwin* package in R [@vandepol_identifying_2016] to identify the most important climate variable and the seasonal window over which its effect was strongest for each of two categories of variables: a temperature group ($T_{min}$, $T_{max}$, $T_{mean}$, and PET) and a precipitation group (PPT, PDF).
 To remove low-frequency variation that most likely represents responses to non-climatic drivers (*e.g.*, growth and aging of the tree, change in competitive dynamics, atmospheric pollution), we detrended the response variables by fitting penalized thin-plate regression splines in generalized additive models [GAM, functions *gam* and *s* in the R package *mgcv*, @wood_fast_2011] to individual growth records (RW, BAI, or $\Delta$AGB) from each core, and extracted the residual variation for each observation. 
 The smoothing parameters were automatically selected by the *gam* function with generalized cross-validation (GCV).
-We then used *climwin* to identify the climate variables that most strongly correlated with the individual tree-level residuals of the growth variables, RW, BAI, or $\Delta$AGB, specifying quadratic fits to allow for potential nonlinearities in the climate response.
+We then used *climwin* to identify the climate drivers that most strongly correlated with the individual tree-level residuals of the growth variables, RW, BAI, or $\Delta$AGB, specifying quadratic fits to allow for potential nonlinearities in the climate response.
 Within *climwin*, we specified a mixed-effects model in which the fixed effects were the climate variables and the random intercepts were species (when n $\ge$ 3) and core identity (noting that these effects should be minimal given that residuals are centered around zero).
 For each climate variable, we ran permutations for all possible combinations of consecutive months within a 15-month period ending near the time of cessation of formation of each annual ring (Table `r site_details`). 
 *Climwin* runs all potential models to select the best fit (lowest AIC), and does k-fold cross-validation in its computation of AIC to guard against over-fitting [@vandepol_identifying_2016]. 
 For each group of candidate climate variables (water and temperature; Fig. `r schematic`), we selected the variable - seasonal window combination with the lowest AIC as a candidate climate variable for the multivariate models. 
 
-We tested whether this process identified similar climate variable-month combinations to what would be identified using traditional methods for four species (detailed in Appendix `r traditional_comparison`). 
-Furthermore, we explored alternate methods of climate variable selection for the two sites that have undergone the most rapid changes in climate and tree growth: LT, where increasingly warm drought has dramatically reduced growth [@touchan_millennial_2011; @williams_temperature_2013], and SC, where rapidly rising temperatures are causing permafrost thaw, which limits access to soil moisture during summer months and drives growth declines [@sniderhan_growth_2016]. 
+We tested whether this process identified similar seasonal windows and direction of response as would be identified using traditional methods for four species (detailed in Appendix `r traditional_comparison`). 
+Furthermore, we explored alternate methods of climate driver selection for the two sites that have undergone the most rapid changes in climate and tree growth: LT, where increasingly warm drought has dramatically reduced growth [@touchan_millennial_2011; @williams_temperature_2013], and SC, where rapidly rising temperatures are causing permafrost thaw, which limits access to soil moisture during summer months and drives growth declines [@sniderhan_growth_2016]. 
 We ultimately determined that the method described above captured these sources of variation (Appendix `r changing_climate`).
 
 ### Step 2: Combining drivers in GLS model {-#Combining}
 
-Having identified the primary climate drivers in temperature and precipitation variable groups, we next combined climate variables (included in all models) and DBH (included in models with DBH and its climate interactions) into linear mixed-effects models [function *lme* in the R package *nlme*, @pinheiro_nlme_2021], with core identity as a random intercept and yeaar as a continuous time covariate for the within-group correlation structure (function *corCAR1*). We will refer to this model as a generalized least squares (GLS) model (Fig. `r schematic`).
+We next combined the primary climate drivers in temperature and precipitation variable groups (included in all models) and DBH (included in models with DBH and its climate interactions) into linear mixed-effects models [function *lme* in the R package *nlme*, @pinheiro_nlme_2021], with core identity as a random intercept and yeaar as a continuous time covariate for the within-group correlation structure (function *corCAR1*). 
+We will refer to this model as a generalized least squares (GLS) model (Fig. `r schematic`).
 
 Prior to running the models, we checked for collinearity among the candidate variables using the *vifstep* function [@naimi_where_2014] and removed any variable with a variance inflation factor > 3 (none required removal).
 Within the GLS models, our response variables were log[RW], log[BAI], or log[$\Delta$ AGB]. 
 
-For each species independently, we ran every combination of the candidate climate variables and DBH, including both first- and second-order terms for each.
+For each species independently, we ran every combination of the candidate climate drivers and DBH, including both first- and second-order terms for each.
 For climate response, we allowed concave-down fits, but ignored any concave-up fits on the basis that these are not expected biologically.
 
 As an example, a full model for log[RW] would look like this in *R*: 
@@ -461,7 +462,7 @@ As an example, a full model for log[RW] would look like this in *R*:
 
 where *x* is a complete data set (with no missing values) for one species at one site. The method is set to maximum likelihood (*ML*) during the fixed effect model selection phase, but to restricted maximizing likelihood (*REML*) for parameter estimation with the best model.
 
-For models including interactive effects of climate and DBH, we tested for interactions between first-order linear terms for climate variables and DBH.
+For models including interactive effects of climate and DBH, we tested for interactions between first-order linear terms for climate drivers and DBH.
 
 To test for year effects, we limited the analysis to species with reasonable coverage of the DBH x `year` matrix.
 Specifically, we required that the species be represented by cores from  $\ge$ 3 trees and that the core record spanned $\ge$ 40% the total DBH range for $\ge$ 2/3 of the total time range analyzed. 
@@ -557,7 +558,7 @@ Both a precipitation and a temperature variable were included in the top model f
 There were seven site-species combinations for which only a precipitation term was significant (two at BCNM, three at SCBI, and two at LDW), two for which only a temperature term was significant (*Chukrasia tabularis* at HKK and *Betula papyrifera* at NIO), and none with no significant climatic effects on RW. 
 Below, we summarize the precipitation and temperature variables included in these models and their direction of response. 
 
-![**Figure 3 | Species-level responses of RW to climwin-selected variables in precipitation and temperature variable groups.** Primary climate drivers are coded on the x-axes as the climate variable abbreviation followed by the range of months (p=previous year, c=current year) over which it is most influential. For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. For each relationship shown, other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/pre_temp_groups.png)
+![**Figure 3 | Species-level responses of RW to climwin-selected variables in precipitation and temperature variable groups.** Primary climate drivers are coded on the x-axes as the climate variable abbreviation followed by the range of months (p=previous year, c=current year) over which it is most influential. For each species (color-coded as in Fig. 4), relationships are plotted if included in top model. For each relationship shown, other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate driver, shading indicates 1 SD.](tables_figures/pre_temp_groups.png)
 
 
 ```{r , eval=TRUE, echo=FALSE}
@@ -612,7 +613,7 @@ Temperature variable $\times DBH$ interactions were significant for `r round(n_D
 Directions of these interactions were mixed, with `r n_DBHxT_RW_sig_neg` of `r n_DBHxT_RW_sig` significant interactions negative with RW as the growth metric and `r n_DBHxT_BAI_sig_neg` of `r n_DBHxT_BAI_sig` significant interactions negative when BAI was the growth metric.
 For both RW and BAI, the majority of significant negative interactions (i.e., more negative/ less positive response of larger trees to higher temperatures) occurred in cases where the main effect temperature was negative (e.g., HKK, LT, CB; Fig.  `r interactions_fig`), whereas positive interactions were more common when the main effect of temperature was positive (e.g., HF, ZOF).
 
-![**Figure 4 | Examples of climate - DBH interactions for three species at three sites.** Shown are modeled response functions at the minimum and maximum and maximum tails of the DBH distribution. Other terms in the model are held constant at their median. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate variable, shading indicates 1 SD.](tables_figures/pre_temp_groups_dbh_interactions.png)
+![**Figure 4 | Examples of climate - DBH interactions for three species at three sites.** Shown are modeled response functions at the minimum and maximum and maximum tails of the DBH distribution. Other terms in the model are held constant at their median. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate driver, shading indicates 1 SD.](tables_figures/pre_temp_groups_dbh_interactions.png)
 
 
 ## Variation with DBH {-#Variation}
@@ -716,7 +717,7 @@ Our analysis differed fundamentally from most conventional approaches in testing
 This result, which is consistent with physiological expectations [e.g., @kumarathunge_acclimation_2019, @wilmking_global_2020], indicates that the majority of tree-ring records examined here cover climate variation beyond the range over which the response is linear. 
 The nonlinear form of most climate growth responses implies that as the climate changes such that high temperatures and strong precipitation anomalies become more common [@ipcc_climate_2014], non-stationary climate responses, already common [@wilmking_global_2020], could become more prevalent [@germain_climate_2020]. 
 
-We found that interactions between climate variables and DBH were common (`r round(n_DBHx_analyzed_sig/ n_DBHx_analyzed*100)`% of total cases analyzed;  Table `r hypotheses`, Figs. `r interactions_fig`, `r RW_interactions_all`).
+We found that interactions between climate drivers and DBH were common (`r round(n_DBHx_analyzed_sig/ n_DBHx_analyzed*100)`% of total cases analyzed;  Table `r hypotheses`, Figs. `r interactions_fig`, `r RW_interactions_all`).
 The most coherent pattern observed in this analysis was a tendency for larger trees to be more sensitive to precipitation and high temperatures (Fig. `r interactions_fig`), consistent with widespread observations that larger trees are more sensitive to drought [e.g., @bennett_larger_2015; @hacket-pain_consistent_2016; @pretzsch_drought_2018; @gillerot_tree_2020; @mcgregor_tree_2020].
 An analytical structure such as ours that can account for this pattern and other DBH-climate interactions [e.g., @rollinson_climate_2021; @rossi_agedependent_2007] will be critical to using tree-ring records to understand and forecast the effects of climate on tree growth and forest productivity.
 
