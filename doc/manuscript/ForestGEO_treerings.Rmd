@@ -819,6 +819,8 @@ Data for [# TBD] of the sites are archived in the The DendroEcological Network (
 
 Figures `r all_traditional_comparisons`. Comparison of our approach with traditional methods of identifying climate signals for four species.
 
+`r decadal_analysis_verification_example_legend`
+
 `r climwin_HKK_T_legend`
 
 `r climwin_SCBI_W_legend` 
@@ -839,7 +841,7 @@ Figures `r all_traditional_comparisons`. Comparison of our approach with traditi
 
 `r RW_interactions_all_legend ` 
 
-`r decadal_analysis_verification_example_legend`
+
 
 
 # References {-#References}
