@@ -180,29 +180,11 @@ climwin_SCBI_W = "S19"
 climwin_SCBI_T = "S20"
 climwin_HF_W = "S23"
 
-
-
-all_GLS = "S35-S54"
+##GLS
 GLS_BCNM = "S35"
-GLS_BCNM_year = "S36"
-GLS_HKK = "S37"
-GLS_HKK_year = "S38"
 GLS_SCBI = "S39"
 GLS_SCBI_year = "S40"
-GLS_LDW = "S41"
-GLS_LDW_year = "S42"
-GLS_HF = "S43"
-GLS_HF_year = "S44"
-GLS_ZOF = "S45"
-GLS_ZOF_year = "S46"
-GLS_NIO = "S47"
-GLS_NIO_year = "S48"
 GLS_LT = "S49"
-GLS_LT_year = "S50"
-GLS_CB = "S51"
-GLS_CB_year = "S52"
-GLS_SC = "S53"
-GLS_SC_year = "S54"
 
 SC_1970break = "S55"
 
@@ -284,8 +266,8 @@ GLS_SC_year_legend = "Figure S54. Best GLS models including climate, DBH, and ye
 
 SC_1970break_legend = "Figure S55. Climate responses at SC before and after 1970."
 
-RW_interactions_all_legend = "Figure S56. All signficant climate - DBH interactions with RW as the response metric."
-BAI_interactions_all_legend ="Figure S57. All signficant climate - DBH interactions with RW as the response metric."
+RW_interactions_all_legend = "Figure S56. All significant climate - DBH interactions with RW as the response metric."
+BAI_interactions_all_legend ="Figure S57. All signficant climate - DBH interactions with BAI as the response metric."
 
 decadal_plot_BCNM_legend = "Figure S58. Relationships between DBH and BAI by decade for BCNM."
 decadal_plot_HKK_legend = "Figure S59. Relationships between DBH and BAI by decade for HKK."
@@ -681,12 +663,12 @@ n_DBHxT_BAI_sig=16
 n_DBHxT_BAI_sig_neg=10 #mostly drought signal, including 4 species at CB
 ```
 
-Interactive effects of climate and DBH were found for `r n_DBHx_analyzed_sig` of the `r n_DBHx_analyzed` (`r round(n_DBHx_analyzed_sig/ n_DBHx_analyzed*100)`%) species-variable combinations for which they were tested. 
-For precipitation variables, interactions were significant for `r n_DBHxP_RW_sig` of the `r n_DBHxP_RW_analyzed` (`r round(n_DBHxP_RW_sig/ n_DBHxP_RW_analyzed*100)`%) interactions with RW as the growth metric (Fig. `r RW_interactions_all`) and for `r n_DBHxP_BAI_sig` of the `r n_DBHxP_BAI_analyzed` (`r round(n_DBHxP_BAI_sig/ n_DBHxP_BAI_analyzed*100)`%) with BAI as the growth metric (Fig. `r BAI_interactions_all`).
+Interactive effects of climate and DBH were found for `r n_DBHx_analyzed_sig` of the `r n_DBHx_analyzed` (`r round(n_DBHx_analyzed_sig/ n_DBHx_analyzed*100)`%) species-site-variable (RW, BAI, or $\Delta$DBH) combinations for which they were tested. 
+For precipitation variables, interactions were significant for `r n_DBHxP_RW_sig` of the `r n_DBHxP_RW_analyzed` (`r round(n_DBHxP_RW_sig/ n_DBHxP_RW_analyzed*100)`%) interactions with RW as the growth metric (Fig. `r RW_interactions_all`) and for `r n_DBHxP_BAI_sig` of the `r n_DBHxP_BAI_analyzed` (`r round(n_DBHxP_BAI_sig/ n_DBHxP_BAI_analyzed*100)`%) with BAI as the growth metric.
 The majority of these interactions were positive (`r round(n_DBHxP_RW_sig_pos/n_DBHxP_RW_sig*100)`% for RW; `r round(n_DBHxP_BAI_sig_pos/n_DBHxP_BAI_sig*100)`% for BAI), indicating that larger trees generally respond more positively to precipitation or its frequency (Fig.  `r interactions_fig`).
 Among the exceptions to this pattern (n=`r n_DBHxP_RW_sig-n_DBHxP_RW_sig_pos` for RW, `r n_DBHxP_BAI_sig-n_DBHxP_BAI_sig_pos` for BAI), only a minority (n=1 for RW, 4 for BAI) occurred in species responding positively to precipitation in the current growing season. 
 
-Temperature variable $\times DBH$ interactions were significant for `r round(n_DBHxT_RW_sig/ n_DBHxT_RW_analyzed*100)`% of cases with RW as the growth metric (Fig. `r RW_interactions_all`) and for `r round(n_DBHxT_BAI_sig/ n_DBHxT_BAI_analyzed*100)`% with BAI as the growth metric (Fig. `r BAI_interactions_all`).
+Temperature variable $\times DBH$ interactions were significant for `r round(n_DBHxT_RW_sig/ n_DBHxT_RW_analyzed*100)`% of cases with RW as the growth metric (Fig. `r RW_interactions_all`) and for `r round(n_DBHxT_BAI_sig/ n_DBHxT_BAI_analyzed*100)`% with BAI as the growth metric.
 Directions of these interactions were mixed, with `r n_DBHxT_RW_sig_neg` of `r n_DBHxT_RW_sig` significant interactions negative with RW as the growth metric and `r n_DBHxT_BAI_sig_neg` of `r n_DBHxT_BAI_sig` significant interactions negative when BAI was the growth metric.
 For both RW and BAI, the majority of significant negative interactions (i.e., more negative/ less positive response of larger trees to higher temperatures) occurred in cases where the main effect temperature was negative (e.g., HKK, LT, CB; Fig.  `r interactions_fig`), whereas positive interactions were more common when the main effect of temperature was positive (e.g., HF, ZOF).
 
@@ -794,7 +776,7 @@ Our analysis differed fundamentally from most conventional approaches in testing
 This result, which is consistent with physiological expectations [e.g., @kumarathunge_acclimation_2019, @wilmking_global_2020], indicates that the majority of tree-ring records examined here cover climate variation beyond the range over which the response is linear. 
 The nonlinear form of most climate growth responses implies that as the climate changes such that high temperatures and strong precipitation anomalies become more common [@ipcc_climate_2014], non-stationary climate responses, already common [@wilmking_global_2020], could become more prevalent [@germain_climate_2020]. 
 
-We found that interactions between climate variables and DBH were common (`r round(n_DBHx_analyzed_sig/ n_DBHx_analyzed*100)`% of total cases analyzed;  Table `r hypotheses`, Figs. `r interactions_fig`, `r RW_interactions_all`, `r BAI_interactions_all`).
+We found that interactions between climate variables and DBH were common (`r round(n_DBHx_analyzed_sig/ n_DBHx_analyzed*100)`% of total cases analyzed;  Table `r hypotheses`, Figs. `r interactions_fig`, `r RW_interactions_all`).
 The most coherent pattern observed in this analysis was a tendency for larger trees to be more sensitive to precipitation and high temperatures (Fig. `r interactions_fig`), consistent with widespread observations that larger trees are more sensitive to drought [e.g., @bennett_larger_2015; @hacket-pain_consistent_2016; @pretzsch_drought_2018; @gillerot_tree_2020; @mcgregor_tree_2020].
 An analytical structure such as ours that can account for this pattern and other DBH-climate interactions [e.g., @rollinson_climate_2021; @rossi_agedependent_2007] will be critical to using tree-ring records to understand and forecast the effects of climate on tree growth and forest productivity.
 
@@ -920,8 +902,6 @@ Figures `r all_traditional_comparisons`. Comparison of our approach with traditi
 `r SC_1970break_legend`
 
 `r RW_interactions_all_legend ` 
-
-`r BAI_interactions_all_legend`
 
 Figures `r decadal_analysis_figs_all`. Relationships between DBH and BAI by decade for all sites. 
 
