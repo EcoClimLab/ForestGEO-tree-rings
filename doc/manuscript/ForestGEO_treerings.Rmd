@@ -174,111 +174,48 @@ Zofin_traditional_comparison = "S2"
 CB_traditional_comparison = "S3"
 SC_traditional_comparison = "S4"
 
+decadal_analysis_verification_example = "S5"
+
 ##climwin
-climwin_HKK_T = "S18"
-climwin_SCBI_W = "S19"
-climwin_SCBI_T = "S20"
-climwin_HF_W = "S23"
+climwin_HKK_T = "S6"
+climwin_SCBI_W = "S7"
+climwin_SCBI_T = "S8"
+climwin_HF_W = "S9"
 
 ##GLS
-GLS_BCNM = "S35"
-GLS_SCBI = "S39"
-GLS_SCBI_year = "S40"
-GLS_LT = "S49"
+GLS_BCNM = "S10"
+GLS_SCBI = "S11"
+GLS_SCBI_year = "S12"
+GLS_LT = "S13"
 
-SC_1970break = "S55"
+SC_1970break = "S14"
 
-RW_interactions_all= "S56"
-BAI_interactions_all= "S57"
+RW_interactions_all= "S15"
 
-decadal_analysis_figs_all = "S58-S67"
-decadal_plot_BCNM = "S58"
-decadal_plot_HKK = "S59"
-decadal_plot_SCBI = "S60"
-decadal_plot_LDW = "S61"
-decadal_plot_HF = "S62"
-decadal_plot_ZOF = "S63"
-decadal_plot_NIO = "S64"
-decadal_plot_LT = "S65"
-decadal_plot_CB = "S66"
-decadal_plot_SC = "S67"
+
 
 #SI figure captions
-recruitment_plot_BCNM_legend = "Figure S1. Density plot of core record start years by species for BCNM."
-recruitment_plot_HKK_legend = "Figure S2. Density plot of core record start years by species for HKK."
-recruitment_plot_SCBI_legend = "Figure S3. Density plot of core record start years by species for SCBI."
-recruitment_plot_LDW_legend = "Figure S4. Density plot of core record start years by species for LDW."
-recruitment_plot_HF_legend = "Figure S5. Density plot of core record start years by species for HF."
-recruitment_plot_ZOF_legend = "Figure S6. Density plot of core record start years by species for ZOF."
-recruitment_plot_NIO_legend = "Figure S7. Density plot of core record start years by species for NIO."
-recruitment_plot_LT_legend = "Figure S8. Density plot of core record start years by species for LT."
-recruitment_plot_CB_legend = "Figure S9. Density plot of core record start years by species for CB."
-recruitment_plot_SC_legend = "Figure S10. Density plot of core record start years by species for SC."
 
-SCBI_traditional_comparison_legend <- "Figure S11. Comparison of our approach with traditional methods of identifying climate signals: *Liriodendron tulipifera* at SCBI."
-Zofin_traditional_comparison_legend <- "Figure S12. Comparison of our approach with traditional methods of identifying climate signals: *Abies alba* at Zofin."
-CB_traditional_comparison_legend <- "Figure S13. Comparison of our approach with traditional methods of identifying climate signals: *Pseudotsuga menziesii* at Cedar Breaks."
-SC_traditional_comparison_legend <- "Figure S14. Comparison of our approach with traditional methods of identifying climate signals: *Picea mariana* at Scotty Creek."
+SCBI_traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals: *Liriodendron tulipifera* at SCBI."
+Zofin_traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals: *Abies alba* at Zofin."
+CB_traditional_comparison_legend <- "Figure S3. Comparison of our approach with traditional methods of identifying climate signals: *Pseudotsuga menziesii* at Cedar Breaks."
+SC_traditional_comparison_legend <- "Figure S4. Comparison of our approach with traditional methods of identifying climate signals: *Picea mariana* at Scotty Creek."
 
+decadal_analysis_verification_example_legend <- "Figure S5. Example comparison of year effect in GLS model with independent decadal analysis: BCNM"
 
+climwin_HKK_T_legend = "Figure S6. Climwin output for temperature variable group at HKK."
+climwin_SCBI_W_legend  = "Figure S7. Climwin output for water variable group at SCBI."
+climwin_SCBI_T_legend = "Figure S8. Climwin output for temperature variable group at SCBI."
+climwin_HF_W_legend =  "Figure S9. Climwin output for water variable group at HF."
 
-climwin_BCNM_W_legend = "Figure S15. Climwin output for water variable group at BCNM."
-climwin_BCNM_T_legend = "Figure S16. Climwin output for temperature variable group at BCNM."
-climwin_HKK_W_legend =  "Figure S17. Climwin output for water variable group at HKK."
-climwin_HKK_T_legend = "Figure S18. Climwin output for temperature variable group at HKK."
-climwin_SCBI_W_legend  = "Figure S19. Climwin output for water variable group at SCBI."
-climwin_SCBI_T_legend = "Figure S20. Climwin output for temperature variable group at SCBI."
-climwin_LDW_W_legend = "Figure S21. Climwin output for water variable group at LDW."
-climwin_LDW_T_legend = "Figure S22. Climwin output for temperature variable group at LDW."
-climwin_HF_W_legend =  "Figure S23. Climwin output for water variable group at HF."
-climwin_HF_T_legend = "Figure S23. Climwin output for temperature variable group at HF."
-climwin_ZOF_W_legend  = "Figure S25. Climwin output for water variable group at ZOF."
-climwin_ZOF_T_legend = "Figure S26. Climwin output for temperature variable group at ZOF."
-climwin_NIO_W_legend = "Figure S27. Climwin output for water variable group at NIO."
-climwin_NIO_T_legend = "Figure S28. Climwin output for temperature variable group at NIO."
-climwin_LT_W_legend =  "Figure S29. Climwin output for water variable group at LT."
-climwin_LT_T_legend = "Figure S30. Climwin output for temperature variable group at LT."
-climwin_CB_W_legend  = "Figure S31. Climwin output for water variable group at CB."
-climwin_CB_T_legend = "Figure S32. Climwin output for temperature variable group at CB."
-climwin_SC_W_legend  = "Figure S33. Climwin output for water variable group at SC."
-climwin_SC_T_legend = "Figure S34. Climwin output for temperature variable group at SC."
+GLS_BCNM_legend = "Figure S10. Best GLS models including climate and DBH for BCNM"
+GLS_SCBI_legend = "Figure S11. Best GLS models including climate and DBH for SCBI"
+GLS_SCBI_year_legend = "Figure S12. Best GLS models including climate, DBH, and year for SCBI"
+GLS_LT_legend = "Figure S13. Best GLS models including climate and DBH for LT"
 
-GLS_BCNM_legend = "Figure S35. Best GLS models including climate and DBH for BCNM"
-GLS_BCNM_year_legend = "Figure S36. Best GLS models including climate, DBH, and year for BCNM"
-GLS_HKK_legend = "Figure S37. Best GLS models including climate and DBH for HKK"
-GLS_HKK_year_legend = "Figure S38. Best GLS models including climate, DBH, and year for HKK"
-GLS_SCBI_legend = "Figure S39. Best GLS models including climate and DBH for SCBI"
-GLS_SCBI_year_legend = "Figure S40. Best GLS models including climate, DBH, and year for SCBI"
-GLS_LDW_legend = "Figure S41. Best GLS models including climate and DBH for LDW"
-GLS_LDW_year_legend = "Figure S42. Best GLS models including climate, DBH, and year for LDW"
-GLS_HF_legend = "Figure S43. Best GLS models including climate and DBH for HF"
-GLS_HF_year_legend = "Figure S44. Best GLS models including climate, DBH, and year for HF "
-GLS_ZOF_legend = "Figure S45. Best GLS models including climate and DBH for ZOF"
-GLS_ZOF_year_legend = "Figure S46. Best GLS models including climate, DBH, and year for ZOF"
-GLS_NIO_legend = "Figure S47. Best GLS models including climate and DBH for NIO"
-GLS_NIO_year_legend = "Figure S48. Best GLS models including climate, DBH, and year for NIO"
-GLS_LT_legend = "Figure S49. Best GLS models including climate and DBH for LT"
-GLS_LT_year_legend = "Figure S50. Best GLS models including climate, DBH, and year for LT"
-GLS_CB_legend = "Figure S51. Best GLS models including climate and DBH for CB"
-GLS_CB_year_legend = "Figure S52. Best GLS models including climate, DBH, and year for CB"
-GLS_SC_legend = "Figure S53. Best GLS models including climate and DBH for SC"
-GLS_SC_year_legend = "Figure S54. Best GLS models including climate, DBH, and year for SC"
+SC_1970break_legend = "Figure S14. Climate responses at SC before and after 1970."
 
-SC_1970break_legend = "Figure S55. Climate responses at SC before and after 1970."
-
-RW_interactions_all_legend = "Figure S56. All significant climate - DBH interactions with RW as the response metric."
-BAI_interactions_all_legend ="Figure S57. All signficant climate - DBH interactions with BAI as the response metric."
-
-decadal_plot_BCNM_legend = "Figure S58. Relationships between DBH and BAI by decade for BCNM."
-decadal_plot_HKK_legend = "Figure S59. Relationships between DBH and BAI by decade for HKK."
-decadal_plot_SCBI_legend = "Figure S60. Relationships between DBH and BAI by decade for SCBI."
-decadal_plot_LDW_legend = "Figure S61. Relationships between DBH and BAI by decade for LDW."
-decadal_plot_HF_legend = "Figure S62. Relationships between DBH and BAI by decade for HF."
-decadal_plot_ZOF_legend = "Figure S63. Relationships between DBH and BAI by decade for ZOF."
-decadal_plot_NIO_legend = "Figure S64. Relationships between DBH and BAI by decade for NIO."
-decadal_plot_LT_legend = "Figure S65. Relationships between DBH and BAI by decade for LT."
-decadal_plot_CB_legend = "Figure S66. Relationships between DBH and BAI by decade for CB."
-decadal_plot_SC_legend = "Figure S67. Relationships between DBH and BAI by decade for SC."
+RW_interactions_all_legend = "Figure S15. All significant climate - DBH interactions with RW as the response metric."
 
 ```
 
@@ -528,7 +465,7 @@ To avoid severe big-tree selection bias [@brienen_detecting_2012], we also requi
 Species that failed to meet these criteria (n= 8; Table `r sampling_details_table`) were excluded from the analysis of temporal trends, but were included in analyses of climate and DBH and their interactions.
 We then ran models as described above, including a  first-order linear effect of year.
 We note that the random effect of tree should, in theory, avoid analytical biases arising from persistent growth differences among individuals that are not accounted for by DBH or year [@brienen_detecting_2012; @brienen_tree_2017]. 
-To verify that GLS model trends for year were not an artifact of inherent covariation between DBH and year within each core, we compared GLS results to an analysis of DBH-growth relationships by decade (Figs. `r decadal_analysis_figs_all`). 
+To verify that GLS model trends for year were not an artifact of inherent covariation between DBH and year within each core, we compared GLS results to an analysis of DBH-growth relationships by decade. 
 
 Within each of three categories of models run (climate only, climate + DBH, climate $\times$ DBH, climate + DBH + year), we selected as the top model that with the lowest AIC.  
 
@@ -543,8 +480,7 @@ While one-to-one correspondence of estimated slope coefficients describing the r
 
 ![**Figure 2 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table `r species_table`) to potential evapotranspiration (PET). Panel (**a**) shows a matrix of Pearson correlations between ring-width index and monthly climate variables [produced using the bootRes package in R, @zang_dendroclimatic_2013]. Black rectangle represents the period selected by *climwin* as the most influential window. Panels (**b-d**) give statistics for seasonal windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diagonal indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each seasonal window, and (**d**) gives the $\Delta$AIC for each. The seasonal window with the minimum $\Delta$AIC (1-3 months prior to August, or May-July; black circles), was identified as the most influential window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows the GLS model output, where PET was a candidate driver variable (along with PPT; DBH not included in this model). Plotted are responses of species for which PET was included in the top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are significant, dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Species names corresponding to the codes are given in Table `r species_table`.](tables_figures/quilt_comparison.png)
 
-
-*Trends with year, when assessed, were consistent with those observed in a separate analysis of DBH-growth relationships by year (Figs. `r decadal_analysis_figs_all`).*
+Trends with year, when assessed, were generally consistent with those observed in a separate analysis of DBH-growth relationships by year (Fig. `r decadal_analysis_verification_example`).
 
 ## Climate sensitivity {-#Climate}
 
@@ -757,7 +693,7 @@ Effects of year and DBH interacted such that inclusion of year in models altered
 
 The long-term growth records contained in tree rings provide an exceptional tool for understanding past drivers of growth and anticipating future forest changes, yet traditional analysis methods were not designed to address questions that are critical to understanding whole-forest productivity (Table `r hypotheses`).
 Our novel method provides a powerful approach to elucidate how tree growth is simultaneously shaped by climate, tree size, slowly changing environmental conditions, and their interactions (Fig. `r schematic`).
-For each of these drivers individually, the method yields results that are consistent with those that would be obtained using established methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`, `r decadal_analysis_figs_all`;  Table `r qualitative_results_comparison`; see also Appendix `r traditional_comparison`). 
+For each of these drivers individually, the method yields results that are consistent with those that would be obtained using established methods (Figs. `r SCBI_example`, `r all_traditional_comparisons`, `r decadal_analysis_verification_example`;  Table `r qualitative_results_comparison`; see also Appendix `r traditional_comparison`). 
 By allowing these factors to be considered simultaneously, our approach opens the door to robust analyses of the joint and interactive effects of climate, tree size, and other drivers. 
 Applied across multiple forest types and species distributed globally across 10 sites, this method yields a more complete understanding of the drivers of variability and directional changes in tree growth over the past century (Tables `r hypotheses`-`r sites`). 
 
@@ -817,7 +753,7 @@ At Scotty Creek, in northern Canada, rapid warming is thawing permafrost and alt
 
 Within the three older forests (ZOF, LT, CB), growth trends were mixed (Table `r hypotheses`, Fig. `r year_fig`), probably reflecting some combination of successional changes and shifting competitive advantages, perhaps in part driven by changing environmental conditions [@furniss_reconciling_2017; @vrska_european_2009] or the lack of intermediate disturbances giving rise to increasing crowding [e.g., @lutz_twentiethcentury_2009].
 In particular, light-demanding species that establish in gaps (e.g., *Populus tremuloides* at CB; Table `r species_table`) would tend to experience an increasingly competitive environment through time.
-At Zofin, size-corrected growth rates were lowest in the 1970s and 1980s (Fig. `r decadal_plot_ZOF`), consistent with other studies from central Europe showing dramatic growth reductions due to acid deposition during this period [@elling_dendroecological_2009; @samonil_longterm_2008]. 
+At Zofin, size-corrected growth rates were lowest in the 1970s and 1980s, consistent with other studies from central Europe showing dramatic growth reductions due to acid deposition during this period [@elling_dendroecological_2009; @samonil_longterm_2008]. 
 Non-linear trends such as this would be more accurately described by a non-linear response function to year, or incorporation of data on pollution, but that is beyond the scope of the current analysis.
 Notably, there were only three species -- *Fagus sylvatica* at ZOF and *Picea pungens* and *Pinus flexilis* at CB -- whose growth rate increased significantly over the analysis time frame (Fig. `r year_fig`).
 
@@ -903,7 +839,7 @@ Figures `r all_traditional_comparisons`. Comparison of our approach with traditi
 
 `r RW_interactions_all_legend ` 
 
-Figures `r decadal_analysis_figs_all`. Relationships between DBH and BAI by decade for all sites. 
+`r decadal_analysis_verification_example_legend`
 
 
 # References {-#References}
