@@ -1,41 +1,41 @@
-"species code","family","latin name","sites sampled","leaf type","leaf phenology","light requirements","bark allometry"
-"ABAL","Pinaceae","Abies alba","ZOF","needleleaf","evergreen","shade-tolerant","2"
-"ABBI","Pinaceae","Abies bifolia","CB","needleleaf","evergreen","shade-tolerant","2"
-"ACRU","Sapindaceae","Acer rubrum","HF","broadleaf","deciduous (cold)","intermediate","3"
-"ACSA","Sapindaceae","Acer saccharum","LDW","broadleaf","deciduous (cold)","shade-tolerant","3"
-"AFXY","Fabaceae","Afzelia xylocarpa ","HKK","broadleaf","deciduous (drought)","light-demanding","neglected"
-"BEAL","Betulaceae","Betula alleghaniensis","HF","broadleaf","deciduous (cold)","intermediate","4"
-"BEPA","Betulaceae","Betula papyrifera","NIO","broadleaf","deciduous (cold)","light-demanding","5"
-"CACO","Juglandaceae","Carya cordiformis","SCBI","broadleaf","deciduous (cold)","light-demanding","6"
-"CAGL","Juglandaceae","Carya glabra","SCBI","broadleaf","deciduous (cold)","intermediate","7"
-"CAOV","Juglandaceae","Carya ovata","LDW","broadleaf","deciduous (cold)","intermediate","7"
-"CAOVL","Juglandaceae","Carya ovalis","SCBI","broadleaf","deciduous (cold)","intermediate","8"
-"CATO","Juglandaceae","Carya tomentosa","SCBI","broadleaf","deciduous (cold)","light-demanding","9"
-"CHTA","Meliaceae","Chukrasia tabularis ","HKK","broadleaf","brevi-deciduous (drought)","intermediate","neglected"
-"FAGR","Fagaceae","Fagus grandifolia","HF, SCBI","broadleaf","deciduous (cold)","shade-tolerant","neglected"
-"FASY","Fagaceae","Fagus sylvatica","ZOF","broadleaf","deciduous (cold)","shade-tolerant","neglected"
-"FRAM","Oleaceae","Fraxinus americana","LDW, SCBI","broadleaf","deciduous (cold)","intermediate","10"
-"FRNI","Oleaceae","Fraxinus nigra","SCBI","broadleaf","deciduous (cold)","intermediate","10"
-"JACO","Bignoniaceae","Jacaranada copaia","BCNM","broadleaf","deciduous (drought)","light-demanding","11"
-"JUNI","Juglandaceae","Juglans nigra","SCBI","broadleaf","deciduous (cold)","light-demanding","12"
-"LITU","Magnoliaceae","Liriodendron tulipifera","LDW, SCBI","broadleaf","deciduous (cold)","light-demanding","13"
-"MEAZ","Meliaceae","Melia azedarach ","HKK","broadleaf","deciduous (drought)","light-demanding","neglected"
-"PIAB","Pinaceae","Picea abies","HF, ZOF","needleleaf","evergreen","shade-tolerant","14"
-"PIEN","Pinaceae","Picea engelmannii","CB","needleleaf","evergreen","shade-tolerant","14"
-"PIFL","Pinaceae","Pinus flexilis","CB","needleleaf","evergreen","light-demanding","17"
-"PILO","Pinaceae","Pinus longaeva","CB","needleleaf","evergreen","light-demanding","neglected"
-"PIMA","Pinaceae","Picea mariana","SC","needleleaf","evergreen","shade-tolerant","15"
-"PIPO","Pinaceae","Pinus ponderosa","LT","needleleaf","evergreen","light-demanding","16"
-"PIPU","Pinaceae","Picea pungens","CB","needleleaf","evergreen","intermediate","14"
-"PIST","Pinaceae","Pinus strobus","HF, SCBI","needleleaf","evergreen","intermediate","18"
-"PIST3","Pinaceae","Pinus strobiformis","LT","needleleaf","evergreen","light-demanding","17"
-"POTR","Salicaceae","Populus tremuloides","CB","broadleaf","deciduous (cold)","light-demanding","19"
-"PSME","Pinaceae","Pseudotsuga menziesii","CB","needleleaf","evergreen","intermediate","20"
-"QUAL","Fagaceae","Quercus alba","LDW, SCBI","broadleaf","deciduous (cold)","intermediate","21"
-"QUMO","Fagaceae","Quercus montana","LDW, SCBI","broadleaf","deciduous (cold)","intermediate","22"
-"QURU","Fagaceae","Quercus rubra","HF, LDW, SCBI","broadleaf","deciduous (cold)","intermediate","23"
-"QUVE","Fagaceae","Quercus velutina","LDW, SCBI","broadleaf","deciduous (cold)","intermediate","24"
-"TEPA","Burseraceae","Tetragastris panamensis","BCNM","broadleaf","evergreen","shade-tolerant","25"
-"TOCI","Meliaceae","Toona ciliata ","HKK","broadleaf","deciduous (drought)","intermediate","neglected"
-"TRTU","Meliaceae","Trichilia tuberculata","BCNM","broadleaf","evergreen","shade-tolerant","26"
-"TSCA","Pinaceae","Tsuga canadensis","HF","needleleaf","evergreen","shade-tolerant","27"
+species code,family,latin name,sites sampled,leaf type,leaf phenology,light requirements,bark allometry
+ABAL,Pinaceae,Abies alba,ZOF,conifer,evergreen,shade-tolerant,2
+ABBI,Pinaceae,Abies bifolia,CB,conifer,evergreen,shade-tolerant,2
+ACRU,Sapindaceae,Acer rubrum,HF,broadleaf,deciduous (cold),intermediate,3
+ACSA,Sapindaceae,Acer saccharum,LDW,broadleaf,deciduous (cold),shade-tolerant,3
+AFXY,Fabaceae,Afzelia xylocarpa ,HKK,broadleaf,deciduous (drought),light-demanding,neglected
+BEAL,Betulaceae,Betula alleghaniensis,HF,broadleaf,deciduous (cold),intermediate,4
+BEPA,Betulaceae,Betula papyrifera,NIO,broadleaf,deciduous (cold),light-demanding,5
+CACO,Juglandaceae,Carya cordiformis,SCBI,broadleaf,deciduous (cold),light-demanding,6
+CAGL,Juglandaceae,Carya glabra,SCBI,broadleaf,deciduous (cold),intermediate,7
+CAOV,Juglandaceae,Carya ovata,LDW,broadleaf,deciduous (cold),intermediate,7
+CAOVL,Juglandaceae,Carya ovalis,SCBI,broadleaf,deciduous (cold),intermediate,8
+CATO,Juglandaceae,Carya tomentosa,SCBI,broadleaf,deciduous (cold),light-demanding,9
+CHTA,Meliaceae,Chukrasia tabularis ,HKK,broadleaf,brevi-deciduous (drought),intermediate,neglected
+FAGR,Fagaceae,Fagus grandifolia,"HF, SCBI",broadleaf,deciduous (cold),shade-tolerant,neglected
+FASY,Fagaceae,Fagus sylvatica,ZOF,broadleaf,deciduous (cold),shade-tolerant,neglected
+FRAM,Oleaceae,Fraxinus americana,"LDW, SCBI",broadleaf,deciduous (cold),intermediate,10
+FRNI,Oleaceae,Fraxinus nigra,SCBI,broadleaf,deciduous (cold),intermediate,10
+JACO,Bignoniaceae,Jacaranada copaia,BCNM,broadleaf,deciduous (drought),light-demanding,11
+JUNI,Juglandaceae,Juglans nigra,SCBI,broadleaf,deciduous (cold),light-demanding,12
+LITU,Magnoliaceae,Liriodendron tulipifera,"LDW, SCBI",broadleaf,deciduous (cold),light-demanding,13
+MEAZ,Meliaceae,Melia azedarach ,HKK,broadleaf,deciduous (drought),light-demanding,neglected
+PIAB,Pinaceae,Picea abies,"HF, ZOF",conifer,evergreen,shade-tolerant,14
+PIEN,Pinaceae,Picea engelmannii,CB,conifer,evergreen,shade-tolerant,14
+PIFL,Pinaceae,Pinus flexilis,CB,conifer,evergreen,light-demanding,17
+PILO,Pinaceae,Pinus longaeva,CB,conifer,evergreen,light-demanding,neglected
+PIMA,Pinaceae,Picea mariana,SC,conifer,evergreen,shade-tolerant,15
+PIPO,Pinaceae,Pinus ponderosa,LT,conifer,evergreen,light-demanding,16
+PIPU,Pinaceae,Picea pungens,CB,conifer,evergreen,intermediate,14
+PIST,Pinaceae,Pinus strobus,"HF, SCBI",conifer,evergreen,intermediate,18
+PIST3,Pinaceae,Pinus strobiformis,LT,conifer,evergreen,light-demanding,17
+POTR,Salicaceae,Populus tremuloides,CB,broadleaf,deciduous (cold),light-demanding,19
+PSME,Pinaceae,Pseudotsuga menziesii,CB,conifer,evergreen,intermediate,20
+QUAL,Fagaceae,Quercus alba,"LDW, SCBI",broadleaf,deciduous (cold),intermediate,21
+QUMO,Fagaceae,Quercus montana,"LDW, SCBI",broadleaf,deciduous (cold),intermediate,22
+QURU,Fagaceae,Quercus rubra,"HF, LDW, SCBI",broadleaf,deciduous (cold),intermediate,23
+QUVE,Fagaceae,Quercus velutina,"LDW, SCBI",broadleaf,deciduous (cold),intermediate,24
+TEPA,Burseraceae,Tetragastris panamensis,BCNM,broadleaf,evergreen,shade-tolerant,25
+TOCI,Meliaceae,Toona ciliata ,HKK,broadleaf,deciduous (drought),intermediate,neglected
+TRTU,Meliaceae,Trichilia tuberculata,BCNM,broadleaf,evergreen,shade-tolerant,26
+TSCA,Pinaceae,Tsuga canadensis,HF,conifer,evergreen,shade-tolerant,27

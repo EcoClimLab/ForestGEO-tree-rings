@@ -373,12 +373,16 @@ ft <- width(ft, 8, width = .52)
 ft <- width(ft, 9, width = .5)
 ft <- width(ft, 10, width = 1.5)
 ft <- footnote( ft, i = 1, j = 4:6,
-                value = as_paragraph(c("Refers to 1950-2019 mean climate.")),
+                value = as_paragraph(c("Refers to 1950-2019 mean climate")),
                 ref_symbols = c("*"),
                 part = "header",inline=T)
-ft <- footnote( ft, i = c(6,8,9), j = 2,
-                value = as_paragraph(c("Older forest, with majority of sampled trees established before 1900.")),
+ft <- footnote( ft, i = 1, j = 7,
+                value = as_paragraph(c("BD= Broadleaf Deciduous, BE= Broadleaf Evergreen, C=Conifer")),
                 ref_symbols = c("**"),
+                part = "header",inline=T)
+ft <- footnote( ft, i = c(6,8,9), j = 2,
+                value = as_paragraph(c("Older forest, with majority of sampled trees established before 1900")),
+                ref_symbols = c("#"),
                 part = "body",inline=T)
 ft  
 
