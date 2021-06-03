@@ -680,17 +680,14 @@ nocite: |
 
 **(a) pre-1970**
 
-![ `r `](tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png){ width=57% }
+![ `r `](tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png){ width=50% }
 
 **(b) post-1970**
 
-![`r SC_1970break_legend` *Climwin*-selected climate drivers are coded on the x-axes as the climate variable name followed by the range of months (p=previous year, c=current year) over which it is most influential. For each relationship shown, other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate driver, shading indicates 1 SD.](tables_figures/SI_figures/GLS_post1970_ScottyCreek.png){ width=57% }
-
-
+![`r SC_1970break_legend` *Climwin*-selected climate drivers are coded on the x-axes as the climate variable name followed by the range of months (p=previous year, c=current year) over which it is most influential. For each relationship shown, other terms in the model are held constant at their median. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dashed lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate driver, shading indicates 1 SD.](tables_figures/SI_figures/GLS_post1970_ScottyCreek.png){ width=50% }
 
 
 \newpage
-
 ## `r RW_interactions_all_legend`
 
 ![`r RW_interactions_all_legend` Shown are modeled response functions at the minimum and maximum and maximum ends of the DBH range. Other terms in the model are held constant at their median. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate driver, shading indicates 1 SD.](tables_figures/pre_temp_groups_dbh_interactions_log_core_measurement_dbh.png){ width=90% }
