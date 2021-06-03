@@ -420,7 +420,7 @@ We then calculated basal area increment ($BAI= BA_{y+1}-BA_y$, where $y$ is year
 Monthly climate data for 1901-2019 were obtained from CRU v.4.04 [@harris_updated_2014; @harris_version_2020], and in a few cases corrected based on higher-resolution or local records (Appendix `r climate_correction`). 
 Variables considered here included average daily minimum, maximum, and mean temperatures ($T_{min}$, $T_{max}$, $T_{mean}$, respectively); precipitation (PPT); and, when deemed reliable (Appendix `r climate_correction`), potential evapotranspiration (PET) and precipitation day frequency (PDF).
 For the one riparian site, NIO, we tested for an effect of stream flow (SF), for which we obtained data for the Sparks, Nebraska station (station code: 06461500; 42°54'14"N, 100°26'13"W) from the U.S. Geological Survey (USGS) National Water Information System (https://waterdata.usgs.gov/nwis/uv/?site_no=06461500&agency_cd=USGS&referred_module=sw). 
-All ForestGEO climate records used here are archived in the ForestGEO Climate Data Portal, v1.0 [@anderson-teixeira_forestgeo_2020].
+All ForestGEO climate records used here are archived in the ForestGEO Climate Data Portal, v1.0 (DOI: 10.5281/ZENODO.3958215).
 
 ## Data Analysis {-#Data}
 
