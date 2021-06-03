@@ -211,7 +211,7 @@ The $\v{Z}$of$\'{i}$n forest (ZOF) is a well-preserved natural forest remnant do
 The forest is not fully without past human direct interventions, and a limited historical land use effect is also possible [see @kozakova_contrasting_2011].
 
 In total, 2210 individuals were cored either within the 25 ha ForestGEO plot or a larger, 74 ha plot in which it is embedded. 
-The tree-ring data were collected for several studies around 2010 [@samonil_individual-based_2013; @samonil_disturbances_2014; @samonil_uncertainty_2015; @samonil_uncertainty_2016; @vasickova_true_2016; @vasickova_driving_2019; @kaspar_species-specific_nodate]. 
+The tree-ring data were collected for several studies around 2010 [@samonil_individualbased_2013; @samonil_disturbances_2014; @samonil_uncertainty_2015; @samonil_uncertainty_2016; @vasickova_true_2016; @vasickova_driving_2019; @kaspar_speciesspecific_2021]. 
 The sampling strategy was mainly connected with the disturbance history of the forest and evaluation of growth of juvenile trees in gaps. 
 Therefore, these data consist mainly of dominant and codominant tree species and relatively low number of young trees. 
 
@@ -237,10 +237,10 @@ Cores were collected within the Utah Forest Dynamics Plot ForestGEO plot on the 
 The plot sits on the edge of cliff, which descends ~750 m to a valley below.
 The mature spruce-fir forest is dominated by the species analyzed here (*Abies bifolia*, *Populus tremuloides*, *Picea engelmannii*, *Pinus flexilis*, *Pinus longaeva*, *Picea pungens*, and *Pseudotsuga menziesii*).
 The site is largely undisturbed. 
-The most recent fire occurred in 1802, and many currently living trees established before then. Living *Pinus longaeva* at the site date back ~1600 years, and deadwood at the site dates back to 0 AD [@lutz_large-diameter_2021].
+The most recent fire occurred in 1802, and many currently living trees established before then. Living *Pinus longaeva* at the site date back ~1600 years, and deadwood at the site dates back to 0 AD [@lutz_largediameter_2021].
 
 In 2019, living individuals of each dominant species were cored.  
-Chronologies are published on ITRDB [@birch_birch_2020; @birch_birch_2020-2; @birch_birch_2020-3; @birch_birch_2020-4].
+Chronologies are published on ITRDB [@birch_birch_2020; @birch_birch_2020a; @birch_birch_2020b; @birch_birch_2020c].
 
 ### Scotty Creek, Northwest Territories, Canada
 The Scotty Creek site is a black spruce (*Picea mariana*) forest on rapidly thawing discontinuous permafrost [@baltzer_forests_2014; @sniderhan_growth_2016; @dearborn_permafrost_2020].
@@ -303,7 +303,7 @@ When raw bark thickness data were not available, we applied published bark allom
 Monthly climate data for 1901-2019 were obtained from CRU v.4.04 [@harris_updated_2014; @harris_version_2020], and in a few cases corrected based on more local records. 
 For BCNM, we calculated monthly PPT and PDF from daily precipitation readings made on Barro Colorado Island starting in 1929 [@paton_barro_2019] and used these to replace the corresponding CRU records.
 
-Additionally, we used 800 m resolution PRISM records [@daly_mapping_2015; @daly_physiographically_2008-1] from 1930 to 2015 to test and correct for cases where the coarser-resolution CRU values were not locally representative. 
+Additionally, we used 800 m resolution PRISM records [@daly_mapping_2015; @daly_physiographically_2008] from 1930 to 2015 to test and correct for cases where the coarser-resolution CRU values were not locally representative. 
 Variables in the PRISM data set included $T_{max}$, $T_{mean}$, $T_{min}$, and PPT.
 To test for substantial differences between CRU and PRISM records, each variable was compared on a monthly basis using linear regression. We considered CRU records to be inappropriate if (1) a paired t-test revealed a significant difference between CRU and PRISM records, and (2) the absolute value of the mean monthly difference between CRU and PRISM exceeded 2.5°C (temperature variables) or 10 mm per month (precipitation).
 Two sites met these criteria: LT and CB, both located in mountainous terrain in the western United States. 
@@ -404,7 +404,7 @@ For the water variable at SCBI, this approach and our baseline method consistent
 For the temperature variable at SCBI, results were somewhat different, with this approach identifying $T_{max}$ as the most important variable, and the baseline approach identifying PET. Both identified seasonal windows within the current growing season when RW was the metric, but seasonal windows were not similar when BAI or $\Delta$AGB was the metric.
 Given little meaningful difference between these approaches, and no clear advantage of detrending the climate variable, we preferred the baseline method.
 
-The third approach involved splitting analyses into decades before and after 1970 [*sensu*  @sniderhan_growth_2016] -- an approach that has also been applied in other studies in rapidly warming climates [e.g., @lloyd_no_2002; @driscoll_divergent_2005;@wilmking_recent_2004].
+The third approach involved splitting analyses into decades before and after 1970 [*sensu*  @sniderhan_growth_2016] -- an approach that has also been applied in other studies in rapidly warming climates [e.g., @lloyd_spatial_2002; @driscoll_divergent_2005;@wilmking_recent_2004].
 This approach should accurately capture the most important climatic drivers of growth variation prior to the acceleration of climate change in recent decades, and should also identify the drivers of recent high-frequency growth variation.
 For PPT at LT, the most influential seasonal windows pre-1970 and post-1970 were similar to those for the entire time period.
 For the temperature variable at LT, $T_{max}$ was consistently identified as the most important variable, but it's most influential seasonal window extended back to the previous growing season pre-1970, but was limited to the current growing season post-1970 and for the analysis as a whole.
@@ -558,7 +558,7 @@ kable(table_pt3, format = "latex", booktabs = TRUE, longtable = TRUE,  escape = 
 ```
 ---
 nocite: | 
-  @alfaro-sanchez_growth_2017; @vlam_temperature_2014; @helcoski_growing_2019; @maxwell_declining_2016; @bumann_assessing_2019; @tumajer_increasing_2017; @sniderhan_growth_2016; @kaspar_species-specific_nodate; @touchan_millennial_2011; @williams_temperature_2013; @alexander_potential_2019
+  @alfaro-sanchez_growth_2017; @vlam_temperature_2014; @helcoski_growing_2019; @maxwell_declining_2016; @bumann_assessing_2019; @tumajer_increasing_2017; @sniderhan_growth_2016; @kaspar_speciesspecific_2021; @touchan_millennial_2011; @williams_temperature_2013; @alexander_potential_2019
 ---
 *Indicates results from a regional study including but not limited to cores from the focal site.
 
