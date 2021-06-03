@@ -1,0 +1,1 @@
+These figures are produced in EcoClimLab/ForestGEO_dendro. They are updated every time the [SI file](https://github.com/EcoClimLab/ForestGEO-tree-rings/blob/master/doc/manuscript/ForestGEO_treerings_SI.Rmd) is knit.
