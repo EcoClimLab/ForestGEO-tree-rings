@@ -274,8 +274,8 @@ As a result, prevailing approaches hold a number of limitations for using tree r
 
 To realistically estimate forest woody productivity, it is necessary to measure or model the growth rate of the individual trees within the stand based on the primary biotic and environmental drivers.
 Needed is an analysis framework that can capture the additive and interactive effects of climate, tree size (most commonly diameter breast height, DBH), and other environmental drivers, all of which may be best described by nonlinear functions [@muller-landau_testing_2006; @rollinson_climate_2021].
-While multifactorial and sometimes non-linear individual-based analysis frameworks have been applied in tree ring analysis [e.g., @evans_fusing_2017; @klesse_amplifying_2020; @zuidema_recent_2020; @rollinson_climate_2021], their use has been relatively limited, and none simultaneously account for climate, DBH, and calendar year (a proxy for slowly changing environmental drivers).
-In the following paragraphs, we outline major questions regarding the influence of these factors on tree growth that can best be address using a multifactorial, non-linear approach to tree ring analysis (Table `r hypotheses`).
+While multifactorial and sometimes non-linear individual-based analysis frameworks have been applied in tree-ring analysis [e.g., @evans_fusing_2017; @klesse_amplifying_2020; @zuidema_recent_2020; @rollinson_climate_2021], their use has been relatively limited, and none simultaneously account for climate, DBH, and calendar year (a proxy for slowly changing environmental drivers).
+In the following paragraphs, we outline major questions regarding the influence of these factors on tree growth that can best be address using a multifactorial, non-linear approach to tree-ring analysis (Table `r hypotheses`).
 
 Understanding the climate sensitivity of tree growth is critical to predicting forest dynamics and productivity as the climate changes. 
 The classic dendrochronological approach to characterizing the climate sensitivity of tree growth describes linear relationships between the primary growth-limiting climate factor (moisture or temperature) and population-level growth responses captured in ring-width index chronologies [@fritts_tree_1976; @speer_fundamentals_2010].
@@ -397,7 +397,7 @@ nocite: |
   @vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @alfaro-sanchez_growth_2017;@bourg_initial_2013; @helcoski_growing_2019 @gonzalez-akre_scbi-forestgeoscbi-forestgeo-data_2020-1; @bumann_assessing_2019; @samonil_individual-based_2013; @kaspar_speciesspecific_2021; @alexander_potential_2019; @finzi_carbon_2020; @birch_birch_2020; @birch_birch_2020b; @birch_birch_2020c; @birch_birch_2020d
 ---
 
-All tree cores **(n = XXXX)** were cross-dated and measured by the original researchers using standard dendrochronological practices [@stokes_introduction_1968]. 
+All tree cores were cross-dated and measured by the original researchers using standard dendrochronological practices [@stokes_introduction_1968]. 
 From among the full set of original RW measurements, we excluded cores for which we detected technical errors (e.g., labeling inconsistencies, obvious dating errors) that could not be resolved before finalizing the analysis. 
 We also excluded records with small sample size or highly anomalous growth patterns, including
 (1) species with < 7 cores,

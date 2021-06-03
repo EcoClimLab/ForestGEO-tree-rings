@@ -310,7 +310,7 @@ The largest healthy trees within each stand were selected for coring.
 
 ### Little Tesuque, New Mexico, USA
 The Little Tesuque (LT) site is in a mature dry mixed conifer forest outside of Santa Fe, NM, in the foothills of the Sangre de Cristo Mountains.
-The site had not undergone stand-clearing disturbance (e.g., fire) in more than one hundred years. Tree ring records suggest that there has been no stand-clearing fire for at least 500 years. 
+The site had not undergone stand-clearing disturbance (e.g., fire) in more than one hundred years. Tree-ring records suggest that there has been no stand-clearing fire for at least 500 years. 
 Low-severity fires burned the site regularly since at least 1542, with the last one in 1880.  
 The growth of trees in the region, including at this site, are being severely affected by a strong drying trend under climate change [@touchan_millennial_2011; @williams_temperature_2013], with many missing growth rings in recent years.
 
@@ -428,7 +428,7 @@ For each species, we compared climate sensitivities for the top precipitation- a
 
 Prior to analysis, data were prepared and cleaned as described in the Methods section, resulting in an identical set of records for input into each analysis.
 For the approach developed here, analysis was conducted as described in the Methods section, but with the *climwin* climate variable selection process limited to just the species of interest (as opposed to all species at the site), climate variables considered individually rather than additively, analysis of only first-order linear relationships, and with start date adjusted to match the conventional method (see below).
-*Climwin* is a useful analytical tool that automates the process of running and comparing numerous regressions, but its use does not alter results relative to what would be obtained via a more conventional approach; numerous climate drivers and seasonal windows can be compared without climwin [e.g., @meko_seascorr_2011], and *climwin* can also be used on residual chronologies. 
+*Climwin* is a useful analytical tool that automates the process of running and comparing numerous regressions, but its use does not alter results relative to what would be obtained via a more conventional approach; numerous climate drivers and seasonal windows can be compared without climwin [e.g., @meko_seascorr_2011], and *climwin* can also be used on residual or standard chronologies. 
 Following the *climwin* analysis step, we extracted *beta* coefficients describing the slope of the relationship between climate and RW.
 *Beta* coefficients, along with their standard error, were obtained for each month within the analysis time frame (Table `r site_details`) and for the seasonal window identified as most influential by *climwin*.
 
