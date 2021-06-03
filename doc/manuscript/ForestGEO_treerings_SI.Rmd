@@ -46,14 +46,14 @@ flist <- list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/Fo
 file.copy(flist, "/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-tree-rings/doc/manuscript/tables_figures/SI_figures/composite_plots/")
 
 #decadal plots
-do.call(file.remove, list(list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-tree-rings/doc/manuscript/tables_figures/SI_figures/decadal_plots/", full.names = TRUE))) # first remove old files
+do.call(file.remove, list(list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-tree-rings/doc/supplementary_figures/decadal_plots/", full.names = TRUE))) # first remove old files
 flist <- list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/tree-rings_global-change/decadal_plots/", full.names = TRUE)
-file.copy(flist, "/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-tree-rings/doc/manuscript/tables_figures/SI_figures/decadal_plots/")
+file.copy(flist, "/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-tree-rings/doc/supplementary_figures/decadal_plots/")
 
 #recruitment plots
-do.call(file.remove, list(list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-tree-rings/doc/manuscript/tables_figures/SI_figures/recruitment_years/", full.names = TRUE))) # first remove old files
+do.call(file.remove, list(list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-tree-rings/doc/supplementary_figures/recruitment_years/", full.names = TRUE))) # first remove old files
 flist <- list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO_dendro/data_processed/", "^Recrutement_years_.+[.]png$",  full.names = TRUE)
-file.copy(flist, "/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-tree-rings/doc/manuscript/tables_figures/SI_figures/recruitment_years/")
+file.copy(flist, "/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-tree-rings/doc/supplementary_figures/recruitment_years/")
 
 # MAIN ARTICLE DISPLAY ITEMS
 #Tables
@@ -651,58 +651,6 @@ nocite: |
 
 \newpage
 
-## `r recruitment_plot_BCNM_legend`
-
-![`r recruitment_plot_BCNM_legend` `r recruitment_generic_legend` "Heartrot was common at this site, implying that recruitment years are overestimated for some trees."](tables_figures/SI_figures/recruitment_years/Recrutement_years_BCI.png){ width=47% }
-
-\newpage
-## `r recruitment_plot_HKK_legend`
-
-![`r recruitment_plot_HKK_legend` `r recruitment_generic_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_HKK.png){ width=47% }
-
-\newpage
-## `r recruitment_plot_SCBI_legend`
-
-![`r recruitment_plot_SCBI_legend` `r recruitment_generic_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_SCBI.png){ width=90% }
-
-\newpage
-
-## `r recruitment_plot_LDW_legend`
-
-![`r recruitment_plot_LDW_legend` `r recruitment_generic_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_LillyDickey.png){ width=47% }
-
-\newpage
-## `r recruitment_plot_HF_legend`
-
-![`r recruitment_plot_HF_legend` `r recruitment_generic_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_HarvardForest.png){ width=47% }
-
-\newpage
-## `r recruitment_plot_ZOF_legend`
-
-![`r recruitment_plot_ZOF_legend` `r recruitment_generic_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_Zofin.png){ width=47% }
-
-\newpage
-## `r recruitment_plot_NIO_legend`
-
-![`r recruitment_plot_NIO_legend` `r recruitment_generic_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_Niobara.png){ width=47% }
-
-
-\newpage
-## `r recruitment_plot_LT_legend`
-
-![`r recruitment_plot_LT_legend` `r recruitment_generic_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_NewMexico.png){ width=47% }
-
-\newpage
-## `r recruitment_plot_CB_legend`
-
-![`r recruitment_plot_CB_legend` `r recruitment_generic_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_CedarBreaks.png){ width=47% }
-
-\newpage
-## `r recruitment_plot_SC_legend`
-
-![`r recruitment_plot_SC_legend` `r recruitment_generic_legend`](tables_figures/SI_figures/recruitment_years/Recrutement_years_ScottyCreek.png){ width=47% }
-
-\newpage 
 ## `r SCBI_traditional_comparison_legend`
 **Precipitation**
 
@@ -1027,58 +975,6 @@ nocite: |
 ## `r BAI_interactions_all_legend`
 
 ![`r BAI_interactions_all_legend` Shown are modeled response functions at the minimum and maximum and maximum ends of the DBH range. Other terms in the model are held constant at their median. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate driver, shading indicates 1 SD.](tables_figures/pre_temp_groups_dbh_interactions_log_BAI_dbh.png){ width=90% }
-
-\newpage
-## `r decadal_plot_BCNM_legend`
-
-![`r decadal_plot_BCNM_legend` `r decadal_generic_legend`](tables_figures/SI_figures/decadal_plots/BCI.png){ width=100% }
-
-\newpage
-## `r decadal_plot_HKK_legend`
-
-![`r decadal_plot_HKK_legend` `r decadal_generic_legend`](tables_figures/SI_figures/decadal_plots/HKK.png){ width=100% }
-
-\newpage
-## `r decadal_plot_SCBI_legend`
-
-![`r decadal_plot_SCBI_legend` `r decadal_generic_legend`](tables_figures/SI_figures/decadal_plots/SCBI.png){ width=100% }
-
-\newpage
-## `r decadal_plot_LDW_legend`
-
-![`r decadal_plot_LDW_legend` `r decadal_generic_legend`](tables_figures/SI_figures/decadal_plots/LD.png){ width=100% }
-
-\newpage
-## `r decadal_plot_HF_legend`
-
-![`r decadal_plot_HF_legend` `r decadal_generic_legend`](tables_figures/SI_figures/decadal_plots/HF.png){ width=100% }
-
-\newpage
-## `r decadal_plot_ZOF_legend`
-
-![`r decadal_plot_ZOF_legend` `r decadal_generic_legend`](tables_figures/SI_figures/decadal_plots/ZN.png){ width=100% }
-
-\newpage
-## `r decadal_plot_NIO_legend`
-
-``` {r eval=FALSE}
-![`r decadal_plot_NIO_legend` `r decadal_generic_legend`](tables_figures/SI_figures/decadal_plots/NIO.png){ width=100% }
-``` 
-
-\newpage
-## `r decadal_plot_LT_legend`
-
-![`r decadal_plot_LT_legend` `r decadal_generic_legend`](tables_figures/SI_figures/decadal_plots/NM.png){ width=100% }
-
-\newpage
-## `r decadal_plot_CB_legend`
-
-![`r decadal_plot_CB_legend` `r decadal_generic_legend`](tables_figures/SI_figures/decadal_plots/CB.png){ width=100% }
-
-\newpage
-## `r decadal_plot_SC_legend`
-
-![`r decadal_plot_SC_legend` `r decadal_generic_legend`](tables_figures/SI_figures/decadal_plots/SC.png){ width=100% }
 
 
 
