@@ -246,7 +246,7 @@ Chronologies are published on ITRDB [@birch_birch_2020; @birch_birch_2020a; @bir
 The Scotty Creek site is a black spruce (*Picea mariana*) forest on rapidly thawing discontinuous permafrost [@baltzer_forests_2014; @sniderhan_growth_2016; @dearborn_permafrost_2020].
 Vertical permafrost thaw has been causing drought stress in the shallow-rooted trees, resulting in growth declines [@sniderhan_growth_2016] and high mortality [@dearborn_permafrost_2020].
 
-A large recruitment pulse in the 1930s suggests that the site burned severely at that time, as would be consistent with a fire return interval of ~77 years in the Taiga Plains ecoregion (**REF**).  
+A large recruitment pulse in the 1930s suggests that the site burned severely at that time, as would be consistent with a fire return interval of ~77 years in the Taiga Plains ecoregion [@johnstone_fire_2010; @walker_crossscale_2018].  
 
 In the summers of 2012 and 2013, seven forest stands within a 2 km^2^ area were sampled.
 In five stands with clearly defined boundaries at edges of permafrost plateaus, all living and dead trees $\ge$ 7 cm DBH were cored. 
