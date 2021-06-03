@@ -517,7 +517,7 @@ kable(S1, format = "latex", booktabs = TRUE,   escape = F)%>%
 ```
 *Refers to ForestGEO plot (exception: LT) and is not necessarily the most accurate value for exact locations at which cores were taken. Geographic coordinates were used to extract climate data from CRU. 
 
-**Refers to approximate period during which woody growth ceases (dry season in the tropics, winter for temperate and boreal sites).
+**Refers to approximate period during which woody growth slows or ceases (dry season in the tropics, winter for temperate and boreal sites), resulting in ring formation.
 
 \newpage
 ## `r species_table_legend` 

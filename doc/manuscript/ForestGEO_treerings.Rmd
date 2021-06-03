@@ -250,7 +250,7 @@ Climate sensitivity commonly varied with DBH (44% of cases tested).
 Trends in ring width at small DBH were linked to the light environment under which trees established, but basal area or biomass increments consistently peaked at intermediate DBH and declined thereafter.
 Accounting for climate and DBH, growth rate declined over time for 92% of species in secondary or disturbed stands, whereas growth trends were mixed in older forests.
 These trends were largely attributable to stand dynamics as cohorts and stands age, which remain challenging to disentangle from global change drivers.
-By providing a parsimonious approach for characterizing multiple interacting drivers of tree growth, our method reveals a more complete picture of the factors influencing tree growth than has previously been possible. 
+By providing a parsimonious approach for characterizing multiple interacting drivers of tree growth, our method reveals a more complete picture of the factors influencing growth than has previously been possible. 
 
 
 ```{r eval=FALSE, echo=FALSE}
@@ -798,7 +798,7 @@ All authors contributed critically to the drafts and gave final approval for pub
 
 # Data availability {-#Data}
 
-Code and full results are available via the project repository in GitHub (github.com/EcoClimLab/ForestGEO-climate-sensitivity) and archived in Zenodo (DOI: TBD) .
+Code and full results are available via the project repository in GitHub (https://github.com/EcoClimLab/ForestGEO-tree-rings) and archived in Zenodo (DOI: TBD) .
 Data for [# TBD] of the sites are archived in the The DendroEcological Network (DEN) database [SCBI, ... ; @rayback_dendroecological_2020] and/or the International Tree-Ring Data Bank, ITRDB (CB; ...). 
 
 # Supplementary files {-#Supplementary}
