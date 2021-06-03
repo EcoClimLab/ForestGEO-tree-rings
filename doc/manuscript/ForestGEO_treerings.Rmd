@@ -25,7 +25,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [Kristina J. Anderson-Teixeira](0000-0001-8461-9713)^1,2^*,
 Valentine Herrmann^1^,
-Christy Rollinson^3^,
+Christine R. Rollinson^3^,
 Bianca Gonzalez^1^,
 Erika B. Gonzalez-Akre^1^,
 Neil Pederson^4^,
@@ -42,7 +42,7 @@ Stuart J. Davies^2^,
 Cameron Dow^1,14^,
 Ryan Helcoski^1^,
 [Jakub Kašpar](0000-0003-1780-6310)^15^,
-[James Lutz]( 0000-0002-2560-0710)^16^,
+[James A. Lutz]( 0000-0002-2560-0710)^16^,
 Ellis Q. Margolis^17^,
 Justin Maxwell^18^,
 Sean McMahon^2,19^,
@@ -62,7 +62,7 @@ Pieter A. Zuidema^24^
 
 2. Forest Global Earth Observatory; Smithsonian Tropical Research Institute; Panama, Republic of Panama
 
-3. The Morton Arboretum, Center for Tree Science, Lisle, Illinois 60532 USA
+3. Center for Tree Science, The Morton Arboretum, Lisle, Illinois 60532 USA
 
 4. Harvard University, Petersham, Massachusetts 01366 USA
 
