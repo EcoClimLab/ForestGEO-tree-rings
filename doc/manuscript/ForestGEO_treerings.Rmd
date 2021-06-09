@@ -397,7 +397,7 @@ ft
 ```
 ---
 nocite: | 
-  @vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @alfaro-sanchez_growth_2017;@bourg_initial_2013; @helcoski_growing_2019 @gonzalez-akre_scbi-forestgeoscbi-forestgeo-data_2020-1; @bumann_assessing_2019; @samonil_individual-based_2013; @kaspar_speciesspecific_2021; @alexander_potential_2019; @finzi_carbon_2020; @birch_birch_2020; @birch_birch_2020b; @birch_birch_2020c; @birch_birch_2020d
+  @vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @alfaro-sanchez_growth_2017;@bourg_initial_2013; @helcoski_growing_2019 @gonzalez-akre_scbi-forestgeoscbi-forestgeo-data_2020-1; @bumann_assessing_2019; @samonil_individual-based_2013;  @alexander_potential_2019; @finzi_carbon_2020; @birch_birch_2020; @birch_birch_2020b; @birch_birch_2020c; @birch_birch_2020d
 ---
 
 All tree cores were cross-dated and measured by the original researchers using standard dendrochronological practices [@stokes_introduction_1968]. 
@@ -714,7 +714,7 @@ Dissecting these species-specific long-term responses is essential to understand
 Across diverse climates and forest types (Tables `r sites`, `r species_table`), growth rates of `r n_species` tree species usually responded positively to water availability (PPT or PDF) -- at least up until the long-term mean -- 
 and negatively to temperature (usually $T_{max}$ or PET), with the exception of several positive responses at times and in places where temperature was limiting (Table `r hypotheses`, Fig. `r clim_sens`).
 These findings are generally consistent with current understanding of global-scale patterns in climate sensitivity [@rozendaal_dendroecology_2011; @babst_twentieth_2019]: outside of the wet tropics (where there are few tree-ring records), the majority of forests are moisture limited and respond negatively to temperature, with a shrinking area of temperature-limited forests in cold, humid regions (with SC falling near the transition zone). 
-Within warmer regions, forests in humid climates can sometimes benefit from warm winter or spring temperatures [@babst_twentieth_2019; @tumajer_increasing_2017], as we show for all three species at ZOF and one species at HF (Fig. `r clim_sens`).
+Within warmer regions, warm winter or early spring temperatures in humid climates may advance the growing season [@keenan_net_2014] and increase annual growth [@babst_twentieth_2019; @tumajer_increasing_2017], as we show for all three species at ZOF and one species at HF (Fig. `r clim_sens`).
 However, the predominantly negative temperature responses (Fig. `r clim_sens`) imply that warmer temperatures are likely to reduce growth across the wide range of forest types and climates represented here.
 The primary mechanism underlying growth decreases at high temperatures is presumably increased evaporative demand (PET or VPD) and ensuant exacerbation of observed water limitations [@novick_increasing_2016; @humphrey_soil_2021; @lopez_systemic_2021].
 This effect occurs in addition to the effects of precipitation (Fig. `r clim_sens`), highlighting the fact that temperature and associated VPD increases limit growth even under conditions of high soil moisture [@novick_increasing_2016], and occurs over shorter time-frames (usually $\le$ 3 mo) than the effects of precipitation (usually $\ge$ 3 mo.; Table `r hypotheses`, Fig. `r clim_sens`).

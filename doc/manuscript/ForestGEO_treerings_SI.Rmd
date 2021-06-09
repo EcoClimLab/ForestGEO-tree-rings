@@ -127,7 +127,7 @@ RW_interactions_all= "S15"
 #SI figure captions
 
 SCBI_traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals: *Liriodendron tulipifera* at SCBI."
-Zofin_traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals: *Abies alba* at Zofin."
+Zofin_traditional_comparison_legend <- "Figure S2. Comparison of our approach with traditional methods of identifying climate signals: *Abies alba* at Zofin."
 CB_traditional_comparison_legend <- "Figure S3. Comparison of our approach with traditional methods of identifying climate signals: *Pseudotsuga menziesii* at Cedar Breaks."
 SC_traditional_comparison_legend <- "Figure S4. Comparison of our approach with traditional methods of identifying climate signals: *Picea mariana* at Scotty Creek."
 
@@ -207,7 +207,7 @@ Samples were collected following an ecological study design [@dye_comparing_2016
 
 ### $\v{Z}$of$\'{i}$n Forest Dynamics Plot, Czech Republic
 
-The $\v{Z}$of$\'{i}$n forest (ZOF) is a well-preserved natural forest remnant dominated by *Fagus sylvatica* L., *Picea abies* L. and *Abies alba* Mill.
+The $\v{Z}$of$\'{i}$n forest (ZOF) is a well-preserved natural forest remnant dominated by *Fagus sylvatica* L., with some *Picea abies* L. and rare occurrence of *Abies alba* Mill.
 The forest is not fully without past human direct interventions, and a limited historical land use effect is also possible [see @kozakova_contrasting_2011].
 
 In total, 2210 individuals were cored either within the 25 ha ForestGEO plot or a larger, 74 ha plot in which it is embedded. 
