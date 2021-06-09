@@ -429,7 +429,7 @@ All ForestGEO climate records used here are archived in the ForestGEO Climate Da
 
 Data analysis consisted of two main steps: (1) identifying the primary climate drivers (i.e., variables and seasonal windows over which they are most influential on tree growth), and (2) combining these climate drivers, DBH, and year into a multivariate model (Fig. `r schematic`). 
 The analysis was run separately for each site (step 1), site-species combination (step 2), and each response variable estimating different measures of tree growth (RW, BAI, or $\Delta$AGB). 
-We note that the decision to identify primary climate drivers at the level of site, as opposed to species, was motivated by the expectation that differences in the most influential climate drivers across species in one site would be minimal compared to cross-site differences (Fig. `r SCBI_example`); however, analyses focused on interspecific differences could optimize species-specific climate sensitivity estimates by fitting individually by species.
+We note that the decision to identify primary climate drivers at the level of site, as opposed to species, was motivated by the expectation that differences in the most influential climate drivers across species in one site would be small compared to cross-site differences (Fig. `r SCBI_example`); however, analyses focused on interspecific differences could optimize species-specific climate sensitivity estimates by fitting individually by species.
 
 ![**Figure 1 | Schematic illustration of the analysis process.** In step 1, the R package *climwin* [@vandepol_identifying_2016] is used to identify the primary climate drivers in water and temperature variable groups for each site, defined as the variable-seasonal window combination that are most strongly correlated to the residual variation around splines fit to trends in growth (here, ring width, RW) for all cores sampled at the site. In step 2, a GLS model is used to produce a combined model with the previously identified drivers, reconstructed DBH, and year.](tables_figures/schematic_figure.png)
 
@@ -450,7 +450,7 @@ We ultimately determined that the method described above captured these sources 
 
 ### Step 2: Combining drivers in GLS model {-#Combining}
 
-We next combined the primary climate drivers in temperature and precipitation variable groups (included in all models) and DBH (included in models with DBH and its climate interactions) into linear mixed-effects models [function *lme* in the R package *nlme*, @pinheiro_nlme_2021], with core identity as a random intercept and yeaar as a continuous time covariate for the within-group correlation structure (function *corCAR1*). 
+We next combined the primary climate drivers in temperature and precipitation variable groups (included in all models) and DBH (included in models with DBH and its climate interactions) into linear mixed-effects models [function *lme* in the R package *nlme*, @pinheiro_nlme_2021], with core identity as a random intercept and year as a continuous time covariate for the within-group correlation structure (function *corCAR1*). 
 We will refer to this model as a generalized least squares (GLS) model (Fig. `r schematic`).
 
 Prior to running the models, we checked for collinearity among the candidate variables using the *vifstep* function [@naimi_where_2014] and removed any variable with a variance inflation factor > 3 (none required removal).
@@ -461,9 +461,9 @@ For climate response, we allowed concave-down fits, but ignored any concave-up f
 
 As an example, a full model for log[RW] would look like this in *R*: 
 
-*lme(log[RW] ~ PET + I(PET^2) + $T_{min}$ + I($T_{min}$^2) + DBH + I(DBH^2)",  random = ~1|coreID, correlation = corCAR1(form=~yeaar|coreID), data = x, na.action = "na.fail", method = "ML")* 
+*lme(log[RW] ~ PET + I(PET^2) + $T_{min}$ + I($T_{min}$^2) + DBH + I(DBH^2)",  random = ~1|coreID, correlation = corCAR1(form=~year|coreID), data = x, na.action = "na.fail", method = "ML")* 
 
-where *x* is a complete data set (with no missing values) for one species at one site. The method is set to maximum likelihood (*ML*) during the fixed effect model selection phase, but to restricted maximizing likelihood (*REML*) for parameter estimation with the best model.
+where *x* is a complete data set (with no missing values) for one species at one site. The method is set to maximum likelihood (*ML*) during the fixed effect model selection phase, but to restricted maximum likelihood (*REML*) for parameter estimation with the best model.
 
 For models including interactive effects of climate and DBH, we tested for interactions between first-order linear terms for climate drivers and DBH.
 
