@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  3 JUN 2021 14:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  9 JUN 2021 08:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1003,7 +1003,7 @@ File: tables_figures/SI_figures/composite_plots/SCBI.png Graphic file (type png
 )
 <use tables_figures/SI_figures/composite_plots/SCBI.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/SCBI.png  us
-ed on input line 1373.
+ed on input line 1374.
 (pdftex.def)             Requested size: 399.29474pt x 399.29474pt.
 [29 <./tables_figures/SI_figures/composite_plots/SCBI.png (PNG copy)>]
 <tables_figures/SI_figures/composite_plots/SCBI_with_Year.png, id=287, 722.7pt 
@@ -1012,7 +1012,7 @@ File: tables_figures/SI_figures/composite_plots/SCBI_with_Year.png Graphic file
  (type png)
 <use tables_figures/SI_figures/composite_plots/SCBI_with_Year.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/SCBI_with_Ye
-ar.png  used on input line 1400.
+ar.png  used on input line 1402.
 (pdftex.def)             Requested size: 399.29474pt x 399.29474pt.
 [30 <./tables_figures/SI_figures/composite_plots/SCBI_with_Year.png (PNG copy)>
 ]
@@ -1022,7 +1022,7 @@ File: tables_figures/SI_figures/composite_plots/NewMexico.png Graphic file (typ
 e png)
 <use tables_figures/SI_figures/composite_plots/NewMexico.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/NewMexico.pn
-g  used on input line 1426.
+g  used on input line 1429.
 (pdftex.def)             Requested size: 399.29474pt x 399.29474pt.
 [31 <./tables_figures/SI_figures/composite_plots/NewMexico.png>]
 <tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png, id=309, 722.7pt x 578.1
@@ -1031,10 +1031,10 @@ File: tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png Graphic file (type
 png)
 <use tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png>
 Package pdftex.def Info: tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png 
- used on input line 1454.
+ used on input line 1458.
 (pdftex.def)             Requested size: 234.87471pt x 187.89977pt.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-455.
+459.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1044,7 +1044,7 @@ File: tables_figures/SI_figures/GLS_post1970_ScottyCreek.png Graphic file (type
  png)
 <use tables_figures/SI_figures/GLS_post1970_ScottyCreek.png>
 Package pdftex.def Info: tables_figures/SI_figures/GLS_post1970_ScottyCreek.png
-  used on input line 1462.
+  used on input line 1466.
 (pdftex.def)             Requested size: 234.87471pt x 187.89977pt.
 [32 <./tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png> <./tables_figures
 /SI_figures/GLS_post1970_ScottyCreek.png>]
@@ -1055,23 +1055,23 @@ png Graphic file (type png)
 <use tables_figures/pre_temp_groups_dbh_interactions_log_core_measurement_dbh.p
 ng>
 Package pdftex.def Info: tables_figures/pre_temp_groups_dbh_interactions_log_co
-re_measurement_dbh.png  used on input line 1485.
+re_measurement_dbh.png  used on input line 1490.
 (pdftex.def)             Requested size: 422.78441pt x 422.78441pt.
 [33 <./tables_figures/pre_temp_groups_dbh_interactions_log_core_measurement_dbh
 .png (PNG copy)>] [34] [35] [36]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1868.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1874.
 [37]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1868.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1874.
 (./ForestGEO_treerings_SI.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1868.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1868.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1874.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1874.
  ) 
 Here is how much of TeX's memory you used:
- 16113 strings out of 480608
- 248478 string characters out of 5903631
- 571566 words of memory out of 5000000
+ 16121 strings out of 480608
+ 248554 string characters out of 5903631
+ 572058 words of memory out of 5000000
  31324 multiletter control sequences out of 15000+600000
- 614952 words of font info for 161 fonts, out of 8000000 for 9000
+ 615335 words of font info for 165 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,15n,46p,1574b,709s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
@@ -1093,7 +1093,7 @@ xmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2020/texmf-dist/fon
 ts/type1/public/lm/lmri10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/p
 ublic/lm/lmri8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lm
 sy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt8.pfb>
-Output written on ForestGEO_treerings_SI.pdf (37 pages, 6617140 bytes).
+Output written on ForestGEO_treerings_SI.pdf (37 pages, 6617243 bytes).
 PDF statistics:
  648 PDF objects out of 1000 (max. 8388607)
  552 compressed objects within 6 object streams
