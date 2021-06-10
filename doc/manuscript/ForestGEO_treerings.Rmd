@@ -20,7 +20,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **Title:** Joint effects of climate, tree size, and year on annual tree growth derived from tree-ring records of ten globally distributed forests
 
-**Running Head:** [45 char]
 
 **Authors:** 
 
@@ -112,7 +111,7 @@ Mart Vlam^24^,
 
 *corresponding author: teixeirak@si.edu; +1 540 635 6546
 
-**Running headline:** [45 chars]
+**Running head:** ecological analysis of global tree-ring data
 
 *This draft manuscript is distributed solely for purposes of scientific peer review. Its content is deliberative and pre-decisional, so it must not be disclosed or released by reviewers. Because the manuscript has not yet been approved for publication by the USGS, it does not represent any official USGS finding or policy.*
 
