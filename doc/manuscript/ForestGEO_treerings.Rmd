@@ -779,15 +779,10 @@ However, significant woody growth stimulation by elevated CO~2~ has not been obs
 
 ## Conclusions {-#Conclusions}
 
-In this study, we present a novel robust approach that allows integrative analysis of factors that jointly influence tree growth (Table `r hypotheses`). 
-Specifically, it allows us to demonstrate that 
-(1) growth is generally simultaneously influenced by temperature and precipitation over different seasonal windows, 
-(2) nonlinear climate responses and interactive effects of climate with DBH are common (Figs. `r clim_sens` and `r interactions_fig`, respectively),
-(3) growth rates vary nonlinarly with DBH, with early trends in RW shaped by light environment (Fig. `r size`), 
-and (4) current or recently living trees commonly show growth declines in response to some combination of stand dynamics and environmental change, particularly in secondary stands (Fig. `r year_fig`).
-While traditional dendrochronology methods, particularly those focused on climate reconstruction, generally sample and analyze data to minimize many of these effects, they are critical for understanding forest productivity in an era of global change.
-As global change pressures intensify and the need to understand changing forest dynamics becomes increasingly urgent [@thom_impact_2017; @mcdowell_pervasive_2020], we expect that this approach will prove valuable to understanding drivers of tree growth and forest change.
-
+As global change pressures intensify and the need to understand changing forest dynamics becomes increasingly urgent [@thom_impact_2017; @mcdowell_pervasive_2020], we expect that the approach presented here will prove valuable to understanding drivers of tree growth and forest change.
+Multiple elements of global change -- including changing atmospheric composition, warming, drought, changing disturbance regimes, and thawing permafrost -- are simultaneously influencing forests wordlwide [e.g., @anderson-teixeira_ctfsforestgeo_2015] and are expected to interact with each other, differentially affecting trees of different size and species (Table `r hypotheses`, Figs. `r clim_sens`, `r interactions_fig`). 
+Thus, the only way to analyze, understand, and predict global change effects is by simultaneously evaluating these effects. 
+The method we present and apply here allows doing so.
 
 # Acknowledgements {-#Acknowledgements}
 Thanks to Helene Muller-Landau and Pete Kerby-Miller for bark thickness data.
