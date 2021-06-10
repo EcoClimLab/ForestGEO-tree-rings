@@ -94,7 +94,7 @@ site_details_legend <- "Table S1. Site Details."
 species_table_legend <-"Table S2. Species analyzed, their characteristics, and bark allometries applied."
 sampling_details_legend <- "Table S3. Sampling details for species by site."
 bark_allometries_legend <- "Table S4. Allometric equations for bark thickness."
-qualitative_results_comparison_legend <- "Table S5. Qualtiative comparison of results from this study with previous studies employing conventional methods."
+qualitative_results_comparison_legend <- "Table S5. Qualitative comparison of results from this study with previous studies employing conventional methods."
 
 #SI figure numbers
 ##traditional comparisons

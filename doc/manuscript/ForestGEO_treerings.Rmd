@@ -164,7 +164,7 @@ site_details_legend <- "Table S1. Site Details."
 species_table_legend <-"Table S2. Species analyzed, their characteristics, and bark allometries applied."
 sampling_details_legend <- "Table S3. Sampling details for species by site."
 bark_allometries_legend <- "Table S4. Allometric equations for bark thickness."
-qualitative_results_comparison_legend <- "Table S5. Qualtiative comparison of results from this study with previous studies employing conventional methods."
+qualitative_results_comparison_legend <- "Table S5. Qualitative comparison of results from this study with previous studies employing conventional methods."
 
 #SI figure numbers
 ##traditional comparisons
@@ -758,11 +758,12 @@ By including a random effect of tree, our approach likely reduces the most sever
 Within this context, signals of changing growth rate over time are attributable to some combination of stand dynamics (e.g., recruitment and succession, changing stand structure) and environmental drivers (e.g., indirect effects of climate change, rising atmospheric CO~2~, deposition of SO~2~ and NO~x~).
 
 In all seven sites dominated by trees less than 100 years old, growth trends were universally negative, when significant (Table `r hypotheses`, Fig. `r year_fig`). 
-While attribution of these trends is difficult, it is likely that some trends are caused by stand dynamics as cohorts and stands develop over time [@oliver_forest_1990]. 
+While attribution of these trends is difficult, it is likely that some trends are caused by stand dynamics as cohorts and stands develop over time.
+Such negative trends are fairly typical of mixed-species stands that experience vertical stratification [@oliver_forest_1990]. 
 For species exhibiting a pulse of recruitment in the past followed by little subsequent recruitment (e.g., *Acer rubrum* and *Betula alleghaniensis* at HF), persistent differences in growth rates among individuals could produce a trend of declining growth, as faster-growing individuals reach various size thresholds earlier [@brienen_tree_2017; see also @vandersleen_trends_2017].
 Particularly in secondary stands where many of the sampled species recruited in pulses that were followed by low recruitment (e.g., SCBI, HF; Appendix `r site_details_appendix`), growth declines are consistent with the tendency for faster tree growth during early stand development [@lorimer_estimating_1988; @lorimer_methodology_1989; @oliver_forest_1990], and with increasing competition and declining woody productivity as young stands mature [e.g., @goulden_patterns_2011; @pregitzer_carbon_2004; @west_increasing_2020].
-Abiotic drivers likely also play a role at some of these sites.
-At Scotty Creek, in northern Canada, rapid warming is thawing permafrost and altering hydrologic conditions [@baltzer_forests_2014], resulting in high mortality, growth declines, and low recruitment of *Picea mariana* [@sniderhan_growth_2016; @dearborn_permafrost_2020]; we attribute pronounced negative growth trends to a combination of successional declines and indirect climatic stress.
+Gradual shifts in abiotic drivers (e.g., indirect effects of warming) likely also play a role at some of these sites.
+At Scotty Creek, in northern Canada, rapid warming is thawing permafrost and altering hydrologic conditions [@baltzer_forests_2014], resulting in high mortality, growth declines, and low recruitment of *Picea mariana* [@sniderhan_growth_2016; @dearborn_permafrost_2020]. At this site, we attribute pronounced negative growth trends to a combination of successional declines and indirect climatic stress.
 
 Within the three older forests (ZOF, LT, CB), growth trends were mixed (Table `r hypotheses`, Fig. `r year_fig`), probably reflecting some combination of successional changes and shifting competitive advantages, perhaps in part driven by changing environmental conditions [@furniss_reconciling_2017; @vrska_european_2009] or the lack of intermediate disturbances giving rise to increasing crowding [e.g., @lutz_twentiethcentury_2009].
 In particular, light-demanding species that establish in gaps (e.g., *Populus tremuloides* at CB; Table `r species_table`) would tend to experience an increasingly competitive environment through time.
@@ -797,8 +798,8 @@ PRISM climate data were purchased under an NSF grant to KAT (#DEB-1353301).
 Any use of trade, firm, or product names is for descriptive purposes only and does not imply endorsement by the U.S. Government.
 
 # Authors' contributions {-#Authors}
-KAT, VH, CR, RA, CP conceived the ideas and designed methodology; 
-NP, CDA, RAS, TA, JLB, JDB, SB, PC, RH, JK, JL, EQM, JM, PS, AES, AJT, IV, MV, and PAZ collected the data; 
+KAT, VH, CR, MRA, CP conceived the ideas and designed methodology; 
+NP, CDA, RAS, TA, JLB, JDB, SB, PC, RH, JK, JL, EQM, JTM, PS, AES, AJT, IV, MV, and PAZ collected the data; 
 VH, BG, EGA, CD, and NP organized and analysed the data; 
 KAT led the writing of the manuscript. 
 All authors contributed critically to the drafts and gave final approval for publication.
