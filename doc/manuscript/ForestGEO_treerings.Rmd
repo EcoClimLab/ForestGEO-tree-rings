@@ -277,7 +277,9 @@ As a result, prevailing approaches hold a number of limitations for using tree r
 To realistically estimate forest woody productivity, it is necessary to measure or model the growth rate of individual trees within a stand based on the primary biotic and abiotic drivers.
 Specifically, what is needed is an analysis framework that can capture the additive and interactive effects of climate, tree size (most commonly diameter at breast height, DBH), and other environmental drivers, all of which may be best described by nonlinear functions [@muller-landau_testing_2006; @rollinson_climate_2021].
 While multifactorial and sometimes non-linear individual-based analysis frameworks have been applied in tree-ring analysis [e.g., @evans_fusing_2017; @klesse_amplifying_2020; @zuidema_recent_2020; @rollinson_climate_2021], their use has been relatively limited, and none simultaneously account for climate, DBH, and calendar year (a proxy for slowly changing environmental drivers).
-In the following paragraphs, we outline major hypotheses regarding the influence of these factors on tree growth that can best be addressed using a multifactorial, non-linear approach to tree-ring analysis (Table `r hypotheses`).
+Below, we outline major hypotheses regarding the influence of these factors on tree growth that can best be addressed using a multifactorial, non-linear approach to tree-ring analysis (Table `r hypotheses`). We then develop such a framework and apply it to test these hypotheses. 
+
+## Key hypotheses on tree growth {-#Key} 
 
 Understanding the climate sensitivity of tree growth is critical to predicting forest dynamics and productivity as the climate changes. 
 The classic dendrochronological approach to characterizing the climate sensitivity of tree growth describes linear relationships between the primary growth-limiting climate factor (moisture or temperature) and population-level growth responses captured in ring-width index chronologies [@fritts_tree_1976; @speer_fundamentals_2010].
@@ -311,7 +313,7 @@ This approach allows us to address the above hypotheses concerning the primary d
 
 
 \newpage
-**Table 1 | Summary of hypotheses and specific predictions tested using the method developed here, along with the frequency at which they were supported in our analyses.**  
+**Table 1 | Summary of hypotheses and specific predictions tested using the method developed here, along with the frequency at which they were supported in our analyses of tree-ring data from ten globally distributed forests.**  
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(flextable)
 set_flextable_defaults(font.family = "Arial", font.size = 9)
