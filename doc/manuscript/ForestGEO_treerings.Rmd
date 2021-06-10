@@ -244,11 +244,11 @@ sampling_details <- read.csv(paste0(path_to_repo, "/doc/manuscript/tables_figure
 
 Tree rings provide an invaluable long-term record for understanding how climate and other drivers shape tree growth and forest productivity.
 However, conventional tree-ring analysis methods were not designed to simultaneously test effects of climate, tree size, and other drivers on individual growth.
-This has limited the potential to use tree rings to understand forest productivity, its climate sensitivity, and its global change responses.
+This has limited the potential to test ecologically relevant hypotheses on tree growth sensitivity to multiple climatic drivers and their interactions with tree size.
 Here, we develop and apply a new method to simultaneously model non-linear effects of primary climate drivers, reconstructed tree diameter (DBH), and calendar year in generalized least squares models that account for the temporal autocorrelation inherent to each individual tree's growth.
 We analyze data from `r n_trees_all` trees representing `r n_species` species at 10 globally distributed sites, showing that precipitation, temperature, DBH, and calendar year have additively, and often interactively, influenced annual growth over the past 120 years.
-Growth responses were predominantly positive to precipitation (usually over $\ge$ 3-month seasonal windows) and negative to temperature (usually over $\le$ 3-month seasonal windows), with both included in 78% of top models, and with non-linear responses prevalent (63% of relationships).
-Climate sensitivity commonly varied with DBH (44% of cases tested). 
+Growth responses were predominantly positive to precipitation (usually over $\ge$ 3-month seasonal windows) and negative to temperature (usually maximum temperature, over $\le$ 3-month seasonal windows), with non-linear responses prevalent (63% of relationships).
+Climate sensitivity commonly varied with DBH (44% of cases tested), with larger trees showing greater sensitivity. 
 Trends in ring width at small DBH were linked to the light environment under which trees established, but basal area or biomass increments consistently reached a maximum at intermediate DBH.
 Accounting for climate and DBH, growth rate declined over time for 92% of species in secondary or disturbed stands, whereas growth trends were mixed in older forests.
 These trends were largely attributable to stand dynamics as cohorts and stands age, which remain challenging to disentangle from global change drivers.
