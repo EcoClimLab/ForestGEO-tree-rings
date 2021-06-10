@@ -20,6 +20,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **Title:** Joint effects of climate, tree size, and year on annual tree growth derived from tree-ring records of ten globally distributed forests
 
+**Running Head:** [45 char]
 
 **Authors:** 
 
@@ -116,7 +117,7 @@ Mart Vlam^24^,
 *This draft manuscript is distributed solely for purposes of scientific peer review. Its content is deliberative and pre-decisional, so it must not be disclosed or released by reviewers. Because the manuscript has not yet been approved for publication by the USGS, it does not represent any official USGS finding or policy.*
 
 ```{r eval=FALSE, echo=FALSE}
-## potential reviewers: Peters**, Klesse, van der Pol, Jane Foster, M. Evans, DEN team, J Matthias, Flurin Babst 
+## 
 
 ## Target journal: Global Change Biology
 ## Instructions for authors: https://onlinelibrary-wiley-com.smithsonian.idm.oclc.org/page/journal/13652486/homepage/forauthors.html
@@ -290,7 +291,7 @@ Yet, there remain inconsistencies across disciplines (dendrochronology, forest e
 Dendrochronological records from trees that established in high-light environments commonly show a pattern in which radial stem growth increments (ring width, RW) are initially large and decline with DBH [@fritts_tree_1976], whereas censuses of globally distributed forests indicate that diameter increments most commonly increase with DBH [@muller-landau_testing_2006; @anderson-teixeira_sizerelated_2015].
 We hypothesize that this discrepancy is primarily a distinction between trees that establish in the open versus in the understory [Table `r hypotheses`, @lorimer_estimating_1988].
 Building upon observed ontogenetic patterns in RW, dendrochronology studies often adopt a null hypothesis that the annual basal area increment (BAI) fluctuates around a constant mean after a juvenile growth phase [@fritts_tree_1976; @biondi_theorydriven_2008] -- a pattern that we would not expect to hold in understory-established trees (Table `r hypotheses`).
-Finally, there is debate as to whether the aboveground biomass increment ($\Delta$AGB) increases continuously with DBH [@stephenson_rate_2014; @meakem_role_2018; @foster_predicting_2016; @sillett_increasing_2010] or peaks at intermediate DBH and then plateaus or declines as trees divert carbon to other functions such as reproduction and respiration [@thomas_agerelated_2011; @sheil_does_2017; @west_increasing_2020]. 
+Finally, there is debate as to whether the aboveground biomass increment ($\Delta$AGB) increases continuously with DBH [@stephenson_rate_2014; @meakem_role_2018; @foster_predicting_2016; @sillett_increasing_2010b] or peaks at intermediate DBH and then plateaus or declines as trees divert carbon to other functions such as reproduction and respiration [@thomas_agerelated_2011; @sheil_does_2017; @west_increasing_2020]. 
 Following the finding that the latter pattern is common for individual trees whereas the former emerges in "cross-sectional" analyses of forest stands [@forrester_does_2021], we hypothesize that $\Delta$AGB -- and also BAI -- peaks and declines as DBH increases (Table `r hypotheses`).
 Discerning these ontogenetic growth trends is essential not only for predicting the growth rate of any given tree, but also for standardizing for DBH to deduce the influence of slowly changing environmental drivers [see next paragraph, @peters_detecting_2015], with the reliability of such analyses contingent upon accurate assumptions of ontogenetic growth patterns.
 
