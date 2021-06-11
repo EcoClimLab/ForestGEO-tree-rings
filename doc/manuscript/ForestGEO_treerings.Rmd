@@ -201,7 +201,7 @@ Zofin_traditional_comparison_legend <- "Figure S1. Comparison of our approach wi
 CB_traditional_comparison_legend <- "Figure S3. Comparison of our approach with traditional methods of identifying climate signals: *Pseudotsuga menziesii* at Cedar Breaks."
 SC_traditional_comparison_legend <- "Figure S4. Comparison of our approach with traditional methods of identifying climate signals: *Picea mariana* at Scotty Creek."
 
-decadal_analysis_verification_example_legend <- "Figure S5. Example comparison of year effect in GLS model with independent decadal analysis: BCNM"
+year_validation_legend <- "Figure S5. Example comparison of year effect in GLS model with independent decadal analysis: Harvard Forest"
 
 climwin_HKK_T_legend = "Figure S6. Climwin output for temperature variable group at HKK."
 climwin_SCBI_W_legend  = "Figure S7. Climwin output for water variable group at SCBI."
@@ -276,7 +276,8 @@ As a result, prevailing approaches hold a number of limitations for using tree r
 To realistically estimate forest woody productivity, it is necessary to measure or model the growth rate of individual trees within a stand based on the primary biotic and abiotic drivers.
 Specifically, what is needed is an analysis framework that can capture the additive and interactive effects of climate, tree size (most commonly diameter at breast height, DBH), and other environmental drivers, all of which may be best described by nonlinear functions [@muller-landau_testing_2006; @rollinson_climate_2021].
 While multifactorial and sometimes non-linear individual-based analysis frameworks have been applied in tree-ring analysis [e.g., @evans_fusing_2017; @klesse_amplifying_2020; @zuidema_recent_2020; @rollinson_climate_2021], their use has been relatively limited, and none simultaneously account for climate, DBH, and calendar year (a proxy for slowly changing environmental drivers).
-Below, we outline major hypotheses regarding the influence of these factors on tree growth that can best be addressed using a multifactorial, non-linear approach to tree-ring analysis (Table `r hypotheses`). We then develop such a framework and apply it to test these hypotheses. 
+Below, we outline major hypotheses regarding the influence of these factors on tree growth that can best be addressed using a multifactorial, non-linear approach to tree-ring analysis (Table `r hypotheses`). 
+We then develop such a framework and apply it to test these hypotheses. 
 
 ## Key hypotheses on tree growth {-#Key} 
 
@@ -307,8 +308,7 @@ Tree growth rates are sensitive to stand dynamics, with competition -- the inten
 Ecosystem-level carbon allocation to woody growth -- as opposed to leaf or fine root production, reproduction, defenses, etc. -- has been shown to decline as forest stands age [@goulden_patterns_2011; @pregitzer_carbon_2004; @delucia_forest_2007; @collalti_forest_2020; @west_increasing_2020]. 
 Thus, we hypothesize that size-corrected growth rates of tree populations sampled from within secondary or severely disturbed stands (i.e., those with large recruitment pulses within the past century) will generally decline, whereas populations sampled from older, relatively undisturbed stands will display mixed growth trends that are more dependent on external environmental drivers (Table `r hypotheses`).
 
-Here, we develop and apply a new method that allows simultaneous consideration of the effects of primary climate drivers (i.e., the most influential climate variables and the seasonal window over which they operate), DBH, and calendar year on annual tree growth.
-This approach allows us to address the above hypotheses concerning the primary drivers of individual tree growth (Table `r hypotheses`) across ten forested sites spanning 52 degrees latitude.
+We address the above hypotheses (Table `r hypotheses`) across ten forested sites spanning 52 degrees latitude, using a new method that allows simultaneous consideration of the effects of primary climate drivers (i.e., the most influential climate variables and the seasonal window over which they operate), DBH, and calendar year on annual tree growth. 
 
 
 \newpage
@@ -399,7 +399,7 @@ ft
 ```
 ---
 nocite: | 
-  @vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @alfaro-sanchez_growth_2017;@bourg_initial_2013; @helcoski_growing_2019 @gonzalez-akre_scbi-forestgeoscbi-forestgeo-data_2020-1; @bumann_assessing_2019; @samonil_individual-based_2013;  @alexander_potential_2019; @finzi_carbon_2020; @birch_birch_2020; @birch_birch_2020b; @birch_birch_2020c; @birch_birch_2020d
+  @vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @alfaro-sanchez_growth_2017;@bourg_initial_2013; @helcoski_growing_2019 @gonzalez-akre_scbi-forestgeoscbi-forestgeo-data_2020-1; @bumann_assessing_2019; @samonil_individual-based_2013;  @alexander_potential_2019; @finzi_carbon_2020; @birch_birch_2020; @birch_birch_2020b; @birch_birch_2020c; @birch_birch_2020d; @dye_comparing_2016
 ---
 
 All tree cores were cross-dated and measured by the original researchers using standard dendrochronological practices [@stokes_introduction_1968]. 
@@ -733,7 +733,7 @@ An analytical structure such as ours that can account for this pattern and other
 
 ## Variation with DBH  {-#Variation}
 
-There was substantial variation across species-site combinations in the relationship between DBH and growth rate. (Fig. `r size`).
+There was substantial variation across species-site combinations in the relationship between DBH and growth rate (Fig. `r size`).
 Variation was most pronounced when RW was considered as the growth metric, as would be expected based on basic geometric principles given that RW patterns are most variable at small DBH. 
 This variation was driven by two primary, interrelated factors: species ecology and stand history.
 As hypothesized, RW declined with DBH for a substantive portion of light-demanding species, but most commonly initially increased across the lower end of the DBH range for shade-tolerant species (Table `r hypotheses`). 
@@ -741,7 +741,7 @@ However, species shade tolerance alone did not explain variation in RW-DBH relat
 These results imply that while trees growing in high-light conditions typically display dendrochronology's "textbook" pattern of declining RW with DBH -- in part attributable to the geometric constraint that new growth is spread around an ever-growing circumference [@fritts_tree_1976; @biondi_theorydriven_2008] -- the majority of trees within forest settings exhibit hump-shaped patterns of RW in relation to DBH.
 This latter pattern is consistent with the observation that when contemporary growth rates are compared across individuals within a closed-canopy stand (i.e., a "cross-sectional" analysis), RW increases continuously across most of the DBH range [e.g., @anderson-teixeira_sizerelated_2015; @muller-landau_testing_2006], or increases and subsequently decreases [@schelhaas_speciesspecific_2018]. 
 
-Our finding that BAI and $\Delta$AGB generally saturate or decline with increasing DBH (Table `r hypotheses`, Fig. `r size`), contrasts with findings of cross-sectional analyses of forest census data showing that $\Delta$AGB increases continuously with DBH [@stephenson_rate_2014; @meakem_role_2018].
+Our finding that BAI and $\Delta$AGB generally saturate or decline with increasing DBH (Table `r hypotheses`, Fig. `r size`) contrasts with findings of cross-sectional analyses of forest census data showing that $\Delta$AGB increases continuously with DBH [@stephenson_rate_2014; @meakem_role_2018].
 In large part, this discrepancy can be explained by differences between cross-sectional analyses and "longitudinal" patterns of individual trees through time [@sheil_does_2017; @forrester_does_2021].
 Declines in BAI and $\Delta$AGB at larger DBH are probably in part attributable to increasing allocation to reproduction [@thomas_agerelated_2011], and are also linked to slowly changing environmental conditions (e.g., successional changes in stand structure, climate change).
 Apparent declines in $\Delta$AGB at large DBH (or old age) may also be driven by shifts towards proportionally greater wood production within the crown [e.g., branch production, @sillett_increasing_2010b; @sillett_comparative_2021] that are not adequately captured by biomass allometries based on DBH and sometimes height [@goodman_importance_2014b; @disney_new_2020].
@@ -781,8 +781,8 @@ However, significant woody growth stimulation by elevated CO~2~ has not been obs
 ## Conclusions {-#Conclusions}
 
 As global change pressures intensify and the need to understand changing forest dynamics becomes increasingly urgent [@thom_impact_2017; @mcdowell_pervasive_2020], we expect that the approach presented here will prove valuable to understanding drivers of tree growth and forest change.
-Multiple elements of global change -- including changing atmospheric composition, warming, drought, changing disturbance regimes, and thawing permafrost -- are simultaneously influencing forests wordlwide [e.g., @anderson-teixeira_ctfsforestgeo_2015] and are expected to interact with each other, differentially affecting trees of different size and species (Table `r hypotheses`, Figs. `r clim_sens`, `r interactions_fig`). 
-Thus, the only way to analyze, understand, and predict global change effects is by simultaneously evaluating these effects. 
+Multiple elements of global change -- including changing atmospheric composition, warming, drought, changing disturbance regimes, and thawing permafrost -- are simultaneously influencing forests worldwide [e.g., @anderson-teixeira_ctfsforestgeo_2015] and are expected to interact with each other, differentially affecting trees of different size and species (Table `r hypotheses`, Figs. `r clim_sens`, `r interactions_fig`). 
+Thus, the only way to analyze, understand, and predict global change effects on tree growth and forest productivity is by simultaneously evaluating these effects. 
 The method we present and apply here allows doing so.
 
 # Acknowledgements {-#Acknowledgements}
@@ -803,8 +803,9 @@ All authors contributed critically to the drafts and gave final approval for pub
 
 # Data availability {-#Data}
 
-Code and full results are available via the project repository in GitHub (https://github.com/EcoClimLab/ForestGEO-tree-rings) and archived in Zenodo (DOI: TBD) .
-Data for [# TBD] of the sites are archived in the The DendroEcological Network (DEN) database [SCBI, ... ; @rayback_dendroecological_2020] and/or the International Tree-Ring Data Bank, ITRDB (CB; ...). 
+Code and full results are available via the open-access project repository in GitHub (https://github.com/EcoClimLab/ForestGEO-tree-rings) and archived in Zenodo (DOI: TBD).
+Original data from each site are available through various public databases, as indicated in the original publications, or upon reasonable request from the authors.
+Data for *[# TBD]* of the sites are archived in the The DendroEcological Network (DEN) database [SCBI, *[others TBD]*, @rayback_dendroecological_2020] and/or the International Tree-Ring Data Bank, ITRDB (CB). 
 
 # Supplementary files {-#Supplementary}
 
@@ -830,7 +831,7 @@ Data for [# TBD] of the sites are archived in the The DendroEcological Network (
 
 Figures `r all_traditional_comparisons`. Comparison of our approach with traditional methods of identifying climate signals for four species.
 
-`r decadal_analysis_verification_example_legend`
+`r year_validation_legend`
 
 `r climwin_HKK_T_legend`
 
