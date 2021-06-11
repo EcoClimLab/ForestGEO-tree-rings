@@ -131,7 +131,7 @@ Zofin_traditional_comparison_legend <- "Figure S2. Comparison of our approach wi
 CB_traditional_comparison_legend <- "Figure S3. Comparison of our approach with traditional methods of identifying climate signals: *Pseudotsuga menziesii* at Cedar Breaks."
 SC_traditional_comparison_legend <- "Figure S4. Comparison of our approach with traditional methods of identifying climate signals: *Picea mariana* at Scotty Creek."
 
-decadal_analysis_verification_example_legend <- "Figure S5. Example comparison of year effect in GLS model with independent decadal analysis: BCNM"
+year_validation_legend <- "Figure S5. Example comparison of year effect in GLS model with independent decadal analysis: Harvard Forest"
 
 climwin_HKK_T_legend = "Figure S6. Climwin output for temperature variable group at HKK."
 climwin_SCBI_W_legend  = "Figure S7. Climwin output for water variable group at SCBI."
@@ -618,6 +618,13 @@ nocite: |
 
 `r SC_traditional_comparison_legend`  `r traditional_comparison_generic_legend`
 
+\newpage
+
+## `r year_validation_legend`
+
+![](tables_figures/year_effect_validation.png)
+
+`r year_validation_legend`. Panel (a) shows results the effect of year in the full GLS model (all significant with t-test’s p-value <0.05). Other terms in the model are held constant at their medians. Transparent ribbons indicate 95% confidence intervals. Panels (b-e) show relationships between DBH and BAI by decade for each species individually. These plots visualize the data included in the GLS model, separated by decade, using a probability density function. Transparent ribbons indicate 95% confidence intervals. Parallel plots for all sites are available in the GitHub repository for this project: https://github.com/EcoClimLab/ForestGEO-tree-rings/tree/master/doc/supplementary_figures/decadal_plots.
 
 \newpage
 ## `r climwin_HKK_T_legend`
