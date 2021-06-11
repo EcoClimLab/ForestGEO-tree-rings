@@ -343,7 +343,7 @@ for(what in names(what_to_show)) {
     # assign("leg", g_legend(), envir = temp_env)
     # existing_plots <- c(existing_plots, "leg")
     
-    all_plots[[paste0(site, what)]] <- grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  {if(is.na(x)) grid.text(label = "no significant\nmain effect")  else get(x, temp_env)}), ncol = 2)))
+    all_plots[[paste0(site, what)]] <- grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  {if(is.na(x)) grid.text(label = "no significant\ninteractions")  else get(x, temp_env)}), ncol = 2)))
     
   } # for(site in sites)
   
