@@ -202,8 +202,8 @@ In 2020, additional cores were collected following an ecological study design, w
 ### Harvard Forest, USA
 
 Harvard Forest (HF) is a secondary temperate mixed forest dominated by *Tsuga canadensis* and northern hardwood species including *Quercus rubra*, *Acer rubrum*, and *Betula alleghaniensis*.
-Cores were collected within the ForestGEO megaplot, and in the footprint of the original HF eddy-flux tower [@finzi_carbon_2020]. 
-Samples were collected following an ecological study design [@dye_comparing_2016], wherein all living or dead trees $\ge$ 10 cm DBH within a **(SIZE)** plot were cored.
+Cores were collected at two plots within the ForestGEO megaplot, and in the footprint of the original HF eddy-flux tower [@finzi_carbon_2020]. 
+Samples were collected following an ecological study design of nested circular plots [@dye_comparing_2016], where sampling included all living or dead trees $\ge$ 10 cm DBH within a 13-m radius and $\ge$ 20 cm within a 20-m radius.
 
 ### $\v{Z}$of$\'{i}$n Forest Dynamics Plot, Czech Republic
 
@@ -211,7 +211,7 @@ The $\v{Z}$of$\'{i}$n forest (ZOF) is a well-preserved natural forest remnant do
 The forest is not fully without past human direct interventions, and a limited historical land use effect is also possible [see @kozakova_contrasting_2011].
 
 In total, 2210 individuals were cored either within the 25 ha ForestGEO plot or a larger, 74 ha plot in which it is embedded. 
-The tree-ring data were collected for several studies around 2010 [@samonil_individualbased_2013; @samonil_disturbances_2014; @samonil_uncertainty_2015; @samonil_uncertainty_2016; @vasickova_true_2016; @vasickova_driving_2019; @kaspar_speciesspecific_2021]. 
+The tree-ring data were collected for several studies around 2010 [@samonil_individualbased_2013; @samonil_disturbances_2014; @samonil_uncertainty_2015; @samonil_uncertainty_2016; @vasickova_true_2016; @vasickova_driving_2019; @kaspar_species_2021]. 
 The sampling strategy was mainly connected with the disturbance history of the forest and evaluation of growth of juvenile trees in gaps. 
 Therefore, these data consist mainly of dominant and codominant tree species and relatively low number of young trees. 
 
@@ -233,7 +233,7 @@ The growth of trees in the region, including at this site, are being severely af
 In 2020, live canopy and sub-canopy trees, all >20 cm DBH, were sampled within a 1 ha plot (Little Tesuque plot 3; *lts3*). 
 
 ### Cedar Breaks, Utah, USA
-Cores were collected within the Utah Forest Dynamics Plot ForestGEO plot on the Colorado Plateau in Cedar Breaks National Monument [CB; @furniss_reconciling_2017]. 
+Cores were collected within the Utah Forest Dynamics Plot ForestGEO plot on the Colorado Plateau in Cedar Breaks National Monument [CB, @furniss_reconciling_2017]. 
 The plot sits on the edge of cliff, which descends ~750 m to a valley below.
 The mature spruce-fir forest is dominated by the species analyzed here (*Abies bifolia*, *Populus tremuloides*, *Picea engelmannii*, *Pinus flexilis*, *Pinus longaeva*, *Picea pungens*, and *Pseudotsuga menziesii*).
 The site is largely undisturbed. 
