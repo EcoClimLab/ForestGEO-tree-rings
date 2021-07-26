@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  11 JUN 2021 11:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  26 JUL 2021 14:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1075,11 +1075,11 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1896.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1896.
  ) 
 Here is how much of TeX's memory you used:
- 16134 strings out of 480608
- 249058 string characters out of 5903631
+ 16132 strings out of 480608
+ 249038 string characters out of 5903631
  573376 words of memory out of 5000000
  31331 multiletter control sequences out of 15000+600000
- 615465 words of font info for 166 fonts, out of 8000000 for 9000
+ 615381 words of font info for 165 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,15n,46p,1574b,709s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
@@ -1101,7 +1101,7 @@ xmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2020/texmf-dist/fon
 ts/type1/public/lm/lmri10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/p
 ublic/lm/lmri8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lm
 sy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt8.pfb>
-Output written on ForestGEO_treerings_SI.pdf (38 pages, 7002212 bytes).
+Output written on ForestGEO_treerings_SI.pdf (38 pages, 7002257 bytes).
 PDF statistics:
  664 PDF objects out of 1000 (max. 8388607)
  565 compressed objects within 6 object streams
