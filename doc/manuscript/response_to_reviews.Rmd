@@ -1,0 +1,105 @@
+---
+title: ''
+output: 
+    word_document
+bibliography: references.bib
+csl: global-change-biology.csl
+
+
+
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Response to Reviewer(s)' Comments to Author:
+
+## Reviewer: 1
+
+
+The research is overall a worthwhile topic regarding joint effects of climate, tree size, and year on annual tree growth derived from tree-ring records of ten globally distributed forests.
+I found the paper to be well-written and I appreciate the work you have accomplished. I consider the approach combining simultaneously the different factors controlling tree growth (non-linear effects of primary climate drivers, reconstructed tree diameter (DBH), and calendar year) highly appropriate for exploring species and stand responses to global changes in different biomes.
+The study is well performed and the results and their interpretations are sound. The results are convincing and tree-ring data are nicely discussed in the context of global changes. However, given the complexity of the results, it would be very useful to report a summary picture of the main results by biome/ecoregions and level of naturalness of the studied stand (old-growth, seminatural forest ecosystems or secondary forests, reforestation/afforestation if present).
+
+I have a few minor remarks that the authors can consider:
+
+1. Lines 178-180 please insert citations for this statement. I suggest also consider artefact of sampling biases caused by the absence of old, fast-growing trees (cf. “slow-grower survivorship bias”) and of young, slow-growing trees (cf. “big-tree selection bias”) in the dataset ( see Duchesne, L., Houle, D., Ouimet, R., Caldwell, L., Gloor, M., & Brienen, R. (2019). Large apparent growth increases in boreal forests inferred from tree-rings are an artefact of sampling biases. Scientific reports, 9(1), 1-9.).
+
+Lines 180-182 please quote at least one supporting reference.
+
+Lines 646 -648 in temperate closed old-growth forests an opposite behaviour is often reported for the oldest trees. Slow but increasing long-term growth allows for maximum longevity not only in beech, but also in oaks and pines   (see Piovesan, G., Biondi, F., Baliva, M., De Vivo, G., Marchiano, V., Schettino, A., & Di Filippo, A. (2019). Lessons from the wild: slow but increasing long‐term growth allows for maximum longevity in European beech. Ecology, 100(9), e02737 and references therein).
+
+
+## Reviewer: 2
+
+This article aims to better understand the relationship between tree-growth from tree-rings and both climate and tree size. While these are standard questions in forest ecology and dendrochronology, they are typically considered either independently or at the stand scale. These questions are inherently related (both climate and tree size influence growth), and this article considers them jointly. These do this by presenting a new approach that: 1) identifies climate variables that are most strongly related to three different growth metrics based on detrended ring-widths; 2) for each site and species combination tests a suite of models that have the raw growth metrics (not detrended) as the response, and some combination of the selected climate variables (from step 1), DBH, and the interaction of DBH and climate; and 3) estimates parameters for the model from step 2 with the lowest AIC. This process results in estimates of the relationship between each of the three growth metrics, and climate, size and DBH. Having a better understanding of these relationships, and their variability among sites and species, will ultimately help with prediction of future forest growth (by for example informing ecosystem models).
+
+I commend the authors for preparing such a well-written document. Of all the articles I’ve reviewed, this one has the fewest typographical and grammatical errors (if any).
+There are several questions/issues that should be clarified prior to publication. I think these are mostly minor, and likely will not require any further analysis (one comment may).
+
+**Thank you!**
+
+More general comments:
+
+Data:
+I am not sure why there is no data shown on any of the figures presented. Inclusion of the raw data should help support the results of the analysis. Since they are omitted, it makes me (as a reader) question if they are intentionally not shown as a result of some discrepancy. At the very least, I would like to see data included in a panel of each figure, and a comment as to why it was omitted in the rest.
+
+Census:
+I think the article mentions that most of these forest plots have repeat census data. How was this data used in the methods? If there were multiple census DBH measurements, how were these all used to constrain DBH time series?
+
+Page 7-8:
+RW, BAI, and deltaAGB are not independent, and BAI and delta ABH are not independent of DBH, which makes it somewhat complicated to interpret the difference in each of their relationships with climate and DBH. Further discussion on this interdependence is needed.
+For example, there is reference to two relationships between RW and DBH. The first is that RW declines with age, and then second is that RW increase with DBH. Then the hypothesis that BAI peaks and then declines as a function of DBH. I don’t think it is possible (mathematically) to have RW increase with DBH be consistent with this BAI hypothesis.
+
+ L222-224:
+Dealing with tree and forest mortality is difficult. However, climate change is predicted to affect mortality in many forests. In turn, mortality can impact the growth of the remaining trees depending on the stature and location of the dead tree. This point should be addressed- the article presents the relationship between growth and climate only for the surviving trees. How does excluding growth data from the analysis potentially bias the results?
+
+P19-20 (especially L301-303):
+I think it could be made more clear that detrending was used only in the process of selecting strongly related climate variables, and not in the GLS models. Additionally, a comment on how the variability in the application of detrending method used here (thin plate splines) would impact climate variable selection would be warranted. There is a persistent question in dendrochronology about the amount of climate signal gets removed through the process of detrending.
+
+L301-302: Motivation as to why one climate variable from each group was selected is missing. L302-303: DBH interactions with climate? Or climate-climate interactions?
+
+P20-21: Various recent publications have highlighted the importance of the effect of climate interactions and climate disturbance interactions on tree growth. It is not clear to me why the DBH-climate interactions were included, but climate-climate interactions were not.
+
+L313: From what I understand, a concave up fit is perfectly reasonable. For example, a standard exponential growth function is concave up, and is biologically possible. Clarify. Also clarify on how they were excluded.
+
+L336-337: Is it also true that climate + DBH + climate x DBH + year is included? If not clarify why not.
+
+L370: Clarify where the 20 comes from. Maybe mention it earlier after the discussion about what was included versus excluded. I tried to determine where this number came from but am lost.
+
+Figure 3: There appear to be some concave up fits in here, which is not consistent with the statement that these were excluded.
+
+Figure 4: This is really interesting. It looks like there is often little effect of climate on the growth of small trees, which seems expected but I’m not sure has been shown like this before.
+
+Line 545-547: Agree that this is useful to help with prediction, but what is missing from the article is a more clear idea of how this could/would be done. What emerges here is that trees and forests are complicated. There seem to be some general patterns emerge, but for each of these there are always exceptions. How do you propose synthesizing all of this to actually improve predictions?
+
+Section 590: It is really interesting to contract the variability between population scale and individual scale. There was a great paper by Jim Clark that constrasted these scales and showed that responses could appear different for each. Can’t remember the reference, but this seems to be the theme of this paper: individual scale can be quite different from population scale.
+
+L630: I’m not sure “correct” is the right term. Since it is a joint model you can account for these things, but how this impacts the response is dependent on the other terms in the model. Maybe I missed something- is the climate signal removed before GLS modelling? I *think* the raw growth metrics are the response, right?
+
+Very minor:
+
+L94: enormous is a subjective word, change
+
+L96-100: sentence awkward (not sure how the “the or to predict...” follows from first part of sentence)
+
+L269: Defined ‘most important’
+
+L280: linear and quadratic terms?
+
+L308: So models with variables removed may include one climate variable and DBH? L311: Clarify “we ran every combination”. This is only for selected climate variable right? L318: Define “complete data set”
+
+L344: “rarely differed significantly”; I think you mean your estimates when compared to the values obtained from the standard analysis (as opposed to your estimates differing from each other). Clarify.
+
+Figure 2: It’s still not clear to me what “window open” and “window close” refer to. Clarify. L614: I’m still not sure what “cross-sectional” refers to. Does this mean census?
+
+L627: What are you reconstructing? You mean back-calculating DBH? Probably a terminology thing.
+
+L678, 683: Weird formatting issue in ref. Maybe journal software?
+
+
+# References {-#References}
+
+
+
+
