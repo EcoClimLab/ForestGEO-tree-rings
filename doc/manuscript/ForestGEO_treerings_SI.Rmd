@@ -258,9 +258,13 @@ Sampling details are given in @sniderhan_growth_2016.
 ## `r DBH_reconstruction_title`
 
 Tree diameter at breast height (or height of coring), DBH, was reconstructed over the time span for which a core record existed.
-DBH was reconstructed either from the outside in or from the inside out.
+DBH was reconstructed either from the outside in or from the inside out, depending on the availability of recent DBH measurements (see next paragraph).
 We gave precedence to the outside-in approach; that is, when a recent DBH measurement was available, DBH was reconstructed from the outside in. 
 In cases where DBH was not available, but when we knew that the core hit pith or could reasonably estimate how far off it was based on the curvature of the rings [@applequist_simple_1958; @duncan_evaluation_1989], DBH was reconstructed from the inside out. 
+
+DBH measurements were taken at the time of coring or -- for some of the trees cored within ForestGEO plots -- obtained from the most recent ForestGEO census prior to coring.
+For these trees, we applied the outside-in approach to DBH reconstruction (detailed below).
+For a minority of trees (n=50 at LDW), DBH measurements were not available, requiring use of inside-out approach to DBH reconstruction (detailed below).
 
 The outside-in approach to DBH reconstruction started with a recent DBH measurement, $DBH_m$, where reference measurement year $m$ is often but not necessarily at the time or coring.
 DBH for each year ($y$) of interest, $Y$, was  then estimated using the following equation:

@@ -78,6 +78,8 @@ I think it could be made more clear that detrending was used only in the process
 
 *a bit of wording adjustment, and discuss detremding method (need help from dendro co-authors)*
 
+**Regarding the detrending method, most detrending methods have been shown to retain the climate signal in many paleoclimate reconstructions. There are some ongoing nuanced discussions that are important for paleoclimate reconstructions such as retaining the medium frequency variance and examining the how segment length impacts that frequency, and about how changes near the end of the series (increasing or decreasing trend in growth) can impact the detrending and thus climate signal. However, for the purposes of this paper, the methods used here have been shown over and over again to retain the climate signal. We have added the following sentence to make this point: "These types of detrending methods are used to maximize the climate signal in tree-ring paleoclimate reconstructions and thus have been shown to retain the climate signal while removing the influence of other non-climatic drivers [@fritts_tree_1976; @cook_time_1985]."**
+
 L301-302: Motivation as to why one climate variable from each group was selected is missing. 
 
 *add a statement about this*
