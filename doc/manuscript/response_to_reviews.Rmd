@@ -27,9 +27,7 @@ I have a few minor remarks that the authors can consider:
 
 Lines 178-180 please insert citations for this statement. I suggest also consider artefact of sampling biases caused by the absence of old, fast-growing trees (cf. “slow-grower survivorship bias”) and of young, slow-growing trees (cf. “big-tree selection bias”) in the dataset ( see Duchesne, L., Houle, D., Ouimet, R., Caldwell, L., Gloor, M., & Brienen, R. (2019). Large apparent growth increases in boreal forests inferred from tree-rings are an artefact of sampling biases. Scientific reports, 9(1), 1-9.).
 
-*Insert ref: This is fundamentally driven by the limitation that it is not possible to use a contemporary set of tree cores to obtain a representative sample of a species's population at all time points throughout the history of a dynamically changing stand (**REF**).*
-
-*review biases, pubs- metion in discussion*
+**Because the relevant references for this statement overlap significantly with those for the previous sentence, we have merged those two sentences: "Yet, even after correcting for ontogeny, growth trend detection remains subject to various potential sampling and analysis biases, which are fundamentally driven by the limitation that it is not possible to use a contemporary set of tree cores to obtain a representative sample of a species's population at all time points throughout the history of a dynamically changing stand [@cherubini_potential_1998; @brienen_detecting_2012; @nehrbass-ahles_influence_2014; @sullivan_effect_2016; @bowman_detecting_2013; @brienen_tree_2017; @hember_tree_2019; @duchesne_large_2019]." Note that we have added the Duchense reference here.**
 
 Lines 180-182 please quote at least one supporting reference.
 
@@ -40,6 +38,8 @@ Lines 646 -648 in temperate closed old-growth forests an opposite behaviour is o
 *Refers to this statement: For instance, older trees, which provide the only records available for the earliest decades, are competitive winners that may have had above-average growth rates [@aubry-kientz_joint_2015], which would upwardly bias average growth rate estimates for early decades [@groenendijk_no_2015].*
 
 *review/ change text/ cite Piovesan paper*
+
+*add Duchense ref to discussion?*
 
 ## Reviewer: 2
 
@@ -116,7 +116,7 @@ Line 545-547: Agree that this is useful to help with prediction, but what is mis
 
 Section 590: It is really interesting to contract the variability between population scale and individual scale. There was a great paper by Jim Clark that constrasted these scales and showed that responses could appear different for each. Can’t remember the reference, but this seems to be the theme of this paper: individual scale can be quite different from population scale.
 
-*find and cite this reference*
+*find and cite this reference. Probably @clark_individualscale_2011. Also look at @germain_climate_2020*
 
 L630: I’m not sure “correct” is the right term. Since it is a joint model you can account for these things, but how this impacts the response is dependent on the other terms in the model. Maybe I missed something- is the climate signal removed before GLS modelling? I *think* the raw growth metrics are the response, right?
 
