@@ -55,6 +55,8 @@ More general comments:
 Data:
 I am not sure why there is no data shown on any of the figures presented. Inclusion of the raw data should help support the results of the analysis. Since they are omitted, it makes me (as a reader) question if they are intentionally not shown as a result of some discrepancy. At the very least, I would like to see data included in a panel of each figure, and a comment as to why it was omitted in the rest.
 
+**In general, data were not presented because (1) there's inherently a lot of variation in tree-ring (or any tree growth) data, so showing the data makes it tough to visualize the trends; (2) figures are showing partial effects and so showing the raw data would be difficult because in multivariate analyses, any single factor is showing only one part of the variance and so it's hard to meaningfully show the "raw" data, and (3) we're packing so much into all the figures that adding data points would make them too busy. To show some example data, we have modified Figure 1 to show raw data with model fits for one site-species combination (replacing an example showing just model fits for all species at one site). This effectively implements the suggestion to show example data for one panel in each figure, as Figs 3,5,and 6 include the panels in this example figure for all site-species combinations. We note also that raw data are visualized in Figs. 2 and S6-S9, and parallel plots for all sites are avaialble in the GitHub repository (https://github.com/EcoClimLab/ForestGEO-tree-rings) and archived in Zenodo.**
+
 *[GitHub issue # 137](https://github.com/EcoClimLab/ForestGEO-tree-rings/issues/137)*
 
 Census:
