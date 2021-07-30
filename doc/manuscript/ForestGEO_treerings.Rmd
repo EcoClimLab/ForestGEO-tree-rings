@@ -133,10 +133,11 @@ sites = 2
 #Figures
 schematic=1
 SCBI_example=2
-clim_sens=3
-interactions_fig = 4 #DBH/climate interactions
-size=5
-year_fig = 6
+SummaryFigure=3
+clim_sens=4
+interactions_fig = 5 
+size=6
+year_fig = 7
 
 # SUPPLEMENTARY INFO (this chunk must be repeated in MEE_manuscript_SI.Rmd)
 #Appendices
@@ -491,7 +492,14 @@ Trends with year, when assessed, were generally consistent with those observed i
 
 ![**Figure 2 | Example comparison of climate sensitivity derived via traditional methods (**a**) and our approach (**b-f**).** Example is for the sensitivity of 14 species at SCBI (codes given in Table `r species_table`) to potential evapotranspiration (PET). Panel (**a**) shows a matrix of Pearson correlations between ring-width index and monthly climate variables [produced using the bootRes package in R, @zang_dendroclimatic_2013]. Black rectangle represents the period selected by *climwin* as the most influential window. Panels (**b-d**) give statistics for seasonal windows tested in *climwin*, where window open and close indicate months prior to current August, and cells across the lower diagonal indicate single-month tests (akin to panel **a**). Panels (**b**) and (**c**) give values of linear and quadratic terms for each seasonal window, and (**d**) gives the $\Delta$AIC for each. The seasonal window with the minimum $\Delta$AIC (1-3 months prior to August, or May-July; black circles), was identified as the most influential window. Panel (**e**) shows the correlation of individual-level residuals to PET, with the function fit in *climwin*. Finally, panel (**f**) shows the GLS model output, where PET was a candidate driver variable (along with PPT; DBH not included in this model). Plotted are responses of species for which PET was included in the top model, with best-fit polynomials plotted with solid lines when both first- and second-order terms are significant, dash-dotted lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Species names corresponding to the codes are given in Table `r species_table`.](tables_figures/quilt_comparison.png)
 
+## Full model results overview {-#Full}
 
+Fig. `r SummaryFigure`
+
+```{r , eval=FALSE, echo=FALSE}
+# This draw.io diagram that can be edited online here: https://app.diagrams.net/#HEcoClimLab%2FForestGEO-tree-rings%2Fmaster%2Fdoc%2Fmanuscript%2Ftables_figures%2FSummaryFigure.drawio
+```
+![**Figure 3 | **(SUMMARY FIGURE)**.](tables_figures/SummaryFigure.png)
 
 ## Climate sensitivity {-#Climate}
 
@@ -565,7 +573,7 @@ Both a precipitation and a temperature variable were included in the top model f
 There were seven site-species combinations for which only a precipitation term was significant (two at BCNM, three at SCBI, and two at LDW), two for which only a temperature term was significant (*Chukrasia tabularis* at HKK and *Betula papyrifera* at NIO), and none with no significant climatic effects on RW. 
 Below, we summarize the precipitation and temperature variables included in these models and their direction of response. 
 
-![**Figure 3 | Species-level responses of RW to climwin-selected variables in precipitation and temperature variable groups.** Primary climate drivers are coded on the x-axes as the climate variable abbreviation followed by the range of months (p=previous year, c=current year) over which it is most influential. For each species (color-coded as in Fig. 5), relationships are plotted if included in the top model. For each relationship shown, other terms in the model are held constant at their medians. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dash-dotted lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate driver over the analysis period; shading indicates 1 SD.](tables_figures/pre_temp_groups.png)
+![**Figure 4 | Species-level responses of RW to climwin-selected variables in precipitation and temperature variable groups.** Primary climate drivers are coded on the x-axes as the climate variable abbreviation followed by the range of months (p=previous year, c=current year) over which it is most influential. For each species (color-coded as in Fig. 5), relationships are plotted if included in the top model. For each relationship shown, other terms in the model are held constant at their medians. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dash-dotted lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate driver over the analysis period; shading indicates 1 SD.](tables_figures/pre_temp_groups.png)
 
 
 ```{r , eval=TRUE, echo=FALSE}
@@ -621,7 +629,7 @@ Temperature variable $\times DBH$ interactions were significant for `r round(n_D
 Directions of these interactions were mixed, with `r n_DBHxT_RW_sig_neg` of `r n_DBHxT_RW_sig` significant interactions negative with RW as the growth metric and `r n_DBHxT_BAI_sig_neg` of `r n_DBHxT_BAI_sig` significant interactions negative when BAI was the growth metric.
 For both RW and BAI, the majority of significant negative interactions (i.e., more negative/ less positive response of larger trees to higher temperatures) occurred in cases where the main effect temperature was negative (e.g., HKK, LT, CB; Fig.  `r interactions_fig`), whereas positive interactions were more common when the main effect of temperature was positive (e.g., HF, ZOF).
 
-![**Figure 4 | Examples of climate - DBH interactions for three species at three sites.** Shown are modeled response functions at the minimum and maximum and maximum tails of the DBH distribution. Other terms in the model are held constant at their medians. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate driver over the analysis period; shading indicates 1 SD.](tables_figures/pre_temp_groups_dbh_interactions.png)
+![**Figure 5 | Examples of climate - DBH interactions for three species at three sites.** Shown are modeled response functions at the minimum and maximum and maximum tails of the DBH distribution. Other terms in the model are held constant at their medians. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate driver over the analysis period; shading indicates 1 SD.](tables_figures/pre_temp_groups_dbh_interactions.png)
 
 
 ## Variation with DBH {-#Variation}
@@ -659,7 +667,7 @@ Best models for BAI included DBH and $DBH^2$ for `r n_spst_BAI_DBH_best_model` o
 For $\Delta$AGB, models were even more consistent, with the best models for `r round(n_spst_dAGB_DBH_best_model/ n_spst_DBH_analyzed*100)`% of species containing a positive coefficient for DBH and a negative coefficient for $DBH^2$ (exception: *Pinus longaeva* at CB).
 
 
-![**Figure 5 | Growth sensitivity to DBH: (a) RW, (b) BAI, (c) $\Delta$AGB.** Relationships for species are plotted when included in the top model. Other terms in the model are held constant at their medians. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dash-dotted lines when only one term is significant, and dotted lines when neither is significant.  Transparent ribbons indicate 95% confidence intervals.](tables_figures/DBH_responses.png)
+![**Figure 6 | Growth sensitivity to DBH: (a) RW, (b) BAI, (c) $\Delta$AGB.** Relationships for species are plotted when included in the top model. Other terms in the model are held constant at their medians. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dash-dotted lines when only one term is significant, and dotted lines when neither is significant.  Transparent ribbons indicate 95% confidence intervals.](tables_figures/DBH_responses.png)
 
 
 
@@ -700,7 +708,7 @@ Growth rate was consistently independent of `year` for only four species: *Chukr
 
 Effects of year and DBH interacted such that inclusion of year in models altered the shape of DBH responses, typically resulting in less pronounced growth declines with increasing DBH (Figs. `r GLS_SCBI`, `r GLS_SCBI_year`).
 
-![**Figure 6 | Effect of year, when included in the best model, on BAI.** For each species (all listed), relationships are plotted if the year effect could be analyzed and was included in the top model. Other terms in the model are held constant at their medians. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dash-dotted lines when only one term is significant, and dotted lines when neither is significant.  Transparent ribbons indicate 95% confidence intervals. ](tables_figures/Year_responses_BAI_only.png)
+![**Figure 7 | Effect of year, when included in the best model, on BAI.** For each species (all listed), relationships are plotted if the year effect could be analyzed and was included in the top model. Other terms in the model are held constant at their medians. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dash-dotted lines when only one term is significant, and dotted lines when neither is significant.  Transparent ribbons indicate 95% confidence intervals. ](tables_figures/Year_responses_BAI_only.png)
 
 # Discussion {-#Discussion}
 
