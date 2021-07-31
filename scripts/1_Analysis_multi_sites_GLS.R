@@ -1161,8 +1161,9 @@ all_legends <- list()
 all_legends_2_cols <- list()
 for(site in sites) {
   x <- all_Biol[[site]]
-  x <- x[!is.na(x$dbh),]
+  # x <- x[!is.na(x$dbh),]
   # x <- x[x$species_code %in% summary_data$species_code[summary_data$site %in% site],]
+  x <-  x[x$species_code %in% read.csv("results/summary_cores_analyzed.csv")$species_code[read.csv("results/summary_cores_analyzed.csv")$site %in% site],]
   x <- droplevels(x[!duplicated(x$species_code),])
   
   species_colors <- all_species_colors[[site]]
