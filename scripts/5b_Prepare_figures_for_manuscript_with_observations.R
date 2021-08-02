@@ -88,7 +88,7 @@ lapply(existing_plots, function(x) { # -2 is to not do it for Year
   p <- get(x, temp_env)
   
   # keep only PIPO
-  p$layers[[grep("linetype", sapply(lapply(p$layers, function(x) x$aes_params), names))]]$aes_params$linetype <- p$layers[[grep("linetype", sapply(lapply(p$layers, function(x) x$aes_params), names))]]$aes_params$linetype[p$data$species_code == "PIPO"]
+  # p$layers[[grep("linetype", sapply(lapply(p$layers, function(x) x$aes_params), names))]]$aes_params$linetype <- p$layers[[grep("linetype", sapply(lapply(p$layers, function(x) x$aes_params), names))]]$aes_params$linetype[p$data$species_code == "PIPO"]
   p$data <- p$data[p$data$species_code == "PIPO", ]
   # p
   
