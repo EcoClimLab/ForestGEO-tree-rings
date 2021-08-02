@@ -907,8 +907,8 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
       pt$lwr <- exp(pt$fit + .5*pt$sigma^2 - 1.96 * pt$se.fit)# exp(pt$fit - 1.96 * pt$se.fit)
       pt$upr <- exp(pt$fit + .5*pt$sigma^2 + 1.96 * pt$se.fit)
      
-      pt$sig <- factor(as.character(pt$sig), levels = c("solid", "dashed", "dotted", "dotdash", "longdash", "twodash")) # to make sure linetypeas are drawn correctly
-        
+      pt$sig <- as.character(pt$sig)
+      
       species_colors <- all_species_colors[[site]]
       names(species_colors) <- pt$species[match(names(species_colors), pt$species_code)]
       species_colors <- species_colors[!is.na(names(species_colors))]
@@ -936,7 +936,8 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
         scale_color_manual(values = species_colors[unique(pt$species[pt$draw])]) + scale_fill_manual(values = species_colors[unique(pt$species[pt$draw])]) +
         # scale_colour_hue(drop = F) + scale_fill_hue(drop = F) + 
         theme_classic() +
-        theme(text = element_text(size = 10)) +
+        theme(text = element_text(size = 10)) + 
+        scale_linetype_manual(values = c("solid" = 1, "dashed" = 2, "dotted"= 3 , "dotdash" = 4, "longdash" = 5, "twodash" = 6))+
         guides(linetype = FALSE)
       
       if(any(pt$draw) | v %in% "Year") {
