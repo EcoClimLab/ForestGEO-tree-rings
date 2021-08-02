@@ -499,7 +499,7 @@ Fig. `r SummaryFigure`
 ```{r , eval=FALSE, echo=FALSE}
 # This draw.io diagram that can be edited online here: https://app.diagrams.net/#HEcoClimLab%2FForestGEO-tree-rings%2Fmaster%2Fdoc%2Fmanuscript%2Ftables_figures%2FSummaryFigure.drawio
 ```
-![**Figure 3 | **(SUMMARY FIGURE)**.](tables_figures/SummaryFigure.png)
+![**Figure 3 | **Summary of top models for ring width (RW) as a function of climate (water and temperature variables), DBH, and calendar year**. Arrows approximate reponses detailed in Figs. 3, 5, and S16. Each symbol indicates one species, and species are ordered alphabetically within each site. Interactive effects of climate and DBH are not shown.](tables_figures/SummaryFigure.png)
 
 ## Climate sensitivity {-#Climate}
 
