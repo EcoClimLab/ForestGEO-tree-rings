@@ -631,7 +631,7 @@ for(with_Year in c(FALSE, TRUE)) {
 
 
 
-png(paste0("doc/manuscript/tables_figures/show_case_response_plots", ifelse(with_Year, "_with_Year", ""), ".png"), width = 10, height = 8, res = 300, units = "in")
+# png(paste0("doc/manuscript/tables_figures/show_case_response_plots", ifelse(with_Year, "_with_Year", ""), ".png"), width = 10, height = 8, res = 300, units = "in")
 
 grid.arrange(
   arrangeGrob(grobs = show_case, layout_matrix = matrix(c(1, 2, 3, 4, 5, 6), nrow = 3)), 
@@ -644,6 +644,6 @@ grid.arrange(
 grid::grid.text(what_to_show,  x = unit(0.015, "npc"), y = unit((rev(cumsum(c(1.3/length(what_to_show)/2, rep(1.3/2/length(what_to_show), length(what_to_show)-1)))))+0.25, "npc"), rot = 90)
 
 grid::grid.text(sites_abb[sites_to_show_case[order(match(sites_to_show_case, sites))]], x = unit(cumsum(c(.05 +.9/2/2, rep(.9/2, 1))), "npc"), y = unit(.99,  "npc"))
-dev.off()
+# dev.off()
 
 } # for(with_Year in c(FALSE, TRUE))
