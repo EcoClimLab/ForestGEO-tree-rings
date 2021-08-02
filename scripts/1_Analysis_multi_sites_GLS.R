@@ -907,6 +907,8 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
       pt$lwr <- exp(pt$fit + .5*pt$sigma^2 - 1.96 * pt$se.fit)# exp(pt$fit - 1.96 * pt$se.fit)
       pt$upr <- exp(pt$fit + .5*pt$sigma^2 + 1.96 * pt$se.fit)
      
+      pt$sig <- factor(as.character(pt$sig), levels = c("solid", "dashed", "dotted", "dotdash", "longdash", "twodash")) # to make sure linetypeas are drawn correctly
+        
       species_colors <- all_species_colors[[site]]
       names(species_colors) <- pt$species[match(names(species_colors), pt$species_code)]
       species_colors <- species_colors[!is.na(names(species_colors))]
@@ -925,7 +927,7 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
       if(!v %in% c("dbh", "Year")) p <- p + geom_rect(xmin = mean(Biol[, v], na.rm = T) - sd(Biol[, v], na.rm = T), ymin = min(pt$lwr), xmax = mean(Biol[, v], na.rm = T) + sd(Biol[, v], na.rm = T), ymax = max(pt$upr), fill = "grey" , alpha=0.01) + geom_vline(xintercept = mean(Biol[, v], na.rm = T), col = "grey")
       
 
-      p <- p + geom_line(aes(col = species), linetype = as.character(p$data$sig)) +
+      p <- p + geom_line(aes(col = species, linetype = sig)) +
         # scale_x_continuous(trans= ifelse(v %in% "dbh", 'log','identity')) +
         labs(#title = paste0(v, ifelse(v %in% best_results_combos$climate, time_window_text, "")),
              x = paste(v, ifelse(v %in% best_results_combos$climate, time_window_text, ""), variables_units[[v]]),
@@ -934,7 +936,8 @@ for(site in switch(solution_to_global_trend, "none" = sites[], c("ScottyCreek", 
         scale_color_manual(values = species_colors[unique(pt$species[pt$draw])]) + scale_fill_manual(values = species_colors[unique(pt$species[pt$draw])]) +
         # scale_colour_hue(drop = F) + scale_fill_hue(drop = F) + 
         theme_classic() +
-        theme(text = element_text(size = 10))
+        theme(text = element_text(size = 10)) +
+        guides(linetype = FALSE)
       
       if(any(pt$draw) | v %in% "Year") {
         assign(paste0("p_", v), p +
