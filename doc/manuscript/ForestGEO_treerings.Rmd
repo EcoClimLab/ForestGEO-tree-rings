@@ -193,12 +193,14 @@ SC_1970break = "S14"
 
 RW_interactions_all= "S15"
 
+year_trends_all= "S16"
+
 
 
 #SI figure captions
 
 SCBI_traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals: *Liriodendron tulipifera* at SCBI."
-Zofin_traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals: *Abies alba* at Zofin."
+Zofin_traditional_comparison_legend <- "Figure S2. Comparison of our approach with traditional methods of identifying climate signals: *Abies alba* at Zofin."
 CB_traditional_comparison_legend <- "Figure S3. Comparison of our approach with traditional methods of identifying climate signals: *Pseudotsuga menziesii* at Cedar Breaks."
 SC_traditional_comparison_legend <- "Figure S4. Comparison of our approach with traditional methods of identifying climate signals: *Picea mariana* at Scotty Creek."
 
@@ -218,6 +220,7 @@ SC_1970break_legend = "Figure S14. Climate responses at SC before and after 1970
 
 RW_interactions_all_legend = "Figure S15. All significant climate - DBH interactions with RW as the response metric."
 
+year_trends_all_legend= "Figure S16. Year responses for all growth metrics."
 ```
 
 ```{r eval = TRUE, echo=FALSE, warning=FALSE, results='hide'}
@@ -573,7 +576,7 @@ Both a precipitation and a temperature variable were included in the top model f
 There were seven site-species combinations for which only a precipitation term was significant (two at BCNM, three at SCBI, and two at LDW), two for which only a temperature term was significant (*Chukrasia tabularis* at HKK and *Betula papyrifera* at NIO), and none with no significant climatic effects on RW. 
 Below, we summarize the precipitation and temperature variables included in these models and their direction of response. 
 
-![**Figure 4 | Species-level responses of RW to climwin-selected variables in precipitation and temperature variable groups.** Primary climate drivers are coded on the x-axes as the climate variable abbreviation followed by the range of months (p=previous year, c=current year) over which it is most influential. For each species (color-coded as in Fig. 5), relationships are plotted if included in the top model. For each relationship shown, other terms in the model are held constant at their medians. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dash-dotted lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate driver over the analysis period; shading indicates 1 SD.](tables_figures/pre_temp_groups.png)
+![**Figure 4 | Species-level responses of RW to climwin-selected variables in precipitation and temperature variable groups.** Primary climate drivers are coded on the x-axes as the climate variable abbreviation followed by the range of months (p=previous year, c=current year) over which it is most influential. For each species (color-coded as in Fig. 6), relationships are plotted if included in the top model. For each relationship shown, other terms in the model are held constant at their medians. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dash-dotted lines when only one term is significant, and dotted lines when neither is significant. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate driver over the analysis period; shading indicates 1 SD.](tables_figures/pre_temp_groups.png)
 
 
 ```{r , eval=TRUE, echo=FALSE}
@@ -699,14 +702,14 @@ n_pos_BAI_young= 0
 
 ```
 
-There was a significant effect of `year` in the GLS models for `r n_best_model_RW` - `r n_best_model_BAI` (depending on growth metric) of the `r n_tested` species-site combinations tested (Figs. `r year_fig`).
+There was a significant effect of `year` in the GLS models for `r n_best_model_RW` - `r n_best_model_BAI` (depending on growth metric) of the `r n_tested` species-site combinations tested (Figs. `r year_fig`, `r year_trends_all`).
 In `r percent_neg_of_sig_trends` of cases (depending on growth metric), the growth trend over time was negative.
 Declines were particularly prevalent in secondary or disturbed forests, occurring in `r round(n_best_model_BAI_young/n_tested_young_forest*100)`% of species-site combinations (`r round(n_neg_BAI_young/n_best_model_BAI_young*100)`% of all species with significant year effects) at the seven disturbed sites (Table `r hypotheses`, Fig. `r year_fig`).
-In older forests (ZOF, LT, CB), growth trends were mixed (Table `r hypotheses`, Fig. `r year_fig`).
+In older forests (ZOF, LT, CB), growth trends were mixed (Table `r hypotheses`, Figs. `r year_fig`, `r year_trends_all`).
 Significant positive growth trends were observed for only three species (consistently across all three growth metrics), *Fagus sylvatica* at ZOF, *Picea pungens* and *Pinus flexilis* at CB, and all were modest compared to the steep negative trends observed for some species.
 Growth rate was consistently independent of `year` for only four species: *Chukrasia tabularis* at HKK, *Pinus strobiformis* at LT, and *Picea engelmannii* and *Pinus longaeva* at CB.
 
-Effects of year and DBH interacted such that inclusion of year in models altered the shape of DBH responses, typically resulting in less pronounced growth declines with increasing DBH (Figs. `r GLS_SCBI`, `r GLS_SCBI_year`).
+Effects of year and DBH interacted such that inclusion of year in models altered the shape of DBH responses, typically resulting in less pronounced growth declines with increasing DBH (Figs. `r SummaryFigure`,`r GLS_SCBI`, `r GLS_SCBI_year`).
 
 ![**Figure 7 | Effect of year, when included in the best model, on BAI.** For each species (all listed), relationships are plotted if the year effect could be analyzed and was included in the top model. Other terms in the model are held constant at their medians. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dash-dotted lines when only one term is significant, and dotted lines when neither is significant.  Transparent ribbons indicate 95% confidence intervals. ](tables_figures/Year_responses_BAI_only.png)
 
@@ -861,8 +864,7 @@ Figures `r all_traditional_comparisons`. Comparison of our approach with traditi
 
 `r RW_interactions_all_legend ` 
 
-
-
+`r year_trends_all_legend`
 
 # References {-#References}
 

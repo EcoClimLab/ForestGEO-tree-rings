@@ -123,6 +123,8 @@ SC_1970break = "S14"
 
 RW_interactions_all= "S15"
 
+year_trends_all= "S16"
+
 
 
 #SI figure captions
@@ -147,6 +149,8 @@ GLS_LT_legend = "Figure S13. Best GLS models including climate and DBH for LT"
 SC_1970break_legend = "Figure S14. Climate responses at SC before and after 1970."
 
 RW_interactions_all_legend = "Figure S15. All significant climate - DBH interactions with RW as the response metric."
+
+year_trends_all_legend= "Figure S16. Year responses for all growth metrics."
 
 
 # ~~~~~~~~~~ (below here does not need to be copied to main doc) ~~~~~~~~~~
@@ -702,7 +706,13 @@ nocite: |
 \newpage
 ## `r RW_interactions_all_legend`
 
-![`r RW_interactions_all_legend` Shown are modeled response functions for species at the minimum and maximum and maximum ends of the DBH range. Other terms in the model are held constant at their medians. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate driver over the analysis period; shading indicates 1 SD. Species are color coded as in Figure 5.](tables_figures/pre_temp_groups_dbh_interactions_log_core_measurement_dbh.png){ width=90% }
+![`r RW_interactions_all_legend` Shown are modeled response functions for species at the minimum and maximum and maximum ends of the DBH range. Other terms in the model are held constant at their medians. Transparent ribbons indicate 95% confidence intervals. Vertical grey lines indicate the long-term mean for the climate driver over the analysis period; shading indicates 1 SD. Species are color coded as in Figure 6.](tables_figures/pre_temp_groups_dbh_interactions_log_core_measurement_dbh.png){ width=90% }
+
+\newpage
+
+## `r year_trends_all_legend`
+
+![`r year_trends_all_legend` For each species (color coded as in Figure 6), relationships are plotted if the year effect could be analyzed and was included in the top model. Other terms in the model are held constant at their medians. Best-fit polynomials are plotted with solid lines when both first- and second-order terms are significant (t-test’s p-value <0.05), dash-dotted lines when only one term is significant, and dotted lines when neither is significant.  Transparent ribbons indicate 95% confidence intervals. ](tables_figures/Year_responses.png){ width=75% }
 
 
 
