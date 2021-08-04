@@ -21,7 +21,7 @@ The research is overall a worthwhile topic regarding joint effects of climate, t
 I found the paper to be well-written and I appreciate the work you have accomplished. I consider the approach combining simultaneously the different factors controlling tree growth (non-linear effects of primary climate drivers, reconstructed tree diameter (DBH), and calendar year) highly appropriate for exploring species and stand responses to global changes in different biomes.
 The study is well performed and the results and their interpretations are sound. The results are convincing and tree-ring data are nicely discussed in the context of global changes. However, given the complexity of the results, it would be very useful to report a summary picture of the main results by biome/ecoregions and level of naturalness of the studied stand (old-growth, seminatural forest ecosystems or secondary forests, reforestation/afforestation if present).
 
-*[GitHub issue #136](https://github.com/EcoClimLab/ForestGEO-tree-rings/issues/136)*
+**We have added a summary figure (new Fig. 3) that we believe provides a very helpful summary. Thanks for the suggestion!** 
 
 I have a few minor remarks that the authors can consider:
 
@@ -114,7 +114,7 @@ Figure 4: This is really interesting. It looks like there is often little effect
 
 Line 545-547: Agree that this is useful to help with prediction, but what is missing from the article is a more clear idea of how this could/would be done. What emerges here is that trees and forests are complicated. There seem to be some general patterns emerge, but for each of these there are always exceptions. How do you propose synthesizing all of this to actually improve predictions?
 
-**We agree that forests are complex, and this method both reveals and allows us to start to distill some of that complexity. We have added a summary figure (*[GitHub issue #136](https://github.com/EcoClimLab/ForestGEO-tree-rings/issues/136)*) to help to highlight some of the general patterns. There is obviously a lot more work to be done on this theme that is beyond the scope of the current anaalysis.**
+**We agree that forests are complex, and this method both reveals and allows us to start to distill some of that complexity. We have added a summary figure (new Fig. 3) to help to highlight some of the general patterns. There is obviously a lot more work to be done on this theme that is beyond the scope of the current analysis.**
 
 Section 590: It is really interesting to contract the variability between population scale and individual scale. There was a great paper by Jim Clark that constrasted these scales and showed that responses could appear different for each. Can’t remember the reference, but this seems to be the theme of this paper: individual scale can be quite different from population scale.
 
