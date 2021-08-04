@@ -117,7 +117,7 @@ climwin_HF_W = "S9"
 GLS_BCNM = "S10"
 GLS_SCBI = "S11"
 GLS_SCBI_year = "S12"
-GLS_LT = "S13"
+GLS_LT_year = "S13"
 
 SC_1970break = "S14"
 
@@ -144,7 +144,7 @@ climwin_HF_W_legend =  "Figure S9. Climwin output for water variable group at HF
 GLS_BCNM_legend = "Figure S10. Best GLS models including climate and DBH for BCNM"
 GLS_SCBI_legend = "Figure S11. Best GLS models including climate and DBH for SCBI"
 GLS_SCBI_year_legend = "Figure S12. Best GLS models including climate, DBH, and year for SCBI"
-GLS_LT_legend = "Figure S13. Best GLS models including climate and DBH for LT"
+GLS_LT_year_legend = "Figure S13. Best GLS models including climate, DBH, and year for LT"
 
 SC_1970break_legend = "Figure S14. Climate responses at SC before and after 1970."
 
@@ -685,9 +685,9 @@ nocite: |
 
 
 \newpage
-## `r GLS_LT_legend`
+## `r GLS_LT_year_legend`
 
-![`r GLS_LT_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/NewMexico.png){ width=85% }
+![`r GLS_LT_year_legend` `r GLS_generic_legend`](tables_figures/SI_figures/composite_plots/NewMexico_with_Year.png){ width=85% }
 
 
 \newpage
