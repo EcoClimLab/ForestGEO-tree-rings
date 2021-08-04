@@ -12,6 +12,22 @@ csl: global-change-biology.csl
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+Dear Editor:
+
+We are please to submit a revised version of our manuscript, "Joint effects of climate, tree size, and year on annual tree growth derived from tree-ring records of ten globally distributed forests" (GCB-21-1209, for consideration for publication in *Global Change Biology*. We have addressed all points raised by the reviewers, as detailed below. The most significant changes include:
+
+- At the request of Reviewer 1, we have added a summary figure (new Fig. 3) that we believe provides a very helpful overview. Accompanying this, we have done some modest rearrangement of the text to create a Results sub-section entitled "Full model results overview".
+
+- At the request of Reviewer 2, we have modified the schematic figure illustrating the method (Fig. 1) to show raw data for one example species.
+
+Thank you for considering this revised version, and we look forward to your response.
+
+Sincerely,
+
+Kristina Anderson-Teixeira (on behalf of all coauthors)
+
+\newpage
+
 # Response to Reviewer(s)' Comments to Author:
 
 ## Reviewer: 1
@@ -21,7 +37,7 @@ The research is overall a worthwhile topic regarding joint effects of climate, t
 I found the paper to be well-written and I appreciate the work you have accomplished. I consider the approach combining simultaneously the different factors controlling tree growth (non-linear effects of primary climate drivers, reconstructed tree diameter (DBH), and calendar year) highly appropriate for exploring species and stand responses to global changes in different biomes.
 The study is well performed and the results and their interpretations are sound. The results are convincing and tree-ring data are nicely discussed in the context of global changes. However, given the complexity of the results, it would be very useful to report a summary picture of the main results by biome/ecoregions and level of naturalness of the studied stand (old-growth, seminatural forest ecosystems or secondary forests, reforestation/afforestation if present).
 
-**We have added a summary figure (new Fig. 3) that we believe provides a very helpful summary. Thanks for the suggestion!** 
+**We have added a summary figure (new Fig. 3) that we believe provides a very helpful overview. (Thanks for the suggestion!) Accompanying this, we have done some modest rearrangement of the text to create a Results sub-section entitled "Full model results overview". ** 
 
 I have a few minor remarks that the authors can consider:
 
