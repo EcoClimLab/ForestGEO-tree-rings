@@ -168,27 +168,27 @@ L311: Clarify “we ran every combination”. This is only for selected climate 
 
 L318: Define “complete data set”
 
-*wording*
+**We have reworded as follows: "...where *x* is a complete data set for one species at one site (all records after excluding cores as described above, and with no missing values)."**
 
 L344: “rarely differed significantly”; I think you mean your estimates when compared to the values obtained from the standard analysis (as opposed to your estimates differing from each other). Clarify.
 
-*wording*
+**We have reworded this to read, "While one-to-one correspondence of estimated slope coefficients describing the response of tree growth to interannual climatic variation was neither expected nor observed, estimates obtained using the two methods were correlated and rarely differed significantly from one another."**
 
 Figure 2: It’s still not clear to me what “window open” and “window close” refer to. Clarify. 
 
-*wording*
+**We have re-worded as follows: "Panels (**b-d**) give statistics for seasonal windows tested in *climwin*, where window open and close refer to the start- and end-months of the window tested, expressed as months prior to current August, and cells across the lower diagonal indicate single-month tests (akin to panel **a**)."**
 
 L614: I’m still not sure what “cross-sectional” refers to. Does this mean census?
 
-*wording*
+**We have clarified the definition in the preceding paragraph: "This latter pattern is consistent with the observation that when contemporary growth rates are compared across individuals within a closed-canopy stand (e.g., a "cross-sectional" analysis of census data)..."** 
 
 L627: What are you reconstructing? You mean back-calculating DBH? Probably a terminology thing.
 
-*wording*
+**"Reconstructing" refers primarily to  back-calculating, although in some cases DBH is projected slightly forward (e.g., at SCBI, where cores were taken a couple years after a census was conducted). For this reason, we prefer to stick with the "reconstructed" term. To make sure this is clear, we now refer to the term "back-calculated" in the methods section when we introduce the concept: " For each year in the tree-ring records, we reconstructed (*i.e.*, back-calculated) DBH, as detailed in Appendix S2."** 
 
 L678, 683: Weird formatting issue in ref. Maybe journal software?
 
-*Look into this. I don't see a problem in the draft proof.*
+*(These are citations with special characters in the name). Look into this. I don't see a problem in the draft proof.*
 
 
 # References cited in responses {-#References}
