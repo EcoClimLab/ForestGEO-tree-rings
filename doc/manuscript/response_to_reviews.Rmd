@@ -92,9 +92,11 @@ Dealing with tree and forest mortality is difficult. However, climate change is 
 P19-20 (especially L301-303):
 I think it could be made more clear that detrending was used only in the process of selecting strongly related climate variables, and not in the GLS models. Additionally, a comment on how the variability in the application of detrending method used here (thin plate splines) would impact climate variable selection would be warranted. There is a persistent question in dendrochronology about the amount of climate signal gets removed through the process of detrending.
 
-*a bit of wording adjustment, and discuss detremding method (need help from dendro co-authors)*
+**In the GLS models, we use a temporal autocorrelation structure on raw data. We have revised the GLS model description to make this more clear: "We next combined the primary climate drivers in temperature and precipitation variable groups (included in all models) and DBH (included in models with DBH and DBH-climate interactions) into linear mixed-effects models [function *lme* in the R package *nlme*, @pinheiro_nlme_2021], with core identity as a random intercept and year as a continuous time covariate for the within-group correlation structure (function *corCAR1*). We will refer to this model as a generalized least squares (GLS) model (Fig. 1).Within the GLS models, our response variables were raw, log-transformed growth estimates (as opposed to residuals): log[RW], log[BAI], or log[$\Delta$ AGB].**
 
-**Regarding the detrending method, most detrending methods have been shown to retain the climate signal in many paleoclimate reconstructions. There are some ongoing nuanced discussions that are important for paleoclimate reconstructions such as retaining the medium frequency variance and examining the how segment length impacts that frequency, and about how changes near the end of the series (increasing or decreasing trend in growth) can impact the detrending and thus climate signal. However, for the purposes of this paper, the methods used here have been shown over and over again to retain the climate signal. We have added the following sentence to make this point: "These types of detrending methods are used to maximize the climate signal in tree-ring paleoclimate reconstructions and thus have been shown to retain the climate signal while removing the influence of other non-climatic drivers [@fritts_tree_1976; @cook_time_1985]."**
+**Dentrending method is often a highly contentious topic within the dendro community, especially when reconstructing climate variables over long time scales . In our study, our candidate variables had large interannual variability and the relatively short series length does not extend to the point where detrending method will have a significant influence on the identified climate signal [@bunn_using_2004].  We have compared our approach with more traditional detrending techniques and observed that there were not statistically significant differences among the methodologies (Appendix S4). To clarify this in the manuscript, we have added the following sentence (under *Step 1:...* header): "Our application of the thin-plate regression splines acts similar to more traditional a priori detrending methods using a two-thirds spline commonly used in dendrochronology studies and results in similar predictor variable selection [Appendix 4, @cook_calculating_1997; @rollinson_climate_2021]."**
+
+
 
 L301-302: Motivation as to why one climate variable from each group was selected is missing. 
 
@@ -148,11 +150,11 @@ L94: enormous is a subjective word, change
 
 L96-100: sentence awkward (not sure how the “the or to predict...” follows from first part of sentence)
 
-*reword*
+**We have reworded as follows: "Yet, collection and analysis of dendrochronological records has traditionally been optimized to detect climate signals rather than to understand variation among trees -- including size-related variation in climate sensitivity [e.g., @bennett_larger_2015; @mcgregor_tree_2021; @rollinson_climate_2021] -- or to predict forest productivity, its climate sensitivity, and how it may be changing [@cherubini_potential_1998; @nehrbass-ahles_influence_2014; @klesse_sampling_2018; @babst_when_2018; @wilmking_global_2020]."**
 
 L269: Defined ‘most important’
 
-*wording*
+**We have reworded as follows: "We used the *climwin* package in R [@vandepol_identifying_2016] to identify the most influential climate variable (*i.e.*, that most strongly correlated with annual growth)..."**
 
 L280: linear and quadratic terms?
 
@@ -160,11 +162,11 @@ L280: linear and quadratic terms?
 
 L308: So models with variables removed may include one climate variable and DBH? 
 
-*wording*
+**In theory, yes. In practice, no variables required removing. To make this more clear, we have reworded as follows: "Prior to running the models, we checked for collinearity among the candidate variables using the *vifstep* function [@naimi_where_2014]. Our analysis code was programmed to remove any variable with a variance inflation factor > 3, but none required removal."**
 
 L311: Clarify “we ran every combination”. This is only for selected climate variable right? 
 
-*wording*
+**We have reworded as follows: "For each species independently, we ran GLS models including every possible combination of independent variables (*i.e.*, candidate climate drivers, DBH, and year), including both first- and second-order terms for each."**
 
 L318: Define “complete data set”
 
@@ -188,7 +190,7 @@ L627: What are you reconstructing? You mean back-calculating DBH? Probably a ter
 
 L678, 683: Weird formatting issue in ref. Maybe journal software?
 
-*(These are citations with special characters in the name). Look into this. I don't see a problem in the draft proof.*
+**I do not see any problem (on a Mac), including in the draft proof. I have opened a GitHub issue (https://github.com/EcoClimLab/ForestGEO-tree-rings/issues/142) to remind myself to check this at the proof stage.**
 
 
 # References cited in responses {-#References}

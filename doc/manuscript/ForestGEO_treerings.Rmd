@@ -274,7 +274,7 @@ Spanning time scales of decades to centuries or even millennia, they provide by 
 Combined with forest censuses, they can be used to estimate forest woody productivity [@graumlich_longterm_1989; @davis_forest_2009; @dye_comparing_2016] and its climate sensitivity [@klesse_sampling_2018; @teets_quantifying_2018; @helcoski_growing_2019]. 
 Tree rings also provide the long-term perspective necessary for understanding how slowly changing environmental drivers including rising atmospheric carbon dioxide (CO~2~) concentrations, changing climate, and other anthropogenic and natural changes are influencing tree growth and forest productivity [e.g., @levesque_water_2017; @mathias_disentangling_2018; @walker_integrating_2021].
 This information is critical to predicting forest responses to anthropogenic changes -- particularly climate change -- and thereby reducing the large uncertainty surrounding future contributions of Earth's forests to the global carbon cycle [@arora_carbon_2020].
-Yet, collection and analysis of dendrochronological records has traditionally been optimized to detect climate signals rather than to understand variation among trees, including size-related variation in climate sensitivity [e.g., @bennett_larger_2015; @mcgregor_tree_2021; @rollinson_climate_2021] or to predict forest productivity, its climate sensitivity, and how it may be changing [@cherubini_potential_1998; @nehrbass-ahles_influence_2014; @klesse_sampling_2018; @babst_when_2018; @wilmking_global_2020].
+Yet, collection and analysis of dendrochronological records has traditionally been optimized to detect climate signals rather than to understand variation among trees -- including size-related variation in climate sensitivity [e.g., @bennett_larger_2015; @mcgregor_tree_2021; @rollinson_climate_2021] -- or to predict forest productivity, its climate sensitivity, and how it may be changing [@cherubini_potential_1998; @nehrbass-ahles_influence_2014; @klesse_sampling_2018; @babst_when_2018; @wilmking_global_2020].
 As a result, prevailing approaches hold a number of limitations for using tree rings to address pressing questions concerning forest carbon sequestration in the current era of rapid environmental change.
 
 To realistically estimate forest woody productivity, it is necessary to measure or model the growth rate of individual trees within a stand based on the primary biotic and abiotic drivers.
@@ -440,10 +440,10 @@ We note that the decision to identify primary climate drivers at the level of si
 
 ### Step 1: Identifying primary climate drivers {-#Climate}
 
-We used the *climwin* package in R [@vandepol_identifying_2016] to identify the most important climate variable and the seasonal window over which its effect was strongest for each of two categories of variables: a temperature group ($T_{min}$, $T_{max}$, $T_{mean}$, and PET) and a precipitation group (PPT, PDF).
+We used the *climwin* package in R [@vandepol_identifying_2016] to identify the most influential climate variable (*i.e.*, that most strongly correlated with annual growth) and the seasonal window over which its effect was strongest for each of two categories of variables: a temperature group ($T_{min}$, $T_{max}$, $T_{mean}$, and PET) and a precipitation group (PPT, PDF).
 To remove low-frequency variation that most likely represents responses to non-climatic drivers (*e.g.*, growth and aging of the tree, change in competitive dynamics, atmospheric pollution), we detrended the response variables by fitting penalized thin-plate regression splines in generalized additive models [GAM, functions *gam* and *s* in the R package *mgcv*, @wood_fast_2011] to individual growth records (RW, BAI, or $\Delta$AGB) from each core, and extracted the residual variation for each observation. 
 The smoothing parameters were automatically selected by the *gam* function with generalized cross-validation (GCV).
-These types of detrending methods are used to maximize the climate signal in tree-ring paleoclimate reconstructions and thus have been shown to retain the climate signal while removing the influence of other non-climatic drivers [@fritts_tree_1976; @cook_time_1985].  
+Our application of the thin-plate regression splines acts similar to more traditional a priori detrending methods using a two-thirds spline commonly used in dendrochronology studies and results in similar predictor variable selection [Appendix `r traditional_comparison`, @cook_calculating_1997; @rollinson_climate_2021].  
 We then used *climwin* to identify the climate drivers that most strongly correlated with the individual tree-level residuals of the growth variables, RW, BAI, or $\Delta$AGB, specifying linear and quadratic terms to allow for potential nonlinearities in the climate response.
 Within *climwin*, we specified a mixed-effects model in which the fixed effects were the climate variables and the random intercepts were species (when n $\ge$ 3) and core identity (noting that these effects should be minimal given that residuals are centered around zero).
 For each climate variable, we ran permutations for all possible combinations of consecutive months within a 15-month period ending near the time of cessation of formation of each annual ring (Table `r site_details`). 
@@ -458,11 +458,10 @@ We ultimately determined that the method described above captured these sources 
 
 We next combined the primary climate drivers in temperature and precipitation variable groups (included in all models) and DBH (included in models with DBH and DBH-climate interactions) into linear mixed-effects models [function *lme* in the R package *nlme*, @pinheiro_nlme_2021], with core identity as a random intercept and year as a continuous time covariate for the within-group correlation structure (function *corCAR1*). 
 We will refer to this model as a generalized least squares (GLS) model (Fig. `r schematic`).
+Within the GLS models, our response variables were raw, log-transformed growth estimates (as opposed to residuals): log[RW], log[BAI], or log[$\Delta$ AGB].
+Prior to running the models, we checked for collinearity among the candidate variables using the *vifstep* function [@naimi_where_2014]. Our analysis code was programmed to remove any variable with a variance inflation factor > 3, but none required removal.
 
-Prior to running the models, we checked for collinearity among the candidate variables using the *vifstep* function [@naimi_where_2014] and removed any variable with a variance inflation factor > 3 (none required removal).
-Within the GLS models, our response variables were log[RW], log[BAI], or log[$\Delta$ AGB]. 
-
-For each species independently, we ran every combination of the candidate climate drivers and DBH, including both first- and second-order terms for each.
+For each species independently, we ran GLS models including every possible combination of independent variables (*i.e.*, candidate climate drivers, DBH, and year), including both first- and second-order terms for each.
 For climate response, we allowed concave-down fits, but ignored any concave-up fits on the basis that exponential functions would be captured by a linear fit to the log-transformed growth variables, while u-shaped fits are not expected biologically.
 
 As an example, a full model for log[RW] would look like this in *R*: 
