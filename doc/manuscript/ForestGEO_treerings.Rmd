@@ -456,7 +456,7 @@ We ultimately determined that the method described above captured these sources 
 
 ### Step 2: Combining drivers in GLS model {-#Combining}
 
-We next combined the primary climate drivers in temperature and precipitation variable groups (included in all models) and DBH (included in models with DBH and DBH-climate interactions) into linear mixed-effects models [function *lme* in the R package *nlme*, @pinheiro_nlme_2021], with core identity as a random intercept and year as a continuous time covariate for the within-group correlation structure (function *corCAR1*). 
+We next combined the primary climate drivers in temperature and precipitation variable groups (included in all models) and DBH (included in models with DBH and DBH-climate interactions) into linear mixed-effects models [function *lme* in the R package *nlme*, @pinheiro_nlme_2021], with core identity as a random intercept. We included year as a continuous time covariate for the within-group correlation structure (function *corCAR1*) to account for temporal autocorrelation (similar to how detrending would). 
 We will refer to this model as a generalized least squares (GLS) model (Fig. `r schematic`).
 Within the GLS models, our response variables were raw, log-transformed growth estimates (as opposed to residuals): log[RW], log[BAI], or log[$\Delta$ AGB].
 Prior to running the models, we checked for collinearity among the candidate variables using the *vifstep* function [@naimi_where_2014]. Our analysis code was programmed to remove any variable with a variance inflation factor > 3, but none required removal.
