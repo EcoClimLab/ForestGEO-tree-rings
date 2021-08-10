@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Dear Editor:
 
-We are please to submit a revised version of our manuscript, "Joint effects of climate, tree size, and year on annual tree growth derived from tree-ring records of ten globally distributed forests" (GCB-21-1209, for consideration for publication in *Global Change Biology*. We have addressed all points raised by the reviewers, as detailed below. The most significant changes include:
+We are pleased to submit a revised version of our manuscript, "Joint effects of climate, tree size, and year on annual tree growth derived from tree-ring records of ten globally distributed forests" (GCB-21-1209, for consideration for publication in *Global Change Biology*. We have addressed all points raised by the reviewers, as detailed below. The most significant changes include:
 
 - At the request of Reviewer 1, we have added a summary figure (new Fig. 3) that we believe provides a very helpful overview. Accompanying this, we have done some modest rearrangement of the text to create a Results sub-section entitled "Full model results overview".
 
@@ -107,7 +107,7 @@ L302-303: DBH interactions with climate? Or climate-climate interactions?
 
 P20-21: Various recent publications have highlighted the importance of the effect of climate interactions and climate disturbance interactions on tree growth. It is not clear to me why the DBH-climate interactions were included, but climate-climate interactions were not.
 
-**Our method could be used to examine climate-climate interactions, and we believe that would be a valuable thing to do; however, we did not include that here because (1) the scope of the analysis is already very large and challenging to present concisely, and (2) we have limited time and resources to try all of the potentially interesting analyses.**
+**Our method could be used to examine climate-climate interactions, and we believe that would be a valuable thing to do; however, we did not include that here because (1) the scope of the analysis is already very large and challenging to present concisely, and (2) we have limited time and resources to try all of the potentially interesting analyses. We now clarify this in the text: "We did not run models of precipitation $\times$ temperature, climate $\times$ DBH + year, or climate $\times$ year, which would be possible in the GLS model framework but would require additional statistical and conceptual validation beyond the scope of the current analysis."**
 
 L313: From what I understand, a concave up fit is perfectly reasonable. For example, a standard exponential growth function is concave up, and is biologically possible. Clarify. Also clarify on how they were excluded.
 
@@ -115,7 +115,7 @@ L313: From what I understand, a concave up fit is perfectly reasonable. For exam
 
 L336-337: Is it also true that climate + DBH + climate x DBH + year is included? If not clarify why not.
 
-**Our method could be used to do this, and we believe that would be a valuable thing to do; however, we did not include that here because (1) the scope of the analysis is already very large and challenging to present concisely, and (2) we have limited time and resources to try all of the potentially interesting analyses.** *Need to clarify this in the text.*
+**Our method could be used to do this, and we believe that would be a valuable thing to do; however, we did not include that here because (1) the scope of the analysis is already very large and challenging to present concisely, and (2) we have limited time and resources to try all of the potentially interesting analyses. We now clarify this in the text: "We did not run models of precipitation $\times$ temperature, climate $\times$ DBH + year, or climate $\times$ year, which would be possible in the GLS model framework but would require additional statistical and conceptual validation beyond the scope of the current analysis."** 
 
 L370: Clarify where the 20 comes from. Maybe mention it earlier after the discussion about what was included versus excluded. I tried to determine where this number came from but am lost.
 

@@ -481,7 +481,8 @@ We then ran models as described above, including a  first-order linear effect of
 We note that the random effect of tree should, in theory, avoid analytical biases arising from persistent growth differences among individuals that are not accounted for by DBH or year [@brienen_detecting_2012; @brienen_tree_2017]. 
 To verify that GLS model trends for year were not an artifact of inherent covariation between DBH and year within each core, we compared GLS results to an analysis of DBH-growth relationships by decade. 
 
-Within each of three categories of models run (climate only, climate + DBH, climate $\times$ DBH, climate + DBH + year), we selected as the top model that with the lowest AIC.  
+Within each of three categories of models run (climate only, climate + DBH, climate $\times$ DBH, climate + DBH + year), we selected as the top model that with the lowest AIC. 
+We did not run models of precipitation $\times$ temperature, climate $\times$ DBH + year, or climate $\times$ year, which would be possible in the GLS model framework but would require additional statistical and conceptual validation beyond the scope of the current analysis. 
 
 
 # Results {-#Results}
