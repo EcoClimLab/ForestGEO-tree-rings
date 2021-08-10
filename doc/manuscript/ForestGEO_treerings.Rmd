@@ -656,7 +656,7 @@ n_spst_dAGB_DBH_best_model=42 # exception: PILO at CB
 
 Growth rate -- whether measured as RW, BAI, or $\Delta$AGB -- varied with DBH for most species at all sites (Fig. `r size`).
 Because the effects of calendar year could not be evaluated for all species (Fig. `r SummaryFigure`), the DBH trends described here refer to models without year. 
-Relationships between growth rate and DBH were nonlinear for the majority of site-species combinations (`r round(n_spst_RW_DBH_bm/ n_spst_DBH_analyzed*100)` - `r round(n_spst_dAGB_DBH_best_model/ n_spst_DBH_analyzed*100)`% depending on growth metric; Fig. `r size`). 
+Relationships between growth rate and DBH had second-order terms for the majority of site-species combinations (`r round(n_spst_RW_DBH_bm/ n_spst_DBH_analyzed*100)` - `r round(n_spst_dAGB_DBH_best_model/ n_spst_DBH_analyzed*100)`% depending on growth metric; Fig. `r size`). 
 
 For RW, DBH was included in the best model for `r round(n_spst_RW_DBH_bm/ n_spst_DBH_analyzed*100)`% of species-site combinations (n= `r n_spst_RW_DBH_bm` of `r n_spst_DBH_analyzed`), and the majority of best models also included a significant second-order linear DBH term (n= `r n_spst_RW_DBH_2nd_order`, `r n_spst_RW_DBH_2nd_order_neg` of which were negative). 
 There was substantial variation in these trends, with patterns mixed across both forests and species within a single stand (Fig. `r size`).
