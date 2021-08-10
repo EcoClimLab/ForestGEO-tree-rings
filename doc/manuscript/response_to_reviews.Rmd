@@ -45,17 +45,16 @@ Lines 178-180 please insert citations for this statement. I suggest also conside
 
 **Because the relevant references for this statement overlap significantly with those for the previous sentence, we have merged those two sentences: "Yet, even after correcting for ontogeny, growth trend detection remains subject to various potential sampling and analysis biases, which are fundamentally driven by the limitation that it is not possible to use a contemporary set of tree cores to obtain a representative sample of a species's population at all time points throughout the history of a dynamically changing stand [@cherubini_potential_1998; @brienen_detecting_2012; @nehrbass-ahles_influence_2014; @sullivan_effect_2016; @bowman_detecting_2013; @brienen_tree_2017; @hember_tree_2019; @duchesne_large_2019]." Note that we have added the Duchense reference here.**
 
+**We have also added mention of slow-grower survivorship bias in the discussion: "For instance, older trees, which provide the only records available for the earliest decades, may be competitive winners that had above-average growth rates within their cohorts [@aubry-kientz_joint_2015], which would upwardly bias average growth rate estimates for early decades ["juvenile selection effect", @groenendijk_no_2015]. In contrast, the oldest age classes being dominated by trees with below-average growth rates [e.g., @piovesan_lessons_2019] could downwardly bias average growth rate estimates for early decades ["a slow-grower survivorship bias", @brienen_detecting_2012; @duchesne_large_2019]."**
+
 Lines 180-182 please quote at least one supporting reference.
 
 **We have slightly modified this sentence and added a reference: "Tree growth rates are sensitive to stand dynamics, with competition -- the intensity of which tends to increase as forests mature -- reducing woody growth rates [e.g., @zhang_halfcentury_2015]."** 
 
 Lines 646 -648 in temperate closed old-growth forests an opposite behaviour is often reported for the oldest trees. Slow but increasing long-term growth allows for maximum longevity not only in beech, but also in oaks and pines   (see Piovesan, G., Biondi, F., Baliva, M., De Vivo, G., Marchiano, V., Schettino, A., & Di Filippo, A. (2019). Lessons from the wild: slow but increasing long‐term growth allows for maximum longevity in European beech. Ecology, 100(9), e02737 and references therein).
 
-*Refers to this statement: For instance, older trees, which provide the only records available for the earliest decades, are competitive winners that may have had above-average growth rates [@aubry-kientz_joint_2015], which would upwardly bias average growth rate estimates for early decades [@groenendijk_no_2015].*
+**We have modified this section to provide an example of the opposite behaviour, citing the reference mentioned (and @duchesne_large_2019, mentioned above): "For instance, older trees, which provide the only records available for the earliest decades, may be competitive winners that had above-average growth rates within their cohorts [@aubry-kientz_joint_2015], which would upwardly bias average growth rate estimates for early decades ["juvenile selection effect", @groenendijk_no_2015]. In contrast, the oldest age classes being dominated by trees with below-average growth rates [e.g., @piovesan_lessons_2019] could downwardly bias average growth rate estimates for early decades ["a slow-grower survivorship bias", @brienen_detecting_2012; @duchesne_large_2019]."**
 
-*review/ change text/ cite Piovesan paper*
-
-*add Duchense ref to discussion?*
 
 ## Reviewer: 2
 
