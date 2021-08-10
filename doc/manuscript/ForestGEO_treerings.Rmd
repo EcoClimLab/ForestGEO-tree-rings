@@ -248,9 +248,9 @@ sampling_details <- read.csv(paste0(path_to_repo, "/doc/manuscript/tables_figure
 Tree rings provide an invaluable long-term record for understanding how climate and other drivers shape tree growth and forest productivity.
 However, conventional tree-ring analysis methods were not designed to simultaneously test effects of climate, tree size, and other drivers on individual growth.
 This has limited the potential to test ecologically relevant hypotheses on tree growth sensitivity to multiple climatic drivers and their interactions with tree size.
-Here, we develop and apply a new method to simultaneously model non-linear effects of primary climate drivers, reconstructed tree diameter (DBH), and calendar year in generalized least squares models that account for the temporal autocorrelation inherent to each individual tree's growth.
+Here, we develop and apply a new method to simultaneously model nonlinear effects of primary climate drivers, reconstructed tree diameter (DBH), and calendar year in generalized least squares models that account for the temporal autocorrelation inherent to each individual tree's growth.
 We analyze data from `r n_trees_all` trees representing `r n_species` species at 10 globally distributed sites, showing that precipitation, temperature, DBH, and calendar year have additively, and often interactively, influenced annual growth over the past 120 years.
-Growth responses were predominantly positive to precipitation (usually over $\ge$ 3-month seasonal windows) and negative to temperature (usually maximum temperature, over $\le$ 3-month seasonal windows), with non-linear responses prevalent (63% of relationships).
+Growth responses were predominantly positive to precipitation (usually over $\ge$ 3-month seasonal windows) and negative to temperature (usually maximum temperature, over $\le$ 3-month seasonal windows), with concave-down responses in 63% of relationships.
 Climate sensitivity commonly varied with DBH (44% of cases tested), with larger trees generally showing greater sensitivity. 
 Trends in ring width at small DBH were linked to the light environment under which trees established, but basal area or biomass increments consistently reached a maximum at intermediate DBH.
 Accounting for climate and DBH, growth rate declined over time for 92% of species in secondary or disturbed stands, whereas growth trends were mixed in older forests.
@@ -279,8 +279,8 @@ As a result, prevailing approaches hold a number of limitations for using tree r
 
 To realistically estimate forest woody productivity, it is necessary to measure or model the growth rate of individual trees within a stand based on the primary biotic and abiotic drivers.
 Specifically, what is needed is an analysis framework that can capture the additive and interactive effects of climate, tree size (most commonly diameter at breast height, DBH), and other environmental drivers, all of which may be best described by nonlinear functions [@muller-landau_testing_2006; @rollinson_climate_2021].
-While multifactorial and sometimes non-linear individual-based analysis frameworks have been applied in tree-ring analysis [e.g., @evans_fusing_2017; @klesse_amplifying_2020; @zuidema_recent_2020; @rollinson_climate_2021], their use has been relatively limited, and none simultaneously account for climate, DBH, and calendar year (a proxy for slowly changing environmental drivers).
-Below, we outline major hypotheses regarding the influence of these factors on tree growth that can best be addressed using a multifactorial, non-linear approach to tree-ring analysis (Table `r hypotheses`). 
+While multifactorial and sometimes nonlinear individual-based analysis frameworks have been applied in tree-ring analysis [e.g., @evans_fusing_2017; @klesse_amplifying_2020; @zuidema_recent_2020; @rollinson_climate_2021], their use has been relatively limited, and none simultaneously account for climate, DBH, and calendar year (a proxy for slowly changing environmental drivers).
+Below, we outline major hypotheses regarding the influence of these factors on tree growth that can best be addressed using a multifactorial, nonlinear approach to tree-ring analysis (Table `r hypotheses`). 
 We then develop such a framework and apply it to test these hypotheses. 
 
 ## Key hypotheses on tree growth {-#Key} 
@@ -658,7 +658,7 @@ Growth rate -- whether measured as RW, BAI, or $\Delta$AGB -- varied with DBH fo
 Because the effects of calendar year could not be evaluated for all species (Fig. `r SummaryFigure`), the DBH trends described here refer to models without year. 
 Relationships between population-mean growth rate and DBH were best described by models with second-order terms for the majority of site-species combinations (`r round(n_spst_RW_DBH_bm/ n_spst_DBH_analyzed*100)` - `r round(n_spst_dAGB_DBH_best_model/ n_spst_DBH_analyzed*100)`% depending on growth metric; Fig. `r size`). 
 
-For RW, DBH was included in the best model for `r round(n_spst_RW_DBH_bm/ n_spst_DBH_analyzed*100)`% of species-site combinations (n= `r n_spst_RW_DBH_bm` of `r n_spst_DBH_analyzed`), and the majority of best models also included a significant second-order linear DBH term (n= `r n_spst_RW_DBH_2nd_order`, `r n_spst_RW_DBH_2nd_order_neg` of which were negative). 
+For RW, DBH was included in the best model for `r round(n_spst_RW_DBH_bm/ n_spst_DBH_analyzed*100)`% of species-site combinations (n= `r n_spst_RW_DBH_bm` of `r n_spst_DBH_analyzed`), and the majority of best models also included a significant second-order term (n= `r n_spst_RW_DBH_2nd_order`, `r n_spst_RW_DBH_2nd_order_neg` of which were negative). 
 There was substantial variation in these trends, with patterns mixed across both forests and species within a single stand (Fig. `r size`).
 On one end of the spectrum, some species exhibited maximum RW at low DBH, followed by fairly rapid declines in RW with increasing DBH. 
 This pattern was common among light-demanding species (6 of 13 site-species combinations; Tables `r hypotheses`, `r species_table`; e.g., *Melia azedarach* at HKK, *Populous tremuloides* at CB) and in relatively open stands (e.g., both species at LT, *Picea mariana* at SC; Fig. `r size`).
@@ -733,7 +733,7 @@ The primary mechanism underlying growth decreases at high temperatures is presum
 This effect occurs in addition to the effects of precipitation (Fig. `r clim_sens`), highlighting the fact that temperature and associated VPD increases limit growth even under conditions of high soil moisture [@novick_increasing_2016], and occurs over shorter time-frames (usually $\le$ 3 mo) than the effects of precipitation (usually $\ge$ 3 mo.; Table `r hypotheses`, Fig. `r clim_sens`).
 This suggests that relatively short periods of anomalously high temperatures and evaporative demand, themselves caused in large part by soil dryness [@humphrey_soil_2021], add to effects of prolonged periods of reduced precipitation to shape forest drought responses.
 
-Our analysis differed fundamentally from most conventional approaches in testing for non-linear responses of growth to climate, finding that the majority of climate responses were nonlinear (Table `r hypotheses`, Fig. `r clim_sens`). 
+Our analysis differed fundamentally from most conventional approaches in testing for nonlinear responses of growth to climate, finding that the majority of climate responses were nonlinear (Table `r hypotheses`, Fig. `r clim_sens`). 
 This result, which is consistent with physiological expectations [e.g., @kumarathunge_acclimation_2019; @wilmking_global_2020], indicates that the majority of tree-ring records examined here cover climate variation beyond the range over which the response is approximately linear. 
 The nonlinear form of most climate growth responses implies that as the climate changes such that high temperatures and strong precipitation anomalies become more common [@ipcc_climate_2014], non-stationary climate responses, already common [@wilmking_global_2020], could become more prevalent [@germain_climate_2020]. 
 
@@ -781,7 +781,7 @@ At Scotty Creek, in northern Canada, rapid warming is thawing permafrost and alt
 Within the three older forests (ZOF, LT, CB), population-mean growth trends were mixed (Table `r hypotheses`, Fig. `r year_fig`), probably reflecting some combination of successional changes, changing mortality rates, and shifting competitive advantages, perhaps in part driven by changing environmental conditions [@furniss_reconciling_2017; @vrska_european_2009] or the lack of intermediate disturbances giving rise to increasing crowding [e.g., @lutz_twentiethcentury_2009].
 In particular, light-demanding species that establish in gaps (e.g., *Populus tremuloides* at CB; Table `r species_table`) would tend to experience an increasingly competitive environment through time.
 At Zofin, size-corrected growth rates were lowest in the 1970s and 1980s, consistent with other studies from central Europe showing dramatic growth reductions due to acid deposition during this period [@elling_dendroecological_2009; @samonil_longterm_2008]. 
-Non-linear trends such as this would be more accurately described by a non-linear response function to year, or incorporation of data on pollution, but that is beyond the scope of the current analysis.
+Nonlinear trends such as this would be more accurately described by a nonlinear response function to year, or incorporation of data on pollution, but that is beyond the scope of the current analysis.
 Notably, there were only three species -- *Fagus sylvatica* at ZOF and *Picea pungens* and *Pinus flexilis* at CB -- whose population-mean growth rate increased significantly over the analysis time frame (Fig. `r year_fig`).
 
 The rarity of positive growth trends observed here indicates that any growth benefit from elevated CO~2~ was outweighed by some combination of demographic changes and chronic environmental shifts.
