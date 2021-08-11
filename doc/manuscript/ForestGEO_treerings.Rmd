@@ -507,7 +507,7 @@ In contrast, effects of DBH and year often interacted such that the shape of the
 ```{r , eval=FALSE, echo=FALSE}
 # This draw.io diagram that can be edited online here: https://app.diagrams.net/#HEcoClimLab%2FForestGEO-tree-rings%2Fmaster%2Fdoc%2Fmanuscript%2Ftables_figures%2FSummaryFigure.drawio
 ```
-![**Figure 3 | Summary of top models for ring width (RW) as a function of climate (water and temperature variables), DBH, and calendar year**. Arrow shapes approximate reponses detailed in Figs. 3, 5, and S16. Each symbol indicates one species, and species are ordered alphabetically within each site. Overlapping solid and dotted arrows for the same species indicate that the effect changed when *Year* was included in the model, with dotted arrows indicating the response without *Year*. Interactive effects of climate and DBH are not shown.](tables_figures/SummaryFigure.png)
+![**Figure 3 | Summary of top models for ring width (RW) as a function of climate (water and temperature variables), DBH, and calendar year**. Arrow shapes approximate reponses detailed in Figs. 3, 5, and S16. Each symbol indicates one species, and species are ordered alphabetically within each site. Overlapping arrows for the same species indicate that the response shape changed when *Year* was included in the model. For species on which the effect of *Year* was tested, the presence of only an arrow representing models without *Year* indicates that the effect was not included in the top models with *Year*. Interactive effects of climate and DBH are not shown.](tables_figures/SummaryFigure.png)
 
 ## Climate sensitivity {-#Climate}
 
@@ -756,7 +756,7 @@ Our finding that on average across populations, BAI and $\Delta$AGB generally sa
 In large part, this discrepancy can be explained by differences between cross-sectional analyses and "longitudinal" patterns of individual trees through time [@sheil_does_2017; @forrester_does_2021], consistent with the principle that individual-scale growth patterns and environmental responses do not necessarily match population- or stand-level average responses [@clark_coexistence_2003; @clark_individualscale_2011].
 Declines in BAI and $\Delta$AGB at larger DBH are probably in part attributable to increasing allocation to reproduction [@thomas_agerelated_2011], and are also linked to slowly changing environmental conditions (e.g., successional changes in stand structure, climate change).
 Apparent declines in $\Delta$AGB at large DBH (or old age) may also be driven by shifts towards proportionally greater wood production within the crown [e.g., branch production,  @sillett_comparative_2021; @sillett_increasing_2010] that are not adequately captured by biomass allometries based on DBH and sometimes height [@goodman_importance_2014b; @disney_new_2020].
-Notably, inclusion of year in the GLS models tended to reduce the magnitude of BAI and $\Delta$AGB declines at larger DBH (Figs. `r GLS_SCBI`, `r GLS_SCBI_year`), suggesting that some of the declines at large DBH (Fig. `r size`) are more properly attributed to recent environmental changes than to large DBH.
+Notably, inclusion of year in the GLS models tended to reduce the magnitude of BAI and $\Delta$AGB declines at larger DBH (Figs. `r GLS_SCBI`, `r GLS_SCBI_year`), suggesting that some of the growth declines at large DBH (Fig. `r size`) are more properly attributed to recent environmental changes than to large DBH.
 
 ## Changing growth rates {-#Changing}
 
