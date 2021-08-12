@@ -345,11 +345,19 @@ ft <- footnote( ft, i = 1, j = 1,
                 part = "body",inline=T)
 ft <- footnote( ft, i = c(10,11), j = 2,
                 value = as_paragraph(c("Refers to SSC with significant (p<0.05) main effect of climate on RW.")),
+                ref_symbols = c("***"),
+                part = "body",inline=T)
+ft <- footnote( ft, i = 12, j = 1,
+                value = as_paragraph(c("Results summarized here are for models without year.")),
                 ref_symbols = c("#"),
+                part = "body",inline=T)
+ft <- footnote( ft, i = 15, j = 2,
+                value = as_paragraph(c("100% (9/9 SSC) for models including year")),
+                ref_symbols = c("##"),
                 part = "body",inline=T)
 ft <- footnote( ft, i = 19, j = 1,
                 value = as_paragraph(c("Results summarized here are for models with BAI as response variable.")),
-                ref_symbols = c("##"),
+                ref_symbols = c("###"),
                 part = "body",inline=T)
 ft  
 
