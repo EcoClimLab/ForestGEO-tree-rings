@@ -410,7 +410,7 @@ ft
 ```
 ---
 nocite: | 
-  @vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @alfaro-sanchez_growth_2017;@bourg_initial_2013; @helcoski_growing_2019 @gonzalez-akre_scbi-forestgeoscbi-forestgeo-data_2020-1; @bumann_assessing_2019; @samonil_individual-based_2013;  @alexander_potential_2019; @finzi_carbon_2020; @birch_birch_2020; @birch_birch_2020a; @birch_birch_2020b; @birch_birch_2020c; @dye_comparing_2016
+@vlam_temperature_2014; @maxwell_declining_2016; @sniderhan_growth_2016; @alfaro-sanchez_growth_2017;@bourg_initial_2013; @helcoski_growing_2019 @gonzalez-akre_scbi-forestgeoscbi-forestgeo-data_2020-1; @bumann_assessing_2019; @samonil_individualbased_2013;  @alexander_potential_2019; @finzi_carbon_2020; @birch_birch_2020; @birch_birch_2020a; @birch_birch_2020b; @birch_birch_2020c; @dye_comparing_2016
 ---
 
 All tree cores were cross-dated and measured by the original researchers using standard dendrochronological practices [@stokes_introduction_1968]. 
