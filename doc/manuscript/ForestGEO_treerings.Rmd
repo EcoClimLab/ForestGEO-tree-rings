@@ -389,7 +389,7 @@ ft <- width(ft, 8, width = .52)
 ft <- width(ft, 9, width = .5)
 ft <- width(ft, 10, width = 1.5)
 ft <- footnote( ft, i = 1, j = 4:6,
-                value = as_paragraph(c("Refers to 1950-2019 mean climate")),
+                value = as_paragraph(c("Refers to 1950-2019 mean climate; T= mean monthly temperature; MAP= mean annual precipitation.")),
                 ref_symbols = c("*"),
                 part = "header",inline=T)
 ft <- footnote( ft, i = 1, j = 7,
@@ -455,7 +455,7 @@ Our application of the thin-plate regression splines acts similar to more tradit
 We then used *climwin* to identify the climate drivers that most strongly correlated with the individual tree-level residuals of the growth variables, RW, BAI, or $\Delta$AGB, specifying linear and quadratic terms to allow for potential nonlinearities in the climate response.
 Within *climwin*, we specified a mixed-effects model in which the fixed effects were the climate variables and the random intercepts were species (when n $\ge$ 3) and core identity (noting that these effects should be minimal given that residuals are centered around zero).
 For each climate variable, we ran permutations for all possible combinations of consecutive months within a 15-month period ending near the time of cessation of formation of each annual ring (Table `r site_details`). 
-*Climwin* runs all potential models to select the best fit (lowest AIC), and does k-fold cross-validation in its computation of AIC to guard against over-fitting [@vandepol_identifying_2016]. 
+*Climwin* runs all potential models to select the best fit (lowest Akaike information criterion corrected for small sample size, AICc), and does k-fold cross-validation in its computation of AIC to guard against over-fitting [@vandepol_identifying_2016]. 
 For each group of candidate climate variables (water and temperature; Fig. `r schematic`), we selected the variable - seasonal window combination with the lowest AIC as a candidate climate variable for the multivariate models. 
 
 We tested whether this process identified similar seasonal windows and direction of response as would be identified using traditional methods for four species (detailed in Appendix `r traditional_comparison`). 
