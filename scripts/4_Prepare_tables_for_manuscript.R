@@ -22,6 +22,7 @@ sites_abb <- list(BCI  = "BCNM",
                   ScottyCreek = "SC")
 # load data ####
 species_list <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data/species%20list/sitespecies.csv?token=AEWDCIJDPYS6SYM54V4UJRTBGIM7W")
+bark_allo <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/dbh_to_bark_allometries_table.csv?token=AEWDCIOW4CICEKPFXKFR3IDBGJAVA")
 
 load("results/log_core_measurement/BCI_all_env.RData")
 
@@ -56,8 +57,11 @@ species_summary$bark.allometry <- tapply(ifelse(is.na(species_list$bark_species)
 species_summary$bark.allometry <- gsub(", neglected.*$", "", species_summary$bark.allometry ) # remove repetition of neglected
 species_summary$bark.allometry <- gsub(" ,", ",", species_summary$bark.allometry ) # remove space before comma
 
-## order by species code
-species_summary <- species_summary[order(species_summary$latin.name), ]
+## change bark allometry to allometry ID
+species_summary$bark.allometry <- ifelse(species_summary$bark.allometry %in% "neglected", "neglected", bark_allo$ID[match(paste0("$", species_summary$bark.allometry, "$"), bark_allo$species)])
+
+## order by latin name
+species_summary <- species_summary[order(species_summary$accepted.name), ]
 
 ## remove species that are not sampled in any site
 species_summary <- species_summary[!is.na(species_summary$sites.sampled), ]
@@ -66,9 +70,20 @@ species_summary <- species_summary[!is.na(species_summary$sites.sampled), ]
 
 species_summary$leaf.type <- gsub("needleleaf", "conifer", species_summary$leaf.type)
 
+
+## italicize latin names
+species_summary$latin.name  <- paste0("$",species_summary$latin.name ,  "$")
+
+species_summary$accepted.name[!species_summary$accepted.name %in% ""] <- sapply(strsplit(species_summary$accepted.name[!species_summary$accepted.name %in% ""] , " "), function(x) {
+ x[c(1,2)] <- paste0("$", x[c(1,2)] ,  "$")
+x <-  paste(x , collapse = " ")
+return(x)
+})
+
 ## replace underscores by spaces
 
 names(species_summary) <- gsub("\\.|_", " ", names(species_summary))
+
 
 ## save
 
