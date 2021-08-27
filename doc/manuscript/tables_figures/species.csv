@@ -1,5 +1,5 @@
 ﻿species code,family,latin name,accepted name,sites sampled,leaf type,leaf phenology,light requirements,bark allometry
-ABAL,Pinaceae,Abies alba,Abies alba Mill.,ZOF,conifer,evergreen,shade-tolerant,2
+ABAL,Pinaceae,Abies alba,$Abies$ $alba$ Mill.,ZOF,conifer,evergreen,shade-tolerant,2
 ABBI,Pinaceae,Abies bifolia,Abies bifolia A. Murray,CB,conifer,evergreen,shade-tolerant,2
 ACRU,Sapindaceae,Acer rubrum,Acer rubrum L.,HF,broadleaf,deciduous (cold),intermediate,3
 ACSA,Sapindaceae,Acer saccharum,Acer saccharum Marsh.,LDW,broadleaf,deciduous (cold),shade-tolerant,3
