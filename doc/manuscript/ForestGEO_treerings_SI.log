@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  27 AUG 2021 07:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  27 AUG 2021 10:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -885,7 +885,7 @@ L_wet.png Graphic file (type png)
 <use tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_ABAL
 _wet.png>
 Package pdftex.def Info: tables_figures/SI_figures/traditional_comparison/climw
-in_vs_dcc_Zofin_ABAL_wet.png  used on input line 1171.
+in_vs_dcc_Zofin_ABAL_wet.png  used on input line 1172.
 (pdftex.def)             Requested size: 446.26086pt x 223.13042pt.
 <tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_ABAL_tmx
 .png, id=209, 578.16pt x 289.08pt>
@@ -894,7 +894,7 @@ L_tmx.png Graphic file (type png)
 <use tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_ABAL
 _tmx.png>
 Package pdftex.def Info: tables_figures/SI_figures/traditional_comparison/climw
-in_vs_dcc_Zofin_ABAL_tmx.png  used on input line 1175.
+in_vs_dcc_Zofin_ABAL_tmx.png  used on input line 1176.
 (pdftex.def)             Requested size: 446.26086pt x 223.13042pt.
 [21 <./tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_AB
 AL_wet.png> <./tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_
@@ -906,7 +906,7 @@ ks_PSME_pre.png Graphic file (type png)
 <use tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBreak
 s_PSME_pre.png>
 Package pdftex.def Info: tables_figures/SI_figures/traditional_comparison/climw
-in_vs_dcc_CedarBreaks_PSME_pre.png  used on input line 1203.
+in_vs_dcc_CedarBreaks_PSME_pre.png  used on input line 1204.
 (pdftex.def)             Requested size: 446.26086pt x 223.13042pt.
 <tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBreaks_PS
 ME_tmx.png, id=218, 578.16pt x 289.08pt>
@@ -915,180 +915,180 @@ ks_PSME_tmx.png Graphic file (type png)
 <use tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBreak
 s_PSME_tmx.png>
 Package pdftex.def Info: tables_figures/SI_figures/traditional_comparison/climw
-in_vs_dcc_CedarBreaks_PSME_tmx.png  used on input line 1207.
+in_vs_dcc_CedarBreaks_PSME_tmx.png  used on input line 1208.
 (pdftex.def)             Requested size: 446.26086pt x 223.13042pt.
 [22 <./tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBre
 aks_PSME_pre.png> <./tables_figures/SI_figures/traditional_comparison/climwin_v
-s_dcc_CedarBreaks_PSME_tmx.png>]
+s_dcc_CedarBreaks_PSME_tmx.png>] [23]
 <tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCreek_PI
-MA_pre.png, id=226, 578.16pt x 289.08pt>
+MA_pre.png, id=230, 578.16pt x 289.08pt>
 File: tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCre
 ek_PIMA_pre.png Graphic file (type png)
 <use tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCree
 k_PIMA_pre.png>
 Package pdftex.def Info: tables_figures/SI_figures/traditional_comparison/climw
-in_vs_dcc_ScottyCreek_PIMA_pre.png  used on input line 1235.
+in_vs_dcc_ScottyCreek_PIMA_pre.png  used on input line 1236.
 (pdftex.def)             Requested size: 446.26086pt x 223.13042pt.
 <tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCreek_PI
-MA_tmx.png, id=227, 578.16pt x 289.08pt>
+MA_tmx.png, id=231, 578.16pt x 289.08pt>
 File: tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCre
 ek_PIMA_tmx.png Graphic file (type png)
 <use tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCree
 k_PIMA_tmx.png>
 Package pdftex.def Info: tables_figures/SI_figures/traditional_comparison/climw
-in_vs_dcc_ScottyCreek_PIMA_tmx.png  used on input line 1239.
+in_vs_dcc_ScottyCreek_PIMA_tmx.png  used on input line 1240.
 (pdftex.def)             Requested size: 446.26086pt x 223.13042pt.
-[23 <./tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCr
+[24 <./tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCr
 eek_PIMA_pre.png> <./tables_figures/SI_figures/traditional_comparison/climwin_v
-s_dcc_ScottyCreek_PIMA_tmx.png>]
-<tables_figures/year_effect_validation.png, id=235, 1143.27126pt x 534.99875pt>
+s_dcc_ScottyCreek_PIMA_tmx.png>] [25]
+<tables_figures/year_effect_validation.png, id=244, 1143.27126pt x 534.99875pt>
 
 File: tables_figures/year_effect_validation.png Graphic file (type png)
 <use tables_figures/year_effect_validation.png>
 Package pdftex.def Info: tables_figures/year_effect_validation.png  used on inp
-ut line 1264.
+ut line 1266.
 (pdftex.def)             Requested size: 469.75606pt x 219.82437pt.
-[24 <./tables_figures/year_effect_validation.png>]
-<tables_figures/SI_figures/climwin_plots_combined/HKK_tmp_tmx.png, id=245, 722.
+[26 <./tables_figures/year_effect_validation.png>]
+<tables_figures/SI_figures/climwin_plots_combined/HKK_tmp_tmx.png, id=254, 722.
 7pt x 578.16pt>
 File: tables_figures/SI_figures/climwin_plots_combined/HKK_tmp_tmx.png Graphic 
 file (type png)
 <use tables_figures/SI_figures/climwin_plots_combined/HKK_tmp_tmx.png>
 Package pdftex.def Info: tables_figures/SI_figures/climwin_plots_combined/HKK_t
-mp_tmx.png  used on input line 1284.
+mp_tmx.png  used on input line 1286.
 (pdftex.def)             Requested size: 469.76045pt x 375.80836pt.
-[25 <./tables_figures/SI_figures/climwin_plots_combined/HKK_tmp_tmx.png (PNG co
+[27 <./tables_figures/SI_figures/climwin_plots_combined/HKK_tmp_tmx.png (PNG co
 py)>]
-<tables_figures/SI_figures/climwin_plots_combined/SCBI_pre.png, id=254, 722.7pt
+<tables_figures/SI_figures/climwin_plots_combined/SCBI_pre.png, id=262, 722.7pt
  x 578.16pt>
 File: tables_figures/SI_figures/climwin_plots_combined/SCBI_pre.png Graphic fil
 e (type png)
 <use tables_figures/SI_figures/climwin_plots_combined/SCBI_pre.png>
 Package pdftex.def Info: tables_figures/SI_figures/climwin_plots_combined/SCBI_
-pre.png  used on input line 1307.
+pre.png  used on input line 1309.
 (pdftex.def)             Requested size: 469.76045pt x 375.80836pt.
-[26 <./tables_figures/SI_figures/climwin_plots_combined/SCBI_pre.png (PNG copy)
+[28 <./tables_figures/SI_figures/climwin_plots_combined/SCBI_pre.png (PNG copy)
 >]
-<tables_figures/SI_figures/climwin_plots_combined/SCBI_pet.png, id=262, 722.7pt
+<tables_figures/SI_figures/climwin_plots_combined/SCBI_pet.png, id=270, 722.7pt
  x 578.16pt>
 File: tables_figures/SI_figures/climwin_plots_combined/SCBI_pet.png Graphic fil
 e (type png)
 <use tables_figures/SI_figures/climwin_plots_combined/SCBI_pet.png>
 Package pdftex.def Info: tables_figures/SI_figures/climwin_plots_combined/SCBI_
-pet.png  used on input line 1330.
+pet.png  used on input line 1332.
 (pdftex.def)             Requested size: 469.76045pt x 375.80836pt.
-[27 <./tables_figures/SI_figures/climwin_plots_combined/SCBI_pet.png (PNG copy)
+[29 <./tables_figures/SI_figures/climwin_plots_combined/SCBI_pet.png (PNG copy)
 >]
 <tables_figures/SI_figures/climwin_plots_combined/HarvardForest_pre_wet.png, id
-=270, 722.7pt x 578.16pt>
+=278, 722.7pt x 578.16pt>
 File: tables_figures/SI_figures/climwin_plots_combined/HarvardForest_pre_wet.pn
 g Graphic file (type png)
 <use tables_figures/SI_figures/climwin_plots_combined/HarvardForest_pre_wet.png
 >
 Package pdftex.def Info: tables_figures/SI_figures/climwin_plots_combined/Harva
-rdForest_pre_wet.png  used on input line 1353.
+rdForest_pre_wet.png  used on input line 1355.
 (pdftex.def)             Requested size: 469.76045pt x 375.80836pt.
 
-Overfull \hbox (0.12984pt too wide) in paragraph at lines 1355--1369
+Overfull \hbox (0.12984pt too wide) in paragraph at lines 1357--1371
 []$\T1/lmr/m/n/10 (+6) h t t p s : / / g i t h u b . c o m / E c o C l i m L a 
 b / F o r e s t G E O -[] t r ee -[] r i n g s / t r e e / m a s t e r / d o c 
 / m a n u s c r i p t / t a b l e s[] f i g u r e s / S I[] f
  []
 
-[28 <./tables_figures/SI_figures/climwin_plots_combined/HarvardForest_pre_wet.p
+[30 <./tables_figures/SI_figures/climwin_plots_combined/HarvardForest_pre_wet.p
 ng (PNG copy)>]
-<tables_figures/SI_figures/composite_plots/BCI.png, id=278, 722.7pt x 722.7pt>
+<tables_figures/SI_figures/composite_plots/BCI.png, id=287, 722.7pt x 722.7pt>
 File: tables_figures/SI_figures/composite_plots/BCI.png Graphic file (type png)
 
 <use tables_figures/SI_figures/composite_plots/BCI.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/BCI.png  use
-d on input line 1378.
+d on input line 1380.
 (pdftex.def)             Requested size: 399.29474pt x 399.29474pt.
-[29 <./tables_figures/SI_figures/composite_plots/BCI.png>]
-<tables_figures/SI_figures/composite_plots/SCBI.png, id=292, 722.7pt x 722.7pt>
+[31 <./tables_figures/SI_figures/composite_plots/BCI.png>]
+<tables_figures/SI_figures/composite_plots/SCBI.png, id=301, 722.7pt x 722.7pt>
 
 File: tables_figures/SI_figures/composite_plots/SCBI.png Graphic file (type png
 )
 <use tables_figures/SI_figures/composite_plots/SCBI.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/SCBI.png  us
-ed on input line 1405.
+ed on input line 1407.
 (pdftex.def)             Requested size: 399.29474pt x 399.29474pt.
-[30 <./tables_figures/SI_figures/composite_plots/SCBI.png (PNG copy)>]
-<tables_figures/SI_figures/composite_plots/SCBI_with_Year.png, id=302, 722.7pt 
+[32 <./tables_figures/SI_figures/composite_plots/SCBI.png (PNG copy)>]
+<tables_figures/SI_figures/composite_plots/SCBI_with_Year.png, id=311, 722.7pt 
 x 722.7pt>
 File: tables_figures/SI_figures/composite_plots/SCBI_with_Year.png Graphic file
  (type png)
 <use tables_figures/SI_figures/composite_plots/SCBI_with_Year.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/SCBI_with_Ye
-ar.png  used on input line 1433.
+ar.png  used on input line 1435.
 (pdftex.def)             Requested size: 399.29474pt x 399.29474pt.
-[31 <./tables_figures/SI_figures/composite_plots/SCBI_with_Year.png (PNG copy)>
+[33 <./tables_figures/SI_figures/composite_plots/SCBI_with_Year.png (PNG copy)>
 ]
-<tables_figures/SI_figures/composite_plots/NewMexico_with_Year.png, id=313, 722
+<tables_figures/SI_figures/composite_plots/NewMexico_with_Year.png, id=321, 722
 .7pt x 722.7pt>
 File: tables_figures/SI_figures/composite_plots/NewMexico_with_Year.png Graphic
  file (type png)
 <use tables_figures/SI_figures/composite_plots/NewMexico_with_Year.png>
 Package pdftex.def Info: tables_figures/SI_figures/composite_plots/NewMexico_wi
-th_Year.png  used on input line 1461.
+th_Year.png  used on input line 1463.
 (pdftex.def)             Requested size: 399.29474pt x 399.29474pt.
-[32 <./tables_figures/SI_figures/composite_plots/NewMexico_with_Year.png>]
-<tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png, id=324, 722.7pt x 578.1
+[34 <./tables_figures/SI_figures/composite_plots/NewMexico_with_Year.png>]
+<tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png, id=332, 722.7pt x 578.1
 6pt>
 File: tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png Graphic file (type 
 png)
 <use tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png>
 Package pdftex.def Info: tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png 
- used on input line 1490.
+ used on input line 1492.
 (pdftex.def)             Requested size: 234.87471pt x 187.89977pt.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-491.
+493.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<tables_figures/SI_figures/GLS_post1970_ScottyCreek.png, id=325, 722.7pt x 578.
+<tables_figures/SI_figures/GLS_post1970_ScottyCreek.png, id=333, 722.7pt x 578.
 16pt>
 File: tables_figures/SI_figures/GLS_post1970_ScottyCreek.png Graphic file (type
  png)
 <use tables_figures/SI_figures/GLS_post1970_ScottyCreek.png>
 Package pdftex.def Info: tables_figures/SI_figures/GLS_post1970_ScottyCreek.png
-  used on input line 1498.
+  used on input line 1500.
 (pdftex.def)             Requested size: 234.87471pt x 187.89977pt.
-[33 <./tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png> <./tables_figures
+[35 <./tables_figures/SI_figures/GLS_pre1970_ScottyCreek.png> <./tables_figures
 /SI_figures/GLS_post1970_ScottyCreek.png>]
 <tables_figures/pre_temp_groups_dbh_interactions_log_core_measurement_dbh.png, 
-id=336, 592.614pt x 592.614pt>
+id=344, 592.614pt x 592.614pt>
 File: tables_figures/pre_temp_groups_dbh_interactions_log_core_measurement_dbh.
 png Graphic file (type png)
 <use tables_figures/pre_temp_groups_dbh_interactions_log_core_measurement_dbh.p
 ng>
 Package pdftex.def Info: tables_figures/pre_temp_groups_dbh_interactions_log_co
-re_measurement_dbh.png  used on input line 1522.
+re_measurement_dbh.png  used on input line 1524.
 (pdftex.def)             Requested size: 422.78441pt x 422.78441pt.
-[34 <./tables_figures/pre_temp_groups_dbh_interactions_log_core_measurement_dbh
+[36 <./tables_figures/pre_temp_groups_dbh_interactions_log_core_measurement_dbh
 .png (PNG copy)>]
-<tables_figures/Year_responses.png, id=343, 578.16pt x 722.7pt>
+<tables_figures/Year_responses.png, id=351, 578.16pt x 722.7pt>
 File: tables_figures/Year_responses.png Graphic file (type png)
 <use tables_figures/Year_responses.png>
 Package pdftex.def Info: tables_figures/Year_responses.png  used on input line 
-1540.
+1542.
 (pdftex.def)             Requested size: 352.31538pt x 440.39423pt.
-[35 <./tables_figures/Year_responses.png (PNG copy)>] [36] [37] [38]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1926.
-[39]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1926.
+[37 <./tables_figures/Year_responses.png (PNG copy)>] [38] [39] [40]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1928.
+[41]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1928.
 (./ForestGEO_treerings_SI.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1926.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1926.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1928.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1928.
  ) 
 Here is how much of TeX's memory you used:
- 16150 strings out of 480608
- 249511 string characters out of 5903631
- 573513 words of memory out of 5000000
+ 16154 strings out of 480608
+ 249663 string characters out of 5903631
+ 572639 words of memory out of 5000000
  31338 multiletter control sequences out of 15000+600000
- 615633 words of font info for 168 fonts, out of 8000000 for 9000
+ 615763 words of font info for 169 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,15n,46p,1574b,709s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,15n,46p,1932b,709s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
 texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/20
 20/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2020/texmf-dist/
@@ -1108,10 +1108,10 @@ xmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2020/texmf-dist/fon
 ts/type1/public/lm/lmri10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/p
 ublic/lm/lmri8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lm
 sy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt8.pfb>
-Output written on ForestGEO_treerings_SI.pdf (39 pages, 7228655 bytes).
+Output written on ForestGEO_treerings_SI.pdf (41 pages, 7229657 bytes).
 PDF statistics:
- 677 PDF objects out of 1000 (max. 8388607)
- 576 compressed objects within 6 object streams
- 188 named destinations out of 1000 (max. 500000)
+ 685 PDF objects out of 1000 (max. 8388607)
+ 582 compressed objects within 6 object streams
+ 190 named destinations out of 1000 (max. 500000)
  16706 words of extra memory for PDF output out of 17280 (max. 10000000)
 

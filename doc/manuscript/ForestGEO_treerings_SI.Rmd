@@ -129,10 +129,10 @@ year_trends_all= "S16"
 
 #SI figure captions
 
-SCBI_traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals: *Liriodendron tulipifera* at SCBI."
-Zofin_traditional_comparison_legend <- "Figure S2. Comparison of our approach with traditional methods of identifying climate signals: *Abies alba* at Zofin."
-CB_traditional_comparison_legend <- "Figure S3. Comparison of our approach with traditional methods of identifying climate signals: *Pseudotsuga menziesii* at Cedar Breaks."
-SC_traditional_comparison_legend <- "Figure S4. Comparison of our approach with traditional methods of identifying climate signals: *Picea mariana* at Scotty Creek."
+SCBI_traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals: *Liriodendron tulipifera* L. at SCBI."
+Zofin_traditional_comparison_legend <- "Figure S2. Comparison of our approach with traditional methods of identifying climate signals: *Abies alba* Mill. at Zofin."
+CB_traditional_comparison_legend <- "Figure S3. Comparison of our approach with traditional methods of identifying climate signals: *Pseudotsuga menziesii* (Mirb.) Franco at Cedar Breaks."
+SC_traditional_comparison_legend <- "Figure S4. Comparison of our approach with traditional methods of identifying climate signals: *Picea mariana* a (Mill.) Britton, Sterns and Poggenb. at Scotty Creek."
 
 year_validation_legend <- "Figure S5. Example comparison of year effect in GLS model with independent decadal analysis: Harvard Forest"
 
@@ -457,7 +457,6 @@ S2 <- read.csv("tables_figures/species.csv",
 S2 <- subset(S2, select = -c(x)) 
 kable(S2, format = "latex", booktabs = TRUE,  escape = F, linesep = c('\\addlinespace'))%>%
   row_spec(0, italic = F, bold = T) %>%
-  column_spec(3, italic = T) %>%
   kable_styling(latex_options = c("scale_down", "hold_position")) 
 ```
 *For extratropical species, light requirements are classified based on the database of @niinemets_tolerance_2006. For tropical species, categorization is based on @alfaro-sanchez_growth_2017 for BCNM and @vlam_temperature_2014 for HKK.
