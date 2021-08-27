@@ -21,7 +21,7 @@ sites_abb <- list(BCI  = "BCNM",
                   Zofin = "ZOF",
                   ScottyCreek = "SC")
 # load data ####
-species_list <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data/species%20list/sitespecies.csv?token=AEWDCIJ7T2OQKN6SDAKZ7FLAFZ5AC")
+species_list <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data/species%20list/sitespecies.csv?token=AEWDCIJDPYS6SYM54V4UJRTBGIM7W")
 
 load("results/log_core_measurement/BCI_all_env.RData")
 
@@ -29,6 +29,7 @@ load("results/log_core_measurement/BCI_all_env.RData")
 species_summary <- data.frame(species.code = species_list$species_code,
                               family = species_list$family,
                               latin.name = species_list$latin_name,
+                              accepted.name =species_list$accepted_latin_name_with_authority,
                               'sites.sampled' = NA,
                               leaf.type = species_list$leaf_type,
                               leaf.phenology = species_list$leaf_pheno,
@@ -56,11 +57,14 @@ species_summary$bark.allometry <- gsub(", neglected.*$", "", species_summary$bar
 species_summary$bark.allometry <- gsub(" ,", ",", species_summary$bark.allometry ) # remove space before comma
 
 ## order by species code
-species_summary <- species_summary[order(species_summary$species.code), ]
+species_summary <- species_summary[order(species_summary$latin.name), ]
 
 ## remove species that are not sampled in any site
 species_summary <- species_summary[!is.na(species_summary$sites.sampled), ]
 
+# change needleleaf to conifer
+
+species_summary$leaf.type <- gsub("needleleaf", "conifer", species_summary$leaf.type)
 
 ## replace underscores by spaces
 
