@@ -451,7 +451,10 @@ kable(S1, format = "latex", booktabs = TRUE,   escape = F)%>%
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
 library(kableExtra)
-S2 <- read.csv("tables_figures/species.csv", col.names = c("species code", "family","latin name", "sites sampled", "leaf type", "leaf phenology", "light requirements*", "bark allometry**"), stringsAsFactors = FALSE, check.names = FALSE)
+S2 <- read.csv("tables_figures/species.csv",  
+               col.names = c("species code", "family", "x", "latin name", "sites sampled", "leaf type", "leaf phenology", "light requirements*", "bark allometry**"),
+               stringsAsFactors = FALSE, check.names = FALSE)
+S2 <- subset(S2, select = -c(x)) 
 kable(S2, format = "latex", booktabs = TRUE,  escape = F, linesep = c('\\addlinespace'))%>%
   row_spec(0, italic = F, bold = T) %>%
   column_spec(3, italic = T) %>%
