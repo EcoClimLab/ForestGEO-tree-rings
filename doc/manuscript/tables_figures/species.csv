@@ -1,41 +1,41 @@
-species code,family,latin name,accepted name,sites sampled,leaf type,leaf phenology,light requirements,bark allometry
-ABAL,Pinaceae,$Abies$ $alba$,$Abies$ $alba$ Mill.,ZOF,conifer,evergreen,shade-tolerant,1
-ABBI,Pinaceae,$Abies$ $bifolia$,$Abies$ $bifolia$ A. Murray,CB,conifer,evergreen,shade-tolerant,1
-ACRU,Sapindaceae,$Acer$ $rubrum$,$Acer$ $rubrum$ L.,HF,broadleaf,deciduous (cold),intermediate,2
-ACSA,Sapindaceae,$Acer$ $saccharum$,$Acer$ $saccharum$ Marsh.,LDW,broadleaf,deciduous (cold),shade-tolerant,2
-AFXY,Fabaceae,$Afzelia$ $xylocarpa$ $$,$Afzelia$ $xylocarpa$  (Kurz) Craib,HKK,broadleaf,deciduous (drought),light-demanding,neglected
-BEAL,Betulaceae,$Betula$ $alleghaniensis$,$Betula$ $alleghaniensis$ Britton,HF,broadleaf,deciduous (cold),intermediate,3
-BEPA,Betulaceae,$Betula$ $papyrifera$,$Betula$ $papyrifera$ Marshall,NIO,broadleaf,deciduous (cold),light-demanding,4
-CACO,Juglandaceae,$Carya$ $cordiformis$,$Carya$ $cordiformis$ (Wangenh.) K. Koch,SCBI,broadleaf,deciduous (cold),light-demanding,5
-CAGL,Juglandaceae,$Carya$ $glabra$,$Carya$ $glabra$ (Mill.) Sweet,SCBI,broadleaf,deciduous (cold),intermediate,6
-CAOVL,Juglandaceae,$Carya$ $ovalis$,$Carya$ $ovalis$ (Wangenh.) Sarg.,SCBI,broadleaf,deciduous (cold),intermediate,7
-CAOV,Juglandaceae,$Carya$ $ovata$,$Carya$ $ovata$ (Mill.) K. Koch,LDW,broadleaf,deciduous (cold),intermediate,6
-CATO,Juglandaceae,$Carya$ $tomentosa$,$Carya$ $tomentosa$ (Poir.) Nutt.,SCBI,broadleaf,deciduous (cold),light-demanding,8
-CHTA,Meliaceae,$Chukrasia$ $tabularis$ $$,$Chukrasia$ $tabularis$ A. Juss.,HKK,broadleaf,brevi-deciduous (drought),intermediate,neglected
-FAGR,Fagaceae,$Fagus$ $grandifolia$,$Fagus$ $grandifolia$ Ehrh.,HF, SCBI,broadleaf,deciduous (cold),shade-tolerant,neglected
-FASY,Fagaceae,$Fagus$ $sylvatica$,$Fagus$ $sylvatica$ L.,ZOF,broadleaf,deciduous (cold),shade-tolerant,neglected
-FRAM,Oleaceae,$Fraxinus$ $americana$,$Fraxinus$ $americana$ L.,LDW, SCBI,broadleaf,deciduous (cold),intermediate,9
-FRNI,Oleaceae,$Fraxinus$ $nigra$,$Fraxinus$ $nigra$ Marshall,SCBI,broadleaf,deciduous (cold),intermediate,9
-JACO,Bignoniaceae,$Jacaranada$ $copaia$,$Jacaranda$ $copaia$ (Aubl.) D. Don,BCNM,broadleaf,deciduous (drought),light-demanding,10
-JUNI,Juglandaceae,$Juglans$ $nigra$,$Juglans$ $nigra$ L.,SCBI,broadleaf,deciduous (cold),light-demanding,11
-LITU,Magnoliaceae,$Liriodendron$ $tulipifera$,$Liriodendron$ $tulipifera$ L.,LDW, SCBI,broadleaf,deciduous (cold),light-demanding,12
-MEAZ,Meliaceae,$Melia$ $azedarach$ $$,$Melia$ $azedarach$ L.,HKK,broadleaf,deciduous (drought),light-demanding,neglected
-PIAB,Pinaceae,$Picea$ $abies$,$Picea$ $abies$ (L.) H. Karst.,HF, ZOF,conifer,evergreen,shade-tolerant,13
-PIEN,Pinaceae,$Picea$ $engelmannii$,$Picea$ $engelmannii$ Engelm.,CB,conifer,evergreen,shade-tolerant,13
-PIMA,Pinaceae,$Picea$ $mariana$,$Picea$ $mariana$ (Mill.) Britton, Sterns & Poggenb.,SC,conifer,evergreen,shade-tolerant,14
-PIPU,Pinaceae,$Picea$ $pungens$,$Picea$ $pungens$ Engelm.,CB,conifer,evergreen,intermediate,13
-PIFL,Pinaceae,$Pinus$ $flexilis$,$Pinus$ $flexilis$ E. James,CB,conifer,evergreen,light-demanding,16
-PILO,Pinaceae,$Pinus$ $longaeva$,$Pinus$ $longaeva$ D.K. Bailey,CB,conifer,evergreen,light-demanding,neglected
-PIPO,Pinaceae,$Pinus$ $ponderosa$,$Pinus$ $ponderosa$ P. Lawson & C. Lawson,LT,conifer,evergreen,light-demanding,15
-PIST3,Pinaceae,$Pinus$ $strobiformis$,$Pinus$ $strobiformis$ Engelm.,LT,conifer,evergreen,light-demanding,16
-PIST,Pinaceae,$Pinus$ $strobus$,$Pinus$ $strobus$ L.,HF, SCBI,conifer,evergreen,intermediate,17
-POTR,Salicaceae,$Populus$ $tremuloides$,$Populus$ $tremuloides$ Michx.,CB,broadleaf,deciduous (cold),light-demanding,18
-PSME,Pinaceae,$Pseudotsuga$ $menziesii$,$Pseudotsuga$ $menziesii$ (Mirb.) Franco,CB,conifer,evergreen,intermediate,19
-QUAL,Fagaceae,$Quercus$ $alba$,$Quercus$ $alba$ L.,LDW, SCBI,broadleaf,deciduous (cold),intermediate,20
-QUMO,Fagaceae,$Quercus$ $montana$,$Quercus$ $montana$ Willd.,LDW, SCBI,broadleaf,deciduous (cold),intermediate,21
-QURU,Fagaceae,$Quercus$ $rubra$,$Quercus$ $rubra$ L.,HF, LDW, SCBI,broadleaf,deciduous (cold),intermediate,22
-QUVE,Fagaceae,$Quercus$ $velutina$,$Quercus$ $velutina$ Lam.,LDW, SCBI,broadleaf,deciduous (cold),intermediate,23
-TEPA,Burseraceae,$Tetragastris$ $panamensis$,$Tetragastris$ $panamensis$ (Engl.) Kuntze,BCNM,broadleaf,evergreen,shade-tolerant,24
-TOCI,Meliaceae,$Toona$ $ciliata$ $$,$Toona$ $ciliata$ M. Roem.,HKK,broadleaf,deciduous (drought),intermediate,neglected
-TRTU,Meliaceae,$Trichilia$ $tuberculata$,$Trichilia$ $tuberculata$ (Triana & Planch.) C. DC.,BCNM,broadleaf,evergreen,shade-tolerant,25
-TSCA,Pinaceae,$Tsuga$ $canadensis$,$Tsuga$ $canadensis$ (L.) Carri√®re,HF,conifer,evergreen,shade-tolerant,26
+"species code","family","latin name","accepted name","sites sampled","leaf type","leaf phenology","light requirements","bark allometry"
+"ABAL","Pinaceae","$Abies$ $alba$","$Abies$ $alba$ Mill.","ZOF","conifer","evergreen","shade-tolerant","1"
+"ABBI","Pinaceae","$Abies$ $bifolia$","$Abies$ $bifolia$ A. Murray","CB","conifer","evergreen","shade-tolerant","1"
+"ACRU","Sapindaceae","$Acer$ $rubrum$","$Acer$ $rubrum$ L.","HF","broadleaf","deciduous (cold)","intermediate","2"
+"ACSA","Sapindaceae","$Acer$ $saccharum$","$Acer$ $saccharum$ Marsh.","LDW","broadleaf","deciduous (cold)","shade-tolerant","2"
+"AFXY","Fabaceae","$Afzelia$ $xylocarpa$ $$","$Afzelia$ $xylocarpa$  (Kurz) Craib","HKK","broadleaf","deciduous (drought)","light-demanding","neglected"
+"BEAL","Betulaceae","$Betula$ $alleghaniensis$","$Betula$ $alleghaniensis$ Britton","HF","broadleaf","deciduous (cold)","intermediate","3"
+"BEPA","Betulaceae","$Betula$ $papyrifera$","$Betula$ $papyrifera$ Marshall","NIO","broadleaf","deciduous (cold)","light-demanding","4"
+"CACO","Juglandaceae","$Carya$ $cordiformis$","$Carya$ $cordiformis$ (Wangenh.) K. Koch","SCBI","broadleaf","deciduous (cold)","light-demanding","5"
+"CAGL","Juglandaceae","$Carya$ $glabra$","$Carya$ $glabra$ (Mill.) Sweet","SCBI","broadleaf","deciduous (cold)","intermediate","6"
+"CAOVL","Juglandaceae","$Carya$ $ovalis$","$Carya$ $ovalis$ (Wangenh.) Sarg.","SCBI","broadleaf","deciduous (cold)","intermediate","7"
+"CAOV","Juglandaceae","$Carya$ $ovata$","$Carya$ $ovata$ (Mill.) K. Koch","LDW","broadleaf","deciduous (cold)","intermediate","6"
+"CATO","Juglandaceae","$Carya$ $tomentosa$","$Carya$ $tomentosa$ (Poir.) Nutt.","SCBI","broadleaf","deciduous (cold)","light-demanding","8"
+"CHTA","Meliaceae","$Chukrasia$ $tabularis$ $$","$Chukrasia$ $tabularis$ A. Juss.","HKK","broadleaf","brevi-deciduous (drought)","intermediate","neglected"
+"FAGR","Fagaceae","$Fagus$ $grandifolia$","$Fagus$ $grandifolia$ Ehrh.","HF, SCBI","broadleaf","deciduous (cold)","shade-tolerant","neglected"
+"FASY","Fagaceae","$Fagus$ $sylvatica$","$Fagus$ $sylvatica$ L.","ZOF","broadleaf","deciduous (cold)","shade-tolerant","neglected"
+"FRAM","Oleaceae","$Fraxinus$ $americana$","$Fraxinus$ $americana$ L.","LDW, SCBI","broadleaf","deciduous (cold)","intermediate","9"
+"FRNI","Oleaceae","$Fraxinus$ $nigra$","$Fraxinus$ $nigra$ Marshall","SCBI","broadleaf","deciduous (cold)","intermediate","9"
+"JACO","Bignoniaceae","$Jacaranada$ $copaia$","$Jacaranda$ $copaia$ (Aubl.) D. Don","BCNM","broadleaf","deciduous (drought)","light-demanding","10"
+"JUNI","Juglandaceae","$Juglans$ $nigra$","$Juglans$ $nigra$ L.","SCBI","broadleaf","deciduous (cold)","light-demanding","11"
+"LITU","Magnoliaceae","$Liriodendron$ $tulipifera$","$Liriodendron$ $tulipifera$ L.","LDW, SCBI","broadleaf","deciduous (cold)","light-demanding","12"
+"MEAZ","Meliaceae","$Melia$ $azedarach$ $$","$Melia$ $azedarach$ L.","HKK","broadleaf","deciduous (drought)","light-demanding","neglected"
+"PIAB","Pinaceae","$Picea$ $abies$","$Picea$ $abies$ (L.) H. Karst.","HF, ZOF","conifer","evergreen","shade-tolerant","13"
+"PIEN","Pinaceae","$Picea$ $engelmannii$","$Picea$ $engelmannii$ Engelm.","CB","conifer","evergreen","shade-tolerant","13"
+"PIMA","Pinaceae","$Picea$ $mariana$","$Picea$ $mariana$ (Mill.) Britton, Sterns & Poggenb.","SC","conifer","evergreen","shade-tolerant","14"
+"PIPU","Pinaceae","$Picea$ $pungens$","$Picea$ $pungens$ Engelm.","CB","conifer","evergreen","intermediate","13"
+"PIFL","Pinaceae","$Pinus$ $flexilis$","$Pinus$ $flexilis$ E. James","CB","conifer","evergreen","light-demanding","16"
+"PILO","Pinaceae","$Pinus$ $longaeva$","$Pinus$ $longaeva$ D.K. Bailey","CB","conifer","evergreen","light-demanding","neglected"
+"PIPO","Pinaceae","$Pinus$ $ponderosa$","$Pinus$ $ponderosa$ P. Lawson & C. Lawson","LT","conifer","evergreen","light-demanding","15"
+"PIST3","Pinaceae","$Pinus$ $strobiformis$","$Pinus$ $strobiformis$ Engelm.","LT","conifer","evergreen","light-demanding","16"
+"PIST","Pinaceae","$Pinus$ $strobus$","$Pinus$ $strobus$ L.","HF, SCBI","conifer","evergreen","intermediate","17"
+"POTR","Salicaceae","$Populus$ $tremuloides$","$Populus$ $tremuloides$ Michx.","CB","broadleaf","deciduous (cold)","light-demanding","18"
+"PSME","Pinaceae","$Pseudotsuga$ $menziesii$","$Pseudotsuga$ $menziesii$ (Mirb.) Franco","CB","conifer","evergreen","intermediate","19"
+"QUAL","Fagaceae","$Quercus$ $alba$","$Quercus$ $alba$ L.","LDW, SCBI","broadleaf","deciduous (cold)","intermediate","20"
+"QUMO","Fagaceae","$Quercus$ $montana$","$Quercus$ $montana$ Willd.","LDW, SCBI","broadleaf","deciduous (cold)","intermediate","21"
+"QURU","Fagaceae","$Quercus$ $rubra$","$Quercus$ $rubra$ L.","HF, LDW, SCBI","broadleaf","deciduous (cold)","intermediate","22"
+"QUVE","Fagaceae","$Quercus$ $velutina$","$Quercus$ $velutina$ Lam.","LDW, SCBI","broadleaf","deciduous (cold)","intermediate","23"
+"TEPA","Burseraceae","$Tetragastris$ $panamensis$","$Tetragastris$ $panamensis$ (Engl.) Kuntze","BCNM","broadleaf","evergreen","shade-tolerant","24"
+"TOCI","Meliaceae","$Toona$ $ciliata$ $$","$Toona$ $ciliata$ M. Roem.","HKK","broadleaf","deciduous (drought)","intermediate","neglected"
+"TRTU","Meliaceae","$Trichilia$ $tuberculata$","$Trichilia$ $tuberculata$ (Triana & Planch.) C. DC.","BCNM","broadleaf","evergreen","shade-tolerant","25"
+"TSCA","Pinaceae","$Tsuga$ $canadensis$","$Tsuga$ $canadensis$ (L.) Carrière","HF","conifer","evergreen","shade-tolerant","26"
