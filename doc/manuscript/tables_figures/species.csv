@@ -22,13 +22,13 @@ LITU,Magnoliaceae,Liriodendron tulipifera,Liriodendron tulipifera L.,"LDW, SCBI"
 MEAZ,Meliaceae,Melia azedarach ,Melia azedarach L.,HKK,broadleaf,deciduous (drought),light-demanding,neglected
 PIAB,Pinaceae,Picea abies,Picea abies (L.) H. Karst.,"HF, ZOF",conifer,evergreen,shade-tolerant,14
 PIEN,Pinaceae,Picea engelmannii,Picea engelmannii Engelm.,CB,conifer,evergreen,shade-tolerant,14
+PIMA,Pinaceae,Picea mariana,"Picea mariana (Mill.) Britton, Sterns & Poggenb.",SC,conifer,evergreen,shade-tolerant,15
+PIPU,Pinaceae,Picea pungens,Picea pungens Engelm. ,CB,conifer,evergreen,intermediate,14
 PIFL,Pinaceae,Pinus flexilis,Pinus flexilis E. James ,CB,conifer,evergreen,light-demanding,17
 PILO,Pinaceae,Pinus longaeva,Pinus longaeva D.K. Bailey,CB,conifer,evergreen,light-demanding,neglected
-PIMA,Pinaceae,Picea mariana,"Picea mariana (Mill.) Britton, Sterns & Poggenb.",SC,conifer,evergreen,shade-tolerant,15
 PIPO,Pinaceae,Pinus ponderosa,Pinus ponderosa P. Lawson & C. Lawson,LT,conifer,evergreen,light-demanding,16
-PIPU,Pinaceae,Picea pungens,Picea pungens Engelm. ,CB,conifer,evergreen,intermediate,14
-PIST,Pinaceae,Pinus strobus,Pinus strobus L.,"HF, SCBI",conifer,evergreen,intermediate,18
 PIST3,Pinaceae,Pinus strobiformis,Pinus strobiformis Engelm. ,LT,conifer,evergreen,light-demanding,17
+PIST,Pinaceae,Pinus strobus,Pinus strobus L.,"HF, SCBI",conifer,evergreen,intermediate,18
 POTR,Salicaceae,Populus tremuloides,Populus tremuloides Michx.,CB,broadleaf,deciduous (cold),light-demanding,19
 PSME,Pinaceae,Pseudotsuga menziesii,Pseudotsuga menziesii (Mirb.) Franco ,CB,conifer,evergreen,intermediate,20
 QUAL,Fagaceae,Quercus alba,Quercus alba L.,"LDW, SCBI",broadleaf,deciduous (cold),intermediate,21
