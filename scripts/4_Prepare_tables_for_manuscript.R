@@ -22,7 +22,7 @@ sites_abb <- list(BCI  = "BCNM",
                   ScottyCreek = "SC")
 # load data ####
 species_list <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data/species%20list/sitespecies.csv?token=AEWDCIJDPYS6SYM54V4UJRTBGIM7W")
-bark_allo <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/dbh_to_bark_allometries_table.csv?token=AEWDCIOW4CICEKPFXKFR3IDBGJAVA")
+bark_allo <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/dbh_to_bark_allometries_table.csv?token=AEWDCIJQG5MHZSGAOPO4JWDBGJNEQ")
 
 load("results/log_core_measurement/BCI_all_env.RData")
 
@@ -58,7 +58,7 @@ species_summary$bark.allometry <- gsub(", neglected.*$", "", species_summary$bar
 species_summary$bark.allometry <- gsub(" ,", ",", species_summary$bark.allometry ) # remove space before comma
 
 ## change bark allometry to allometry ID
-species_summary$bark.allometry <- ifelse(species_summary$bark.allometry %in% "neglected", "neglected", bark_allo$ID[match(paste0("$", species_summary$bark.allometry, "$"), bark_allo$species)])
+species_summary$bark.allometry <- ifelse(species_summary$bark.allometry %in% "neglected", "neglected", bark_allo$ID[match(paste0("$", gsub(" ", "$ $", species_summary$bark.allometry), "$"), bark_allo$species)])
 
 ## order by latin name
 species_summary <- species_summary[order(species_summary$accepted.name), ]
@@ -72,7 +72,7 @@ species_summary$leaf.type <- gsub("needleleaf", "conifer", species_summary$leaf.
 
 
 ## italicize latin names
-species_summary$latin.name  <- paste0("$",species_summary$latin.name ,  "$")
+species_summary$latin.name  <- paste0("$", gsub(" ", "$ $", species_summary$latin.name) ,  "$")
 
 species_summary$accepted.name[!species_summary$accepted.name %in% ""] <- sapply(strsplit(species_summary$accepted.name[!species_summary$accepted.name %in% ""] , " "), function(x) {
  x[c(1,2)] <- paste0("$", x[c(1,2)] ,  "$")
