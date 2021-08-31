@@ -147,8 +147,8 @@ climate_correction <- "S3"
 traditional_comparison <- "S4"
 changing_climate <- "S5"
 
-site_details_appendix_title<- "Appendix S1. Site Details"
-DBH_reconstruction_title <- "Appendix S2. Methods for reconstruction of DBH"
+site_details_appendix_title<- "Appendix S1. Descriptions of sites included in this analysis"
+DBH_reconstruction_title <- "Appendix S2. Methods for reconstruction of diameter breast height (DBH)"
 climate_correction_title <- "Appendix S3. Methods for climate data evaluation and correction"
 traditional_comparison_title <- "Appendix S4. Methods for comparing our approach with traditional methods"
 changing_climate_title <- "Appendix S5. Dealing with rapidly changing climate and tree growth"
@@ -161,10 +161,10 @@ bark_allometries = "S4"
 qualitative_results_comparison = "S5"
 
 #SI table captions
-site_details_legend <- "Table S1. Site Details."
-species_table_legend <-"Table S2. Species analyzed, their characteristics, and bark allometries applied."
-sampling_details_legend <- "Table S3. Sampling details for species by site."
-bark_allometries_legend <- "Table S4. Allometric equations for bark thickness."
+site_details_legend <- "Table S1. Additional information on sites included in this analysis."
+species_table_legend <-"Table S2. Tree species analyzed, their characteristics, and bark allometries applied."
+sampling_details_legend <- "Table S3. Sampling details for tree species by site."
+bark_allometries_legend <- "Table S4. Allometric equations for tree bark thickness."
 qualitative_results_comparison_legend <- "Table S5. Qualitative comparison of results from this study with previous studies employing conventional methods."
 
 #SI figure numbers
@@ -200,28 +200,28 @@ year_trends_all= "S16"
 
 #SI figure captions
 
-SCBI_traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals: *Liriodendron tulipifera* L. at SCBI."
-Zofin_traditional_comparison_legend <- "Figure S2. Comparison of our approach with traditional methods of identifying climate signals: *Abies alba* Mill. at Zofin."
-CB_traditional_comparison_legend <- "Figure S3. Comparison of our approach with traditional methods of identifying climate signals: *Pseudotsuga menziesii* (Mirb.) Franco at Cedar Breaks."
-SC_traditional_comparison_legend <- "Figure S4. Comparison of our approach with traditional methods of identifying climate signals: *Picea mariana* a (Mill.) Britton, Sterns and Poggenb. at Scotty Creek."
+SCBI_traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals: *Liriodendron tulipifera* L. at the Smithsonian Conservation Biology Institute (SCBI), VA, USA."
+Zofin_traditional_comparison_legend <- "Figure S2. Comparison of our approach with traditional methods of identifying climate signals: *Abies alba* Mill. at Zofin, Czech Republic."
+CB_traditional_comparison_legend <- "Figure S3. Comparison of our approach with traditional methods of identifying climate signals: *Pseudotsuga menziesii* (Mirb.) Franco at Cedar Breaks, UT, USA."
+SC_traditional_comparison_legend <- "Figure S4. Comparison of our approach with traditional methods of identifying climate signals: *Picea mariana* a (Mill.) Britton, Sterns and Poggenb. at Scotty Creek, NT, Canada."
 
-year_validation_legend <- "Figure S5. Example comparison of year effect in GLS model with independent decadal analysis: Harvard Forest"
+year_validation_legend <- "Figure S5. Example comparison of year effect in GLS model with independent decadal analysis for Harvard Forest, MA, USA."
 
-climwin_HKK_T_legend = "Figure S6. Climwin output for temperature variable group at HKK."
-climwin_SCBI_W_legend  = "Figure S7. Climwin output for water variable group at SCBI."
-climwin_SCBI_T_legend = "Figure S8. Climwin output for temperature variable group at SCBI."
-climwin_HF_W_legend =  "Figure S9. Climwin output for water variable group at HF."
+climwin_HKK_T_legend = "Figure S6. Climwin output describing the strongest predictor of interannual variation in tree growth within the temperature variable group at Huai Kha Khaeng, Thailand."
+climwin_SCBI_W_legend  = "Figure S7. Climwin output describing the strongest predictor of interannual variation in tree growth within the water variable group at the Smithsonian Conservation Biology Institute (SCBI), VA, USA."
+climwin_SCBI_T_legend = "Figure S8. Climwin output describing the strongest predictor of interannual variation in tree growth within the temperature variable group at the Smithsonian Conservation Biology Institute (SCBI), VA, USA."
+climwin_HF_W_legend =  "Figure S9. Climwin output describing the strongest predictor of interannual variation in tree growth within the water variable group at Harvard Forest, MA, USA."
 
-GLS_BCNM_legend = "Figure S10. Best GLS models including climate and DBH for BCNM"
-GLS_SCBI_legend = "Figure S11. Best GLS models including climate and DBH for SCBI"
-GLS_SCBI_year_legend = "Figure S12. Best GLS models including climate, DBH, and year for SCBI"
-GLS_LT_year_legend = "Figure S13. Best GLS models including climate and DBH for LT"
+GLS_BCNM_legend = "Figure S10. Best generalized least squares (GLS) models describing annual tree growth based on climate and diameter breast height (DBH) for Barro Colorado National Monument (BCNM), Panama."
+GLS_SCBI_legend = "Figure S11. Best generalized least squares (GLS) models describing annual tree growth based on climate and diameter breast height (DBH) for Smithsonian Conservation Biology Institute (SCBI), VA, USA."
+GLS_SCBI_year_legend = "Figure S12. Best generalized least squares (GLS) models describing annual tree growth based onclimate,  diameter breast height (DBH), and year for Smithsonian Conservation Biology Institute (SCBI), VA, USA."
+GLS_LT_year_legend = "Figure S13. Best generalized least squares (GLS) models describing annual tree growth based on climate,  diameter breast height (DBH), and year for Little Tesuque, NM, USA."
 
-SC_1970break_legend = "Figure S14. Climate responses at SC before and after 1970."
+SC_1970break_legend = "Figure S14. Interannual climate sensitivity of annual tree growth at Scotty Creek, NT, Canada before and after 1970."
 
-RW_interactions_all_legend = "Figure S15. All significant climate - DBH interactions with RW as the response metric."
+RW_interactions_all_legend = "Figure S15. Significant climate - diameter breast height (DBH) interactions in generalized least squares (GLS) models describing interannual variation in ring width (RW) for tree species at 10 sites."
 
-year_trends_all_legend= "Figure S16. Year responses for all growth metrics."
+year_trends_all_legend= "Figure S16. Responses of annual growth, expressed as ring width (RW), (b) basal area increment (BAI), or (c) aboveground biomass (AGB) increase, to calendar year for 35 species at 10 sites."
 ```
 
 ```{r eval = TRUE, echo=FALSE, warning=FALSE, results='hide'}

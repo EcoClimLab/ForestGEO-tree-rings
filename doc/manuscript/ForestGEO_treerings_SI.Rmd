@@ -77,8 +77,8 @@ climate_correction <- "S3"
 traditional_comparison <- "S4"
 changing_climate <- "S5"
 
-site_details_appendix_title<- "Appendix S1. Site Details"
-DBH_reconstruction_title <- "Appendix S2. Methods for reconstruction of DBH"
+site_details_appendix_title<- "Appendix S1. Descriptions of sites included in this analysis"
+DBH_reconstruction_title <- "Appendix S2. Methods for reconstruction of diameter breast height (DBH)"
 climate_correction_title <- "Appendix S3. Methods for climate data evaluation and correction"
 traditional_comparison_title <- "Appendix S4. Methods for comparing our approach with traditional methods"
 changing_climate_title <- "Appendix S5. Dealing with rapidly changing climate and tree growth"
@@ -91,10 +91,10 @@ bark_allometries = "S4"
 qualitative_results_comparison = "S5"
 
 #SI table captions
-site_details_legend <- "Table S1. Site Details."
-species_table_legend <-"Table S2. Species analyzed, their characteristics, and bark allometries applied."
-sampling_details_legend <- "Table S3. Sampling details for species by site."
-bark_allometries_legend <- "Table S4. Allometric equations for bark thickness."
+site_details_legend <- "Table S1. Additional information on sites included in this analysis."
+species_table_legend <-"Table S2. Tree species analyzed, their characteristics, and bark allometries applied."
+sampling_details_legend <- "Table S3. Sampling details for tree species by site."
+bark_allometries_legend <- "Table S4. Allometric equations for tree bark thickness."
 qualitative_results_comparison_legend <- "Table S5. Qualitative comparison of results from this study with previous studies employing conventional methods."
 
 #SI figure numbers
@@ -130,28 +130,28 @@ year_trends_all= "S16"
 
 #SI figure captions
 
-SCBI_traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals: *Liriodendron tulipifera* L. at SCBI."
-Zofin_traditional_comparison_legend <- "Figure S2. Comparison of our approach with traditional methods of identifying climate signals: *Abies alba* Mill. at Zofin."
-CB_traditional_comparison_legend <- "Figure S3. Comparison of our approach with traditional methods of identifying climate signals: *Pseudotsuga menziesii* (Mirb.) Franco at Cedar Breaks."
-SC_traditional_comparison_legend <- "Figure S4. Comparison of our approach with traditional methods of identifying climate signals: *Picea mariana* a (Mill.) Britton, Sterns and Poggenb. at Scotty Creek."
+SCBI_traditional_comparison_legend <- "Figure S1. Comparison of our approach with traditional methods of identifying climate signals: *Liriodendron tulipifera* L. at the Smithsonian Conservation Biology Institute (SCBI), VA, USA."
+Zofin_traditional_comparison_legend <- "Figure S2. Comparison of our approach with traditional methods of identifying climate signals: *Abies alba* Mill. at Zofin, Czech Republic."
+CB_traditional_comparison_legend <- "Figure S3. Comparison of our approach with traditional methods of identifying climate signals: *Pseudotsuga menziesii* (Mirb.) Franco at Cedar Breaks, UT, USA."
+SC_traditional_comparison_legend <- "Figure S4. Comparison of our approach with traditional methods of identifying climate signals: *Picea mariana* a (Mill.) Britton, Sterns and Poggenb. at Scotty Creek, NT, Canada."
 
-year_validation_legend <- "Figure S5. Example comparison of year effect in GLS model with independent decadal analysis: Harvard Forest"
+year_validation_legend <- "Figure S5. Example comparison of year effect in GLS model with independent decadal analysis for Harvard Forest, MA, USA."
 
-climwin_HKK_T_legend = "Figure S6. Climwin output for temperature variable group at HKK."
-climwin_SCBI_W_legend  = "Figure S7. Climwin output for water variable group at SCBI."
-climwin_SCBI_T_legend = "Figure S8. Climwin output for temperature variable group at SCBI."
-climwin_HF_W_legend =  "Figure S9. Climwin output for water variable group at HF."
+climwin_HKK_T_legend = "Figure S6. Climwin output describing the strongest predictor of interannual variation in tree growth within the temperature variable group at Huai Kha Khaeng, Thailand."
+climwin_SCBI_W_legend  = "Figure S7. Climwin output describing the strongest predictor of interannual variation in tree growth within the water variable group at the Smithsonian Conservation Biology Institute (SCBI), VA, USA."
+climwin_SCBI_T_legend = "Figure S8. Climwin output describing the strongest predictor of interannual variation in tree growth within the temperature variable group at the Smithsonian Conservation Biology Institute (SCBI), VA, USA."
+climwin_HF_W_legend =  "Figure S9. Climwin output describing the strongest predictor of interannual variation in tree growth within the water variable group at Harvard Forest, MA, USA."
 
-GLS_BCNM_legend = "Figure S10. Best GLS models including climate and DBH for BCNM"
-GLS_SCBI_legend = "Figure S11. Best GLS models including climate and DBH for SCBI"
-GLS_SCBI_year_legend = "Figure S12. Best GLS models including climate, DBH, and year for SCBI"
-GLS_LT_year_legend = "Figure S13. Best GLS models including climate, DBH, and year for LT"
+GLS_BCNM_legend = "Figure S10. Best generalized least squares (GLS) models describing annual tree growth based on climate and diameter breast height (DBH) for Barro Colorado National Monument (BCNM), Panama."
+GLS_SCBI_legend = "Figure S11. Best generalized least squares (GLS) models describing annual tree growth based on climate and diameter breast height (DBH) for Smithsonian Conservation Biology Institute (SCBI), VA, USA."
+GLS_SCBI_year_legend = "Figure S12. Best generalized least squares (GLS) models describing annual tree growth based onclimate,  diameter breast height (DBH), and year for Smithsonian Conservation Biology Institute (SCBI), VA, USA."
+GLS_LT_year_legend = "Figure S13. Best generalized least squares (GLS) models describing annual tree growth based on climate,  diameter breast height (DBH), and year for Little Tesuque, NM, USA."
 
-SC_1970break_legend = "Figure S14. Climate responses at SC before and after 1970."
+SC_1970break_legend = "Figure S14. Interannual climate sensitivity of annual tree growth at Scotty Creek, NT, Canada before and after 1970."
 
-RW_interactions_all_legend = "Figure S15. All significant climate - DBH interactions with RW as the response metric."
+RW_interactions_all_legend = "Figure S15. Significant climate - diameter breast height (DBH) interactions in generalized least squares (GLS) models describing interannual variation in ring width (RW) for tree species at 10 sites."
 
-year_trends_all_legend= "Figure S16. Year responses for all growth metrics."
+year_trends_all_legend= "Figure S16. Responses of annual growth, expressed as ring width (RW), (b) basal area increment (BAI), or (c) aboveground biomass (AGB) increase, to calendar year for 35 species at 10 sites."
 
 
 # ~~~~~~~~~~ (below here does not need to be copied to main doc) ~~~~~~~~~~
@@ -172,7 +172,7 @@ GLS_generic_legend = " for all three growth metrics examined here. For each spec
 
 ### Barro Colorado Nature Monument, Panama
 
-Cores were collected within the Barro Colorado Nature Monument (BCNM), a 5600-ha reserve established in 1923 that includes Barro Colorado Island (BCI) and the surrounding mainland peninsulas [@alfaro-sanchez_growth_2017]. 
+Cores were collected within the Barro Colorado Nature Monument (BCNM), a 5,600-ha reserve established in 1923 that includes Barro Colorado Island (BCI) and the surrounding mainland peninsulas [@alfaro-sanchez_growth_2017]. 
 BCNM contains a mix of old-growth and mature secondary tropical moist forest. 
 Live canopy trees on the peninsulas were cored between January 2015 and April 2015. 
 In addition, several fallen dead trees on BCI were sampled by taking discs with chain saws. 
@@ -184,7 +184,7 @@ We note that the secondary forest status of much of BCNM differs from ForestGEO'
 Cores were collected within a ~300 ha acre area of seasonal dry evergreen and mixed deciduous forest in the Huai Kha Khaeng Wildlife Sanctuary (HKK).
 The site underwent a widespread, catastrophic disturbance in the mid-1800s and several smaller, more localized disturbances in the 1910s, 1940s, and 1960s [@baker_disturbance_2005].
 
-Cores were collected between December 2010 and December 2011, sampling trees >5 cm DBH with the goal or representing a random subset of the local population of the target species. 
+Cores were collected between December 2010 and December 2011, sampling trees >5 cm diameter at breast height (DBH) with the goal or representing a random subset of the local population of the target species. 
 Details are given in @vlam_temperature_2014.
 
 ### Smithsonian Conservation Biology Institute, Virginia, USA
@@ -207,7 +207,7 @@ In 2020, additional cores were collected following an ecological study design, w
 
 ### Harvard Forest, USA
 
-Harvard Forest (HF) is a secondary temperate mixed forest dominated by *Tsuga canadensis* and northern hardwood species including *Quercus rubra*, *Acer rubrum*, and *Betula alleghaniensis*.
+Harvard Forest (HF) is a secondary temperate mixed forest dominated by *Tsuga canadensis* (L.) Carrière and northern hardwood species including *Quercus rubra* L., *Acer rubrum* L., and *Betula alleghaniensis* Britton.
 Cores were collected at two plots within the ForestGEO megaplot, and in the footprint of the original HF eddy-flux tower [@finzi_carbon_2020]. 
 Samples were collected following an ecological study design of nested circular plots [@dye_comparing_2016], where sampling included all living or dead trees $\ge$ 10 cm DBH within a 13-m radius and $\ge$ 20 cm within a 20-m radius.
 
@@ -225,7 +225,7 @@ Therefore, these data consist mainly of dominant and codominant tree species and
 
 The Niobrara site sits at the prairie-forest ecotone of the North American Great Plains. 
 There, forests occur in cool, moist canyons formed by spring-fed tributaries along the Niobrara River. 
-*Betula papyrifera* occur in these canyons, in spots where there are groundwater springs that flow all year long.
+*Betula papyrifera* Marshall occur in these canyons, in spots where there are groundwater springs that flow all year long.
 Niobrara is near the southern range limit of this species, and populations at this site are small and highly disjunct.
 Cores were taken from seven north-facing *Betula papyrifera* stands along a 27 km section of the Niobrara River, as detailed in @bumann_assessing_2019. 
 The largest healthy trees within each stand were selected for coring.
@@ -241,7 +241,7 @@ In 2020, live canopy and sub-canopy trees, all >20 cm DBH, were sampled within a
 ### Cedar Breaks, Utah, USA
 Cores were collected within the Utah Forest Dynamics Plot ForestGEO plot on the Colorado Plateau in Cedar Breaks National Monument [CB, @furniss_reconciling_2017]. 
 The plot sits on the edge of cliff, which descends ~750 m to a valley below.
-The mature spruce-fir forest is dominated by the species analyzed here (*Abies bifolia*, *Populus tremuloides*, *Picea engelmannii*, *Pinus flexilis*, *Pinus longaeva*, *Picea pungens*, and *Pseudotsuga menziesii*).
+The mature spruce-fir forest is dominated by the species analyzed here (*Abies bifolia* A. Murray, *Populus tremuloides* Michx., *Picea engelmannii* Engelm., *Pinus flexilis* E. James, *Pinus longaeva* D.K. Bailey, *Picea pungens* Engelm., and *Pseudotsuga menziesii* (Mirb.) Franco).
 The site is largely undisturbed. 
 The most recent fire occurred in 1802, and many currently living trees established before then. Living *Pinus longaeva* at the site date back ~1600 years, and deadwood at the site dates back to 0 AD [@lutz_largediameter_2021].
 
@@ -249,7 +249,7 @@ In 2019, living individuals of each dominant species were cored.
 Chronologies are published on ITRDB [@birch_birch_2020; @birch_birch_2020a; @birch_birch_2020b; @birch_birch_2020c].
 
 ### Scotty Creek, Northwest Territories, Canada
-The Scotty Creek site is a black spruce (*Picea mariana*) forest on rapidly thawing discontinuous permafrost [@baltzer_forests_2014; @sniderhan_growth_2016; @dearborn_permafrost_2020].
+The Scotty Creek site is a black spruce (*Picea mariana* (Mill.) Britton, Sterns & Poggenb.) forest on rapidly thawing discontinuous permafrost [@baltzer_forests_2014; @sniderhan_growth_2016; @dearborn_permafrost_2020].
 Vertical permafrost thaw has been causing drought stress in the shallow-rooted trees, resulting in growth declines [@sniderhan_growth_2016] and high mortality [@dearborn_permafrost_2020].
 
 A large recruitment pulse in the 1930s suggests that the site burned severely at that time, as would be consistent with a fire return interval of ~77 years in the Taiga Plains ecoregion [@johnstone_fire_2010; @walker_crossscale_2018].  
@@ -302,7 +302,7 @@ We note again that these reconstructed growth records were used only for the rec
 For trees on which a measurement of $DBH_m$ was not available and the distance to pith could be reliably estimated for any cores, DBH could not be reconstructed.
 These trees were excluded from all analyses including DBH as an independent variable.
 
-Regardless of the DBH reconstruction approach (outside-in or inside-out), accurate reconstructions require accounting for $r_{bark}$, particularly for species that can attain very thick bark (e.g., *Pseudotsuga menziesii*, *Pinus ponderosa*).
+Regardless of the DBH reconstruction approach (outside-in or inside-out), accurate reconstructions require accounting for $r_{bark}$, particularly for species that can attain very thick bark (e.g., *Pseudotsuga menziesii*, *Pinus ponderosa* P. Lawson & C. Lawson).
 For the majority of species, including all thick-barked species, we assigned allometries relating $r_{bark}$ to DBH, which were constructed for the species of interest or a related species (Tables `r species_table`, `r bark_allometries`).
 When raw data on bark thickness data were available, we generated species-specific lognormal scaling relationships with the intercept forced to zero (Table `r bark_allometries`). 
 When raw bark thickness data were not available, we applied published bark allometries from other sources (Table `r bark_allometries`).
@@ -348,13 +348,13 @@ To standardize for such differences, we selected a subset of species for a stand
 
 *Quantitative comparison*
 
-We also conducted a formal comparison of our approach to conventional methods using identical tree-ring and climate data for four species: *Liriodendron tulipifera* at SCBI, *Abies alba* at Zof, *Pseudotsuga menziesii* at CB, and *Picea mariana* at SC (Figs. `r all_traditional_comparisons`). 
+We also conducted a formal comparison of our approach to conventional methods using identical tree-ring and climate data for four species: *Liriodendron tulipifera* L. at SCBI, *Abies alba* at Zof, *Pseudotsuga menziesii* at CB, and *Picea mariana* at SC (Figs. `r all_traditional_comparisons`). 
 These species were selected for analysis because they have been well-studied in the past.
 For each species, we compared climate sensitivities for the top precipitation- and temperature- group variables, as identified in the main analysis. 
 
 Prior to analysis, data were prepared and cleaned as described in the Methods section, resulting in an identical set of records for input into each analysis.
 For the approach developed here, analysis was conducted as described in the Methods section, but with the *climwin* climate variable selection process limited to just the species of interest (as opposed to all species at the site), climate variables considered individually rather than additively, analysis of only first-order linear relationships, and with start date adjusted to match the conventional method (see below).
-*Climwin* is a useful analytical tool that automates the process of running and comparing numerous regressions, but its use does not alter results relative to what would be obtained via a more conventional approach; numerous climate drivers and seasonal windows can be compared without climwin [e.g., @meko_seascorr_2011], and *climwin* can also be used on residual or standard chronologies. 
+The R package *Climwin* is a useful analytical tool that automates the process of running and comparing numerous regressions, but its use does not alter results relative to what would be obtained via a more conventional approach; numerous climate drivers and seasonal windows can be compared without *climwin* [e.g., @meko_seascorr_2011], and *climwin* can also be used on residual or standard chronologies. 
 Following the *climwin* analysis step, we extracted *beta* coefficients describing the slope of the relationship between climate and RW.
 *Beta* coefficients, along with their standard error, were obtained for each month within the analysis time frame (Table `r site_details`) and for the seasonal window identified as most influential by *climwin*.
 
@@ -444,6 +444,8 @@ kable(S1, format = "latex", booktabs = TRUE,   escape = F)%>%
 *Refers to ForestGEO plot (exception: LT) and is not necessarily the most accurate value for exact locations at which cores were taken. Geographic coordinates were used to extract climate data from CRU. 
 
 **Refers to approximate period during which woody growth slows or ceases (dry season in the tropics, winter for temperate and boreal sites), resulting in ring formation.
+
+m.a.s.l.  = meters above sea level 
 
 \newpage
 ## `r species_table_legend` 
