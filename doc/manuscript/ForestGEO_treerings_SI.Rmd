@@ -108,6 +108,7 @@ SC_traditional_comparison = "S4"
 decadal_analysis_verification_example = "S5"
 
 ##climwin
+all_climwin = "S6-S9"
 climwin_HKK_T = "S6"
 climwin_SCBI_W = "S7"
 climwin_SCBI_T = "S8"

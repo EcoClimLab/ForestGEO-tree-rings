@@ -178,6 +178,7 @@ SC_traditional_comparison = "S4"
 decadal_analysis_verification_example = "S5"
 
 ##climwin
+all_climwin = "S6-S9"
 climwin_HKK_T = "S6"
 climwin_SCBI_W = "S7"
 climwin_SCBI_T = "S8"
@@ -506,7 +507,7 @@ Trends with year, when assessed, were generally consistent with those observed i
 
 ## Full model results overview {-#Full}
 
-When a precipitation variable, a temperature variable, DBH, and calendar year were all included as candidate variables in the GLS models, the most common outcome was that all four were included in the top model and had statistically significant effects (p $\le$ 0.05), regardless of the growth metric used (Fig. `r SummaryFigure`).
+When a precipitation variable and a temperature variable (each selected using *climwin*; e.g., Figs. `r SCBI_example`, `r all_climwin`), DBH, and calendar year were all included as candidate variables in the GLS models, the most common outcome was that all four were included in the top model and had statistically significant effects (p $\le$ 0.05), regardless of the growth metric used (Fig. `r SummaryFigure`).
 In general, DBH and calendar year explained more variation in growth rates than did climate, but their relative importance varied across growth metrics and sites (e.g., Figs. `r GLS_BCNM` - `r GLS_LT_year`).
 Climate responses were generally similar regardless of the other variables included, although some of the weaker climate responses were not consistently included in top models (e.g., $T_{min}$ responses at BCNM; Figs. `r clim_sens`, `r GLS_BCNM`).
 In contrast, effects of DBH and year often interacted such that the shape of the DBH response curve or its inclusion in the top model were frequently modified by the inclusion of calendar year (Fig. `r SummaryFigure`).
