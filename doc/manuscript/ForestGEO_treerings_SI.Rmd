@@ -34,10 +34,10 @@ do.call(file.remove, list(list.files("/Users/kteixeira/Dropbox (Smithsonian)/Git
 flist <- list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-tree-rings/results/formal_comparison/figures/", "^climwin_vs_dcc_.+[.]png$", full.names = TRUE)
 file.copy(flist, "/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-tree-rings/doc/manuscript/tables_figures/SI_figures/traditional_comparison/")
 
-# climwin plots
-do.call(file.remove, list(list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-tree-rings/doc/manuscript/tables_figures/SI_figures/climwin_plots_combined/", full.names = TRUE))) # first remove old files
-flist <- list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-tree-rings/results/climwin_plots_combined/", full.names = TRUE)
-file.copy(flist, "/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-tree-rings/doc/manuscript/tables_figures/SI_figures/climwin_plots_combined/")
+# climwin plots  (turned off automatic transfer shortly prior to re-submission (8/31/21) because we had to manually edit plots)
+#do.call(file.remove, list(list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-tree-rings/doc/manuscript/tables_figures/SI_figures/climwin_plots_combined/", full.names = TRUE))) # first remove old files
+#flist <- list.files("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-tree-rings/results/climwin_plots_combined/", full.names = TRUE)
+#file.copy(flist, "/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO-tree-rings/doc/manuscript/tables_figures/SI_figures/climwin_plots_combined/")
 
 
 #composite plots
@@ -263,6 +263,8 @@ Sampling details are given in @sniderhan_growth_2016.
 
 ## `r DBH_reconstruction_title`
 
+### Reconstructing diameter at breast height (DBH)
+
 Tree diameter at breast height (or height of coring), DBH, was reconstructed over the time span for which a core record existed.
 DBH was reconstructed either from the outside in or from the inside out, depending on the availability of recent DBH measurements (see next paragraph).
 We gave precedence to the outside-in approach; that is, when a recent DBH measurement was available, DBH was reconstructed from the outside in. 
@@ -276,7 +278,7 @@ The outside-in approach to DBH reconstruction started with a recent DBH measurem
 DBH for each year ($y$) of interest, $Y$, was  then estimated using the following equation:
 
 $$DBH_Y  = DBH_{m} - 2*\left[r_{bark,m} - r_{bark,Y} + \sum_{y=Y}^{m} RW_{y} \right]$$
-Here, $r_{bark}$ denotes bark thickness, which was estimated on a species-specific basis from allometries (Tables `r species_table`, `r bark_allometries`).
+Here, $r_{bark}$ denotes bark thickness, which was estimated on a species-specific basis from allometries (detailed below; Tables `r species_table`, `r bark_allometries`).
 If $DBH_m$ was taken before coring, RW values between $y=m$ and $y=Y$ were added instead of subtracted.
 If $DBH_m$ was taken $\le$ 10 years after the last year of measurement in the core, we used the equation above, assuming that the $n$ missing measurements between the year of the last RW record in the core and year $m$ were equal to the last $n$ records in the core. 
 
@@ -291,7 +293,7 @@ Specifically,
 DBH for each year ($y$) of interest, $Y$, was estimated using the following equation:
 
 $$DBH_Y  = 2*\left[r_{bark,Y} + \sum_{y=0}^{Y} RW_{y} \right]$$
-Again, $r_{bark}$ was estimated on a species-specific basis from allometries (Tables `r species_table`, `r bark_allometries`).
+Again, $r_{bark}$ was estimated on a species-specific basis from allometries (detailed below; Tables `r species_table`, `r bark_allometries`).
 
 When there was more than one core for a tree, the DBH reconstructions from each core were averaged to produce a single estimate of the tree's DBH through time. 
 When the start or end dates of the records from the cores differed, we extrapolated growth of the shorter core to match the years covered by the longer core. 
@@ -302,6 +304,7 @@ We note again that these reconstructed growth records were used only for the rec
 For trees on which a measurement of $DBH_m$ was not available and the distance to pith could be reliably estimated for any cores, DBH could not be reconstructed.
 These trees were excluded from all analyses including DBH as an independent variable.
 
+### Estimating bark thickness
 Regardless of the DBH reconstruction approach (outside-in or inside-out), accurate reconstructions require accounting for $r_{bark}$, particularly for species that can attain very thick bark (e.g., *Pseudotsuga menziesii*, *Pinus ponderosa* P. Lawson & C. Lawson).
 For the majority of species, including all thick-barked species, we assigned allometries relating $r_{bark}$ to DBH, which were constructed for the species of interest or a related species (Tables `r species_table`, `r bark_allometries`).
 When raw data on bark thickness data were available, we generated species-specific lognormal scaling relationships with the intercept forced to zero (Table `r bark_allometries`). 
@@ -328,7 +331,7 @@ For these sites, CRU records for variables not included in the PRISM data set (P
 
 To test whether our methods gave similar results to traditional methods, we conducted qualitative comparisons of our results to previous studies based on the same cores (Table `r qualitative_results_comparison`) and conducted a formal quantitative comparison for four species (Figs. `r all_traditional_comparisons`), as detailed below. 
 
-*Qualitative comparison*
+### Qualitative comparison
 
 For all species-site combinations, we reviewed previous studies characterizing the climate sensitivity of growth using conventional methods. 
 In most cases, we were able to compare with previous studies from the same sites and sets of cores. 
@@ -346,7 +349,7 @@ methods for detrending and standardizing to build chronologies,
 and whether the effects of temperature and precipitation are considered separately (original studies) or additively (this study).
 To standardize for such differences, we selected a subset of species for a standardized quantitative comparison, as detailed below.
 
-*Quantitative comparison*
+### Quantitative comparison
 
 We also conducted a formal comparison of our approach to conventional methods using identical tree-ring and climate data for four species: *Liriodendron tulipifera* L. at SCBI, *Abies alba* at Zof, *Pseudotsuga menziesii* at CB, and *Picea mariana* at SC (Figs. `r all_traditional_comparisons`). 
 These species were selected for analysis because they have been well-studied in the past.
@@ -465,7 +468,7 @@ kable(S2, format = "latex", booktabs = TRUE,  escape = F, linesep = c('\\addline
 ```
 *For extratropical species, light requirements are classified based on the database of @niinemets_tolerance_2006. For tropical species, categorization is based on @alfaro-sanchez_growth_2017 for BCNM and @vlam_temperature_2014 for HKK.
 
-**Bark allometry field indicates the species and site sampled to construct the bark allometry. When neither raw data nor an allometric equation for the study species was available, we selected the most appropriate equation that could be located for similar species. Equations are given in Table `r bark_allometries`.
+**Bark allometry field gives an ID number, corresponding to ID numbers in Table `r bark_allometries`, for the allometric equation used to estimate bark thickness. When neither raw data nor an allometric equation for the study species was available, we selected the most appropriate equation that could be located for similar species. 
 
 \newpage
 
@@ -482,7 +485,10 @@ kable(ss_table, format = "latex", booktabs = TRUE,   escape = F, linesep = c('\\
   column_spec(10, width = "1.5cm") %>%
   kable_styling(latex_options = c("scale_down", "hold_position","repeat_header"), protect_latex = T) 
 ```
-*Maximum reconstructed diameters at breast height (DBH's) analyzed are less than maximum sampled DBH's because we discard size ranges with < 3 conspecific trees.
+
+Site and species codes are given in tables `r sites` and `r species_table`, respectively. Shown are numbers of trees and cores sampled and numbers for which DBH could be reconstructed (as described in Appendix `r `DBH_reconstruction`); ranges of tree sizes, in diameter at breast height (DBH; cm), as sampled and as reconstructed; date ranges analyzed; and whether or not data for the species met our criteria for analysis of year effects. 
+
+*Maximum reconstructed DBH's analyzed are less than maximum sampled DBH's because we discard size ranges with < 3 conspecific trees.
 
 NA = not applicable (species was not included in analysis because of limited sample size).
 
@@ -493,17 +499,20 @@ NA = not applicable (species was not included in analysis because of limited sam
 ```{r eval = TRUE, echo=FALSE, warning=FALSE}
 library(knitr)
 library(kableExtra)
-allometries_table <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO_dendro/data_processed/dbh_to_bark_allometries_table.csv", stringsAsFactors = FALSE, check.names = FALSE)
+allometries_table <- read.csv("/Users/kteixeira/Dropbox (Smithsonian)/GitHub/EcoClimLab/ForestGEO_dendro/data_processed/dbh_to_bark_allometries_table.csv",
+                              col.names = c("ID", "species", "equation", "source type", "n", "DBH range (cm)", "sampling location", "source"),
+                              stringsAsFactors = FALSE, check.names = FALSE)
 kable(allometries_table, format = "latex", booktabs = TRUE,   escape = F, linesep = c('\\addlinespace'))%>%
-  column_spec(1, italic = T) %>%
-  column_spec(6, width = "3cm") %>%
-  column_spec(7, width = "6cm") %>%
+  column_spec(2, width = "3cm") %>%
+  column_spec(6, width = "2cm") %>%
+  column_spec(7, width = "3cm") %>%
+  column_spec(8, width = "4cm") %>%
   row_spec(0, italic = F, bold = T) %>%
   kable_styling(latex_options = c("scale_down", "hold_position"), protect_latex = T) 
 
 # NOTE: references for this table are in the nocite list below table S5. Apparently refs in the first of two nocite sections don't appear in references list.
 ```
-For assignments of species as proxies for those with out available bark allometries, see Table `r species_table`.
+Shown are allometric equations relating bark thickness (mm; *bark.mm*) to tree stem diameter at breast height (cm; *dbh.cm*). Equations were obtained from previous studies (source type = equation) or derived here from raw data (source type = data) as described in Appendix `r DBH_reconstruction`. For assignments of these allometries to the species included in this study, see Table `r species_table`.
 
 NA = not applicable (allometry based on published equation, value not reported).
 
@@ -582,7 +591,7 @@ nocite: |
 
 **Indicates results from a regional study not including the focal site, but believed to be representative.
 
-PPT = precipitation, PET = potential evapotranspiration.
+PPT = precipitation, PET = potential evapotranspiration. NA= not applicable (has not been analyzed).
 
 
 \newpage
@@ -590,11 +599,11 @@ PPT = precipitation, PET = potential evapotranspiration.
 ## `r SCBI_traditional_comparison_legend`
 **Precipitation**
 
-![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_SCBI_LITU_pre.png){ width=95% }
+![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_SCBI_LITU_pre.png){ width=90% }
 
 **Potential Evapotranspiration**
 
-![](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_SCBI_LITU_pet.png){ width=95%}
+![](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_SCBI_LITU_pet.png){ width=90%}
 
 `r SCBI_traditional_comparison_legend`  `r traditional_comparison_generic_legend`
 
@@ -604,11 +613,11 @@ PPT = precipitation, PET = potential evapotranspiration.
 
 **Precipitation Day Frequency**
 
-![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_ABAL_wet.png){ width=95% }
+![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_ABAL_wet.png){ width=90% }
 
 **Maximum temperature**
 
-![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_ABAL_tmx.png){ width=95% }
+![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_Zofin_ABAL_tmx.png){ width=90% }
 
 `r Zofin_traditional_comparison_legend`  `r traditional_comparison_generic_legend`
 
@@ -617,11 +626,11 @@ PPT = precipitation, PET = potential evapotranspiration.
 
 **Precipitation**
 
-![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBreaks_PSME_pre.png){ width=95% }
+![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBreaks_PSME_pre.png){ width=90% }
 
 **Maximum temperature**
 
-![](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBreaks_PSME_tmx.png){ width=95% }
+![](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_CedarBreaks_PSME_tmx.png){ width=90% }
 
 `r CB_traditional_comparison_legend`  `r traditional_comparison_generic_legend`
 
@@ -630,11 +639,11 @@ PPT = precipitation, PET = potential evapotranspiration.
 
 **Precipitation**
 
-![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCreek_PIMA_pre.png){ width=95% }
+![ ](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCreek_PIMA_pre.png){ width=90% }
 
 **Maximum temperature**
 
-![](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCreek_PIMA_tmx.png){ width=95% }
+![](tables_figures/SI_figures/traditional_comparison/climwin_vs_dcc_ScottyCreek_PIMA_tmx.png){ width=90% }
 
 `r SC_traditional_comparison_legend`  `r traditional_comparison_generic_legend`
 
@@ -680,25 +689,25 @@ PPT = precipitation, PET = potential evapotranspiration.
 ## `r GLS_BCNM_legend`
 
 
-![`r GLS_BCNM_legend` Shown are responses for all three growth metrics examined here: ring width (RW), basal area increment (BAI), and aboveground biomass growth ($\Delta$AGB). `r GLS_generic_legend` PPT= precipitation.](tables_figures/SI_figures/composite_plots/BCI.png){ width=85% }
+![`r GLS_BCNM_legend` Shown are responses for all three growth metrics examined here: ring width (RW), basal area increment (BAI), and aboveground biomass growth ($\Delta$AGB). `r GLS_generic_legend` PPT= precipitation.](tables_figures/SI_figures/composite_plots/BCI.png){ width=80% }
 
 
 \newpage
 ## `r GLS_SCBI_legend`
 
-![`r GLS_SCBI_legend` Shown are responses for all three growth metrics examined here: ring width (RW), basal area increment (BAI), and aboveground biomass growth ($\Delta$AGB). `r GLS_generic_legend`  PPT= precipitation, PET = potential evapotranspiration.](tables_figures/SI_figures/composite_plots/SCBI.png){ width=85% }
+![`r GLS_SCBI_legend` Shown are responses for all three growth metrics examined here: ring width (RW), basal area increment (BAI), and aboveground biomass growth ($\Delta$AGB). `r GLS_generic_legend`  PPT= precipitation, PET = potential evapotranspiration.](tables_figures/SI_figures/composite_plots/SCBI.png){ width=80% }
 
 \newpage
 ## `r GLS_SCBI_year_legend`
 
-![`r GLS_SCBI_year_legend` Shown are responses for all three growth metrics examined here: ring width (RW), basal area increment (BAI), and aboveground biomass growth ($\Delta$AGB). `r GLS_generic_legend` PPT= precipitation, PET = potential evapotranspiration.](tables_figures/SI_figures/composite_plots/SCBI_with_Year.png){ width=85% }
+![`r GLS_SCBI_year_legend` Shown are responses for all three growth metrics examined here: ring width (RW), basal area increment (BAI), and aboveground biomass growth ($\Delta$AGB). `r GLS_generic_legend` PPT= precipitation, PET = potential evapotranspiration.](tables_figures/SI_figures/composite_plots/SCBI_with_Year.png){ width=80% }
 
 
 
 \newpage
 ## `r GLS_LT_year_legend`
 
-![`r GLS_LT_year_legend` Shown are responses for all three growth metrics examined here: ring width (RW), basal area increment (BAI), and aboveground biomass growth ($\Delta$AGB). `r GLS_generic_legend` PPT= precipitation.](tables_figures/SI_figures/composite_plots/NewMexico_with_Year.png){ width=85% }
+![`r GLS_LT_year_legend` Shown are responses for all three growth metrics examined here: ring width (RW), basal area increment (BAI), and aboveground biomass growth ($\Delta$AGB). `r GLS_generic_legend` PPT= precipitation.](tables_figures/SI_figures/composite_plots/NewMexico_with_Year.png){ width=80% }
 
 
 \newpage
