@@ -221,7 +221,7 @@ SC_1970break_legend = "Figure S14. Interannual climate sensitivity of annual tre
 
 RW_interactions_all_legend = "Figure S15. Significant climate - diameter breast height (DBH) interactions in generalized least squares (GLS) models describing interannual variation in ring width (RW) for tree species at 10 sites."
 
-year_trends_all_legend= "Figure S16. Responses of annual growth, expressed as ring width (RW), (b) basal area increment (BAI), or (c) aboveground biomass (AGB) increase, to calendar year for 35 species at 10 sites."
+year_trends_all_legend= "Figure S16. Responses of annual growth, expressed as ring width (RW), (b) basal area increment (BAI), or (c) aboveground biomass (AGB) increase, to calendar year for 35 tree species at 10 sites."
 ```
 
 ```{r eval = TRUE, echo=FALSE, warning=FALSE, results='hide'}
