@@ -307,7 +307,7 @@ Understanding these effects is central to predicting the future of the terrestri
 Yet, characterizing how tree growth and forest productivity are responding to slowly changing environmental drivers is challenging and uncertain.
 Ontogenetic patterns in tree growth must be accounted for, yet two of the most commonly used methods of standardizing for tree size, conservative detrending and basal area correction [@peters_detecting_2015], assume certain growth patterns unlikely to be universal in forest settings, as discussed above. 
 Approaches that combine cross-sectional with temporal analyses to correct for growth ontogeny, such as regional curve standardization, perform better at growth trend detection [@peters_detecting_2015].
-Yet, even after correcting for ontogeny, growth trend detection remains subject to various potential sampling and analysis biases, which are fundamentally driven by the limitation that it is not possible to use a contemporary set of tree cores to obtain a representative sample of a species's population at all time points throughout the history of a dynamically changing stand [@cherubini_potential_1998; @brienen_detecting_2012; @nehrbass-ahles_influence_2014; @sullivan_effect_2016; @bowman_detecting_2013; @brienen_tree_2017; @hember_tree_2019; @duchesne_large_2019].
+Yet, even after correcting for ontogeny, growth trend detection remains subject to various potential sampling and analysis biases,  which result in a limited potential of a contemporary set of tree cores to represent the growth history of a population [@cherubini_potential_1998; @brienen_detecting_2012; @nehrbass-ahles_influence_2014; @sullivan_effect_2016; @bowman_detecting_2013; @brienen_tree_2017; @hember_tree_2019; @duchesne_large_2019].
 Tree growth rates are sensitive to stand dynamics, with competition -- the intensity of which tends to increase as forests mature -- reducing woody growth rates [e.g., @zhang_halfcentury_2015]. 
 Similarly, ecosystem-level carbon allocation to woody growth -- as opposed to leaf or fine root production, reproduction, defenses, etc. -- has been shown to decline as forest stands age [@goulden_patterns_2011; @pregitzer_carbon_2004; @delucia_forest_2007; @collalti_forest_2020; @west_increasing_2020]. 
 Thus, we hypothesize that size-corrected growth rates of tree populations sampled from within secondary or severely disturbed stands (i.e., those with large recruitment pulses within the past century) will generally decline, whereas populations sampled from older, relatively undisturbed stands will display mixed growth trends that are more dependent on external environmental drivers (Table `r hypotheses`).
@@ -436,7 +436,7 @@ We then calculated basal area increment ($BAI= BA_{y+1}-BA_y$, where $y$ is year
 
 Monthly climate data for 1901-2019 were obtained from CRU v.4.04 [@harris_updated_2014; @harris_version_2020], and in a few cases corrected based on higher-resolution or local records (Appendix `r climate_correction`). 
 Variables considered here included average daily minimum, maximum, and mean temperatures ($T_{min}$, $T_{max}$, $T_{mean}$, respectively); precipitation (PPT); and, when deemed reliable (Appendix `r climate_correction`), potential evapotranspiration (PET) and precipitation day frequency (PDF).
-For the one riparian site, NIO, we tested for an effect of stream flow (SF), for which we obtained data for the Sparks, Nebraska station (station code: 06461500; 42°54'14"N, 100°26'13"W) from the U.S. Geological Survey (USGS) National Water Information System (https://waterdata.usgs.gov/nwis/uv/?site_no=06461500&agency_cd=USGS&referred_module=sw). 
+For the one riparian site, NIO, we tested for a relationship with stream flow (SF), for which we obtained data for the Sparks, Nebraska station (station code: 06461500; 42°54'14"N, 100°26'13"W) from the U.S. Geological Survey (USGS) National Water Information System (https://waterdata.usgs.gov/nwis/uv/?site_no=06461500&agency_cd=USGS&referred_module=sw). 
 All ForestGEO climate records used here are archived in the ForestGEO Climate Data Portal, v1.0 (DOI: 10.5281/ZENODO.3958215).
 
 ## Data Analysis {-#Data}
@@ -455,7 +455,7 @@ The smoothing parameters were automatically selected by the *gam* function with 
 Our application of the thin-plate regression splines acts similar to more traditional a priori detrending methods using a two-thirds spline commonly used in dendrochronology studies and results in similar predictor variable selection [Appendix `r traditional_comparison`, @cook_calculating_1997; @rollinson_climate_2021].  
 We then used *climwin* to identify the climate drivers that most strongly correlated with the individual tree-level residuals of the growth variables, RW, BAI, or $\Delta$AGB, specifying linear and quadratic terms to allow for potential nonlinearities in the climate response.
 Within *climwin*, we specified a mixed-effects model in which the fixed effects were the climate variables and the random intercepts were species (when n $\ge$ 3) and core identity (noting that these effects should be minimal given that residuals are centered around zero).
-For each climate variable, we ran permutations for all possible combinations of consecutive months within a 15-month period ending near the time of cessation of formation of each annual ring (Table `r site_details`). 
+For each climate variable, we ran permutations for all possible combinations of consecutive months within a 15-month period ending near the time of growth cessation of each annual ring (Table `r site_details`). 
 *Climwin* runs all potential models to select the best fit (lowest Akaike information criterion corrected for small sample size, AICc), and does k-fold cross-validation in its computation of AICc to guard against over-fitting [@vandepol_identifying_2016]. 
 For each group of candidate climate variables (water and temperature; Fig. `r schematic`), we selected the variable - seasonal window combination with the lowest AICc as a candidate climate variable for the multivariate models. 
 
@@ -471,14 +471,15 @@ We will refer to this model as a generalized least squares (GLS) model (Fig. `r 
 Within the GLS models, our response variables were raw, log-transformed growth estimates (as opposed to residuals): log[RW], log[BAI], or log[$\Delta$ AGB].
 Prior to running the models, we checked for collinearity among the candidate variables using the *vifstep* function [@naimi_where_2014]. Our analysis code was programmed to remove any variable with a variance inflation factor > 3, but none required removal.
 
-For each species independently, we ran GLS models including every possible combination of independent variables (*i.e.*, candidate climate drivers, DBH, and year), including both first- and second-order terms for each.
+For each species independently, we ran GLS models including every possible combination of independent fixed-effect variables (*i.e.*, candidate climate drivers, DBH, and year), including both first- and second-order terms for each.
 For climate response, we allowed concave-down fits, but ignored any concave-up fits on the basis that exponential functions would be captured by a linear fit to the log-transformed growth variables, while u-shaped fits are not expected biologically.
 
-As an example, a full model for log[RW] would look like this in *R*: 
+As an example, a full model for log[RW] responses to PPT, $T_{max}$, and DBH would look like this in *R*: 
 
-*lme(log[RW] ~ PET + I(PET^2) + $T_{min}$ + I($T_{min}$^2) + DBH + I(DBH^2)",  random = ~1|coreID, correlation = corCAR1(form=~year|coreID), data = x, na.action = "na.fail", method = "ML")* 
+*lme(log[RW] ~ PPT + I(PPT^2) + $T_{max}$ + I($T_{max}$^2) + DBH + I(DBH^2)",  random = ~1|coreID, correlation = corCAR1(form=~year|coreID), data = x, na.action = "na.fail", method = "ML")* 
 
-where *x* is a complete data set for one species at one site (all records after excluding cores as described above, and with no missing values). The method is set to maximum likelihood (*ML*) during the fixed effect model selection phase, but to restricted maximum likelihood (*REML*) for parameter estimation with the best model.
+where *x* is a complete data set for one species at one site (all records after excluding cores as described above, and with no missing values). 
+The method is set to maximum likelihood (*ML*) during the fixed effect model selection phase, but to restricted maximum likelihood (*REML*) for parameter estimation with the best model.
 
 For models including interactive effects of climate and DBH, we tested for interactions between first-order linear terms for climate drivers and DBH.
 
@@ -487,7 +488,7 @@ Specifically, we required that the species be represented by cores from  $\ge$ 3
 To avoid severe big-tree selection bias [@brienen_detecting_2012], we also required that the minimum DBH sampled be $\le$ 25 cm (exception: *Abies alba* Mill. at ZOF, where mature trees < 50 cm DBH are extremely rare).
 Species that failed to meet these criteria (n= 8; Table `r sampling_details_table`) were excluded from the analysis of temporal trends, but were included in analyses of climate and DBH and their interactions.
 We then ran models as described above, including a  first-order linear effect of year.
-We note that the random effect of tree should, in theory, avoid analytical biases arising from persistent growth differences among individuals that are not accounted for by DBH or year [@brienen_detecting_2012; @brienen_tree_2017]. 
+We note that the random effect of tree may reduce analytical biases arising from persistent growth differences among individuals that are not accounted for by DBH or year [@brienen_detecting_2012; @brienen_tree_2017]. 
 To verify that GLS model trends for year were not an artifact of inherent covariation between DBH and year within each core, we compared GLS results to an analysis of DBH-growth relationships by decade. 
 
 Within each of three categories of models run (climate only, climate + DBH, climate $\times$ DBH, climate + DBH + year), we selected as the top model that with the lowest AICc. 
@@ -763,8 +764,9 @@ These results imply that while species that typically grow in high-light conditi
 This latter pattern is consistent with the observation that when contemporary growth rates are compared across individuals within a closed-canopy stand (e.g., a "cross-sectional" analysis of census data), average RW increases continuously across most of the DBH range [e.g., @anderson-teixeira_sizerelated_2015; @muller-landau_testing_2006], or increases and subsequently decreases [@schelhaas_speciesspecific_2018]. 
 Our finding that on average across populations, BAI and $\Delta$AGB generally saturate or decline with increasing DBH (Table `r hypotheses`, Fig. `r size`) contrasts with findings of cross-sectional analyses of forest census data showing that mean $\Delta$AGB increases continuously with DBH [@stephenson_rate_2014; @meakem_role_2018].
 In large part, this discrepancy can be explained by differences between cross-sectional analyses and "longitudinal" patterns of individual trees through time [@sheil_does_2017; @forrester_does_2021], consistent with the principle that individual-scale growth patterns and environmental responses do not necessarily match population- or stand-level average responses [@clark_coexistence_2003; @clark_individualscale_2011].
-Declines in BAI and $\Delta$AGB at larger DBH are probably in part attributable to increasing allocation to reproduction [@thomas_agerelated_2011], and are also linked to slowly changing environmental conditions (e.g., successional changes in stand structure, climate change).
+Declines in BAI and $\Delta$AGB at larger DBH may be in part attributable to increasing carbon allocation to functions other than woody growth, such as reproduction [@thomas_agerelated_2011], and possibly to physiological declines as trees age [@qiu_there_2021; @forrester_does_2021].
 Apparent declines in $\Delta$AGB at large DBH (or old age) may also be driven by shifts towards proportionally greater wood production within the crown [e.g., branch production,  @sillett_comparative_2021; @sillett_increasing_2010] that are not adequately captured by biomass allometries based on DBH and sometimes height [@goodman_importance_2014b; @disney_new_2020].
+Growth declines may also be linked to slowly changing environmental conditions (e.g., successional changes in stand structure, climate change).
 Notably, inclusion of year in the GLS models reduced the frequency of RW declines with DBH (Fig. `r SummaryFigure`) and tended to reduce the magnitude of BAI and $\Delta$AGB declines at larger DBH (Figs. `r GLS_SCBI`, `r GLS_SCBI_year`), suggesting that some of the growth declines at large DBH (Fig. `r size`) are more properly attributed to recent environmental changes than to large DBH.
 
 ## Changing growth rates {-#Changing}
