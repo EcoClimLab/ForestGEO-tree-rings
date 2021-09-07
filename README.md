@@ -1,5 +1,6 @@
 # ForestGEO Tree Rings
 
-Repository for analysis of ForestGEO tree-ring data (Anderson-Teixeira et al., in prep). 
+Repository for analysis and preparation of:
 
-Code, results, and documents included here are being prepared for publication and may not be used without permission from K. Anderson-Teixeira.
+Anderson-Teixeira et al., (in press) "Joint effects of climate, tree size, and year on annual tree growth derived from tree-ring records of ten globally distributed forests". *Global Change Biology*
+
