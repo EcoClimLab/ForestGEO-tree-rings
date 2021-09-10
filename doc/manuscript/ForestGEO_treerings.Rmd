@@ -811,7 +811,7 @@ The method we present and apply here allows doing so.
 # Acknowledgements {-#Acknowledgements}
 Thanks to Helene Muller-Landau and Pete Kerby-Miller for bark thickness data.
 Helpful feedback was provided by Helene Muller-Landau, Albert Kim, and Nadja Rüger.
-This analysis was funded by a Smithsonian Scholarly Studies grant to KAT, SM, Helene Muller-Landau, and CP.
+This analysis was funded by a Smithsonian Scholarly Studies grant to KAT, SM, Helene Muller-Landau, CP, and external collaborators.
 Tree-ring analysis at Cedar Breaks was supported by the Utah Agricultural Extension Station.
 The participation of PS, JK, and IV from the Czech Republic was supported by the Czech Science Foundation, project No. 19-09427S.
 PRISM climate data were purchased under an NSF grant to KAT (#DEB-1353301).
@@ -828,7 +828,7 @@ All authors contributed critically to the drafts and gave final approval for pub
 
 Code and full results are available via the open-access project repository in GitHub (https://github.com/EcoClimLab/ForestGEO-tree-rings) and archived in Zenodo (DOI: 10.5281/zenodo.5484261).
 Original data from each site are available through various public databases, as indicated in the original publications, or upon reasonable request from the authors.
-Data for *[# TBD]* of the sites are archived in The DendroEcological Network (DEN) database [SCBI, *[others TBD]*, @rayback_dendroecological_2020] and/or the International Tree-Ring Data Bank, ITRDB (CB). 
+Data for seven of the sites (BCNM, SCBI, LDW, HF, NIO, LT, SC) have been submitted to The DendroEcological Network (DEN) database [@rayback_dendroecological_2020]. 
 
 # Supplementary files {-#Supplementary}
 
