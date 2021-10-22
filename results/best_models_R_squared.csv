@@ -275,33 +275,33 @@
 "CO2","log_core_measurement_dbh","SCBI","QUMO","log_core_measurement ~ CO2 + dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.291923963606573,0.48458553754148
 "CO2","log_core_measurement_dbh","SCBI","QURU","log_core_measurement ~ CO2 + dbh + I(dbh^2) + pet + I(pet^2) + pre + I(pre^2) + 1",0.266440067795019,0.523717178603272
 "CO2","log_core_measurement_dbh","SCBI","QUVE","log_core_measurement ~ CO2 + dbh + I(dbh^2) + pet + I(pet^2) + pre + I(pre^2) + 1",0.117677994810757,0.464351544010911
-"","log_agb_inc_dbh","SCBI","CACO","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.676976327968112,0.758112405926853
-"","log_agb_inc_dbh","SCBI","LITU","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.784538211959902,0.78453823982527
-"","log_agb_inc_dbh","SCBI","FRAM","log_agb_inc ~ dbh + I(dbh^2) + pet + I(pet^2) + pre + I(pre^2) + 1",0.758634605040344,0.816283009334652
-"","log_agb_inc_dbh","SCBI","CATO","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.359945106361363,0.598438592176196
-"","log_agb_inc_dbh","SCBI","JUNI","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.151629197893491,0.398404701472584
-"","log_agb_inc_dbh","SCBI","QURU","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.784549283875093,0.847749813231022
-"","log_agb_inc_dbh","SCBI","QUVE","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.719872786571308,0.720018815470439
-"","log_agb_inc_dbh","SCBI","CAGL","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.561837027188442,0.647638972170922
-"","log_agb_inc_dbh","SCBI","QUMO","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.751527091684922,0.825069015286554
-"","log_agb_inc_dbh","SCBI","FAGR","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.819613899295265,0.819613904455411
-"","log_agb_inc_dbh","SCBI","CAOVL","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.534085494163815,0.644550516511251
-"","log_agb_inc_dbh","SCBI","QUAL","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.738779719949171,0.782161074442294
-"","log_agb_inc_dbh","SCBI","FRNI","log_agb_inc ~ dbh + I(dbh^2) + pre + 1",0.726164561683712,0.760441047831797
-"","log_agb_inc_dbh","SCBI","PIST","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.436716588994678,0.593781900051697
-"Year","log_agb_inc_dbh","SCBI","CACO","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + Year + 1",0.768907952619321,0.806323429094358
-"Year","log_agb_inc_dbh","SCBI","CAGL","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + Year + 1",0.669779466271478,0.718619116112247
-"Year","log_agb_inc_dbh","SCBI","CAOVL","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + Year + 1",0.699607514774766,0.799775756654806
-"Year","log_agb_inc_dbh","SCBI","CATO","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + Year + 1",0.563466904074719,0.705272411856592
-"Year","log_agb_inc_dbh","SCBI","FAGR","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + Year + 1",0.81678670395587,0.816786710974565
-"Year","log_agb_inc_dbh","SCBI","FRAM","log_agb_inc ~ dbh + I(dbh^2) + pet + I(pet^2) + pre + I(pre^2) + Year + 1",0.803847733906545,0.860532912091434
-"Year","log_agb_inc_dbh","SCBI","FRNI","log_agb_inc ~ dbh + I(dbh^2) + pre + 1",0.726164561683712,0.760441047831797
-"Year","log_agb_inc_dbh","SCBI","JUNI","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + Year + 1",0.390751405412593,0.574301328593614
-"Year","log_agb_inc_dbh","SCBI","LITU","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + Year + 1",0.817689437955893,0.841572051432923
-"Year","log_agb_inc_dbh","SCBI","QUAL","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + Year + 1",0.791498613434768,0.829053587651679
-"Year","log_agb_inc_dbh","SCBI","QUMO","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + Year + 1",0.826619296257951,0.867052812492058
-"Year","log_agb_inc_dbh","SCBI","QURU","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + Year + 1",0.816054924663435,0.871232448739292
-"Year","log_agb_inc_dbh","SCBI","QUVE","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + Year + 1",0.804544508032016,0.82288073300768
+"","log_agb_inc_dbh","SCBI","CACO","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.616828507967906,0.712581602898762
+"","log_agb_inc_dbh","SCBI","LITU","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.711880324965775,0.712127591884041
+"","log_agb_inc_dbh","SCBI","FRAM","log_agb_inc ~ dbh + I(dbh^2) + pet + I(pet^2) + pre + I(pre^2) + 1",0.706702356978916,0.790811492117317
+"","log_agb_inc_dbh","SCBI","CATO","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.282471627935804,0.55054197977597
+"","log_agb_inc_dbh","SCBI","JUNI","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.114673266869145,0.373864773799023
+"","log_agb_inc_dbh","SCBI","QURU","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.72630130928569,0.811676009509026
+"","log_agb_inc_dbh","SCBI","QUVE","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.547586801219536,0.696904244238834
+"","log_agb_inc_dbh","SCBI","CAGL","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.493845845059802,0.595102667898789
+"","log_agb_inc_dbh","SCBI","QUMO","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.67622694337084,0.775851115743288
+"","log_agb_inc_dbh","SCBI","FAGR","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.822187499832868,0.822187503303452
+"","log_agb_inc_dbh","SCBI","CAOVL","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.455846255856902,0.585966356902586
+"","log_agb_inc_dbh","SCBI","QUAL","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.661509517276935,0.722259334782943
+"","log_agb_inc_dbh","SCBI","FRNI","log_agb_inc ~ dbh + I(dbh^2) + pre + 1",0.668833707254362,0.721587689726023
+"","log_agb_inc_dbh","SCBI","PIST","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.426632662830504,0.587506972498661
+"Year","log_agb_inc_dbh","SCBI","CACO","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + Year + 1",0.728549489762297,0.773047561125524
+"Year","log_agb_inc_dbh","SCBI","CAGL","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + Year + 1",0.62236015397502,0.680332053804073
+"Year","log_agb_inc_dbh","SCBI","CAOVL","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + Year + 1",0.657255340162791,0.772029644412379
+"Year","log_agb_inc_dbh","SCBI","CATO","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + Year + 1",0.507313219468832,0.667926540083529
+"Year","log_agb_inc_dbh","SCBI","FAGR","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + Year + 1",0.818857078671045,0.81885708360724
+"Year","log_agb_inc_dbh","SCBI","FRAM","log_agb_inc ~ dbh + I(dbh^2) + pet + I(pet^2) + pre + I(pre^2) + Year + 1",0.778952385123001,0.847713576677733
+"Year","log_agb_inc_dbh","SCBI","FRNI","log_agb_inc ~ dbh + I(dbh^2) + pre + Year + 1",0.692741500296824,0.744237793771523
+"Year","log_agb_inc_dbh","SCBI","JUNI","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + Year + 1",0.35775831920727,0.552139660865795
+"Year","log_agb_inc_dbh","SCBI","LITU","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + Year + 1",0.760081476540693,0.815537364603334
+"Year","log_agb_inc_dbh","SCBI","QUAL","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + Year + 1",0.737774683675735,0.789094538631437
+"Year","log_agb_inc_dbh","SCBI","QUMO","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + Year + 1",0.78433196961838,0.83719099369612
+"Year","log_agb_inc_dbh","SCBI","QURU","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + Year + 1",0.772841529148732,0.845469830371982
+"Year","log_agb_inc_dbh","SCBI","QUVE","log_agb_inc ~ dbh + I(dbh^2) + pet + pre + I(pre^2) + Year + 1",0.751093291640561,0.791451549766663
 "CO2","log_agb_inc_dbh","SCBI","CACO","log_agb_inc ~ CO2 + dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.763915743983361,0.799707475396578
 "CO2","log_agb_inc_dbh","SCBI","CAGL","log_agb_inc ~ CO2 + dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.665090920440593,0.708152452942003
 "CO2","log_agb_inc_dbh","SCBI","CAOVL","log_agb_inc ~ CO2 + dbh + I(dbh^2) + pet + pre + I(pre^2) + 1",0.689781253866727,0.763570694190297
