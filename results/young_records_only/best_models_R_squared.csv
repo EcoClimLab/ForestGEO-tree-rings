@@ -39,19 +39,20 @@
 "","log_core_measurement_dbh","SCBI","QUAL","log_core_measurement ~ dbh + I(dbh^2) + pre + I(pre^2) + tmp + I(tmp^2) + 1",0.173273286905399,0.609756139459307
 "","log_core_measurement_dbh","SCBI","FRNI","log_core_measurement ~ dbh + tmp + I(tmp^2) + 1",0.114540710559163,0.339787732157864
 "","log_core_measurement_dbh","SCBI","PIST","log_core_measurement ~ dbh + pre + tmp + 1",0.0511743838767366,0.433133052548613
-"","log_agb_inc_dbh","SCBI","CACO","log_agb_inc ~ dbh + I(dbh^2) + tmp + I(tmp^2) + 1",0.7080531369091,0.709342925414925
-"","log_agb_inc_dbh","SCBI","LITU","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmp + I(tmp^2) + 1",0.802732459384844,0.879433453040053
-"","log_agb_inc_dbh","SCBI","FRAM","log_agb_inc ~ dbh + I(dbh^2) + tmp + I(tmp^2) + 1",0.818237719610944,0.882627556944218
-"","log_agb_inc_dbh","SCBI","CATO","log_agb_inc ~ dbh + tmp + I(tmp^2) + 1",0.415495332892226,0.619507582011097
-"","log_agb_inc_dbh","SCBI","JUNI","log_agb_inc ~ dbh + pre + I(pre^2) + tmp + I(tmp^2) + 1",0.306743847909644,0.670272130291999
-"","log_agb_inc_dbh","SCBI","QURU","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmp + I(tmp^2) + 1",0.764667369948813,0.902279139130772
-"","log_agb_inc_dbh","SCBI","QUVE","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmp + I(tmp^2) + 1",0.748504819328578,0.864524749225303
-"","log_agb_inc_dbh","SCBI","CAGL","log_agb_inc ~ dbh + pre + tmp + I(tmp^2) + 1",0.636886045874289,0.736404976507677
-"","log_agb_inc_dbh","SCBI","QUMO","log_agb_inc ~ dbh + I(dbh^2) + pre + tmp + I(tmp^2) + 1",0.834840088160023,0.904690816722831
-"","log_agb_inc_dbh","SCBI","FAGR","log_agb_inc ~ dbh + I(dbh^2) + tmp + I(tmp^2) + 1",0.783728494287448,0.815142302034724
-"","log_agb_inc_dbh","SCBI","CAOVL","log_agb_inc ~ dbh + pre + tmp + I(tmp^2) + 1",0.541358980405088,0.684720083817423
-"","log_agb_inc_dbh","SCBI","QUAL","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmp + I(tmp^2) + 1",0.730348488719243,0.871165630806781
-"","log_agb_inc_dbh","SCBI","FRNI","log_agb_inc ~ dbh + I(dbh^2) + tmp + I(tmp^2) + 1",0.77592052024557,0.796116190273927
+"","log_agb_inc_dbh","SCBI","CACO","log_agb_inc ~ dbh + I(dbh^2) + tmp + I(tmp^2) + 1",0.660330091297132,0.661049331740023
+"","log_agb_inc_dbh","SCBI","LITU","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmp + I(tmp^2) + 1",0.731218789015236,0.841093836611546
+"","log_agb_inc_dbh","SCBI","FRAM","log_agb_inc ~ dbh + I(dbh^2) + tmp + I(tmp^2) + 1",0.783099955199586,0.857597237749735
+"","log_agb_inc_dbh","SCBI","CATO","log_agb_inc ~ dbh + tmp + I(tmp^2) + 1",0.345906873326014,0.580903450256499
+"","log_agb_inc_dbh","SCBI","JUNI","log_agb_inc ~ dbh + pre + I(pre^2) + tmp + I(tmp^2) + 1",0.274494255058393,0.655663237799192
+"","log_agb_inc_dbh","SCBI","QURU","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmp + I(tmp^2) + 1",0.700558063406394,0.877590541565149
+"","log_agb_inc_dbh","SCBI","QUVE","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmp + I(tmp^2) + 1",0.677289889515899,0.826729015218697
+"","log_agb_inc_dbh","SCBI","CAGL","log_agb_inc ~ dbh + pre + tmp + I(tmp^2) + 1",0.574517921238314,0.696631868688395
+"","log_agb_inc_dbh","SCBI","QUMO","log_agb_inc ~ dbh + I(dbh^2) + pre + tmp + I(tmp^2) + 1",0.789726776438169,0.877864022547024
+"","log_agb_inc_dbh","SCBI","FAGR","log_agb_inc ~ dbh + I(dbh^2) + tmp + I(tmp^2) + 1",0.790777517396795,0.820176433356514
+"","log_agb_inc_dbh","SCBI","CAOVL","log_agb_inc ~ dbh + pre + tmp + I(tmp^2) + 1",0.485744325503311,0.646492319484904
+"","log_agb_inc_dbh","SCBI","QUAL","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmp + I(tmp^2) + 1",0.664055048038007,0.839511481047007
+"","log_agb_inc_dbh","SCBI","FRNI","log_agb_inc ~ dbh + I(dbh^2) + tmp + I(tmp^2) + 1",0.731047216111243,0.762212122389101
+"","log_agb_inc_dbh","SCBI","PIST","log_agb_inc ~ dbh + pre + tmp + 1",0.368351674211444,0.621705285273688
 "","log_agb_inc_dbh","SCBI","PIST","log_agb_inc ~ dbh + pre + tmp + 1",0.374372803671447,0.625067015401139
 "","log_BAI_dbh","SCBI","CACO","log_BAI ~ dbh + I(dbh^2) + tmp + I(tmp^2) + 1",0.571223319507472,0.571224339784495
 "","log_BAI_dbh","SCBI","LITU","log_BAI ~ dbh + I(dbh^2) + pre + I(pre^2) + tmp + I(tmp^2) + 1",0.641646402180533,0.793624869547806
