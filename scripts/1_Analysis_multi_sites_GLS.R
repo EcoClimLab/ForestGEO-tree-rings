@@ -134,7 +134,7 @@ clim_gaps <- clim_gaps[clim_gaps$start_climvar.class %in% climate_variables, ]
 CO2 <- read.csv(path_to_CO2)
 
 ## core data ####
-all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIN34VFKZLMYRXHWHA3AFPWCY")
+all_Biol <- read.csv("https://raw.githubusercontent.com/EcoClimLab/ForestGEO_dendro/master/data_processed/all_site_cores.csv?token=AEWDCIL3Z43KZUED5DXTUITBPMYIM")
 
 all_Biol <- split(all_Biol, all_Biol$site)
 
@@ -143,7 +143,7 @@ sites <- sites[!sites %in% "Hansley"] # remove Hansley
 
 # prepare data ####
 ## species colors ####
-all_species_codes <- lapply(all_Biol, function(x) levels(droplevels(x$species_code)))
+all_species_codes <- lapply(all_Biol, function(x) levels(droplevels(factor(x$species_code))))
 all_species_colors <- lapply(all_species_codes, function(x) {
   a <- scales::hue_pal()(length(x))
   names(a) <- x
@@ -212,7 +212,7 @@ all_Clim <- all_Clim[complete.cases(all_Clim), ]
 for(clim_v in climate_variables) {
 
   all_Clim$y <- all_Clim[, clim_v]
-  all_Clim[paste(clim_v, "detrended", sep = "_")] <- gam(y ~ s(as.numeric(Date), by = sites_sitename), data = all_Clim)$residuals
+  all_Clim[paste(clim_v, "detrended", sep = "_")] <- gam(y ~ s(as.numeric(Date), by = factor(sites_sitename)), data = all_Clim)$residuals
   all_Clim$y <- NULL
   
 }
