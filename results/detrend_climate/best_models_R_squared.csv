@@ -39,20 +39,20 @@
 "","log_core_measurement_dbh","SCBI","QUAL","log_core_measurement ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.052144705581484,0.216679008558032
 "","log_core_measurement_dbh","SCBI","FRNI","log_core_measurement ~ pre + I(pre^2) + tmx + I(tmx^2) + 1",0.0060821647063761,0.306651342531359
 "","log_core_measurement_dbh","SCBI","PIST","log_core_measurement ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.0564272717457028,0.388948843494249
-"","log_agb_inc_dbh","SCBI","CACO","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.684189552664853,0.758089182679218
-"","log_agb_inc_dbh","SCBI","LITU","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.786512609604657,0.786512633930694
-"","log_agb_inc_dbh","SCBI","FRAM","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.759835542122146,0.818137782372248
-"","log_agb_inc_dbh","SCBI","CATO","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + 1",0.376101815833605,0.597599365650502
-"","log_agb_inc_dbh","SCBI","JUNI","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.155644567248551,0.40940429220024
-"","log_agb_inc_dbh","SCBI","QURU","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.788192414407474,0.849008990640386
-"","log_agb_inc_dbh","SCBI","QUVE","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.724895205151462,0.725057782977675
-"","log_agb_inc_dbh","SCBI","CAGL","log_agb_inc ~ dbh + I(dbh^2) + pre + tmx + I(tmx^2) + 1",0.56627233325256,0.648740860656464
-"","log_agb_inc_dbh","SCBI","QUMO","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.761124234087147,0.825422256411341
-"","log_agb_inc_dbh","SCBI","FAGR","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.81997198075971,0.819971985122515
-"","log_agb_inc_dbh","SCBI","CAOVL","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.537908823185925,0.643303323097559
-"","log_agb_inc_dbh","SCBI","QUAL","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.742133462582532,0.783623376818738
-"","log_agb_inc_dbh","SCBI","FRNI","log_agb_inc ~ dbh + I(dbh^2) + pre + tmx + I(tmx^2) + 1",0.725421566517778,0.752056254986454
-"","log_agb_inc_dbh","SCBI","PIST","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + 1",0.426686124574231,0.589667722298308
+"","log_agb_inc_dbh","SCBI","CACO","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.632021368962155,0.715425097846693
+"","log_agb_inc_dbh","SCBI","LITU","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.714976275560592,0.715222700398814
+"","log_agb_inc_dbh","SCBI","FRAM","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.709830435158428,0.79234234256302
+"","log_agb_inc_dbh","SCBI","CATO","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.300732290936391,0.545811610475582
+"","log_agb_inc_dbh","SCBI","JUNI","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.120212725425064,0.377876118751126
+"","log_agb_inc_dbh","SCBI","QURU","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.731217640432659,0.814463010647168
+"","log_agb_inc_dbh","SCBI","QUVE","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.551946003810705,0.704503752767588
+"","log_agb_inc_dbh","SCBI","CAGL","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.501399965309943,0.597175373322399
+"","log_agb_inc_dbh","SCBI","QUMO","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.688017432079613,0.77702435238892
+"","log_agb_inc_dbh","SCBI","FAGR","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.822994778285404,0.822994782534994
+"","log_agb_inc_dbh","SCBI","CAOVL","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.460037090943439,0.586142351591635
+"","log_agb_inc_dbh","SCBI","QUAL","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.666319164780521,0.724276747375247
+"","log_agb_inc_dbh","SCBI","FRNI","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.669541015680907,0.714034597285962
+"","log_agb_inc_dbh","SCBI","PIST","log_agb_inc ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + 1",0.426409404747147,0.587926102740447
 "","log_BAI_dbh","SCBI","CACO","log_BAI ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.525015954915758,0.630545840550987
 "","log_BAI_dbh","SCBI","LITU","log_BAI ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.511500314828166,0.640762515343649
 "","log_BAI_dbh","SCBI","FRAM","log_BAI ~ dbh + I(dbh^2) + pre + I(pre^2) + tmx + I(tmx^2) + 1",0.5956822919116,0.737746203624641
