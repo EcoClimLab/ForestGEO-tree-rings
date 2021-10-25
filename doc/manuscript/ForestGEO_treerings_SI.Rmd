@@ -1,5 +1,5 @@
 ---
-title: "Supplementary Information"
+title: "Supplementary Information: Joint effects of climate, tree size, and year on annual tree growth derived from tree-ring records of ten globally distributed forests (Anderson-Teixeira et al., *GCB*)"
 author:
 output: 
   pdf_document:
