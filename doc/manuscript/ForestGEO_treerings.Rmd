@@ -282,7 +282,7 @@ This has limited the potential to test ecologically relevant hypotheses on tree 
 Here, we develop and apply a new method to simultaneously model nonlinear effects of primary climate drivers, reconstructed tree diameter at breast height (DBH), and calendar year in generalized least squares models that account for the temporal autocorrelation inherent to each individual tree's growth.
 We analyze data from `r n_trees_all` trees representing `r n_species` species at 10 globally distributed sites, showing that precipitation, temperature, DBH, and calendar year have additively, and often interactively, influenced annual growth over the past 120 years.
 Growth responses were predominantly positive to precipitation (usually over $\ge$ 3-month seasonal windows) and negative to temperature (usually maximum temperature, over $\le$ 3-month seasonal windows), with concave-down responses in 63% of relationships.
-Climate sensitivity commonly varied with DBH (44% of cases tested), with larger trees usually more sensitive. 
+Climate sensitivity commonly varied with DBH (45% of cases tested), with larger trees usually more sensitive. 
 Trends in ring width at small DBH were linked to the light environment under which trees established, but basal area or biomass increments consistently reached maxima at intermediate DBH.
 Accounting for climate and DBH, growth rate declined over time for 92% of species in secondary or disturbed stands, whereas growth trends were mixed in older forests.
 These trends were largely attributable to stand dynamics as cohorts and stands age, which remain challenging to disentangle from global change drivers.
@@ -553,7 +553,7 @@ In contrast, effects of DBH and year often interacted such that the shape of the
 
 ### Most influential climate drivers {-#Most}
 ```{r , eval=FALSE, echo=FALSE}
-## Tallies for the following paragraph (Feb 11)
+## Tallies for the following paragraph (Oct 25,2021)
 #sameV_sameW: LDWp, NMt,NMp, NIOt, NIOp, SCBIp,  ZOFp,ZOFt,  (8)
 #sameV_diffW:      (10)
   # overlapping: BCNMp, BCNMt, HKKp, SCBIt, LDWt, CBp,CBt , SCp, SCt, (9)
@@ -647,9 +647,9 @@ At the highest-latitude site (SC), which has undergone rapid warming and permafr
 ### Variation in climate sensitivity with DBH {-#Variation}
 
 ```{r , eval=TRUE, echo=FALSE}
-## Tallies for the  paragraph below (Feb11)
+## Tallies for the  paragraph below (Oct 25,2021)
 n_DBHx_analyzed=203 #n rows in climate_interactions_coefficients, excluding Hansley
-n_DBHx_analyzed_sig=90  #NIO water is included here
+n_DBHx_analyzed_sig=91  #NIO water is included here
 #precip:
 n_DBHxP_RW_analyzed= 36
 n_DBHxP_RW_sig=16
@@ -683,8 +683,8 @@ For both RW and BAI, the majority of significant negative interactions (i.e., mo
 ## Variation with DBH {-#Variation}
 
 ```{r , eval=TRUE, echo=FALSE}
-## Tallies for the  paragraph below (Feb 11)
-n_spst_DBH_analyzed= 43 # n species with DBH analyzed: 43 (45 - 2: 2 Hansley)
+## Tallies for the  paragraph below (Oct 25,2021)
+n_spst_DBH_analyzed= 43 # n species with DBH analyzed: 43
 n_spst_RW_DBH_bm=35 #  species with first-order linear DBH term in best model
 n_spst_RW_DBH_2nd_order=26
 n_spst_RW_DBH_2nd_order_neg=21
@@ -718,12 +718,12 @@ For $\Delta$AGB, models were even more consistent, with the best models for `r r
 ## Effects of year {-#Effects}
 
 ```{r , eval=TRUE, echo=FALSE}
-## Tallies for the  paragraph below (Feb11)
+## Tallies for the  paragraph below (Oct 25,2021)
 n_tested=37 #same for all metrics
 
 n_best_model_RW=31
 n_best_model_BAI=32
-n_best_model_AGB=30
+n_best_model_AGB=31
 n_best_model_neg_RW=n_best_model_RW-3 #(exceptions:  FASY at ZOF, PIPU and PIFL at CB)  90%
 n_best_model_neg_BAI=n_best_model_BAI-3 #(exceptions:  FASY at ZOF, PIPU and PIFL at CB) 90.6%
 n_best_model_neg_AGB=n_best_model_AGB-3 #(exceptions:  FASY at ZOF, PIPU and PIFL at CB) 90%
