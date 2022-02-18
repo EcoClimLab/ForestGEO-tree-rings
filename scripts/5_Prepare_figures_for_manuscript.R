@@ -401,13 +401,13 @@ for(site in names(sites_species_to_show)){
       # keep only species we want
       p$data <- p$data[p$data$species_code %in% sites_species_to_show[[site]][1],]
       
-      # remove speices legend
+      # remove species legend
       p <- p + guides(fill = FALSE, colour = FALSE)
       
       # remove title legend
       p <- p + theme(legend.title = element_blank())
       
-      # change legeng labels
+      # change legend labels
       p <- p + scale_linetype_manual(values = c("solid", "dotted"), labels=c("max DBH" ,"min DBH"))
       
    
@@ -443,6 +443,116 @@ grid::grid.text(c("Precipitation group", "Temperature group"), x = unit(c(0.25,0
 
 
 dev.off()
+
+
+
+
+
+# Pre and Temp groups with DBH interaction show case FOR NIDHI's PAPER####
+what_to_show = c("log_core_measurement_dbh" = expression(RW~(mm)))
+sites_species_to_show = list(HKK = c("TOCI", "Toona ciliata"), 
+                             LillyDickey = c("LITU", "Lirodendron tulipifera"),
+                             CedarBreaks = c("PIPU", "Picea pungens"))
+
+what = "log_core_measurement_dbh"
+
+all_plots <- list()
+# rm(leg)
+for(site in names(sites_species_to_show)){
+  
+  
+  temp_env <- new.env()
+  load(paste0('results/', what, "/", site, "/env.RData"), envir = temp_env) 
+  
+  existing_plots <- ls(temp_env)[grepl("^p_int_", ls(temp_env))]
+  
+  # get variable in order or Precipitation, Temperature and cloud groups (but complicated because, pet is in both temp and dtr),....
+  clim_var_group <- get("clim_var_group"  , temp_env)[2]
+  
+  existing_plots <- existing_plots[match(c(1,2), sapply(gsub("p_int_", "", existing_plots), function(x) grep(x,  clim_var_group)[1]))]
+  
+  if(any(!is.na(existing_plots))) {
+    # sandardize variable names
+    lapply(existing_plots[!is.na(existing_plots)], function(x) {
+      p <- get(x, temp_env) 
+      
+      ylim_p_int <- get("ylim_p_int", temp_env)
+      ylim_p_int <- ylim_p_int[!names(ylim_p_int) %in% "dbh"]
+      
+      p <- p + ylim(range(ylim_p_int))
+      
+      p$labels$x <- eval(parse(text = gsub(" |  ", "~", gsub("-1", "\\^-1", paste0(gsub(substr(p$labels$x, 1, 4), v_names[substr(p$labels$x, 1, 3)], p$labels$x), ")")))))
+      p$theme$plot.background <- element_blank()
+      
+      # keep only species we want
+      p$data <- p$data[p$data$species_code %in% sites_species_to_show[[site]][1],]
+      
+      # remove species legend
+      # p <- p + guides(fill = FALSE, colour = FALSE)
+      
+      # remove title legend
+      # p <- p + theme(legend.title = element_blank())
+      
+      # remove vertical lines and shading
+      p$layers[c(1,2)] <- NULL
+      
+   
+      
+      # change color to be based on DBH rather than species
+      p$layers[[1]]$mapping$colour <- p$layers[[1]]$mapping$linetype
+      p$layers[[2]]$mapping$fill <- p$layers[[1]]$mapping$colour 
+      
+      p <- p +  scale_color_manual(values = c("#EFA729", "#0466AC"), labels=c("max DBH" ,"min DBH"))
+      p <- p +  scale_fill_manual(values = c("#EFA729", "#0466AC"), labels=c("max DBH" ,"min DBH"))
+      
+      # remove DBH as linetype
+      p$layers[[1]]$mapping$linetype <- NULL
+      
+      # make line thicker and alpha less transparent
+      p$layers[[1]]$aes_params$size = 1.2
+      p$layers[[2]]$aes_params$alpha = 0.5
+      # redo the plot to get legend (not sure why I have to do this)
+  
+      
+      a <- ggplot(p$data[p$data$species_code == p$data$species_code[1],], aes(x = varying_x, y = expfit, group = DBH)) + 
+        geom_line(aes(color = DBH), size=  1.2) + geom_ribbon(aes(ymin = lwr       , ymax = upr, fill = DBH), alpha = 0.5)  +  
+        scale_color_manual(values = c("#EFA729", "#0466AC"), labels=c("max DBH" ,"min DBH")) +  
+        scale_fill_manual(values = c("#EFA729", "#0466AC"), labels=c("max DBH" ,"min DBH")) + 
+        guides(color = guide_legend(nrow = 1)) + 
+        theme(legend.title = element_blank())
+      
+      # save legend
+      leg <<- ggplotGrob(a)$grobs[[15]]
+      
+      #remove legend
+      # p$theme$legend.position <- "none"
+      
+      #save
+      assign(x, p, temp_env)
+    })
+  }
+  
+  
+  all_plots[[paste0(site, what)]] <- get(existing_plots, temp_env) # grid.arrange(do.call(arrangeGrob, c(lapply(existing_plots, function(x)  {if(is.na(x)) grid.text(label = "no significant\nmain effect")  else get(x, temp_env)}), ncol = 2)))
+  
+} # for(site in sites)
+
+png(paste0("doc/manuscript/tables_figures/pre_temp_groups_dbh_interactions_for_NIDHI.png"), width = 4.1, height = 8.2, res = 300, units = "in")
+
+grid.arrange(arrangeGrob(leg), arrangeGrob(grobs = all_plots, vp= grid::viewport(width=0.87, height=0.95, y = 0.48, x = 0.50), ncol = 1), heights  = c(.5, 8))
+
+
+grid::grid.text(c("(Huai Kha Khaeng, Tailand)", "(Lilly Dickey Woods, Indiana, USA)", "(Cedar Breaks, Utah, USA)"), x = unit(0.9, "npc"), y = unit(c(0.9, 0.58, 0.28)-0.025, "npc"), just = "right")
+
+grid::grid.text(sapply(sites_species_to_show, "[[", 2), x = unit(0.9, "npc"), y =  unit(c(0.9, 0.58, 0.28), "npc"), gp = gpar(fontface = "italic"), just = "right")
+
+grid::grid.text(expression(Ring~width ~ (mm)), x = unit(0.04, "npc"), y = unit( 0.5, "npc"), rot = 90,  gp=gpar(fontsize=18, fontface = "bold"))
+
+# grid::grid.text(c("Precipitation group", "Temperature group"), x = unit(c(0.25,0.65), "npc"), y = unit(.98,  "npc"))
+
+
+dev.off()
+
 
 
 
