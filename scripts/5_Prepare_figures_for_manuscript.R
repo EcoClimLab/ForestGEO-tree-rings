@@ -539,12 +539,13 @@ for(site in names(sites_species_to_show)){
 
 png(paste0("doc/manuscript/tables_figures/pre_temp_groups_dbh_interactions_for_NIDHI.png"), width = 4.1, height = 8.2, res = 300, units = "in")
 
-grid.arrange(arrangeGrob(leg), arrangeGrob(grobs = all_plots, vp= grid::viewport(width=0.87, height=0.95, y = 0.48, x = 0.50), ncol = 1), heights  = c(.5, 8))
+# grid.arrange(arrangeGrob(leg), arrangeGrob(grobs = all_plots, vp= grid::viewport(width=0.87, height=0.95, y = 0.48, x = 0.50), ncol = 1, size = "first"), heights  = c(.5, 8))
 
+grid.arrange(arrangeGrob(leg), arrangeGrob(do.call(rbind, sapply( all_plots, ggplotGrob))), heights  = c(.5, 8), vp= grid::viewport(width=0.87, height=0.95, y = 0.48, x = 0.50))
 
-grid::grid.text(c("(Huai Kha Khaeng, Tailand)", "(Lilly Dickey Woods, Indiana, USA)", "(Cedar Breaks, Utah, USA)"), x = unit(0.9, "npc"), y = unit(c(0.9, 0.58, 0.28)-0.025, "npc"), just = "right")
+grid::grid.text(c("(Huai Kha Khaeng, Tailand)", "(Lilly Dickey Woods, Indiana, USA)", "(Cedar Breaks, Utah, USA)"), x = unit(0.9, "npc"), y = unit(c(0.89, 0.58, 0.28)-0.025, "npc"), just = "right")
 
-grid::grid.text(sapply(sites_species_to_show, "[[", 2), x = unit(0.9, "npc"), y =  unit(c(0.9, 0.58, 0.28), "npc"), gp = gpar(fontface = "italic"), just = "right")
+grid::grid.text(sapply(sites_species_to_show, "[[", 2), x = unit(0.9, "npc"), y =  unit(c(0.89, 0.58, 0.28), "npc"), gp = gpar(fontface = "italic"), just = "right")
 
 grid::grid.text(expression(Ring~width ~ (mm)), x = unit(0.04, "npc"), y = unit( 0.5, "npc"), rot = 90,  gp=gpar(fontsize=18, fontface = "bold"))
 
