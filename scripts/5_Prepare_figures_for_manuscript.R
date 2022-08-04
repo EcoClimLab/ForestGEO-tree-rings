@@ -479,7 +479,7 @@ for(site in names(sites_species_to_show)){
       ylim_p_int <- get("ylim_p_int", temp_env)
       ylim_p_int <- ylim_p_int[!names(ylim_p_int) %in% "dbh"]
       
-      # p <- p + ylim(range(ylim_p_int))
+      p <- p + ylim(range(ylim_p_int))
       
       p$labels$x <- eval(parse(text = gsub("\\(C\\)", "(degree ~ C)", gsub(" |  ", "~", gsub("-1", "\\^-1", paste0(gsub(substr(p$labels$x, 1, 4), v_names[substr(p$labels$x, 1, 3)], p$labels$x), ")"))))))
       p$theme$plot.background <- element_blank()
@@ -543,7 +543,7 @@ png(paste0("doc/manuscript/tables_figures/pre_temp_groups_dbh_interactions_for_N
 
 grid.arrange(arrangeGrob(leg), arrangeGrob(do.call(rbind, sapply( all_plots, ggplotGrob))), heights  = c(.5, 8), vp= grid::viewport(width=0.87, height=0.95, y = 0.48, x = 0.50))
 
-grid::grid.text(c("(Huai Kha Khaeng, Tailand)", "(Lilly Dickey Woods, Indiana, USA)", "(Cedar Breaks, Utah, USA)"), x = unit(0.9, "npc"), y = unit(c(0.89, 0.58, 0.28)-0.025, "npc"), just = "right")
+grid::grid.text(c("(Huai Kha Khaeng, Thailand)", "(Lilly Dickey Woods, Indiana, USA)", "(Cedar Breaks, Utah, USA)"), x = unit(0.9, "npc"), y = unit(c(0.89, 0.58, 0.28)-0.025, "npc"), just = "right")
 
 grid::grid.text(sapply(sites_species_to_show, "[[", 2), x = unit(0.9, "npc"), y =  unit(c(0.89, 0.58, 0.28), "npc"), gp = gpar(fontface = "italic"), just = "right")
 
