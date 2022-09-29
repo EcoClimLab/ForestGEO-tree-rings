@@ -537,7 +537,7 @@ for(site in names(sites_species_to_show)){
   
 } # for(site in sites)
 
-png(paste0("doc/manuscript/tables_figures/pre_temp_groups_dbh_interactions_for_NIDHI.png"), width = 4.1, height = 8.2, res = 300, units = "in")
+# png(paste0("doc/manuscript/tables_figures/pre_temp_groups_dbh_interactions_for_NIDHI.png"), width = 4.1, height = 8.2, res = 300, units = "in")
 
 # grid.arrange(arrangeGrob(leg), arrangeGrob(grobs = all_plots, vp= grid::viewport(width=0.87, height=0.95, y = 0.48, x = 0.50), ncol = 1, size = "first"), heights  = c(.5, 8))
 
@@ -552,7 +552,8 @@ grid::grid.text(expression(Ring~width ~ (mm)), x = unit(0.04, "npc"), y = unit( 
 # grid::grid.text(c("Precipitation group", "Temperature group"), x = unit(c(0.25,0.65), "npc"), y = unit(.98,  "npc"))
 
 
-dev.off()
+# dev.off()
+dev.copy2pdf(file="doc/manuscript/tables_figures/pre_temp_groups_dbh_interactions_for_NIDHI.pdf", useDingbats=FALSE, family="serif", width = 7.2, height = 8)
 
 
 
