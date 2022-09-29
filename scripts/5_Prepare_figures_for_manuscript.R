@@ -553,7 +553,7 @@ grid::grid.text(expression(Ring~width ~ (mm)), x = unit(0.04, "npc"), y = unit( 
 
 
 # dev.off()
-dev.copy2pdf(file="doc/manuscript/tables_figures/pre_temp_groups_dbh_interactions_for_NIDHI.pdf", useDingbats=FALSE, family="serif", width = 7.2, height = 8)
+dev.copy2pdf(file="doc/manuscript/tables_figures/pre_temp_groups_dbh_interactions_for_NIDHI.pdf", useDingbats=FALSE, family="serif", width = 4.5, height = 8) # this is to save an editable version of the figure
 
 
 
